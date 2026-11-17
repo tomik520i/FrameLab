@@ -1,0 +1,23 @@
+/build*/
+/deps/
+/downloads/
+/app/
+/dist/
+/release-assets/
+/analysis-output/
+/logs/
+/*-reference/
+/third_party/imgui/
+/third_party/nvidia-vfg/
+/PS5 Capture FrameGen.cmd
+/WORKLOG.md
+/benchmarks.json
+/tools/add_analysis_recording.py
+/tools/defer_recording_io.py
+/tools/extend_video.py
+/tools/fix_recorder_stall.py
+*.bgra
+*.mkv
+*.mp4
+__pycache__/
+*.pyc

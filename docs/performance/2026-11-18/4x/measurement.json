@@ -1,0 +1,30 @@
+{
+  "mode": "Live capture and frame generation, no analysis recording or video export",
+  "multiplier": 4,
+  "backend": "NVIDIA VFG",
+  "quality": "Medium",
+  "width": 2560,
+  "height": 1440,
+  "requested_capture_fps": 60,
+  "vsync": false,
+  "dedup": true,
+  "automatic_cut_detection": true,
+  "comparison_panel": true,
+  "display_mode_hz": 165,
+  "started_utc": "2026-11-17T23:51:50.2022144+00:00",
+  "ended_utc": "2026-11-17T23:52:21.1523270+00:00",
+  "duration_s": 31.0007093,
+  "gpu_samples": 29,
+  "app_samples": 31,
+  "session_csv": "1794958161.csv",
+  "start_session_elapsed_s": 1347.67,
+  "settings_source": "Visually checked in the application before and after sampling",
+  "limits": [
+    "GPU utilization, VRAM and power describe the entire GPU, including other running applications.",
+    "Desktop apps were left open; this is not an isolated benchmark.",
+    "GPU timing in the application is the last sampled generated-frame operation plus GPU output copy, not total application frame time.",
+    "No physical monitor scanout, input-to-photon or CPU bottleneck measurement.",
+    "One approximately 30-second run per mode; modes are sequential and use different gameplay. No repeated-trial confidence interval."
+  ],
+  "scene": "User-controlled moving PS5 gameplay / camera motion, visually verified before and after sampling; no scripted identical path."
+}

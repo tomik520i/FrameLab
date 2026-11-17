@@ -1,0 +1,36 @@
+{
+  "observed_date": "2026-11-18",
+  "cpu": "AMD Ryzen 9 5900X",
+  "cpu_cores": 12,
+  "cpu_threads": 24,
+  "gpu": "NVIDIA GeForce RTX 5070 Ti",
+  "gpu_framebuffer_mib": 16303,
+  "gpu_driver": "617.14",
+  "ram_installed_gib": 64,
+  "ram_modules": 4,
+  "ram_module_gib": 16,
+  "ram_part": "Kingston KHX3600C17D4/16GX",
+  "ram_configured_speed_reported": 3600,
+  "motherboard": "Gigabyte X570 AORUS PRO",
+  "disk": "Samsung SSD 980 1TB NVMe",
+  "os": "Windows 11 Pro",
+  "os_version": "10.0.26200",
+  "capture_used": "AVerMedia HD Capture GC573 1",
+  "capture_unused": "AVerMedia GC550",
+  "source": "PS5 gameplay",
+  "delivered_width": 2560,
+  "delivered_height": 1440,
+  "requested_capture_fps": 60,
+  "app_display_mode": "2560x1440 @165 Hz",
+  "connected_displays": [
+    "Odyssey G5",
+    "HP Z24i G2"
+  ],
+  "inventory_sources": [
+    "Windows CIM hardware inventory (selected non-identifying fields)",
+    "nvidia-smi",
+    "FrameLab live UI and session telemetry"
+  ],
+  "background": "Normal desktop applications and Avast running",
+  "serial_numbers_included": false
+}

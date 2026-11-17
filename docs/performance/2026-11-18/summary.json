@@ -1,0 +1,298 @@
+{
+  "2x": {
+    "measurement": {
+      "mode": "Live capture and frame generation, no analysis recording or video export",
+      "multiplier": 2,
+      "backend": "NVIDIA VFG",
+      "quality": "Medium",
+      "width": 2560,
+      "height": 1440,
+      "requested_capture_fps": 60,
+      "vsync": false,
+      "dedup": true,
+      "automatic_cut_detection": true,
+      "comparison_panel": true,
+      "display_mode_hz": 165,
+      "started_utc": "2026-11-17T23:53:01.8791499+00:00",
+      "ended_utc": "2026-11-17T23:53:32.8110501+00:00",
+      "duration_s": 30.9939973,
+      "gpu_samples": 29,
+      "app_samples": 31,
+      "session_csv": "1794958161.csv",
+      "start_session_elapsed_s": 1419.885,
+      "settings_source": "Visually checked in the application before and after sampling",
+      "limits": [
+        "GPU utilization, VRAM and power describe the entire GPU, including other running applications.",
+        "Desktop apps were left open; this is not an isolated benchmark.",
+        "GPU timing in the application is the last sampled generated-frame operation plus GPU output copy, not total application frame time.",
+        "No physical monitor scanout, input-to-photon or CPU bottleneck measurement.",
+        "One approximately 30-second run per mode; modes are sequential and use different gameplay. No repeated-trial confidence interval."
+      ],
+      "scene": "User-controlled moving PS5 gameplay / camera motion, visually verified before and after sampling; no scripted identical path."
+    },
+    "gpu": {
+      "gpu_percent": {
+        "samples": 29,
+        "mean": 43.48275862068966,
+        "median": 44.0,
+        "min": 41.0,
+        "max": 46.0
+      },
+      "memory_controller_percent": {
+        "samples": 29,
+        "mean": 6.758620689655173,
+        "median": 7.0,
+        "min": 6.0,
+        "max": 7.0
+      },
+      "vram_mib": {
+        "samples": 29,
+        "mean": 3982.5862068965516,
+        "median": 3984.0,
+        "min": 3961.0,
+        "max": 4034.0
+      },
+      "temperature_c": {
+        "samples": 29,
+        "mean": 53.310344827586206,
+        "median": 53.0,
+        "min": 53.0,
+        "max": 54.0
+      },
+      "power_w": {
+        "samples": 29,
+        "mean": 79.0603448275862,
+        "median": 78.98,
+        "min": 78.65,
+        "max": 79.64
+      },
+      "graphics_mhz": {
+        "samples": 29,
+        "mean": 2872.0,
+        "median": 2872.0,
+        "min": 2872.0,
+        "max": 2872.0
+      }
+    },
+    "app": {
+      "raw_input_fps": {
+        "samples": 31,
+        "mean": 60.00261290322581,
+        "median": 59.93,
+        "min": 59.417,
+        "max": 60.957
+      },
+      "content_change_fps": {
+        "samples": 31,
+        "mean": 39.96948387096774,
+        "median": 39.955,
+        "min": 38.993,
+        "max": 40.941
+      },
+      "content_submissions_fps": {
+        "samples": 31,
+        "mean": 79.87474193548387,
+        "median": 79.907,
+        "min": 78.232,
+        "max": 80.973
+      },
+      "generated_fps": {
+        "samples": 31,
+        "mean": 39.937548387096776,
+        "median": 39.954,
+        "min": 38.621,
+        "max": 40.986
+      },
+      "os_observed_content_fps": {
+        "samples": 31,
+        "mean": 79.87490322580645,
+        "median": 79.909,
+        "min": 77.987,
+        "max": 80.996
+      },
+      "os_observed_generated_fps": {
+        "samples": 31,
+        "mean": 39.937290322580644,
+        "median": 39.954,
+        "min": 38.993,
+        "max": 40.941
+      },
+      "vfg_gpu_ms": {
+        "samples": 31,
+        "mean": 3.305548387096774,
+        "median": 3.272,
+        "min": 2.543,
+        "max": 3.924
+      },
+      "callback_to_present_mean_ms": {
+        "samples": 31,
+        "mean": 39.06345161290323,
+        "median": 38.879,
+        "min": 36.303,
+        "max": 41.841
+      },
+      "gpu_total_percent": {
+        "samples": 31,
+        "mean": 43.483870967741936,
+        "median": 43.0,
+        "min": 41.0,
+        "max": 47.0
+      },
+      "vram_total_mb": {
+        "samples": 31,
+        "mean": 4292.915,
+        "median": 4291.887,
+        "min": 4260.199,
+        "max": 4341.137
+      }
+    }
+  },
+  "4x": {
+    "measurement": {
+      "mode": "Live capture and frame generation, no analysis recording or video export",
+      "multiplier": 4,
+      "backend": "NVIDIA VFG",
+      "quality": "Medium",
+      "width": 2560,
+      "height": 1440,
+      "requested_capture_fps": 60,
+      "vsync": false,
+      "dedup": true,
+      "automatic_cut_detection": true,
+      "comparison_panel": true,
+      "display_mode_hz": 165,
+      "started_utc": "2026-11-17T23:51:50.2022144+00:00",
+      "ended_utc": "2026-11-17T23:52:21.1523270+00:00",
+      "duration_s": 31.0007093,
+      "gpu_samples": 29,
+      "app_samples": 31,
+      "session_csv": "1794958161.csv",
+      "start_session_elapsed_s": 1347.67,
+      "settings_source": "Visually checked in the application before and after sampling",
+      "limits": [
+        "GPU utilization, VRAM and power describe the entire GPU, including other running applications.",
+        "Desktop apps were left open; this is not an isolated benchmark.",
+        "GPU timing in the application is the last sampled generated-frame operation plus GPU output copy, not total application frame time.",
+        "No physical monitor scanout, input-to-photon or CPU bottleneck measurement.",
+        "One approximately 30-second run per mode; modes are sequential and use different gameplay. No repeated-trial confidence interval."
+      ],
+      "scene": "User-controlled moving PS5 gameplay / camera motion, visually verified before and after sampling; no scripted identical path."
+    },
+    "gpu": {
+      "gpu_percent": {
+        "samples": 29,
+        "mean": 49.96551724137931,
+        "median": 50.0,
+        "min": 46.0,
+        "max": 53.0
+      },
+      "memory_controller_percent": {
+        "samples": 29,
+        "mean": 9.448275862068966,
+        "median": 10.0,
+        "min": 8.0,
+        "max": 10.0
+      },
+      "vram_mib": {
+        "samples": 29,
+        "mean": 4059.2758620689656,
+        "median": 4073.0,
+        "min": 3975.0,
+        "max": 4115.0
+      },
+      "temperature_c": {
+        "samples": 29,
+        "mean": 54.275862068965516,
+        "median": 54.0,
+        "min": 53.0,
+        "max": 55.0
+      },
+      "power_w": {
+        "samples": 29,
+        "mean": 96.32724137931035,
+        "median": 96.26,
+        "min": 95.38,
+        "max": 97.55
+      },
+      "graphics_mhz": {
+        "samples": 29,
+        "mean": 2872.0,
+        "median": 2872.0,
+        "min": 2872.0,
+        "max": 2872.0
+      }
+    },
+    "app": {
+      "raw_input_fps": {
+        "samples": 31,
+        "mean": 59.987967741935485,
+        "median": 59.907,
+        "min": 58.986,
+        "max": 60.922
+      },
+      "content_change_fps": {
+        "samples": 31,
+        "mean": 39.94925806451613,
+        "median": 39.929,
+        "min": 39.641,
+        "max": 40.865
+      },
+      "content_submissions_fps": {
+        "samples": 31,
+        "mean": 111.03393548387096,
+        "median": 111.394,
+        "min": 108.805,
+        "max": 112.824
+      },
+      "generated_fps": {
+        "samples": 31,
+        "mean": 83.27558064516128,
+        "median": 83.546,
+        "min": 81.854,
+        "max": 84.868
+      },
+      "os_observed_content_fps": {
+        "samples": 31,
+        "mean": 111.03435483870967,
+        "median": 110.995,
+        "min": 108.815,
+        "max": 112.855
+      },
+      "os_observed_generated_fps": {
+        "samples": 31,
+        "mean": 83.27535483870967,
+        "median": 83.63,
+        "min": 81.854,
+        "max": 83.996
+      },
+      "vfg_gpu_ms": {
+        "samples": 31,
+        "mean": 3.057709677419355,
+        "median": 3.126,
+        "min": 2.523,
+        "max": 3.7
+      },
+      "callback_to_present_mean_ms": {
+        "samples": 31,
+        "mean": 49.45570967741936,
+        "median": 49.246,
+        "min": 47.626,
+        "max": 51.929
+      },
+      "gpu_total_percent": {
+        "samples": 31,
+        "mean": 50.29032258064516,
+        "median": 50.0,
+        "min": 46.0,
+        "max": 53.0
+      },
+      "vram_total_mb": {
+        "samples": 31,
+        "mean": 4366.056064516129,
+        "median": 4380.445,
+        "min": 4282.82,
+        "max": 4424.633
+      }
+    }
+  }
+}

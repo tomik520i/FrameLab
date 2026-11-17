@@ -1,0 +1,17 @@
+{
+  "backend": "NVIDIA VFG",
+  "input": "synthetic 30 FPS in 60Hz, 2560x1440",
+  "quality": "Medium",
+  "multiplier": 2,
+  "vsync": false,
+  "gpu": "RTX 5070 Ti",
+  "scanout_measured": false,
+  "output_submissions_fps": 60.0310760870544,
+  "gap_median_ms": 16.656999999999478,
+  "gap_p95_ms": 18.599000000000032,
+  "gap_max_ms": 24.294999999998623,
+  "callback_present_mean_ms": 43.59538888888889,
+  "max_queue": 3,
+  "output_drops_end": 0,
+  "note": "Synthetic smoke test only; source/GPU/display latency outside app is excluded. Not equivalent to gameplay quality."
+}
