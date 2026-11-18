@@ -1,0 +1,51 @@
+{
+  "frames": [
+    30,
+    60,
+    120,
+    165
+  ],
+  "times": [
+    0.5,
+    1,
+    2,
+    2.75
+  ],
+  "fps": 60,
+  "clips": [
+    {
+      "frames": 180,
+      "width": 1920,
+      "height": 1080,
+      "inference_width": 1280,
+      "inference_height": 720,
+      "reference_errors": 0,
+      "rgb_mae": 4.26819,
+      "strength": 1,
+      "motion_estimate": true,
+      "fg": false,
+      "note": "Offline sequential export, no dropped frames; pixel difference is not a quality score or live performance measurement.",
+      "key": "csgo",
+      "title": "CS:GO",
+      "input_sha256": "7c66b7efc47c53e266d1ca3434d1cae3a82156b61d598c766097b3fce7051184",
+      "output_sha256": "e18b616d3de38bd2023c07ed1723db040446f0074131c3dd0a38f8378267e102"
+    },
+    {
+      "frames": 180,
+      "width": 960,
+      "height": 540,
+      "inference_width": 960,
+      "inference_height": 536,
+      "reference_errors": 0,
+      "rgb_mae": 4.97771,
+      "strength": 1,
+      "motion_estimate": true,
+      "fg": false,
+      "note": "Offline sequential export, no dropped frames; pixel difference is not a quality score or live performance measurement.",
+      "key": "combat",
+      "title": "Souboj",
+      "input_sha256": "9b33eb1aecec9e0a96a1065b99c3be19daec33636ffb6b4cacf7fc21c9828192",
+      "output_sha256": "760b756b6fd8e351504ad76c00173e713d5aca5ea4cb6d4c1d788f5ba8c00f52"
+    }
+  ]
+}

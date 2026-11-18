@@ -1,5 +1,16 @@
 # Component provenance
 
+Local NR licensing correction (2026-11-18): the SF file was already modified by
+ShortFuse upstream; copying it unchanged from Veyra does not make it an unmodified
+NVIDIA original. Redistribution rights for both included NR files are not
+established. NVIDIA's forum response of 2026-11-09 says the DLSS 5 SDK is not
+publicly available and has no public evaluation/preview license. The public SDK's
+conditional redistribution grant is not permission for arbitrary NR binaries.
+See [the exact-file audit](docs/NR-LICENSING-STATUS.txt). This local experiment is
+not cleared for public NR runtime distribution. Preview.10 publishes the integration source with NR disabled in its public binary; no NR DLL is included.
+
+- Local NR experiment: Feature-18 parameter contract and initialization sequence adapted from Veyra-NRVideo, commit `33dfdf71197e3056e250465150eb9541d0bb24ce`, GPL-3.0. The D3D11/D3D12 bridge, asynchronous wrapper, coarse motion estimator and FrameLab controls are local implementation. See `docs/experimental-nr.md`. The separate NR model DLLs come unchanged from Veyra v2.1.9 NVIDIA portable, archive SHA-256 `4225ecb11a8e96c2826b4b0b798feb811d7ae237f3edf0b627f3b6895c79f362`; the SF compatibility build is a community runtime, not an official NVIDIA-supported integration. Original licenses and per-file hashes accompany the local package. Public NGX headers/static core are from NVIDIA/DLSS revision `9981c6350dc58c0ce21f024fd65e31e851c31689`, under their separate NVIDIA SDK license. The locally compiled `nr-host/nvngx.dll` is FrameLab code, not a replacement system driver. No Veyra executable is launched.
+
 - Space Grotesk and IBM Plex Mono, SIL Open Font License 1.1. The same unmodified TTF files used by the website are embedded into the application. Original notices: `website/assets/fonts/SpaceGrotesk-OFL.txt` and `website/assets/fonts/IBMPlexMono-OFL.txt`; both are included under `docs` in portable packages.
 
 - LZ4 library v1.10.0, https://github.com/lz4/lz4/releases/tag/v1.10.0, BSD-2-Clause. Vendored `lib/lz4.c`, `lib/lz4.h` and `lib/LICENSE` under `third_party/lz4`. Used for lossless recording RAM compression, not frame generation. The matching notice is distributed as `docs/LZ4-LICENSE.txt` in the portable app.
@@ -15,3 +26,6 @@ New application code: FrameLab contributors, 2026. GPL-3.0. Pinned upstream sour
 Complete preview.8 packages also include CPython 3.11.9 embedded (PSF), Pillow 13.0.0 and imageio-ffmpeg 0.6.0 with its separate FFmpeg 7.1 executable. Their original licenses and notices are preserved. Source links, publisher hashes and build information are documented in [runtime-distribution.md](docs/runtime-distribution.md). Website fonts Space Grotesk and IBM Plex Mono use the SIL Open Font License; notices accompany the self-hosted font files.
 
 The D3D11 Optical Flow backend is new FrameLab GPL-3.0 code (GPU block matching and warping); it does not call NVIDIA Optical Flow SDK.
+
+
+Local subtitle translator (2026-11-19): Windows.Media.Ocr is provided by Windows, not redistributed. English-to-Czech weights: Helsinki-NLP / OPUS-MT, original https://object.pouta.csc.fi/OPUS-MT-models/en-cs/opus-2019-12-18.zip; CC BY 4.0 as stated by LICENSE in that exact archive (not the Apache label on a different Hugging Face package). Converted to CTranslate2 4.9.0 int8; no retraining. Attribution, original license, source and hashes accompany app/translation/model and provenance.json. CTranslate2 MIT, SentencePiece 0.2.3 Apache-2.0, NumPy 2.3.5 BSD and bundled-library notices, PyYAML 6.0.3 MIT, CPython 3.11.9 PSF. Original package notices accompany each runtime. Application OCR/IPC/overlay code is FrameLab GPL-3.0. No speech recognition or network translation API is used.

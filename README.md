@@ -1,8 +1,12 @@
 # FrameLab
 
+**Preview.10: [Download the complete Windows app](https://github.com/tomik520i/FrameLab/releases/download/v0.2.0-preview.10/FrameLab-0.2.0-preview.10-windows-x64-full.zip) · [Česká instalace krok za krokem](INSTALL.cs.md) · [English installation](START_HERE.md) · [All release files](https://github.com/tomik520i/FrameLab/releases/tag/v0.2.0-preview.10)**
+
+Offline English-picture subtitles → Czech overlay, both bundled gameplay clips, and monitor/display controls. The release ZIP includes the model, Python, NVIDIA VFG, export tools and licenses. The optional NR enhancer source is included for research; NR binaries are excluded from the public application. The website provides the same complete preview.10 download and shows [real enhancer comparisons](https://opicebot.cz/framelab/#enhancer).
+
 [Website / downloads](https://opicebot.cz/framelab/) · [Česky / Czech guide](docs/README.cs.md) · [Start here](START_HERE.md) · [2× comparison](examples/82183953/README.md) · [3× comparison](examples/112947656/README.md) · [3× combat](examples/113768562/README.md) · [4× artifacts](examples/84744531/README.md) · [Test system / GPU load](docs/test-system.md)
 
-**Capture device → GPU frame interpolation → monitor.** Experimental Windows desktop application, independent of the connected console, camera or second PC. English UI by default; select the **EN / CZ** button for Czech. Driver messages and technical diagnostics remain in English.
+**Capture device → GPU frame interpolation → monitor.** Experimental Windows desktop application, independent of the connected console, camera or second PC. The complete preview.10 ZIP starts in Czech; select **CZ / EN** to switch. A source-only build defaults to English. Driver messages and technical diagnostics remain in English.
 
 ![FrameLab live capture, frame comparison and telemetry](docs/images/framelab-preview9-ui.png)
 
@@ -22,16 +26,31 @@
 
 ## Download and start
 
-Download the **[complete portable Windows ZIP](https://opicebot.cz/framelab/downloads/FrameLab-0.2.0-preview.9-windows-x64-full.zip)** from the [FrameLab website](https://opicebot.cz/framelab/) ([GitHub mirror](https://github.com/tomik520i/FrameLab/releases/tag/v0.2.0-preview.9)). It includes the **five NVIDIA VFG DLLs, an embedded Python and the clip exporter**. Extract the whole ZIP. RTX 40/50: double-click **Start FrameLab - NVIDIA.cmd**. For the alternative algorithm, use **Start FrameLab - Optical Flow.cmd**. Select your capture device, resolution and audio output, then click **Start capture**. No SDK installer, Python installation, NVIDIA developer account or compiler is needed for this complete bundle. Compatible GPU/capture drivers are still required.
+1. Download the **[complete Windows x64 ZIP](https://github.com/tomik520i/FrameLab/releases/download/v0.2.0-preview.10/FrameLab-0.2.0-preview.10-windows-x64-full.zip)** from [preview.10](https://github.com/tomik520i/FrameLab/releases/tag/v0.2.0-preview.10). GitHub's automatic **Source code** download is not a runnable package.
+2. Right-click → **Extract all**, then open **1 - Spustit FrameLab.cmd**. The bundled CS:GO video plays immediately; no capture card is needed for the demo.
+3. Use **2 - NVIDIA RTX 40-50.cmd** for VFG 2×, or **3 - Optical Flow.cmd** for the alternative. **Capture / Vstup** contains Spider-Man and a separate artificial subtitle demo.
 
-The NVIDIA runtime supports **Ada/Blackwell (RTX 40/50)**, not one specific 5070 Ti; only the RTX 5070 Ti has been hardware-tested here. NVIDIA components retain their own included licenses, separate from the GPL application. The experimental Optical Flow route has different quality and is intended for older RTX hardware. [Component provenance](docs/runtime-distribution.md) · [Runtime add-on for an existing FrameLab installation](https://opicebot.cz/framelab/downloads/FrameLab-NVIDIA-VFG-1.3-addon.zip). The **Source code** archive is for building. Earlier releases without NVIDIA binaries remain available with the [manual SDK setup instructions](START_HERE.md#manual-nvidia-runtime-setup-for-older-minimal-packages).
+No Python/pip/model/SDK/compiler installation is required. Keep every folder together. Windows x64 and compatible installed GPU/capture drivers are required. English OCR is a Windows language component; if absent, the application explains how to install it once. Translation subsequently runs offline.
+
+**[Complete installation, controls and troubleshooting](START_HERE.md)** · **[Český návod](INSTALL.cs.md)** · [Component licenses/provenance](docs/runtime-distribution.md). The website and GitHub provide the same complete preview.10 package.
+
+## New in preview.10
+
+The native Windows title bar now matches FrameLab's dark colors on Windows 11, preserving standard window controls, resizing and Snap. Older Windows versions fall back to supported system styling.
+
+- **Subtitles / Titulky:** Windows OCR reads a selectable English subtitle region. A bundled OPUS-MT EN-CS int8 model translates on CPU, and Czech text is drawn after image processing. No STT, microphone, cloud or API key. Includes size, position, background and optional covering of the original subtitle band. [How it works](docs/local-subtitles.md).
+- **Bundled tests:** CS:GO 1080p60, Spider-Man 540p60, and a clearly labeled artificial OCR test. Both gameplay clips are three-second loops, not full games. [Sources and content rights](docs/sample-provenance.md).
+- **Display / Zobrazení:** monitor selection, window sizes, fit/fill/1:1 and fullscreen. Capture resolution/FPS follow driver modes; display controls do not change Windows refresh rate.
+- **Optional NR source:** on/off, strength, exact paired comparison and more working resolutions. Default build OFF; the public executable and full ZIP exclude NR. [License status](docs/NR-LICENSING-STATUS.txt) · [Interactive real output](https://opicebot.cz/framelab/#enhancer). VFG is a separate feature included in the full ZIP.
+
+Public pipeline: capture/video → selected frame-generation backend → Czech overlay → display. In the private NR experiment, enhancement runs after FG and before the subtitle overlay. More processing can add latency/drop frames; it does not guarantee multiplied display FPS.
 
 ## Backends
 
 | Backend | Intended GPU support | Status |
 | --- | --- | --- |
-| NVIDIA Video Frame Generation (Maxine) | Windows Ada / Blackwell, including GeForce RTX 40 / 50 | Tested locally on RTX 5070 Ti; RTX 40 not hardware-tested here |
-| D3D11 Optical Flow | NVIDIA GPUs with Direct3D feature level 11 / Shader Model 5, including RTX 20 / 30 / 40 / 50 | Experimental block matching + motion warping; tested only on RTX 5070 Ti |
+| NVIDIA Video Frame Generation (Maxine) | Windows Ada / Blackwell, including GeForce RTX 40 / 50 | Tested on RTX 5070 Ti and RTX 4050 Laptop |
+| D3D11 Optical Flow | NVIDIA GPUs with Direct3D feature level 11 / Shader Model 5, including RTX 20 / 30 / 40 / 50 | Experimental block matching + motion warping; tested on RTX 5070 Ti and RTX 4050 Laptop |
 | Native preview | NVIDIA Direct3D 11 adapter | No interpolation |
 
 Optical Flow does not require CUDA runtime DLLs or NVIDIA AI models at runtime. It is **not DLSS, NVIDIA Optical Flow SDK, or equivalent in quality to the Maxine model**. It can smear edges, ghost occlusions and fail on fast motion / scene cuts. Maxine support is defined by [NVIDIA's VFG documentation](https://docs.nvidia.com/maxine/vfx/latest/Filters/VideoFrameGeneration.html), not the availability of DLSS in a game. No measured RTX 20/30 performance is claimed.
@@ -54,6 +73,8 @@ Audio routes to the selected DirectSound output. Volume, mute and output persist
 
 ## Build
 
+[Complete preview.10 build/package instructions](docs/build-preview10.md). Standard builds keep `FRAMELAB_EXPERIMENTAL_NR=OFF`.
+
 Windows x64, Visual Studio 2022 C++ Build Tools + Windows SDK, CMake, Python 3.11+ (dependency setup / optional diagnostics). Git is optional for ZIP builds.
 
 ```powershell
@@ -68,7 +89,7 @@ Dependencies are pinned in the setup script. CUDA headers are needed to build th
 .\tools\import-runtime.ps1 -RuntimeDirectory 'C:\path\to\your\runtime'
 ```
 
-The public package excludes NVIDIA runtime/model files. D3D11 Optical Flow works without them. Missing runtime leaves native preview available with a visible error. The application is unsigned; no security settings are changed.
+A source-only build excludes external runtime/model files. The complete release ZIP includes the separate official NVIDIA VFG runtime and the CPU translation model, but no NR runtime. D3D11 Optical Flow works without NVIDIA model DLLs. Missing runtime leaves native preview available with a visible error. The application is unsigned; no security settings are changed.
 
 ## Timing and diagnostics
 
@@ -81,7 +102,7 @@ Compute and presentation are separated by a bounded GPU texture queue. A present
 - Latency: capture callback to Present return; excludes source rendering, capture hardware buffering and monitor scanout.
 - GPU time: backend GPU work; utilization is whole-device including other apps.
 
-**Record 15 s analysis** buffers raw and generated frames with background **lossless RAM compression**, then writes the original BGRA bytes and exports clips. It preserves every pixel and supports 2×/3×/4× through the same bounded buffer. Preflight leaves 12 GiB for the system and checks estimated disk needs before creating a folder. Incompressible data or slow compression can still fill the budget; the recording then stops with an explicit reason. Playback at 4K does not require that recorder RAM budget. No data is automatically deleted. This diagnostic can affect timing. No audio is recorded. New takes also save sampled Windows image-ID confirmations. The **complete preview.9 bundle includes the clip-export dependencies**; older minimal packages can use `tools/setup-diagnostics.ps1`. See [recording format](docs/recordings.md).
+**Record 15 s analysis** buffers raw and generated frames with background **lossless RAM compression**, then writes the original BGRA bytes and exports clips. It preserves every pixel and supports 2×/3×/4× through the same bounded buffer. Preflight leaves 12 GiB for the system and checks estimated disk needs before creating a folder. Incompressible data or slow compression can still fill the budget; the recording then stops with an explicit reason. Playback at 4K does not require that recorder RAM budget. No data is automatically deleted. This diagnostic can affect timing. No audio is recorded. New takes also save sampled Windows image-ID confirmations. The **complete preview.10 bundle includes the clip-export dependencies**; older minimal packages can use `tools/setup-diagnostics.ps1`. See [recording format](docs/recordings.md).
 
 ```powershell
 app\FrameLab.exe --verify-core

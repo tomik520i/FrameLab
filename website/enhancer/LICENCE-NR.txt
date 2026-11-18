@@ -1,0 +1,74 @@
+﻿LICENCE EXPERIMENTÁLNÍHO NR – stav ověření 18. 11. 2026
+
+ROZHODNUTÍ PRO VYDÁNÍ: tento lokální balíček se dvěma NR DLL není připraven
+k veřejné distribuci. K těmto konkrétním souborům nemáme doložené oprávnění.
+
+Zásadní primární zdroj: 9. 11. 2026 Markus Holtmanns (MarkusHoHo, administrátor
+a moderátor NVIDIA Developer Forums) odpověděl, že DLSS 5 SDK není veřejně
+přístupné, není dostupná evaluační ani jiná preview licence a současné integrace
+probíhají jen ve spolupráci s partnerskými vývojáři. Příspěvek č. 11:
+https://forums.developer.nvidia.com/t/official-dlss-5-neural-rendering-plugin-access-for-unreal-engine-5-8-2/382731
+Toto je stav ověřený 18. 11. 2026; budoucí oficiální vydání může podmínky změnit.
+
+1. Kód Veyry
+Veyra používá GPL-3.0. Převzetí a úprava GPL kódu jsou možné při dodržení licence.
+Při šíření odvozeného programu je potřeba zachovat oznámení, licenci a poskytnout
+odpovídající zdrojový kód podle jejích podmínek. Propojení GPL programu s
+proprietárními komponentami vyžaduje samostatné posouzení; oddělené soubory samy
+neřeší kompatibilitu licencí. FrameLab není oficiální produkt Veyry ani NVIDIA.
+https://github.com/Likely7/Veyra-NRVideo/blob/33dfdf71197e3056e250465150eb9541d0bb24ce/LICENSE
+
+2. NVIDIA SDK a původní knihovny
+NVIDIA RTX SDK licence v bodu 1(c) dovoluje distribuci vymezených SDK komponent
+v objektové podobě jako součást aplikace za podmínek bodu 2 a dalších ustanovení.
+Nejde tedy o obecný zákaz přibalování NVIDIA knihoven. Licence ale platí pro
+materiály poskytnuté pod touto licencí, nikoli automaticky pro každý soubor s
+názvem nvngx*.dll. Podmínky mimo jiné omezují modifikace, obcházení technických
+omezení a způsob distribuce či použití s open-source licencí.
+https://github.com/NVIDIA/DLSS/blob/9981c6350dc58c0ce21f024fd65e31e851c31689/LICENSE.txt
+
+Zkontrolován celý veřejný Git strom NVIDIA/DLSS (bez zkrácení), revize
+9981c6350dc58c0ce21f024fd65e31e851c31689; nejnovější release v310.9.16 ze
+16. 10. 2026. Obsahuje nvngx_dlss.dll, nvngx_dlssd.dll a nvngx_dlssg.dll,
+neobsahuje nvngx_dlssnr.dll ani NR integrační hlavičky. Stejné číslo verze
+310.9.16 tedy neznamená, že SF NR pochází z tohoto licencovaného SDK.
+https://github.com/NVIDIA/DLSS/tree/9981c6350dc58c0ce21f024fd65e31e851c31689/lib/Windows_x86_64/rel
+Oficiální download stránka stále uvádí DLSS 4.5 a NGX 310.9.16:
+https://developer.nvidia.com/rtx/dlss
+
+3. Konkrétní zde použitá SF varianta
+Soubor runtime/nr-sf/nvngx_dlssnr.dll je ShortFuse 310.9.16, komunitně upravený
+NVIDIA runtime, nikoli otevřený model Veyry. Velikost 276162560 B; SHA256:
+cdfa6c1ec784867182164c7836f324f087b5c9f374d0c9fe46f54999feabf3ed
+Zjištěný Authenticode stav: NotSigned.
+Veyra u přesně tohoto hashe uvádí komunitní modifikaci a výslovně říká, že její
+lokální autorizace nepřidává oprávnění k veřejnému šíření. Zkopírování souboru
+beze změny z jejího release toto oprávnění nepřenáší.
+https://github.com/Likely7/Veyra-NRVideo/blob/33dfdf71197e3056e250465150eb9541d0bb24ce/THIRD_PARTY_NOTICES.md#user-provided-shortfuse-nr-310916-2026-10-17-local-testing
+
+4. Konkrétní původní NR varianta
+Soubor runtime/nr-original/nvngx_dlssnr.dll je 310.8.0.0, 165840496 B; SHA256:
+e16bcf15e16e13f527491cdf7845b2fe6521a738d8f7c9c721866a8496e1fc8e
+Zjištěný Authenticode stav: Valid, NVIDIA Corporation.
+Podpis potvrzuje původ a integritu, nikoli oprávnění třetí strany k redistribuci.
+Soubor byl zde získán z Veyra v2.1.9. Nebylo doloženo, že tento konkrétní NR build
+byl nám poskytnut jako redistribuovatelná součást oficiálního NVIDIA SDK.
+Veyřin manifest popisuje původ jako zachovaný lokální originál obnovený na
+žádost uživatele. Její příznaky user-approved/releaseAuthorized nejsou doložením
+souhlasu NVIDIA a takto je nelze interpretovat.
+
+ZÁVĚR PRO TENTO EXPERIMENT
+Nemáme ověřená práva veřejně přibalit tyto dvě NR DLL. Není tím vysloven závěr,
+že žádný subjekt nikdy nemůže tuto komponentu legálně šířit. Konkrétní oprávnění
+se musí doložit od držitele práv / oficiálního distribučního kanálu.
+Soukromý test automaticky neodstraňuje licenční omezení. Nové spouštěče proto
+zapínají jen původní video, AI je výchozím stavem vypnutá. Existující lokální
+soubory nebyly vymazány. Kód, jeho veřejná distribuce, modely i runtime mají
+odlišné licenční hranice. Galerie porovnani/index.html používá pouze hotové
+obrázky a videa; nespouští DLL. Nic nebylo nahráno na GitHub.
+
+Setup skript nyní standardně připravuje pouze veřejné SDK. NR archiv automaticky
+nestahuje. Volitelné zpracování existujícího lokálního archivu nevytváří licenci.
+Odstranění DLL z budoucího release ani přejmenování položek samo o sobě neřeší
+všechny podmínky: před vydáním je potřeba dořešit i GPL/proprietární propojení.
+Tento audit není povolením od NVIDIA ani individuálním právním stanoviskem.

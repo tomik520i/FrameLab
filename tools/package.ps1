@@ -1,8 +1,13 @@
-param([string]$Version = '0.2.0-preview', [string]$OutputDirectory = 'dist', [string]$ApplicationPath = 'app/FrameLab.exe', [switch]$Complete)
+param([string]$Version = '0.2.0-preview', [string]$OutputDirectory = 'dist', [string]$ApplicationPath = 'app/FrameLab.exe', [switch]$Complete, [string]$SampleDirectory = 'app/samples', [switch]$Translation, [string]$TranslationDirectory = 'app/translation')
 $ErrorActionPreference = 'Stop'
 $root = Split-Path $PSScriptRoot -Parent
 Set-Location $root
 if (-not (Test-Path -LiteralPath $ApplicationPath)) { throw 'Build FrameLab first' }
+if ($Complete -and -not $Translation) { throw 'A complete preview.10 package must include translation: add -Translation' }
+foreach ($sample in 'action.mp4','combat.mp4','ocr-demo.mp4','action.source.json','combat.source.json','ocr-demo.source.json') {
+ if (-not (Test-Path -LiteralPath (Join-Path $SampleDirectory $sample))) { throw "Both sample videos and provenance must be bundled: missing $sample in $SampleDirectory" }
+}
+if ($Translation -and -not (Test-Path -LiteralPath (Join-Path $TranslationDirectory 'provenance.json'))) { throw 'Prepare the complete offline translation component first' }
 if ($Complete -and -not (Test-Path 'deps/portable/components.json')) { throw 'Run tools/prepare_portable_dependencies.py first' }
 if ($Complete -and -not (Test-Path 'deps/portable/msvc/manifest.json')) { throw 'Run tools/prepare_msvc_dependencies.ps1 first' }
 New-Item -ItemType Directory -Path $OutputDirectory -Force | Out-Null
@@ -14,8 +19,15 @@ $sourceZip = Join-Path $packageRoot "FrameLab-$Version-source.zip"
 if ((Test-Path -LiteralPath $stage) -or (Test-Path -LiteralPath $portableZip) -or (Test-Path -LiteralPath $sourceZip)) { throw 'Package output exists; choose a new version or output directory to preserve it' }
 New-Item -ItemType Directory -Force "$stage/app","$stage/tools","$stage/docs" | Out-Null
 Copy-Item -LiteralPath $ApplicationPath -Destination "$stage/app/FrameLab.exe"
+New-Item -ItemType Directory -Path "$stage/app/samples" -Force | Out-Null
+foreach ($sample in 'action.mp4','combat.mp4','ocr-demo.mp4','action.source.json','combat.source.json','ocr-demo.source.json') { Copy-Item -LiteralPath (Join-Path $SampleDirectory $sample) -Destination "$stage/app/samples/" }
+if ($Translation) { Copy-Item -LiteralPath $TranslationDirectory -Destination "$stage/app/translation" -Recurse }
 Copy-Item 'Start FrameLab.cmd','Start FrameLab - NVIDIA.cmd','Start FrameLab - Optical Flow.cmd','START_HERE.md','README.md','LICENSE','THIRD_PARTY_NOTICES.md' $stage
+Copy-Item 'INSTALL.cs.md','1 - Spustit FrameLab.cmd','2 - NVIDIA RTX 40-50.cmd','3 - Optical Flow.cmd','Ukazka - Spider-Man.cmd','Ukazka - Ceske titulky.cmd' $stage
+Copy-Item 'INSTALL.cs.md' "$stage/ZACNI TADY.txt"
+Set-Content -LiteralPath "$stage/app/language.txt" -Value '1' -NoNewline
 Copy-Item 'docs/*.md' "$stage/docs/"
+Copy-Item 'docs/NR-LICENSING-STATUS.txt','docs/translation-components.json','docs/sample-xiph-copyright.txt' "$stage/docs/"
 Copy-Item 'docs/images' "$stage/docs/" -Recurse
 if (Test-Path 'docs/performance') { Copy-Item 'docs/performance' "$stage/docs/" -Recurse }
 Copy-Item 'examples' $stage -Recurse
@@ -55,6 +67,7 @@ if ($Complete) {
   if ($signature.Status -ne 'Valid' -or $signature.SignerCertificate.Subject -notmatch 'NVIDIA Corporation') { throw "Invalid NVIDIA signature: $($file.name)" }
  }
 }
+if (Get-ChildItem -LiteralPath $stage -Recurse -File -Filter 'nvngx_dlssnr.dll') { throw 'NR runtimes are not approved for a public package' }
 Compress-Archive -Path "$stage/*" -DestinationPath $portableZip
 # Exact reviewed source set from the Git index, not ignored personal data.
 $tree = git write-tree

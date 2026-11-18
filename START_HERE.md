@@ -1,52 +1,66 @@
-# Start here — no compilation required
+# FrameLab preview.10 — download, install and run
 
-[FrameLab website](https://opicebot.cz/framelab/) · [Český návod](docs/README.cs.md) · [Full documentation](README.md)
+**[Download the complete Windows x64 ZIP](https://github.com/tomik520i/FrameLab/releases/download/v0.2.0-preview.10/FrameLab-0.2.0-preview.10-windows-x64-full.zip)** · [Release files](https://github.com/tomik520i/FrameLab/releases/tag/v0.2.0-preview.10) · **[Česky: celý návod](INSTALL.cs.md)**
 
-## 1. Download the ready-made app
+## 1. Extract and launch
 
-[Download the complete FrameLab Windows ZIP](https://opicebot.cz/framelab/downloads/FrameLab-0.2.0-preview.9-windows-x64-full.zip) from the [FrameLab website](https://opicebot.cz/framelab/) ([GitHub mirror](https://github.com/tomik520i/FrameLab/releases/tag/v0.2.0-preview.9)). It contains the five NVIDIA VFG DLLs and a portable Python/Pillow/FFmpeg environment for clip export. No SDK installer, system Python, developer account, Git or compiler is needed. Avoid **Source code** if you just want to run the app.
+1. Download **FrameLab-0.2.0-preview.10-windows-x64-full.zip**. The automatic GitHub **Source code** files are for developers.
+2. Right-click the ZIP → **Extract all** into a writable folder, for example your Desktop. Do not run inside the ZIP or copy only the EXE.
+3. Open **1 - Spustit FrameLab.cmd**. A bundled CS:GO clip loops immediately.
+4. Use the **CZ / EN** button for English. Under **Capture**, try Spider-Man or the artificial **EN > CS subtitle demo**. Both real gameplay clips are included, three seconds each.
 
-Right-click the ZIP → **Extract all**. Keep the extracted files together in a writable folder. Windows x64, an NVIDIA GPU and a DirectShow-compatible capture source are required. Only RTX 5070 Ti + AVerMedia GC573 were hardware-tested here. Download GPU drivers from [NVIDIA](https://www.nvidia.com/Download/index.aspx) and the capture-card driver from its manufacturer ([AVerMedia downloads](https://www.avermedia.com/support/download)).
+No SDK, system Python, pip, model download, Git, developer account or compiler is required. Keep `app`, `tools`, `deps` and `licenses` together. The full package includes NVIDIA VFG and Microsoft runtime DLLs, both sample videos, the artificial OCR clip, the CPU translator/model/Python, clip-export Python/FFmpeg and original notices.
 
-## 2. Choose your launcher and source
+Requirements: Windows 10/11 x64, NVIDIA Direct3D 11 GPU and compatible installed driver. A DirectShow capture card and its driver are needed only for live capture. NVIDIA VFG supports RTX 40/50 (Ada/Blackwell). Optical Flow is an alternative with different quality; RTX 20/30 are not hardware-tested. RTX 5070 Ti and RTX 4050 Laptop were tested. No HDR/HDCP bypass, ARM, macOS or Linux binary is provided. The application is unsigned; no security settings need to be disabled.
 
-1. RTX 40/50: double-click **Start FrameLab - NVIDIA.cmd**. For the alternative algorithm, use **Start FrameLab - Optical Flow.cmd**. Both enable generation and start at 2× / Medium where applicable. The NVIDIA route uses the model shown in the examples; Optical Flow has different quality.
-2. Under **Source**, select the capture card connected to your device. Start with **Resolution → Automatic (device)** or 1920×1080. Select the audio **Output**.
-3. Click **Start capture**. Use **F11** for fullscreen; **Escape** returns. The **Test 30 FPS** button tests the graphics path without a capture signal.
+## 2. Generate frames or connect a capture device
 
-The complete bundle needs no extra AI or export-tool download. NVIDIA VFG supports Ada/Blackwell (RTX 40/50), not only an individual 5070 Ti; only that GPU was tested here. Optical Flow is intended for older RTX too, but RTX 20/30 have not been tested on physical hardware. English is the first-run language; Czech is available in the language menu.
+| Launcher | Initial behavior |
+| --- | --- |
+| `1 - Spustit FrameLab.cmd` | CS:GO native preview |
+| `2 - NVIDIA RTX 40-50.cmd` | CS:GO + NVIDIA VFG 2× / Medium |
+| `3 - Optical Flow.cmd` | CS:GO + Optical Flow 2× |
+| `Ukazka - Spider-Man.cmd` | Spider-Man native preview |
+| `Ukazka - Ceske titulky.cmd` | Artificial OCR clip + Czech overlay + VFG |
+
+Connect the source HDMI to the capture card, connect the card to this PC, and close other applications holding the device. In **Capture**, choose the source, resolution and capture FPS, then **Start capture**. Start with Automatic or 1080p. In **Audio**, choose the output and volume. In **Frame gen**, select one backend and begin at 2× / Medium. NVIDIA VFG and Optical Flow are alternatives. 3×/4× can increase artifacts, latency and dropped frames.
+
+Capture modes come from the driver. Automatic does not detect HDMI wire timings. Advertised ranges can include modes the driver rejects or rounds; actual accepted dimensions and measured callback FPS are shown separately. A 40-FPS game captured at 60/120 Hz still contains about 40 new images per second. Output submissions are not a physical monitor-FPS measurement. The capture card's HDMI passthrough does not include FrameLab's effects.
+
+## 3. Translate English subtitles in the picture
+
+Open **Subtitles**, enable translation and **Show reading area**. Adjust the four edges to include only the English subtitle band, excluding minimaps, quests and chat. Configure Czech font size, vertical position and opacity; **Cover original subtitle area** adds a black band over the chosen region. Try the bundled artificial demo: “The door is locked.” → “Dveře jsou zamčené.”
+
+Windows OCR reads the input pixels and the bundled OPUS-MT EN-CS model translates on two CPU threads. Czech text is drawn after frame processing. **No audio transcription/STT, cloud service, API key or network translation is used.** Two stable OCR readings are required. Small/stylized/moving text, jargon and short-lived lines may be missed or mistranslated. This is an experimental translator, not a dialogue-quality guarantee.
+
+If English OCR is absent, use the language-settings button offered by FrameLab or Windows **Settings → Time & language → Language & region** (Windows 10: **Language**). Add **English (United States)** and its basic typing / OCR language features; labels vary by Windows version. Administrators may restrict optional feature installation. Restart FrameLab or toggle translation off/on afterward. This one-time Windows component download can need Internet; the model and Python are already bundled and subsequent translation is offline. You do not have to change the Windows display language.
+
+## 4. Display and controls
+
+**Display** selects the monitor, window size and fit/fill/crop/1:1 behavior. It does not change the Windows display mode or refresh rate. **F11** toggles image-only fullscreen, **Escape** returns, **F1** switches panel/image, **F8** freezes comparison. If tabs overflow, use the arrows at their right or enlarge the window.
+
+## 5. What about DLSS 5 / NR enhancement?
+
+The full **public binary excludes NR**. The repository includes optional experimental source, OFF by default. Redistribution rights for the exact original/ShortFuse NR DLLs have not been established, so the release does not include or auto-download them. Veyra's GPL code license does not grant rights to NVIDIA model binaries. [Audit with primary sources](docs/NR-LICENSING-STATUS.txt) · [Technical notes](docs/experimental-nr.md) · [Real precomputed comparison](https://opicebot.cz/framelab/#enhancer).
+
+Public pipeline: input → one FG backend → Czech overlay → monitor. Private NR builds place enhancement after FG, before the overlay. Processing can drop frames and add latency. The website and this GitHub release provide the same OCR/display features.
+
+## 6. Troubleshooting and updates
+
+| Symptom | Action |
+| --- | --- |
+| Missing DLL, model or sample | Extract the whole **full.zip** into a fresh folder, keep all directories. |
+| No capture image | Check the vendor's preview, cable/source and HDCP; close other apps and try Automatic or 1080p. |
+| VFG initialization fails | Confirm RTX 40/50 and driver; try Optical Flow. Inspect `app/logs`. |
+| No Czech subtitle | Verify English OCR and crop region; try the artificial OCR demo. |
+| HUD translated | Narrow the reading region to the subtitle band. |
+| Artifacts / slow output | Start at 2×, compare FG off, lower input resolution. |
+| Export lacks Czech text | RAW/FG analysis deliberately omits the overlay/NR and records no audio. |
+
+For updates, extract a new version into a new folder and keep the previous one until tested. No service/driver is installed by FrameLab. Uninstall by closing it and deleting its folder after saving any recordings you need. Settings migration is optional.
+
+To verify the download, run `Get-FileHash .\FrameLab-0.2.0-preview.10-windows-x64-full.zip -Algorithm SHA256` in PowerShell and compare with the release's **SHA256SUMS.txt**. [Build from source](docs/build-preview10.md) · [Component provenance](docs/runtime-distribution.md) · [Third-party notices](THIRD_PARTY_NOTICES.md) · [Samples and content rights](docs/sample-provenance.md).
 
 ## Manual NVIDIA runtime setup for older minimal packages
 
-**Skip this section for the complete preview.9 bundle: the DLLs are already included.** Earlier minimal packages omitted them. For an existing installation, the [FrameLab NVIDIA runtime add-on](https://opicebot.cz/framelab/downloads/FrameLab-NVIDIA-VFG-1.3-addon.zip) can be extracted and its **app** folder merged into FrameLab's **app** folder; keep the included licenses. The final DLL location is **app/runtime**. The official SDK route below remains available as an alternative. NVIDIA files retain their own terms, separate from GPL; see [component provenance](docs/runtime-distribution.md).
-
-1. Open the [SDK Core download](https://catalog.ngc.nvidia.com/orgs/nvidia/maxine/resources/vfx_sdk_core/-) and choose **1.3.0.0_windows** for Windows x64 (not the `woa` ARM package). Follow NVIDIA's [installation guide](https://docs.nvidia.com/maxine/vfx/latest/WindowsVFXSDK/InstalltheVFXSDK.html) to add the **Video Frame Generation** feature from its [SDK collection](https://catalog.ngc.nvidia.com/orgs/nvidia/teams/maxine/collections/maxine_vfx_sdk). The Core alone does not contain the feature. NVIDIA may require an account/API key and access to the download; keep credentials out of screenshots and bug reports.
-2. From that matching installation, copy these five files into FrameLab's **app/runtime** folder (create it if absent): `cudart64_12.dll`, `NVCVImage.dll`, `nvngxruntime.dll`, `NVVideoEffects.dll`, `nvVFXVideoFrameGeneration.dll`. Keep the NVIDIA license files with your local SDK. FrameLab was tested with runtime 1.3; later versions are not validated here.
-3. Double-click **Start FrameLab.cmd**, choose **Backend → NVIDIA VFG (RTX 40/50)**, enable **Frame generation**, leave **Medium / 2×**, and click **Start capture**.
-
-If all five DLLs are already in one folder, the optional import helper copies them for you:
-
-```powershell
-.\tools\import-runtime.ps1 -RuntimeDirectory 'C:\path\to\your\runtime'
-```
-
-NVIDIA documents the supported architectures and input requirements in its [VFG reference](https://docs.nvidia.com/maxine/vfx/latest/Filters/VideoFrameGeneration.html). The complete bundle uses verified unmodified files from the official NVIDIA-hosted wheel; FrameLab performs no silent runtime download.
-
-## Common questions
-
-| What happens? | What to do |
-| --- | --- |
-| No capture image | Select the correct Source; close other apps using the card; verify the card's own preview and cable/source signal. Try 1080p and Automatic FPS. |
-| Missing NVIDIA DLL / VFX error | Complete the NVIDIA setup above, or launch the included Optical Flow shortcut. |
-| Lots of artifacts | Use 2×. Compare native preview with generation disabled. Fast motion, foreground occlusion and HUDs remain difficult. |
-| 60 capture FPS but about 40 content FPS | The capture contains repeated frames. Interpolation follows changing image content. |
-| Want Czech? | Select **EN / CZ → Čeština**. English is the first-run default. |
-| Want the same measured demo? | Download the separate **FrameLab-82183953-comparison-example.zip** release asset, extract it, open **index.html**. |
-
-## Optional: 15-second diagnostic clips
-
-**The complete preview.9 bundle includes diagnostic clip export.** Keep `tools/python`, `deps/python` and `tools/export_analysis.py` in place. The application prefers its isolated embedded interpreter without installing it into Windows or changing PATH. Older minimal packages can install [Python 3.11 or newer](https://www.python.org/downloads/windows/) and run `tools/setup-diagnostics.ps1`. Live preview/audio do not need Python. The recorder first buffers full-resolution pixels in RAM, so 1440p/4K can need substantial memory and disk space and recording can reduce performance. It records no audio. See [recording details](docs/recordings.md).
-
-## Interface in preview.9
-
-Use the right-hand tabs: **Capture** for source/resolution/input FPS, **Frame gen** for backend/quality/2×–4×, **Audio** for output and volume, **Recording** for 15-second analysis clips, and **Stats** for graphs and Windows display confirmations. The **EN / CZ** button switches language. Input/output counters stay above the tabs. F11 toggles the image-only fullscreen view; Escape leaves it.
+Skip this for the full ZIP: the five VFG DLLs are included. For older minimal packages use the [existing runtime add-on](https://opicebot.cz/framelab/downloads/FrameLab-NVIDIA-VFG-1.3-addon.zip), preserving its notices, or NVIDIA's [official VFX SDK installation instructions](https://docs.nvidia.com/maxine/vfx/latest/WindowsVFXSDK/InstalltheVFXSDK.html). The matching VFG 1.3 files belong in `app/runtime`: `cudart64_12.dll`, `NVCVImage.dll`, `nvngxruntime.dll`, `NVVideoEffects.dll`, `nvVFXVideoFrameGeneration.dll`. Do not confuse this component with DLSS NR.
