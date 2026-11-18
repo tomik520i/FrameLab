@@ -1,5 +1,8 @@
 Options -Indexes
 DirectoryIndex index.html
+<Files "runtime-config.json">
+  Require all denied
+</Files>
 <IfModule mod_mime.c>
   AddType video/mp4 .mp4
   AddType image/webp .webp

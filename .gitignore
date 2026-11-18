@@ -21,3 +21,4 @@
 *.mp4
 __pycache__/
 *.pyc
+/website/country-data/runtime-config.json
