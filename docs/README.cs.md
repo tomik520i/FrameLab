@@ -8,6 +8,12 @@ Obecný vstup z capture zařízení → generování mezisnímků na NVIDIA GPU 
 
 Screenshot zachycuje aplikaci po nahrávání. Okamžité FPS na něm nejsou průměry z patnáctisekundového záznamu.
 
+**Stejný pohyb, vpravo snímky navíc.** Vlevo originál, vpravo NVIDIA VFG 2×. Jedna sekunda hraní zpomalená na šest.
+
+![Zpomalené porovnání originálu a frame genu 2x](images/framelab-2x-slow-comparison.gif)
+
+*Obě strany jsou srovnané podle času zdroje; zpoždění zpracování je odstraněné. [Plné video](https://github.com/tomik520i/FrameLab/releases/download/v0.2.0-preview.6/analysis-15s-82183953_source-aligned_3s_4x-slow.mp4) · [Nastavení a artefakty](../examples/82183953/README.cs.md)*
+
 ## Stažení a nejjednodušší spuštění
 
 1. Stáhněte [hotovou aplikaci pro Windows](https://github.com/tomik520i/FrameLab/releases/download/v0.2.0-preview.6/FrameLab-0.2.0-preview.6-windows-x64.zip) ze sekce [Releases](https://github.com/tomik520i/FrameLab/releases/tag/v0.2.0-preview.6). Jde o hotovou aplikaci, nepotřebujete kompilátor ani Git. Součástí vydání jsou i zdrojáky a porovnávací materiály.

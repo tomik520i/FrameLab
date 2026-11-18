@@ -8,6 +8,12 @@
 
 *User-provided screenshot of the Czech UI. These are live counters after recording, not the averages from the benchmark below.*
 
+**Same movement, extra frames on the right.** RAW versus NVIDIA VFG 2×, slowed 6× — one second of gameplay stretched to six.
+
+![Slow-motion comparison: original capture on the left, NVIDIA VFG 2x on the right](docs/images/framelab-2x-slow-comparison.gif)
+
+*Timing is aligned to the source, so processing delay is removed. [Full video](https://github.com/tomik520i/FrameLab/releases/download/v0.2.0-preview.6/analysis-15s-82183953_source-aligned_3s_4x-slow.mp4) · [Settings and artifacts](examples/82183953/README.md) · [GIF frame mapping](docs/images/framelab-2x-slow-comparison.json)*
+
 ## Download and start
 
 Download the [ready-to-run Windows ZIP](https://github.com/tomik520i/FrameLab/releases/download/v0.2.0-preview.6/FrameLab-0.2.0-preview.6-windows-x64.zip) from [Releases](https://github.com/tomik520i/FrameLab/releases/tag/v0.2.0-preview.6), extract the whole ZIP, then double-click **Start FrameLab - Optical Flow.cmd**. Select your capture device, resolution and audio output, then click **Start capture**. No compiler, Python or NVIDIA AI model is needed for this route. The experimental Optical Flow backend has different quality from NVIDIA VFG.

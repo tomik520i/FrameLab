@@ -1,0 +1,40 @@
+{
+  "recording_id": "analysis-15s-82183953",
+  "settings_id": "analysis-15s-82183953_settings",
+  "backend": "NVIDIA VFG",
+  "quality": "Medium",
+  "generation_multiplier": 2,
+  "input_dimensions": [
+    2560,
+    1440
+  ],
+  "source_movie": "analysis-15s-82183953_source-aligned_3s_4x-slow.mp4",
+  "source_movie_sha256": "be7c267441a7c05f616ae5c4cb8decbd949c970abdb25ad4e86c65a82537b589",
+  "source_interval_s": [
+    4.1,
+    5.1
+  ],
+  "slowdown": 6,
+  "duration_s": 6,
+  "gif_fps": 40,
+  "gif_frames": 240,
+  "gif_delays_ms": [
+    20,
+    30
+  ],
+  "gif_size": [
+    768,
+    298
+  ],
+  "gif_bytes": 7978258,
+  "gif_sha256": "ef53cad83ee84ff17e5ae98504e3c5e3926c60993df4a7b24f8be2fb427d7721",
+  "frame_map": "framelab-2x-slow-comparison-frames.csv",
+  "all_source_output_ids_retained": true,
+  "selected_raw_ids_right": 40,
+  "selected_generated_ids_right": 40,
+  "transform": "Equal crop/resize of both recorded movie panels, slower playback, fixed labels outside images, GIF palette. No new interpolation.",
+  "limits": [
+    "Source-aligned reconstruction removes scheduling delay and does not demonstrate input lag or physical scanout.",
+    "GIF reduces spatial and color detail; consult original PNGs/MP4s for artifact inspection."
+  ]
+}
