@@ -5,6 +5,8 @@ inline const char* tr(const char* en){
  if(!czech)return en;
  struct Entry{std::string_view en;const char* cs;};
  static const Entry entries[]={
+ {"CONTROL ROOM","OVLÁDÁNÍ"},{"SETTINGS","NASTAVENÍ"},{"DISPLAY / TIMING","MONITOR / ČASOVÁNÍ"},
+ {"Capture","Vstup"},{"Frame gen","Frame gen"},{"Audio","Zvuk"},{"Recording","Záznam"},{"Stats","Měření"},{"Capture details","Podrobnosti vstupu"},
  {"Balanced 3x","Vyvážené 3x"},{"Fast 4x","Rychlé 4x"},
  {"High is not always better. Medium favors detail; Low favors speed.","High není vždy lepší. Medium upřednostňuje detaily, Low rychlost."},
  {"Display mode: %u x %u | %u Hz","Režim monitoru: %u x %u | %u Hz"},

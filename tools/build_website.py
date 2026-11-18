@@ -27,10 +27,10 @@ def main():
     shutil.copy2(media/'2x-poster.webp',media/'hero-poster.webp')
     for name in ['framelab-2x-slow-comparison.gif','framelab-3x-slow-comparison.gif']:
         shutil.copy2(ROOT/'docs/images'/name,media/name)
-    full=ROOT/'docs/images/framelab-live-ui.png'
-    shutil.copy2(full,media/'app-full.png')
+    full=ROOT/'docs/images/framelab-preview9-ui.png'
+    shutil.copy2(full,media/'app-full-v9.png')
     with Image.open(full) as im:
-        im.thumbnail((1800,1200));im.convert('RGB').save(media/'app-preview.webp',quality=88)
+        im.thumbnail((1800,1200));im.convert('RGB').save(media/'app-preview-v9.webp',quality=88)
     phases=ROOT/'examples/113768562/phases-27164-27167_character.png'
     shutil.copy2(phases,media/'combat-phases.png')
     with Image.open(phases) as im:
@@ -46,7 +46,7 @@ def main():
             assert actual==record['sha256'], src.name
             shutil.copy2(src,dest)
             public.append({'name':src.name,'bytes':src.stat().st_size,'sha256':actual})
-        (target/'catalog.json').write_text(json.dumps({'version':'0.2.0-preview.8','files':public},indent=2),encoding='utf-8')
+        (target/'catalog.json').write_text(json.dumps({'version':'0.2.0-preview.9','files':public},indent=2),encoding='utf-8')
     manifest=[]
     for p in sorted(out.rglob('*')):
         if p.is_file() and p.name!='site-manifest.json':

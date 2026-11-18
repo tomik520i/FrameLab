@@ -23,6 +23,7 @@ Copy-Item 'tools/export_analysis.py','tools/requirements.txt','tools/setup-diagn
 Copy-Item 'third_party/CaptureKVM-LICENSE.txt' "$stage/docs/"
 Copy-Item 'third_party/imgui/LICENSE.txt' "$stage/docs/ImGui-LICENSE.txt"
 Copy-Item 'third_party/lz4/LICENSE' "$stage/docs/LZ4-LICENSE.txt"
+Copy-Item 'website/assets/fonts/SpaceGrotesk-OFL.txt','website/assets/fonts/IBMPlexMono-OFL.txt' "$stage/docs/"
 if ($Complete) {
  Copy-Item 'deps/portable/nvidia-runtime' "$stage/app/runtime" -Recurse
  Copy-Item 'deps/portable/msvc/*.dll' "$stage/app/runtime/"

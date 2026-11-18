@@ -1,5 +1,7 @@
 # Component provenance
 
+- Space Grotesk and IBM Plex Mono, SIL Open Font License 1.1. The same unmodified TTF files used by the website are embedded into the application. Original notices: `website/assets/fonts/SpaceGrotesk-OFL.txt` and `website/assets/fonts/IBMPlexMono-OFL.txt`; both are included under `docs` in portable packages.
+
 - LZ4 library v1.10.0, https://github.com/lz4/lz4/releases/tag/v1.10.0, BSD-2-Clause. Vendored `lib/lz4.c`, `lib/lz4.h` and `lib/LICENSE` under `third_party/lz4`. Used for lossless recording RAM compression, not frame generation. The matching notice is distributed as `docs/LZ4-LICENSE.txt` in the portable app.
 - CaptureKVM, https://github.com/PaulFreund/CaptureKVM, commit `dc6dec0b566bcb139c4ea5881f75dfeeae9fad35`, MIT. `DirectShowCapture` and `DeviceEnumeration` copied and adapted. The copied license is `third_party/CaptureKVM-LICENSE.txt`. Local fixes include UTF-8 conversion buffer sizing and immediate stop.
 - Dear ImGui, https://github.com/ocornut/imgui, v1.91.9b / `f5befd2d29e66809cd1110a152e375a7f1981f06`, MIT. License in `third_party/imgui/LICENSE.txt`.

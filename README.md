@@ -2,11 +2,11 @@
 
 [Website / downloads](https://opicebot.cz/framelab/) · [Česky / Czech guide](docs/README.cs.md) · [Start here](START_HERE.md) · [2× comparison](examples/82183953/README.md) · [3× comparison](examples/112947656/README.md) · [3× combat](examples/113768562/README.md) · [4× artifacts](examples/84744531/README.md) · [Test system / GPU load](docs/test-system.md)
 
-**Capture device → GPU frame interpolation → monitor.** Experimental Windows desktop application, independent of the connected console, camera or second PC. English UI by default; select **Language / Jazyk → Čeština** for Czech. Driver messages and technical diagnostics remain in English.
+**Capture device → GPU frame interpolation → monitor.** Experimental Windows desktop application, independent of the connected console, camera or second PC. English UI by default; select the **EN / CZ** button for Czech. Driver messages and technical diagnostics remain in English.
 
-![FrameLab live capture, frame comparison and telemetry](docs/images/framelab-live-ui.png)
+![FrameLab live capture, frame comparison and telemetry](docs/images/framelab-preview9-ui.png)
 
-*User-provided screenshot of the Czech UI. These are live counters after recording, not the averages from the benchmark below.*
+*Preview.9 interface with replayed RAW gameplay. Its counters describe this layout preview, not a live performance benchmark. Capture, frame gen, audio, recording and detailed statistics have separate tabs.*
 
 **Same movement, extra frames on the right.** RAW versus NVIDIA VFG 2×, slowed 6× — one second of gameplay stretched to six.
 
@@ -22,7 +22,7 @@
 
 ## Download and start
 
-Download the **[complete portable Windows ZIP](https://opicebot.cz/framelab/downloads/FrameLab-0.2.0-preview.8-windows-x64-full.zip)** from the [FrameLab website](https://opicebot.cz/framelab/) ([GitHub mirror](https://github.com/tomik520i/FrameLab/releases/tag/v0.2.0-preview.8)). It includes the **five NVIDIA VFG DLLs, an embedded Python and the clip exporter**. Extract the whole ZIP. RTX 40/50: double-click **Start FrameLab - NVIDIA.cmd**. For the alternative algorithm, use **Start FrameLab - Optical Flow.cmd**. Select your capture device, resolution and audio output, then click **Start capture**. No SDK installer, Python installation, NVIDIA developer account or compiler is needed for this complete bundle. Compatible GPU/capture drivers are still required.
+Download the **[complete portable Windows ZIP](https://opicebot.cz/framelab/downloads/FrameLab-0.2.0-preview.9-windows-x64-full.zip)** from the [FrameLab website](https://opicebot.cz/framelab/) ([GitHub mirror](https://github.com/tomik520i/FrameLab/releases/tag/v0.2.0-preview.9)). It includes the **five NVIDIA VFG DLLs, an embedded Python and the clip exporter**. Extract the whole ZIP. RTX 40/50: double-click **Start FrameLab - NVIDIA.cmd**. For the alternative algorithm, use **Start FrameLab - Optical Flow.cmd**. Select your capture device, resolution and audio output, then click **Start capture**. No SDK installer, Python installation, NVIDIA developer account or compiler is needed for this complete bundle. Compatible GPU/capture drivers are still required.
 
 The NVIDIA runtime supports **Ada/Blackwell (RTX 40/50)**, not one specific 5070 Ti; only the RTX 5070 Ti has been hardware-tested here. NVIDIA components retain their own included licenses, separate from the GPL application. The experimental Optical Flow route has different quality and is intended for older RTX hardware. [Component provenance](docs/runtime-distribution.md) · [Runtime add-on for an existing FrameLab installation](https://opicebot.cz/framelab/downloads/FrameLab-NVIDIA-VFG-1.3-addon.zip). The **Source code** archive is for building. Earlier releases without NVIDIA binaries remain available with the [manual SDK setup instructions](START_HERE.md#manual-nvidia-runtime-setup-for-older-minimal-packages).
 
@@ -81,7 +81,7 @@ Compute and presentation are separated by a bounded GPU texture queue. A present
 - Latency: capture callback to Present return; excludes source rendering, capture hardware buffering and monitor scanout.
 - GPU time: backend GPU work; utilization is whole-device including other apps.
 
-**Record 15 s analysis** buffers raw and generated frames with background **lossless RAM compression**, then writes the original BGRA bytes and exports clips. It preserves every pixel and supports 2×/3×/4× through the same bounded buffer. Preflight leaves 12 GiB for the system and checks estimated disk needs before creating a folder. Incompressible data or slow compression can still fill the budget; the recording then stops with an explicit reason. Playback at 4K does not require that recorder RAM budget. No data is automatically deleted. This diagnostic can affect timing. No audio is recorded. New takes also save sampled Windows image-ID confirmations. The **complete preview.8 bundle includes the clip-export dependencies**; older minimal packages can use `tools/setup-diagnostics.ps1`. See [recording format](docs/recordings.md).
+**Record 15 s analysis** buffers raw and generated frames with background **lossless RAM compression**, then writes the original BGRA bytes and exports clips. It preserves every pixel and supports 2×/3×/4× through the same bounded buffer. Preflight leaves 12 GiB for the system and checks estimated disk needs before creating a folder. Incompressible data or slow compression can still fill the budget; the recording then stops with an explicit reason. Playback at 4K does not require that recorder RAM budget. No data is automatically deleted. This diagnostic can affect timing. No audio is recorded. New takes also save sampled Windows image-ID confirmations. The **complete preview.9 bundle includes the clip-export dependencies**; older minimal packages can use `tools/setup-diagnostics.ps1`. See [recording format](docs/recordings.md).
 
 ```powershell
 app\FrameLab.exe --verify-core

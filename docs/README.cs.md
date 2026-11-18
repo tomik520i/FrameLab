@@ -4,11 +4,11 @@
 
 [Ladění 3× / 4× na stejných nahrávkách](vfg-tuning.cs.md): měření odezvy, kvalita Low/Medium/High a výřezy artefaktů. Součást verze preview.7.
 
-Obecný vstup z capture zařízení → generování mezisnímků na NVIDIA GPU → monitor. Připojit lze konzoli, druhé PC nebo jiný zdroj, který podporuje vaše střihová karta. Výchozí jazyk aplikace je **angličtina**; vpravo nahoře vyberte **Language / Jazyk → Čeština**. Technické chyby a část diagnostiky mohou zůstat anglicky.
+Obecný vstup z capture zařízení → generování mezisnímků na NVIDIA GPU → monitor. Připojit lze konzoli, druhé PC nebo jiný zdroj, který podporuje vaše střihová karta. Výchozí jazyk aplikace je **angličtina**; vpravo nahoře vyberte tlačítko **EN / CZ**. Technické chyby a část diagnostiky mohou zůstat anglicky.
 
-![FrameLab: živý obraz, porovnání A / mezisnímek / B a telemetrie](images/framelab-live-ui.png)
+![FrameLab: živý obraz, porovnání A / mezisnímek / B a telemetrie](images/framelab-preview9-ui-cs.png)
 
-Screenshot zachycuje aplikaci po nahrávání. Okamžité FPS na něm nejsou průměry z patnáctisekundového záznamu.
+Rozhraní preview.9 při přehrávání dříve nahraného RAW obrazu. Jde o ukázku rozložení, nikoli nové měření výkonu při hraní. Vstup, frame gen, zvuk, záznam a měření mají samostatné záložky.
 
 **Stejný pohyb, vpravo snímky navíc.** Vlevo originál, vpravo NVIDIA VFG 2×. Jedna sekunda hraní zpomalená na šest.
 
@@ -24,7 +24,7 @@ Screenshot zachycuje aplikaci po nahrávání. Okamžité FPS na něm nejsou pr�
 
 ## Stažení a nejjednodušší spuštění
 
-1. Stáhněte [kompletní aplikaci pro Windows](https://opicebot.cz/framelab/downloads/FrameLab-0.2.0-preview.8-windows-x64-full.zip) z [vlastního webu FrameLabu](https://opicebot.cz/framelab/) ([zrcadlo na GitHubu](https://github.com/tomik520i/FrameLab/releases/tag/v0.2.0-preview.8)). Obsahuje NVIDIA DLL i přenosný Python a exportér klipů. Nemusíte instalovat SDK, Python, Git ani kompilátor. Ovladače GPU a střihovky musí být funkční.
+1. Stáhněte [kompletní aplikaci pro Windows](https://opicebot.cz/framelab/downloads/FrameLab-0.2.0-preview.9-windows-x64-full.zip) z [vlastního webu FrameLabu](https://opicebot.cz/framelab/) ([zrcadlo na GitHubu](https://github.com/tomik520i/FrameLab/releases/tag/v0.2.0-preview.9)). Obsahuje NVIDIA DLL i přenosný Python a exportér klipů. Nemusíte instalovat SDK, Python, Git ani kompilátor. Ovladače GPU a střihovky musí být funkční.
 2. Rozbalte **celý ZIP**. Pro RTX 40/50 spusťte **Start FrameLab - NVIDIA.cmd**; pro alternativní algoritmus **Start FrameLab - Optical Flow.cmd**. Oba spouštěče zapínají generování 2×.
 3. Vyberte **Zdroj**, **Rozlišení**, **FPS vstupu** a **Zvukový výstup**. Klikněte na **Spustit vstup**. Pro první pokus stačí 1080p nebo automatický režim zařízení.
 
@@ -34,7 +34,7 @@ Požadavky: Windows x64, NVIDIA GPU, ovladač GPU a capture zařízení podporuj
 
 ## NVIDIA VFG na RTX 40/50
 
-**Kompletní preview.8 už obsahuje všech pět potřebných NVIDIA DLL**, ověřených proti oficiálnímu balíčku a digitálním podpisům NVIDIA. Nejsou vázané na konkrétní 5070 Ti: Windows runtime podporuje Ada/Blackwell, tedy RTX 40/50. Fyzicky je zde ověřená jen 5070 Ti. Licence NVIDIA jsou přiložené odděleně od GPL aplikace.
+**Kompletní preview.9 už obsahuje všech pět potřebných NVIDIA DLL**, ověřených proti oficiálnímu balíčku a digitálním podpisům NVIDIA. Nejsou vázané na konkrétní 5070 Ti: Windows runtime podporuje Ada/Blackwell, tedy RTX 40/50. Fyzicky je zde ověřená jen 5070 Ti. Licence NVIDIA jsou přiložené odděleně od GPL aplikace.
 
 Pro starší instalaci lze stáhnout [NVIDIA runtime doplněk pro FrameLab](https://opicebot.cz/framelab/downloads/FrameLab-NVIDIA-VFG-1.3-addon.zip) a jeho složku **app** sloučit se složkou app ve FrameLabu. Původní manuální cesta přes SDK je stále popsaná v [Start here](../START_HERE.md#manual-nvidia-runtime-setup-for-older-minimal-packages). [Původ součástí a licence](runtime-distribution.md).
 
@@ -57,7 +57,7 @@ Pro starší instalaci lze stáhnout [NVIDIA runtime doplněk pro FrameLab](http
 
 [Analýza záznamu 82183953](../examples/82183953/README.cs.md) obsahuje výsledky za celých 15 sekund. Samostatný release balíček **FrameLab-82183953-comparison-example.zip** obsahuje 3 sekundy akce zpomalené na 12 sekund, druhé video se skutečným časováním odesílání, snímky v plném rozlišení, výřezy postavy/HUDu a JSON/CSV s nastavením a ID. Po rozbalení otevřete **index.html**.
 
-**Kompletní preview.8 má export klipů přibalený**, bez instalace Pythonu do systému. Starší minimální balíčky mohou dál použít [Python 3.11+](https://www.python.org/downloads/windows/) a `tools/setup-diagnostics.ps1`. Živý obraz ani zvuk Python nepotřebují. Tlačítko **Nahrát 15 s pro analýzu** používá bezeztrátové stlačení v RAM a teprve potom zapisuje původní pixely na disk. Funguje stejnou cestou pro 2×, 3× i 4×, ale záleží na volné paměti, rychlosti zpracování a stlačitelnosti obrazu. Nahrávání může snížit výkon. Zvuk se nenahrává.
+**Kompletní preview.9 má export klipů přibalený**, bez instalace Pythonu do systému. Starší minimální balíčky mohou dál použít [Python 3.11+](https://www.python.org/downloads/windows/) a `tools/setup-diagnostics.ps1`. Živý obraz ani zvuk Python nepotřebují. Tlačítko **Nahrát 15 s pro analýzu** používá bezeztrátové stlačení v RAM a teprve potom zapisuje původní pixely na disk. Funguje stejnou cestou pro 2×, 3× i 4×, ale záleží na volné paměti, rychlosti zpracování a stlačitelnosti obrazu. Nahrávání může snížit výkon. Zvuk se nenahrává.
 
 ## Podpora vývoje
 

@@ -2,6 +2,7 @@
 #pragma once
 #include "Graphics.hpp"
 #include "imgui.h"
+#include "UiTheme.hpp"
 #include <filesystem>
 #include <fstream>
 #include <vector>
@@ -68,23 +69,26 @@ struct Comparison {
   exportStatus="Saved A / VFG / B + pixel comparison in app/comparisons";return folder;
  }
  void draw(Graphics& g,const std::filesystem::path& root,float availableHeight){
-  if(ImGui::Checkbox(tr("A / VFG / B comparison"),&enabled))clear();ImGui::SameLine();
-  if(enabled){if(ImGui::Button(frozen?tr("Resume pairs"):tr("Freeze pair")))frozen=!frozen;ImGui::SameLine();if(ImGui::Button(tr("Next pair"))){frozen=true;next=true;}ImGui::SameLine();
+  if(ImGui::Checkbox(tr("A / VFG / B comparison"),&enabled))clear();
+  if(enabled){ui::nextButton(frozen?tr("Resume pairs"):tr("Freeze pair"));if(ImGui::Button(frozen?tr("Resume pairs"):tr("Freeze pair")))frozen=!frozen;ui::nextButton(tr("Next pair"));if(ImGui::Button(tr("Next pair"))){frozen=true;next=true;}ui::nextButton(tr("Save full-res"));
    if(ImGui::Button(tr("Save full-res"))){try{save(g,root);}catch(const std::exception& e){exportStatus=e.what();}}}
   if(!enabled)return;
-  if(ImGui::Button(tr("Record 60 pairs"))){startRecording();}ImGui::SameLine();if(recordingActive)ImGui::Text(tr("Recording %u / %u"),unsigned(recording.size()),recordTarget);else if(writing)ImGui::TextUnformatted(tr("Writing recording..."));else ImGui::TextDisabled(tr("Diagnostic recording: full-resolution A / VFG / B"));
-  ImGui::SetNextItemWidth(140);ImGui::SliderFloat(tr("Zoom"),&zoom,1,8,"%.1fx");ImGui::SameLine();ImGui::TextDisabled(tr("Drag an image to move the shared detail. %s"),frozen?"FROZEN":"LIVE");
+  if(ImGui::Button(tr("Record 60 pairs"))){startRecording();}
+  if(recordingActive){ImGui::SameLine();ImGui::Text(tr("Recording %u / %u"),unsigned(recording.size()),recordTarget);}else if(writing){ImGui::SameLine();ImGui::TextUnformatted(tr("Writing recording..."));}else if(ImGui::GetContentRegionAvail().x>650){ImGui::SameLine();ImGui::TextDisabled(tr("Diagnostic recording: full-resolution A / VFG / B"));}
+  ImGui::SetNextItemWidth(140);ImGui::SliderFloat(tr("Zoom"),&zoom,1,8,"%.1fx");ImGui::SameLine();if(ImGui::GetContentRegionAvail().x>400)ImGui::TextDisabled(tr("Drag an image to move the shared detail. %s"),frozen?"FROZEN":"LIVE");else ImGui::TextDisabled("%s",frozen?"FROZEN":"LIVE");
   if(!valid){ImGui::TextWrapped(tr("Waiting for a completed interpolation pair. Enable frame generation to compare A / generated / B."));return;}
-  ImGui::TextDisabled(tr("Pair %llu | A #%llu -> VFG t=%.3f -> B #%llu | %.2f ms source interval"),(unsigned long long)pair,(unsigned long long)sourceA,timestep,(unsigned long long)sourceB,gapMs);
-  float col=(ImGui::GetContentRegionAvail().x-20)/3;float ih=std::max(40.f,std::min(col*height/width,availableHeight-155));float iw=ih*width/height;
+  ImGui::PushFont(ui::mono);ImGui::TextDisabled(tr("Pair %llu | A #%llu -> VFG t=%.3f -> B #%llu | %.2f ms source interval"),(unsigned long long)pair,(unsigned long long)sourceA,timestep,(unsigned long long)sourceB,gapMs);ImGui::PopFont();
+  const char* hint=tr("Same source pair. Middle panel contains ONLY the generated image. Drag to position zoom.");
+  float footer=ImGui::CalcTextSize(hint,nullptr,false,ImGui::GetContentRegionAvail().x).y+ImGui::GetTextLineHeightWithSpacing()*2+18;
+  float col=(ImGui::GetContentRegionAvail().x-20)/3;float ih=std::max(20.f,std::min(col*height/width,ImGui::GetContentRegionAvail().y-footer));float iw=ih*width/height;
   float half=.5f/zoom;focusX=std::clamp(focusX,half,1-half);focusY=std::clamp(focusY,half,1-half);
   ImVec2 uv0(focusX-half,focusY-half),uv1(focusX+half,focusY+half);
   const char* labels[]={"RAW INPUT / A (before)","NVIDIA VFG ONLY","RAW INPUT / B (after)"};
   if(ImGui::BeginTable("Synchronized frame comparison",3,ImGuiTableFlags_SizingStretchSame)){
-   for(int i=0;i<3;++i){ImGui::TableNextColumn();ImGui::TextColored(i==1?ImVec4(.3f,.9f,.75f,1):ImVec4(.8f,.84f,.9f,1),"%s",i==1?backendName.c_str():tr(labels[i]));auto origin=ImGui::GetCursorScreenPos();ImGui::Image((ImTextureID)(intptr_t)frames[i].view.Get(),{iw,ih},uv0,uv1);
+   for(int i=0;i<3;++i){ImGui::TableNextColumn();ImGui::PushFont(ui::mono);ImGui::TextColored(i==1?ui::accent:ui::muted,"%s",i==1?backendName.c_str():tr(labels[i]));ImGui::PopFont();auto origin=ImGui::GetCursorScreenPos();ImGui::Image((ImTextureID)(intptr_t)frames[i].view.Get(),{iw,ih},uv0,uv1);
     if(ImGui::IsItemHovered()&&ImGui::IsMouseDown(ImGuiMouseButton_Left)){focusX=std::clamp((ImGui::GetMousePos().x-origin.x)/iw,half,1-half);focusY=std::clamp((ImGui::GetMousePos().y-origin.y)/ih,half,1-half);}
    }ImGui::EndTable();}
-  ImGui::TextDisabled(tr("Same source pair. Middle panel contains ONLY the generated image. Drag to position zoom."));
+  ImGui::PushStyleColor(ImGuiCol_Text,ui::muted);ImGui::TextWrapped("%s",hint);ImGui::PopStyleColor();
   if(!exportStatus.empty())ImGui::TextWrapped("%s",exportStatus.c_str());
  }
 };

@@ -16,4 +16,7 @@ jobs:
       - uses: actions/upload-artifact@v4
         with:
           name: FrameLab-experimental-windows-x64-no-nvidia-runtime
-          path: app/FrameLab.exe
+          path: |
+            app/FrameLab.exe
+            THIRD_PARTY_NOTICES.md
+            website/assets/fonts/*OFL.txt
