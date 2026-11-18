@@ -4,6 +4,7 @@ $root = Split-Path $PSScriptRoot -Parent
 Set-Location $root
 if (-not (Test-Path -LiteralPath $ApplicationPath)) { throw 'Build FrameLab first' }
 if ($Complete -and -not (Test-Path 'deps/portable/components.json')) { throw 'Run tools/prepare_portable_dependencies.py first' }
+if ($Complete -and -not (Test-Path 'deps/portable/msvc/manifest.json')) { throw 'Run tools/prepare_msvc_dependencies.ps1 first' }
 New-Item -ItemType Directory -Path $OutputDirectory -Force | Out-Null
 $packageRoot = (Resolve-Path -LiteralPath $OutputDirectory).Path
 $stage = Join-Path $packageRoot "FrameLab-$Version"
@@ -24,6 +25,7 @@ Copy-Item 'third_party/imgui/LICENSE.txt' "$stage/docs/ImGui-LICENSE.txt"
 Copy-Item 'third_party/lz4/LICENSE' "$stage/docs/LZ4-LICENSE.txt"
 if ($Complete) {
  Copy-Item 'deps/portable/nvidia-runtime' "$stage/app/runtime" -Recurse
+ Copy-Item 'deps/portable/msvc/*.dll' "$stage/app/runtime/"
  Copy-Item 'deps/portable/licenses' "$stage/licenses" -Recurse
  Copy-Item 'deps/portable/python' "$stage/tools/python" -Recurse
  New-Item -ItemType Directory -Path "$stage/deps" -Force | Out-Null
@@ -35,7 +37,15 @@ if ($Complete) {
   Copy-Item -LiteralPath $dependencyFile.FullName -Destination $dependencyTarget
  }
  Copy-Item 'deps/portable/components.json' "$stage/licenses/components.json"
+ Copy-Item 'deps/portable/msvc/manifest.json' "$stage/licenses/microsoft-vc-manifest.json"
  Copy-Item 'docs/runtime-distribution.md' "$stage/licenses/README.md"
+ $msvcManifest = Get-Content 'deps/portable/msvc/manifest.json' -Raw | ConvertFrom-Json
+ foreach ($file in $msvcManifest.files) {
+  $runtimePath = Join-Path "$stage/app/runtime" $file.name
+  if ((Get-FileHash -LiteralPath $runtimePath).Hash.ToLower() -cne $file.sha256) { throw "Microsoft runtime hash mismatch: $($file.name)" }
+  $signature = Get-AuthenticodeSignature -LiteralPath $runtimePath
+  if ($signature.Status -ne 'Valid' -or $signature.SignerCertificate.Subject -notmatch 'Microsoft Corporation') { throw "Invalid Microsoft signature: $($file.name)" }
+ }
  $manifest = Get-Content "$stage/app/runtime/manifest.json" -Raw | ConvertFrom-Json
  foreach ($file in $manifest.files) {
   $runtimePath = Join-Path "$stage/app/runtime" $file.name

@@ -9,7 +9,7 @@ Download **FrameLab-0.2.0-preview.8-windows-x64-full.zip**, extract everything, 
 - **Start FrameLab - NVIDIA.cmd** for RTX 40/50, NVIDIA VFG, Medium / 2×.
 - **Start FrameLab - Optical Flow.cmd** for the alternative experimental algorithm.
 
-The ZIP contains the **five original NVIDIA VFG DLLs** plus an isolated Python/Pillow/FFmpeg clip exporter. No NVIDIA SDK installer, developer account, system Python, Git or compilation is needed. Compatible GPU and capture-device drivers are still required. The complete bundle's 15-second diagnostic clips export without another dependency installation.
+The ZIP contains the **five original NVIDIA VFG DLLs**, their app-local Microsoft Visual C++ runtime dependencies, and an isolated Python/Pillow/FFmpeg clip exporter. No NVIDIA SDK installer, developer account, Visual C++ installer, system Python, Git or compilation is needed. Compatible GPU and capture-device drivers are still required. The complete bundle's 15-second diagnostic clips export without another dependency installation.
 
 The runtime comes directly from NVIDIA's official public `nvidia-vfx` wheel. Its archive and all five DLL hashes are verified, and valid NVIDIA signatures are checked while packaging. NVIDIA licenses/notices remain included and separate from the GPL application. The Windows VFG runtime supports Ada/Blackwell (RTX 40/50), rather than one individual 5070 Ti. **Only RTX 5070 Ti + AVerMedia GC573 have been tested on actual hardware.** Older RTX users can try the different Optical Flow algorithm; RTX 20/30 hardware remains untested here.
 
