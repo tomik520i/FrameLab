@@ -2,6 +2,8 @@
 
 [English / hlavní README](../README.md) · [Podrobný postup spuštění a odkazy](../START_HERE.md) · [Nové porovnání](../examples/82183953/README.cs.md)
 
+[Ladění 3× / 4× na stejných nahrávkách](vfg-tuning.cs.md): měření odezvy, kvalita Low/Medium/High a výřezy artefaktů. Součást verze preview.7.
+
 Obecný vstup z capture zařízení → generování mezisnímků na NVIDIA GPU → monitor. Připojit lze konzoli, druhé PC nebo jiný zdroj, který podporuje vaše střihová karta. Výchozí jazyk aplikace je **angličtina**; vpravo nahoře vyberte **Language / Jazyk → Čeština**. Technické chyby a část diagnostiky mohou zůstat anglicky.
 
 ![FrameLab: živý obraz, porovnání A / mezisnímek / B a telemetrie](images/framelab-live-ui.png)
@@ -14,9 +16,15 @@ Screenshot zachycuje aplikaci po nahrávání. Okamžité FPS na něm nejsou pr�
 
 *Obě strany jsou srovnané podle času zdroje; zpoždění zpracování je odstraněné. [Plné video](https://github.com/tomik520i/FrameLab/releases/download/v0.2.0-preview.6/analysis-15s-82183953_source-aligned_3s_4x-slow.mp4) · [Nastavení a artefakty](../examples/82183953/README.cs.md)*
 
+**Nově: originál proti 3×, zpomalení 6×.** Nahrávka v 1080p, NVIDIA VFG Medium.
+
+![Zpomalené porovnání originálu a frame genu 3x](images/framelab-3x-slow-comparison.gif)
+
+*Čas je zarovnaný podle zdroje, zpoždění zpracování odstraněné. [Plné video](https://github.com/tomik520i/FrameLab/releases/download/v0.2.0-preview.7/analysis-15s-112947656_source-aligned_3s_4x-slow.mp4) · [Analýza 3× a artefakty](../examples/112947656/README.cs.md). Tato ukázka je v 1080p; starší 2× ukázka nad ní pochází z jiného 1440p záznamu.*
+
 ## Stažení a nejjednodušší spuštění
 
-1. Stáhněte [hotovou aplikaci pro Windows](https://github.com/tomik520i/FrameLab/releases/download/v0.2.0-preview.6/FrameLab-0.2.0-preview.6-windows-x64.zip) ze sekce [Releases](https://github.com/tomik520i/FrameLab/releases/tag/v0.2.0-preview.6). Jde o hotovou aplikaci, nepotřebujete kompilátor ani Git. Součástí vydání jsou i zdrojáky a porovnávací materiály.
+1. Stáhněte [hotovou aplikaci pro Windows](https://github.com/tomik520i/FrameLab/releases/download/v0.2.0-preview.7/FrameLab-0.2.0-preview.7-windows-x64.zip) ze sekce [Releases](https://github.com/tomik520i/FrameLab/releases/tag/v0.2.0-preview.7). Jde o hotovou aplikaci, nepotřebujete kompilátor ani Git. Součástí vydání jsou i zdrojáky a porovnávací materiály.
 2. Rozbalte **celý ZIP** a spusťte **Start FrameLab - Optical Flow.cmd**. Zapne se experimentální Optical Flow a generování 2× bez dalšího stahování AI modelů.
 3. Vyberte **Zdroj**, **Rozlišení**, **FPS vstupu** a **Zvukový výstup**. Klikněte na **Spustit vstup**. Pro první pokus stačí 1080p nebo automatický režim zařízení.
 
@@ -40,6 +48,8 @@ Z odpovídající instalace vložte do složky **app/runtime** soubory `cudart64
 - Zvuk lze směrovat na zvolený výstup, ztišit či vypnout. A/V synchronizace se neměří.
 
 ## Porovnávací materiály a nahrávání
+
+[Nový souboj ve 3×: 113768562](../examples/113768562/README.cs.md): **1440p, zapnutý VSync**, 39,8 změn vstupu/s → 90,6 odeslaných i Windows pozorovaných ID/s, 89,87 známých změn RGB/s. [Tři sekundy boje zpomalené na dvanáct](https://github.com/tomik520i/FrameLab/releases/download/v0.2.0-preview.7/analysis-15s-113768562_source-aligned_3s_4x-slow.mp4), výřezy kopu, duchové končetin, deformovaný zaměřovač a kompletní nastavení. [První nová 3× ukázka](../examples/112947656/README.cs.md) je v 1080p s vypnutým VSync; nejde o kontrolované srovnání.
 
 [Nová ukázka 4× s výraznými artefakty](../examples/84744531/README.cs.md) ukazuje zdvojenou postavu, deformace pozadí a všechny tři mezisnímky stejného páru. Záznam dosáhl 87,87 odeslaných ID/s a 87,80 potvrzených ID/s; vyšší počet neznamená čistý obraz. Jde o jiný průchod hrou než 2×, nikoli kontrolovaný test stejného vstupu.
 

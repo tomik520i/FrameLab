@@ -1,6 +1,6 @@
 # FrameLab
 
-[Česky / Czech guide](docs/README.cs.md) · [Start here](START_HERE.md) · [2× comparison](examples/82183953/README.md) · [4× artifacts](examples/84744531/README.md) · [Test system / GPU load](docs/test-system.md)
+[Česky / Czech guide](docs/README.cs.md) · [Start here](START_HERE.md) · [2× comparison](examples/82183953/README.md) · [3× comparison](examples/112947656/README.md) · [3× combat](examples/113768562/README.md) · [4× artifacts](examples/84744531/README.md) · [Test system / GPU load](docs/test-system.md)
 
 **Capture device → GPU frame interpolation → monitor.** Experimental Windows desktop application, independent of the connected console, camera or second PC. English UI by default; select **Language / Jazyk → Čeština** for Czech. Driver messages and technical diagnostics remain in English.
 
@@ -14,11 +14,17 @@
 
 *Timing is aligned to the source, so processing delay is removed. [Full video](https://github.com/tomik520i/FrameLab/releases/download/v0.2.0-preview.6/analysis-15s-82183953_source-aligned_3s_4x-slow.mp4) · [Settings and artifacts](examples/82183953/README.md) · [GIF frame mapping](docs/images/framelab-2x-slow-comparison.json)*
 
+**New: original versus 3×, slowed 6×.** Recorded 1080p gameplay, NVIDIA VFG Medium.
+
+![Slow-motion comparison: original capture versus NVIDIA VFG 3x](docs/images/framelab-3x-slow-comparison.gif)
+
+*Source-time alignment removes processing delay; this GIF is not a monitor-FPS or latency measurement. [Full video](https://github.com/tomik520i/FrameLab/releases/download/v0.2.0-preview.7/analysis-15s-112947656_source-aligned_3s_4x-slow.mp4) · [3× analysis and artifacts](examples/112947656/README.md) · [GIF frame mapping](docs/images/framelab-3x-slow-comparison.json). This take is 1080p; the 2× example above is a different 1440p gameplay run.*
+
 ## Download and start
 
-Download the [ready-to-run Windows ZIP](https://github.com/tomik520i/FrameLab/releases/download/v0.2.0-preview.6/FrameLab-0.2.0-preview.6-windows-x64.zip) from [Releases](https://github.com/tomik520i/FrameLab/releases/tag/v0.2.0-preview.6), extract the whole ZIP, then double-click **Start FrameLab - Optical Flow.cmd**. Select your capture device, resolution and audio output, then click **Start capture**. No compiler, Python or NVIDIA AI model is needed for this route. The experimental Optical Flow backend has different quality from NVIDIA VFG.
+Download the [ready-to-run Windows ZIP](https://github.com/tomik520i/FrameLab/releases/download/v0.2.0-preview.7/FrameLab-0.2.0-preview.7-windows-x64.zip) from [Releases](https://github.com/tomik520i/FrameLab/releases/tag/v0.2.0-preview.7), extract the whole ZIP, then double-click **Start FrameLab - Optical Flow.cmd**. Select your capture device, resolution and audio output, then click **Start capture**. No compiler, Python or NVIDIA AI model is needed for this route. The experimental Optical Flow backend has different quality from NVIDIA VFG.
 
-For NVIDIA VFG on RTX 40/50, follow the linked downloads and steps in [Start here](START_HERE.md#nvidia-vfg--rtx-4050). NVIDIA's separately licensed runtime is not bundled. The **Source code** archive is for building, not the ready-to-run application. The release also includes matching source and both measured gameplay examples.
+For NVIDIA VFG on RTX 40/50, follow the linked downloads and steps in [Start here](START_HERE.md#nvidia-vfg--rtx-4050). NVIDIA's separately licensed runtime is not bundled. The **Source code** archive is for building, not the ready-to-run application. The release also includes matching source, two new 3× examples and the tuning comparisons. Earlier 2×/4× examples remain linked below.
 
 ## Backends
 
@@ -89,9 +95,15 @@ These synthetic runs do not start an analysis recording. `--verify-pacing` write
 
 ## Examples and distribution
 
+[3× combat: 113768562](examples/113768562/README.md): **1440p with VSync on**, 39.8 changing input images/s → 90.6 submitted/Windows-observed IDs/s, 89.87 known submitted RGB changes/s. Three seconds of fighting slowed to twelve, both kick phases, ghost limbs, distorted aiming reticle and complete settings. [Slowed combat MP4](https://github.com/tomik520i/FrameLab/releases/download/v0.2.0-preview.7/analysis-15s-113768562_source-aligned_3s_4x-slow.mp4). Different resolution, VSync and action from the 1080p take below; not a controlled comparison.
+
+[New 3× gameplay: 112947656](examples/112947656/README.md): 1080p, 40 changing input images/s, 110.8 submitted/Windows-observed IDs/s and 105.6 known RGB changes/s. Includes both 3× phases, ghosting/HUD failure cases, 74 exact endpoint copies, and original settings. This is a different scene and resolution from the older 1440p examples.
+
 [4× artifact example: 84744531](examples/84744531/README.md): severe doubled character contours and background warping. Includes all three generated phases of the same source pair and slow motion. This diagnostic take reached 87.87 submitted IDs/s and 87.80 Windows-confirmed IDs/s; more FPS did not mean clean images. These are different gameplay runs, not a controlled same-input 2×/4× benchmark.
 
 [Test system and normal live GPU load](docs/test-system.md): Ryzen 9 5900X, RTX 5070 Ti, 64 GB RAM, AVerMedia GC573. Measurements are taken during live generation without analysis recording or export.
+
+[3× / 4× tuning experiments](docs/vfg-tuning.md): repeated original-video playback, quality/cut sweeps, native artifact crops and latency measurements. Included in preview.7.
 
 [New measured gameplay comparison: 82183953](examples/82183953/README.md): 15 seconds of 1440p capture, 40 changing source images/s and 80 submitted image IDs/s. Includes a 3-second action segment at 4× slow motion, actual submission timing, full-resolution frames, native-pixel character/HUD crops, settings and failure cases. This is NVIDIA VFG Medium 2×, not the Optical Flow backend. Image-ID counts are not physical monitor FPS or a quality score.
 

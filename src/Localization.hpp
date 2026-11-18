@@ -5,6 +5,8 @@ inline const char* tr(const char* en){
  if(!czech)return en;
  struct Entry{std::string_view en;const char* cs;};
  static const Entry entries[]={
+ {"Balanced 3x","Vyvážené 3x"},{"Fast 4x","Rychlé 4x"},
+ {"High is not always better. Medium favors detail; Low favors speed.","High není vždy lepší. Medium upřednostňuje detaily, Low rychlost."},
  {"Display mode: %u x %u | %u Hz","Režim monitoru: %u x %u | %u Hz"},
  {"WINDOWS / confirmed IDs","WINDOWS / ověřená ID"},{"GENERATED / confirmed","GENEROVANÉ / ověřené"},
  {"Observed display confirmations: lower bound, not all frames may be sampled. Repeated IDs count once; SDK pixel copies can still have new IDs.","Potvrzená zobrazení: dolní mez, nemusíme zachytit každý snímek. Stejné ID počítáme jednou; kopie pixelů ze SDK může mít nové ID."},

@@ -1,0 +1,29 @@
+{
+  "binding": "once-per-pair",
+  "width": 1920,
+  "height": 1080,
+  "quality": 0,
+  "multiplier": 4,
+  "automatic_cuts": false,
+  "pairs": 59,
+  "outputs": 177,
+  "endpoint_copies": 0,
+  "truth_frames": 177,
+  "psnr_mean_db": 27.52781775,
+  "hold_psnr_mean_db": 22.85575919,
+  "blend_psnr_mean_db": 24.96656007,
+  "upload_mean_ms": 2.288788136,
+  "host_submit_mean_ms": 0.5829723164,
+  "ready_wall_mean_ms": 1.048011299,
+  "gpu_mean_ms": 0.7198911656,
+  "gpu_p95_ms": 1.125920057,
+  "pair_ready_mean_ms": 5.469377966,
+  "pair_ready_p95_ms": 5.8632,
+  "phase_gpu_mean_ms": [
+    0.7141505106,
+    0.7281084768,
+    0.7174145094
+  ],
+  "limits": "Offline, preloaded identical input pairs; four warmup pairs excluded. Timing pass excludes disk, readback, metrics, presentation and capture/source latency. Quality pass uses full RGB pixels; no ground-truth quality score without withheld frames.",
+  "run": "csgo-4x-q0-cut0-fixed"
+}

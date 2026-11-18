@@ -1,3 +1,15 @@
+# 0.2.0-preview.7 — recorded-input 3× / 4× tuning
+
+- Service completed GPU work independently of the display wait and avoid redrawing unchanged content; keep controls responsive at 60 Hz and preserve bounded queues.
+- Add Balanced 3x (Medium) and Fast 4x (Low) shortcuts, preserving automatic cut protection and the default Medium 2× mode.
+- Correct NVIDIA SDK binding to once per input pair; track uploads even when descriptor addresses are unchanged. Identical-pixel A/B benchmarks show no artifact fix from this correction.
+- Add headless pixel/latency sweeps, original-recording replay, reproducible quality crops and slow-motion exports. Document 28 offline runs and repeated real application timing; keep model artifacts and physical-display limitations explicit.
+- Add the completed 1080p 3× recording, both generated phases, visible failures, traceable 6×-slow README GIF, and full comparison assets.
+- Add a separate 1440p / VSync-on 3× combat analysis, slowed clips, native kick/reticle/HUD crops, original settings and complete frame-ID evidence.
+- Allow explicit capture-device selection on launch with `--capture-device "Exact friendly name"`.
+- Make diagnostic native-pixel crops resolution-aware for 1080p as well as 1440p.
+- Save output scheduling mode and pacing version 3 in new analysis-session metadata.
+
 # 0.2.0-preview.6
 
 - Publish English/Czech setup guides, ready-to-run packages and measured 2×/4× examples on GitHub.

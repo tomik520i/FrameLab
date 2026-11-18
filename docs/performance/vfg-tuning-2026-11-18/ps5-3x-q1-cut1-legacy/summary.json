@@ -1,0 +1,28 @@
+{
+  "binding": "legacy-per-output",
+  "width": 2560,
+  "height": 1440,
+  "quality": 1,
+  "multiplier": 3,
+  "automatic_cuts": true,
+  "pairs": 19,
+  "outputs": 38,
+  "endpoint_copies": 2,
+  "truth_frames": 0,
+  "psnr_mean_db": null,
+  "hold_psnr_mean_db": null,
+  "blend_psnr_mean_db": null,
+  "upload_mean_ms": 4.194215789,
+  "host_submit_mean_ms": 3.117110526,
+  "ready_wall_mean_ms": 3.267155263,
+  "gpu_mean_ms": 2.897441701,
+  "gpu_p95_ms": 3.393376112,
+  "pair_ready_mean_ms": 10.74708421,
+  "pair_ready_p95_ms": 11.3496,
+  "phase_gpu_mean_ms": [
+    2.865354099,
+    2.929529303
+  ],
+  "limits": "Offline, preloaded identical input pairs; four warmup pairs excluded. Timing pass excludes disk, readback, metrics, presentation and capture/source latency. Quality pass uses full RGB pixels; no ground-truth quality score without withheld frames.",
+  "run": "ps5-3x-q1-cut1-legacy"
+}

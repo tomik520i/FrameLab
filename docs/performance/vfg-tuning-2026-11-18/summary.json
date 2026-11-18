@@ -1,0 +1,1954 @@
+{
+  "date": "2026-11-18",
+  "test_system": "../2026-11-18/test-system.json",
+  "offline_runs": [
+    {
+      "binding": "once-per-pair",
+      "width": 1920,
+      "height": 1080,
+      "quality": 0,
+      "multiplier": 3,
+      "automatic_cuts": false,
+      "pairs": 79,
+      "outputs": 158,
+      "endpoint_copies": 0,
+      "truth_frames": 158,
+      "psnr_mean_db": 28.70040805,
+      "hold_psnr_mean_db": 23.44123102,
+      "blend_psnr_mean_db": 25.5102194,
+      "upload_mean_ms": 2.304777215,
+      "host_submit_mean_ms": 0.5661544304,
+      "ready_wall_mean_ms": 1.093613291,
+      "gpu_mean_ms": 0.7354286554,
+      "gpu_p95_ms": 1.135519981,
+      "pair_ready_mean_ms": 4.513577215,
+      "pair_ready_p95_ms": 5.0072,
+      "phase_gpu_mean_ms": [
+        0.7398764514,
+        0.7309808595
+      ],
+      "limits": "Offline, preloaded identical input pairs; four warmup pairs excluded. Timing pass excludes disk, readback, metrics, presentation and capture/source latency. Quality pass uses full RGB pixels; no ground-truth quality score without withheld frames.",
+      "run": "csgo-3x-q0-cut0-fixed"
+    },
+    {
+      "binding": "once-per-pair",
+      "width": 1920,
+      "height": 1080,
+      "quality": 0,
+      "multiplier": 3,
+      "automatic_cuts": true,
+      "pairs": 79,
+      "outputs": 158,
+      "endpoint_copies": 0,
+      "truth_frames": 158,
+      "psnr_mean_db": 28.70040805,
+      "hold_psnr_mean_db": 23.44123102,
+      "blend_psnr_mean_db": 25.5102194,
+      "upload_mean_ms": 2.302232911,
+      "host_submit_mean_ms": 1.154156962,
+      "ready_wall_mean_ms": 1.224260759,
+      "gpu_mean_ms": 0.8697988859,
+      "gpu_p95_ms": 1.251935959,
+      "pair_ready_mean_ms": 4.769710127,
+      "pair_ready_p95_ms": 5.2484,
+      "phase_gpu_mean_ms": [
+        0.8976068829,
+        0.8419908889
+      ],
+      "limits": "Offline, preloaded identical input pairs; four warmup pairs excluded. Timing pass excludes disk, readback, metrics, presentation and capture/source latency. Quality pass uses full RGB pixels; no ground-truth quality score without withheld frames.",
+      "run": "csgo-3x-q0-cut1-fixed"
+    },
+    {
+      "binding": "once-per-pair",
+      "width": 1920,
+      "height": 1080,
+      "quality": 1,
+      "multiplier": 3,
+      "automatic_cuts": false,
+      "pairs": 79,
+      "outputs": 158,
+      "endpoint_copies": 0,
+      "truth_frames": 158,
+      "psnr_mean_db": 29.19958917,
+      "hold_psnr_mean_db": 23.44123102,
+      "blend_psnr_mean_db": 25.5102194,
+      "upload_mean_ms": 2.362872152,
+      "host_submit_mean_ms": 0.6369063291,
+      "ready_wall_mean_ms": 2.913427848,
+      "gpu_mean_ms": 2.528743703,
+      "gpu_p95_ms": 3.001951933,
+      "pair_ready_mean_ms": 8.214394937,
+      "pair_ready_p95_ms": 8.7374,
+      "phase_gpu_mean_ms": [
+        2.532773673,
+        2.524713734
+      ],
+      "limits": "Offline, preloaded identical input pairs; four warmup pairs excluded. Timing pass excludes disk, readback, metrics, presentation and capture/source latency. Quality pass uses full RGB pixels; no ground-truth quality score without withheld frames.",
+      "run": "csgo-3x-q1-cut0-fixed"
+    },
+    {
+      "binding": "once-per-pair",
+      "width": 1920,
+      "height": 1080,
+      "quality": 1,
+      "multiplier": 3,
+      "automatic_cuts": true,
+      "pairs": 79,
+      "outputs": 158,
+      "endpoint_copies": 0,
+      "truth_frames": 158,
+      "psnr_mean_db": 29.19958917,
+      "hold_psnr_mean_db": 23.44123102,
+      "blend_psnr_mean_db": 25.5102194,
+      "upload_mean_ms": 2.319258228,
+      "host_submit_mean_ms": 3.016213291,
+      "ready_wall_mean_ms": 3.08276519,
+      "gpu_mean_ms": 2.734610631,
+      "gpu_p95_ms": 3.125888109,
+      "pair_ready_mean_ms": 8.507081013,
+      "pair_ready_p95_ms": 9.1212,
+      "phase_gpu_mean_ms": [
+        2.731221471,
+        2.737999792
+      ],
+      "limits": "Offline, preloaded identical input pairs; four warmup pairs excluded. Timing pass excludes disk, readback, metrics, presentation and capture/source latency. Quality pass uses full RGB pixels; no ground-truth quality score without withheld frames.",
+      "run": "csgo-3x-q1-cut1-fixed"
+    },
+    {
+      "binding": "legacy-per-output",
+      "width": 1920,
+      "height": 1080,
+      "quality": 1,
+      "multiplier": 3,
+      "automatic_cuts": true,
+      "pairs": 79,
+      "outputs": 158,
+      "endpoint_copies": 0,
+      "truth_frames": 158,
+      "psnr_mean_db": 29.19958917,
+      "hold_psnr_mean_db": 23.44123102,
+      "blend_psnr_mean_db": 25.5102194,
+      "upload_mean_ms": 2.325240506,
+      "host_submit_mean_ms": 3.113455063,
+      "ready_wall_mean_ms": 3.19916519,
+      "gpu_mean_ms": 2.809499546,
+      "gpu_p95_ms": 3.230272055,
+      "pair_ready_mean_ms": 8.755516456,
+      "pair_ready_p95_ms": 9.4844,
+      "phase_gpu_mean_ms": [
+        2.776148262,
+        2.84285083
+      ],
+      "limits": "Offline, preloaded identical input pairs; four warmup pairs excluded. Timing pass excludes disk, readback, metrics, presentation and capture/source latency. Quality pass uses full RGB pixels; no ground-truth quality score without withheld frames.",
+      "run": "csgo-3x-q1-cut1-legacy"
+    },
+    {
+      "binding": "once-per-pair",
+      "width": 1920,
+      "height": 1080,
+      "quality": 2,
+      "multiplier": 3,
+      "automatic_cuts": false,
+      "pairs": 79,
+      "outputs": 158,
+      "endpoint_copies": 0,
+      "truth_frames": 158,
+      "psnr_mean_db": 29.21602157,
+      "hold_psnr_mean_db": 23.44123102,
+      "blend_psnr_mean_db": 25.5102194,
+      "upload_mean_ms": 2.35736962,
+      "host_submit_mean_ms": 2.116911392,
+      "ready_wall_mean_ms": 13.13496962,
+      "gpu_mean_ms": 12.74201417,
+      "gpu_p95_ms": 13.43830395,
+      "pair_ready_mean_ms": 28.65970759,
+      "pair_ready_p95_ms": 29.5301,
+      "phase_gpu_mean_ms": [
+        12.69844413,
+        12.78558422
+      ],
+      "limits": "Offline, preloaded identical input pairs; four warmup pairs excluded. Timing pass excludes disk, readback, metrics, presentation and capture/source latency. Quality pass uses full RGB pixels; no ground-truth quality score without withheld frames.",
+      "run": "csgo-3x-q2-cut0-fixed"
+    },
+    {
+      "binding": "once-per-pair",
+      "width": 1920,
+      "height": 1080,
+      "quality": 2,
+      "multiplier": 3,
+      "automatic_cuts": true,
+      "pairs": 79,
+      "outputs": 158,
+      "endpoint_copies": 8,
+      "truth_frames": 158,
+      "psnr_mean_db": 29.01973579,
+      "hold_psnr_mean_db": 23.44123102,
+      "blend_psnr_mean_db": 25.5102194,
+      "upload_mean_ms": 2.353778481,
+      "host_submit_mean_ms": 13.27351519,
+      "ready_wall_mean_ms": 13.37055506,
+      "gpu_mean_ms": 12.99207492,
+      "gpu_p95_ms": 13.6067524,
+      "pair_ready_mean_ms": 29.13283418,
+      "pair_ready_p95_ms": 29.9659,
+      "phase_gpu_mean_ms": [
+        12.95759389,
+        13.02655595
+      ],
+      "limits": "Offline, preloaded identical input pairs; four warmup pairs excluded. Timing pass excludes disk, readback, metrics, presentation and capture/source latency. Quality pass uses full RGB pixels; no ground-truth quality score without withheld frames.",
+      "run": "csgo-3x-q2-cut1-fixed"
+    },
+    {
+      "binding": "once-per-pair",
+      "width": 1920,
+      "height": 1080,
+      "quality": 0,
+      "multiplier": 4,
+      "automatic_cuts": false,
+      "pairs": 59,
+      "outputs": 177,
+      "endpoint_copies": 0,
+      "truth_frames": 177,
+      "psnr_mean_db": 27.52781775,
+      "hold_psnr_mean_db": 22.85575919,
+      "blend_psnr_mean_db": 24.96656007,
+      "upload_mean_ms": 2.288788136,
+      "host_submit_mean_ms": 0.5829723164,
+      "ready_wall_mean_ms": 1.048011299,
+      "gpu_mean_ms": 0.7198911656,
+      "gpu_p95_ms": 1.125920057,
+      "pair_ready_mean_ms": 5.469377966,
+      "pair_ready_p95_ms": 5.8632,
+      "phase_gpu_mean_ms": [
+        0.7141505106,
+        0.7281084768,
+        0.7174145094
+      ],
+      "limits": "Offline, preloaded identical input pairs; four warmup pairs excluded. Timing pass excludes disk, readback, metrics, presentation and capture/source latency. Quality pass uses full RGB pixels; no ground-truth quality score without withheld frames.",
+      "run": "csgo-4x-q0-cut0-fixed"
+    },
+    {
+      "binding": "once-per-pair",
+      "width": 1920,
+      "height": 1080,
+      "quality": 0,
+      "multiplier": 4,
+      "automatic_cuts": true,
+      "pairs": 59,
+      "outputs": 177,
+      "endpoint_copies": 0,
+      "truth_frames": 177,
+      "psnr_mean_db": 27.52781775,
+      "hold_psnr_mean_db": 22.85575919,
+      "blend_psnr_mean_db": 24.96656007,
+      "upload_mean_ms": 2.300247458,
+      "host_submit_mean_ms": 1.129563277,
+      "ready_wall_mean_ms": 1.226936723,
+      "gpu_mean_ms": 0.8649619868,
+      "gpu_p95_ms": 1.259232044,
+      "pair_ready_mean_ms": 6.012579661,
+      "pair_ready_p95_ms": 6.4695,
+      "phase_gpu_mean_ms": [
+        1.014992814,
+        0.7968010832,
+        0.7830920634
+      ],
+      "limits": "Offline, preloaded identical input pairs; four warmup pairs excluded. Timing pass excludes disk, readback, metrics, presentation and capture/source latency. Quality pass uses full RGB pixels; no ground-truth quality score without withheld frames.",
+      "run": "csgo-4x-q0-cut1-fixed"
+    },
+    {
+      "binding": "once-per-pair",
+      "width": 1920,
+      "height": 1080,
+      "quality": 1,
+      "multiplier": 4,
+      "automatic_cuts": false,
+      "pairs": 59,
+      "outputs": 177,
+      "endpoint_copies": 0,
+      "truth_frames": 177,
+      "psnr_mean_db": 27.97475731,
+      "hold_psnr_mean_db": 22.85575919,
+      "blend_psnr_mean_db": 24.96656007,
+      "upload_mean_ms": 2.30869322,
+      "host_submit_mean_ms": 0.4896774011,
+      "ready_wall_mean_ms": 2.842240113,
+      "gpu_mean_ms": 2.507107803,
+      "gpu_p95_ms": 2.963072062,
+      "pair_ready_mean_ms": 10.87163051,
+      "pair_ready_p95_ms": 11.3958,
+      "phase_gpu_mean_ms": [
+        2.523851952,
+        2.471381697,
+        2.526089761
+      ],
+      "limits": "Offline, preloaded identical input pairs; four warmup pairs excluded. Timing pass excludes disk, readback, metrics, presentation and capture/source latency. Quality pass uses full RGB pixels; no ground-truth quality score without withheld frames.",
+      "run": "csgo-4x-q1-cut0-fixed"
+    },
+    {
+      "binding": "once-per-pair",
+      "width": 1920,
+      "height": 1080,
+      "quality": 1,
+      "multiplier": 4,
+      "automatic_cuts": true,
+      "pairs": 59,
+      "outputs": 177,
+      "endpoint_copies": 4,
+      "truth_frames": 177,
+      "psnr_mean_db": 27.89145869,
+      "hold_psnr_mean_db": 22.85575919,
+      "blend_psnr_mean_db": 24.96656007,
+      "upload_mean_ms": 2.314181356,
+      "host_submit_mean_ms": 2.975029944,
+      "ready_wall_mean_ms": 3.04700226,
+      "gpu_mean_ms": 2.708108666,
+      "gpu_p95_ms": 3.188256025,
+      "pair_ready_mean_ms": 11.49636441,
+      "pair_ready_p95_ms": 12.1201,
+      "phase_gpu_mean_ms": [
+        2.732695866,
+        2.686440153,
+        2.70518998
+      ],
+      "limits": "Offline, preloaded identical input pairs; four warmup pairs excluded. Timing pass excludes disk, readback, metrics, presentation and capture/source latency. Quality pass uses full RGB pixels; no ground-truth quality score without withheld frames.",
+      "run": "csgo-4x-q1-cut1-fixed"
+    },
+    {
+      "binding": "legacy-per-output",
+      "width": 1920,
+      "height": 1080,
+      "quality": 1,
+      "multiplier": 4,
+      "automatic_cuts": true,
+      "pairs": 59,
+      "outputs": 177,
+      "endpoint_copies": 4,
+      "truth_frames": 177,
+      "psnr_mean_db": 27.89145869,
+      "hold_psnr_mean_db": 22.85575919,
+      "blend_psnr_mean_db": 24.96656007,
+      "upload_mean_ms": 2.299867797,
+      "host_submit_mean_ms": 2.965649718,
+      "ready_wall_mean_ms": 3.031514689,
+      "gpu_mean_ms": 2.696185496,
+      "gpu_p95_ms": 3.117408037,
+      "pair_ready_mean_ms": 11.4342678,
+      "pair_ready_p95_ms": 12.0471,
+      "phase_gpu_mean_ms": [
+        2.704173557,
+        2.685290308,
+        2.699092623
+      ],
+      "limits": "Offline, preloaded identical input pairs; four warmup pairs excluded. Timing pass excludes disk, readback, metrics, presentation and capture/source latency. Quality pass uses full RGB pixels; no ground-truth quality score without withheld frames.",
+      "run": "csgo-4x-q1-cut1-legacy"
+    },
+    {
+      "binding": "once-per-pair",
+      "width": 1920,
+      "height": 1080,
+      "quality": 2,
+      "multiplier": 4,
+      "automatic_cuts": false,
+      "pairs": 59,
+      "outputs": 177,
+      "endpoint_copies": 0,
+      "truth_frames": 177,
+      "psnr_mean_db": 27.92129386,
+      "hold_psnr_mean_db": 22.85575919,
+      "blend_psnr_mean_db": 24.96656007,
+      "upload_mean_ms": 2.334830508,
+      "host_submit_mean_ms": 2.063787006,
+      "ready_wall_mean_ms": 12.88503842,
+      "gpu_mean_ms": 12.51690015,
+      "gpu_p95_ms": 13.24265575,
+      "pair_ready_mean_ms": 41.04102542,
+      "pair_ready_p95_ms": 42.7439,
+      "phase_gpu_mean_ms": [
+        12.4402294,
+        12.50946114,
+        12.6010099
+      ],
+      "limits": "Offline, preloaded identical input pairs; four warmup pairs excluded. Timing pass excludes disk, readback, metrics, presentation and capture/source latency. Quality pass uses full RGB pixels; no ground-truth quality score without withheld frames.",
+      "run": "csgo-4x-q2-cut0-fixed"
+    },
+    {
+      "binding": "once-per-pair",
+      "width": 1920,
+      "height": 1080,
+      "quality": 2,
+      "multiplier": 4,
+      "automatic_cuts": true,
+      "pairs": 59,
+      "outputs": 177,
+      "endpoint_copies": 10,
+      "truth_frames": 177,
+      "psnr_mean_db": 27.73200999,
+      "hold_psnr_mean_db": 22.85575919,
+      "blend_psnr_mean_db": 24.96656007,
+      "upload_mean_ms": 2.330771186,
+      "host_submit_mean_ms": 12.84534407,
+      "ready_wall_mean_ms": 12.94107627,
+      "gpu_mean_ms": 12.59263186,
+      "gpu_p95_ms": 13.23875237,
+      "pair_ready_mean_ms": 41.20714237,
+      "pair_ready_p95_ms": 42.1486,
+      "phase_gpu_mean_ms": [
+        12.57379254,
+        12.60055047,
+        12.60355256
+      ],
+      "limits": "Offline, preloaded identical input pairs; four warmup pairs excluded. Timing pass excludes disk, readback, metrics, presentation and capture/source latency. Quality pass uses full RGB pixels; no ground-truth quality score without withheld frames.",
+      "run": "csgo-4x-q2-cut1-fixed"
+    },
+    {
+      "binding": "once-per-pair",
+      "width": 2560,
+      "height": 1440,
+      "quality": 0,
+      "multiplier": 3,
+      "automatic_cuts": false,
+      "pairs": 19,
+      "outputs": 38,
+      "endpoint_copies": 0,
+      "truth_frames": 0,
+      "psnr_mean_db": null,
+      "hold_psnr_mean_db": null,
+      "blend_psnr_mean_db": null,
+      "upload_mean_ms": 4.230578947,
+      "host_submit_mean_ms": 0.4743,
+      "ready_wall_mean_ms": 1.083626316,
+      "gpu_mean_ms": 0.7575823147,
+      "gpu_p95_ms": 0.9873279929,
+      "pair_ready_mean_ms": 6.415336842,
+      "pair_ready_p95_ms": 6.9488,
+      "phase_gpu_mean_ms": [
+        0.7504959985,
+        0.7646686309
+      ],
+      "limits": "Offline, preloaded identical input pairs; four warmup pairs excluded. Timing pass excludes disk, readback, metrics, presentation and capture/source latency. Quality pass uses full RGB pixels; no ground-truth quality score without withheld frames.",
+      "run": "ps5-3x-q0-cut0-fixed"
+    },
+    {
+      "binding": "once-per-pair",
+      "width": 2560,
+      "height": 1440,
+      "quality": 0,
+      "multiplier": 3,
+      "automatic_cuts": true,
+      "pairs": 19,
+      "outputs": 38,
+      "endpoint_copies": 1,
+      "truth_frames": 0,
+      "psnr_mean_db": null,
+      "hold_psnr_mean_db": null,
+      "blend_psnr_mean_db": null,
+      "upload_mean_ms": 4.214363158,
+      "host_submit_mean_ms": 1.165655263,
+      "ready_wall_mean_ms": 1.270868421,
+      "gpu_mean_ms": 0.9439823078,
+      "gpu_p95_ms": 1.441311955,
+      "pair_ready_mean_ms": 6.769521053,
+      "pair_ready_p95_ms": 7.1109,
+      "phase_gpu_mean_ms": [
+        0.9377549353,
+        0.9502096804
+      ],
+      "limits": "Offline, preloaded identical input pairs; four warmup pairs excluded. Timing pass excludes disk, readback, metrics, presentation and capture/source latency. Quality pass uses full RGB pixels; no ground-truth quality score without withheld frames.",
+      "run": "ps5-3x-q0-cut1-fixed"
+    },
+    {
+      "binding": "once-per-pair",
+      "width": 2560,
+      "height": 1440,
+      "quality": 1,
+      "multiplier": 3,
+      "automatic_cuts": false,
+      "pairs": 19,
+      "outputs": 38,
+      "endpoint_copies": 0,
+      "truth_frames": 0,
+      "psnr_mean_db": null,
+      "hold_psnr_mean_db": null,
+      "blend_psnr_mean_db": null,
+      "upload_mean_ms": 4.188363158,
+      "host_submit_mean_ms": 0.4928026316,
+      "ready_wall_mean_ms": 3.012723684,
+      "gpu_mean_ms": 2.648657692,
+      "gpu_p95_ms": 3.047296047,
+      "pair_ready_mean_ms": 10.23183684,
+      "pair_ready_p95_ms": 10.7484,
+      "phase_gpu_mean_ms": [
+        2.630138974,
+        2.66717641
+      ],
+      "limits": "Offline, preloaded identical input pairs; four warmup pairs excluded. Timing pass excludes disk, readback, metrics, presentation and capture/source latency. Quality pass uses full RGB pixels; no ground-truth quality score without withheld frames.",
+      "run": "ps5-3x-q1-cut0-fixed"
+    },
+    {
+      "binding": "once-per-pair",
+      "width": 2560,
+      "height": 1440,
+      "quality": 1,
+      "multiplier": 3,
+      "automatic_cuts": true,
+      "pairs": 19,
+      "outputs": 38,
+      "endpoint_copies": 2,
+      "truth_frames": 0,
+      "psnr_mean_db": null,
+      "hold_psnr_mean_db": null,
+      "blend_psnr_mean_db": null,
+      "upload_mean_ms": 4.214063158,
+      "host_submit_mean_ms": 3.124084211,
+      "ready_wall_mean_ms": 3.199002632,
+      "gpu_mean_ms": 2.820417668,
+      "gpu_p95_ms": 3.118848085,
+      "pair_ready_mean_ms": 10.63304211,
+      "pair_ready_p95_ms": 11.1348,
+      "phase_gpu_mean_ms": [
+        2.841997448,
+        2.798837888
+      ],
+      "limits": "Offline, preloaded identical input pairs; four warmup pairs excluded. Timing pass excludes disk, readback, metrics, presentation and capture/source latency. Quality pass uses full RGB pixels; no ground-truth quality score without withheld frames.",
+      "run": "ps5-3x-q1-cut1-fixed"
+    },
+    {
+      "binding": "legacy-per-output",
+      "width": 2560,
+      "height": 1440,
+      "quality": 1,
+      "multiplier": 3,
+      "automatic_cuts": true,
+      "pairs": 19,
+      "outputs": 38,
+      "endpoint_copies": 2,
+      "truth_frames": 0,
+      "psnr_mean_db": null,
+      "hold_psnr_mean_db": null,
+      "blend_psnr_mean_db": null,
+      "upload_mean_ms": 4.194215789,
+      "host_submit_mean_ms": 3.117110526,
+      "ready_wall_mean_ms": 3.267155263,
+      "gpu_mean_ms": 2.897441701,
+      "gpu_p95_ms": 3.393376112,
+      "pair_ready_mean_ms": 10.74708421,
+      "pair_ready_p95_ms": 11.3496,
+      "phase_gpu_mean_ms": [
+        2.865354099,
+        2.929529303
+      ],
+      "limits": "Offline, preloaded identical input pairs; four warmup pairs excluded. Timing pass excludes disk, readback, metrics, presentation and capture/source latency. Quality pass uses full RGB pixels; no ground-truth quality score without withheld frames.",
+      "run": "ps5-3x-q1-cut1-legacy"
+    },
+    {
+      "binding": "once-per-pair",
+      "width": 2560,
+      "height": 1440,
+      "quality": 2,
+      "multiplier": 3,
+      "automatic_cuts": false,
+      "pairs": 19,
+      "outputs": 38,
+      "endpoint_copies": 0,
+      "truth_frames": 0,
+      "psnr_mean_db": null,
+      "hold_psnr_mean_db": null,
+      "blend_psnr_mean_db": null,
+      "upload_mean_ms": 4.249484211,
+      "host_submit_mean_ms": 2.174439474,
+      "ready_wall_mean_ms": 12.94264474,
+      "gpu_mean_ms": 12.54879675,
+      "gpu_p95_ms": 13.1547842,
+      "pair_ready_mean_ms": 30.16011579,
+      "pair_ready_p95_ms": 31.2688,
+      "phase_gpu_mean_ms": [
+        12.56752019,
+        12.53007332
+      ],
+      "limits": "Offline, preloaded identical input pairs; four warmup pairs excluded. Timing pass excludes disk, readback, metrics, presentation and capture/source latency. Quality pass uses full RGB pixels; no ground-truth quality score without withheld frames.",
+      "run": "ps5-3x-q2-cut0-fixed"
+    },
+    {
+      "binding": "once-per-pair",
+      "width": 2560,
+      "height": 1440,
+      "quality": 2,
+      "multiplier": 3,
+      "automatic_cuts": true,
+      "pairs": 19,
+      "outputs": 38,
+      "endpoint_copies": 8,
+      "truth_frames": 0,
+      "psnr_mean_db": null,
+      "hold_psnr_mean_db": null,
+      "blend_psnr_mean_db": null,
+      "upload_mean_ms": 4.333347368,
+      "host_submit_mean_ms": 13.25631053,
+      "ready_wall_mean_ms": 13.37417632,
+      "gpu_mean_ms": 13.04537178,
+      "gpu_p95_ms": 13.67529583,
+      "pair_ready_mean_ms": 31.12482632,
+      "pair_ready_p95_ms": 32.1957,
+      "phase_gpu_mean_ms": [
+        13.06686482,
+        13.02387875
+      ],
+      "limits": "Offline, preloaded identical input pairs; four warmup pairs excluded. Timing pass excludes disk, readback, metrics, presentation and capture/source latency. Quality pass uses full RGB pixels; no ground-truth quality score without withheld frames.",
+      "run": "ps5-3x-q2-cut1-fixed"
+    },
+    {
+      "binding": "once-per-pair",
+      "width": 2560,
+      "height": 1440,
+      "quality": 0,
+      "multiplier": 4,
+      "automatic_cuts": false,
+      "pairs": 19,
+      "outputs": 57,
+      "endpoint_copies": 0,
+      "truth_frames": 0,
+      "psnr_mean_db": null,
+      "hold_psnr_mean_db": null,
+      "blend_psnr_mean_db": null,
+      "upload_mean_ms": 4.269910526,
+      "host_submit_mean_ms": 0.4547929825,
+      "ready_wall_mean_ms": 1.125357895,
+      "gpu_mean_ms": 0.7992247061,
+      "gpu_p95_ms": 1.282816052,
+      "pair_ready_mean_ms": 7.682089474,
+      "pair_ready_p95_ms": 8.2999,
+      "phase_gpu_mean_ms": [
+        0.7759225306,
+        0.8165288473,
+        0.8052227403
+      ],
+      "limits": "Offline, preloaded identical input pairs; four warmup pairs excluded. Timing pass excludes disk, readback, metrics, presentation and capture/source latency. Quality pass uses full RGB pixels; no ground-truth quality score without withheld frames.",
+      "run": "ps5-4x-q0-cut0-fixed"
+    },
+    {
+      "binding": "once-per-pair",
+      "width": 2560,
+      "height": 1440,
+      "quality": 0,
+      "multiplier": 4,
+      "automatic_cuts": true,
+      "pairs": 19,
+      "outputs": 57,
+      "endpoint_copies": 1,
+      "truth_frames": 0,
+      "psnr_mean_db": null,
+      "hold_psnr_mean_db": null,
+      "blend_psnr_mean_db": null,
+      "upload_mean_ms": 4.270515789,
+      "host_submit_mean_ms": 1.243764912,
+      "ready_wall_mean_ms": 1.321894737,
+      "gpu_mean_ms": 0.9833723516,
+      "gpu_p95_ms": 1.474815965,
+      "pair_ready_mean_ms": 8.273442105,
+      "pair_ready_p95_ms": 8.6951,
+      "phase_gpu_mean_ms": [
+        0.946024421,
+        0.9660176886,
+        1.038074945
+      ],
+      "limits": "Offline, preloaded identical input pairs; four warmup pairs excluded. Timing pass excludes disk, readback, metrics, presentation and capture/source latency. Quality pass uses full RGB pixels; no ground-truth quality score without withheld frames.",
+      "run": "ps5-4x-q0-cut1-fixed"
+    },
+    {
+      "binding": "once-per-pair",
+      "width": 2560,
+      "height": 1440,
+      "quality": 1,
+      "multiplier": 4,
+      "automatic_cuts": false,
+      "pairs": 19,
+      "outputs": 57,
+      "endpoint_copies": 0,
+      "truth_frames": 0,
+      "psnr_mean_db": null,
+      "hold_psnr_mean_db": null,
+      "blend_psnr_mean_db": null,
+      "upload_mean_ms": 4.220515789,
+      "host_submit_mean_ms": 0.5348333333,
+      "ready_wall_mean_ms": 3.044977193,
+      "gpu_mean_ms": 2.709377686,
+      "gpu_p95_ms": 3.216736078,
+      "pair_ready_mean_ms": 13.39705263,
+      "pair_ready_p95_ms": 14.1185,
+      "phase_gpu_mean_ms": [
+        2.660577686,
+        2.780402522,
+        2.68715285
+      ],
+      "limits": "Offline, preloaded identical input pairs; four warmup pairs excluded. Timing pass excludes disk, readback, metrics, presentation and capture/source latency. Quality pass uses full RGB pixels; no ground-truth quality score without withheld frames.",
+      "run": "ps5-4x-q1-cut0-fixed"
+    },
+    {
+      "binding": "once-per-pair",
+      "width": 2560,
+      "height": 1440,
+      "quality": 1,
+      "multiplier": 4,
+      "automatic_cuts": true,
+      "pairs": 19,
+      "outputs": 57,
+      "endpoint_copies": 3,
+      "truth_frames": 0,
+      "psnr_mean_db": null,
+      "hold_psnr_mean_db": null,
+      "blend_psnr_mean_db": null,
+      "upload_mean_ms": 4.1595,
+      "host_submit_mean_ms": 2.992196491,
+      "ready_wall_mean_ms": 3.094,
+      "gpu_mean_ms": 2.785308654,
+      "gpu_p95_ms": 3.221568108,
+      "pair_ready_mean_ms": 13.476,
+      "pair_ready_p95_ms": 13.9889,
+      "phase_gpu_mean_ms": [
+        2.760709072,
+        2.809104882,
+        2.786112007
+      ],
+      "limits": "Offline, preloaded identical input pairs; four warmup pairs excluded. Timing pass excludes disk, readback, metrics, presentation and capture/source latency. Quality pass uses full RGB pixels; no ground-truth quality score without withheld frames.",
+      "run": "ps5-4x-q1-cut1-fixed"
+    },
+    {
+      "binding": "legacy-per-output",
+      "width": 2560,
+      "height": 1440,
+      "quality": 1,
+      "multiplier": 4,
+      "automatic_cuts": true,
+      "pairs": 19,
+      "outputs": 57,
+      "endpoint_copies": 3,
+      "truth_frames": 0,
+      "psnr_mean_db": null,
+      "hold_psnr_mean_db": null,
+      "blend_psnr_mean_db": null,
+      "upload_mean_ms": 4.205242105,
+      "host_submit_mean_ms": 3.039585965,
+      "ready_wall_mean_ms": 3.136714035,
+      "gpu_mean_ms": 2.816712982,
+      "gpu_p95_ms": 3.290976048,
+      "pair_ready_mean_ms": 13.65857368,
+      "pair_ready_p95_ms": 14.3798,
+      "phase_gpu_mean_ms": [
+        2.826536404,
+        2.875499801,
+        2.74810274
+      ],
+      "limits": "Offline, preloaded identical input pairs; four warmup pairs excluded. Timing pass excludes disk, readback, metrics, presentation and capture/source latency. Quality pass uses full RGB pixels; no ground-truth quality score without withheld frames.",
+      "run": "ps5-4x-q1-cut1-legacy"
+    },
+    {
+      "binding": "once-per-pair",
+      "width": 2560,
+      "height": 1440,
+      "quality": 2,
+      "multiplier": 4,
+      "automatic_cuts": false,
+      "pairs": 19,
+      "outputs": 57,
+      "endpoint_copies": 0,
+      "truth_frames": 0,
+      "psnr_mean_db": null,
+      "hold_psnr_mean_db": null,
+      "blend_psnr_mean_db": null,
+      "upload_mean_ms": 4.296847368,
+      "host_submit_mean_ms": 2.115963158,
+      "ready_wall_mean_ms": 12.9653386,
+      "gpu_mean_ms": 12.62197505,
+      "gpu_p95_ms": 13.04812813,
+      "pair_ready_mean_ms": 43.25768421,
+      "pair_ready_p95_ms": 44.2173,
+      "phase_gpu_mean_ms": [
+        12.5535192,
+        12.65460722,
+        12.65779872
+      ],
+      "limits": "Offline, preloaded identical input pairs; four warmup pairs excluded. Timing pass excludes disk, readback, metrics, presentation and capture/source latency. Quality pass uses full RGB pixels; no ground-truth quality score without withheld frames.",
+      "run": "ps5-4x-q2-cut0-fixed"
+    },
+    {
+      "binding": "once-per-pair",
+      "width": 2560,
+      "height": 1440,
+      "quality": 2,
+      "multiplier": 4,
+      "automatic_cuts": true,
+      "pairs": 19,
+      "outputs": 57,
+      "endpoint_copies": 8,
+      "truth_frames": 0,
+      "psnr_mean_db": null,
+      "hold_psnr_mean_db": null,
+      "blend_psnr_mean_db": null,
+      "upload_mean_ms": 4.243747368,
+      "host_submit_mean_ms": 13.19792632,
+      "ready_wall_mean_ms": 13.29721053,
+      "gpu_mean_ms": 12.97167893,
+      "gpu_p95_ms": 13.72159958,
+      "pair_ready_mean_ms": 44.19427895,
+      "pair_ready_p95_ms": 45.3285,
+      "phase_gpu_mean_ms": [
+        12.92992848,
+        12.95361188,
+        13.03149645
+      ],
+      "limits": "Offline, preloaded identical input pairs; four warmup pairs excluded. Timing pass excludes disk, readback, metrics, presentation and capture/source latency. Quality pass uses full RGB pixels; no ground-truth quality score without withheld frames.",
+      "run": "ps5-4x-q2-cut1-fixed"
+    }
+  ],
+  "binding_pixel_identity": [
+    {
+      "dataset": "csgo",
+      "multiplier": 3,
+      "compared": 158,
+      "rgb_identical": 158
+    },
+    {
+      "dataset": "csgo",
+      "multiplier": 4,
+      "compared": 177,
+      "rgb_identical": 177
+    },
+    {
+      "dataset": "ps5",
+      "multiplier": 3,
+      "compared": 38,
+      "rgb_identical": 38
+    },
+    {
+      "dataset": "ps5",
+      "multiplier": 4,
+      "compared": 57,
+      "rgb_identical": 57
+    }
+  ],
+  "replay": [
+    {
+      "multiplier": 3,
+      "quality": "medium",
+      "legacy_output_wait": true,
+      "runs": 3,
+      "means": {
+        "elapsed_s": 12.6782,
+        "raw_input_fps": 53.36517777777778,
+        "content_change_fps": 40.36368888888889,
+        "content_submissions_fps": 112.47368888888889,
+        "present_calls_fps": 304.62806666666665,
+        "generated_fps": 74.99035555555555,
+        "callback_to_present_mean_ms": 36.99077777777778,
+        "callback_to_present_p95_ms": 53.51473333333333,
+        "vfg_gpu_ms": 2.7092666666666667,
+        "gpu_total_percent": 42.48888888888889,
+        "vram_total_mb": 4030.548533333333,
+        "mailbox_drops": 43.24444444444445,
+        "invalid_samples": 0.0,
+        "os_observed_content_fps": 112.51922222222223,
+        "presentation_queue": 1.4,
+        "presentation_drops": 0.0,
+        "os_observed_generated_fps": 74.99006666666666,
+        "display_mode_hz": 165.0,
+        "processed_pair_gap_ms": 26.055933333333332
+      },
+      "run_mean_ranges": {
+        "elapsed_s": [
+          12.160333333333334,
+          12.976333333333333
+        ],
+        "raw_input_fps": [
+          53.35366666666667,
+          53.382266666666666
+        ],
+        "content_change_fps": [
+          40.315133333333335,
+          40.40493333333333
+        ],
+        "content_submissions_fps": [
+          112.1648,
+          113.01173333333334
+        ],
+        "present_calls_fps": [
+          299.34226666666666,
+          314.42580000000004
+        ],
+        "generated_fps": [
+          74.7768,
+          75.36413333333333
+        ],
+        "callback_to_present_mean_ms": [
+          36.66233333333333,
+          37.3408
+        ],
+        "callback_to_present_p95_ms": [
+          52.87753333333333,
+          53.99033333333333
+        ],
+        "vfg_gpu_ms": [
+          2.6926666666666668,
+          2.7230666666666665
+        ],
+        "gpu_total_percent": [
+          42.333333333333336,
+          42.6
+        ],
+        "vram_total_mb": [
+          4005.8420666666666,
+          4048.769733333333
+        ],
+        "mailbox_drops": [
+          42.6,
+          43.93333333333333
+        ],
+        "invalid_samples": [
+          0.0,
+          0.0
+        ],
+        "os_observed_content_fps": [
+          112.2316,
+          113.07966666666667
+        ],
+        "presentation_queue": [
+          1.3333333333333333,
+          1.4666666666666666
+        ],
+        "presentation_drops": [
+          0.0,
+          0.0
+        ],
+        "os_observed_generated_fps": [
+          74.7762,
+          75.3638
+        ],
+        "display_mode_hz": [
+          165.0,
+          165.0
+        ],
+        "processed_pair_gap_ms": [
+          24.523333333333333,
+          27.7314
+        ]
+      }
+    },
+    {
+      "multiplier": 3,
+      "quality": "medium",
+      "legacy_output_wait": false,
+      "runs": 3,
+      "means": {
+        "elapsed_s": 12.494939682539682,
+        "raw_input_fps": 53.16102222222222,
+        "content_change_fps": 40.288246031746034,
+        "content_submissions_fps": 113.74950158730158,
+        "present_calls_fps": 114.15492857142857,
+        "generated_fps": 75.83320793650793,
+        "callback_to_present_mean_ms": 36.46089682539683,
+        "callback_to_present_p95_ms": 52.92346349206349,
+        "vfg_gpu_ms": 2.637295238095238,
+        "gpu_total_percent": 41.45079365079365,
+        "vram_total_mb": 4047.967177777778,
+        "mailbox_drops": 37.546031746031744,
+        "invalid_samples": 0.0,
+        "os_observed_content_fps": 113.74950158730158,
+        "presentation_queue": 1.3,
+        "presentation_drops": 0.0,
+        "os_observed_generated_fps": 75.83279841269841,
+        "display_mode_hz": 165.0,
+        "processed_pair_gap_ms": 26.78836507936508
+      },
+      "run_mean_ranges": {
+        "elapsed_s": [
+          12.0708,
+          12.952733333333333
+        ],
+        "raw_input_fps": [
+          52.758,
+          53.391333333333336
+        ],
+        "content_change_fps": [
+          40.20607142857143,
+          40.335
+        ],
+        "content_submissions_fps": [
+          113.04826666666666,
+          114.60666666666667
+        ],
+        "present_calls_fps": [
+          113.51206666666667,
+          115.00393333333334
+        ],
+        "generated_fps": [
+          75.36546666666666,
+          76.4048
+        ],
+        "callback_to_present_mean_ms": [
+          36.233357142857145,
+          36.58206666666667
+        ],
+        "callback_to_present_p95_ms": [
+          52.72385714285714,
+          53.2134
+        ],
+        "vfg_gpu_ms": [
+          2.5602857142857145,
+          2.7096
+        ],
+        "gpu_total_percent": [
+          40.285714285714285,
+          42.2
+        ],
+        "vram_total_mb": [
+          4034.942066666667,
+          4062.359
+        ],
+        "mailbox_drops": [
+          34.13333333333333,
+          40.93333333333333
+        ],
+        "invalid_samples": [
+          0.0,
+          0.0
+        ],
+        "os_observed_content_fps": [
+          113.04826666666666,
+          114.60666666666667
+        ],
+        "presentation_queue": [
+          1.0666666666666667,
+          1.5
+        ],
+        "presentation_drops": [
+          0.0,
+          0.0
+        ],
+        "os_observed_generated_fps": [
+          75.36533333333334,
+          76.40413333333333
+        ],
+        "display_mode_hz": [
+          165.0,
+          165.0
+        ],
+        "processed_pair_gap_ms": [
+          25.5698,
+          28.032866666666667
+        ]
+      }
+    },
+    {
+      "multiplier": 3,
+      "quality": "low",
+      "legacy_output_wait": true,
+      "runs": 1,
+      "means": {
+        "elapsed_s": 12.958266666666667,
+        "raw_input_fps": 53.341,
+        "content_change_fps": 40.372933333333336,
+        "content_submissions_fps": 116.86133333333333,
+        "present_calls_fps": 373.8646,
+        "generated_fps": 77.8858,
+        "callback_to_present_mean_ms": 33.242533333333334,
+        "callback_to_present_p95_ms": 48.304066666666664,
+        "vfg_gpu_ms": 0.972,
+        "gpu_total_percent": 34.0,
+        "vram_total_mb": 3378.3462,
+        "mailbox_drops": 25.466666666666665,
+        "invalid_samples": 0.0,
+        "os_observed_content_fps": 116.79546666666667,
+        "presentation_queue": 1.4,
+        "presentation_drops": 0.0,
+        "os_observed_generated_fps": 77.88526666666667,
+        "display_mode_hz": 165.0,
+        "processed_pair_gap_ms": 24.680866666666667
+      },
+      "run_mean_ranges": {
+        "elapsed_s": [
+          12.958266666666667,
+          12.958266666666667
+        ],
+        "raw_input_fps": [
+          53.341,
+          53.341
+        ],
+        "content_change_fps": [
+          40.372933333333336,
+          40.372933333333336
+        ],
+        "content_submissions_fps": [
+          116.86133333333333,
+          116.86133333333333
+        ],
+        "present_calls_fps": [
+          373.8646,
+          373.8646
+        ],
+        "generated_fps": [
+          77.8858,
+          77.8858
+        ],
+        "callback_to_present_mean_ms": [
+          33.242533333333334,
+          33.242533333333334
+        ],
+        "callback_to_present_p95_ms": [
+          48.304066666666664,
+          48.304066666666664
+        ],
+        "vfg_gpu_ms": [
+          0.972,
+          0.972
+        ],
+        "gpu_total_percent": [
+          34.0,
+          34.0
+        ],
+        "vram_total_mb": [
+          3378.3462,
+          3378.3462
+        ],
+        "mailbox_drops": [
+          25.466666666666665,
+          25.466666666666665
+        ],
+        "invalid_samples": [
+          0.0,
+          0.0
+        ],
+        "os_observed_content_fps": [
+          116.79546666666667,
+          116.79546666666667
+        ],
+        "presentation_queue": [
+          1.4,
+          1.4
+        ],
+        "presentation_drops": [
+          0.0,
+          0.0
+        ],
+        "os_observed_generated_fps": [
+          77.88526666666667,
+          77.88526666666667
+        ],
+        "display_mode_hz": [
+          165.0,
+          165.0
+        ],
+        "processed_pair_gap_ms": [
+          24.680866666666667,
+          24.680866666666667
+        ]
+      }
+    },
+    {
+      "multiplier": 3,
+      "quality": "low",
+      "legacy_output_wait": false,
+      "runs": 1,
+      "means": {
+        "elapsed_s": 12.931533333333334,
+        "raw_input_fps": 53.353,
+        "content_change_fps": 40.294,
+        "content_submissions_fps": 117.7006,
+        "present_calls_fps": 118.42960000000001,
+        "generated_fps": 78.46786666666667,
+        "callback_to_present_mean_ms": 32.56953333333333,
+        "callback_to_present_p95_ms": 47.03146666666667,
+        "vfg_gpu_ms": 0.8595333333333333,
+        "gpu_total_percent": 30.666666666666668,
+        "vram_total_mb": 3389.2170666666666,
+        "mailbox_drops": 27.333333333333332,
+        "invalid_samples": 0.0,
+        "os_observed_content_fps": 117.7006,
+        "presentation_queue": 1.3333333333333333,
+        "presentation_drops": 0.0,
+        "os_observed_generated_fps": 78.46633333333332,
+        "display_mode_hz": 165.0,
+        "processed_pair_gap_ms": 26.303533333333334
+      },
+      "run_mean_ranges": {
+        "elapsed_s": [
+          12.931533333333334,
+          12.931533333333334
+        ],
+        "raw_input_fps": [
+          53.353,
+          53.353
+        ],
+        "content_change_fps": [
+          40.294,
+          40.294
+        ],
+        "content_submissions_fps": [
+          117.7006,
+          117.7006
+        ],
+        "present_calls_fps": [
+          118.42960000000001,
+          118.42960000000001
+        ],
+        "generated_fps": [
+          78.46786666666667,
+          78.46786666666667
+        ],
+        "callback_to_present_mean_ms": [
+          32.56953333333333,
+          32.56953333333333
+        ],
+        "callback_to_present_p95_ms": [
+          47.03146666666667,
+          47.03146666666667
+        ],
+        "vfg_gpu_ms": [
+          0.8595333333333333,
+          0.8595333333333333
+        ],
+        "gpu_total_percent": [
+          30.666666666666668,
+          30.666666666666668
+        ],
+        "vram_total_mb": [
+          3389.2170666666666,
+          3389.2170666666666
+        ],
+        "mailbox_drops": [
+          27.333333333333332,
+          27.333333333333332
+        ],
+        "invalid_samples": [
+          0.0,
+          0.0
+        ],
+        "os_observed_content_fps": [
+          117.7006,
+          117.7006
+        ],
+        "presentation_queue": [
+          1.3333333333333333,
+          1.3333333333333333
+        ],
+        "presentation_drops": [
+          0.0,
+          0.0
+        ],
+        "os_observed_generated_fps": [
+          78.46633333333332,
+          78.46633333333332
+        ],
+        "display_mode_hz": [
+          165.0,
+          165.0
+        ],
+        "processed_pair_gap_ms": [
+          26.303533333333334,
+          26.303533333333334
+        ]
+      }
+    },
+    {
+      "multiplier": 4,
+      "quality": "medium",
+      "legacy_output_wait": true,
+      "runs": 3,
+      "means": {
+        "elapsed_s": 12.926511111111111,
+        "raw_input_fps": 53.35053333333333,
+        "content_change_fps": 40.4092,
+        "content_submissions_fps": 121.13628888888888,
+        "present_calls_fps": 294.39124444444445,
+        "generated_fps": 90.85248888888889,
+        "callback_to_present_mean_ms": 43.66968888888889,
+        "callback_to_present_p95_ms": 64.52395555555556,
+        "vfg_gpu_ms": 2.8858444444444444,
+        "gpu_total_percent": 44.77777777777778,
+        "vram_total_mb": 4031.6504222222225,
+        "mailbox_drops": 118.17777777777778,
+        "invalid_samples": 0.0,
+        "os_observed_content_fps": 121.13693333333333,
+        "presentation_queue": 1.6444444444444444,
+        "presentation_drops": 0.0,
+        "os_observed_generated_fps": 90.85237777777778,
+        "display_mode_hz": 165.0,
+        "processed_pair_gap_ms": 31.555022222222224
+      },
+      "run_mean_ranges": {
+        "elapsed_s": [
+          12.9038,
+          12.964133333333333
+        ],
+        "raw_input_fps": [
+          53.319266666666664,
+          53.38426666666667
+        ],
+        "content_change_fps": [
+          40.377066666666664,
+          40.4326
+        ],
+        "content_submissions_fps": [
+          120.783,
+          121.79406666666667
+        ],
+        "present_calls_fps": [
+          290.4807333333333,
+          300.8532
+        ],
+        "generated_fps": [
+          90.60386666666666,
+          91.3292
+        ],
+        "callback_to_present_mean_ms": [
+          43.1978,
+          43.96366666666667
+        ],
+        "callback_to_present_p95_ms": [
+          64.11306666666667,
+          64.8306
+        ],
+        "vfg_gpu_ms": [
+          2.812933333333333,
+          2.9330666666666665
+        ],
+        "gpu_total_percent": [
+          44.2,
+          45.06666666666667
+        ],
+        "vram_total_mb": [
+          4012.4212666666667,
+          4049.6462666666666
+        ],
+        "mailbox_drops": [
+          116.66666666666667,
+          119.13333333333334
+        ],
+        "invalid_samples": [
+          0.0,
+          0.0
+        ],
+        "os_observed_content_fps": [
+          120.76533333333333,
+          121.8618
+        ],
+        "presentation_queue": [
+          1.4,
+          1.9333333333333333
+        ],
+        "presentation_drops": [
+          0.0,
+          0.0
+        ],
+        "os_observed_generated_fps": [
+          90.55713333333334,
+          91.39593333333333
+        ],
+        "display_mode_hz": [
+          165.0,
+          165.0
+        ],
+        "processed_pair_gap_ms": [
+          30.638,
+          32.67366666666667
+        ]
+      }
+    },
+    {
+      "multiplier": 4,
+      "quality": "medium",
+      "legacy_output_wait": false,
+      "runs": 3,
+      "means": {
+        "elapsed_s": 12.937488888888888,
+        "raw_input_fps": 53.33691111111111,
+        "content_change_fps": 40.37115555555555,
+        "content_submissions_fps": 126.66166666666666,
+        "present_calls_fps": 126.83875555555555,
+        "generated_fps": 95.0077111111111,
+        "callback_to_present_mean_ms": 42.428644444444444,
+        "callback_to_present_p95_ms": 62.87511111111111,
+        "vfg_gpu_ms": 2.8340444444444444,
+        "gpu_total_percent": 43.48888888888889,
+        "vram_total_mb": 4027.6221333333333,
+        "mailbox_drops": 104.71111111111111,
+        "invalid_samples": 0.0,
+        "os_observed_content_fps": 126.66166666666666,
+        "presentation_queue": 1.3111111111111111,
+        "presentation_drops": 0.0,
+        "os_observed_generated_fps": 95.0068888888889,
+        "display_mode_hz": 165.0,
+        "processed_pair_gap_ms": 28.849422222222223
+      },
+      "run_mean_ranges": {
+        "elapsed_s": [
+          12.922133333333333,
+          12.953533333333333
+        ],
+        "raw_input_fps": [
+          53.29933333333333,
+          53.391666666666666
+        ],
+        "content_change_fps": [
+          40.32066666666667,
+          40.41673333333333
+        ],
+        "content_submissions_fps": [
+          126.35773333333333,
+          127.17166666666667
+        ],
+        "present_calls_fps": [
+          126.557,
+          127.371
+        ],
+        "generated_fps": [
+          94.76866666666666,
+          95.429
+        ],
+        "callback_to_present_mean_ms": [
+          42.2342,
+          42.8104
+        ],
+        "callback_to_present_p95_ms": [
+          62.348866666666666,
+          63.8386
+        ],
+        "vfg_gpu_ms": [
+          2.7843999999999998,
+          2.9118666666666666
+        ],
+        "gpu_total_percent": [
+          42.2,
+          45.0
+        ],
+        "vram_total_mb": [
+          4017.765533333333,
+          4038.696266666667
+        ],
+        "mailbox_drops": [
+          102.66666666666667,
+          105.93333333333334
+        ],
+        "invalid_samples": [
+          0.0,
+          0.0
+        ],
+        "os_observed_content_fps": [
+          126.35773333333333,
+          127.17166666666667
+        ],
+        "presentation_queue": [
+          1.2,
+          1.4
+        ],
+        "presentation_drops": [
+          0.0,
+          0.0
+        ],
+        "os_observed_generated_fps": [
+          94.76766666666667,
+          95.36186666666667
+        ],
+        "display_mode_hz": [
+          165.0,
+          165.0
+        ],
+        "processed_pair_gap_ms": [
+          28.028000000000002,
+          29.948533333333334
+        ]
+      }
+    },
+    {
+      "multiplier": 4,
+      "quality": "low",
+      "legacy_output_wait": true,
+      "runs": 1,
+      "means": {
+        "elapsed_s": 12.907399999999999,
+        "raw_input_fps": 53.3328,
+        "content_change_fps": 40.366,
+        "content_submissions_fps": 142.11586666666668,
+        "present_calls_fps": 378.0122666666667,
+        "generated_fps": 106.5378,
+        "callback_to_present_mean_ms": 36.02786666666667,
+        "callback_to_present_p95_ms": 54.25333333333333,
+        "vfg_gpu_ms": 0.9485333333333333,
+        "gpu_total_percent": 34.46666666666667,
+        "vram_total_mb": 3367.8004,
+        "mailbox_drops": 65.33333333333333,
+        "invalid_samples": 0.0,
+        "os_observed_content_fps": 142.11586666666668,
+        "presentation_queue": 1.6,
+        "presentation_drops": 0.0,
+        "os_observed_generated_fps": 106.6034,
+        "display_mode_hz": 165.0,
+        "processed_pair_gap_ms": 26.786266666666666
+      },
+      "run_mean_ranges": {
+        "elapsed_s": [
+          12.907399999999999,
+          12.907399999999999
+        ],
+        "raw_input_fps": [
+          53.3328,
+          53.3328
+        ],
+        "content_change_fps": [
+          40.366,
+          40.366
+        ],
+        "content_submissions_fps": [
+          142.11586666666668,
+          142.11586666666668
+        ],
+        "present_calls_fps": [
+          378.0122666666667,
+          378.0122666666667
+        ],
+        "generated_fps": [
+          106.5378,
+          106.5378
+        ],
+        "callback_to_present_mean_ms": [
+          36.02786666666667,
+          36.02786666666667
+        ],
+        "callback_to_present_p95_ms": [
+          54.25333333333333,
+          54.25333333333333
+        ],
+        "vfg_gpu_ms": [
+          0.9485333333333333,
+          0.9485333333333333
+        ],
+        "gpu_total_percent": [
+          34.46666666666667,
+          34.46666666666667
+        ],
+        "vram_total_mb": [
+          3367.8004,
+          3367.8004
+        ],
+        "mailbox_drops": [
+          65.33333333333333,
+          65.33333333333333
+        ],
+        "invalid_samples": [
+          0.0,
+          0.0
+        ],
+        "os_observed_content_fps": [
+          142.11586666666668,
+          142.11586666666668
+        ],
+        "presentation_queue": [
+          1.6,
+          1.6
+        ],
+        "presentation_drops": [
+          0.0,
+          0.0
+        ],
+        "os_observed_generated_fps": [
+          106.6034,
+          106.6034
+        ],
+        "display_mode_hz": [
+          165.0,
+          165.0
+        ],
+        "processed_pair_gap_ms": [
+          26.786266666666666,
+          26.786266666666666
+        ]
+      }
+    },
+    {
+      "multiplier": 4,
+      "quality": "low",
+      "legacy_output_wait": false,
+      "runs": 1,
+      "means": {
+        "elapsed_s": 12.934,
+        "raw_input_fps": 53.3242,
+        "content_change_fps": 40.3232,
+        "content_submissions_fps": 146.70586666666668,
+        "present_calls_fps": 146.9714,
+        "generated_fps": 110.0302,
+        "callback_to_present_mean_ms": 34.56133333333334,
+        "callback_to_present_p95_ms": 51.49973333333333,
+        "vfg_gpu_ms": 0.9786,
+        "gpu_total_percent": 30.4,
+        "vram_total_mb": 3368.0879333333337,
+        "mailbox_drops": 51.46666666666667,
+        "invalid_samples": 0.0,
+        "os_observed_content_fps": 146.70586666666668,
+        "presentation_queue": 0.9333333333333333,
+        "presentation_drops": 0.0,
+        "os_observed_generated_fps": 110.02906666666667,
+        "display_mode_hz": 165.0,
+        "processed_pair_gap_ms": 22.36306666666667
+      },
+      "run_mean_ranges": {
+        "elapsed_s": [
+          12.934,
+          12.934
+        ],
+        "raw_input_fps": [
+          53.3242,
+          53.3242
+        ],
+        "content_change_fps": [
+          40.3232,
+          40.3232
+        ],
+        "content_submissions_fps": [
+          146.70586666666668,
+          146.70586666666668
+        ],
+        "present_calls_fps": [
+          146.9714,
+          146.9714
+        ],
+        "generated_fps": [
+          110.0302,
+          110.0302
+        ],
+        "callback_to_present_mean_ms": [
+          34.56133333333334,
+          34.56133333333334
+        ],
+        "callback_to_present_p95_ms": [
+          51.49973333333333,
+          51.49973333333333
+        ],
+        "vfg_gpu_ms": [
+          0.9786,
+          0.9786
+        ],
+        "gpu_total_percent": [
+          30.4,
+          30.4
+        ],
+        "vram_total_mb": [
+          3368.0879333333337,
+          3368.0879333333337
+        ],
+        "mailbox_drops": [
+          51.46666666666667,
+          51.46666666666667
+        ],
+        "invalid_samples": [
+          0.0,
+          0.0
+        ],
+        "os_observed_content_fps": [
+          146.70586666666668,
+          146.70586666666668
+        ],
+        "presentation_queue": [
+          0.9333333333333333,
+          0.9333333333333333
+        ],
+        "presentation_drops": [
+          0.0,
+          0.0
+        ],
+        "os_observed_generated_fps": [
+          110.02906666666667,
+          110.02906666666667
+        ],
+        "display_mode_hz": [
+          165.0,
+          165.0
+        ],
+        "processed_pair_gap_ms": [
+          22.36306666666667,
+          22.36306666666667
+        ]
+      }
+    }
+  ],
+  "validation_replays": [
+    {
+      "name": "2x-medium-independent-pump-r0",
+      "multiplier": 2,
+      "quality": "medium",
+      "legacy_output_wait": false,
+      "args": [
+        "--replay-recording",
+        "<workspace>\\app\\recordings\\analysis-15s-84744531",
+        "--replay-from",
+        "9.5",
+        "--replay-length",
+        "3",
+        "--fg",
+        "--2x",
+        "--medium",
+        "--no-vsync",
+        "--seconds",
+        "16",
+        "--verify-pacing"
+      ],
+      "samples_after_warmup": 10,
+      "means": {
+        "elapsed_s": 10.4741,
+        "raw_input_fps": 52.6005,
+        "content_change_fps": 40.0972,
+        "content_submissions_fps": 77.7132,
+        "present_calls_fps": 78.8075,
+        "generated_fps": 38.8067,
+        "callback_to_present_mean_ms": 37.7517,
+        "callback_to_present_p95_ms": 53.3472,
+        "vfg_gpu_ms": 2.9609,
+        "gpu_total_percent": 33.0,
+        "vram_total_mb": 4010.8243,
+        "mailbox_drops": 22.0,
+        "invalid_samples": 0.0,
+        "os_observed_content_fps": 77.7132,
+        "presentation_queue": 1.2,
+        "presentation_drops": 0.0,
+        "os_observed_generated_fps": 38.9066,
+        "display_mode_hz": 165.0,
+        "processed_pair_gap_ms": 25.223200000000002
+      },
+      "limitations": "Original 1440p R pixels from take 84744531, 9.5\u201312.5 s, repeated with recorded arrival spacing. Five-second startup excluded. No recording/export. GPU counters are whole-device. Latency is callback to Present, not physical monitor or HDMI latency. FPS counts submitted/OS-observed IDs, not unique pixels.",
+      "experiment": "replay-final-2x-check"
+    },
+    {
+      "name": "2x-medium-old-wait-r0",
+      "multiplier": 2,
+      "quality": "medium",
+      "legacy_output_wait": true,
+      "args": [
+        "--replay-recording",
+        "<workspace>\\app\\recordings\\analysis-15s-84744531",
+        "--replay-from",
+        "9.5",
+        "--replay-length",
+        "3",
+        "--fg",
+        "--2x",
+        "--medium",
+        "--no-vsync",
+        "--seconds",
+        "16",
+        "--verify-pacing",
+        "--legacy-output-wait"
+      ],
+      "samples_after_warmup": 10,
+      "means": {
+        "elapsed_s": 10.4984,
+        "raw_input_fps": 52.5509,
+        "content_change_fps": 40.0881,
+        "content_submissions_fps": 77.7832,
+        "present_calls_fps": 359.9089,
+        "generated_fps": 38.8915,
+        "callback_to_present_mean_ms": 37.4665,
+        "callback_to_present_p95_ms": 52.714,
+        "vfg_gpu_ms": 2.7705,
+        "gpu_total_percent": 37.8,
+        "vram_total_mb": 4040.0275,
+        "mailbox_drops": 23.1,
+        "invalid_samples": 0.0,
+        "os_observed_content_fps": 77.8845,
+        "presentation_queue": 1.9,
+        "presentation_drops": 0.0,
+        "os_observed_generated_fps": 38.8915,
+        "display_mode_hz": 165.0,
+        "processed_pair_gap_ms": 23.1576
+      },
+      "limitations": "Original 1440p R pixels from take 84744531, 9.5\u201312.5 s, repeated with recorded arrival spacing. Five-second startup excluded. No recording/export. GPU counters are whole-device. Latency is callback to Present, not physical monitor or HDMI latency. FPS counts submitted/OS-observed IDs, not unique pixels.",
+      "experiment": "replay-final-2x-check"
+    },
+    {
+      "name": "4x-medium-independent-pump-r0",
+      "multiplier": 4,
+      "quality": "medium",
+      "legacy_output_wait": false,
+      "args": [
+        "--replay-recording",
+        "<workspace>\\app\\recordings\\analysis-15s-84744531",
+        "--replay-from",
+        "9.5",
+        "--replay-length",
+        "3",
+        "--fg",
+        "--4x",
+        "--medium",
+        "--seconds",
+        "20",
+        "--verify-pacing"
+      ],
+      "samples_after_warmup": 14,
+      "means": {
+        "elapsed_s": 12.467785714285714,
+        "raw_input_fps": 52.68628571428572,
+        "content_change_fps": 40.25628571428572,
+        "content_submissions_fps": 126.65121428571429,
+        "present_calls_fps": 126.93435714285715,
+        "generated_fps": 94.98857142857143,
+        "callback_to_present_mean_ms": 43.77271428571429,
+        "callback_to_present_p95_ms": 64.38278571428572,
+        "vfg_gpu_ms": 3.5645,
+        "gpu_total_percent": 52.07142857142857,
+        "vram_total_mb": 4037.487285714286,
+        "mailbox_drops": 91.42857142857143,
+        "invalid_samples": 0.0,
+        "os_observed_content_fps": 126.65121428571429,
+        "presentation_queue": 1.2857142857142858,
+        "presentation_drops": 0.0,
+        "os_observed_generated_fps": 94.98807142857143,
+        "display_mode_hz": 165.0,
+        "processed_pair_gap_ms": 36.7535
+      },
+      "limitations": "Original 1440p R pixels from take 84744531, 9.5\u201312.5 s, repeated with recorded arrival spacing. Five-second startup excluded. No recording/export. GPU counters are whole-device. Latency is callback to Present, not physical monitor or HDMI latency. FPS counts submitted/OS-observed IDs, not unique pixels.",
+      "experiment": "replay-vsync-repeat"
+    },
+    {
+      "name": "4x-medium-independent-pump-r1",
+      "multiplier": 4,
+      "quality": "medium",
+      "legacy_output_wait": false,
+      "args": [
+        "--replay-recording",
+        "<workspace>\\app\\recordings\\analysis-15s-84744531",
+        "--replay-from",
+        "9.5",
+        "--replay-length",
+        "3",
+        "--fg",
+        "--4x",
+        "--medium",
+        "--seconds",
+        "20",
+        "--verify-pacing"
+      ],
+      "samples_after_warmup": 15,
+      "means": {
+        "elapsed_s": 12.0644,
+        "raw_input_fps": 53.40026666666667,
+        "content_change_fps": 40.35306666666666,
+        "content_submissions_fps": 126.43599999999999,
+        "present_calls_fps": 126.56853333333333,
+        "generated_fps": 94.82753333333334,
+        "callback_to_present_mean_ms": 43.68326666666667,
+        "callback_to_present_p95_ms": 64.06026666666666,
+        "vfg_gpu_ms": 3.5689333333333333,
+        "gpu_total_percent": 50.733333333333334,
+        "vram_total_mb": 4035.5130000000004,
+        "mailbox_drops": 93.13333333333334,
+        "invalid_samples": 0.0,
+        "os_observed_content_fps": 126.43599999999999,
+        "presentation_queue": 1.0666666666666667,
+        "presentation_drops": 0.0,
+        "os_observed_generated_fps": 94.82626666666667,
+        "display_mode_hz": 165.0,
+        "processed_pair_gap_ms": 33.99346666666666
+      },
+      "limitations": "Original 1440p R pixels from take 84744531, 9.5\u201312.5 s, repeated with recorded arrival spacing. Five-second startup excluded. No recording/export. GPU counters are whole-device. Latency is callback to Present, not physical monitor or HDMI latency. FPS counts submitted/OS-observed IDs, not unique pixels.",
+      "experiment": "replay-vsync-repeat"
+    },
+    {
+      "name": "4x-medium-old-wait-r0",
+      "multiplier": 4,
+      "quality": "medium",
+      "legacy_output_wait": true,
+      "args": [
+        "--replay-recording",
+        "<workspace>\\app\\recordings\\analysis-15s-84744531",
+        "--replay-from",
+        "9.5",
+        "--replay-length",
+        "3",
+        "--fg",
+        "--4x",
+        "--medium",
+        "--seconds",
+        "20",
+        "--verify-pacing",
+        "--legacy-output-wait"
+      ],
+      "samples_after_warmup": 15,
+      "means": {
+        "elapsed_s": 12.9256,
+        "raw_input_fps": 53.34706666666667,
+        "content_change_fps": 40.3776,
+        "content_submissions_fps": 97.11933333333333,
+        "present_calls_fps": 164.83686666666668,
+        "generated_fps": 72.8396,
+        "callback_to_present_mean_ms": 49.9598,
+        "callback_to_present_p95_ms": 77.16366666666667,
+        "vfg_gpu_ms": 3.3708,
+        "gpu_total_percent": 42.266666666666666,
+        "vram_total_mb": 4018.590533333333,
+        "mailbox_drops": 183.2,
+        "invalid_samples": 0.0,
+        "os_observed_content_fps": 80.09133333333334,
+        "presentation_queue": 1.2,
+        "presentation_drops": 0.0,
+        "os_observed_generated_fps": 55.81113333333334,
+        "display_mode_hz": 165.0,
+        "processed_pair_gap_ms": 39.10293333333333
+      },
+      "limitations": "Original 1440p R pixels from take 84744531, 9.5\u201312.5 s, repeated with recorded arrival spacing. Five-second startup excluded. No recording/export. GPU counters are whole-device. Latency is callback to Present, not physical monitor or HDMI latency. FPS counts submitted/OS-observed IDs, not unique pixels.",
+      "experiment": "replay-vsync-repeat"
+    },
+    {
+      "name": "4x-medium-old-wait-r1",
+      "multiplier": 4,
+      "quality": "medium",
+      "legacy_output_wait": true,
+      "args": [
+        "--replay-recording",
+        "<workspace>\\app\\recordings\\analysis-15s-84744531",
+        "--replay-from",
+        "9.5",
+        "--replay-length",
+        "3",
+        "--fg",
+        "--4x",
+        "--medium",
+        "--seconds",
+        "20",
+        "--verify-pacing",
+        "--legacy-output-wait"
+      ],
+      "samples_after_warmup": 15,
+      "means": {
+        "elapsed_s": 12.9166,
+        "raw_input_fps": 53.3556,
+        "content_change_fps": 40.37886666666667,
+        "content_submissions_fps": 90.0,
+        "present_calls_fps": 164.90046666666666,
+        "generated_fps": 67.51666666666667,
+        "callback_to_present_mean_ms": 52.962,
+        "callback_to_present_p95_ms": 80.88266666666667,
+        "vfg_gpu_ms": 3.311,
+        "gpu_total_percent": 39.4,
+        "vram_total_mb": 4041.442,
+        "mailbox_drops": 202.4,
+        "invalid_samples": 0.0,
+        "os_observed_content_fps": 77.03546666666666,
+        "presentation_queue": 1.2,
+        "presentation_drops": 0.0,
+        "os_observed_generated_fps": 54.48486666666667,
+        "display_mode_hz": 165.0,
+        "processed_pair_gap_ms": 43.3394
+      },
+      "limitations": "Original 1440p R pixels from take 84744531, 9.5\u201312.5 s, repeated with recorded arrival spacing. Five-second startup excluded. No recording/export. GPU counters are whole-device. Latency is callback to Present, not physical monitor or HDMI latency. FPS counts submitted/OS-observed IDs, not unique pixels.",
+      "experiment": "replay-vsync-repeat"
+    }
+  ],
+  "excluded": "replay-redraw-repeat-2026-11-18 repeat 1 overlaps CPU PNG export; excluded from performance aggregates.",
+  "notes": [
+    "No screen capture. Original recorded R pixels replayed in RAM with original arrival spacing.",
+    "Three clean medium runs per condition; one low run per condition. Normal desktop/Avast remained active.",
+    "FPS describes submitted/OS-observed image IDs, not physical panel scanout or distinct pixels.",
+    "Latency is callback to Present, excluding HDMI source/card/monitor. Per-run means are averaged equally.",
+    "Offline GPU timing excludes readback/export; process timings and replay latency are different measures.",
+    "1080p CS:GO 60fps held-out test: 3x uses 20fps input, 4x uses 15fps input. Compare quality settings within a multiplier.",
+    "PS5 has no correctly timed ground-truth intermediate. Its quality is assessed by paired images, not invented PSNR.",
+    "Output-wait A/B uses the same candidate binary and the same corrected SDK binding; only the scheduler changes."
+  ]
+}

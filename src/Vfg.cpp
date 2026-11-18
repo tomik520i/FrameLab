@@ -1,6 +1,7 @@
 // Public NVIDIA VFX/CUDA C APIs, loaded dynamically. Integration informed by
 // NVIDIA-Maxine/VFX-SDK-Samples (MIT) and Veyra VfgBackend (GPL-3.0).
 #include "Vfg.hpp"
+#include "VfgPairBinding.hpp"
 #include <cuda.h>
 #include <cudaD3D11.h>
 #include <vector>
@@ -10,6 +11,7 @@ struct Vfg::Impl {
  CUcontext ctx=nullptr;CUdevice gpu=0;CUstream stream=nullptr;CUevent first=nullptr,last=nullptr;
  CUgraphicsResource resource=nullptr;CUdeviceptr inputs[2]{},output=0;void* images[3]{};void* effect=nullptr;
  unsigned w=0,h=0,multiplier=2;bool pending=false;float ms=0;
+ std::uint64_t uploadRevision=0;VfgPairBinding pairBinding;
 #define FN(n) decltype(&n) n##Fn=nullptr
  FN(cuDeviceGetAttribute);FN(cuInit);FN(cuD3D11GetDevice);FN(cuDevicePrimaryCtxRetain);FN(cuDevicePrimaryCtxRelease);FN(cuCtxSetCurrent);
  FN(cuStreamCreate);FN(cuStreamDestroy);FN(cuStreamSynchronize);FN(cuMemAlloc);FN(cuMemFree);FN(cuMemcpyHtoD);
@@ -74,12 +76,19 @@ void Vfg::initialize(ID3D11Device* device,ID3D11Texture2D* texture,unsigned w,un
  a.cv(a.setImage(a.effect,"SrcImage0",a.images[0]),"Input A");a.cv(a.setImage(a.effect,"SrcImage1",a.images[1]),"Input B");
  a.cv(a.load(a.effect),"Load VFG model");a.cv(a.setImage(a.effect,"DstImage0",a.images[2]),"Output");a.cv(a.setU32(a.effect,"FrameMultiplier",2),"2x mode");p=std::move(q);
 }
-void Vfg::upload(const unsigned char* pixels,unsigned i){auto& a=*p;a.cu(a.cuMemcpyHtoDFn(a.inputs[i],pixels,size_t(a.w)*a.h*4),"Upload CUDA input");}
+void Vfg::upload(const unsigned char* pixels,unsigned i){auto& a=*p;if(i>1||a.pending)throw std::runtime_error("Invalid or busy VFG upload");a.cu(a.cuMemcpyHtoDFn(a.inputs[i],pixels,size_t(a.w)*a.h*4),"Upload CUDA input");++a.uploadRevision;}
 void Vfg::generate(unsigned current,bool cut,unsigned index,unsigned multiplier){auto& a=*p;
- if(multiplier<2||multiplier>4||index<1||index>=multiplier)throw std::runtime_error("Invalid VFG temporal position");
+ if(current>1||a.pending||multiplier<2||multiplier>4||index<1||index>=multiplier)throw std::runtime_error("Invalid or busy VFG temporal position");
  if(a.multiplier!=multiplier){a.cv(a.setU32(a.effect,"FrameMultiplier",multiplier),"Frame multiplier");a.multiplier=multiplier;}
- a.cv(a.setImage(a.effect,"SrcImage0",a.images[1-current]),"Previous");a.cv(a.setImage(a.effect,"SrcImage1",a.images[current]),"Current");
- a.cv(a.setU32(a.effect,"ShotChange",cut?1:0),"Cut");a.cv(a.setU32(a.effect,"FrameIndex",index),"Temporal position");
+ bool newPair=a.pairBinding.needs(a.uploadRevision,current,cut,multiplier,index);
+#ifdef FRAMELAB_VFG_REBIND_EACH_OUTPUT
+ newPair=true; // Offline benchmark baseline only; reproduces preview.6 integration.
+#endif
+ if(newPair){
+  a.cv(a.setImage(a.effect,"SrcImage0",a.images[1-current]),"Previous");a.cv(a.setImage(a.effect,"SrcImage1",a.images[current]),"Current");
+  a.cv(a.setU32(a.effect,"ShotChange",cut?1:0),"Cut");a.pairBinding.bound(a.uploadRevision,current,cut,multiplier);
+ }
+ a.cv(a.setU32(a.effect,"FrameIndex",index),"Temporal position");
  a.cu(a.cuGraphicsMapResourcesFn(1,&a.resource,a.stream),"Map output");
  a.cu(a.cuEventRecordFn(a.first,a.stream),"Start GPU timer");a.cv(a.run(a.effect,1),"Run VFG");
  CUarray array=nullptr;a.cu(a.cuGraphicsSubResourceGetMappedArrayFn(&array,a.resource,0,0),"Output array");

@@ -10,6 +10,7 @@ ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT / 'deps/python'))
 import numpy as np
 from PIL import Image, ImageDraw, ImageFont
+from comparison_crops import crop_boxes
 
 
 def digest(path):
@@ -32,6 +33,7 @@ def main():
     settings = json.loads((take / 'session.json').read_text())
     settings.update(json.loads((take / 'capture-settings.json').read_text()))
     multiplier = int(settings['multiplier'])
+    crops = crop_boxes(settings['width'], settings['height'])
     backend = settings['backend']
     if args.start < .1 or args.seconds <= 0 or args.slowdown < 1 or args.start + args.seconds > audit['result']['duration_seconds']:
         raise ValueError('Choose a positive segment inside the complete recording, after the startup boundary.')
@@ -174,22 +176,23 @@ def main():
         ims = [full_image(key) for key in keys]
         for key, im in zip(keys, ims):
             im.save(images / f'pair-{gid}_{key[0]}-{key[1]}.png')
-        for region, box in [('full', None), ('character', (960, 400, 1600, 1040)), ('hud', (1920, 1040, 2560, 1440))]:
+        for region, box in [('full', None), *crops.items()]:
             h = 360 if box is None else box[3] - box[1]
-            strip = Image.new('RGB', (1920, h + 46), '#0b1320')
+            tile_w = 640 if box is None else box[2] - box[0]
+            strip = Image.new('RGB', (3 * tile_w, h + 46), '#0b1320')
             d = ImageDraw.Draw(strip)
             for i, (key, im) in enumerate(zip(keys, ims)):
                 tile = im.resize((640, 360), Image.Resampling.LANCZOS) if box is None else im.crop(box)
-                strip.paste(tile, (640*i, 46))
+                strip.paste(tile, (tile_w*i, 46))
                 title = ('RAW A', 'GENERATED', 'RAW B')[i]
                 phase = f' t={lookup[key]["timestep"]:.2f}' if key[0] == 'G' else ''
-                d.text((640*i+12, 8), f'{title} #{key[1]}{phase} | {float(m["time_s"]):.3f}s', font=small, fill='#54dfbc' if i==1 else 'white')
+                d.text((tile_w*i+12, 8), f'{title} #{key[1]}{phase} | {float(m["time_s"]):.3f}s', font=small, fill='#54dfbc' if i==1 else 'white')
             strip.save(images / f'pair-{gid}_{region}.png')
         samples.append({'generated_id': gid, 'source_A': int(m['A']), 'source_B': int(m['B']),
                         'available_time_s': float(m['time_s']), 'timestep': lookup['G', gid]['timestep'],
                         'exact_A': m['exact_A'] == 'True', 'exact_B': m['exact_B'] == 'True',
                         'full_images': [f'images/pair-{gid}_{key[0]}-{key[1]}.png' for key in keys],
-                        'crops': {'character_xyxy': [960,400,1600,1040], 'hud_xyxy': [1920,1040,2560,1440]}})
+                        'crops': {f'{name}_xyxy': list(box) for name, box in crops.items()}})
     for name in ('source-timeline.jpg', 'cadence.png'):
         shutil.copy2(audit_dir / name, images / name)
     screenshot = ROOT / 'docs/images/framelab-live-ui.png'
@@ -240,7 +243,7 @@ def main():
                'exact_endpoint_copies': copies, 'new_vs_endpoints_percent': new/comparable*100,
                'windows_confirmations': confirmation_summary,
                'selected_window': selected_window, 'clips': clip_meta, 'samples': samples,
-               'build_provenance': 'pacing_version=2 recorded by app; no commit or executable hash stored at capture time.',
+               'build_provenance': f'pacing_version={settings.get("pacing_version", "unknown")} recorded by app; no commit or executable hash stored at capture time.',
                'limits': audit['limitations'] + ['Source-aligned clip retimes stored images to source A/B plus the recorded timestep; use recorded-submissions clip for measured timing. Captured RAW frames skipped by the generator can also appear in this reconstruction.',
                    'The application screenshot illustrates the UI from the older 2x session; its settings and counters do not describe this take.',
                    'No GPU utilization, GPU execution time or physical monitor cadence time series was stored with this take.',

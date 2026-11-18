@@ -1,26 +1,37 @@
-"""Build a small README GIF from the already verified source-aligned 2x movie.
+"""Build a small README GIF from a verified source-aligned comparison movie.
 
 Only select, resize, palette-quantize and retime existing frames. No interpolation.
 The frame map identifies the exact source movie frame and recorded image IDs.
 """
 from pathlib import Path
-import csv, hashlib, json, subprocess, sys
+import argparse, csv, hashlib, json, subprocess, sys
 
 ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT/'deps/python'))
 from PIL import Image, ImageDraw, ImageFont
 
 def main():
-    folder = ROOT/'release-assets/analysis-15s-82183953'
-    source = folder/'analysis-15s-82183953_source-aligned_3s_4x-slow.mp4'
+    parser = argparse.ArgumentParser(description=__doc__)
+    parser.add_argument('--recording-id', default='82183953')
+    parser.add_argument('--source-start', type=float, default=4.1)
+    args = parser.parse_args()
+    rid = 'analysis-15s-' + args.recording_id
+    folder = ROOT / 'release-assets' / rid
+    source = folder / f'{rid}_source-aligned_3s_4x-slow.mp4'
+    settings = json.loads((folder / 'session.json').read_text())
+    multiplier = int(settings['multiplier'])
     source_map = list(csv.DictReader(source.with_suffix('.csv').open()))
     ffmpeg = next((ROOT/'deps/python/imageio_ffmpeg/binaries').glob('ffmpeg*.exe'))
-    output = ROOT/'docs/images/framelab-2x-slow-comparison.gif'
+    output = ROOT / f'docs/images/framelab-{multiplier}x-slow-comparison.gif'
     frame_map_path = output.with_name(output.stem+'-frames.csv')
     width, picture_h, header_h, footer_h = 768, 216, 48, 34
     height = picture_h + header_h + footer_h
-    # Original source time 4.1..5.1 s = movie frames 264..503 (movie is already 4x slow).
-    first, last, gif_fps, gif_frames = 264, 503, 40, 240
+    # One second of the original source. The movie is already slowed 4x at 60fps.
+    selected = [n for n, row in enumerate(source_map)
+                if args.source_start - 1e-7 <= float(row['capture_clock_s']) < args.source_start + 1 - 1e-7]
+    if len(selected) != 240 or selected != list(range(selected[0], selected[-1] + 1)):
+        raise ValueError('Requested one-second source interval is not fully available')
+    first, last, gif_fps, gif_frames = selected[0], selected[-1], 40, 240
     # Retain every movie frame. Additional 1.5x slowdown makes one second last six.
     picked = [first+n for n in range(gif_frames)]
     decoder = subprocess.Popen([str(ffmpeg), '-v', 'error', '-threads', '2', '-i', str(source),
@@ -36,7 +47,7 @@ def main():
     canvas = Image.new('RGB', (width,height), '#0b1320')
     draw = ImageDraw.Draw(canvas)
     draw.text((14,9), 'RAW / ORIGINAL', font=font, fill='white')
-    draw.text((width//2+14,9), 'FRAME GEN 2x', font=font, fill='#54dfbc')
+    draw.text((width//2+14,9), f'FRAME GEN {multiplier}x', font=font, fill='#54dfbc')
     draw.text((14,height-28), '6x slow motion  |  same source time  |  NVIDIA VFG Medium', font=small, fill='#dce6f5')
     entries = []
     next_output = 0
@@ -73,11 +84,11 @@ def main():
     source_keys={(r['right_kind'],r['right_id']) for r in source_map[first:last+1]}
     selected_keys={(r['right_kind'],r['right_id']) for r in entries}
     assert source_keys <= selected_keys, 'GIF sampling skipped a source-aligned output image ID'
-    meta={'recording_id':'analysis-15s-82183953','settings_id':'analysis-15s-82183953_settings',
-        'backend':'NVIDIA VFG','quality':'Medium','generation_multiplier':2,
-        'input_dimensions':[2560,1440],'source_movie':source.name,
+    meta={'recording_id':rid,'settings_id':settings['settings_id'],
+        'backend':settings['backend'],'quality':['Low','Medium','High'][settings['quality']],'generation_multiplier':multiplier,
+        'input_dimensions':[settings['width'],settings['height']],'source_movie':source.name,
         'source_movie_sha256':hashlib.sha256(source.read_bytes()).hexdigest(),
-        'source_interval_s':[4.1,5.1],'slowdown':6,'duration_s':6,'gif_fps':gif_fps,
+        'source_interval_s':[args.source_start,args.source_start+1],'slowdown':6,'duration_s':6,'gif_fps':gif_fps,
         'gif_frames':gif_frames,'gif_delays_ms':sorted(set(delays)),'gif_size':[width,height],
         'gif_bytes':output.stat().st_size,'gif_sha256':hashlib.sha256(output.read_bytes()).hexdigest(),
         'frame_map':frame_map_path.name,'all_source_output_ids_retained':True,
@@ -87,7 +98,7 @@ def main():
         'limits':['Source-aligned reconstruction removes scheduling delay and does not demonstrate input lag or physical scanout.',
                   'GIF reduces spatial and color detail; consult original PNGs/MP4s for artifact inspection.']}
     output.with_suffix('.json').write_text(json.dumps(meta,indent=2),encoding='utf-8')
-    qa=ROOT/'analysis-output/readme-gif';qa.mkdir(parents=True,exist_ok=True)
+    qa=ROOT/f'analysis-output/readme-gif-{multiplier}x';qa.mkdir(parents=True,exist_ok=True)
     gif.seek(85);gif.convert('RGB').save(qa/'decoded-frame-85.png')
     print(json.dumps(meta,indent=2),flush=True)
 

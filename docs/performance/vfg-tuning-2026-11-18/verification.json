@@ -1,0 +1,75 @@
+{
+  "application_sha256": "b5d5b038cc893515397654622fbf09341f13e979fb3a92dc31af2b7b10a7977a",
+  "ctest": "5/5 passed",
+  "capture_core": "passed",
+  "gpu_phases": [
+    {
+      "name": "vfg-verification-2-1",
+      "passed": true,
+      "previous_center": 399.5,
+      "current_center": 463.5,
+      "expected_position": 431.5,
+      "generated_center": 431.715,
+      "different_from_linear_blend_sum": 2174660.0,
+      "gpu_ms": 3.53165
+    },
+    {
+      "name": "vfg-verification-3-1",
+      "passed": true,
+      "previous_center": 399.5,
+      "current_center": 463.5,
+      "expected_position": 420.833,
+      "generated_center": 421.067,
+      "different_from_linear_blend_sum": 1951040.0,
+      "gpu_ms": 4.62691
+    },
+    {
+      "name": "vfg-verification-3-2",
+      "passed": true,
+      "previous_center": 399.5,
+      "current_center": 463.5,
+      "expected_position": 442.167,
+      "generated_center": 441.954,
+      "different_from_linear_blend_sum": 1949870.0,
+      "gpu_ms": 2.30038
+    },
+    {
+      "name": "vfg-verification-4-1",
+      "passed": true,
+      "previous_center": 399.5,
+      "current_center": 463.5,
+      "expected_position": 415.5,
+      "generated_center": 416.212,
+      "different_from_linear_blend_sum": 1665430.0,
+      "gpu_ms": 3.35053
+    },
+    {
+      "name": "vfg-verification-4-2",
+      "passed": true,
+      "previous_center": 399.5,
+      "current_center": 463.5,
+      "expected_position": 431.5,
+      "generated_center": 431.715,
+      "different_from_linear_blend_sum": 2174660.0,
+      "gpu_ms": 2.11715
+    },
+    {
+      "name": "vfg-verification-4-3",
+      "passed": true,
+      "previous_center": 399.5,
+      "current_center": 463.5,
+      "expected_position": 447.5,
+      "generated_center": 446.888,
+      "different_from_linear_blend_sum": 1671690.0,
+      "gpu_ms": 2.20666
+    }
+  ],
+  "recording_test": "900 RAW + 2700 generated, all bytes equal, zero drops at 64x36",
+  "video": {
+    "frames": 720,
+    "duration_s": 12,
+    "full_decode": "passed"
+  },
+  "visual_images_verified": 36,
+  "timing_note": "Tables use development A/B builds of the same scheduler. Final executable additionally includes preset labels and replay/recording metadata; final 2x and VSync validation used that UI."
+}

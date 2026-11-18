@@ -4,7 +4,7 @@
 
 ## 1. Download the ready-made app
 
-[Download FrameLab for Windows](https://github.com/tomik520i/FrameLab/releases/download/v0.2.0-preview.6/FrameLab-0.2.0-preview.6-windows-x64.zip) from the [GitHub release](https://github.com/tomik520i/FrameLab/releases/tag/v0.2.0-preview.6). Avoid **Source code** if you just want to run the app.
+[Download FrameLab for Windows](https://github.com/tomik520i/FrameLab/releases/download/v0.2.0-preview.7/FrameLab-0.2.0-preview.7-windows-x64.zip) from the [GitHub release](https://github.com/tomik520i/FrameLab/releases/tag/v0.2.0-preview.7). Avoid **Source code** if you just want to run the app.
 
 Right-click the ZIP → **Extract all**. Keep the extracted files together in a writable folder. Windows x64, an NVIDIA GPU and a DirectShow-compatible capture source are required. Only RTX 5070 Ti + AVerMedia GC573 were hardware-tested here. Download GPU drivers from [NVIDIA](https://www.nvidia.com/Download/index.aspx) and the capture-card driver from its manufacturer ([AVerMedia downloads](https://www.avermedia.com/support/download)).
 

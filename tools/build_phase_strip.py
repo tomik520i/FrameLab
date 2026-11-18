@@ -5,6 +5,7 @@ ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT/'deps/python'))
 import numpy as np
 from PIL import Image, ImageDraw, ImageFont
+from comparison_crops import crop_boxes
 
 def main():
     ap = argparse.ArgumentParser(description=__doc__)
@@ -21,18 +22,20 @@ def main():
     out = ROOT/'release-assets'/take.name/'images'
     out.mkdir(parents=True, exist_ok=True)
     font = ImageFont.truetype('C:/Windows/Fonts/segoeui.ttf', 23)
-    box = (960, 400, 1600, 1040)
+    box = crop_boxes(int(selected['width']), int(selected['height']))['character']
     assets = []
     for region in ('full','character'):
-        sheet = Image.new('RGB', (640*len(seq), 406 if region=='full' else 686), '#0b1320')
+        tile_w = 640 if region == 'full' else box[2] - box[0]
+        tile_h = 360 if region == 'full' else box[3] - box[1]
+        sheet = Image.new('RGB', (tile_w*len(seq), tile_h + 46), '#0b1320')
         d = ImageDraw.Draw(sheet)
         for i,r in enumerate(seq):
             a = maps[r['kind']][int(r['byte_offset']):int(r['byte_offset'])+int(r['byte_count'])].reshape(int(r['height']),int(r['width']),4)
             im = Image.fromarray(a[:,:,2::-1].copy())
             im = im.resize((640,360),Image.Resampling.LANCZOS) if region=='full' else im.crop(box)
-            sheet.paste(im,(640*i,46))
+            sheet.paste(im,(tile_w*i,46))
             label = f"G #{r['id']} t={float(r['timestep']):.2f}" if r['kind']=='G' else f"RAW {'A' if i==0 else 'B'} #{r['id']}"
-            d.text((640*i+12,8),label,font=font,fill='#54dfbc' if r['kind']=='G' else 'white')
+            d.text((tile_w*i+12,8),label,font=font,fill='#54dfbc' if r['kind']=='G' else 'white')
         name = f"phases-{selected['source_A']}-{selected['source_B']}_{region}.png"
         sheet.save(out/name)
         assets.append({'file':'images/'+name,'region':region,'crop_xyxy':list(box) if region=='character' else None})

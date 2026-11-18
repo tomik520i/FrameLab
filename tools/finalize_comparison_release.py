@@ -22,14 +22,15 @@ def main():
     font = ImageFont.truetype('C:/Windows/Fonts/segoeui.ttf', 20)
     s = next(s for s in data['samples'] if not s['exact_A'] and not s['exact_B'])
     a, g, b = [Image.open(out / name).convert('RGB') for name in s['full_images']]
-    box = (960, 400, 1600, 1040)
+    box = tuple(s['crops']['character_xyxy'])
+    tile_w, tile_h = box[2] - box[0], box[3] - box[1]
     phase = float(s['timestep'])
     blend = Image.blend(a, b, phase)
-    sheet = Image.new('RGB', (2560, 686), '#0b1320')
+    sheet = Image.new('RGB', (4 * tile_w, tile_h + 46), '#0b1320')
     d = ImageDraw.Draw(sheet)
     for i, (im, label) in enumerate([(a, 'RAW A'), (blend, f'LINEAR BLEND t={phase:.2f}'), (g, f'ACTUAL VFG t={phase:.2f}'), (b, 'RAW B')]):
-        sheet.paste(im.crop(box), (i*640, 46))
-        d.text((i*640+12, 8), label, fill='#54dfbc' if i==2 else 'white', font=font)
+        sheet.paste(im.crop(box), (i*tile_w, 46))
+        d.text((i*tile_w+12, 8), label, fill='#54dfbc' if i==2 else 'white', font=font)
     sheet.save(images / 'vfg-versus-linear-blend.png')
     aa = np.asarray(g.crop(box)).astype(np.int16)
     bb = np.asarray(blend.crop(box)).astype(np.int16)

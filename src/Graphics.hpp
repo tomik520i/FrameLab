@@ -18,6 +18,7 @@ struct Graphics {
  ComPtr<IDXGISwapChain2> swap;
  ComPtr<ID3D11RenderTargetView> target;
  HANDLE waitable=nullptr; bool tearing=false;
+ void initDevice();
  void init(HWND window);
  void resize(unsigned w,unsigned h);
  void begin();

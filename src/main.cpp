@@ -1,5 +1,6 @@
 #include "Graphics.hpp"
 #include "FramePacer.hpp"
+#include "RecordedReplay.hpp"
 #include "DisplayVerification.hpp"
 #include "Localization.hpp"
 #include "FrameGenerator.hpp"
@@ -154,11 +155,16 @@ int WINAPI wWinMain(HINSTANCE instance,HINSTANCE,LPWSTR cmd,int){
  wchar_t exe[MAX_PATH];GetModuleFileNameW(nullptr,exe,MAX_PATH);const auto root=std::filesystem::path(exe).parent_path();SetCurrentDirectoryW(root.c_str());
  std::filesystem::create_directories(root/L"logs");auto session=std::to_string(std::chrono::system_clock::to_time_t(std::chrono::system_clock::now()));
  trace.open(root/L"logs"/(session+".log"));std::ofstream csv(root/L"logs"/(session+".csv"));
- csv<<"elapsed_s,raw_input_fps,content_change_fps,content_submissions_fps,present_calls_fps,generated_fps,callback_to_present_mean_ms,callback_to_present_p95_ms,vfg_gpu_ms,gpu_total_percent,vram_total_mb,mailbox_drops,invalid_samples,os_observed_content_fps,presentation_queue,presentation_drops,os_observed_generated_fps,display_mode_hz\n";
+ csv<<"elapsed_s,raw_input_fps,content_change_fps,content_submissions_fps,present_calls_fps,generated_fps,callback_to_present_mean_ms,callback_to_present_p95_ms,vfg_gpu_ms,gpu_total_percent,vram_total_mb,mailbox_drops,invalid_samples,os_observed_content_fps,presentation_queue,presentation_drops,os_observed_generated_fps,display_mode_hz,processed_pair_gap_ms\n";
  CoInitializeEx(nullptr,COINIT_MULTITHREADED);timeBeginPeriod(1);SetProcessDpiAwarenessContext(DPI_AWARENESS_CONTEXT_PER_MONITOR_AWARE_V2);
  int result=0;
  try{
   std::wstring args=cmd;
+  // Diagnostic A/B switch: retain the previous display-bound work loop.
+  const bool legacyOutputWait=args.find(L"--legacy-output-wait")!=std::wstring::npos;
+  int argumentCount=0;auto argumentValues=CommandLineToArgvW(GetCommandLineW(),&argumentCount);std::vector<std::wstring> arguments;
+  if(argumentValues){for(int i=1;i<argumentCount;++i)arguments.emplace_back(argumentValues[i]);LocalFree(argumentValues);}
+  auto argument=[&](const wchar_t* key,std::wstring fallback=L""){for(size_t i=0;i+1<arguments.size();++i)if(arguments[i]==key)return arguments[i+1];return fallback;};
   if(args.find(L"--verify-core")!=std::wstring::npos){verifyCaptureCore(root);timeEndPeriod(1);CoUninitialize();return 0;}
   if(args.find(L"--verify-devices")!=std::wstring::npos){std::ofstream out(root/L"logs"/L"device-modes.json");out<<"[";bool first=true;for(auto& d:enumerateVideoCaptureDevices()){if(!first)out<<",";first=false;out<<"{\"name\":"<<std::quoted(d.friendlyName)<<",\"modes\":[";bool f=true;for(auto m:enumerateVideoModes(d.monikerDisplayName)){if(!f)out<<",";f=false;out<<"{\"width\":"<<m.width<<",\"height\":"<<m.height<<",\"fps\":"<<m.frameRate<<",\"min_interval_100ns\":"<<m.minFrameInterval<<",\"max_interval_100ns\":"<<m.maxFrameInterval<<"}";}out<<"]}";}out<<"]";timeEndPeriod(1);CoUninitialize();return 0;}
   bool demoRequested=args.find(L"--demo")!=std::wstring::npos,captureRequested=args.find(L"--capture")!=std::wstring::npos;
@@ -177,6 +183,13 @@ int WINAPI wWinMain(HINSTANCE instance,HINSTANCE,LPWSTR cmd,int){
   style.Colors[ImGuiCol_WindowBg]={.035f,.05f,.078f,1};style.Colors[ImGuiCol_Button]={.10f,.21f,.26f,1};style.Colors[ImGuiCol_ButtonHovered]={.13f,.35f,.38f,1};style.Colors[ImGuiCol_CheckMark]={.25f,.88f,.75f,1};style.Colors[ImGuiCol_FrameBg]={.075f,.105f,.15f,1};
   ImGui_ImplWin32_Init(window);ImGui_ImplDX11_Init(g.device.Get(),g.context.Get());ShowWindow(window,SW_SHOW);UpdateWindow(window);
   auto devices=enumerateVideoCaptureDevices();int selected=0;for(int i=0;i<int(devices.size());++i){log("Device: "+devices[i].friendlyName+" "+devices[i].monikerDisplayName);}
+  if(auto requestedDevice=argument(L"--capture-device");!requestedDevice.empty()){
+   const int bytes=WideCharToMultiByte(CP_UTF8,0,requestedDevice.data(),int(requestedDevice.size()),nullptr,0,nullptr,nullptr);
+   std::string name(bytes,'\0');WideCharToMultiByte(CP_UTF8,0,requestedDevice.data(),int(requestedDevice.size()),name.data(),bytes,nullptr,nullptr);
+   auto found=std::find_if(devices.begin(),devices.end(),[&](const auto& device){return device.friendlyName==name;});
+   if(found==devices.end())throw std::runtime_error("Requested capture device not found: "+name);
+   selected=int(found-devices.begin());
+  }
   std::vector<VideoModeInfo> modes,resolutions;double requestedFps=0;
   auto refreshModes=[&]{modes=devices.empty()?std::vector<VideoModeInfo>{}:enumerateVideoModes(devices[selected].monikerDisplayName);resolutions.clear();for(auto m:modes){bool found=false;for(auto r:resolutions)if(r.width==m.width&&r.height==m.height)found=true;if(!found)resolutions.push_back(m);}requestedFps=0;};refreshModes();
   auto outputs=enumerateAudioOutputDevices();outputs.insert(outputs.begin(),{"","Windows default output"});
@@ -192,8 +205,8 @@ int WINAPI wWinMain(HINSTANCE instance,HINSTANCE,LPWSTR cmd,int){
   struct QueuedImage {Texture image;bool generated;uint64_t id,a,b;double position,sourceTime;};
   std::vector<Texture> imagePool;
   std::deque<QueuedImage> readyImages; FramePacer pacer;Texture presentedImage;
-  uint64_t presentationDrops=0; double displayedAt=0;
-  std::ofstream pacingLog;if(args.find(L"--verify-pacing")!=std::wstring::npos){pacingLog.open(root/L"logs"/(session+"-pacing.csv"));pacingLog<<"time_s,generated,source_id,queue\n";}
+  uint64_t presentationDrops=0; double displayedAt=0,lastDraw=-1;
+  std::ofstream pacingLog;if(args.find(L"--verify-pacing")!=std::wstring::npos){pacingLog.open(root/L"logs"/(session+"-pacing.csv"));pacingLog<<"time_s,generated,source_id,queue,source_A,source_B,phase,callback_to_present_ms\n";}
   auto enqueueImage=[&](Texture& texture,bool generatedFrame,uint64_t id,uint64_t a,uint64_t b,double position,double sourceTime){
    // Bounded latency: discard stale output when the display cannot keep up.
    if(readyImages.size()>=6){presentationDrops+=readyImages.size();readyImages.clear();}
@@ -223,7 +236,22 @@ int WINAPI wWinMain(HINSTANCE instance,HINSTANCE,LPWSTR cmd,int){
   auto startCapture=[&]{stopSource();if(devices.empty()){status="No DirectShow capture device found.";return;}try{DirectShowCapture::Options o;o.deviceMoniker=devices[selected].monikerDisplayName;o.enableAudio=true;o.audioOutputMoniker=outputs[audioOutput].monikerDisplayName;o.audioVolume=audioVolume;o.audioMuted=audioMuted;if(resolution>0&&resolution<=int(resolutions.size())){auto mode=resolutions[resolution-1];o.desiredWidth=mode.width;o.desiredHeight=mode.height;o.desiredFrameRate=requestedFps;}
     capture.start([&](const auto& f){mailbox.ingest(f);},o);live=true;status="Capture running: "+devices[selected].friendlyName;log(status);
    }catch(const std::exception& e){status=e.what();log(status);}};
-  if(args.find(L"--sample")!=std::wstring::npos)startSample();else if(demoRequested)startDemo();else if(captureRequested)startCapture();
+  auto startRecordedReplay=[&]{
+   stopSource();auto replay=std::make_shared<RecordedReplay>();
+   replay->load(argument(L"--replay-recording"),std::stod(argument(L"--replay-from",L"9.5")),std::stod(argument(L"--replay-length",L"3")));
+   isDemo=true;live=true;demoRun=true;status="Recorded RAW replay | original arrival timing | video only";
+   log("Recorded RAW replay: "+std::filesystem::path(argument(L"--replay-recording")).string()+" frames="+std::to_string(replay->frames.size())+" legacy_wait="+std::to_string(legacyOutputWait));
+   demo=std::jthread([&,replay](std::stop_token token){auto begin=Clock::now();size_t cycle=0;
+    while(demoRun&&!token.stop_requested()){
+     for(const auto& frame:replay->frames){
+      auto deadline=begin+std::chrono::duration_cast<Clock::duration>(std::chrono::duration<double>(cycle*replay->duration+frame.time));
+      std::this_thread::sleep_until(deadline);if(!demoRun||token.stop_requested())return;
+      DirectShowCapture::Frame f{};f.width=f.sampleWidth=replay->width;f.height=f.sampleHeight=replay->height;f.stride=replay->width*4;f.data=frame.pixels.data();f.dataSize=frame.pixels.size();mailbox.ingest(f);
+     }++cycle;
+    }
+   });
+  };
+  if(!argument(L"--replay-recording").empty())startRecordedReplay();else if(args.find(L"--sample")!=std::wstring::npos)startSample();else if(demoRequested)startDemo();else if(captureRequested)startCapture();
   log("FrameLab started GPU="+std::string(gpu.name)+" quality="+std::to_string(quality)+" vsync="+std::to_string(vsync));
   auto renderFrame=[&]{
    if(frameBusy||!running)return;
@@ -231,13 +259,13 @@ int WINAPI wWinMain(HINSTANCE instance,HINSTANCE,LPWSTR cmd,int){
    if(stopAfter>0&&now()-start>stopAfter){running=false;return;}
    if(resized){resized=false;const auto rw=resizeW,rh=resizeH;if(rw&&rh)g.resize(rw,rh);}
    if(IsIconic(window))return;
-   if(g.waitable)WaitForSingleObject(g.waitable,20);
+   if(legacyOutputWait&&g.waitable)WaitForSingleObject(g.waitable,20);
    double t=now();analysis.poll(g);analysis.tick();if(analysisExporter&&WaitForSingleObject(analysisExporter,0)==WAIT_OBJECT_0){CloseHandle(analysisExporter);analysisExporter=nullptr;}
    if(!analysis.active&&!analysis.writing&&!analysis.folder.empty()&&analysis.folder!=exportedAnalysis&&std::filesystem::exists(analysis.folder/L"result.json")){
     std::wstring command=L"python \""+(root.parent_path()/L"tools"/L"export_analysis.py").wstring()+L"\" \""+analysis.folder.wstring()+L"\"";STARTUPINFOW si{sizeof(si)};si.dwFlags=STARTF_USESHOWWINDOW;si.wShowWindow=SW_HIDE;PROCESS_INFORMATION pi{};
     if(CreateProcessW(nullptr,command.data(),nullptr,nullptr,FALSE,CREATE_NO_WINDOW,nullptr,root.parent_path().c_str(),&si,&pi)){CloseHandle(pi.hThread);analysisExporter=pi.hProcess;exportedAnalysis=analysis.folder;}else{status="Clip exporter could not start: "+std::to_string(GetLastError());exportedAnalysis=analysis.folder;}
    }
-   auto startAnalysis=[&]{try{if(analysisExporter){status="Wait for the previous clips to finish exporting";return;}if(!live||!w||!h){status="Start a source before recording";return;}analysis.backendName=vfg.name();analysis.start(root,isDemo?"Test/file source":devices[selected].friendlyName,w,h,quality,multiplier,automaticCuts&&!vfg.useOptical,vsync,mailbox.dedup,mailbox.threshold,gpu.name,fg,inFps,contentFps);}catch(const std::exception& e){status=e.what();analysis.startError(status);log("Recording start failed: "+status);}};
+   auto startAnalysis=[&]{try{if(analysisExporter){status="Wait for the previous clips to finish exporting";return;}if(!live||!w||!h){status="Start a source before recording";return;}analysis.backendName=vfg.name();analysis.outputScheduler=legacyOutputWait?"legacy-display-wait":"independent-gpu-pump-content-deadline";analysis.start(root,isDemo?"Test/file source":devices[selected].friendlyName,w,h,quality,multiplier,automaticCuts&&!vfg.useOptical,vsync,mailbox.dedup,mailbox.threshold,gpu.name,fg,inFps,contentFps);}catch(const std::exception& e){status=e.what();analysis.startError(status);log("Recording start failed: "+status);}};
    if(!autoAnalysis&&t-start>3&&args.find(L"--record-analysis")!=std::wstring::npos&&w&&h){startAnalysis();autoAnalysis=true;}
 
    auto error=capture.consumeLastError();if(!error.empty()){status=error;log(status);}
@@ -264,7 +292,18 @@ int WINAPI wWinMain(HINSTANCE instance,HINSTANCE,LPWSTR cmd,int){
      havePrevious=true;previousArrival=packet.received;
     }
    }catch(const std::exception& e){status=std::string("VFG disabled: ")+e.what();log(status);fg=false;initFailed=true;pending=false;readyImages.clear();vfg.reset();vfgInitialized=false;havePrevious=false;displayed=originals[current].view.Get();}
+   // Keep advancing completed GPU work while the previous presentation is
+   // waiting for the display. Dequeue only when a new Present is possible.
+   // Polling is bounded to 1 ms and the existing output queue remains bounded.
    pacer.setCadence(mailbox.sourceInterval.load(),fg&&vfgInitialized?multiplier:1);
+   if(!legacyOutputWait){
+    const auto time=now();const bool imageDue=!readyImages.empty()&&(!fg||pacer.due(time));
+    // A repeated video image needs no redraw. Keep controls responsive at 60 Hz,
+    // but leave the rest of the CPU/GPU budget for new interpolation phases.
+    if((!imageDue&&time-lastDraw<1./60)||(g.waitable&&WaitForSingleObject(g.waitable,0)!=WAIT_OBJECT_0)){
+     std::this_thread::sleep_for(std::chrono::milliseconds(1));return;
+    }
+   }
    if(!readyImages.empty()&&(!fg||pacer.due(now()))){
     auto q=std::move(readyImages.front());readyImages.pop_front();
     g.context->CopyResource(presentedImage.texture.Get(),q.image.texture.Get());displayed=presentedImage.view.Get();
@@ -279,7 +318,7 @@ int WINAPI wWinMain(HINSTANCE instance,HINSTANCE,LPWSTR cmd,int){
     confirmedGenFps=displayVerification.available?float((displayVerification.generated-lastConfirmedGen)/elapsed):-1;
     lastConfirmedContent=displayVerification.content;lastConfirmedGen=displayVerification.generated;
     inputHistory.add(inFps);uniqueHistory.add(contentFps);outputHistory.add(outFps);latencyHistory.add(std::max(0.f,latency));gpuTimeHistory.add(std::max(0.f,gpuMs));utilHistory.add(std::max(0.f,gpu.utilization));
-    csv<<std::fixed<<std::setprecision(3)<<t-start<<','<<inFps<<','<<contentFps<<','<<outFps<<','<<presentFps<<','<<genFps<<','<<latency<<','<<p95<<','<<gpuMs<<','<<gpu.utilization<<','<<gpu.memoryMB<<','<<mailbox.dropped<<','<<mailbox.invalid<<','<<dxgiRate<<','<<readyImages.size()<<','<<presentationDrops<<','<<confirmedGenFps<<','<<displayVerification.displayHz<<std::endl;lastStats=t;
+    csv<<std::fixed<<std::setprecision(3)<<t-start<<','<<inFps<<','<<contentFps<<','<<outFps<<','<<presentFps<<','<<genFps<<','<<latency<<','<<p95<<','<<gpuMs<<','<<gpu.utilization<<','<<gpu.memoryMB<<','<<mailbox.dropped<<','<<mailbox.invalid<<','<<dxgiRate<<','<<readyImages.size()<<','<<presentationDrops<<','<<confirmedGenFps<<','<<displayVerification.displayHz<<','<<pairInterval*1000<<std::endl;lastStats=t;
    }
    ImGui_ImplDX11_NewFrame();ImGui_ImplWin32_NewFrame();ImGui::NewFrame();ImVec2 size=io.DisplaySize;float panel=showPanel?std::min(czech?490.f:430.f,size.x*.65f):0.f;
    if(imageOnly){
@@ -324,6 +363,13 @@ int WINAPI wWinMain(HINSTANCE instance,HINSTANCE,LPWSTR cmd,int){
     if(!analysis.folder.empty()){auto clipState=!std::filesystem::exists(analysis.folder)?"Recording folder no longer exists":std::filesystem::exists(analysis.folder/L"clips.json")?"Clips ready":std::filesystem::exists(analysis.folder/L"export-error.txt")?"Clip export failed; see export-error.txt":analysis.active||analysis.writing?"Collecting source frames":"Creating clips...";ImGui::TextDisabled("%s | RAW %llu / VFG %llu",tr(clipState),(unsigned long long)analysis.rawCount.load(),(unsigned long long)analysis.genCount.load());}
     int backend=vfg.useOptical?1:0;bool change=ImGui::Combo(tr("Backend"),&backend,"NVIDIA VFG (RTX 40/50)\000D3D11 Optical Flow (experimental)\000\000");if(change){resetPipeline();vfg.useOptical=backend==1;}
     change|=ImGui::Checkbox(tr("Frame generation"),&fg);ImGui::SameLine();ImGui::SetNextItemWidth(135);ImGui::BeginDisabled(vfg.useOptical);change|=ImGui::Combo("##quality",&quality,czech?"Nízká\000Střední\000Vysoká\000\000":"Low\000Medium\000High\000\000");ImGui::EndDisabled();int multiplierChoice=multiplier-2;change|=ImGui::Combo(tr("Multiplier"),&multiplierChoice,"2x\0003x\0004x\000\000");multiplier=multiplierChoice+2;if(multiplier>2)ImGui::TextWrapped(tr("Experimental: 3x/4x can increase artifacts and latency."));ImGui::BeginDisabled(vfg.useOptical);change|=ImGui::Checkbox(tr("Automatic scene-cut detection"),&automaticCuts);ImGui::EndDisabled();if(vfg.useOptical)ImGui::TextWrapped(tr("Experimental optical flow: no AI model or automatic cut detection."));if(change){resetPipeline();status=fg?"VFG enabled. Waiting for a new source frame.":"Native preview; VFG disabled.";}
+    if(multiplier>2&&!vfg.useOptical){
+     ImGui::TextWrapped(tr("High is not always better. Medium favors detail; Low favors speed."));
+     bool preset=false;
+     if(ImGui::Button(tr("Balanced 3x"))){multiplier=3;quality=1;preset=true;}ImGui::SameLine();
+     if(ImGui::Button(tr("Fast 4x"))){multiplier=4;quality=0;preset=true;}
+     if(preset){fg=true;automaticCuts=true;resetPipeline();status="Preset applied. Waiting for a new source frame.";}
+    }
     if(ImGui::Button(tr("Play CS:GO sample")))startSample();ImGui::SameLine();ImGui::SetNextItemWidth(120);int strideChoice=sampleStride-2;if(ImGui::Combo(tr("Next replay FPS"),&strideChoice,"30\00020\00015\000\000")){sampleStride=strideChoice+2;}
     ImGui::Text(tr("Presentation queue: %u | discarded: %llu"),unsigned(readyImages.size()),(unsigned long long)presentationDrops);
     bool dd=mailbox.dedup; if(ImGui::Checkbox(tr("Remove repeated input frames"),&dd))mailbox.dedup=dd;
@@ -352,7 +398,8 @@ int WINAPI wWinMain(HINSTANCE instance,HINSTANCE,LPWSTR cmd,int){
    }
    }
    ImGui::Render();g.begin();ImGui_ImplDX11_RenderDrawData(ImGui::GetDrawData());auto hr=g.present(inSizeMove?false:vsync);
-   if(hr==S_OK){if(newContent){pacer.presented(now());displayedAt=now();if(pacingLog)pacingLog<<std::fixed<<std::setprecision(6)<<displayedAt-start<<','<<newGenerated<<','<<displayedId<<','<<readyImages.size()<<'\n';}if(displayed)analysis.presented(displayedGenerated,displayedId,displayedA,displayedB,displayedPosition);++totalPresents;if(newContent){++totalContent;if(newGenerated)++totalGenerated;latencySamples.push_back(float((now()-displaySourceTime)*1000));}}
+   lastDraw=now();
+   if(hr==S_OK){if(newContent){pacer.presented(now());displayedAt=now();if(pacingLog)pacingLog<<std::fixed<<std::setprecision(6)<<displayedAt-start<<','<<newGenerated<<','<<displayedId<<','<<readyImages.size()<<','<<displayedA<<','<<displayedB<<','<<displayedPosition<<','<<(displayedAt-displaySourceTime)*1000<<'\n';}if(displayed)analysis.presented(displayedGenerated,displayedId,displayedA,displayedB,displayedPosition);++totalPresents;if(newContent){++totalContent;if(newGenerated)++totalGenerated;latencySamples.push_back(float((now()-displaySourceTime)*1000));}}
    else if(FAILED(hr))throw std::runtime_error("Present failed "+std::to_string(unsigned(hr)));
    if(hr==S_OK&&displayed){displayVerification.submitted(g.swap.Get(),displayedGenerated,displayedId);if(auto c=displayVerification.observe(g.swap.Get()))analysis.confirmed(c->submission.generated,c->submission.image,c->submission.present,c->refresh,c->syncRefresh,c->syncQpc);}
    newContent=false;newGenerated=false;
@@ -370,6 +417,6 @@ int WINAPI wWinMain(HINSTANCE instance,HINSTANCE,LPWSTR cmd,int){
    }
   }
   stopSource();if(analysisExporter)CloseHandle(analysisExporter);log("Finished: content="+std::to_string(totalContent)+" generated="+std::to_string(totalGenerated));ImGui_ImplDX11_Shutdown();ImGui_ImplWin32_Shutdown();ImGui::DestroyContext();graphics=nullptr;DestroyWindow(window);
- }catch(const std::exception& e){log(std::string("FATAL ")+e.what());MessageBoxA(nullptr,e.what(),"FrameLab",MB_ICONERROR);result=1;}
+ }catch(const std::exception& e){log(std::string("FATAL ")+e.what());if(std::wstring(cmd).find(L"--replay-recording")==std::wstring::npos)MessageBoxA(nullptr,e.what(),"FrameLab",MB_ICONERROR);result=1;}
  timeEndPeriod(1);CoUninitialize();return result;
 }

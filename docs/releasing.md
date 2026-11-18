@@ -10,7 +10,15 @@ GitHub requires each release asset to be below 2 GiB: https://docs.github.com/en
 
 New benchmarks should label backend, build revision, source resolution/rate, quality, multiplier, VSync, hardware, recording overhead, source/generated IDs, and whether there is held-out ground truth. Compare identical input segments and include failure examples, not just best-looking frames.
 
-## Release: 0.2.0-preview.6
+## Release: 0.2.0-preview.7
+
+Use [preview.7 release notes](release-notes-0.2.0-preview.7.md). Attach the portable/source ZIPs, both `FrameLab-112947656-comparison-example.zip` and `FrameLab-113768562-comparison-example.zip`, their standalone source-aligned 3× MP4s, `FrameLab-vfg-tuning-2026-11-18.zip`, `4x-quality-3seconds-4x-slow.mp4`, package provenance JSON and `SHA256SUMS-preview.7.txt`. The two new 3× captures are **1080p / VSync off** and **1440p combat / VSync on**, not a controlled comparison. Previous 2×/4× examples are different **1440p** runs. Preserve their historical release URLs. The README 3× GIF goes below the existing 2× GIF and keeps its own metadata/frame map.
+
+Use `tools/package.ps1 -Version 0.2.0-preview.7 -OutputDirectory dist/preview7-final` to preserve an earlier local candidate. The provenance JSON records the staged source tree and package/application hashes. Confirm the eventual release commit has that tree.
+
+Build/test before staging the exact source. Create the release as a draft, upload assets, verify server-reported SHA-256 digests/sizes against local files, check the Windows CI build, then publish the prerelease. Do not include proprietary runtime DLLs, raw recordings or personal session logs.
+
+## Earlier release: 0.2.0-preview.6
 
 Attach these assets from `dist`:
 
