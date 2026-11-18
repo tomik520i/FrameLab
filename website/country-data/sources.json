@@ -1,0 +1,31 @@
+{
+  "retrieved_utc": "2026-11-18T08:28:21.029173+00:00",
+  "attribution": "IPdeny.com country IP blocks; approximate IP registration/geolocation, not physical location.",
+  "usage": "Only CZ/SK select Czech. Other, private, invalid or unknown addresses select English.",
+  "sources": [
+    {
+      "file": "cz-ipv4.zone",
+      "url": "https://www.ipdeny.com/ipblocks/data/countries/cz.zone",
+      "networks": 1792,
+      "sha256": "b648d5748a23de74c54bdff7b172cc9e8fbc12a8e15b764dece52f9a6af9b1d4"
+    },
+    {
+      "file": "cz-ipv6.zone",
+      "url": "https://www.ipdeny.com/ipv6/ipaddresses/aggregated/cz-aggregated.zone",
+      "networks": 675,
+      "sha256": "46b2fba74a4cd0ec52f84b9a61ada3f974f4295e897ee257712322c2320f6dfc"
+    },
+    {
+      "file": "sk-ipv4.zone",
+      "url": "https://www.ipdeny.com/ipblocks/data/countries/sk.zone",
+      "networks": 450,
+      "sha256": "2cf0879eaea46614c534064a4bf7f9eb867cfb0ba146224688633076431e33fe"
+    },
+    {
+      "file": "sk-ipv6.zone",
+      "url": "https://www.ipdeny.com/ipv6/ipaddresses/aggregated/sk-aggregated.zone",
+      "networks": 147,
+      "sha256": "831c0d0e1f5d538b3c7f6ecd314b91c427a9a532cedd62a90573903ff62c864f"
+    }
+  ]
+}

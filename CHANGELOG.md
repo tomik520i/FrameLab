@@ -1,3 +1,10 @@
+# 0.2.0-preview.8 — complete portable bundle and website
+
+- Add the English/Czech website at https://opicebot.cz/framelab/ with downloadable examples, videos, GIFs, settings, source and support links.
+- Offer a complete Windows ZIP containing the verified official NVIDIA VFG 1.3 runtime and original licenses, plus isolated Python/Pillow/FFmpeg tools for clip export. Compatible GPU/capture drivers remain required.
+- Prefer the bundled `tools/python/python.exe` for clip export; retain system Python fallback for existing minimal installations. No frame-generation algorithm or scheduler change in this version.
+- Add an NVIDIA launcher, separate FrameLab runtime add-on, publisher hashes and repeatable packaging steps. Ada/Blackwell support is documented; only RTX 5070 Ti was hardware-tested.
+
 # 0.2.0-preview.7 — recorded-input 3× / 4× tuning
 
 - Service completed GPU work independently of the display wait and avoid redrawing unchanged content; keep controls responsive at 60 Hz and preserve bounded queues.

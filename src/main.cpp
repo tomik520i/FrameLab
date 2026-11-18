@@ -262,7 +262,9 @@ int WINAPI wWinMain(HINSTANCE instance,HINSTANCE,LPWSTR cmd,int){
    if(legacyOutputWait&&g.waitable)WaitForSingleObject(g.waitable,20);
    double t=now();analysis.poll(g);analysis.tick();if(analysisExporter&&WaitForSingleObject(analysisExporter,0)==WAIT_OBJECT_0){CloseHandle(analysisExporter);analysisExporter=nullptr;}
    if(!analysis.active&&!analysis.writing&&!analysis.folder.empty()&&analysis.folder!=exportedAnalysis&&std::filesystem::exists(analysis.folder/L"result.json")){
-    std::wstring command=L"python \""+(root.parent_path()/L"tools"/L"export_analysis.py").wstring()+L"\" \""+analysis.folder.wstring()+L"\"";STARTUPINFOW si{sizeof(si)};si.dwFlags=STARTF_USESHOWWINDOW;si.wShowWindow=SW_HIDE;PROCESS_INFORMATION pi{};
+    const auto portablePython=root.parent_path()/L"tools"/L"python"/L"python.exe";
+    const std::wstring python=std::filesystem::exists(portablePython)?L"\""+portablePython.wstring()+L"\"":L"python";
+    std::wstring command=python+L" \""+(root.parent_path()/L"tools"/L"export_analysis.py").wstring()+L"\" \""+analysis.folder.wstring()+L"\"";STARTUPINFOW si{sizeof(si)};si.dwFlags=STARTF_USESHOWWINDOW;si.wShowWindow=SW_HIDE;PROCESS_INFORMATION pi{};
     if(CreateProcessW(nullptr,command.data(),nullptr,nullptr,FALSE,CREATE_NO_WINDOW,nullptr,root.parent_path().c_str(),&si,&pi)){CloseHandle(pi.hThread);analysisExporter=pi.hProcess;exportedAnalysis=analysis.folder;}else{status="Clip exporter could not start: "+std::to_string(GetLastError());exportedAnalysis=analysis.folder;}
    }
    auto startAnalysis=[&]{try{if(analysisExporter){status="Wait for the previous clips to finish exporting";return;}if(!live||!w||!h){status="Start a source before recording";return;}analysis.backendName=vfg.name();analysis.outputScheduler=legacyOutputWait?"legacy-display-wait":"independent-gpu-pump-content-deadline";analysis.start(root,isDemo?"Test/file source":devices[selected].friendlyName,w,h,quality,multiplier,automaticCuts&&!vfg.useOptical,vsync,mailbox.dedup,mailbox.threshold,gpu.name,fg,inFps,contentFps);}catch(const std::exception& e){status=e.what();analysis.startError(status);log("Recording start failed: "+status);}};

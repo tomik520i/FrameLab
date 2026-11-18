@@ -24,8 +24,8 @@ Screenshot zachycuje aplikaci po nahrávání. Okamžité FPS na něm nejsou pr�
 
 ## Stažení a nejjednodušší spuštění
 
-1. Stáhněte [hotovou aplikaci pro Windows](https://github.com/tomik520i/FrameLab/releases/download/v0.2.0-preview.7/FrameLab-0.2.0-preview.7-windows-x64.zip) ze sekce [Releases](https://github.com/tomik520i/FrameLab/releases/tag/v0.2.0-preview.7). Jde o hotovou aplikaci, nepotřebujete kompilátor ani Git. Součástí vydání jsou i zdrojáky a porovnávací materiály.
-2. Rozbalte **celý ZIP** a spusťte **Start FrameLab - Optical Flow.cmd**. Zapne se experimentální Optical Flow a generování 2× bez dalšího stahování AI modelů.
+1. Stáhněte [kompletní aplikaci pro Windows](https://opicebot.cz/framelab/downloads/FrameLab-0.2.0-preview.8-windows-x64-full.zip) z [vlastního webu FrameLabu](https://opicebot.cz/framelab/) ([zrcadlo na GitHubu](https://github.com/tomik520i/FrameLab/releases/tag/v0.2.0-preview.8)). Obsahuje NVIDIA DLL i přenosný Python a exportér klipů. Nemusíte instalovat SDK, Python, Git ani kompilátor. Ovladače GPU a střihovky musí být funkční.
+2. Rozbalte **celý ZIP**. Pro RTX 40/50 spusťte **Start FrameLab - NVIDIA.cmd**; pro alternativní algoritmus **Start FrameLab - Optical Flow.cmd**. Oba spouštěče zapínají generování 2×.
 3. Vyberte **Zdroj**, **Rozlišení**, **FPS vstupu** a **Zvukový výstup**. Klikněte na **Spustit vstup**. Pro první pokus stačí 1080p nebo automatický režim zařízení.
 
 Požadavky: Windows x64, NVIDIA GPU, ovladač GPU a capture zařízení podporující DirectShow. Fyzicky je zatím ověřená RTX 5070 Ti a AVerMedia GC573. Ovladače: [NVIDIA](https://www.nvidia.com/Download/index.aspx), [AVerMedia](https://www.avermedia.com/support/download).
@@ -34,9 +34,9 @@ Požadavky: Windows x64, NVIDIA GPU, ovladač GPU a capture zařízení podporuj
 
 ## NVIDIA VFG na RTX 40/50
 
-Tento režim používá samostatný runtime NVIDIA, který není v veřejném ZIPu. Otevřete [stažení SDK Core](https://catalog.ngc.nvidia.com/orgs/nvidia/maxine/resources/vfx_sdk_core/-), vyberte **1.3.0.0_windows** (nikoli ARM variantu `woa`) a podle [oficiálního návodu NVIDIA](https://docs.nvidia.com/maxine/vfx/latest/WindowsVFXSDK/InstalltheVFXSDK.html) doplňte funkci **Video Frame Generation**. Samotné Core nestačí; NVIDIA může požadovat účet, API klíč a přístup ke stažení.
+**Kompletní preview.8 už obsahuje všech pět potřebných NVIDIA DLL**, ověřených proti oficiálnímu balíčku a digitálním podpisům NVIDIA. Nejsou vázané na konkrétní 5070 Ti: Windows runtime podporuje Ada/Blackwell, tedy RTX 40/50. Fyzicky je zde ověřená jen 5070 Ti. Licence NVIDIA jsou přiložené odděleně od GPL aplikace.
 
-Z odpovídající instalace vložte do složky **app/runtime** soubory `cudart64_12.dll`, `NVCVImage.dll`, `nvngxruntime.dll`, `NVVideoEffects.dll` a `nvVFXVideoFrameGeneration.dll`. Spusťte **Start FrameLab.cmd**, vyberte backend **NVIDIA VFG**, zaškrtněte **Generování snímků** a použijte **Střední / 2×**. Přímé odkazy a volitelný importní příkaz jsou v [Start here](../START_HERE.md#nvidia-vfg--rtx-4050).
+Pro starší instalaci lze stáhnout [NVIDIA runtime doplněk pro FrameLab](https://opicebot.cz/framelab/downloads/FrameLab-NVIDIA-VFG-1.3-addon.zip) a jeho složku **app** sloučit se složkou app ve FrameLabu. Původní manuální cesta přes SDK je stále popsaná v [Start here](../START_HERE.md#manual-nvidia-runtime-setup-for-older-minimal-packages). [Původ součástí a licence](runtime-distribution.md).
 
 ## Ovládání a řešení problémů
 
@@ -57,7 +57,7 @@ Z odpovídající instalace vložte do složky **app/runtime** soubory `cudart64
 
 [Analýza záznamu 82183953](../examples/82183953/README.cs.md) obsahuje výsledky za celých 15 sekund. Samostatný release balíček **FrameLab-82183953-comparison-example.zip** obsahuje 3 sekundy akce zpomalené na 12 sekund, druhé video se skutečným časováním odesílání, snímky v plném rozlišení, výřezy postavy/HUDu a JSON/CSV s nastavením a ID. Po rozbalení otevřete **index.html**.
 
-Pro vlastní export klipů je volitelně potřeba [Python 3.11+](https://www.python.org/downloads/windows/) a `tools/setup-diagnostics.ps1`. Živý obraz ani zvuk Python nepotřebují. Tlačítko **Nahrát 15 s pro analýzu** nyní používá bezeztrátové stlačení v RAM na pracovních vláknech a teprve potom zapisuje původní pixely na disk. Funguje stejnou cestou pro 2×, 3× i 4×, ale stále záleží na volné paměti, rychlosti zpracování a stlačitelnosti obrazu. Při nedostatku zdrojů vypíše důvod; předběžné odmítnutí už nezaloží prázdnou složku. Zvuk se nenahrává.
+**Kompletní preview.8 má export klipů přibalený**, bez instalace Pythonu do systému. Starší minimální balíčky mohou dál použít [Python 3.11+](https://www.python.org/downloads/windows/) a `tools/setup-diagnostics.ps1`. Živý obraz ani zvuk Python nepotřebují. Tlačítko **Nahrát 15 s pro analýzu** používá bezeztrátové stlačení v RAM a teprve potom zapisuje původní pixely na disk. Funguje stejnou cestou pro 2×, 3× i 4×, ale záleží na volné paměti, rychlosti zpracování a stlačitelnosti obrazu. Nahrávání může snížit výkon. Zvuk se nenahrává.
 
 ## Podpora vývoje
 

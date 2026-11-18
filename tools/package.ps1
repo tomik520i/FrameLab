@@ -1,17 +1,19 @@
-param([string]$Version = '0.2.0-preview', [string]$OutputDirectory = 'dist')
+param([string]$Version = '0.2.0-preview', [string]$OutputDirectory = 'dist', [string]$ApplicationPath = 'app/FrameLab.exe', [switch]$Complete)
 $ErrorActionPreference = 'Stop'
 $root = Split-Path $PSScriptRoot -Parent
 Set-Location $root
-if (-not (Test-Path 'app/FrameLab.exe')) { throw 'Build FrameLab first' }
+if (-not (Test-Path -LiteralPath $ApplicationPath)) { throw 'Build FrameLab first' }
+if ($Complete -and -not (Test-Path 'deps/portable/components.json')) { throw 'Run tools/prepare_portable_dependencies.py first' }
 New-Item -ItemType Directory -Path $OutputDirectory -Force | Out-Null
 $packageRoot = (Resolve-Path -LiteralPath $OutputDirectory).Path
 $stage = Join-Path $packageRoot "FrameLab-$Version"
-$portableZip = Join-Path $packageRoot "FrameLab-$Version-windows-x64.zip"
+$variant = if ($Complete) { 'windows-x64-full' } else { 'windows-x64' }
+$portableZip = Join-Path $packageRoot "FrameLab-$Version-$variant.zip"
 $sourceZip = Join-Path $packageRoot "FrameLab-$Version-source.zip"
 if ((Test-Path -LiteralPath $stage) -or (Test-Path -LiteralPath $portableZip) -or (Test-Path -LiteralPath $sourceZip)) { throw 'Package output exists; choose a new version or output directory to preserve it' }
 New-Item -ItemType Directory -Force "$stage/app","$stage/tools","$stage/docs" | Out-Null
-Copy-Item 'app/FrameLab.exe' "$stage/app/"
-Copy-Item 'Start FrameLab.cmd','Start FrameLab - Optical Flow.cmd','START_HERE.md','README.md','LICENSE','THIRD_PARTY_NOTICES.md' $stage
+Copy-Item -LiteralPath $ApplicationPath -Destination "$stage/app/FrameLab.exe"
+Copy-Item 'Start FrameLab.cmd','Start FrameLab - NVIDIA.cmd','Start FrameLab - Optical Flow.cmd','START_HERE.md','README.md','LICENSE','THIRD_PARTY_NOTICES.md' $stage
 Copy-Item 'docs/*.md' "$stage/docs/"
 Copy-Item 'docs/images' "$stage/docs/" -Recurse
 if (Test-Path 'docs/performance') { Copy-Item 'docs/performance' "$stage/docs/" -Recurse }
@@ -20,11 +22,33 @@ Copy-Item 'tools/export_analysis.py','tools/requirements.txt','tools/setup-diagn
 Copy-Item 'third_party/CaptureKVM-LICENSE.txt' "$stage/docs/"
 Copy-Item 'third_party/imgui/LICENSE.txt' "$stage/docs/ImGui-LICENSE.txt"
 Copy-Item 'third_party/lz4/LICENSE' "$stage/docs/LZ4-LICENSE.txt"
+if ($Complete) {
+ Copy-Item 'deps/portable/nvidia-runtime' "$stage/app/runtime" -Recurse
+ Copy-Item 'deps/portable/licenses' "$stage/licenses" -Recurse
+ Copy-Item 'deps/portable/python' "$stage/tools/python" -Recurse
+ New-Item -ItemType Directory -Path "$stage/deps" -Force | Out-Null
+ $dependencyRoot = (Resolve-Path -LiteralPath 'deps/portable/packages').Path
+ foreach ($dependencyFile in (Get-ChildItem -LiteralPath $dependencyRoot -Recurse -File | Where-Object { $_.Extension -ne '.pyc' -and $_.FullName -notmatch '[\\/]__pycache__[\\/]' })) {
+  $relativeDependency = [IO.Path]::GetRelativePath($dependencyRoot, $dependencyFile.FullName)
+  $dependencyTarget = Join-Path "$stage/deps/python" $relativeDependency
+  New-Item -ItemType Directory -Path (Split-Path $dependencyTarget -Parent) -Force | Out-Null
+  Copy-Item -LiteralPath $dependencyFile.FullName -Destination $dependencyTarget
+ }
+ Copy-Item 'deps/portable/components.json' "$stage/licenses/components.json"
+ Copy-Item 'docs/runtime-distribution.md' "$stage/licenses/README.md"
+ $manifest = Get-Content "$stage/app/runtime/manifest.json" -Raw | ConvertFrom-Json
+ foreach ($file in $manifest.files) {
+  $runtimePath = Join-Path "$stage/app/runtime" $file.name
+  if ((Get-FileHash -LiteralPath $runtimePath).Hash.ToLower() -cne $file.sha256) { throw "Runtime hash mismatch: $($file.name)" }
+  $signature = Get-AuthenticodeSignature -LiteralPath $runtimePath
+  if ($signature.Status -ne 'Valid' -or $signature.SignerCertificate.Subject -notmatch 'NVIDIA Corporation') { throw "Invalid NVIDIA signature: $($file.name)" }
+ }
+}
 Compress-Archive -Path "$stage/*" -DestinationPath $portableZip
 # Exact reviewed source set from the Git index, not ignored personal data.
 $tree = git write-tree
 if ($LASTEXITCODE) { throw 'Stage reviewed source files first' }
 git archive --format=zip --output="$sourceZip" $tree
 if ($LASTEXITCODE) { throw 'Source archive failed' }
-[ordered]@{ version = $Version; source_tree = $tree; application_sha256 = (Get-FileHash 'app/FrameLab.exe').Hash.ToLower(); portable_sha256 = (Get-FileHash $portableZip).Hash.ToLower(); source_sha256 = (Get-FileHash $sourceZip).Hash.ToLower(); note = 'Source ZIP is the exact staged Git tree. Proprietary NVIDIA runtime and personal settings are excluded.' } | ConvertTo-Json | Set-Content -LiteralPath (Join-Path $packageRoot "FrameLab-$Version-provenance.json") -Encoding UTF8
+[ordered]@{ version = $Version; source_tree = $tree; application_sha256 = (Get-FileHash -LiteralPath $ApplicationPath).Hash.ToLower(); portable_sha256 = (Get-FileHash $portableZip).Hash.ToLower(); source_sha256 = (Get-FileHash $sourceZip).Hash.ToLower(); complete_bundle = [bool]$Complete; note = 'Source ZIP is the exact staged Git tree. Complete bundle contains separate unmodified NVIDIA components and portable export dependencies with their licenses. Personal settings and recordings are excluded.' } | ConvertTo-Json | Set-Content -LiteralPath (Join-Path $packageRoot "FrameLab-$Version-provenance.json") -Encoding UTF8
 Get-FileHash $portableZip,$sourceZip | Format-Table

@@ -1,0 +1,41 @@
+{
+  "runtime": "NVIDIA VFX SDK 1.3 / nvidia-vfx 0.2.0.0",
+  "publisher_url": "https://pypi.nvidia.com/nvidia-vfx/nvidia_vfx-0.2.0.0-cp311-cp311-win_amd64.whl",
+  "publisher_wheel_sha256": "5aaf6a42bc6b6dbbf52fcb714194c994a6893cbbf7ada38bc2165a1f83e4a6fc",
+  "modified": false,
+  "windows_gpu_architectures": [
+    "Ada (RTX 40)",
+    "Blackwell (RTX 50)"
+  ],
+  "hardware_tested": "RTX 5070 Ti only",
+  "python_required_for_vfg": false,
+  "license_directory": "../../licenses/nvidia-vfg",
+  "distribution_context": "Optional NVIDIA component of the FrameLab application, under separate NVIDIA terms; not GPL.",
+  "files": [
+    {
+      "name": "cudart64_12.dll",
+      "sha256": "663b5fe65aa6c654b8b085a879f49deb19f2cb033b8f2ff8dffd06cdefe0d1db",
+      "bytes": 584304
+    },
+    {
+      "name": "NVCVImage.dll",
+      "sha256": "689a64586c804468127647b7ed24acc36a9a9780502ffe95ad11aa4fe3286a39",
+      "bytes": 2694256
+    },
+    {
+      "name": "nvngxruntime.dll",
+      "sha256": "d2dbd1993000a2eed2c7ad8cd417ffc738ea180003daacf190e737121869d637",
+      "bytes": 83568
+    },
+    {
+      "name": "NVVideoEffects.dll",
+      "sha256": "c6b042fc57bdb6bea88c9c52cb951582377d3f1643acf52a52d197195a1ea8f4",
+      "bytes": 104560
+    },
+    {
+      "name": "nvVFXVideoFrameGeneration.dll",
+      "sha256": "270cf4fff9329908f9770d306cb51b910ee04323af5520cd02a98a2e22aba795",
+      "bytes": 207321712
+    }
+  ]
+}

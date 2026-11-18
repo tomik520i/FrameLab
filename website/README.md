@@ -1,0 +1,11 @@
+# FrameLab website
+
+English/Czech site published at **https://opicebot.cz/framelab/**. Presentation is plain HTML/CSS/JavaScript. A small PHP endpoint performs a local IP-country lookup: CZ/SK select Czech, other/unknown locations select English. An explicit saved language choice wins. No visitor IP is sent to a third-party service; no database, analytics or third-party embeds are used. Fonts are self-hosted under OFL. The Opicebot installation supplies Font Awesome 6.4.2 under `/fonts/fontawesome-free-6.4.2-web/`.
+
+Country ranges are attributed to [IPdeny](https://www.ipdeny.com/) and refreshed by `python tools/update_country_data.py`. Both IPv4 and IPv6 are covered. IP country is approximate and follows a VPN's exit address. The endpoint uses Apache's `REMOTE_ADDR` and ignores spoofable forwarded headers. If hosting later adds a reverse proxy, configure its exact trusted addresses using Apache `mod_remoteip`; do not trust arbitrary `X-Forwarded-For`. Missing data or request failure safely defaults to English. `locale.php` sends `Cache-Control: private, no-store` to prevent one visitor's country being cached for another.
+
+Build with `python tools/build_website.py --downloads PATH_TO_REVIEWED_ASSET_CATALOG`. Output defaults to ignored `dist/framelab-web`. The catalog lists explicit paths and SHA-256 hashes; raw recordings, credentials and personal preferences are never included. Recorded movies are copied without re-encoding; WebP posters and screenshot previews are resized display derivatives, not new interpolated evidence. PNG/GIF originals remain downloadable.
+
+Publish the completed directory as `/var/www/html/framelab` on the existing authorized host. Validate against `site-manifest.json` before exposing it, preserve a previous deployment outside the public root, and verify public HTTP responses and video byte ranges. No modification to the parent Opicebot application, database or virtual-host configuration is required. New versions should retain old download filenames until references are updated.
+
+Test keyboard tabs, EN/CZ persistence, video source switching, GIF disclosure panels, image dialogs, downloads, reduced-motion behavior and narrow/desktop layouts. Headless browser screenshots should capture this site only; do not capture the user's desktop.
