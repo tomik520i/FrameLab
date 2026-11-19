@@ -1,6 +1,16 @@
-# Test system and live GPU load
+# Test systems and live GPU load
 
 [FrameLab](../README.md) · [Česky](test-system.cs.md) · [Raw measurements](performance/2026-11-18/summary.json)
+
+## Additional laptop testing — preview.12, 19 November 2026
+
+**Acer Nitro ANV15-51 · Intel Core i5-13420H (8 cores / 12 threads) · NVIDIA GeForce RTX 4050 Laptop GPU · 32 GB RAM · Windows 11 Pro, build 26200.** Hardware was read from Windows on the test machine.
+
+The laptop was used to verify bundled video playback, NVIDIA VFG, the local experimental NR enhancer, automatic clean fullscreen, comparison restoration and Czech subtitle rendering at 1920×1080. A separate local translation evaluation exercised the shipped model on 300 English game texts and the production Windows OCR pipeline on 300 rendered subtitle fixtures, including 720p, 1080p, 1440p and 4K input images. The high-resolution fixtures are input-processing tests, not a claim of physical 4K-display testing. Translation remains experimental: omitted sentences and gaming terminology errors were observed.
+
+These tests use local videos and fixtures. They do **not** establish PS5/capture-card latency or repeat the desktop GPU-load benchmark on the laptop. The measurements below belong only to the RTX 5070 Ti desktop.
+
+## Desktop live-capture benchmark — 18 November 2026
 
 **Measured during normal live frame generation, without analysis recording or video export.** The user moved through the game while each mode was sampled for approximately 30 seconds on 18 November 2026. These results describe this machine and these runs, not a hardware compatibility guarantee.
 
