@@ -1,5 +1,10 @@
-param([string]$Archive, [string]$AppDir = (Join-Path (Split-Path $PSScriptRoot -Parent) 'app'), [switch]$CheckOnly, [switch]$NoGui)
+param([string]$Archive, [string]$AppDir = [IO.Path]::Combine([IO.Directory]::GetParent($PSScriptRoot).FullName, 'app'), [switch]$CheckOnly, [switch]$NoGui)
 $ErrorActionPreference = 'Stop'
+# A launcher (for example PowerShell 7 or Python) can pass an incompatible module
+# search path to Windows PowerShell 5.1. Use this process's own inbox modules only.
+$env:PSModulePath = [IO.Path]::Combine($PSHOME, 'Modules')
+Import-Module Microsoft.PowerShell.Management
+Import-Module Microsoft.PowerShell.Utility
 Add-Type -AssemblyName System.IO.Compression.FileSystem
 $SourceUrl = 'https://github.com/Likely7/Veyra-NRVideo/releases/download/v2.1.9/Veyra-2.1.9-NVIDIA-win64-portable.zip'
 $ArchiveHash = '4225ecb11a8e96c2826b4b0b798feb811d7ae237f3edf0b627f3b6895c79f362'
