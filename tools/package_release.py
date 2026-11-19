@@ -27,7 +27,7 @@ def main():
     p.add_argument('--nr-host',type=Path,required=True)
     p.add_argument('--setup',type=Path,required=True)
     p.add_argument('--output',type=Path,required=True)
-    p.add_argument('--version',default='0.2.0-preview.12')
+    p.add_argument('--version',default='0.2.0-preview.13')
     p.add_argument('--commit',required=True)
     a=p.parse_args()
     commit=subprocess.check_output(['git','rev-parse',a.commit],cwd=ROOT,text=True).strip()
@@ -48,6 +48,7 @@ def main():
             shutil.copy2(source,dest)
     shutil.copy2(a.application,stage/'app/FrameLab.exe')
     shutil.copy2(a.setup,stage/'app/FrameLab-Setup.exe')
+    (stage/'app/language.txt').write_text('0\n',encoding='ascii')
     (stage/'app/nr-host').mkdir(exist_ok=True)
     shutil.copy2(a.nr_host,stage/'app/nr-host/nvngx.dll')
     for file in ['README.md','START_HERE.md','INSTALL.cs.md','THIRD_PARTY_NOTICES.md','LICENSE']:

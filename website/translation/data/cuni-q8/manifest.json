@@ -1,0 +1,36 @@
+{
+  "started_utc": "2026-11-19T11:58:42.394297+00:00",
+  "model": "RichardErkhov/wmt24-cuni_-_CUNI-MH-gguf CUNI-MH.Q8_0.gguf",
+  "model_sha256": "461b6c6e20b0fd5162fc916878b680590b8ee10799fd83c1eae6e7ab87d0f18c",
+  "runtime": "Ollama v0.40.16 official signed Windows portable",
+  "prompt": "### Instruction:\nTranslate Input from English to Czech\n### Glossary:\n\n### Previous text:\n\n### Input:\n{text}\n### Response:\n",
+  "options": {
+    "temperature": 0,
+    "num_ctx": 2048,
+    "num_predict": 256,
+    "num_gpu": 99,
+    "num_thread": 4,
+    "repeat_penalty": 1.0,
+    "seed": 20261119,
+    "top_k": 20,
+    "top_p": 0.6,
+    "stop": [
+      "\n"
+    ]
+  },
+  "corpus_sha256": "addef2490cdb7429f7f3cfe2330a1a4178f2ee59a00b7c66afc561ae82c8f5cc",
+  "case_count": 300,
+  "protocol": "60s unloaded baseline; warmup; 30s resident idle; 300 back-to-back translations; 3 cycles of 60s unloaded baseline and 60 translations spaced at least 2s apart; final 60s unloaded baseline. Old CPU OCR remains active throughout.",
+  "notes": [
+    "Translation of exact English text, not OCR images. Same frozen corpus as previous CPU evaluation.",
+    "No per-case prompt, reference, glossary, preceding dialogue or manual translation corrections provided to model.",
+    "Greedy temperature 0 and newline stop follow the original CUNI-MH model card. Exact CUNI Instruction/Glossary/Previous text/Input/Response prompt, empty glossary and history. No chat wrapper. Repetition penalty 1.0 (vLLM default in publisher example), unlike Hy-MT2 recommended 1.05; same 2048 context, 256-token ceiling, 4 CPU threads and requested full GPU offload.",
+    "Local API only; no external inference. No FrameLab source/binary or shipped model changed.",
+    "GPU measurements are whole-device. Software FPS counters are not a physical panel measurement.",
+    "Both CUNI quantizations rerun on the same desktop. Prior laptop results retained separately. All extraction and downloads finished before evaluation."
+  ],
+  "raw_prompt": true,
+  "desktop": "RTX 5070 Ti 16 GB; see hardware.json",
+  "app_log": "H:\\FrameLab-desktop\\baseline-preview12\\app\\logs\\1795088733.csv",
+  "instrumentation": "Direct NVML 13.615.71, memory info v2 (used excludes reserved), one sample/second; complete FrameLab CSV rows selected by phase boundaries."
+}

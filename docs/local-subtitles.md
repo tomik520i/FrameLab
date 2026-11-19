@@ -19,8 +19,9 @@ retain the caption visible at freeze time.
 
 Both the model and its Python runtime are bundled. Inference uses two CPU threads;
 there is no cloud API, telemetry, microphone input or speech recognition. Windows
-must have the English OCR language component. If it is missing the app provides a
-Windows language-settings button; after installation toggle translation off/on.
+must have the English OCR language component. The app detects it and offers
+**Install English OCR**, a one-time Microsoft download requiring administrator
+approval. It checks readiness afterward; Windows language settings are a fallback.
 The CPU translation process is private stdin/stdout IPC, not an HTTP server. It accepts
 bounded text messages; frames are not sent out of the process over a network.
 

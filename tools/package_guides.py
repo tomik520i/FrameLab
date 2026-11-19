@@ -6,7 +6,8 @@ ROOT = Path(__file__).resolve().parents[1]
 GUIDES = {'index.html': 'ZACNI TADY.html', 'en.html': 'START HERE.html',
           'enhancer.html': 'NAVOD ENHANCER.html', 'enhancer-en.html': 'ENHANCER GUIDE.html',
           'visual.html': 'OBRAZOVY NAVOD.html', 'visual-en.html': 'VISUAL GUIDE.html',
-          'fullscreen.html': 'FULLSCREEN.html', 'fullscreen-en.html': 'FULLSCREEN EN.html'}
+          'fullscreen.html': 'FULLSCREEN.html', 'fullscreen-en.html': 'FULLSCREEN EN.html',
+          'subtitles.html':'TITULKY A MODELY.html','subtitles-en.html':'SUBTITLES AND MODELS.html'}
 
 def copy_guides(stage):
     stage = Path(stage)

@@ -1,12 +1,14 @@
 # FrameLab
 
-**Preview.12: [Download the complete Windows app](https://github.com/tomik520i/FrameLab/releases/download/v0.2.0-preview.12/FrameLab-0.2.0-preview.12-windows-x64-full.zip) · [Česká instalace krok za krokem](INSTALL.cs.md) · [English installation](START_HERE.md) · [All release files](https://github.com/tomik520i/FrameLab/releases/tag/v0.2.0-preview.12)**
+**[CUNI Q3 vs Q8 on RTX 5070 Ti: speed, memory and all 300 translations](https://opicebot.cz/framelab/translation/)**
 
-Offline English-picture subtitles → Czech overlay, both bundled gameplay clips, and monitor/display controls. The release ZIP includes the model, Python, NVIDIA VFG, export tools and licenses. NR adapter and import wizard are included. External NR DLLs require a separate community download; [Czech setup](docs/enhancer-install.cs.md) / [English setup](docs/enhancer-install.en.md) give exact links, steps and licensing limits. The website provides the same complete preview.12 download and shows [real enhancer comparisons](https://opicebot.cz/framelab/#enhancer).
+**Preview.13: [Download the complete Windows app](https://github.com/tomik520i/FrameLab/releases/download/v0.2.0-preview.13/FrameLab-0.2.0-preview.13-windows-x64-full.zip) · [Česká instalace krok za krokem](INSTALL.cs.md) · [English installation](START_HERE.md) · [All release files](https://github.com/tomik520i/FrameLab/releases/tag/v0.2.0-preview.13)**
+
+English-picture subtitles → local Czech overlay, now with optional CUNI Q3/Q8 GPU models, resumable downloads and independently draggable placement. Missing Windows OCR can be installed from Subtitles with administrator approval. [English subtitle setup](docs/subtitle-model-guide.md) · [Český návod titulků](docs/subtitle-model-guide.cs.md). Both gameplay clips and monitor/display controls are included. The release ZIP includes the model, Python, NVIDIA VFG, export tools and licenses. NR adapter and import wizard are included. External NR DLLs require a separate community download; [Czech setup](docs/enhancer-install.cs.md) / [English setup](docs/enhancer-install.en.md) give exact links, steps and licensing limits. The website provides the same complete preview.13 download and shows [real enhancer comparisons](https://opicebot.cz/framelab/#enhancer).
 
 [Website / downloads](https://opicebot.cz/framelab/) · [Česky / Czech guide](docs/README.cs.md) · [Start here](START_HERE.md) · [2× comparison](examples/82183953/README.md) · [3× comparison](examples/112947656/README.md) · [3× combat](examples/113768562/README.md) · [4× artifacts](examples/84744531/README.md) · [Test system / GPU load](docs/test-system.md)
 
-**Capture device → GPU frame interpolation → monitor.** Experimental Windows desktop application, independent of the connected console, camera or second PC. The complete preview.12 ZIP starts in Czech; select **CZ / EN** to switch. A source-only build defaults to English. Driver messages and technical diagnostics remain in English.
+**Capture device → GPU frame interpolation → monitor.** Experimental Windows desktop application, independent of the connected console, camera or second PC. The complete preview.13 ZIP starts in English; select **EN / CZ** for Czech. A source-only build defaults to English. Driver messages and technical diagnostics remain in English.
 
 ![FrameLab live capture, frame comparison and telemetry](docs/images/framelab-preview9-ui.png)
 
@@ -26,19 +28,19 @@ Offline English-picture subtitles → Czech overlay, both bundled gameplay clips
 
 ## Download and start
 
-1. Download the **[complete Windows x64 ZIP](https://github.com/tomik520i/FrameLab/releases/download/v0.2.0-preview.12/FrameLab-0.2.0-preview.12-windows-x64-full.zip)** from [preview.12](https://github.com/tomik520i/FrameLab/releases/tag/v0.2.0-preview.12). GitHub's automatic **Source code** download is not a runnable package.
+1. Download the **[complete Windows x64 ZIP](https://github.com/tomik520i/FrameLab/releases/download/v0.2.0-preview.13/FrameLab-0.2.0-preview.13-windows-x64-full.zip)** from [preview.13](https://github.com/tomik520i/FrameLab/releases/tag/v0.2.0-preview.13). GitHub's automatic **Source code** download is not a runnable package.
 2. Right-click → **Extract all**, then open **1 - Spustit FrameLab.cmd**. The bundled CS:GO video plays immediately; no capture card is needed for the demo.
 3. Use **2 - NVIDIA RTX 40-50.cmd** for VFG 2×, or **3 - Optical Flow.cmd** for the alternative. **Capture / Vstup** contains Spider-Man and a separate artificial subtitle demo.
 
 No Python/pip/model/SDK/compiler installation is required. Keep every folder together. Windows x64 and compatible installed GPU/capture drivers are required. English OCR is a Windows language component; if absent, the application explains how to install it once. Translation subsequently runs offline.
 
-**[Complete installation, controls and troubleshooting](START_HERE.md)** · **[Český návod](INSTALL.cs.md)** · [Component licenses/provenance](docs/runtime-distribution.md). The website and GitHub provide the same complete preview.12 package.
+**[Complete installation, controls and troubleshooting](START_HERE.md)** · **[Český návod](INSTALL.cs.md)** · [Component licenses/provenance](docs/runtime-distribution.md). The website and GitHub provide the same complete preview.13 package.
 
 ## Illustrated setup and fullscreen guides
 
 [Česky: obrazový návod](https://opicebot.cz/framelab/guide/visual.html) · [English illustrated guide](https://opicebot.cz/framelab/guide/visual-en.html). Real Windows screenshots with separate numbered annotations cover download, extraction, both games, VFG, graphical NR import, same-frame comparison and local Czech subtitles. Images appear beside the existing text guides and are included offline as **OBRAZOVY NAVOD.html / VISUAL GUIDE.html**. The same CZ/EN guides are online and offline. [Clean fullscreen](https://opicebot.cz/framelab/guide/fullscreen.html) automatically hides all comparison views, controls, labels and the OCR outline; the cursor hides after two idle seconds. No external NR model DLLs are bundled.
 
-## New in preview.12
+## New in preview.13
 
 - **Sharper Czech subtitles:** dedicated font raster sizes for output resolutions up to 4K, drawn after enhancement instead of enlarging the 17px UI font.
 - **Clean fullscreen:** F11 shows one final processed image with enabled subtitles. Preview comparisons and frozen comparison state are automatically removed from the fullscreen output. Esc/F11 returns to settings; the selected comparison remains available in the window.
@@ -49,7 +51,7 @@ No Python/pip/model/SDK/compiler installation is required. Keep every folder tog
 
 The native Windows title bar now matches FrameLab's dark colors on Windows 11, preserving standard window controls, resizing and Snap. Older Windows versions fall back to supported system styling.
 
-- **Subtitles / Titulky:** Windows OCR reads a selectable English subtitle region. A bundled OPUS-MT EN-CS int8 model translates on CPU, and Czech text is drawn after image processing. No STT, microphone, cloud or API key. Includes size, position, background and optional covering of the original subtitle band. [How it works](docs/local-subtitles.md).
+- **Subtitles / Titulky:** Windows OCR reads a selectable English subtitle region. Use the bundled OPUS-MT CPU translator or download CUNI-MH Q3/Q8 in the app. Drag Czech text and its background independently, place it above/below the original, and keep multiline captions within the visible window even in cropped views. No STT, microphone, cloud or API key. [Setup and models](docs/subtitle-model-guide.md).
 - **Bundled tests:** CS:GO 1080p60, Spider-Man 540p60, and a clearly labeled artificial OCR test. Both gameplay clips are three-second loops, not full games. [Sources and content rights](docs/sample-provenance.md).
 - **Display / Zobrazení:** monitor selection, window sizes, fit/fill/1:1 and fullscreen. Capture resolution/FPS follow driver modes; display controls do not change Windows refresh rate.
 - **NR ready, without NR model DLLs:** the executable, SDK-free adapter and import wizard are bundled. Run `4 - Doplnit enhancer.cmd` or AI / NR → Set up / check enhancer. Exact external download, hash-checked import, source notices and troubleshooting: [NR setup](docs/enhancer-install.en.md). External hosting does not grant usage/redistribution rights. VFG remains a separate bundled feature.
@@ -84,7 +86,7 @@ Audio routes to the selected DirectSound output. Volume, mute and output persist
 
 ## Build
 
-[Complete preview.12 build/package instructions](docs/build-preview12.md). Standard builds include the SDK-free adapter (`FRAMELAB_EXPERIMENTAL_NR=ON`); model DLLs are never fetched during the build.
+[Complete preview.13 build/package instructions](docs/build-preview13.md). Standard builds include the SDK-free adapter (`FRAMELAB_EXPERIMENTAL_NR=ON`); model DLLs are never fetched during the build.
 
 Windows x64, Visual Studio 2022 C++ Build Tools + Windows SDK, CMake, Python 3.11+ (dependency setup / optional diagnostics). Git is optional for ZIP builds.
 
@@ -113,7 +115,7 @@ Compute and presentation are separated by a bounded GPU texture queue. A present
 - Latency: capture callback to Present return; excludes source rendering, capture hardware buffering and monitor scanout.
 - GPU time: backend GPU work; utilization is whole-device including other apps.
 
-**Record 15 s analysis** buffers raw and generated frames with background **lossless RAM compression**, then writes the original BGRA bytes and exports clips. It preserves every pixel and supports 2×/3×/4× through the same bounded buffer. Preflight leaves 12 GiB for the system and checks estimated disk needs before creating a folder. Incompressible data or slow compression can still fill the budget; the recording then stops with an explicit reason. Playback at 4K does not require that recorder RAM budget. No data is automatically deleted. This diagnostic can affect timing. No audio is recorded. New takes also save sampled Windows image-ID confirmations. The **complete preview.12 bundle includes the clip-export dependencies**; older minimal packages can use `tools/setup-diagnostics.ps1`. See [recording format](docs/recordings.md).
+**Record 15 s analysis** buffers raw and generated frames with background **lossless RAM compression**, then writes the original BGRA bytes and exports clips. It preserves every pixel and supports 2×/3×/4× through the same bounded buffer. Preflight leaves 12 GiB for the system and checks estimated disk needs before creating a folder. Incompressible data or slow compression can still fill the budget; the recording then stops with an explicit reason. Playback at 4K does not require that recorder RAM budget. No data is automatically deleted. This diagnostic can affect timing. No audio is recorded. New takes also save sampled Windows image-ID confirmations. The **complete preview.13 bundle includes the clip-export dependencies**; older minimal packages can use `tools/setup-diagnostics.ps1`. See [recording format](docs/recordings.md).
 
 ```powershell
 app\FrameLab.exe --verify-core

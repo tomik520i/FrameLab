@@ -1,0 +1,159 @@
+{
+  "reviewed_ranges": [
+    [
+      1,
+      300
+    ]
+  ],
+  "method": "Assistant re-review of fixed English source, existing human/project references and both fresh translations. Not a blinded human study. Earlier CUNI grades retained where still appropriate; overrides below are explicit. Q3/Q8 timing in this preflight is NOT an OCR/VFG coexistence measurement.",
+  "overrides": {
+    "008": {
+      "q8": 4,
+      "note": "Q8 preserves 'in sight of the city gates'; Q3 says 'on the edge of the gates'."
+    },
+    "028": {
+      "q8": 3,
+      "note": "Q8 turns ongoing repelling into a completed action; Q3 preserves the ongoing progress."
+    },
+    "031": {
+      "q8": 4,
+      "note": "Q8 gives a more natural Czech exclamation 'Už zase ona!' with the same urgency."
+    },
+    "036": {
+      "q8": 3,
+      "note": "Meaning is preserved; 'krutě studená' is an awkward collocation compared with natural Czech descriptions of bitter cold."
+    },
+    "051": {
+      "q8": 3,
+      "note": "Q8 keeps a literal thunder-stick rather than Q3's lightning rod, but the terminology and Knalga inflection remain awkward."
+    },
+    "053": {
+      "q3": 3,
+      "q8": 4,
+      "note": "Fresh Q3 changes deepest parts of the kingdom into the deepest kingdom. Q8 retains the intended location within it."
+    },
+    "063": {
+      "q8": 4,
+      "note": "Q8 fixes the inconsistent verb forms while preserving both requests."
+    },
+    "069": {
+      "q8": 3,
+      "note": "Q8 preserves inability to swim, unlike Q3's habitual statement, but still assumes a distance rather than simply crossing the obstacle."
+    },
+    "072": {
+      "q8": 3,
+      "note": "Literal 'Nejsem cizí tomu břemenu' is awkward Czech; Q3 expresses experience with command naturally."
+    },
+    "074": {
+      "q8": 4,
+      "note": "Q8 clearly says to avoid the orcs while allowing their fight with Wesnoth; Q3's 'their clash' is ambiguous."
+    },
+    "077": {
+      "q8": 2,
+      "note": "Reflexive 'svůj zadek' can make the elves guard their own rear instead of Konrad's; Q3 preserves 'your'."
+    },
+    "087": {
+      "q8": 3,
+      "note": "Q8 omits Asheviere's name, while retaining the queen and execution order."
+    },
+    "089": {
+      "q8": 2,
+      "note": "Q8 invents 'Gryfany' as the recruitable unit; Q3 correctly names gryphons."
+    },
+    "094": {
+      "q3": 2,
+      "q8": 1,
+      "note": "Fresh Q3 conveys pursuit but moves the dog comparison onto the pursuers and weakens the threat. Q8 retains the nonsensical literal 'Poběžíme vás dolů'."
+    },
+    "096": {
+      "q8": 3,
+      "note": "Q8 preserves the threat but omits 'now' and has a stray capital I."
+    },
+    "113": {
+      "q8": 2,
+      "note": "Q8 changes definite ongoing enemy base construction into a guessed completed action, altering the tactical state."
+    },
+    "122": {
+      "q3": 3,
+      "q8": 2,
+      "note": "Fresh Q3 now identifies the landing place, although 'vylodění' is imprecise; Q8 retains unexplained LZ and the same imprecise landing term."
+    },
+    "132": {
+      "q8": 4,
+      "note": "Q8 retains the perimeter and anti-aircraft defenses; Q3 generalizes the perimeter to the whole area."
+    },
+    "137": {
+      "q8": 4,
+      "note": "Q8 restores the missing pre-Collapse qualifier."
+    },
+    "138": {
+      "q8": 4,
+      "note": "Q8 retains detection of forces rather than adding that they are approaching."
+    },
+    "150": {
+      "q8": 4,
+      "note": "Q8 uses Společenstvo consistently in its Collective lines. With no supplied game glossary, that alternate faction rendering is accepted; Q3 alternates it with Kolektiv."
+    },
+    "159": {
+      "q8": 4,
+      "note": "Q8 expresses establishing the safe haven naturally and preserves the return to the landing zone."
+    },
+    "166": {
+      "q8": 3,
+      "note": "Q8 keeps the number and location but omits NASDA and retains the agreement error around one or more missiles."
+    },
+    "180": {
+      "q8": 3,
+      "note": "Literal 'Prvky týmu' is awkward for a team's members/subunits; Q3 conveys this naturally."
+    },
+    "194": {
+      "q8": 3,
+      "note": "'Ozbrojování raket' is an awkward literal rendering of arming/activating missiles; Q3 is natural."
+    },
+    "212": {
+      "q8": 4,
+      "note": "Q8 uses the Czech odstřelovač and retains the exact location and red door."
+    },
+    "229": {
+      "q8": 3,
+      "note": "Literal 'extrakční bod' is understandable gaming jargon, less natural than Q3's pickup location."
+    },
+    "250": {
+      "q8": 1,
+      "note": "Q8 translates the idiom 'dead meat' literally as 'mrtvá masa', an unusable Czech sentence; Q3 conveys imminent death."
+    },
+    "253": {
+      "q8": 4,
+      "note": "Q8 correctly uses stamina regeneration rather than generic improvement."
+    },
+    "254": {
+      "q3": 1,
+      "q8": 1,
+      "note": "Both fail the equip-ring action: Q3 is malformed and Q8 tells the player to equip the ring itself with resistance."
+    },
+    "255": {
+      "q8": 1,
+      "note": "'Léčitelka došla manou' loses the clear statement that the healer has run out of mana and is ungrammatical."
+    },
+    "257": {
+      "q8": 3,
+      "note": "Q8 restores looting the chest, with a malformed imperative 'Vyplen' rather than Vypleň."
+    },
+    "260": {
+      "q8": 3,
+      "note": "Q8 restores non-stacking but still assumes the buff is protection."
+    },
+    "264": {
+      "q8": 3,
+      "note": "Q8 keeps the warning but leaves the direct address Mara uninflected; Q3 uses Maro."
+    },
+    "290": {
+      "q8": 4,
+      "note": "Q8 correctly expresses dismay at repetition ('Už zase'); Q3 loses the repetition."
+    },
+    "297": {
+      "q8": 2,
+      "note": "Q8's reflexive 'Drž je od sebe' loses protecting the speaker who is repairing the engine; Q3 also loses the intended protective instruction."
+    }
+  }
+}

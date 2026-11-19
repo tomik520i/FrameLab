@@ -1,0 +1,30 @@
+{
+  "q3": {
+    "accepted": 271,
+    "major": 2,
+    "mean": 3.56,
+    "counts": {
+      "4": 199,
+      "3": 72,
+      "2": 27,
+      "1": 2
+    }
+  },
+  "q8": {
+    "accepted": 271,
+    "major": 5,
+    "mean": 3.55,
+    "counts": {
+      "4": 199,
+      "3": 72,
+      "2": 24,
+      "1": 5
+    }
+  },
+  "cases": 300,
+  "identical": 175,
+  "q8_higher": 17,
+  "q8_lower": 16,
+  "method": "Assistant re-review of fixed English source, existing human/project references and both fresh translations. Not a blinded human study. Earlier CUNI grades retained where still appropriate; overrides below are explicit. Q3/Q8 timing in this preflight is NOT an OCR/VFG coexistence measurement.",
+  "performance_measured": false
+}

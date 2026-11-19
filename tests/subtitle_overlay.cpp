@@ -15,13 +15,16 @@ int main(){try{
  ImGui_ImplDX11_Init(g.device.Get(),g.context.Get());
  SubtitleSettings s;s.enabled=true;s.showRegion=true;s.editOverlay=true;
  SubtitleSnapshot caption;caption.source="The door is locked.";caption.translated="Dveře jsou zamčené.";caption.observedAt=10;
- auto frame=[&](bool clean){
+ unsigned outsideCaptionPixels=0,minWhiteY=h,maxWhiteY=0,whiteBands=0;
+ auto frame=[&](bool clean,bool cropped=false){
   ImGui_ImplDX11_NewFrame();ImGui::NewFrame();ImGui::SetNextWindowPos({0,0});ImGui::SetNextWindowSize({float(w),float(h)});
   ImGui::Begin("Subtitle test",nullptr,ImGuiWindowFlags_NoDecoration|ImGuiWindowFlags_NoSavedSettings);
-  drawSubtitleOverlay({0,0},{float(w),float(h)},s,caption,10,clean);ImGui::End();ImGui::Render();
+  if(cropped){auto draw=ImGui::GetWindowDrawList();draw->PushClipRect({200,160},{1000,560},true);drawSubtitleOverlay({-640,-360},{2560,1440},s,caption,10,clean);draw->PopClipRect();}
+  else drawSubtitleOverlay({0,0},{float(w),float(h)},s,caption,10,clean);ImGui::End();ImGui::Render();
   const float clear[]={0,0,0,1};g.context->ClearRenderTargetView(rtv.Get(),clear);g.context->OMSetRenderTargets(1,rtv.GetAddressOf(),nullptr);ImGui_ImplDX11_RenderDrawData(ImGui::GetDrawData());
   g.context->CopyResource(staging.Get(),target.texture.Get());D3D11_MAPPED_SUBRESOURCE pixels{};check(g.context->Map(staging.Get(),0,D3D11_MAP_READ,0,&pixels),"Subtitle readback");
-  unsigned green=0,white=0;for(unsigned y=0;y<h;++y){auto row=(const unsigned char*)pixels.pData+size_t(y)*pixels.RowPitch;for(unsigned x=0;x<w;++x){auto p=row+x*4;if(p[1]>190&&p[2]>100&&p[2]<200&&p[0]<120)++green;if(p[0]>220&&p[1]>220&&p[2]>220)++white;}}
+  unsigned green=0,white=0;outsideCaptionPixels=0;minWhiteY=h;maxWhiteY=0;whiteBands=0;bool previousWhite=false;
+  for(unsigned y=0;y<h;++y){bool rowWhite=false;auto row=(const unsigned char*)pixels.pData+size_t(y)*pixels.RowPitch;for(unsigned x=0;x<w;++x){auto p=row+x*4;if(p[1]>190&&p[2]>100&&p[2]<200&&p[0]<120)++green;if(p[0]>220&&p[1]>220&&p[2]>220){rowWhite=true;++white;minWhiteY=std::min(minWhiteY,y);maxWhiteY=std::max(maxWhiteY,y);if(x<200||x>=1000||y<160||y>=560)++outsideCaptionPixels;}}if(rowWhite&&!previousWhite)++whiteBands;previousWhite=rowWhite;}
   g.context->Unmap(staging.Get(),0);return std::pair{green,white};
  };
  frame(false);io.AddMousePosEvent(640,633);frame(false);io.AddMouseButtonEvent(0,true);frame(false);io.AddMousePosEvent(740,563);frame(false);io.AddMouseButtonEvent(0,false);auto edited=frame(false);
@@ -32,5 +35,12 @@ int main(){try{
  const auto before=s;io.AddMouseButtonEvent(0,true);frame(true);io.AddMousePosEvent(800,500);frame(true);io.AddMouseButtonEvent(0,false);frame(true);
  if(!(s==before))throw std::runtime_error("Clean fullscreen allowed editing");
  s.enabled=false;clean=frame(true);if(clean.first||clean.second)throw std::runtime_error("Disabled subtitle or edit preview leaked into fullscreen");
+ s.enabled=true;s.horizontal=1;s.position=1;s.fontPercent=8;s.placement=0;
+ // Solid capital stems give one connected white-pixel band per line; dots and
+ // antialiased curves can produce multiple bands even when a line is intact.
+ caption.translated="";for(int line=0;line<18;++line)caption.translated+="HHHHH HHHHH HHHHH\n";
+ clean=frame(true,true);
+ std::cout<<"Cropped: white="<<clean.second<<" outside="<<outsideCaptionPixels<<" y="<<minWhiteY<<".."<<maxWhiteY<<" bands="<<whiteBands<<'\n';
+ if(clean.first||clean.second<500||outsideCaptionPixels||minWhiteY<=160||maxWhiteY>=559||whiteBands!=18)throw std::runtime_error("Multiline caption failed to fit all 18 lines in visible cropped viewport");
  ImGui_ImplDX11_Shutdown();ImGui::DestroyContext();std::cout<<"PASS: actual drag, independent OCR crop, clean fullscreen pixels, no fullscreen editing\n";return 0;
  }catch(const std::exception& e){std::cerr<<e.what()<<'\n';return 1;}}

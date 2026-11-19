@@ -1,13 +1,13 @@
-# FrameLab preview.12 — download, install and run
+# FrameLab preview.13 — download, install and run
 
-**[Download the complete Windows x64 ZIP](https://github.com/tomik520i/FrameLab/releases/download/v0.2.0-preview.12/FrameLab-0.2.0-preview.12-windows-x64-full.zip)** · [Release files](https://github.com/tomik520i/FrameLab/releases/tag/v0.2.0-preview.12) · **[Česky: celý návod](INSTALL.cs.md)**
+**[Download the complete Windows x64 ZIP](https://github.com/tomik520i/FrameLab/releases/download/v0.2.0-preview.13/FrameLab-0.2.0-preview.13-windows-x64-full.zip)** · [Release files](https://github.com/tomik520i/FrameLab/releases/tag/v0.2.0-preview.13) · **[Česky: celý návod](INSTALL.cs.md)**
 
 ## 1. Extract and launch
 
-1. Download **FrameLab-0.2.0-preview.12-windows-x64-full.zip**. The automatic GitHub **Source code** files are for developers.
+1. Download **FrameLab-0.2.0-preview.13-windows-x64-full.zip**. The automatic GitHub **Source code** files are for developers.
 2. Right-click the ZIP → **Extract all** into a writable folder, for example your Desktop. Do not run inside the ZIP or copy only the EXE.
 3. Open **1 - Spustit FrameLab.cmd**. A bundled CS:GO clip loops immediately.
-4. Use the **CZ / EN** button for English. Under **Capture**, try Spider-Man or the artificial **EN > CS subtitle demo**. Both real gameplay clips are included, three seconds each.
+4. The app starts in English; use **EN / CZ** for Czech. Under **Capture**, try Spider-Man or the artificial **EN > CS subtitle demo**. Both real gameplay clips are included, three seconds each.
 
 No SDK, system Python, pip, model download, Git, developer account or compiler is required. Keep `app`, `tools`, `deps` and `licenses` together. The full package includes NVIDIA VFG and Microsoft runtime DLLs, both sample videos, the artificial OCR clip, the CPU translator/model/Python, clip-export Python/FFmpeg and original notices.
 
@@ -29,13 +29,15 @@ Capture modes come from the driver. Automatic does not detect HDMI wire timings.
 
 ## 3. Translate English subtitles in the picture
 
-Open **Subtitles**, enable translation and **Show reading area**. Adjust the four edges to include only the English subtitle band, excluding minimaps, quests and chat. Configure Czech font size, vertical position and opacity; **Cover original subtitle area** adds a black band over the chosen region. Try the bundled artificial demo: “The door is locked.” → “Dveře jsou zamčené.”
+1. Open **Subtitles**. If Windows English OCR is missing, press **Install English OCR**, confirm UAC and wait for the ready status. This is a one-time Microsoft download; Windows display language stays unchanged.
+2. Select **OPUS-MT / CPU** to use the included model, or choose **CUNI-MH Q3_K_M / Q8_0** and press **Download / resume and verify**. The first GPU download also installs a private portable runtime. No Ollama installer, account or API key is needed.
+3. Enable translation and **Show reading area**. Crop tightly around English dialogue; exclude HUD and chat.
+4. Choose **Below original**, **Above original** or **Custom position**. Enable **Drag Czech overlay in preview** to move text and its black background together. This does not change the OCR crop. Multiline captions stay inside the visible viewport, including fill/crop and fullscreen; exceptionally long captions shrink to fit.
+5. Press F11 for the finished image. Try the included artificial demo: “The door is locked.” → “Dveře jsou zamčené.”
 
-Windows OCR reads the input pixels and the bundled OPUS-MT EN-CS model translates on two CPU threads. Czech text is drawn after frame processing. **No audio transcription/STT, cloud service, API key or network translation is used.** Two stable OCR readings are required. Small/stylized/moving text, jargon and short-lived lines may be missed or mistranslated. This is an experimental translator, not a dialogue-quality guarantee.
+**[Full model, download and placement guide](docs/subtitle-model-guide.md)**. CUNI Q3 downloads 3.52 GB, Q8 7.70 GB; the first GPU model also needs the 1.62 GB runtime archive and about 8 GB extra space for runtime storage/extraction. Free VRAM is checked with current effects running. Loading runs in the background; partial CPU offload is rejected explicitly. CPU translation remains available without GPU model downloads.
 
-If English OCR is absent, use the language-settings button offered by FrameLab or Windows **Settings → Time & language → Language & region** (Windows 10: **Language**). Add **English (United States)** and its basic typing / OCR language features; labels vary by Windows version. Administrators may restrict optional feature installation. Restart FrameLab or toggle translation off/on afterward. This one-time Windows component download can need Internet; the model and Python are already bundled and subsequent translation is offline. You do not have to change the Windows display language.
-
-The Czech overlay uses dedicated high-resolution font rasters at output resolution. Adjust its size under Subtitles; this does not reconstruct blurry English text already baked into the source video.
+**The input is text in the picture, not audio/STT.** OCR needs two stable readings. Translation stays on this PC and works offline after component downloads. Small, stylized or short-lived text may be missed or mistranslated; better text translation does not repair OCR errors. A changed or blank source clears previous captions and stale translation results are discarded.
 
 ## 4. Display and controls
 
@@ -43,7 +45,7 @@ The Czech overlay uses dedicated high-resolution font rasters at output resoluti
 
 ## 5. What about DLSS 5 / NR enhancement?
 
-**[Complete NR setup: two downloads and one import wizard](docs/enhancer-install.en.md).** Preview.12 includes the NR adapter and AI / NR controls. Run `4 - Doplnit enhancer.cmd`, open the exact external download (731 MB), and select that ZIP in the wizard. No manual DLL placement, SDK, Python or compiler is needed. The external NR DLLs are not bundled by FrameLab; Veyra is a community source, not an official NVIDIA NR download. Usage/redistribution rights are not established; importing or linking does not grant them. Use with applicable authorization. [Audit](docs/NR-LICENSING-STATUS.txt).
+**[Complete NR setup: two downloads and one import wizard](docs/enhancer-install.en.md).** Preview.13 includes the NR adapter and AI / NR controls. Run `4 - Doplnit enhancer.cmd`, open the exact external download (731 MB), and select that ZIP in the wizard. No manual DLL placement, SDK, Python or compiler is needed. The external NR DLLs are not bundled by FrameLab; Veyra is a community source, not an official NVIDIA NR download. Usage/redistribution rights are not established; importing or linking does not grant them. Use with applicable authorization. [Audit](docs/NR-LICENSING-STATUS.txt).
 
 Pipeline: input → one FG backend → optional NR → Czech overlay → monitor. Processing can drop frames and add latency. The website and GitHub provide the same full package.
 
@@ -61,7 +63,7 @@ Pipeline: input → one FG backend → optional NR → Czech overlay → monitor
 
 For updates, extract a new version into a new folder and keep the previous one until tested. No service/driver is installed by FrameLab. Uninstall by closing it and deleting its folder after saving any recordings you need. Settings migration is optional.
 
-To verify the download, run `Get-FileHash .\FrameLab-0.2.0-preview.12-windows-x64-full.zip -Algorithm SHA256` in PowerShell and compare with the release's **SHA256SUMS.txt**. [Build from source](docs/build-preview12.md) · [Component provenance](docs/runtime-distribution.md) · [Third-party notices](THIRD_PARTY_NOTICES.md) · [Samples and content rights](docs/sample-provenance.md).
+To verify the download, run `Get-FileHash .\FrameLab-0.2.0-preview.13-windows-x64-full.zip -Algorithm SHA256` in PowerShell and compare with the release's **SHA256SUMS.txt**. [Build from source](docs/build-preview13.md) · [Component provenance](docs/runtime-distribution.md) · [Third-party notices](THIRD_PARTY_NOTICES.md) · [Samples and content rights](docs/sample-provenance.md).
 
 ## Manual NVIDIA runtime setup for older minimal packages
 

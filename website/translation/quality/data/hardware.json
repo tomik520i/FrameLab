@@ -1,0 +1,23 @@
+{
+  "windows": {
+    "Caption": "Microsoft Windows 11 Pro",
+    "Version": "10.0.26200",
+    "BuildNumber": "26200"
+  },
+  "motherboard": {
+    "Manufacturer": "Gigabyte Technology Co., Ltd.",
+    "Product": "X570 AORUS PRO"
+  },
+  "gpu": "NVIDIA GeForce RTX 5070 Ti, 16303 MiB, 617.14",
+  "cpu": {
+    "Name": "AMD Ryzen 9 5900X 12-Core Processor            ",
+    "NumberOfCores": 12,
+    "NumberOfLogicalProcessors": 24
+  },
+  "computer": {
+    "Manufacturer": "Gigabyte Technology Co., Ltd.",
+    "Model": "X570 AORUS PRO",
+    "TotalPhysicalMemory": 68628303872
+  },
+  "notes": "FrameLab playback source for translation benchmark; capture hardware is not part of the playback measurement"
+}

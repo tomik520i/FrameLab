@@ -1,0 +1,24 @@
+{
+  "version": "0.2.0-preview.12",
+  "source_commit": "9b0b3dc54e7ce43f4aaa26a0e37373f46c3fcc54",
+  "FRAMELAB_EXPERIMENTAL_NR": true,
+  "setup_sha256": "4441ae7afc690b878918b0b2cd0800279f9f3a689b8ebe90858010b094f36539",
+  "nr_host_sha256": "cfc94830e530180a2f75e197e89ec67d03da23d0a84381da6704f004b4abed4c",
+  "nr_host_sdk_static_library": false,
+  "application_sha256": "228ba462bd8a96015351391292522d1e56db2ff4a54aa41cd152d291e7fe0916",
+  "bundled_translation": true,
+  "bundled_game_samples": 2,
+  "nr_runtime_included": false,
+  "archives": [
+    {
+      "name": "FrameLab-0.2.0-preview.12-windows-x64-full.zip",
+      "bytes": 498349790,
+      "sha256": "c6ca2f78c520d9bac3547900e77679b0dfdda6320c7f902a7e44486fb1b4a117"
+    },
+    {
+      "name": "FrameLab-0.2.0-preview.12-source.zip",
+      "bytes": 189672290,
+      "sha256": "0fb0723587f59e148bfa39084a8c7029db1438723b7c9f8503801dfb5ebc6aa7"
+    }
+  ]
+}

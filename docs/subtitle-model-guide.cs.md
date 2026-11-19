@@ -8,16 +8,20 @@ překladový model neopraví text, který OCR nepřečetlo správně.
 
 ## Rychlé spuštění
 
-1. Otevři **Titulky**, vyber model a zapni překlad.
+1. Otevři **Titulky**. Pokud OCR chybí, stiskni **Doplnit anglické OCR** a potvrď
+   správce ve Windows. Potom vyber model a zapni překlad.
 2. Zapni **Zobrazit oblast čtení** a vymez pruh těsně kolem anglických titulků.
    Vynech chat, minimapu a úkoly. Překlad čeká na dvě shodná čtení.
 3. Velikost a polohu **českého překryvu** nastav nezávisle na oblasti čtení.
    F11 zobrazí čistý výsledek bez editačních prvků.
 
-Windows musí mít nainstalovanou anglickou součást **OCR**. Pokud chybí, aplikace
-to oznámí a nabídne otevření jazykového nastavení Windows. Vyber angličtinu
-a její rozpoznávání textu; instalace systémové součásti vyžaduje správce.
-Potom překlad vypni a znovu zapni. CPU překladač už je v kompletním ZIPu aplikace.
+Windows musí mít nainstalovanou anglickou součást **OCR**. Aplikace ji automaticky
+ověří a nabídne instalaci jedním tlačítkem přímo od Microsoftu. Potřebuje internet
+a potvrzení správce; může trvat několik minut. Jazyk Windows se tím nemění.
+Po instalaci se dostupnost znovu ověří. Až aplikace ohlásí připravené OCR, zapni
+překlad. Pokud Windows potřebují restart, aplikace na to upozorní. Zrušené UAC
+lze zkusit znovu. Jazykové nastavení Windows zůstává ruční záložní cestou.
+Rozpoznávání pak funguje offline. CPU překladač už je v kompletním ZIPu aplikace.
 
 ## Který model vybrat
 
@@ -54,6 +58,8 @@ lidskou studii. Tento předběžný textový test neurčuje výkon při souběhu
 frame genem a NR. Starší report **Hy-MT2 Q8** se týká jiného modelu o velikosti
 1,8B, nikoli CUNI-MH 7B Q8.
 
+Na RTX 5070 Ti při současném VFG 2×, NR 65 % / 720p a aktivní CPU OCR cestě měl Q3 medián **212 ms**, Q8 **360 ms**. Jde o dobu překladu přesného textu, ne celé zpoždění titulků. [Kompletní měření a všech 300 párů](https://opicebot.cz/framelab/translation/?lang=cs).
+
 ## Český text a jeho černé pozadí
 
 - **Vlastní poloha:** nastav vodorovnou/svislou polohu a ukotvení, nebo zapni
@@ -67,6 +73,8 @@ frame genem a NR. Starší report **Hy-MT2 Q8** se týká jiného modelu o velik
 
 Poloha i mezera jsou uložené vzhledem k obrazu, takže přežijí změnu velikosti
 okna, rozlišení i fullscreen. Počítá se s více řádky a okraji černého pozadí.
+Překryv zůstává uvnitř viditelné části i v režimu vyplnění/ořezu nebo 1:1, kdy
+samotný zdrojový obraz může přesahovat okno.
 Neobvykle dlouhý text se zmenší, aby zůstal viditelný. Velikost písma a krytí
 pozadí mají vlastní nastavení.
 

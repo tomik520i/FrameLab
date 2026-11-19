@@ -1,0 +1,107 @@
+[
+  {
+    "file": "data/comparison.csv",
+    "bytes": 161247,
+    "sha256": "416ecad6e7f5dfccebe4a7f621ad2d93c713d8a785522359adbf792b8b0f26d7"
+  },
+  {
+    "file": "data/comparison.json",
+    "bytes": 228639,
+    "sha256": "c87ff8cd120b27d8942238ae0f41213567dc62386e931f5a187fb7c771b8797d"
+  },
+  {
+    "file": "data/corpus.jsonl",
+    "bytes": 124845,
+    "sha256": "addef2490cdb7429f7f3cfe2330a1a4178f2ee59a00b7c66afc561ae82c8f5cc"
+  },
+  {
+    "file": "data/cuni-q3km.jsonl",
+    "bytes": 152576,
+    "sha256": "a689824f50ade328425bc1aae98f5852b0ab26b036c2a243d28f01e727e5d2b9"
+  },
+  {
+    "file": "data/cuni-q8.jsonl",
+    "bytes": 151934,
+    "sha256": "9eb65d115e25363a8b75d16b4843a2fdca62c0de61efc7fb79b0ecca390ccfa6"
+  },
+  {
+    "file": "data/hardware.json",
+    "bytes": 719,
+    "sha256": "fdfcb7e05b26649ab40e2b857fa0c5e2cb1ccd96be8a2f681a85bd3a0eb1d63f"
+  },
+  {
+    "file": "data/manifest.json",
+    "bytes": 737,
+    "sha256": "abdf68ada3ab312dbd8cfe3a80d76eaaa029779b6ce57ac7f0d717c012361342"
+  },
+  {
+    "file": "data/model-catalog.json",
+    "bytes": 1504,
+    "sha256": "1181377c946ca98b892d413729d957a60dc471b8c90084fa3c5d0b00fc9c4ad6"
+  },
+  {
+    "file": "data/review.json",
+    "bytes": 6054,
+    "sha256": "53de42fa511a9c3a3f6284073e793c389738e4bcf486440ba4cd4d6bc245dd02"
+  },
+  {
+    "file": "data/summary.json",
+    "bytes": 747,
+    "sha256": "ba77e65eddd8ab153594c0bc608a60358b0c89e4cc586384bc0f8a3cd2386de6"
+  },
+  {
+    "file": "README.txt",
+    "bytes": 557,
+    "sha256": "a6304132059897ecc2ffffe1dacafb4bde28183b593286872f797a9c4192f13d"
+  },
+  {
+    "file": "report.html",
+    "bytes": 221272,
+    "sha256": "e9d1f175e0dcefc543d73141353e410324cf6420cc93d0601ac0f0ad2cf87084"
+  },
+  {
+    "file": "sources/cuni-model-card/RichardErkhov-provenance.json",
+    "bytes": 202,
+    "sha256": "3a0fd946a1350c46ff18a3634bc2fd1fed10dc4dc167bc2af8d0efde4a4bd27b"
+  },
+  {
+    "file": "sources/cuni-model-card/RichardErkhov-README.md",
+    "bytes": 8724,
+    "sha256": "464f7ce5325abfa2c0c593f37074a6a0e1221650bc45244b1d5dc5fefbf93e34"
+  },
+  {
+    "file": "sources/cuni-model-card/wmt24-cuni-provenance.json",
+    "bytes": 181,
+    "sha256": "26729fed6a8303f17dda13e98f360eb9b0e25c64b0458b643028ac8dbf14c5aa"
+  },
+  {
+    "file": "sources/cuni-model-card/wmt24-cuni-README.md",
+    "bytes": 4608,
+    "sha256": "296dee508605d94419949eec296141b3236c8e7cb31fcdcb1dd5f717253e6b90"
+  },
+  {
+    "file": "sources/sources.json",
+    "bytes": 845,
+    "sha256": "b0389a4a0a994a8f6f3f7814ec4f15b85bc1caa9bcdb1115f734ba714082508f"
+  },
+  {
+    "file": "sources/warzone-COPYING",
+    "bytes": 18011,
+    "sha256": "e6d6a009505e345fe949e1310334fcb0747f28dae2856759de102ab66b722cb4"
+  },
+  {
+    "file": "sources/warzone.po",
+    "bytes": 226012,
+    "sha256": "2772315a2a1934a405da5f0d9768b6c7f2f43cb0c594aa1febc6fc0e28471b58"
+  },
+  {
+    "file": "sources/wesnoth-COPYING",
+    "bytes": 18011,
+    "sha256": "e6d6a009505e345fe949e1310334fcb0747f28dae2856759de102ab66b722cb4"
+  },
+  {
+    "file": "sources/wesnoth.po",
+    "bytes": 423595,
+    "sha256": "6a3cd23fd32c3a07e83eff128a6c93d65d4ad78a62a12c45324d941d7d9c4c83"
+  }
+]

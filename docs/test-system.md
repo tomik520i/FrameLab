@@ -2,6 +2,43 @@
 
 [FrameLab](../README.md) · [Česky](test-system.cs.md) · [Raw measurements](performance/2026-11-18/summary.json)
 
+## Desktop CUNI translation coexistence — 19 November 2026
+
+The same RTX 5070 Ti desktop was retested with **VFG 2× Medium + experimental NR
+65% / 720p + the existing CPU OCR pipeline** playing a 1080p30 CS:GO loop. A
+separate local CUNI worker translated exact corpus text. There was no capture-card
+input and no game rendering on the GPU in this experiment.
+
+| Measurement | Q3_K_M | Q8_0 |
+|---|---:|---:|
+| Translation median | 212 ms | 360 ms |
+| Translation p95 | 479 ms | 855 ms |
+| Requests above 2 s | 0 / 180 | 0 / 180 |
+| Output during translation | 56.27 fps | 56.21 fps |
+| Own unloaded controls | 57.39 fps | 57.34 fps |
+| Output change | -1.95% | -1.96% |
+| Whole GPU, mean | 28.2% | 35.8% |
+| Power, mean | 102.9 W | 113.2 W |
+| Additional resident memory | 3.81 GiB | 7.62 GiB |
+| Minimum free memory | 8.63 GiB | 4.88 GiB |
+
+Each quantization completed 300 exact-text translations and three cycles of 60
+requests, at least 2 seconds apart. Each cycle is compared with its own adjacent
+60-second unloaded controls. Phase statistics omit the first 5 and last 2 seconds;
+latency includes all 180 requests. NVML samples the whole GPU at 1 Hz. Software
+output counts are **not physical monitor FPS**; inference times exclude OCR and
+stabilization. Memory excludes NVML reserved memory.
+
+Both models scored 271/300 acceptable translations; major errors: Q3 2, Q8 5.
+These are assistant judgments, not an independent blinded human study. All 600
+outputs match the separately reviewed preflight after trimming surrounding whitespace.
+The controlled benchmark uses the unchanged preview.12 baseline; separate actual
+OCR/CUNI tests verify preview.13 integration. This does not measure its end-to-end
+live subtitle delay.
+
+[Interactive report, all pairs, raw phases/settings and reproduction scripts](https://opicebot.cz/framelab/translation/)
+· [Aggregate JSON](performance/2026-11-19-cuni/summary.json)
+
 ## Additional laptop testing — preview.12, 19 November 2026
 
 **Acer Nitro ANV15-51 · Intel Core i5-13420H (8 cores / 12 threads) · NVIDIA GeForce RTX 4050 Laptop GPU · 32 GB RAM · Windows 11 Pro, build 26200.** Hardware was read from Windows on the test machine.

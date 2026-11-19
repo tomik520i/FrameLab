@@ -1,0 +1,24 @@
+{
+  "url": "http://127.0.0.1:8766/",
+  "browser": "isolated headless Edge",
+  "countryRouting": [
+    "CZ→cs",
+    "SK→cs",
+    "US→en",
+    "unknown→en"
+  ],
+  "manualChoiceWins": true,
+  "languagePersistence": true,
+  "keyboardTabs": true,
+  "videoPlayback": true,
+  "lightbox": true,
+  "gifDisclosure": true,
+  "widths": [
+    390,
+    768,
+    1024,
+    1440
+  ],
+  "errors": [],
+  "overflows": []
+}

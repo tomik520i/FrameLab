@@ -29,3 +29,15 @@ The D3D11 Optical Flow backend is new FrameLab GPL-3.0 code (GPU block matching 
 
 
 Local subtitle translator (2026-11-19): Windows.Media.Ocr is provided by Windows, not redistributed. English-to-Czech weights: Helsinki-NLP / OPUS-MT, original https://object.pouta.csc.fi/OPUS-MT-models/en-cs/opus-2019-12-18.zip; CC BY 4.0 as stated by LICENSE in that exact archive (not the Apache label on a different Hugging Face package). Converted to CTranslate2 4.9.0 int8; no retraining. Attribution, original license, source and hashes accompany app/translation/model and provenance.json. CTranslate2 MIT, SentencePiece 0.2.3 Apache-2.0, NumPy 2.3.5 BSD and bundled-library notices, PyYAML 6.0.3 MIT, CPython 3.11.9 PSF. Original package notices accompany each runtime. Application OCR/IPC/overlay code is FrameLab GPL-3.0. No speech recognition or network translation API is used.
+
+Optional CUNI subtitle downloads (preview.13): CUNI-MH is the CUNI WMT team's
+English-to-Czech fine-tuning of Mistral 7B. The archived original model card states
+MIT licensing. Q3_K_M and Q8_0 GGUF files are published by Richard Erkhov in
+`RichardErkhov/wmt24-cuni_-_CUNI-MH-gguf`, pinned to revision
+`ebc7f2c321087d423cbed4079b80e63d89e4ac8c`. The app downloads the original publisher
+files and the official Ollama Windows portable 0.40.16 runtime (MIT project;
+included third-party component notices remain applicable). These weights and
+runtime are **not included** in the FrameLab release ZIP. Exact URLs, sizes and
+SHA-256 values are in [the catalog](docs/subtitle-models.json). The
+[desktop study](https://opicebot.cz/framelab/translation/) retains source cards and
+provenance. GPU inference is local and does not use a hosted translation service.

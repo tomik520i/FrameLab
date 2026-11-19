@@ -2,6 +2,41 @@
 
 [Podrobná metodika a původní data v angličtině](test-system.md) · [Český návod](README.cs.md)
 
+## Stolní PC a souběh CUNI — 19. listopadu 2026
+
+Na stejné RTX 5070 Ti běžely **VFG 2× Medium + experimentální NR 65 % / 720p +
+původní CPU OCR cesta** nad 1080p30 smyčkou CS:GO. Samostatný lokální CUNI worker
+překládal přesný text korpusu. V tomto testu nebyla použita střihovka a na GPU se
+nerenderovala hra.
+
+| Měření | Q3_K_M | Q8_0 |
+|---|---:|---:|
+| Medián překladu | 212 ms | 360 ms |
+| 95. percentil | 479 ms | 855 ms |
+| Požadavky nad 2 s | 0 / 180 | 0 / 180 |
+| Výstup při překladu | 56.27 fps | 56.21 fps |
+| Vlastní kontroly bez modelu | 57.39 fps | 57.34 fps |
+| Změna výstupu | -1.95% | -1.96% |
+| Celá GPU, průměr | 28.2% | 35.8% |
+| Příkon, průměr | 102.9 W | 113.2 W |
+| Paměť navíc s modelem | 3.81 GiB | 7.62 GiB |
+| Nejméně volné paměti | 8.63 GiB | 4.88 GiB |
+
+Každý model dokončil 300 překladů a tři série po 60 požadavcích s odstupem alespoň
+2 s. Každá série má vlastní sousední 60s kontroly bez GPU modelu. Statistiky fází
+vynechávají prvních 5 a poslední 2 s; latence zahrnuje všech 180 požadavků. NVML
+měří celou kartu 1× za sekundu. Softwarové čítače nejsou **fyzické FPS monitoru**;
+časy překladače nezahrnují OCR ani stabilizaci. Paměť nezahrnuje rezervaci NVML.
+
+Oba modely: 271/300 přijatelných překladů, zásadní chyby Q3 2 a Q8 5. Hodnotil
+asistent, nejde o nezávislou zaslepenou lidskou studii. Všech 600 výstupů odpovídá
+samostatně hodnocenému předběžnému testu po oříznutí okolních mezer. Řízený benchmark
+používá nezměněnou preview.12; integraci OCR/CUNI v preview.13 ověřují samostatné
+testy. Nejde o celkové zpoždění živých titulků nové aplikace.
+
+[Interaktivní report, všechny páry, surové fáze/nastavení a skripty](https://opicebot.cz/framelab/translation/?lang=cs)
+· [Souhrnný JSON](performance/2026-11-19-cuni/summary.json)
+
 ## Notebook — preview.12, 19. listopadu 2026
 
 **Acer Nitro ANV15-51 · Intel Core i5-13420H (8 jader / 12 vláken) · NVIDIA GeForce RTX 4050 Laptop GPU · 32 GB RAM · Windows 11 Pro, build 26200.** Konfigurace ověřena přímo ve Windows.

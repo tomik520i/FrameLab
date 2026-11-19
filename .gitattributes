@@ -4,3 +4,5 @@
 *.py text eol=lf
 *.ps1 text eol=crlf
 *.cmd text eol=crlf
+# Published measurement/source bytes have their own SHA-256 manifests.
+website/translation/** -text whitespace=cr-at-eol,-blank-at-eof

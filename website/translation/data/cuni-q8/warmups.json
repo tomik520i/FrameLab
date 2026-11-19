@@ -1,0 +1,174 @@
+[
+  {
+    "phase": "quality",
+    "response": {
+      "model": "framelab-cuni-mh-q8",
+      "created_at": "2026-11-19T11:59:45.8145308Z",
+      "response": "Měli bychom vyrazit před východem slunce.",
+      "done": true,
+      "done_reason": "stop",
+      "total_duration": 3373701400,
+      "load_duration": 3021994900,
+      "prompt_eval_count": 45,
+      "prompt_eval_cached_count": 0,
+      "prompt_eval_duration": 55951000,
+      "eval_count": 19,
+      "eval_duration": 284035000
+    },
+    "ms": 3380.3096000010555,
+    "model_state": {
+      "models": [
+        {
+          "name": "framelab-cuni-mh-q8:latest",
+          "model": "framelab-cuni-mh-q8:latest",
+          "size": 7948038307,
+          "digest": "e77298a2539710614aa8cbc7ab381ced493ffceed3c8853db2ef87c6da5b021b",
+          "details": {
+            "parent_model": "",
+            "format": "gguf",
+            "family": "llama",
+            "families": [
+              "llama"
+            ],
+            "parameter_size": "7.2B",
+            "quantization_level": "Q8_0"
+          },
+          "expires_at": "2026-11-19T13:29:45.8145308+01:00",
+          "size_vram": 7948038307,
+          "context_length": 2048,
+          "runner": "llamacpp"
+        }
+      ]
+    },
+    "utc": "2026-11-19T11:59:45.821957+00:00"
+  },
+  {
+    "phase": "paced-1",
+    "response": {
+      "model": "framelab-cuni-mh-q8",
+      "created_at": "2026-11-19T12:03:25.9361237Z",
+      "response": "Měli bychom vyrazit před východem slunce.",
+      "done": true,
+      "done_reason": "stop",
+      "total_duration": 3426320800,
+      "load_duration": 3074924300,
+      "prompt_eval_count": 45,
+      "prompt_eval_cached_count": 0,
+      "prompt_eval_duration": 56147000,
+      "eval_count": 19,
+      "eval_duration": 283099000
+    },
+    "ms": 3433.1216999999015,
+    "model_state": {
+      "models": [
+        {
+          "name": "framelab-cuni-mh-q8:latest",
+          "model": "framelab-cuni-mh-q8:latest",
+          "size": 7948038307,
+          "digest": "e77298a2539710614aa8cbc7ab381ced493ffceed3c8853db2ef87c6da5b021b",
+          "details": {
+            "parent_model": "",
+            "format": "gguf",
+            "family": "llama",
+            "families": [
+              "llama"
+            ],
+            "parameter_size": "7.2B",
+            "quantization_level": "Q8_0"
+          },
+          "expires_at": "2026-11-19T13:33:25.9361237+01:00",
+          "size_vram": 7948038307,
+          "context_length": 2048,
+          "runner": "llamacpp"
+        }
+      ]
+    },
+    "utc": "2026-11-19T12:03:25.943558+00:00"
+  },
+  {
+    "phase": "paced-2",
+    "response": {
+      "model": "framelab-cuni-mh-q8",
+      "created_at": "2026-11-19T12:06:29.5258789Z",
+      "response": "Měli bychom vyrazit před východem slunce.",
+      "done": true,
+      "done_reason": "stop",
+      "total_duration": 3354069600,
+      "load_duration": 3003968800,
+      "prompt_eval_count": 45,
+      "prompt_eval_cached_count": 0,
+      "prompt_eval_duration": 56676000,
+      "eval_count": 19,
+      "eval_duration": 283438000
+    },
+    "ms": 3360.635999997612,
+    "model_state": {
+      "models": [
+        {
+          "name": "framelab-cuni-mh-q8:latest",
+          "model": "framelab-cuni-mh-q8:latest",
+          "size": 7948038307,
+          "digest": "e77298a2539710614aa8cbc7ab381ced493ffceed3c8853db2ef87c6da5b021b",
+          "details": {
+            "parent_model": "",
+            "format": "gguf",
+            "family": "llama",
+            "families": [
+              "llama"
+            ],
+            "parameter_size": "7.2B",
+            "quantization_level": "Q8_0"
+          },
+          "expires_at": "2026-11-19T13:36:29.5258789+01:00",
+          "size_vram": 7948038307,
+          "context_length": 2048,
+          "runner": "llamacpp"
+        }
+      ]
+    },
+    "utc": "2026-11-19T12:06:29.532666+00:00"
+  },
+  {
+    "phase": "paced-3",
+    "response": {
+      "model": "framelab-cuni-mh-q8",
+      "created_at": "2026-11-19T12:09:32.8366509Z",
+      "response": "Měli bychom vyrazit před východem slunce.",
+      "done": true,
+      "done_reason": "stop",
+      "total_duration": 3109621300,
+      "load_duration": 2763557500,
+      "prompt_eval_count": 45,
+      "prompt_eval_cached_count": 0,
+      "prompt_eval_duration": 49369000,
+      "eval_count": 19,
+      "eval_duration": 286987000
+    },
+    "ms": 3116.7476999980863,
+    "model_state": {
+      "models": [
+        {
+          "name": "framelab-cuni-mh-q8:latest",
+          "model": "framelab-cuni-mh-q8:latest",
+          "size": 7948038307,
+          "digest": "e77298a2539710614aa8cbc7ab381ced493ffceed3c8853db2ef87c6da5b021b",
+          "details": {
+            "parent_model": "",
+            "format": "gguf",
+            "family": "llama",
+            "families": [
+              "llama"
+            ],
+            "parameter_size": "7.2B",
+            "quantization_level": "Q8_0"
+          },
+          "expires_at": "2026-11-19T13:39:32.8371653+01:00",
+          "size_vram": 7948038307,
+          "context_length": 2048,
+          "runner": "llamacpp"
+        }
+      ]
+    },
+    "utc": "2026-11-19T12:09:32.843418+00:00"
+  }
+]

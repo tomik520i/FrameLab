@@ -8,16 +8,21 @@ used. A better translator cannot repair text missed by OCR.
 
 ## Start
 
-1. Open **Subtitles**, select a model and enable translation.
+1. Open **Subtitles**. If English OCR is missing, press **Install English OCR**
+   and approve the Windows administrator prompt. Then select a model and enable translation.
 2. Enable **Show reading area** and crop tightly around the English subtitle band.
    Exclude chat, minimaps and objectives. Two matching OCR readings are required.
 3. Set the size and placement of the **Czech overlay** independently of the reading
    area. Press F11 for the finished image without editing controls.
 
-Windows must have the **English OCR** language capability. If it is missing, the
-application reports it and offers Windows language settings. Installing this
-Windows component requires administrator approval. Re-enable translation after
-installation. The complete ZIP already includes the CPU translation model.
+Windows must have the **English OCR** language capability. FrameLab detects it
+automatically and offers a one-click install directly from Microsoft. Installation
+requires Internet and administrator approval, can take several minutes, and does
+not change your Windows display language. The app checks readiness again afterward;
+enable translation when it reports ready. If Windows requires a restart, the app
+explains that. Cancelling UAC is harmless and allows retry. Windows language settings
+remain a manual fallback. Recognition subsequently works offline. The complete ZIP
+already includes the CPU translation model.
 
 ## Choose a model
 
@@ -56,6 +61,8 @@ On the fixed 300-sentence desktop text-only comparison, both CUNI variants score
 were identical. These are assistant judgments, not a blinded human study. This
 preflight does not establish performance alongside OCR, frame generation or NR.
 
+On the RTX 5070 Ti with VFG 2×, NR 65% / 720p and the CPU OCR path active, Q3 had a **212 ms** median and Q8 **360 ms**. This is exact-text request time, not full subtitle delay. [Complete measurements and all 300 pairs](https://opicebot.cz/framelab/translation/).
+
 ## Place Czech text and its background
 
 - **Custom position:** choose horizontal/vertical position and anchoring, or enable
@@ -69,7 +76,8 @@ preflight does not establish performance alongside OCR, frame generation or NR.
 
 Coordinates and the gap are relative to the image, so placement survives resizing,
 resolution changes and fullscreen. Multiline text and padding stay within the
-image; unusually tall text shrinks to fit. Font size and background opacity are
+visible viewport, including Fill/crop and 1:1 views whose source image extends past
+the window; unusually tall text shrinks to fit. Font size and background opacity are
 separate settings. **Cover original subtitle area** is a separate black rectangle
 over the OCR band; leave it off to keep English visible.
 

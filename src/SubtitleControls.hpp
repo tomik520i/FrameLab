@@ -2,20 +2,34 @@
 #include "SubtitleTranslator.hpp"
 #include "SubtitleLayout.hpp"
 #include "SubtitleModels.hpp"
+#include "OcrSetup.hpp"
 #include "UiTheme.hpp"
 #include "Localization.hpp"
 #include <cmath>
 
 inline const char* subText(const char* en,const char* cs){return czech?cs:en;}
-inline bool subtitlePanel(SubtitleSettings& settings,const SubtitleSnapshot& state,SubtitleModels& models,float freeVramMB){
+inline bool subtitlePanel(SubtitleSettings& settings,const SubtitleSnapshot& state,SubtitleModels& models,float freeVramMB,OcrSetup& ocr,HWND window){
  const auto before=settings;
  ui::title(subText("LOCAL SUBTITLE TRANSLATION","LOKÁLNÍ PŘEKLAD TITULKŮ"));
  ImGui::TextWrapped("%s",subText("Reads English text already visible in the picture and overlays Czech. Processing stays on this PC.","Čte anglický text už zobrazený v obraze a překrývá ho českým překladem. Zpracování probíhá na tomto PC."));
+ const auto capability=ocr.snapshot();
+ if(capability.available==1)ImGui::TextColored(ui::accent,"%s",subText("Windows English OCR is ready","Anglické OCR ve Windows je připravené"));
+ else if(capability.installing)ImGui::TextWrapped("%s",subText("Installing English OCR through Windows. Confirm UAC if prompted; downloading and servicing can take several minutes. The picture keeps running.","Windows instalují anglické OCR. Potvrď případné UAC; stažení a instalace mohou trvat několik minut. Obraz běží dál."));
+ else if(capability.available<0)ImGui::TextDisabled("%s",subText("Checking Windows English OCR...","Kontroluji anglické OCR ve Windows..."));
+ else{
+  ImGui::TextWrapped("%s",subText("English OCR is a Windows component. Install it once from Microsoft; administrator approval and Internet are required. Your Windows display language stays unchanged. Recognition then works offline.","Anglické OCR je součást Windows. Jednou se stáhne od Microsoftu; potřebuje internet a potvrzení správce. Jazyk Windows se nezmění. Rozpoznávání pak funguje offline."));
+  if(ImGui::Button(subText("Install English OCR","Doplnit anglické OCR")))ocr.install(window);
+  if(ImGui::Button(subText("Check again","Znovu ověřit")))ocr.refresh();
+  if(capability.outcome=="cancelled")ImGui::TextWrapped("%s",subText("Administrator prompt was cancelled. You can retry.","Potvrzení správce bylo zrušeno. Můžeš to zkusit znovu."));
+  else if(capability.outcome=="installed")ImGui::TextWrapped("%s",subText("Windows reports installation complete, but OCR is not available yet. Restart FrameLab; Windows may require a restart.","Windows hlásí dokončenou instalaci, ale OCR zatím není dostupné. Spusť FrameLab znovu; může být potřeba restart Windows."));
+  else if(!capability.outcome.empty())ImGui::TextWrapped("%s",subText("Windows could not install or detect OCR. Check Windows Update or install English language features in Settings.","Instalace nebo kontrola OCR se nepodařila. Zkontroluj Windows Update nebo doplň anglické jazykové funkce v Nastavení."));
+  if(ImGui::Button(subText("Windows language settings","Jazykové nastavení Windows")))ShellExecuteW(window,L"open",L"ms-settings:regionlanguage",nullptr,nullptr,SW_SHOWNORMAL);
+ }
  ui::field(subText("Translation model","Překladový model"));
  if(ImGui::Combo("##translation-model",&settings.model,"OPUS-MT / CPU\000CUNI-MH 7B / Q3_K_M\000CUNI-MH 7B / Q8_0\000"))settings.enabled=false;
- bool ready=true;
+ bool ready=capability.available==1;
  if(settings.model){
-  const auto& item=subtitleModelCatalog[settings.model];const auto download=models.snapshot(settings.model);ready=download.phase=="ready";
+  const auto& item=subtitleModelCatalog[settings.model];const auto download=models.snapshot(settings.model);const bool modelReady=download.phase=="ready";ready=ready&&modelReady;
   ImGui::TextWrapped("%s",subText("CUNI is specialized for English to Czech. Q3 uses less memory; Q8 keeps more weight precision. Higher precision is not a guarantee of a better sentence.","CUNI je specializovaný na angličtinu do češtiny. Q3 šetří paměť, Q8 zachová větší přesnost vah. Vyšší přesnost nezaručuje lepší překlad každé věty."));
   ImGui::Text(subText("Model: %.2f GB | estimated GPU: %.1f GiB + headroom","Model: %.2f GB | odhad GPU: %.1f GiB + rezerva"),item.downloadGB,item.requiredGiB);
   ImGui::TextWrapped("%s",subText("First GPU download also needs the 1.62 GB portable runtime. Allow about 8 GB extra disk space for its archive and extraction. Models stay on this PC.","První GPU model stáhne také přenosný runtime (1,62 GB). Pro archiv a rozbalení nech dalších asi 8 GB místa. Modely zůstávají na tomto PC."));
@@ -23,7 +37,7 @@ inline bool subtitlePanel(SubtitleSettings& settings,const SubtitleSnapshot& sta
   const auto other=models.snapshot(3-settings.model);const bool otherBusy=other.phase=="downloading"||other.phase=="verifying"||other.phase=="extracting";
   ImGui::Text("%s: %s",subText("Download","Stažení"),download.phase.c_str());
   if(busy){float fraction=download.total?float(double(download.done)/download.total):0;ImGui::ProgressBar(fraction,{-1,0});ImGui::Text("%.2f / %.2f GB",download.done/1.e9,download.total/1.e9);if(ImGui::Button(subText("Pause download","Pozastavit stahování")))models.cancel();}
-  else if(!ready){ImGui::BeginDisabled(otherBusy);if(ImGui::Button(subText("Download / resume and verify","Stáhnout / pokračovat a ověřit")))models.download(settings.model);ImGui::EndDisabled();}
+  else if(!modelReady){ImGui::BeginDisabled(otherBusy);if(ImGui::Button(subText("Download / resume and verify","Stáhnout / pokračovat a ověřit")))models.download(settings.model);ImGui::EndDisabled();}
   if(otherBusy){ImGui::TextWrapped("%s",subText("The other model is downloading. Finish or pause that download first.","Stahuje se druhý model. Nech ho dokončit nebo stahování pozastav."));if(ImGui::Button(subText("Pause other download","Pozastavit druhé stahování")))models.cancel();}
   if(!download.detail.empty())ImGui::TextWrapped("%s",download.detail.c_str());
   if(state.activeModel==settings.model)ImGui::TextColored(ui::accent,"%s",subText("Model loaded on GPU","Model načtený na GPU"));
@@ -78,20 +92,28 @@ inline bool subtitlePanel(SubtitleSettings& settings,const SubtitleSnapshot& sta
 inline bool drawSubtitleOverlay(ImVec2 origin,ImVec2 size,SubtitleSettings& settings,const SubtitleSnapshot& state,double now,bool cleanOutput=false){
  bool changed=false;const bool edit=settings.editOverlay&&!cleanOutput;
  if(size.x<=0||size.y<=0)return false;
- auto draw=ImGui::GetWindowDrawList();const ImVec2 end{origin.x+size.x,origin.y+size.y};draw->PushClipRect(origin,end,true);
+ auto draw=ImGui::GetWindowDrawList();const ImVec2 end{origin.x+size.x,origin.y+size.y};
+ // Fit/fill/crop can place parts of the input image outside the actual viewport.
+ // Keep the full caption inside the visible image AND window, not just source bounds.
+ const auto clipMin=draw->GetClipRectMin(),clipMax=draw->GetClipRectMax(),display=ImGui::GetIO().DisplaySize;
+ const ImVec2 visibleMin{std::max({origin.x,clipMin.x,0.f}),std::max({origin.y,clipMin.y,0.f})};
+ const ImVec2 visibleMax{std::min({end.x,clipMax.x,display.x}),std::min({end.y,clipMax.y,display.y})};
+ const ImVec2 visibleSize{visibleMax.x-visibleMin.x,visibleMax.y-visibleMin.y};
+ if(visibleSize.x<=0||visibleSize.y<=0)return false;
+ draw->PushClipRect(visibleMin,visibleMax,true);
  if(settings.showRegion&&!cleanOutput){ImVec2 a{origin.x+size.x*settings.left,origin.y+size.y*settings.top},b{origin.x+size.x*settings.right,origin.y+size.y*settings.bottom};draw->AddRect(a,b,IM_COL32(170,230,70,255),0,0,2);draw->AddText({a.x+4,a.y+4},IM_COL32(170,230,70,255),"OCR: EN");}
  if(edit||(settings.enabled&&!state.translated.empty()&&now-state.observedAt<4.0)){
   if(settings.coverSource)draw->AddRectFilled({origin.x+size.x*settings.left,origin.y+size.y*settings.top},{origin.x+size.x*settings.right,origin.y+size.y*settings.bottom},IM_COL32(0,0,0,255));
   std::string text=state.translated;
   if(text.empty()||now-state.observedAt>=4.0)text="Ukázka českých titulků\nPřetáhni text i pozadí";
   else if(settings.showOriginal)text+='\n'+state.source;
-  float fs=std::round(std::max(16.f,std::min(size.y,ImGui::GetIO().DisplaySize.y)*settings.fontPercent/100)),wrap=size.x*.86f;
+  float fs=std::round(std::max(16.f,visibleSize.y*settings.fontPercent/100)),wrap=visibleSize.x*.86f;
   auto font=ui::subtitleFont(fs);
   auto measured=font->CalcTextSizeA(fs,FLT_MAX,wrap,text.c_str());
-  const float px=size.y*.009f,py=size.y*.006f;
+  const float paddingScale=std::min(visibleSize.x,visibleSize.y),px=paddingScale*.009f,py=paddingScale*.006f;
   // Very long subtitles must remain visible at every aspect ratio.
-  for(int i=0;i<16&&(measured.y+2*py>size.y*.97f||measured.x+2*px>size.x*.97f);++i){fs*=.85f;measured=font->CalcTextSizeA(fs,FLT_MAX,wrap,text.c_str());}
-  auto layout=placeSubtitle(settings,size.x,size.y,measured.x+2*px,measured.y+2*py);
+  for(int i=0;i<48&&(measured.y+2*py>visibleSize.y*.97f||measured.x+2*px>visibleSize.x*.97f);++i){fs*=.8f;measured=font->CalcTextSizeA(fs,FLT_MAX,wrap,text.c_str());}
+  auto layout=placeSubtitle(settings,size.x,size.y,measured.x+2*px,measured.y+2*py,{visibleMin.x-origin.x,visibleMin.y-origin.y,visibleMax.x-origin.x,visibleMax.y-origin.y});
   ImVec2 a{origin.x+layout.x,origin.y+layout.y},b{a.x+layout.width,a.y+layout.height};
   if(edit){
    const auto cursor=ImGui::GetCursorScreenPos();ImGui::SetCursorScreenPos(a);ImGui::InvisibleButton("##drag-czech-overlay",{layout.width,layout.height});

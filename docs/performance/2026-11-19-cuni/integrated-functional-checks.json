@@ -1,0 +1,38 @@
+{
+  "scope": "Actual application own-render exports; functional checks, not a latency benchmark; no desktop capture",
+  "source": "Bundled artificial 720p30 OCR demo",
+  "records": [
+    {
+      "name": "preview13-cuni-q3",
+      "pipeline": {
+        "vfg_enabled": "1",
+        "vfg_initialized": "1",
+        "nr_enabled": "1",
+        "nr_has_result": "1",
+        "nr_processing_ms": "2.334",
+        "subtitle_active_model": "1",
+        "subtitle_loading": "0",
+        "input_width": "1280",
+        "input_height": "720",
+        "clean_output": "0"
+      },
+      "caption": "Local OCR + EN > CS ready\nThe door is locked.\nDveře jsou zamčené.\n"
+    },
+    {
+      "name": "preview13-cuni-q8-fullscreen",
+      "pipeline": {
+        "vfg_enabled": "1",
+        "vfg_initialized": "1",
+        "nr_enabled": "1",
+        "nr_has_result": "1",
+        "nr_processing_ms": "2.197",
+        "subtitle_active_model": "2",
+        "subtitle_loading": "0",
+        "input_width": "1280",
+        "input_height": "720",
+        "clean_output": "1"
+      },
+      "caption": "Local OCR + EN > CS ready\nThe door is locked.\nDveře jsou zamčené.\n"
+    }
+  ]
+}

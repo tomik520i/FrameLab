@@ -1,0 +1,24 @@
+{
+  "utc": "2026-11-19T07:17:41.076048+00:00",
+  "purpose": "Translation quality preflight ONLY, without concurrent FrameLab/OCR/NR; timings are not the requested coexistence benchmark.",
+  "corpus_sha256": "addef2490cdb7429f7f3cfe2330a1a4178f2ee59a00b7c66afc561ae82c8f5cc",
+  "prompt": "### Instruction:\nTranslate Input from English to Czech\n### Glossary:\n\n### Previous text:\n\n### Input:\n{text}\n### Response:\n",
+  "options": {
+    "temperature": 0,
+    "num_ctx": 2048,
+    "num_predict": 256,
+    "num_gpu": 99,
+    "num_thread": 4,
+    "repeat_penalty": 1.0,
+    "seed": 20261119,
+    "top_k": 20,
+    "top_p": 0.6,
+    "stop": [
+      "\n"
+    ]
+  },
+  "models": [
+    "cuni-q3km",
+    "cuni-q8"
+  ]
+}

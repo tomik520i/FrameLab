@@ -1,0 +1,35 @@
+{
+  "schema": 1,
+  "family": "CUNI-MH (Mistral 7B, English to Czech)",
+  "original": "https://huggingface.co/wmt24-cuni/CUNI-MH/tree/9c04ec94917c929f7587f61a2142877c472641f2",
+  "quantization_repository": "RichardErkhov/wmt24-cuni_-_CUNI-MH-gguf",
+  "revision": "ebc7f2c321087d423cbed4079b80e63d89e4ac8c",
+  "models": [
+    {
+      "id": "cuni-q3km",
+      "name": "CUNI-MH 7B Q3_K_M",
+      "file": "CUNI-MH.Q3_K_M.gguf",
+      "bytes": 3518986560,
+      "sha256": "4e2c3440516a5340e261f96b664994f79be8835523fd496c1821b31d3a02893f",
+      "estimated_vram_gib": 4.4,
+      "url": "https://huggingface.co/RichardErkhov/wmt24-cuni_-_CUNI-MH-gguf/resolve/ebc7f2c321087d423cbed4079b80e63d89e4ac8c/CUNI-MH.Q3_K_M.gguf"
+    },
+    {
+      "id": "cuni-q8",
+      "name": "CUNI-MH 7B Q8_0",
+      "file": "CUNI-MH.Q8_0.gguf",
+      "bytes": 7695857984,
+      "sha256": "461b6c6e20b0fd5162fc916878b680590b8ee10799fd83c1eae6e7ab87d0f18c",
+      "estimated_vram_gib": 8.5,
+      "url": "https://huggingface.co/RichardErkhov/wmt24-cuni_-_CUNI-MH-gguf/resolve/ebc7f2c321087d423cbed4079b80e63d89e4ac8c/CUNI-MH.Q8_0.gguf"
+    }
+  ],
+  "runtime": {
+    "name": "Ollama Windows portable 0.40.16",
+    "file": "ollama-windows-amd64.zip",
+    "bytes": 1618244995,
+    "sha256": "50fcf5ad54277f2fa5d173ebfc93bcb017adbc0c9ef2314daabc96ca9e6aa64e",
+    "url": "https://github.com/ollama/ollama/releases/download/v0.40.16/ollama-windows-amd64.zip",
+    "license": "https://github.com/ollama/ollama/blob/v0.40.16/LICENSE"
+  }
+}

@@ -1,0 +1,6 @@
+{
+  "cases_per_model": 300,
+  "comparison": "strip surrounding whitespace only",
+  "q3_matches_reviewed_preflight": true,
+  "q8_matches_reviewed_preflight": true
+}

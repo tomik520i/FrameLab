@@ -39,7 +39,7 @@ def main():
   ]
   sections=''.join(f'<section class="step" id="step-{n}"><div class="step-copy"><span class="step-index">0{n} / 04</span><h2>{heading}</h2>{body}</div><div class="shots">'+''.join(figure(key,lang,'-fs') for key in shots)+'</div></section>' for n,(heading,body,shots) in enumerate(steps,1))
   nav=('visual-en.html' if en else 'visual.html');label=('Celý obrazový návod','Complete illustrated guide')[i]
-  page=f'<!doctype html><html lang="{lang}"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>FrameLab preview.12 — fullscreen</title><link rel="stylesheet" href="assets/visual.css"></head><body><main><nav><a href="../#download">← FrameLab</a><a href="fullscreen.html">Česky</a><a href="fullscreen-en.html">English</a><a href="{nav}">{label}</a></nav><header><p class="eyebrow">FRAME/LAB · PREVIEW.12 · FULLSCREEN</p><h1>{title}</h1><p class="intro">{intro}</p></header>{sections}</main>{lightbox(lang)}</body></html>'
+  page=f'<!doctype html><html lang="{lang}"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>FrameLab preview.13 — fullscreen</title><link rel="stylesheet" href="assets/visual.css"></head><body><main><nav><a href="../#download">← FrameLab</a><a href="fullscreen.html">Česky</a><a href="fullscreen-en.html">English</a><a href="{nav}">{label}</a></nav><header><p class="eyebrow">FRAME/LAB · PREVIEW.13 · FULLSCREEN</p><h1>{title}</h1><p class="intro">{intro}</p></header>{sections}</main>{lightbox(lang)}</body></html>'
   (ROOT/'website/guide'/('fullscreen-en.html' if en else 'fullscreen.html')).write_text(page,encoding='utf-8')
 
 if __name__=='__main__':main()

@@ -21,6 +21,13 @@ int main(){try{
  require(custom.x>=0&&custom.y>=0&&custom.x+custom.width<=1080&&custom.y+custom.height<=1920,"Portrait multiline stays in image");
  auto overflow=placeSubtitle(s,100,50,200,100);
  require(overflow.width<100&&overflow.height<50&&overflow.x>=0&&overflow.y>=0,"Oversized box bounds");
+ // Fill/crop displays only the middle of a larger image; anchor still uses source
+ // coordinates but the entire multiline box must remain in the visible viewport.
+ for(int placement=0;placement<3;++placement)for(float x:{0.f,1.f})for(float y:{0.f,1.f}){
+  s.placement=placement;s.horizontal=x;s.position=y;
+  auto crop=placeSubtitle(s,3840,2160,1600,500,{700,400,2200,1250});
+  require(crop.x>=700&&crop.y>=400&&crop.x+crop.width<=2200&&crop.y+crop.height<=1250,"Cropped viewport bounds at all anchors/presets");
+ }
  auto path=std::filesystem::temp_directory_path()/"framelab-subtitle-layout-test.txt";
  s.model=2;s.save(path);SubtitleSettings loaded;loaded.load(path);s.enabled=false;s.showRegion=false;s.editOverlay=false;require(s==loaded,"Placement and model selection roundtrip");
  std::ofstream(path)<<"2 0.1 0.72 0.9 0.97 5.5 0.8 0.8 300 0 1\n";SubtitleSettings old;old.load(path);

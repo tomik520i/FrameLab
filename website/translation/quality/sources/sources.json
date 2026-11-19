@@ -1,0 +1,24 @@
+[
+  {
+    "name": "wesnoth",
+    "repo": "wesnoth/wesnoth",
+    "commit": "a015f4a5c629c0eb45ac5f115595113c9880e4af",
+    "path": "po/wesnoth-httt/cs.po",
+    "url": "https://raw.githubusercontent.com/wesnoth/wesnoth/a015f4a5c629c0eb45ac5f115595113c9880e4af/po/wesnoth-httt/cs.po",
+    "sha256": "6a3cd23fd32c3a07e83eff128a6c93d65d4ad78a62a12c45324d941d7d9c4c83",
+    "licenses": [
+      "wesnoth-COPYING"
+    ]
+  },
+  {
+    "name": "warzone",
+    "repo": "Warzone2100/warzone2100",
+    "commit": "8867da90aee0ccc464e299865cefb3b41dfa43f0",
+    "path": "po/cs.po",
+    "url": "https://raw.githubusercontent.com/Warzone2100/warzone2100/8867da90aee0ccc464e299865cefb3b41dfa43f0/po/cs.po",
+    "sha256": "2772315a2a1934a405da5f0d9768b6c7f2f43cb0c594aa1febc6fc0e28471b58",
+    "licenses": [
+      "warzone-COPYING"
+    ]
+  }
+]
