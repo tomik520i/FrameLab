@@ -15,6 +15,9 @@
 #include "UiTheme.hpp"
 #include "UiPreview.hpp"
 #include "NrControls.hpp"
+#include "NrHistory.hpp"
+#include "Diagnostics.hpp"
+#include "SystemTelemetry.hpp"
 #include "VideoFileReplay.hpp"
 #include "LocalVideoPlayer.hpp"
 #include <commdlg.h>
@@ -184,6 +187,7 @@ int WINAPI wWinMain(HINSTANCE instance,HINSTANCE,LPWSTR cmd,int){
  try{
   std::wstring args=cmd;
   // Diagnostic A/B switch: retain the previous display-bound work loop.
+  const bool legacyNrScheduling=args.find(L"--legacy-nr-scheduling")!=std::wstring::npos;
   const bool legacyOutputWait=args.find(L"--legacy-output-wait")!=std::wstring::npos;
   int argumentCount=0;auto argumentValues=CommandLineToArgvW(GetCommandLineW(),&argumentCount);std::vector<std::wstring> arguments;
   if(argumentValues){for(int i=1;i<argumentCount;++i)arguments.emplace_back(argumentValues[i]);LocalFree(argumentValues);}
@@ -202,7 +206,7 @@ int WINAPI wWinMain(HINSTANCE instance,HINSTANCE,LPWSTR cmd,int){
   WNDCLASSW wc{};wc.lpfnWndProc=windowProc;wc.hInstance=instance;wc.lpszClassName=L"FrameLabWindow";wc.hCursor=LoadCursor(nullptr,IDC_ARROW);RegisterClassW(&wc);
   int initialWidth=1480,initialHeight=900;
   if(uiPreview){initialWidth=std::clamp(_wtoi(argument(L"--preview-width",L"1480").c_str()),640,3840);initialHeight=std::clamp(_wtoi(argument(L"--preview-height",L"900").c_str()),480,2160);}
-  HWND window=CreateWindowW(wc.lpszClassName,L"FrameLab | preview.14",uiPreview?WS_POPUP:WS_OVERLAPPEDWINDOW,100,80,initialWidth,initialHeight,nullptr,nullptr,instance,nullptr);
+  HWND window=CreateWindowW(wc.lpszClassName,L"FrameLab | preview.14 Debug + NR",uiPreview?WS_POPUP:WS_OVERLAPPEDWINDOW,100,80,initialWidth,initialHeight,nullptr,nullptr,instance,nullptr);
   applyWindowChrome(window);
   Graphics g;g.init(window);graphics=&g;
   if(args.find(L"--verify-vfg")!=std::wstring::npos){for(unsigned m=2;m<=4;++m)for(unsigned i=1;i<m;++i)verifyInterpolation(g,root,m,i,args.find(L"--optical")!=std::wstring::npos);DestroyWindow(window);timeEndPeriod(1);CoUninitialize();return 0;}
@@ -236,12 +240,21 @@ int WINAPI wWinMain(HINSTANCE instance,HINSTANCE,LPWSTR cmd,int){
   if(uiPreview&&args.find(L"--preview-subtitle-edit")!=std::wstring::npos)subtitleSettings.editOverlay=true;
   const bool rapidOcrReady=SubtitleTranslator::rapidOcrAvailable(root);
   SubtitleTrace subtitleTrace;if(auto path=argument(L"--subtitle-trace");!path.empty())subtitleTrace.open(path);
-  auto savedSubtitleSettings=subtitleSettings;SubtitleModels subtitleModels(root);SubtitleTranslator subtitles(root);subtitles.configure(subtitleSettings);SubtitleSnapshot frozenSubtitle;
+  Diagnostics diagnostics;SystemTelemetry systemTelemetry;
+  auto savedSubtitleSettings=subtitleSettings;SubtitleModels subtitleModels(root);SubtitleTranslator subtitles(root);subtitles.setDiagnostics(&diagnostics);subtitles.configure(subtitleSettings);SubtitleSnapshot frozenSubtitle;
   DisplayControls displayControls;displayControls.load(root/L"display-settings.txt");
   GpuMonitor gpu;AnalysisRecorder analysis;Mailbox mailbox;mailbox.subtitles=&subtitles;mailbox.recorder=&analysis;DirectShowCapture capture;std::atomic<bool> demoRun=false;std::jthread demo;LocalVideoPlayer localVideo;
   std::mutex replayErrorMutex;std::string replayError;
   bool live=false,isDemo=false,vfgInitialized=false,havePrevious=false,pending=false,vsync=args.find(L"--no-vsync")==std::wstring::npos,initFailed=false;
   int quality=args.find(L"--medium")!=std::wstring::npos?1:args.find(L"--high")!=std::wstring::npos?2:args.find(L"--low")!=std::wstring::npos?0:1,resolution=0;unsigned current=0,w=0,h=0;Texture originals[2],generated;FrameGenerator vfg;vfg.useOptical=args.find(L"--optical")!=std::wstring::npos;ID3D11ShaderResourceView* displayed=nullptr;
+  // Explicit capture startup preserves a reviewed live setup across a local update.
+  if(!argument(L"--capture-width").empty()&&!argument(L"--capture-height").empty()){
+   const int cw=_wtoi(argument(L"--capture-width").c_str()),ch=_wtoi(argument(L"--capture-height").c_str());
+   auto mode=std::find_if(resolutions.begin(),resolutions.end(),[&](auto m){return int(m.width)==cw&&int(m.height)==ch;});
+   if(mode==resolutions.end())throw std::runtime_error("Requested capture resolution is not advertised by this device");
+   resolution=int(mode-resolutions.begin())+1;
+   if(!argument(L"--capture-fps").empty()){requestedFps=std::stod(argument(L"--capture-fps"));if(!std::isfinite(requestedFps)||requestedFps<=0||requestedFps>1000)throw std::runtime_error("Invalid capture FPS");}
+  }
   bool automaticCuts=args.find(L"--no-auto-cut")==std::wstring::npos;
   int multiplier=args.find(L"--4x")!=std::wstring::npos?4:args.find(L"--3x")!=std::wstring::npos?3:2;unsigned generatedIndex=1;int sampleStride=args.find(L"--input60")!=std::wstring::npos?1:args.find(L"--input15")!=std::wstring::npos?4:args.find(L"--input20")!=std::wstring::npos?3:2;
   struct QueuedImage {Texture image;bool generated;uint64_t id,a,b,scene;double position,sourceTime;};
@@ -252,9 +265,10 @@ int WINAPI wWinMain(HINSTANCE instance,HINSTANCE,LPWSTR cmd,int){
   if(!argument(L"--nr-height").empty()){auto limit=_wtoi(argument(L"--nr-height").c_str());nrControls.height=limit==0?0:std::clamp(limit,180,8192);}
   if(!argument(L"--nr-passes").empty())nrControls.passes=std::clamp(_wtoi(argument(L"--nr-passes").c_str()),1,4);
   std::unique_ptr<Enhancer> enhancer;std::vector<std::unique_ptr<Enhancer>> retiringEnhancers;QueuedImage nrPending{};std::string nrFailure;
-  uint64_t currentScene=0,nrLastScene=0;double nrLastSourceTime=0;bool nrReset=true,nrWasEnabled=nrControls.enabled,nrDiscardPending=false;
-  auto retireEnhancer=[&]{if(enhancer){if(displayed==enhancer->original.view.Get())displayed=presentedImage.view.Get();enhancer->requestStop();retiringEnhancers.push_back(std::move(enhancer));}nrReset=true;nrLastSourceTime=0;};
-  uint64_t presentationDrops=0; double displayedAt=0,lastDraw=-1;
+  uint64_t currentScene=0,displayedScene=0;NrHistory nrHistory;bool nrReset=true,nrWasEnabled=nrControls.enabled,nrDiscardPending=false;
+  auto retireEnhancer=[&]{if(enhancer){if(displayed==enhancer->original.view.Get())displayed=presentedImage.view.Get();enhancer->requestStop();retiringEnhancers.push_back(std::move(enhancer));}nrReset=true;nrHistory.clear();};
+  uint64_t presentationDrops=0; double displayedAt=0,lastDraw=-1,nrSubmittedAt=0,nrQueueWaitMs=0,lastContentAt=0;
+  bool presentationPermit=false;bool debugFrames=true,debugText=true;int debugDuration=0;std::string lastDebugSettings;
   std::ofstream pacingLog;if(args.find(L"--verify-pacing")!=std::wstring::npos){pacingLog.open(root/L"logs"/(session+"-pacing.csv"));pacingLog<<"time_s,generated,source_id,queue,source_A,source_B,phase,callback_to_present_ms\n";}
   auto enqueueImage=[&](Texture& texture,bool generatedFrame,uint64_t id,uint64_t a,uint64_t b,double position,double sourceTime){
    // Bounded latency: discard stale output when the display cannot keep up.
@@ -269,6 +283,14 @@ int WINAPI wWinMain(HINSTANCE instance,HINSTANCE,LPWSTR cmd,int){
   DisplayVerification displayVerification;float confirmedGenFps=-1;uint64_t lastConfirmedContent=0,lastConfirmedGen=0;
   History inputHistory,uniqueHistory,outputHistory,latencyHistory,gpuTimeHistory,utilHistory;
   std::vector<float> latencySamples;double start=now(),lastStats=start;uint64_t lastRaw=0,lastUnique=0,lastContent=0,lastPresents=0,lastGenerated=0;
+  auto settingsJson=[&]{
+   auto values=Diagnostics::object({{"width",double(w)},{"height",double(h)},{"capture_requested_fps",requestedFps},{"fg",double(fg)},{"multiplier",double(multiplier)},{"quality",double(quality)},{"vsync",double(vsync)},{"dedup",double(mailbox.dedup.load())},{"automatic_cuts",double(automaticCuts)},{"nr_enabled",double(nrControls.enabled)},{"nr_height_limit",double(nrControls.height)},{"nr_passes",double(nrControls.passes)},{"nr_strength",nrControls.strength},{"nr_motion",double(nrControls.motion)},{"nr_runtime",double(nrControls.runtime)},{"nr_view",double(nrControls.view)},{"subtitles",double(subtitleSettings.enabled)},{"subtitle_model",double(subtitleSettings.model)},{"ocr_engine",double(subtitleSettings.ocrEngine)},{"ocr_interval_ms",double(subtitleSettings.intervalMs)},{"ocr_left",subtitleSettings.left},{"ocr_top",subtitleSettings.top},{"ocr_right",subtitleSettings.right},{"ocr_bottom",subtitleSettings.bottom},{"caption_hold_s",subtitleSettings.holdSeconds},{"caption_linger_s",subtitleSettings.lingerSeconds},{"legacy_nr_scheduling",double(legacyNrScheduling)}});
+   values.pop_back();return values+",\"backend\":"+Diagnostics::quote(vfg.name())+",\"source\":"+Diagnostics::quote(isDemo?(activeVideoName.empty()?"synthetic":activeVideoName):(devices.empty()?"none":devices[selected].friendlyName))+"}";
+  };
+  auto startDebug=[&]{
+   lastContentAt=0;lastDebugSettings=settingsJson();auto meta="{\"build\":\"preview.14-debug-nr\",\"gpu\":"+Diagnostics::quote(gpu.name)+",\"cpu\":"+Diagnostics::quote(systemTelemetry.cpuName)+",\"logical_processors\":"+std::to_string(systemTelemetry.threads)+",\"settings\":"+lastDebugSettings+",\"timing_note\":\"App latency excludes capture hardware and scanout. CPU/GPU totals include other apps. NR GPU phases use D3D12 timestamps; worker time also includes GPU waits. OCR/MT times include IPC; displayed caption delay includes queues and reading hold.\"}";
+   diagnostics.start(root/L"logs",meta,debugFrames,debugText,debugDuration);
+  };
   auto resetPipeline=[&]{freezePreview=false;subtitles.reset();retireEnhancer();analysis.finish("Source or settings changed");analysis.cancelPending();comparison.clear();readyImages.clear();imagePool.clear();pacer.reset();displayVerification.clearHistory();g.context->PSSetShaderResources(0,0,nullptr);vfg.reset();vfgInitialized=false;havePrevious=false;pending=false;initFailed=false;gpuMs=-1;displayed=nullptr;current=0;previousArrival=0;};
   auto stopSource=[&]{localVideo.stop();isLocalVideo=false;subtitleAutoPaused=false;subtitleWarmupOptout=false;acceptedFileEpoch=0;demoRun=false;if(demo.joinable()){demo.request_stop();demo.join();}capture.stop();live=false;isDemo=false;activeVideoName.clear();resetPipeline();mailbox.clear();lastRaw=lastUnique=0;};
   auto startDemo=[&]{stopSource();isDemo=true;live=true;demoRun=true;status="TEST SOURCE: 30 unique frames inside a 60 Hz stream. Synthetic input.";
@@ -321,13 +343,14 @@ int WINAPI wWinMain(HINSTANCE instance,HINSTANCE,LPWSTR cmd,int){
   };
   if(!argument(L"--file").empty())startLocalVideo(argument(L"--file"));else if(!argument(L"--replay-recording").empty())startRecordedReplay();else if(args.find(L"--sample")!=std::wstring::npos||!argument(L"--video").empty())startSample(argument(L"--video"));else if(demoRequested)startDemo();else if(captureRequested)startCapture();
   log("FrameLab started GPU="+std::string(gpu.name)+" quality="+std::to_string(quality)+" vsync="+std::to_string(vsync));
+  if(!argument(L"--debug-seconds").empty()){debugDuration=std::clamp(_wtoi(argument(L"--debug-seconds").c_str()),5,900);debugText=args.find(L"--debug-text")!=std::wstring::npos;startDebug();}
   auto renderFrame=[&]{
    if(frameBusy||!running)return;
    frameBusy=true;struct FrameGuard{~FrameGuard(){frameBusy=false;}} frameGuard;
    if(stopAfter>0&&now()-start>stopAfter){running=false;return;}
    if(resized){resized=false;const auto rw=resizeW,rh=resizeH;if(rw&&rh)g.resize(rw,rh);}
    if(IsIconic(window))return;
-   if(legacyOutputWait&&g.waitable)WaitForSingleObject(g.waitable,20);
+   if(legacyOutputWait&&g.waitable)presentationPermit=WaitForSingleObject(g.waitable,20)==WAIT_OBJECT_0;
    if(subtitleStartupPending){const auto capability=ocrSetup.snapshot();if(subtitleSettings.ocrEngine==0||capability.available>=0){subtitleStartupPending=false;subtitleSettings.enabled=subtitleSettings.ocrEngine==0?rapidOcrReady:capability.available==1;subtitles.configure(subtitleSettings);}}
    auto localSnapshot=localVideo.snapshot();
    if(isLocalVideo&&!localSnapshot.opening&&!localSnapshot.ended){
@@ -338,7 +361,7 @@ int WINAPI wWinMain(HINSTANCE instance,HINSTANCE,LPWSTR cmd,int){
    }
    subtitleTrace.write(isLocalVideo?localSnapshot.position:now()-start,subtitles.snapshot(isLocalVideo&&localSnapshot.paused));
    if(isLocalVideo&&!localSnapshot.error.empty()){status=localSnapshot.error;live=false;}
-   double t=now();analysis.poll(g);analysis.tick();if(analysisExporter&&WaitForSingleObject(analysisExporter,0)==WAIT_OBJECT_0){CloseHandle(analysisExporter);analysisExporter=nullptr;}
+   double t=now();diagnostics.tick();analysis.poll(g);analysis.tick();if(analysisExporter&&WaitForSingleObject(analysisExporter,0)==WAIT_OBJECT_0){CloseHandle(analysisExporter);analysisExporter=nullptr;}
    if(!analysis.active&&!analysis.writing&&!analysis.folder.empty()&&analysis.folder!=exportedAnalysis&&std::filesystem::exists(analysis.folder/L"result.json")){
     const auto portablePython=root.parent_path()/L"tools"/L"python"/L"python.exe";
     const std::wstring python=std::filesystem::exists(portablePython)?L"\""+portablePython.wstring()+L"\"":L"python";
@@ -379,7 +402,7 @@ int WINAPI wWinMain(HINSTANCE instance,HINSTANCE,LPWSTR cmd,int){
    // waiting for the display. Dequeue only when a new Present is possible.
    // Polling is bounded to 1 ms and the existing output queue remains bounded.
    pacer.setCadence(mailbox.sourceInterval.load(),fg&&vfgInitialized?multiplier:1);
-   if(!legacyOutputWait){
+   if(legacyNrScheduling&&!legacyOutputWait){
     const auto time=now();const bool imageDue=!readyImages.empty()&&(!fg||pacer.due(time));
     // A repeated video image needs no redraw. Keep controls responsive at 60 Hz,
     // but leave the rest of the CPU/GPU budget for new interpolation phases.
@@ -393,36 +416,49 @@ int WINAPI wWinMain(HINSTANCE instance,HINSTANCE,LPWSTR cmd,int){
     enhancer=std::make_unique<Enhancer>(g,w,h,nrControls.height,root,root/L"runtime"/(nrControls.runtime?L"nr-original":L"nr-sf"),nrControls.passes);nrFailure.clear();nrReset=true;nrDiscardPending=false;
    }
    if(enhancer&&enhancer->state()==Enhancer::State::Failed){nrFailure=enhancer->error();log("NR disabled: "+nrFailure);nrControls.enabled=false;retireEnhancer();}
-   if(!freezePreview&&enhancer&&enhancer->take()){
-    if(nrControls.enabled&&!nrDiscardPending){g.context->CopyResource(presentedImage.texture.Get(),enhancer->original.texture.Get());displayed=enhancer->original.view.Get();newContent=true;newGenerated=nrPending.generated;displaySourceTime=nrPending.sourceTime;displayedGenerated=nrPending.generated;displayedId=nrPending.id;displayedA=nrPending.a;displayedB=nrPending.b;displayedPosition=nrPending.position;}
+   // NR computes one frame ahead. Presentation cadence gates consumption,
+   // never the start of the next inference. This avoids adding inference time
+   // to every display interval and keeps the GPU pump independent of redraws.
+   if(!legacyNrScheduling&&!presentationPermit)presentationPermit=uiPreview||!g.waitable||WaitForSingleObject(g.waitable,0)==WAIT_OBJECT_0;
+   const bool displayReady=legacyNrScheduling||presentationPermit;
+   const bool outputDue=!fg||pacer.due(now());
+   if(!freezePreview&&enhancer&&(legacyNrScheduling||!nrControls.enabled||(displayReady&&outputDue))&&enhancer->take()){
+    auto timing=enhancer->timings();diagnostics.event("nr_complete",{{"frame_id",double(nrPending.id)},{"generated",double(nrPending.generated)},{"worker_ms",enhancer->processingMs()},{"submit_to_ready_ms",timing.submitToReadyMs},{"ready_to_take_ms",timing.readyToTakeMs},{"prepare_gpu_ms",timing.gpu.prepareGpuMs},{"inference_gpu_ms",timing.gpu.inferenceGpuMs},{"finish_gpu_ms",timing.gpu.finishGpuMs}});
+    if(nrControls.enabled&&!nrDiscardPending){g.context->CopyResource(presentedImage.texture.Get(),enhancer->original.texture.Get());displayed=enhancer->original.view.Get();newContent=true;newGenerated=nrPending.generated;displaySourceTime=nrPending.sourceTime;displayedGenerated=nrPending.generated;displayedId=nrPending.id;displayedA=nrPending.a;displayedB=nrPending.b;displayedPosition=nrPending.position;displayedScene=nrPending.scene;}
     else nrReset=true;
     nrDiscardPending=false;
    }
    const bool nrActive=nrControls.enabled&&enhancer&&enhancer->state()!=Enhancer::State::Loading;
    if(!freezePreview&&nrActive&&enhancer->state()==Enhancer::State::Idle&&nrReset&&readyImages.empty()&&displayed){
-    nrPending.generated=displayedGenerated;nrPending.id=displayedId;nrPending.a=displayedA;nrPending.b=displayedB;nrPending.position=displayedPosition;nrPending.sourceTime=displaySourceTime;
-    if(enhancer->submit(presentedImage.texture.Get(),true,nrControls.motion)){nrReset=false;nrLastSourceTime=displaySourceTime;}
+    nrPending.generated=displayedGenerated;nrPending.id=displayedId;nrPending.a=displayedA;nrPending.b=displayedB;nrPending.position=displayedPosition;nrPending.sourceTime=displaySourceTime;nrPending.scene=displayedScene;
+    if(enhancer->submit(presentedImage.texture.Get(),true,nrControls.motion)){nrSubmittedAt=now();nrReset=false;nrHistory.submitted(displayedScene,displaySourceTime,true);}
    }
-   if(!freezePreview&&!readyImages.empty()&&(!fg||pacer.due(now()))&&(!nrActive||enhancer->state()==Enhancer::State::Idle)){
-    if(nrActive&&readyImages.size()>2){while(readyImages.size()>1){imagePool.push_back(std::move(readyImages.front().image));readyImages.pop_front();++presentationDrops;}nrReset=true;}
+   if(!freezePreview&&!readyImages.empty()&&(nrActive?((!legacyNrScheduling||outputDue)&&enhancer->state()==Enhancer::State::Idle):(displayReady&&outputDue))){
+   if(nrActive)presentationDrops+=trimNrQueue(readyImages,[&](auto& skipped){imagePool.push_back(std::move(skipped.image));});
     auto q=std::move(readyImages.front());readyImages.pop_front();
     if(nrActive){
-     const bool gap=q.scene!=nrLastScene||nrLastSourceTime<=0||q.sourceTime<nrLastSourceTime||q.sourceTime-nrLastSourceTime>.15;
-     if(enhancer->submit(q.image.texture.Get(),nrReset||gap,nrControls.motion)){nrPending=std::move(q);imagePool.push_back(std::move(nrPending.image));nrLastSourceTime=nrPending.sourceTime;nrLastScene=nrPending.scene;nrReset=false;}
+     const bool reset=nrHistory.needsReset(q.scene,q.sourceTime,nrReset||!nrControls.motion);
+     if(enhancer->submit(q.image.texture.Get(),reset,nrControls.motion)){nrSubmittedAt=now();nrQueueWaitMs=(nrSubmittedAt-q.sourceTime)*1000;diagnostics.event("nr_submit",{{"frame_id",double(q.id)},{"generated",double(q.generated)},{"reset",double(reset)},{"capture_to_submit_ms",nrQueueWaitMs}});nrPending=std::move(q);imagePool.push_back(std::move(nrPending.image));nrHistory.submitted(nrPending.scene,nrPending.sourceTime,reset);nrReset=false;}
     }else{
     g.context->CopyResource(presentedImage.texture.Get(),q.image.texture.Get());displayed=presentedImage.view.Get();
     newContent=true;newGenerated=q.generated;displaySourceTime=q.sourceTime;
-    displayedGenerated=q.generated;displayedId=q.id;displayedA=q.a;displayedB=q.b;displayedPosition=q.position;imagePool.push_back(std::move(q.image));
+    displayedGenerated=q.generated;displayedId=q.id;displayedA=q.a;displayedB=q.b;displayedPosition=q.position;displayedScene=q.scene;imagePool.push_back(std::move(q.image));
     }
    }
+   if(!legacyNrScheduling&&(!displayReady||(!newContent&&now()-lastDraw<1./60))){std::this_thread::sleep_for(std::chrono::milliseconds(1));return;}
    if(t-lastStats>=1){double elapsed=t-lastStats;auto raw=mailbox.raw.load(),uni=mailbox.unique.load();inFps=float((raw-lastRaw)/elapsed);contentFps=float((uni-lastUnique)/elapsed);outFps=float((totalContent-lastContent)/elapsed);presentFps=float((totalPresents-lastPresents)/elapsed);genFps=float((totalGenerated-lastGenerated)/elapsed);
     lastRaw=raw;lastUnique=uni;lastContent=totalContent;lastPresents=totalPresents;lastGenerated=totalGenerated;
     latency=-1;p95=-1;if(!latencySamples.empty()){float sum=0;for(float x:latencySamples)sum+=x;latency=sum/latencySamples.size();std::sort(latencySamples.begin(),latencySamples.end());p95=latencySamples[std::min(latencySamples.size()-1,size_t(std::ceil(latencySamples.size()*.95))-1)];latencySamples.clear();}
-    gpu.poll();auto previousMonitor=displayVerification.monitor;displayVerification.updateMonitor(g.swap.Get());if(previousMonitor!=displayVerification.monitor)log("Display mode: "+std::to_string(displayVerification.displayWidth)+"x"+std::to_string(displayVerification.displayHeight)+" @ "+std::to_string(displayVerification.displayHz)+" Hz");
+    gpu.poll();systemTelemetry.poll();auto previousMonitor=displayVerification.monitor;displayVerification.updateMonitor(g.swap.Get());if(previousMonitor!=displayVerification.monitor)log("Display mode: "+std::to_string(displayVerification.displayWidth)+"x"+std::to_string(displayVerification.displayHeight)+" @ "+std::to_string(displayVerification.displayHz)+" Hz");
     dxgiRate=displayVerification.available?float((displayVerification.content-lastConfirmedContent)/elapsed):-1;
     confirmedGenFps=displayVerification.available?float((displayVerification.generated-lastConfirmedGen)/elapsed):-1;
     lastConfirmedContent=displayVerification.content;lastConfirmedGen=displayVerification.generated;
     inputHistory.add(inFps);uniqueHistory.add(contentFps);outputHistory.add(outFps);latencyHistory.add(std::max(0.f,latency));gpuTimeHistory.add(std::max(0.f,gpuMs));utilHistory.add(std::max(0.f,gpu.utilization));
+    if(diagnostics.active()){
+     auto currentSettings=settingsJson();if(currentSettings!=lastDebugSettings){diagnostics.settings(currentSettings);lastDebugSettings=currentSettings;}
+     auto sub=subtitles.snapshot(isLocalVideo&&localSnapshot.paused);auto& sp=sub.performance;auto nt=enhancer?enhancer->timings():Enhancer::Timings{};
+     diagnostics.sample({{"input_fps",inFps},{"changed_fps",contentFps},{"output_submitted_fps",outFps},{"generated_fps",genFps},{"present_calls_fps",presentFps},{"os_confirmed_fps",dxgiRate},{"os_generated_fps",confirmedGenFps},{"display_hz",double(displayVerification.displayHz)},{"app_latency_mean_ms",latency},{"app_latency_p95_ms",p95},{"fg_gpu_ms",gpuMs},{"gpu_percent",gpu.utilization},{"vram_used_mb",gpu.memoryMB},{"vram_free_mb",gpu.freeMemoryMB},{"gpu_temp_c",gpu.temp},{"gpu_power_w",gpu.power},{"cpu_system_percent",systemTelemetry.cpu},{"cpu_app_percent",systemTelemetry.appCpu},{"ram_used_mb",systemTelemetry.ramUsedMB},{"ram_total_mb",systemTelemetry.ramTotalMB},{"app_working_set_mb",systemTelemetry.appRamMB},{"app_private_mb",systemTelemetry.appPrivateMB},{"capture_drops",double(mailbox.dropped.load())},{"invalid_inputs",double(mailbox.invalid.load())},{"presentation_drops",double(presentationDrops)},{"output_queue",double(readyImages.size())},{"nr_enabled",double(nrControls.enabled)},{"nr_state",enhancer?double(enhancer->state()):-1},{"nr_worker_ms",enhancer?enhancer->processingMs():-1},{"nr_submit_to_ready_ms",nt.submitToReadyMs},{"nr_ready_to_take_ms",nt.readyToTakeMs},{"nr_prepare_gpu_ms",nt.gpu.prepareGpuMs},{"nr_inference_gpu_ms",nt.gpu.inferenceGpuMs},{"nr_finish_gpu_ms",nt.gpu.finishGpuMs},{"nr_capture_to_submit_ms",nrQueueWaitMs},{"nr_history_resets",double(nrHistory.resets)},{"nr_frames",double(nrHistory.frames)},{"ocr_ms",sub.ocrMilliseconds},{"ocr_queue_ms",sp.ocrQueueMs},{"ocr_busy",double(sp.ocrBusy)},{"ocr_submitted",double(sp.submitted)},{"ocr_completed",double(sp.ocrCompleted)},{"ocr_superseded",double(sp.ocrSuperseded)},{"ocr_errors",double(sp.ocrErrors)},{"translation_ms",sp.translationMs},{"translation_queue_ms",sp.translationQueueMs},{"translation_busy",double(sp.translationBusy)},{"translations",double(sp.translations)},{"translation_cache_hits",double(sp.cacheHits)},{"translation_drops",double(sp.translationDrops)},{"translation_errors",double(sp.translationErrors)},{"caption_display_delay_ms",sp.displayLatencyMs},{"captions_shown",double(sp.shown)},{"caption_drops",double(sp.captionDrops)},{"subtitle_queue",double(sub.pending)},{"model_load_ms",sp.modelLoadMs},{"model_loading",double(sub.loading)},{"log_dropped_rows",double(diagnostics.dropped())}});
+    }
     csv<<std::fixed<<std::setprecision(3)<<t-start<<','<<inFps<<','<<contentFps<<','<<outFps<<','<<presentFps<<','<<genFps<<','<<latency<<','<<p95<<','<<gpuMs<<','<<gpu.utilization<<','<<gpu.memoryMB<<','<<mailbox.dropped<<','<<mailbox.invalid<<','<<dxgiRate<<','<<readyImages.size()<<','<<presentationDrops<<','<<confirmedGenFps<<','<<displayVerification.displayHz<<','<<pairInterval*1000<<std::endl;lastStats=t;
    }
    // Fullscreen owns only its client cursor; never change the global ShowCursor counter.
@@ -434,6 +470,7 @@ int WINAPI wWinMain(HINSTANCE instance,HINSTANCE,LPWSTR cmd,int){
    ImGui_ImplDX11_NewFrame();ImGui_ImplWin32_NewFrame();ImGui::NewFrame();ImVec2 size=io.DisplaySize;float panel=showPanel?std::min(480.f,size.x*.62f):0.f;
    auto toggleFreeze=[&]{if(!displayed)return;if(nrControls.enabled&&(!enhancer||!enhancer->hasResult))return;freezePreview=!freezePreview;if(freezePreview)frozenSubtitle=subtitles.snapshot();else{nrReset=true;nrDiscardPending=true;readyImages.clear();}log(std::string("NR comparison freeze=")+(freezePreview?"1":"0"));};
    if(imageOnly&&freezePreview)toggleFreeze(); // A frozen comparison must not freeze the viewing output.
+   if(ImGui::IsKeyPressed(ImGuiKey_F9)){if(diagnostics.active())diagnostics.stop();else if(!diagnostics.busy())startDebug();}
    if(!imageOnly&&ImGui::IsKeyPressed(ImGuiKey_F8))toggleFreeze();
    if(FRAMELAB_WITH_NR&&nrControls.available(root)&&ImGui::IsKeyPressed(ImGuiKey_F6))nrControls.enabled=!nrControls.enabled;
    if(!imageOnly&&FRAMELAB_WITH_NR&&ImGui::IsKeyPressed(ImGuiKey_F7))nrControls.view=(nrControls.view+1)%3;
@@ -474,6 +511,7 @@ int WINAPI wWinMain(HINSTANCE instance,HINSTANCE,LPWSTR cmd,int){
     if(ImGui::BeginTabBar("Control tabs",ImGuiTabBarFlags_FittingPolicyScroll)){
      if(FRAMELAB_WITH_NR&&ImGui::BeginTabItem("AI / NR",nullptr,previewTab==5||(args.find(L"--nr")!=std::wstring::npos&&t-start<.5)?ImGuiTabItemFlags_SetSelected:0)){
       if(nrControls.panel(enhancer.get(),nrFailure,w,h,displayVerification.displayHeight,root)){freezePreview=false;retireEnhancer();}
+      if(nrHistory.frames)ImGui::Text(nrControls.text("NR history resets: %llu / %llu frames","Resety historie NR: %llu / %llu snímků"),(unsigned long long)nrHistory.resets,(unsigned long long)nrHistory.frames);
       ImGui::EndTabItem();
      }
      if(ImGui::BeginTabItem(tr("Capture"),nullptr,previewTab==0?ImGuiTabItemFlags_SetSelected:0)){ImGui::Spacing();
@@ -586,6 +624,34 @@ int WINAPI wWinMain(HINSTANCE instance,HINSTANCE,LPWSTR cmd,int){
     ImGui::TextWrapped(tr("Mailbox drops %llu | invalid %llu"),(unsigned long long)mailbox.dropped.load(),(unsigned long long)mailbox.invalid.load());
     if(ImGui::CollapsingHeader(tr("Measurement details"))){float threshold=mailbox.threshold;if(ImGui::SliderFloat(tr("Dedup sensitivity"),&threshold,0,5,"%.2f"))mailbox.threshold=threshold;ImGui::TextWrapped(tr("Latency starts when the capture callback receives pixels and ends after Present returns. Generated frames use the newer source timestamp. GPU utilization is the whole GPU, including other apps. CSV is saved every second under app/logs. HDMI audio uses the selected DirectSound output. Audio latency and A/V offset are not measured."));}
      ImGui::EndTabItem();}
+     if(ImGui::BeginTabItem(czech?"Debug a měření":"Debug & measurement")){
+      auto label=[&](const char* en,const char* cs){return czech?cs:en;};
+      ui::title(label("DIAGNOSTICS","DIAGNOSTIKA"));
+      ImGui::TextWrapped("%s",label("Local performance recording: PC, GPU, frame pacing, enhancer, OCR and translation. No images or audio are captured.","Místní záznam výkonu: PC, GPU, časování snímků, enhancer, OCR a překlad. Neukládá obraz ani zvuk."));
+      ImGui::BeginDisabled(diagnostics.busy());
+      const char* durations[]={label("Until stopped","Do vypnutí"),"30 s","60 s","3 min","15 min"};const int seconds[]={0,30,60,180,900};int selectedDuration=debugDuration==30?1:debugDuration==60?2:debugDuration==180?3:debugDuration==900?4:0;
+      if(ImGui::Combo(label("Duration","Délka"),&selectedDuration,durations,5))debugDuration=seconds[selectedDuration];
+      ImGui::Checkbox(label("Frame-by-frame timing","Časování každého snímku"),&debugFrames);
+      ImGui::Checkbox(label("Include OCR and translated text","Zahrnout text OCR a překladu"),&debugText);
+      ImGui::TextWrapped("%s",label("Recording keeps writing to the folder until you press Stop / F9 or close the app. OCR and translated text can contain private information. Nothing is uploaded automatically.","Záznam bude průběžně ukládat do složky, dokud ho nevypneš tlačítkem Stop / F9 nebo nezavřeš aplikaci. OCR a překlady mohou obsahovat soukromé informace. Nic se automaticky neodesílá."));
+      if(ImGui::Button(label("Start debug recording (F9)","Spustit diagnostický záznam (F9)")))startDebug();ImGui::EndDisabled();
+      if(diagnostics.active()){ImGui::SameLine();if(ImGui::Button(label("Stop","Zastavit")))diagnostics.stop();}
+      if(ImGui::Button(label("Open debug folder","Otevřít složku diagnostiky"))){auto folder=diagnostics.folder();if(folder.empty())folder=root/L"logs";ShellExecuteW(nullptr,L"open",folder.c_str(),nullptr,nullptr,SW_SHOWNORMAL);}
+      ImGui::Text("%s | %.1f s | %.2f MiB | dropped %llu",diagnostics.status().c_str(),diagnostics.elapsed(),diagnostics.bytes()/1048576.,(unsigned long long)diagnostics.dropped());
+      ImGui::TextWrapped("%s",label("Background writing; files rotate at 64 MiB. Stops if free disk space falls below 256 MiB. UTC timestamps and session IDs link settings, metrics, frame timeline, OCR/translations and summary. Long-run percentiles are estimated.","Ukládání na pozadí, soubory se dělí po 64 MiB. Při méně než 256 MiB volného místa se záznam zastaví. Časy UTC a ID relace propojují nastavení, výkon, snímky, OCR/překlady a souhrn. Percentily dlouhých záznamů jsou odhad."));
+      {auto folder=diagnostics.folder().empty()?root/L"logs":diagnostics.folder();auto u8=folder.u8string();ImGui::TextWrapped("%s",std::string(u8.begin(),u8.end()).c_str());}
+      ui::section(label("LIVE STAGES","ŽIVÉ ČASY"));
+      ImGui::Text("CPU %.1f%% | app %.1f%% | RAM %.0f / %.0f MiB",systemTelemetry.cpu,systemTelemetry.appCpu,systemTelemetry.ramUsedMB,systemTelemetry.ramTotalMB);
+      ImGui::Text("GPU %.0f%% | %.0f W | %.0f C | VRAM %.0f MiB",gpu.utilization,gpu.power,gpu.temp,gpu.memoryMB);
+      if(enhancer){auto nt=enhancer->timings();ImGui::Text("NR worker %.2f ms | submit > ready %.2f ms",enhancer->processingMs(),nt.submitToReadyMs);ImGui::Text("NR GPU: prep %.2f / AI %.2f / finish %.2f ms",nt.gpu.prepareGpuMs,nt.gpu.inferenceGpuMs,nt.gpu.finishGpuMs);ImGui::Text("NR ready > take %.2f ms | resets %llu",nt.readyToTakeMs,(unsigned long long)nrHistory.resets);}
+      auto sub=subtitles.snapshot(isLocalVideo&&localSnapshot.paused);auto& sp=sub.performance;
+      ImGui::Text("OCR %.1f ms | queue %.1f ms | busy %d",sub.ocrMilliseconds,sp.ocrQueueMs,sp.ocrBusy);
+      ImGui::Text("MT %.1f ms | queue %.1f ms | busy %d",sp.translationMs,sp.translationQueueMs,sp.translationBusy);
+      ImGui::Text("Caption delay %.1f ms | pending %d",sp.displayLatencyMs,sub.pending);
+      ImGui::Text("OCR %llu | MT %llu | cache %llu | errors %llu",(unsigned long long)sp.ocrCompleted,(unsigned long long)sp.translations,(unsigned long long)sp.cacheHits,(unsigned long long)(sp.ocrErrors+sp.translationErrors));
+      ImGui::TextWrapped("%s",label("Stage times show the last completed job, not total GPU usage. CPU app excludes helper processes. App latency excludes capture hardware, audio and monitor scanout; physical display FPS is not measured.","Časy etap patří poslední dokončené úloze, ne celkovému vytížení GPU. CPU aplikace nezahrnuje pomocné procesy. Latence aplikace nezahrnuje kartu, zvuk ani monitor; fyzické FPS monitoru neměříme."));
+      ImGui::EndTabItem();
+     }
      ImGui::EndTabBar();
     }
     ImGui::Spacing();ImGui::PushStyleColor(ImGuiCol_Text,ui::muted);ImGui::TextWrapped("%s",tr(status.c_str()));ImGui::PopStyleColor();
@@ -606,8 +672,9 @@ int WINAPI wWinMain(HINSTANCE instance,HINSTANCE,LPWSTR cmd,int){
      <<"\ninput_width="<<w<<"\ninput_height="<<h<<"\nclean_output="<<imageOnly<<'\n';
     running=false;
    }
-   auto hr=g.present(inSizeMove?false:vsync);
+   auto presentStarted=now();auto hr=g.present(inSizeMove?false:vsync);presentationPermit=false;
    lastDraw=now();
+   if(hr==S_OK&&diagnostics.frames()){const double contentInterval=newContent&&lastContentAt>0?(lastDraw-lastContentAt)*1000:0;diagnostics.frame({{"new_content",double(newContent)},{"generated",double(displayedGenerated)},{"frame_id",double(displayedId)},{"source_a",double(displayedA)},{"source_b",double(displayedB)},{"phase",displayedPosition},{"content_interval_ms",contentInterval},{"present_cpu_ms",(lastDraw-presentStarted)*1000},{"callback_to_present_ms",displayed?(lastDraw-displaySourceTime)*1000:-1},{"queue",double(readyImages.size())}});if(newContent)lastContentAt=lastDraw;}
    if(hr==S_OK){if(newContent){pacer.presented(now());displayedAt=now();if(pacingLog)pacingLog<<std::fixed<<std::setprecision(6)<<displayedAt-start<<','<<newGenerated<<','<<displayedId<<','<<readyImages.size()<<','<<displayedA<<','<<displayedB<<','<<displayedPosition<<','<<(displayedAt-displaySourceTime)*1000<<'\n';}if(displayed)analysis.presented(displayedGenerated,displayedId,displayedA,displayedB,displayedPosition);++totalPresents;if(newContent){++totalContent;if(newGenerated)++totalGenerated;latencySamples.push_back(float((now()-displaySourceTime)*1000));}}
    else if(FAILED(hr))throw std::runtime_error("Present failed "+std::to_string(unsigned(hr)));
    if(hr==S_OK&&displayed){displayVerification.submitted(g.swap.Get(),displayedGenerated,displayedId);if(auto c=displayVerification.observe(g.swap.Get()))analysis.confirmed(c->submission.generated,c->submission.image,c->submission.present,c->refresh,c->syncRefresh,c->syncQpc);}

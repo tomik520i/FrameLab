@@ -1,4 +1,5 @@
 #include "SubtitleTranslator.hpp"
+#include "Diagnostics.hpp"
 #include "SubtitleState.hpp"
 #include "SubtitleSentence.hpp"
 #include <Windows.h>
@@ -77,25 +78,28 @@ struct OcrProcess:TranslationProcess {
 };
 }
 struct SubtitleTranslator::Impl {
- struct Job{std::vector<unsigned char> pixels;unsigned w=0,h=0;double time=0;uint64_t generation=0;int engine=0;};
- struct TextJob{std::string source;uint64_t generation=0;float ocrMs=0;double time=0;};
- struct Caption{std::string source,translated;float ms=0;double time=0;std::string observedSource;};
+ struct Job{std::vector<unsigned char> pixels;unsigned w=0,h=0;double time=0;uint64_t generation=0,id=0;int engine=0;};
+ struct TextJob{std::string source;uint64_t generation=0;float ocrMs=0;double time=0,queuedAt=0;uint64_t id=0;};
+ struct Caption{std::string source,translated;float ms=0;double time=0;std::string observedSource;uint64_t id=0;};
  std::filesystem::path app;mutable std::mutex mutex;std::condition_variable wake,translateWake;std::atomic<bool> stop=false;
  std::atomic<uint64_t> modelEpoch=1;
  std::atomic<uint64_t> ocrEpoch=1;
  std::atomic<int> activeModel=-1;
+ SubtitlePerformance perf;std::atomic<Diagnostics*> diagnostics=nullptr;uint64_t nextJob=0;
+ void event(const char* name,Diagnostics::Values fields={},const std::string& source={},const std::string& translated={}){if(auto d=diagnostics.load())d->event(name,fields,source,translated);}
  SubtitleSettings settings;SubtitleSnapshot result;Job pending;std::deque<TextJob> texts;std::deque<Caption> captions;
  bool available=false,loading=false;uint64_t generation=1;double lastSubmitted=0;
  std::string modelError,ocrError,displayReading;std::thread worker,translator;
  explicit Impl(std::filesystem::path p):app(std::move(p)),worker([this]{runOcr();}),translator([this]{runTranslation();}){}
  ~Impl(){stop=true;wake.notify_all();translateWake.notify_all();worker.join();translator.join();}
- void clearLocked(){++generation;pending={};texts.clear();captions.clear();available=false;lastSubmitted=0;result={};result.generation=generation;ocrError.clear();displayReading.clear();}
+ void clearLocked(){perf.ocrSuperseded+=available?1:0;perf.translationDrops+=texts.size();perf.captionDrops+=captions.size();event("subtitle_reset",{{"generation",double(generation+1)}});++generation;pending={};texts.clear();captions.clear();available=false;lastSubmitted=0;result={};result.generation=generation;ocrError.clear();displayReading.clear();}
  void displayLocked(double now,bool paused){
   // Never build an unlimited delay: retain at most three pending lines and
   // expire work older than six seconds. Source/seek/model resets still flush all.
-  while(!captions.empty()&&now-captions.front().time>6)captions.pop_front();
+  while(!captions.empty()&&now-captions.front().time>6){++perf.captionDrops;event("caption_expired",{{"job_id",double(captions.front().id)}});captions.pop_front();}
   if(!captions.empty()&&(result.translated.empty()||(!paused&&now-result.displayedAt>=settings.holdSeconds))){
    auto caption=std::move(captions.front());captions.pop_front();
+   ++perf.shown;perf.displayLatencyMs=(now-caption.time)*1000;event("caption_display",{{"job_id",double(caption.id)},{"capture_to_display_ms",perf.displayLatencyMs}},caption.source,caption.translated);
    result.displaySource=std::move(caption.source);result.translated=std::move(caption.translated);result.milliseconds=caption.ms;result.displayedAt=now;displayReading=std::move(caption.observedSource);
    size_t letters=0;for(unsigned char c:result.translated)if((c&0xc0)!=0x80)++letters;
    result.expiresAt=now+std::max(double(settings.lingerSeconds),std::min(7.5,letters/25.0));
@@ -107,8 +111,8 @@ struct SubtitleTranslator::Impl {
   winrt::init_apartment(winrt::apartment_type::multi_threaded);
   winrt::Windows::Media::Ocr::OcrEngine engine{nullptr};std::unique_ptr<OcrProcess> neural;SubtitleState state;uint64_t seenGeneration=0,failedGeneration=0,seenEpoch=0;
   while(!stop){
-   Job job;uint64_t epoch;{std::unique_lock lock(mutex);wake.wait(lock,[&]{return stop||available||ocrEpoch!=seenEpoch;});if(stop)break;epoch=ocrEpoch;if(epoch!=seenEpoch){neural.reset();seenEpoch=epoch;}if(!available)continue;job=std::move(pending);available=false;}
-   if(failedGeneration==job.generation)continue;
+   Job job;uint64_t epoch;{std::unique_lock lock(mutex);wake.wait(lock,[&]{return stop||available||ocrEpoch!=seenEpoch;});if(stop)break;epoch=ocrEpoch;if(epoch!=seenEpoch){neural.reset();seenEpoch=epoch;}if(!available)continue;job=std::move(pending);available=false;perf.ocrBusy=true;perf.ocrQueueMs=(clockSeconds()-job.time)*1000;}
+   if(failedGeneration==job.generation){std::lock_guard lock(mutex);perf.ocrBusy=false;++perf.ocrSuperseded;continue;}
    try{
     const auto started=clockSeconds();
     if(seenGeneration!=job.generation){seenGeneration=job.generation;state.clear();}
@@ -124,16 +128,17 @@ struct SubtitleTranslator::Impl {
      auto recognized=engine.RecognizeAsync(bitmap).get();source=SubtitleState::normalize(winrt::to_string(recognized.Text()));bitmap.Close();writer.Close();
     }
     const bool translate=state.observe(source,confidence);
-    std::lock_guard lock(mutex);if(generation!=job.generation)continue;
+    std::lock_guard lock(mutex);perf.ocrBusy=false;++perf.ocrCompleted;if(generation!=job.generation)continue;
     result.source=source;result.observedAt=job.time;result.generation=job.generation;
     result.ocrMilliseconds=float((clockSeconds()-started)*1000);result.confidence=confidence;
+    event("ocr_complete",{{"job_id",double(job.id)},{"generation",double(job.generation)},{"ocr_ms",result.ocrMilliseconds},{"queue_ms",perf.ocrQueueMs},{"confidence",confidence},{"translate",double(translate)}},source);
     // Keep a caption while its source remains visible. The current OCR reading
     // is only the final fragment of a joined sentence, not its full displaySource.
     if(!source.empty()&&SubtitleState::equivalent(source,displayReading))result.expiresAt=std::max(result.expiresAt,clockSeconds()+std::max(1.0,2*settings.intervalMs/1000.));
     if(!loading&&modelError.empty())result.status=source.empty()?"Waiting for English subtitles":translate?"Subtitle queued for translation":"Reading English subtitles";
-    if(translate){if(texts.size()>=3)texts.pop_front();texts.push_back({state.committed,generation,result.ocrMilliseconds,job.time});translateWake.notify_one();}
-   }catch(const winrt::hresult_error& e){neural.reset();std::lock_guard lock(mutex);if(generation==job.generation)ocrError="OCR: "+winrt::to_string(e.message());failedGeneration=job.generation;}
-    catch(const std::exception& e){neural.reset();std::lock_guard lock(mutex);if(generation==job.generation)ocrError=e.what();failedGeneration=job.generation;}
+    if(translate){if(texts.size()>=3){++perf.translationDrops;event("translation_dropped",{{"job_id",double(texts.front().id)}});texts.pop_front();}texts.push_back({state.committed,generation,result.ocrMilliseconds,job.time,clockSeconds(),job.id});translateWake.notify_one();}
+   }catch(const winrt::hresult_error& e){neural.reset();std::lock_guard lock(mutex);perf.ocrBusy=false;++perf.ocrErrors;event("ocr_error",{{"job_id",double(job.id)}});if(generation==job.generation)ocrError="OCR: "+winrt::to_string(e.message());failedGeneration=job.generation;}
+    catch(const std::exception& e){neural.reset();std::lock_guard lock(mutex);perf.ocrBusy=false;++perf.ocrErrors;event("ocr_error",{{"job_id",double(job.id)}});if(generation==job.generation)ocrError=e.what();failedGeneration=job.generation;}
   }
   winrt::uninit_apartment();
  }
@@ -150,25 +155,25 @@ struct SubtitleTranslator::Impl {
     if(!process||loadedModel!=selected.model){
      process.reset();activeModel=-1;cache.clear();order.clear();sentences.clear();
      {std::lock_guard lock(mutex);loading=true;modelError.clear();result.status="Loading and warming local translation model...";}
-     process=std::make_unique<TranslationProcess>();process->launch(app,selected.model);
+     const auto loadingStarted=clockSeconds();process=std::make_unique<TranslationProcess>();process->launch(app,selected.model);
      const auto ready=process->receive(cancelled,120);if(ready!="READY")throw std::runtime_error(ready);
      loadedModel=selected.model;
      activeModel=loadedModel;
-     {std::lock_guard lock(mutex);if(modelEpoch==epoch){loading=false;result.status="Local model ready";}}
+     {std::lock_guard lock(mutex);if(modelEpoch==epoch){loading=false;perf.modelLoadMs=(clockSeconds()-loadingStarted)*1000;event("model_ready",{{"model",double(loadedModel)},{"load_ms",perf.modelLoadMs}});result.status="Local model ready";}}
     }
     if(text.source.empty())continue;
-    {std::lock_guard lock(mutex);if(text.generation!=generation||clockSeconds()-text.time>6)continue;}
+    {std::lock_guard lock(mutex);if(text.generation!=generation||clockSeconds()-text.time>6){++perf.translationDrops;event("translation_expired",{{"job_id",double(text.id)}});continue;}perf.translationBusy=true;perf.translationQueueMs=(clockSeconds()-text.queuedAt)*1000;}
     const auto input=sentences.prepare(text.source,text.time,text.generation,selected.joinFragments);
-    const auto start=clockSeconds();std::string translated;
-    if(auto found=cache.find(input.request);found!=cache.end())translated=found->second;
+    const auto start=clockSeconds();std::string translated;bool cacheHit=false;
+    if(auto found=cache.find(input.request);found!=cache.end()){translated=found->second;cacheHit=true;}
     else{
      translated=process->translate(input.request,cancelled);
      if(cache.size()>=128){cache.erase(order.front());order.pop_front();}
      cache[input.request]=translated;order.push_back(input.request);
     }
     // Continue OCR and translation while the previous Czech caption is readable.
-    {std::lock_guard lock(mutex);if(text.generation==generation&&modelEpoch==epoch&&clockSeconds()-text.time<=6){if(captions.size()>=3)captions.pop_front();captions.push_back({input.source,std::move(translated),text.ocrMs+float((clockSeconds()-start)*1000),text.time,text.source});result.status=input.joined?"Translated sentence continuation":"Local OCR + EN > CS ready";}}
-   }catch(const std::exception& e){process.reset();loadedModel=-1;activeModel=-1;std::lock_guard lock(mutex);loading=false;if(modelEpoch==epoch&&!stop){failedEpoch=epoch;modelError=e.what();result.status=modelError;result.translated.clear();}}
+    {std::lock_guard lock(mutex);perf.translationBusy=false;++perf.translations;if(cacheHit)++perf.cacheHits;perf.translationMs=(clockSeconds()-start)*1000;event("translation_complete",{{"job_id",double(text.id)},{"model",double(loadedModel)},{"translation_ms",perf.translationMs},{"queue_ms",perf.translationQueueMs},{"cache_hit",double(cacheHit)}},input.source,translated);if(text.generation==generation&&modelEpoch==epoch&&clockSeconds()-text.time<=6){if(captions.size()>=3){++perf.captionDrops;captions.pop_front();}captions.push_back({input.source,std::move(translated),text.ocrMs+float(perf.translationMs),text.time,text.source,text.id});result.status=input.joined?"Translated sentence continuation":"Local OCR + EN > CS ready";}}
+   }catch(const std::exception& e){process.reset();loadedModel=-1;activeModel=-1;std::lock_guard lock(mutex);loading=false;perf.translationBusy=false;if(modelEpoch==epoch&&!stop){++perf.translationErrors;event("translation_error",{{"job_id",double(text.id)}});failedEpoch=epoch;modelError=e.what();result.status=modelError;result.translated.clear();}}
   }
  }
 };
@@ -182,8 +187,9 @@ void SubtitleTranslator::configure(SubtitleSettings settings){
  if(modelChanged){++impl->modelEpoch;impl->modelError.clear();}if(ocrChanged)++impl->ocrEpoch;
  impl->settings=settings;if(sourceChanged)impl->clearLocked();impl->translateWake.notify_one();impl->wake.notify_one();
 }
+void SubtitleTranslator::setDiagnostics(Diagnostics* recorder){impl->diagnostics=recorder;}
 void SubtitleTranslator::reset(){std::lock_guard lock(impl->mutex);impl->clearLocked();}
-SubtitleSnapshot SubtitleTranslator::snapshot(bool paused)const{std::lock_guard lock(impl->mutex);impl->displayLocked(clockSeconds(),paused);auto value=impl->result;if(!impl->ocrError.empty())value.status=impl->ocrError;else if(!impl->modelError.empty())value.status=impl->modelError;value.activeModel=impl->activeModel;value.loading=impl->loading;return value;}
+SubtitleSnapshot SubtitleTranslator::snapshot(bool paused)const{std::lock_guard lock(impl->mutex);impl->displayLocked(clockSeconds(),paused);auto value=impl->result;value.performance=impl->perf;if(!impl->ocrError.empty())value.status=impl->ocrError;else if(!impl->modelError.empty())value.status=impl->modelError;value.activeModel=impl->activeModel;value.loading=impl->loading;return value;}
 bool SubtitleTranslator::rapidOcrAvailable(const std::filesystem::path& app){return std::filesystem::is_regular_file(app/L"ocr"/L"ocr_worker.py")&&std::filesystem::is_regular_file(app/L"ocr"/L"models"/L"en_PP-OCRv5_rec_mobile.onnx")&&std::filesystem::is_directory(app/L"ocr"/L"deps"/L"rapidocr_onnxruntime");}
 void SubtitleTranslator::submit(const unsigned char* bgra,unsigned w,unsigned h,double time){
  if(!bgra||!w||!h)return;std::lock_guard lock(impl->mutex);auto& s=impl->settings;
@@ -193,5 +199,6 @@ void SubtitleTranslator::submit(const unsigned char* bgra,unsigned w,unsigned h,
  unsigned factor=std::max({1u,(cw+1919)/1920,(ch+1919)/1920});unsigned ow=cw/factor,oh=ch/factor;if(!ow||!oh)return;
  Impl::Job job;job.w=ow;job.h=oh;job.time=time;job.generation=impl->generation;job.engine=s.ocrEngine;job.pixels.resize(size_t(ow)*oh*4);
  for(unsigned row=0;row<oh;++row)for(unsigned col=0;col<ow;++col)memcpy(job.pixels.data()+(size_t(row)*ow+col)*4,bgra+(size_t(y+row*factor)*w+x+col*factor)*4,4);
+ job.id=++impl->nextJob;++impl->perf.submitted;if(impl->available){++impl->perf.ocrSuperseded;impl->event("ocr_superseded",{{"job_id",double(impl->pending.id)}});}impl->event("ocr_submit",{{"job_id",double(job.id)},{"width",double(ow)},{"height",double(oh)}});
  impl->pending=std::move(job);impl->available=true;impl->wake.notify_one();
 }

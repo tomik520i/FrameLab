@@ -54,6 +54,7 @@ struct Host {
  Resource input,output;std::vector<Resource> intermediate;std::vector<std::unique_ptr<Layer>> layers;
  HMODULE dll=nullptr;InitFn initFn=nullptr;CreateFn createFn=nullptr;EvalFn evalFn=nullptr;ReleaseFn releaseFn=nullptr;ShutdownFn shutdownFn=nullptr;
  bool initialized=false;
+ ComPtr<ID3D12QueryHeap> timestamps;ComPtr<ID3D12Resource> timingReadback;UINT64 frequency=0;NrTimings timings;
  UINT descriptorSize=0;
  void transition(ID3D12GraphicsCommandList* l,Resource& r,D3D12_RESOURCE_STATES s){if(r.state==s)return;D3D12_RESOURCE_BARRIER b{};b.Type=D3D12_RESOURCE_BARRIER_TYPE_TRANSITION;b.Transition.pResource=r.value.Get();b.Transition.StateBefore=r.state;b.Transition.StateAfter=s;b.Transition.Subresource=D3D12_RESOURCE_BARRIER_ALL_SUBRESOURCES;l->ResourceBarrier(1,&b);r.state=s;}
  void uav(ID3D12GraphicsCommandList* l,Resource& r){D3D12_RESOURCE_BARRIER b{};b.Type=D3D12_RESOURCE_BARRIER_TYPE_UAV;b.UAV.pResource=r.value.Get();l->ResourceBarrier(1,&b);}
@@ -68,6 +69,10 @@ struct Host {
   config=c;runtime=c.runtimeDirectory;cache=c.cacheDirectory;std::filesystem::create_directories(cache);log.open(std::filesystem::path(cache)/L"nr-host.log",std::ios::app);log<<"Initializing "<<c.width<<"x"<<c.height<<" inference "<<c.inferenceWidth<<"x"<<c.inferenceHeight<<" passes "<<c.passes<<std::endl;
   ComPtr<IDXGIFactory4> factory;hr(CreateDXGIFactory1(IID_PPV_ARGS(&factory)),"NR factory");ComPtr<IDXGIAdapter1> adapter;hr(factory->EnumAdapterByLuid(c.adapter,IID_PPV_ARGS(&adapter)),"NR adapter LUID");hr(D3D12CreateDevice(adapter.Get(),D3D_FEATURE_LEVEL_11_0,IID_PPV_ARGS(&device)),"NR D3D12 device");
   D3D12_COMMAND_QUEUE_DESC q{};q.Type=D3D12_COMMAND_LIST_TYPE_DIRECT;hr(device->CreateCommandQueue(&q,IID_PPV_ARGS(&queue)),"NR queue");
+  hr(queue->GetTimestampFrequency(&frequency),"NR timestamp frequency");
+  D3D12_QUERY_HEAP_DESC qh{};qh.Type=D3D12_QUERY_HEAP_TYPE_TIMESTAMP;qh.Count=20;hr(device->CreateQueryHeap(&qh,IID_PPV_ARGS(&timestamps)),"NR timestamps");
+  D3D12_HEAP_PROPERTIES hp{};hp.Type=D3D12_HEAP_TYPE_READBACK;D3D12_RESOURCE_DESC rd{};rd.Dimension=D3D12_RESOURCE_DIMENSION_BUFFER;rd.Width=20*sizeof(UINT64);rd.Height=rd.DepthOrArraySize=rd.MipLevels=1;rd.SampleDesc.Count=1;rd.Layout=D3D12_TEXTURE_LAYOUT_ROW_MAJOR;
+  hr(device->CreateCommittedResource(&hp,D3D12_HEAP_FLAG_NONE,&rd,D3D12_RESOURCE_STATE_COPY_DEST,nullptr,IID_PPV_ARGS(&timingReadback)),"NR timing readback");
   for(unsigned i=0;i<3;++i){hr(device->CreateCommandAllocator(q.Type,IID_PPV_ARGS(&alloc[i])),"NR allocator");hr(device->CreateCommandList(0,q.Type,alloc[i].Get(),nullptr,IID_PPV_ARGS(&lists[i])),"NR list");hr(lists[i]->Close(),"NR initial close");}
   hr(device->CreateFence(0,D3D12_FENCE_FLAG_NONE,IID_PPV_ARGS(&fence)),"NR fence");event=CreateEventW(nullptr,FALSE,FALSE,nullptr);if(!event)throw std::runtime_error("NR event failed");
   hr(device->OpenSharedHandle(c.input,IID_PPV_ARGS(&input.value)),"NR shared input");hr(device->OpenSharedHandle(c.output,IID_PPV_ARGS(&output.value)),"NR shared output");hr(device->OpenSharedHandle(c.inputFence,IID_PPV_ARGS(&inputFence)),"NR shared fence");
@@ -104,29 +109,32 @@ struct Host {
   params->Set("DLSSNR.Upscaling",0u);params->Set("DLSSNR.Scale",1.f);params->Set("DLSSNR.ScalingRatio",1.f);params->Set("DLSSNRComputeScalingRatioCallback",reinterpret_cast<void*>(&scaling));params->Set("DLSSNR.Hint.Render.Preset",2);params->Set("PerfQualityValue",1);params->Set("CreationNodeMask",1u);params->Set("VisibilityNodeMask",1u);
   auto l=begin(0);ngx(safeCreate(createFn,l,params,&feature),"NR create feature 18");if(!feature)throw std::runtime_error("NR returned no feature");submit(l);wait();log<<"Feature 18 created"<<std::endl;
  }
- void processLayer(Layer& layer,const NrFrame& frame){
+ void processLayer(Layer& layer,const NrFrame& frame,unsigned query){
   auto& input=*layer.input;auto& output=*layer.output;
   auto& proxy=layer.proxy;auto& previous=layer.previous;auto& neural=layer.neural;
   auto& smallFlow=layer.smallFlow;auto& motion=layer.motion;auto& depth=layer.depth;
   auto* params=&layer.params;auto* feature=layer.feature;auto& history=layer.history;
   bool reset=frame.reset||!history||!frame.useMotion;auto w=config.inferenceWidth,h=config.inferenceHeight;
-  auto l=begin(0);transition(l,input,D3D12_RESOURCE_STATE_NON_PIXEL_SHADER_RESOURCE);transition(l,proxy,D3D12_RESOURCE_STATE_UNORDERED_ACCESS);
+  auto l=begin(0);l->EndQuery(timestamps.Get(),D3D12_QUERY_TYPE_TIMESTAMP,query);transition(l,input,D3D12_RESOURCE_STATE_NON_PIXEL_SHADER_RESOURCE);transition(l,proxy,D3D12_RESOURCE_STATE_UNORDERED_ACCESS);
   bind(l,layer,prepare.Get(),reset,frame.useMotion);l->Dispatch((w+7)/8,(h+7)/8,1);uav(l,proxy);transition(l,proxy,D3D12_RESOURCE_STATE_NON_PIXEL_SHADER_RESOURCE);transition(l,previous,D3D12_RESOURCE_STATE_NON_PIXEL_SHADER_RESOURCE);transition(l,smallFlow,D3D12_RESOURCE_STATE_UNORDERED_ACCESS);
   bind(l,layer,flow.Get(),reset,frame.useMotion);l->Dispatch((((w+15)/16)+7)/8,(((h+15)/16)+7)/8,1);uav(l,smallFlow);transition(l,smallFlow,D3D12_RESOURCE_STATE_NON_PIXEL_SHADER_RESOURCE);transition(l,motion,D3D12_RESOURCE_STATE_UNORDERED_ACCESS);transition(l,depth,D3D12_RESOURCE_STATE_UNORDERED_ACCESS);
-  bind(l,layer,guides.Get(),reset,frame.useMotion);l->Dispatch((w+7)/8,(h+7)/8,1);uav(l,motion);uav(l,depth);transition(l,motion,D3D12_RESOURCE_STATE_NON_PIXEL_SHADER_RESOURCE);transition(l,depth,D3D12_RESOURCE_STATE_NON_PIXEL_SHADER_RESOURCE);transition(l,neural,D3D12_RESOURCE_STATE_UNORDERED_ACCESS);submit(l);
+  bind(l,layer,guides.Get(),reset,frame.useMotion);l->Dispatch((w+7)/8,(h+7)/8,1);uav(l,motion);uav(l,depth);transition(l,motion,D3D12_RESOURCE_STATE_NON_PIXEL_SHADER_RESOURCE);transition(l,depth,D3D12_RESOURCE_STATE_NON_PIXEL_SHADER_RESOURCE);transition(l,neural,D3D12_RESOURCE_STATE_UNORDERED_ACCESS);l->EndQuery(timestamps.Get(),D3D12_QUERY_TYPE_TIMESTAMP,query+1);submit(l);
   params->Set("DLSSNR.Color",proxy.value.Get());params->Set("DLSSNR.Output",neural.value.Get());params->Set("DLSSNR.MVec",motion.value.Get());params->Set("DLSSNR.Depth",depth.value.Get());
   for(auto name:{"DLSSNR.ColorSubrectWidth","DLSSNR.OutputSubrectWidth","DLSSNR.MVecSubrectWidth","DLSSNR.DepthSubrectWidth"})params->Set(name,w);
   for(auto name:{"DLSSNR.ColorSubrectHeight","DLSSNR.OutputSubrectHeight","DLSSNR.MVecSubrectHeight","DLSSNR.DepthSubrectHeight"})params->Set(name,h);
   for(auto name:{"DLSSNR.ColorSubrectBaseX","DLSSNR.ColorSubrectBaseY","DLSSNR.OutputSubrectBaseX","DLSSNR.OutputSubrectBaseY","DLSSNR.MVecSubrectBaseX","DLSSNR.MVecSubrectBaseY","DLSSNR.DepthSubrectBaseX","DLSSNR.DepthSubrectBaseY"})params->Set(name,0u);
   params->Set("DLSSNR.MVecScaleX",1.f);params->Set("DLSSNR.MVecScaleY",1.f);params->Set("DLSSNR.DepthInverted",1);params->Set("DLSS.Indicator.Invert.X.Axis",0);params->Set("DLSS.Indicator.Invert.Y.Axis",0);params->Set("DLSSNR.Enabled",1);params->Set("DLSSNR.Reset",reset?1:0);params->Set("DLSSNR.Style",0);params->Set("DLSSNR.Intensity",1.f);params->Set("DLSSNR.LocalToneStrength",1.f);params->Set("DLSSNR.LocalStructureStrength",1.f);params->Set("DLSSNR.SkinStructureStrength",.5f);params->Set("DLSSNR.UseAutoMask",1);params->Set("DLSSNR.UICorrection",1);
-  l=begin(1);ngx(safeEval(evalFn,l,feature,params),"NR evaluate");uav(l,neural);transition(l,neural,D3D12_RESOURCE_STATE_NON_PIXEL_SHADER_RESOURCE);transition(l,output,D3D12_RESOURCE_STATE_UNORDERED_ACCESS);
+  l=begin(1);l->EndQuery(timestamps.Get(),D3D12_QUERY_TYPE_TIMESTAMP,query+2);ngx(safeEval(evalFn,l,feature,params),"NR evaluate");l->EndQuery(timestamps.Get(),D3D12_QUERY_TYPE_TIMESTAMP,query+3);uav(l,neural);transition(l,neural,D3D12_RESOURCE_STATE_NON_PIXEL_SHADER_RESOURCE);transition(l,output,D3D12_RESOURCE_STATE_UNORDERED_ACCESS);
   bind(l,layer,composite.Get(),reset,frame.useMotion);l->Dispatch((config.width+7)/8,(config.height+7)/8,1);uav(l,output);transition(l,output,D3D12_RESOURCE_STATE_COMMON);transition(l,input,D3D12_RESOURCE_STATE_COMMON);
-  transition(l,proxy,D3D12_RESOURCE_STATE_COPY_SOURCE);transition(l,previous,D3D12_RESOURCE_STATE_COPY_DEST);l->CopyResource(previous.value.Get(),proxy.value.Get());submit(l);wait();history=true;
+  transition(l,proxy,D3D12_RESOURCE_STATE_COPY_SOURCE);transition(l,previous,D3D12_RESOURCE_STATE_COPY_DEST);l->CopyResource(previous.value.Get(),proxy.value.Get());l->EndQuery(timestamps.Get(),D3D12_QUERY_TYPE_TIMESTAMP,query+4);l->ResolveQueryData(timestamps.Get(),D3D12_QUERY_TYPE_TIMESTAMP,query,5,timingReadback.Get(),query*sizeof(UINT64));submit(l);wait();history=true;
  }
  void process(const NrFrame& frame,float& milliseconds){
   const auto start=std::chrono::steady_clock::now();
   hr(queue->Wait(inputFence.Get(),frame.inputFenceValue),"NR wait for D3D11 input");
-  for(auto& layer:layers)processLayer(*layer,frame);
+  for(unsigned i=0;i<layers.size();++i)processLayer(*layers[i],frame,i*5);
+  UINT64* ticks=nullptr;D3D12_RANGE range{0,layers.size()*5*sizeof(UINT64)};hr(timingReadback->Map(0,&range,reinterpret_cast<void**>(&ticks)),"NR timing map");
+  timings.prepareGpuMs=timings.inferenceGpuMs=timings.finishGpuMs=0;
+  for(unsigned i=0;i<layers.size();++i){auto p=ticks+i*5;timings.prepareGpuMs+=float((p[1]-p[0])*1000./frequency);timings.inferenceGpuMs+=float((p[3]-p[2])*1000./frequency);timings.finishGpuMs+=float((p[4]-p[3])*1000./frequency);}D3D12_RANGE empty{};timingReadback->Unmap(0,&empty);
   milliseconds=std::chrono::duration<float,std::milli>(std::chrono::steady_clock::now()-start).count();
   if(frame.inputFenceValue<=12||frame.inputFenceValue%120==0||frame.reset)
    log<<"frame "<<frame.inputFenceValue<<" reset="<<frame.reset<<" passes="<<config.passes<<" total_work_ms="<<milliseconds<<std::endl;
@@ -142,3 +150,4 @@ struct Host {
 extern "C" __declspec(dllexport) void* __cdecl NrCreate(const NrConfig* c,char* error,unsigned capacity){try{auto h=std::make_unique<Host>();h->setup(*c);return h.release();}catch(const std::exception& e){report(error,capacity,e.what());return nullptr;}}
 extern "C" __declspec(dllexport) bool __cdecl NrProcess(void* instance,const NrFrame* frame,float* ms,char* error,unsigned capacity){try{static_cast<Host*>(instance)->process(*frame,*ms);return true;}catch(const std::exception& e){report(error,capacity,e.what());return false;}}
 extern "C" __declspec(dllexport) void __cdecl NrDestroy(void* instance){delete static_cast<Host*>(instance);}
+extern "C" __declspec(dllexport) bool __cdecl NrGetTimings(void* instance,NrTimings* out){if(!instance||!out||out->size!=sizeof(NrTimings))return false;*out=static_cast<Host*>(instance)->timings;return true;}

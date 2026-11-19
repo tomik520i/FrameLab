@@ -24,6 +24,8 @@ public:
  State state()const{return phase.load();}
  std::string error()const;
  float processingMs()const{return elapsedMs.load();}
+ struct Timings {float submitToReadyMs=0,readyToTakeMs=0;NrTimings gpu;};
+ Timings timings()const{std::lock_guard lock(mutex);return measured;}
  unsigned passes()const{return passCount;}
  unsigned width()const{return w;}unsigned height()const{return h;}
  unsigned inferenceWidth()const{return iw;}unsigned inferenceHeight()const{return ih;}
@@ -32,6 +34,7 @@ public:
 private:
  Graphics& g;unsigned w,h,iw,ih,passCount;HMODULE library=nullptr;
  NrCreateFn create=nullptr;NrProcessFn process=nullptr;NrDestroyFn destroy=nullptr;
+ NrGetTimingsFn getTimings=nullptr;Timings measured;double submittedAt=0,readyAt=0;
  Texture input,output;ComPtr<ID3D11Fence> inputFence;ComPtr<ID3D11DeviceContext4> context;
  HANDLE inputHandle=nullptr,outputHandle=nullptr,fenceHandle=nullptr;
  uint64_t sequence=0;std::filesystem::path runtimePath,cachePath;

@@ -37,6 +37,9 @@ struct NrControls {
   if(view==2){ImGui::SliderFloat(text("Divider","Dělicí čára"),&split,.05f,.95f,"%.2f");ImGui::TextWrapped("%s",text("Drag the divider in the preview. F8 freezes the same frame on both sides.","Čáru v náhledu můžeš táhnout myší. F8 zmrazí stejný snímek na obou stranách."));}
   ImGui::TextWrapped("%s",text("F11 shows the final output fullscreen. Comparisons and labels are hidden automatically. Esc returns to settings.","F11 zobrazí výsledný obraz. Porovnání a popisky se automaticky skryjí. Esc vrátí nastavení."));
   if(ImGui::CollapsingHeader(text("Quality and performance","Kvalita a výkon"))){
+  if(ImGui::Button(text("720p / 1 pass","720p / 1 průchod"))){height=720;passes=1;restart=true;}ImGui::SameLine();
+  if(ImGui::Button(text("1080p / 1 pass","1080p / 1 průchod"))){height=1080;passes=1;restart=true;}
+  ImGui::TextWrapped("%s",text("FG multiplies the frames the enhancer must process. Lower AI resolution or fewer passes saves GPU work; lowering effect strength only changes the blend. The output keeps its source resolution.","FG násobí počet snímků pro enhancer. Nižší rozlišení AI nebo méně průchodů šetří GPU; síla efektu mění jen přimíchání. Výstup zachovává rozlišení zdroje."));
   auto label=[&](int value){std::string s=value?std::string(text("Up to ","Až "))+std::to_string(value)+"p":text("Source resolution","Rozlišení zdroje");if(sourceWidth&&sourceHeight){auto [x,y]=nrDimensions(sourceWidth,sourceHeight,unsigned(value));s+="  ("+std::to_string(x)+" x "+std::to_string(y)+")";}return s;};
   ui::field(text("AI processing limit","Limit výpočetního rozlišení AI"));
   if(ImGui::BeginCombo("##nr-height",label(height).c_str())){

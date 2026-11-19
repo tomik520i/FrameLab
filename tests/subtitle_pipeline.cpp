@@ -1,4 +1,5 @@
 #include "SubtitleTranslator.hpp"
+#include "Diagnostics.hpp"
 #include <chrono>
 #include <fstream>
 #include <iostream>
@@ -11,10 +12,12 @@ double tick(){return std::chrono::duration<double>(std::chrono::steady_clock::no
 int wmain(int argc,wchar_t** argv){try{
  if(argc<3||argc>4)throw std::runtime_error("Usage: subtitle_pipeline_test APP_DIR FIXTURE_BGRA_1280x720 [MODEL_ID 0/1/2]");
  constexpr unsigned w=1280,h=720;std::vector<unsigned char> pixels(w*h*4);std::ifstream f(argv[2],std::ios::binary);if(!f.read(reinterpret_cast<char*>(pixels.data()),pixels.size()))throw std::runtime_error("Missing fixture");
- SubtitleTranslator worker(argv[1]);SubtitleSettings settings;settings.enabled=true;settings.intervalMs=200;settings.model=argc==4?std::stoi(argv[3]):0;worker.configure(settings);
+ Diagnostics diagnostics;diagnostics.start(std::filesystem::path(argv[1])/"logs","{\"test\":\"subtitle_pipeline\"}",false,true,0);
+ SubtitleTranslator worker(argv[1]);worker.setDiagnostics(&diagnostics);SubtitleSettings settings;settings.enabled=true;settings.intervalMs=200;settings.model=argc==4?std::stoi(argv[3]):0;worker.configure(settings);
  const auto deadline=tick()+180;SubtitleSnapshot value;
  while(tick()<deadline){worker.submit(pixels.data(),w,h,tick());std::this_thread::sleep_for(std::chrono::milliseconds(100));value=worker.snapshot();if(!value.translated.empty())break;}
  if(value.source!="The door is locked."||value.translated!="Dveře jsou zamčené.")throw std::runtime_error("Unexpected OCR / MT: "+value.status+" | "+value.source+" | "+value.translated);
+ if(!value.performance.ocrCompleted||!value.performance.translations||!value.performance.shown||value.performance.displayLatencyMs<=0)throw std::runtime_error("Missing OCR/translation performance counters");
  std::cout<<"{\"model\":"<<settings.model<<",\"source\":"<<std::quoted(value.source)<<",\"translated\":"<<std::quoted(value.translated)<<",\"milliseconds\":"<<value.milliseconds<<"}\n";
  const auto staticUntil=tick()+4;
  while(tick()<staticUntil){worker.submit(pixels.data(),w,h,tick());std::this_thread::sleep_for(std::chrono::milliseconds(100));if(worker.snapshot().translated!="Dveře jsou zamčené.")throw std::runtime_error("Visible source lost its Czech caption");}
@@ -25,6 +28,8 @@ int wmain(int argc,wchar_t** argv){try{
  while(tick()<blankDeadline){worker.submit(pixels.data(),w,h,tick());std::this_thread::sleep_for(std::chrono::milliseconds(100));auto state=worker.snapshot();if(state.source.empty()&&state.translated.empty()){cleared=true;break;}}
  if(!cleared||tick()-firstDisplay<settings.holdSeconds)throw std::runtime_error("Caption reading lifetime incorrect");
  worker.reset();if(!worker.snapshot().translated.empty())throw std::runtime_error("Reset retained a caption");settings.enabled=false;worker.configure(settings);worker.submit(pixels.data(),w,h,tick());std::this_thread::sleep_for(std::chrono::milliseconds(300));if(!worker.snapshot().source.empty())throw std::runtime_error("Disabled worker produced OCR");
- std::cout<<"PASS: actual neural OCR, offline EN-CS model, readable lifetime, expiry, reset and disabled state\n";
+ diagnostics.stop();while(diagnostics.busy())std::this_thread::sleep_for(std::chrono::milliseconds(2));if(diagnostics.status()!="Saved")throw std::runtime_error(diagnostics.status());
+ std::ifstream events(diagnostics.folder()/"events.jsonl");std::string lines{std::istreambuf_iterator<char>(events),{}};for(auto name:{"ocr_complete","translation_complete","caption_display","Dveře jsou zamčené."})if(lines.find(name)==std::string::npos)throw std::runtime_error("Missing subtitle event/text");
+ std::cout<<"PASS: actual neural OCR, offline EN-CS model, readable lifetime, expiry, reset, disabled state and diagnostic timings/text\n";
  return 0;
 }catch(const std::exception& e){std::cerr<<e.what()<<'\n';return 1;}}

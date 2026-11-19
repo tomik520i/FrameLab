@@ -3,6 +3,7 @@
 #include <algorithm>
 
 namespace {
+double nrClock(){return std::chrono::duration<double>(std::chrono::steady_clock::now().time_since_epoch()).count();}
 void createTexture(ID3D11Device* device,Texture& texture,unsigned w,unsigned h,DXGI_FORMAT format,bool shared,HANDLE* handle){
  D3D11_TEXTURE2D_DESC d{};d.Width=w;d.Height=h;d.ArraySize=d.MipLevels=1;d.SampleDesc.Count=1;d.Format=format;d.Usage=D3D11_USAGE_DEFAULT;d.BindFlags=D3D11_BIND_SHADER_RESOURCE|D3D11_BIND_RENDER_TARGET;
  if(format==DXGI_FORMAT_R8G8B8A8_UNORM)d.BindFlags|=D3D11_BIND_UNORDERED_ACCESS;
@@ -18,6 +19,7 @@ Enhancer::Enhancer(Graphics& graphics,unsigned width,unsigned height,unsigned ma
   const auto dimensions=nrDimensions(w,h,maxHeight);iw=dimensions.first;ih=dimensions.second;
   auto path=std::filesystem::absolute(app/L"nr-host"/L"nvngx.dll");library=LoadLibraryExW(path.c_str(),nullptr,LOAD_LIBRARY_SEARCH_DLL_LOAD_DIR|LOAD_LIBRARY_SEARCH_SYSTEM32);if(!library)throw std::runtime_error("FrameLab NR adapter missing or failed to load (Win32 "+std::to_string(GetLastError())+")");
   create=reinterpret_cast<NrCreateFn>(GetProcAddress(library,"NrCreate"));process=reinterpret_cast<NrProcessFn>(GetProcAddress(library,"NrProcess"));destroy=reinterpret_cast<NrDestroyFn>(GetProcAddress(library,"NrDestroy"));if(!create||!process||!destroy)throw std::runtime_error("Incompatible FrameLab NR adapter");
+  getTimings=reinterpret_cast<NrGetTimingsFn>(GetProcAddress(library,"NrGetTimings"));
   ComPtr<ID3D11Device5> device;check(g.device.As(&device),"Enhancer D3D11.4 device");check(g.context.As(&context),"Enhancer D3D11.4 context");
   createTexture(g.device.Get(),input,w,h,DXGI_FORMAT_B8G8R8A8_UNORM,true,&inputHandle);createTexture(g.device.Get(),output,w,h,DXGI_FORMAT_R8G8B8A8_UNORM,true,&outputHandle);
   createTexture(g.device.Get(),original,w,h,DXGI_FORMAT_B8G8R8A8_UNORM,false,nullptr);createTexture(g.device.Get(),result,w,h,DXGI_FORMAT_R8G8B8A8_UNORM,false,nullptr);
@@ -36,6 +38,7 @@ void Enhancer::run(NrConfig c){
   phase=State::Idle;
   for(;;){NrFrame frame;{std::unique_lock lock(mutex);cv.wait(lock,[&]{return stop||queued;});if(stop)break;frame=job;queued=false;}
    float ms=0;if(!process(host,&frame,&ms,error,sizeof(error)))throw std::runtime_error(error);
+   {std::lock_guard lock(mutex);readyAt=nrClock();measured.submitToReadyMs=float((readyAt-submittedAt)*1000);if(getTimings)getTimings(host,&measured.gpu);}
    elapsedMs=ms;phase=State::Ready;
   }
  }catch(const std::exception& e){fail(e.what());}
@@ -44,13 +47,14 @@ void Enhancer::run(NrConfig c){
 bool Enhancer::submit(ID3D11Texture2D* source,bool reset,bool motion){
  if(phase!=State::Idle)return false;
  D3D11_TEXTURE2D_DESC d{};source->GetDesc(&d);if(d.Width!=w||d.Height!=h||d.Format!=DXGI_FORMAT_B8G8R8A8_UNORM)throw std::runtime_error("Enhancer source dimensions/format changed");
- g.context->CopyResource(input.texture.Get(),source);check(context->Signal(inputFence.Get(),++sequence),"Enhancer source signal");g.context->Flush();
+ submittedAt=nrClock();g.context->CopyResource(input.texture.Get(),source);check(context->Signal(inputFence.Get(),++sequence),"Enhancer source signal");g.context->Flush();
  {std::lock_guard lock(mutex);if(stop)return false;job={sequence,reset,motion};queued=true;phase=State::Working;}cv.notify_one();return true;
 }
 bool Enhancer::take(){
  if(phase!=State::Ready)return false;
  // Worker observed D3D12 completion before publishing Ready. A subsequent
  // input-fence signal orders these copies before the next inference write.
+ {std::lock_guard lock(mutex);measured.readyToTakeMs=float((nrClock()-readyAt)*1000);}
  g.context->CopyResource(original.texture.Get(),input.texture.Get());g.context->CopyResource(result.texture.Get(),output.texture.Get());hasResult=true;phase=State::Idle;return true;
 }
 void Enhancer::requestStop(){std::lock_guard lock(mutex);stop=true;cv.notify_all();}

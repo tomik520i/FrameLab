@@ -20,13 +20,20 @@ struct SubtitleSettings {
  void load(const std::filesystem::path&);
  void save(const std::filesystem::path&)const;
 };
-struct SubtitleSnapshot {std::string source,translated,displaySource,status;float milliseconds=0,ocrMilliseconds=0,confidence=0;double observedAt=0,displayedAt=0,expiresAt=0;uint64_t generation=0;int activeModel=-1,pending=0;bool loading=false;};
+struct SubtitlePerformance {
+ uint64_t submitted=0,ocrCompleted=0,ocrSuperseded=0,ocrErrors=0,translations=0,cacheHits=0,translationDrops=0,translationErrors=0,shown=0,captionDrops=0;
+ double ocrQueueMs=0,translationMs=0,translationQueueMs=0,displayLatencyMs=0,modelLoadMs=0;
+ bool ocrBusy=false,translationBusy=false;
+};
+struct SubtitleSnapshot {std::string source,translated,displaySource,status;float milliseconds=0,ocrMilliseconds=0,confidence=0;double observedAt=0,displayedAt=0,expiresAt=0;uint64_t generation=0;int activeModel=-1,pending=0;bool loading=false;SubtitlePerformance performance;};
+class Diagnostics;
 class SubtitleTranslator {
 public:
  explicit SubtitleTranslator(const std::filesystem::path& app);
  ~SubtitleTranslator();
  void configure(SubtitleSettings settings); // flushes old source and pending jobs
  void reset();
+ void setDiagnostics(Diagnostics* recorder); // recorder must outlive this instance
  void submit(const unsigned char* bgra,unsigned w,unsigned h,double captureTime);
  SubtitleSnapshot snapshot(bool paused=false)const;
  static bool rapidOcrAvailable(const std::filesystem::path& app);

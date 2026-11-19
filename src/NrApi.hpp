@@ -21,3 +21,5 @@ struct NrFrame {
 using NrCreateFn = void* (__cdecl*)(const NrConfig*, char*, unsigned);
 using NrProcessFn = bool (__cdecl*)(void*, const NrFrame*, float*, char*, unsigned);
 using NrDestroyFn = void (__cdecl*)(void*);
+struct NrTimings {uint32_t size=sizeof(NrTimings);float prepareGpuMs=-1,inferenceGpuMs=-1,finishGpuMs=-1;};
+using NrGetTimingsFn = bool (__cdecl*)(void*,NrTimings*);
