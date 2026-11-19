@@ -1,15 +1,42 @@
 #pragma once
 #include "SubtitleTranslator.hpp"
+#include "SubtitleLayout.hpp"
+#include "SubtitleModels.hpp"
 #include "UiTheme.hpp"
 #include "Localization.hpp"
 #include <cmath>
 
 inline const char* subText(const char* en,const char* cs){return czech?cs:en;}
-inline bool subtitlePanel(SubtitleSettings& settings,const SubtitleSnapshot& state){
+inline bool subtitlePanel(SubtitleSettings& settings,const SubtitleSnapshot& state,SubtitleModels& models,float freeVramMB){
  const auto before=settings;
  ui::title(subText("LOCAL SUBTITLE TRANSLATION","LOKÁLNÍ PŘEKLAD TITULKŮ"));
  ImGui::TextWrapped("%s",subText("Reads English text already visible in the picture and overlays Czech. Processing stays on this PC.","Čte anglický text už zobrazený v obraze a překrývá ho českým překladem. Zpracování probíhá na tomto PC."));
+ ui::field(subText("Translation model","Překladový model"));
+ if(ImGui::Combo("##translation-model",&settings.model,"OPUS-MT / CPU\000CUNI-MH 7B / Q3_K_M\000CUNI-MH 7B / Q8_0\000"))settings.enabled=false;
+ bool ready=true;
+ if(settings.model){
+  const auto& item=subtitleModelCatalog[settings.model];const auto download=models.snapshot(settings.model);ready=download.phase=="ready";
+  ImGui::TextWrapped("%s",subText("CUNI is specialized for English to Czech. Q3 uses less memory; Q8 keeps more weight precision. Higher precision is not a guarantee of a better sentence.","CUNI je specializovaný na angličtinu do češtiny. Q3 šetří paměť, Q8 zachová větší přesnost vah. Vyšší přesnost nezaručuje lepší překlad každé věty."));
+  ImGui::Text(subText("Model: %.2f GB | estimated GPU: %.1f GiB + headroom","Model: %.2f GB | odhad GPU: %.1f GiB + rezerva"),item.downloadGB,item.requiredGiB);
+  ImGui::TextWrapped("%s",subText("First GPU download also needs the 1.62 GB portable runtime. Allow about 8 GB extra disk space for its archive and extraction. Models stay on this PC.","První GPU model stáhne také přenosný runtime (1,62 GB). Pro archiv a rozbalení nech dalších asi 8 GB místa. Modely zůstávají na tomto PC."));
+  const bool busy=download.phase=="downloading"||download.phase=="verifying"||download.phase=="extracting";
+  const auto other=models.snapshot(3-settings.model);const bool otherBusy=other.phase=="downloading"||other.phase=="verifying"||other.phase=="extracting";
+  ImGui::Text("%s: %s",subText("Download","Stažení"),download.phase.c_str());
+  if(busy){float fraction=download.total?float(double(download.done)/download.total):0;ImGui::ProgressBar(fraction,{-1,0});ImGui::Text("%.2f / %.2f GB",download.done/1.e9,download.total/1.e9);if(ImGui::Button(subText("Pause download","Pozastavit stahování")))models.cancel();}
+  else if(!ready){ImGui::BeginDisabled(otherBusy);if(ImGui::Button(subText("Download / resume and verify","Stáhnout / pokračovat a ověřit")))models.download(settings.model);ImGui::EndDisabled();}
+  if(otherBusy){ImGui::TextWrapped("%s",subText("The other model is downloading. Finish or pause that download first.","Stahuje se druhý model. Nech ho dokončit nebo stahování pozastav."));if(ImGui::Button(subText("Pause other download","Pozastavit druhé stahování")))models.cancel();}
+  if(!download.detail.empty())ImGui::TextWrapped("%s",download.detail.c_str());
+  if(state.activeModel==settings.model)ImGui::TextColored(ui::accent,"%s",subText("Model loaded on GPU","Model načtený na GPU"));
+  else if(freeVramMB>=0){
+   const double free=freeVramMB/1024.;ImGui::Text(subText("Free GPU memory now: %.2f GiB","Teď volná paměť GPU: %.2f GiB"),free);
+   if(free<item.requiredGiB+.75)ImGui::TextWrapped("%s",subText("Low headroom: try Q3 or CPU, reduce enhancer resolution, or close another GPU app. Full GPU loading is checked; CPU offload is not silently accepted.","Malá rezerva: zkus Q3 nebo CPU, sniž rozlišení enhanceru nebo zavři jinou GPU aplikaci. Úplné načtení na GPU se ověřuje; přesun na CPU se tiše nepovolí."));
+   else ImGui::TextWrapped("%s",subText("Enough estimated headroom with the effects currently running. Recheck after increasing resolution, FG or enhancer settings.","Odhadovaná rezerva se současně běžícími efekty stačí. Po zvýšení rozlišení nebo nastavení FG/enhanceru ji znovu zkontroluj."));
+  }else ImGui::TextWrapped("%s",subText("Free GPU memory is unavailable; capacity cannot be recommended.","Volnou paměť GPU nelze zjistit; kapacitu nelze doporučit."));
+ }
+ if(!ready)ImGui::BeginDisabled();
  ImGui::Checkbox(subText("Translate subtitles to Czech","Překládat titulky do češtiny"),&settings.enabled);
+ if(!ready)ImGui::EndDisabled();
+ if(settings.enabled&&ImGui::Button(subText("Unload translation model","Uvolnit překladový model")))settings.enabled=false;
  ImGui::TextDisabled("English > Čeština | lokálně / offline");
  if(settings.enabled&&!state.status.empty())ImGui::TextWrapped("%s",state.status.c_str());
  ImGui::Checkbox(subText("Show reading area","Zobrazit oblast čtení"),&settings.showRegion);
@@ -22,8 +49,22 @@ inline bool subtitlePanel(SubtitleSettings& settings,const SubtitleSnapshot& sta
   if(ImGui::Button(subText("Bottom subtitles preset","Předvolba: titulky dole"))){settings.left=.1f;settings.right=.9f;settings.top=.72f;settings.bottom=.97f;}
  }
  ui::field(subText("Czech subtitle size","Velikost českých titulků"));ImGui::SliderFloat("##subtitle-size",&settings.fontPercent,2,8,"%.1f %%");
- ImGui::SliderFloat(subText("Vertical position","Svislá poloha"),&settings.position,.1f,.96f,"%.2f");
- ImGui::SliderFloat(subText("Background opacity","Krytí pozadí"),&settings.background,0,1,"%.2f");
+ ui::field(subText("Czech overlay placement","Umístění českého překryvu"));
+ ImGui::SetNextItemWidth(-1);ImGui::Combo("##subtitle-placement",&settings.placement,czech?"Vlastní poloha\000Pod originál\000Nad originál\000":"Custom position\000Below original\000Above original\000");
+ if(settings.placement){
+  ui::field(subText("Gap (% of image height)","Mezera (% výšky obrazu)"));ImGui::SliderFloat("##subtitle-gap",&settings.gapPercent,0,10,"%.1f %%");
+  ui::field(subText("When space runs out","Když není místo"));ImGui::Combo("##subtitle-edge",&settings.edgeFallback,czech?"Přisunout k okraji (může se překrývat)\000Přesunout na opačnou stranu\000":"Clamp to edge (may overlap)\000Move to opposite side\000");
+  ImGui::TextWrapped("%s",subText("Above/below uses the edges of the OCR area. Keep it tight around the original subtitle. If neither side fits, the overlay stays inside the image.","Nad/pod se řídí okraji oblasti OCR. Vymez ji těsně kolem originálních titulků. Když není místo ani na jedné straně, překryv zůstane uvnitř obrazu."));
+ }
+ ui::field(subText("Horizontal position","Vodorovná poloha"));ImGui::SliderFloat("##subtitle-x",&settings.horizontal,0,1,"%.2f");
+ ui::field(subText("Horizontal anchor","Vodorovné ukotvení"));ImGui::Combo("##subtitle-anchor-x",&settings.horizontalAlign,czech?"Vlevo\000Střed\000Vpravo\000":"Left\000Center\000Right\000");
+ if(!settings.placement){
+  ui::field(subText("Vertical position","Svislá poloha"));ImGui::SliderFloat("##subtitle-y",&settings.position,0,1,"%.2f");
+  ui::field(subText("Vertical anchor","Svislé ukotvení"));ImGui::Combo("##subtitle-anchor-y",&settings.verticalAlign,czech?"Nahoře\000Střed\000Dole\000":"Top\000Center\000Bottom\000");
+ }
+ ImGui::Checkbox(subText("Drag Czech overlay in preview","Přetahovat český překryv v náhledu"),&settings.editOverlay);
+ if(settings.editOverlay)ImGui::TextWrapped("%s",subText("Drag text and background together. Dragging switches to Custom. Fullscreen always hides editing handles.","Přetáhni text společně s pozadím. Přetažení přepne na vlastní polohu. Ve fullscreenu jsou úchyty vždy skryté."));
+ ui::field(subText("Background opacity","Krytí pozadí"));ImGui::SliderFloat("##subtitle-opacity",&settings.background,0,1,"%.2f");
  ImGui::Checkbox(subText("Cover original subtitle area","Zakryt oblast původních titulků"),&settings.coverSource);
  ImGui::Checkbox(subText("Include English in overlay","Přidat angličtinu do překryvu"),&settings.showOriginal);
  if(ImGui::CollapsingHeader(subText("Recognition details","Podrobnosti rozpoznání"))){
@@ -34,21 +75,45 @@ inline bool subtitlePanel(SubtitleSettings& settings,const SubtitleSnapshot& sta
  ImGui::TextWrapped("%s",subText("Needs two stable readings. Small, moving or stylized text can be misread; translation follows with a delay. Audio is not used.","Čeká na dvě shodná čtení. Malý, pohyblivý nebo stylizovaný text se může přečíst chybně; překlad má zpoždění. Zvuk se nepoužívá."));
  settings.sanitize();return !(settings==before);
 }
-inline void drawSubtitleOverlay(ImVec2 origin,ImVec2 size,const SubtitleSettings& settings,const SubtitleSnapshot& state,double now,bool cleanOutput=false){
+inline bool drawSubtitleOverlay(ImVec2 origin,ImVec2 size,SubtitleSettings& settings,const SubtitleSnapshot& state,double now,bool cleanOutput=false){
+ bool changed=false;const bool edit=settings.editOverlay&&!cleanOutput;
+ if(size.x<=0||size.y<=0)return false;
  auto draw=ImGui::GetWindowDrawList();const ImVec2 end{origin.x+size.x,origin.y+size.y};draw->PushClipRect(origin,end,true);
  if(settings.showRegion&&!cleanOutput){ImVec2 a{origin.x+size.x*settings.left,origin.y+size.y*settings.top},b{origin.x+size.x*settings.right,origin.y+size.y*settings.bottom};draw->AddRect(a,b,IM_COL32(170,230,70,255),0,0,2);draw->AddText({a.x+4,a.y+4},IM_COL32(170,230,70,255),"OCR: EN");}
- if(settings.enabled&&!state.translated.empty()&&now-state.observedAt<4.0){
+ if(edit||(settings.enabled&&!state.translated.empty()&&now-state.observedAt<4.0)){
   if(settings.coverSource)draw->AddRectFilled({origin.x+size.x*settings.left,origin.y+size.y*settings.top},{origin.x+size.x*settings.right,origin.y+size.y*settings.bottom},IM_COL32(0,0,0,255));
-  std::string text=state.translated;if(settings.showOriginal)text+='\n'+state.source;
+  std::string text=state.translated;
+  if(text.empty()||now-state.observedAt>=4.0)text="Ukázka českých titulků\nPřetáhni text i pozadí";
+  else if(settings.showOriginal)text+='\n'+state.source;
   float fs=std::round(std::max(16.f,std::min(size.y,ImGui::GetIO().DisplaySize.y)*settings.fontPercent/100)),wrap=size.x*.86f;
   auto font=ui::subtitleFont(fs);
   auto measured=font->CalcTextSizeA(fs,FLT_MAX,wrap,text.c_str());
-  ImVec2 p{origin.x+(size.x-measured.x)/2,origin.y+size.y*settings.position-measured.y/2};
-  p.y=std::clamp(p.y,origin.y+8,std::max(origin.y+8,end.y-measured.y-8));
+  const float px=size.y*.009f,py=size.y*.006f;
+  // Very long subtitles must remain visible at every aspect ratio.
+  for(int i=0;i<16&&(measured.y+2*py>size.y*.97f||measured.x+2*px>size.x*.97f);++i){fs*=.85f;measured=font->CalcTextSizeA(fs,FLT_MAX,wrap,text.c_str());}
+  auto layout=placeSubtitle(settings,size.x,size.y,measured.x+2*px,measured.y+2*py);
+  ImVec2 a{origin.x+layout.x,origin.y+layout.y},b{a.x+layout.width,a.y+layout.height};
+  if(edit){
+   const auto cursor=ImGui::GetCursorScreenPos();ImGui::SetCursorScreenPos(a);ImGui::InvisibleButton("##drag-czech-overlay",{layout.width,layout.height});
+   if(ImGui::IsItemActive()&&ImGui::IsMouseDragging(ImGuiMouseButton_Left)){
+    const auto delta=ImGui::GetIO().MouseDelta;settings.placement=0;
+    settings.horizontal=(layout.x+delta.x+layout.width*settings.horizontalAlign*.5f)/size.x;
+    settings.position=(layout.y+delta.y+layout.height*settings.verticalAlign*.5f)/size.y;
+    settings.sanitize();changed=true;
+   }
+   if(ImGui::IsItemHovered()||ImGui::IsItemActive())ImGui::SetMouseCursor(ImGuiMouseCursor_ResizeAll);
+   ImGui::SetCursorScreenPos(cursor);
+  }
+  ImVec2 p{a.x+px,a.y+py};
   p.x=std::round(p.x);p.y=std::round(p.y);
-  draw->AddRectFilled({p.x-10,p.y-7},{p.x+measured.x+10,p.y+measured.y+7},IM_COL32(0,0,0,int(settings.background*255)),5);
+  draw->AddRectFilled(a,b,IM_COL32(0,0,0,int(settings.background*255)),5);
   draw->AddText(font,fs,{p.x+1,p.y+1},IM_COL32(0,0,0,255),text.c_str(),nullptr,wrap);
   draw->AddText(font,fs,p,IM_COL32(255,255,255,255),text.c_str(),nullptr,wrap);
+  if(edit){draw->AddRect(a,b,IM_COL32(170,230,70,255),5,0,2);if(layout.usedOppositeSide||layout.clamped){
+   const char* notice=layout.usedOppositeSide?(settings.placement==1?subText("No room below: moved above original","Dole není místo: přesunuto nad originál"):subText("No room above: moved below original","Nahoře není místo: přesunuto pod originál")):subText("Clamped inside image; may overlap original","Přisunuto do obrazu; může překrýt originál");
+   draw->AddText({a.x,std::max(origin.y,a.y-20)},IM_COL32(255,190,70,255),notice);
+  }}
  }
  draw->PopClipRect();
+ return changed;
 }

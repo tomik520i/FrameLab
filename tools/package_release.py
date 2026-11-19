@@ -60,8 +60,11 @@ def main():
     for source in ROOT.glob('*.cmd'):
         if source.name.startswith(('Start FrameLab','1 - ','2 - ','3 - ','4 - ','Ukazka - ')):
             shutil.copy2(source,stage/source.name)
-    for file in ['prepare_translation.py','translate_worker.py','package_release.py','package_guides.py','Install-Enhancer.ps1']:
+    for file in ['prepare_translation.py','translate_worker.py','subtitle_models.py','subtitle_model_manager.py','subtitle_gpu.py','package_release.py','package_guides.py','Install-Enhancer.ps1']:
         shutil.copy2(ROOT/'tools'/file,stage/'tools'/file)
+    for file in ['translate_worker.py','subtitle_models.py','subtitle_model_manager.py','subtitle_gpu.py']:
+        shutil.copy2(ROOT/'tools'/file,stage/'app/translation'/file)
+    shutil.copy2(ROOT/'docs/subtitle-models.json',stage/'app/translation/subtitle-models.json')
     shutil.copy2(ROOT/'docs/runtime-distribution.md',stage/'licenses/README.md')
     for sample in ['action','combat','ocr-demo']:
         assert (stage/'app/samples'/f'{sample}.mp4').stat().st_size>100000

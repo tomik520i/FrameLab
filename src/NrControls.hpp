@@ -60,13 +60,13 @@ struct NrControls {
   if(!available(app))enabled=false;
   return restart;
  }
- void draw(ID3D11ShaderResourceView* base,ImVec2 size,Enhancer* nr,bool matched,bool cleanOutput=false){
+ void draw(ID3D11ShaderResourceView* base,ImVec2 size,Enhancer* nr,bool matched,bool cleanOutput=false,bool interactive=true){
   auto p=ImGui::GetCursorScreenPos();ImGui::Image((ImTextureID)(intptr_t)base,size);
   if(!enabled||!matched||!nr||!nr->hasResult)return;
   auto d=ImGui::GetWindowDrawList();ImVec2 end{p.x+size.x,p.y+size.y};
   const int outputView=cleanOutput?1:view; // Fullscreen never inherits the preview comparison mode.
   // Only the settings preview is interactive. Fullscreen is the chosen output.
-  if(outputView==2&&!cleanOutput){
+  if(outputView==2&&!cleanOutput&&interactive){
    const auto next=ImGui::GetCursorScreenPos();
    ImGui::SetCursorScreenPos({p.x+size.x*split-14,p.y});
    ImGui::InvisibleButton("##nr-divider",{28,size.y});

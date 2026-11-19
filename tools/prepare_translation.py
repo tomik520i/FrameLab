@@ -73,7 +73,9 @@ def main():
     ).convert(str(model), quantization='int8', force=True)
     for name in ['source.spm', 'target.spm', 'LICENSE', 'README.md']:
         shutil.copy2(original / name, model / name)
-    shutil.copy2(ROOT / 'tools/translate_worker.py', out / 'translate_worker.py')
+    for file in ['translate_worker.py', 'subtitle_models.py', 'subtitle_model_manager.py', 'subtitle_gpu.py']:
+        shutil.copy2(ROOT / 'tools' / file, out / file)
+    shutil.copy2(ROOT / 'docs/subtitle-models.json', out / 'subtitle-models.json')
     pins['model']['files'] = {p.name: digest(p) for p in model.iterdir() if p.is_file()}
     (out / 'provenance.json').write_text(json.dumps(pins, indent=2), encoding='utf-8')
     (out / 'README-LICENSES.txt').write_text(

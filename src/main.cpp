@@ -84,7 +84,7 @@ struct Mailbox {
  void clear(){std::lock_guard lock(mutex);available=false;signature.clear();sw=sh=0;scene=0;lastPts=-1;raw=0;unique=0;dropped=0;invalid=0;lastArrival=0;lastChangedArrival=0;sourceInterval=1./30;}
 };
 struct GpuMonitor {
- HMODULE dll=nullptr;void* device=nullptr;float utilization=-1,memoryMB=-1,temp=-1,power=-1;char name[96]="NVIDIA GPU";
+ HMODULE dll=nullptr;void* device=nullptr;float utilization=-1,memoryMB=-1,freeMemoryMB=-1,temp=-1,power=-1;char name[96]="NVIDIA GPU";
  struct Util{unsigned gpu,memory;};struct Memory{unsigned long long total,free,used;};
  int(__cdecl* shutdown)()=nullptr;int(__cdecl* util)(void*,Util*)=nullptr;int(__cdecl* memory)(void*,Memory*)=nullptr;
  int(__cdecl* temperature)(void*,unsigned,unsigned*)=nullptr;int(__cdecl* watts)(void*,unsigned*)=nullptr;
@@ -95,7 +95,7 @@ struct GpuMonitor {
   temperature=reinterpret_cast<decltype(temperature)>(GetProcAddress(dll,"nvmlDeviceGetTemperature"));watts=reinterpret_cast<decltype(watts)>(GetProcAddress(dll,"nvmlDeviceGetPowerUsage"));
   auto getName=reinterpret_cast<int(__cdecl*)(void*,char*,unsigned)>(GetProcAddress(dll,"nvmlDeviceGetName"));if(getName)getName(device,name,sizeof(name));
  }
- void poll(){if(!device)return;Util u{};Memory m{};unsigned v;if(util&&util(device,&u)==0)utilization=float(u.gpu);if(memory&&memory(device,&m)==0)memoryMB=float(m.used/1048576.0);if(temperature&&temperature(device,0,&v)==0)temp=float(v);if(watts&&watts(device,&v)==0)power=v/1000.f;}
+ void poll(){if(!device)return;Util u{};Memory m{};unsigned v;if(util&&util(device,&u)==0)utilization=float(u.gpu);if(memory&&memory(device,&m)==0){memoryMB=float(m.used/1048576.0);freeMemoryMB=float(m.free/1048576.0);}if(temperature&&temperature(device,0,&v)==0)temp=float(v);if(watts&&watts(device,&v)==0)power=v/1000.f;}
  ~GpuMonitor(){if(shutdown)shutdown();if(dll)FreeLibrary(dll);}
 };
 void verifyCaptureCore(const std::filesystem::path& root){
@@ -198,7 +198,7 @@ int WINAPI wWinMain(HINSTANCE instance,HINSTANCE,LPWSTR cmd,int){
   WNDCLASSW wc{};wc.lpfnWndProc=windowProc;wc.hInstance=instance;wc.lpszClassName=L"FrameLabWindow";wc.hCursor=LoadCursor(nullptr,IDC_ARROW);RegisterClassW(&wc);
   int initialWidth=1480,initialHeight=900;
   if(uiPreview){initialWidth=std::clamp(_wtoi(argument(L"--preview-width",L"1480").c_str()),640,3840);initialHeight=std::clamp(_wtoi(argument(L"--preview-height",L"900").c_str()),480,2160);}
-  HWND window=CreateWindowW(wc.lpszClassName,L"FrameLab | preview.12",uiPreview?WS_POPUP:WS_OVERLAPPEDWINDOW,100,80,initialWidth,initialHeight,nullptr,nullptr,instance,nullptr);
+  HWND window=CreateWindowW(wc.lpszClassName,L"FrameLab | preview.13-dev",uiPreview?WS_POPUP:WS_OVERLAPPEDWINDOW,100,80,initialWidth,initialHeight,nullptr,nullptr,instance,nullptr);
   applyWindowChrome(window);
   Graphics g;g.init(window);graphics=&g;
   if(args.find(L"--verify-vfg")!=std::wstring::npos){for(unsigned m=2;m<=4;++m)for(unsigned i=1;i<m;++i)verifyInterpolation(g,root,m,i,args.find(L"--optical")!=std::wstring::npos);DestroyWindow(window);timeEndPeriod(1);CoUninitialize();return 0;}
@@ -224,7 +224,8 @@ int WINAPI wWinMain(HINSTANCE instance,HINSTANCE,LPWSTR cmd,int){
   for(int i=0;i<int(outputs.size());++i){log("Audio output: "+outputs[i].friendlyName);if(outputs[i].monikerDisplayName==savedOutput)audioOutput=i;}
   auto saveAudio=[&]{std::ofstream(root/L"audio-settings.txt")<<std::quoted(outputs[audioOutput].monikerDisplayName)<<' '<<audioVolume<<' '<<audioMuted<<'\n';};
   SubtitleSettings subtitleSettings;subtitleSettings.load(root/L"subtitle-settings.txt");subtitleSettings.enabled=args.find(L"--subtitles")!=std::wstring::npos;
-  SubtitleTranslator subtitles(root);subtitles.configure(subtitleSettings);SubtitleSnapshot frozenSubtitle;
+  if(uiPreview&&args.find(L"--preview-subtitle-edit")!=std::wstring::npos)subtitleSettings.editOverlay=true;
+  auto savedSubtitleSettings=subtitleSettings;SubtitleModels subtitleModels(root);SubtitleTranslator subtitles(root);subtitles.configure(subtitleSettings);SubtitleSnapshot frozenSubtitle;
   DisplayControls displayControls;displayControls.load(root/L"display-settings.txt");
   GpuMonitor gpu;AnalysisRecorder analysis;Mailbox mailbox;mailbox.subtitles=&subtitles;mailbox.recorder=&analysis;DirectShowCapture capture;std::atomic<bool> demoRun=false;std::jthread demo;
   std::mutex replayErrorMutex;std::string replayError;
@@ -416,7 +417,7 @@ int WINAPI wWinMain(HINSTANCE instance,HINSTANCE,LPWSTR cmd,int){
    ImGui::Separator();auto area=ImGui::GetContentRegionAvail();float aw=area.x;
    const float comparisonHeight=fg&&comparison.enabled?std::min(355.f,std::max(aw<680?310.f:270.f,area.y*.36f)):58.f;
    float ah=std::max(100.f,area.y-comparisonHeight-38);auto startPos=ImGui::GetCursorPos();
-   if(displayed&&w&&h){auto clip=ImGui::GetCursorScreenPos();ImGui::GetWindowDrawList()->PushClipRect(clip,{clip.x+aw,clip.y+ah},true);float scale=displayControls.scale(w,h,aw,ah);float iw=w*scale,ih=h*scale;ImGui::SetCursorPos({startPos.x+(aw-iw)/2,startPos.y+(ah-ih)/2});auto p=ImGui::GetCursorScreenPos();nrControls.draw(displayed,{iw,ih},enhancer.get(),enhancer&&displayed==enhancer->original.view.Get());auto caption=freezePreview?frozenSubtitle:subtitles.snapshot();drawSubtitleOverlay(p,{iw,ih},subtitleSettings,caption,freezePreview?caption.observedAt:t);ImGui::GetWindowDrawList()->PopClipRect();}
+   if(displayed&&w&&h){auto clip=ImGui::GetCursorScreenPos();ImGui::GetWindowDrawList()->PushClipRect(clip,{clip.x+aw,clip.y+ah},true);float scale=displayControls.scale(w,h,aw,ah);float iw=w*scale,ih=h*scale;ImGui::SetCursorPos({startPos.x+(aw-iw)/2,startPos.y+(ah-ih)/2});auto p=ImGui::GetCursorScreenPos();nrControls.draw(displayed,{iw,ih},enhancer.get(),enhancer&&displayed==enhancer->original.view.Get(),false,!subtitleSettings.editOverlay);auto caption=freezePreview?frozenSubtitle:subtitles.snapshot();drawSubtitleOverlay(p,{iw,ih},subtitleSettings,caption,freezePreview?caption.observedAt:t);ImGui::GetWindowDrawList()->PopClipRect();}
    else {ImGui::TextUnformatted(tr("Waiting for capture or test source..."));}
    ImGui::SetCursorPos({startPos.x,startPos.y+ah+4});
    if(fg)comparison.draw(g,root,comparisonHeight);
@@ -424,7 +425,7 @@ int WINAPI wWinMain(HINSTANCE instance,HINSTANCE,LPWSTR cmd,int){
    ImGui::TextDisabled("%s | %u x %u | F1 dashboard | F11 fullscreen",fg&&vfgInitialized?vfg.name():tr("Native preview"),w,h);
    if(live&&now()-mailbox.lastArrival.load()>2)ImGui::TextColored({1,.65f,.3f,1},"Waiting for capture samples. Check signal / HDCP / other capture apps.");
    ImGui::End();
-   if(showPanel){ImGui::SetNextWindowPos({size.x-panel,0});ImGui::SetNextWindowSize({panel,size.y});ImGui::Begin("Telemetry",nullptr,ImGuiWindowFlags_NoDecoration|ImGuiWindowFlags_NoMove|ImGuiWindowFlags_NoSavedSettings);
+   if(showPanel){ImGui::SetNextWindowPos({size.x-panel,0});ImGui::SetNextWindowSize({panel,size.y});ImGui::Begin("Telemetry",nullptr,(ImGuiWindowFlags_NoDecoration&~ImGuiWindowFlags_NoScrollbar)|ImGuiWindowFlags_NoMove|ImGuiWindowFlags_NoSavedSettings);
     ui::eyebrow(tr("CONTROL ROOM"));
     ImGui::SameLine(std::max(0.f,ImGui::GetWindowContentRegionMax().x-68));
     if(ui::button(czech?"CZ / EN":"EN / CZ")){czech=!czech;std::ofstream(root/L"language.txt")<<czech;}
@@ -481,7 +482,7 @@ int WINAPI wWinMain(HINSTANCE instance,HINSTANCE,LPWSTR cmd,int){
     ImGui::TextWrapped("%s",nrControls.text("Pipeline: input > selected FG backend > enhancer (if enabled) > Czech subtitles > display. Output FPS is limited by the slowest stage.","Pořadí: vstup > vybrané FG > enhancer (je-li zapnutý) > české titulky > monitor. Výstupní FPS omezuje nejpomalejší část."));
      ImGui::EndTabItem();}
      if(ImGui::BeginTabItem(nrControls.text("Subtitles","Titulky"),nullptr,previewTab==6?ImGuiTabItemFlags_SetSelected:0)){
-      auto previous=subtitleSettings;if(subtitlePanel(subtitleSettings,subtitles.snapshot())){subtitleSettings.save(root/L"subtitle-settings.txt");if(previous.enabled!=subtitleSettings.enabled||previous.left!=subtitleSettings.left||previous.right!=subtitleSettings.right||previous.top!=subtitleSettings.top||previous.bottom!=subtitleSettings.bottom||previous.intervalMs!=subtitleSettings.intervalMs)subtitles.configure(subtitleSettings);}
+      auto previous=subtitleSettings;if(subtitlePanel(subtitleSettings,subtitles.snapshot(),subtitleModels,gpu.freeMemoryMB)){if(previous.model!=subtitleSettings.model||previous.enabled!=subtitleSettings.enabled||previous.left!=subtitleSettings.left||previous.right!=subtitleSettings.right||previous.top!=subtitleSettings.top||previous.bottom!=subtitleSettings.bottom||previous.intervalMs!=subtitleSettings.intervalMs)subtitles.configure(subtitleSettings);}
       const auto subtitleStatus=subtitles.snapshot().status;if(subtitleStatus.find("English OCR unavailable")!=std::string::npos){ImGui::TextWrapped("%s",nrControls.text("Windows needs its English OCR language component. Install English language features, then switch translation off/on. The Czech translation model is already included.","Ve Windows chybí anglické rozpoznávání textu. Doinstaluj anglické jazykové funkce a překlad vypni/zapni. Český překladový model už je přibalený."));if(ImGui::Button(nrControls.text("Open Windows language settings","Otevřít jazykové nastavení Windows")))ShellExecuteW(window,L"open",L"ms-settings:regionlanguage",nullptr,nullptr,SW_SHOWNORMAL);}
       ImGui::EndTabItem();
      }
@@ -519,6 +520,7 @@ int WINAPI wWinMain(HINSTANCE instance,HINSTANCE,LPWSTR cmd,int){
     ImGui::End();
    }
    }
+   if(!(savedSubtitleSettings==subtitleSettings)&&!ImGui::IsMouseDown(ImGuiMouseButton_Left)){subtitleSettings.save(root/L"subtitle-settings.txt");savedSubtitleSettings=subtitleSettings;}
    if(!(savedNrControls==nrControls)&&!ImGui::IsMouseDown(ImGuiMouseButton_Left)){nrControls.save(root/L"nr-settings.txt");savedNrControls=nrControls;}
    ImGui::Render();g.begin();ImGui_ImplDX11_RenderDrawData(ImGui::GetDrawData());
    if(uiPreview&&t-start>=previewDelay){saveUiPreview(g,previewPath);auto caption=subtitles.snapshot();std::ofstream(root/L"logs"/L"subtitle-preview.txt")<<caption.status<<'\n'<<caption.source<<'\n'<<caption.translated<<'\n';running=false;}

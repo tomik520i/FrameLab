@@ -12,7 +12,8 @@ struct SubtitleState {
  static std::string normalize(const std::string& input){
   std::string out;bool space=false;unsigned letters=0;
   for(unsigned char c:input){if(std::isspace(c)){space=!out.empty();continue;}if(space)out+=' ';space=false;out+=char(c);if(std::isalpha(c))++letters;}
-  if(letters<3||out.size()>1500)return {};return out;
+  // Keep short commands/negations such as "No!", "Go!" and "OK".
+  if(letters<2||out.size()>1500)return {};return out;
  }
  bool observe(const std::string& text){
   if(text!=candidate){candidate=text;repeats=1;committed.clear();return false;}
