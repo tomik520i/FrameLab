@@ -1,6 +1,6 @@
 # FrameLab — český návod preview.14
 
-**Nově v preview.14:** přibalené neuronové OCR bez instalace součástí Windows, delší zobrazení opožděných titulků, spojování rozdělených vět a volitelné Q5 (pouze ověřené stažení, bez testu překladu). [Výsledky a omezení](subtitle-ocr.md).
+**Nově v preview.14:** přibalené neuronové OCR bez instalace součástí Windows, delší zobrazení opožděných titulků, spojování rozdělených vět a volitelné Q5 (ověřené stažení a načtení, bez benchmarku překladu). [Výsledky a omezení](subtitle-ocr.md).
 
 **Z preview.13 zůstává:** vlastní video/film se zvukem a ovládáním přehrávání; 1–4 navazující průchody NR, nezávislé na násobiči FG. Viz [návod](../INSTALL.cs.md).
 

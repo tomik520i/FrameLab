@@ -22,7 +22,7 @@ const output=path.resolve(__dirname,'../analysis-output/preview14-guide-qa');fs.
  await page.goto(base+'guide/subtitles-en.html',{waitUntil:'networkidle'});
  const currentText=await page.locator('main').innerText();
  assert(currentText.includes('Q5_K_M')&&currentText.includes('PP-OCRv5')&&currentText.includes('Join split sentences'));
- assert(currentText.includes('Inference, quality and speed untested'));
+ assert(currentText.includes('Quality and speed not benchmarked'));
  await page.goto(base+'translation/',{waitUntil:'networkidle'});
  assert.equal(await page.locator('#metrics tr').count(),9);
  assert.equal(await page.locator('#cycles details').count(),2);

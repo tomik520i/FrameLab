@@ -43,4 +43,4 @@ Preview.13 includes the GPL FrameLab NR adapter and the hash-checking PowerShell
 
 ## Preview.14 optional Q5
 
-CUNI-MH Q5_K_M (5,131,409,728 bytes) is a publisher download pinned in subtitle-models.json. Download and SHA-256 verification passed locally. Inference, quality and speed were intentionally not tested. No GGUF model or GPU runtime cache is included in the full ZIP.
+CUNI-MH Q5_K_M (5,131,409,728 bytes) is a publisher download pinned in subtitle-models.json. Download and SHA-256 verification passed locally. The owner subsequently activated Q5 and GPU loading was confirmed; no controlled quality or speed benchmark was run. No GGUF model or GPU runtime cache is included in the full ZIP.

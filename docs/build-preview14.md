@@ -76,4 +76,4 @@ independent readback/re-upload single-pass processing. Test readbacks never
 enter normal application playback. Both the EXE and its locally built NR host
 must be updated together; their private configuration ABI changed.
 
-Preview.14 uses settings format 6. Q8 keeps model ID 2; Q5 is ID 3. New fragment-boundary tests run in CTest. Actual neural OCR tests do not require Windows English OCR. Q5 inference is not part of release validation.
+Preview.14 uses settings format 6. Q8 keeps model ID 2; Q5 is ID 3. New fragment-boundary tests run in CTest. Actual neural OCR tests do not require Windows English OCR. Q5 has a basic GPU startup check, not a controlled translation-quality or speed benchmark.

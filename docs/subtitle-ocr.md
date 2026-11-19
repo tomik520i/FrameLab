@@ -69,4 +69,4 @@ caption visible while the English text remained on screen. Delayed-worker tests
 also verified readable captions after blank OCR and rejection after source reset.
 These are functional checks, not a new full translation-quality or performance
 benchmark. Q3 still produced awkward grammar and occasional wrong speaker gender.
-Q5 was downloaded and SHA-256 verified only; no Q5 inference was run.
+Q5 was downloaded and SHA-256 verified, then activated at the owner’s request. GPU loading was confirmed; no comparative quality or speed test was run.

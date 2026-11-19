@@ -33,7 +33,7 @@ Object.assign(cs, {
   "faq4body": "Efekty a cílový monitor nastav v aplikaci a stiskni F11. Fullscreen automaticky skryje porovnání, dělicí čáru i ovládací panely a ukáže jeden výsledný obraz s vybranými efekty a případnými českými titulky. Myš se po 2 sekundách nečinnosti schová. Escape nebo F11 vrátí nastavení; původní porovnání zůstane připravené v okně.",
   "faq4link": "Obrazový návod pro fullscreen ↗",
   "faq5": "Jak fungují české titulky a jak jsou spolehlivé?",
-  "faq5body": "V Titulcích ponech přibalené RapidOCR, vyber CPU nebo volitelné CUNI Q3/Q5/Q8 a vymez anglický text. Instalace Windows OCR není pro výchozí režim potřeba. Nastav dobu čtení a případné spojování rozdělených vět; další řádek se zpracovává průběžně. Q5 zatím nebylo inference-testované. Text se drží uvnitř viditelného obrazu. Překlad se může mýlit a přidává zpoždění; zvuk se nepřepisuje a cloud se nepoužívá.",
+  "faq5body": "V Titulcích ponech přibalené RapidOCR, vyber CPU nebo volitelné CUNI Q3/Q5/Q8 a vymez anglický text. Instalace Windows OCR není pro výchozí režim potřeba. Nastav dobu čtení a případné spojování rozdělených vět; další řádek se zpracovává průběžně. Q5 zatím nemá benchmark kvality ani rychlosti. Text se drží uvnitř viditelného obrazu. Překlad se může mýlit a přidává zpoždění; zvuk se nepřepisuje a cloud se nepoužívá.",
   "faq6": "Co čekat od frame genu a počítadla FPS?",
   "faq6body": "NVIDIA režim používá Maxine Video Frame Generation, nikoli DLSS Frame Generation integrované ve hře. 2× / 3× / 4× určuje požadovaný dopočet; skutečný výsledek závisí na zdroji a výkonu. Vyšší číslo nezrychlí herní logiku ani ovládání a může přidat deformace či zpoždění. FPS v aplikaci popisuje její zpracování a odesílání snímků, ne nezávislé změření fyzického monitoru.",
   "faq7": "Co zkontrolovat, když ze střihovky nejde obraz?",
@@ -47,13 +47,13 @@ Object.assign(cs, {
   "subtitleOcrTitle": "OCR už je uvnitř ZIPu.",
   "subtitleOcrBody": "RapidOCR s anglickým PP-OCRv5 je přibalené a funguje offline na CPU. Nic nedoplňuješ do Windows. Lehčí Windows OCR zůstává volitelnou zálohou; jen pro něj je případně potřeba jazyková součást.",
   "subtitleModelTitle": "Vyber model. Stáhni přímo v aplikaci.",
-  "subtitleModelBody": "CPU překladač je přibalený. CUNI Q3 (3,52 GB), Q5 (5,13 GB) a Q8 (7,70 GB) se stahují v aplikaci s kontrolou hashů. Poprvé se doplní runtime (1,62 GB). Q5 má ověřené pouze stažení, bez testu běhu, kvality a rychlosti.",
+  "subtitleModelBody": "CPU překladač je přibalený. CUNI Q3 (3,52 GB), Q5 (5,13 GB) a Q8 (7,70 GB) se stahují v aplikaci s kontrolou hashů. Poprvé se doplní runtime (1,62 GB). Q5 má ověřené stažení a místní GPU načtení; benchmark kvality a rychlosti neproběhl.",
   "subtitlePlaceTitle": "Nad. Pod. Nebo přetáhnout.",
   "subtitlePlaceBody": "Posuň český text i pozadí bez změny oblasti čtení. Více řádků zůstane uvnitř viditelného obrazu, včetně ořezu a fullscreenu. Dlouhý text se zmenší, aby se vešel.",
   "subtitleLimits": "Čeština zůstává na obrazovce, zatímco se překládá další řádek. Neúplné věty lze spojit s pokračováním. OCR i překladač stále mohou chybovat; vyšší přesnost vah nezaručuje lepší češtinu.",
   "guideRevision": "Preview.14: přibalené neuronové OCR, doba čtení opožděných titulků a spojování rozdělených vět. Q5 je k vyzkoušení, zatím bez testu překladu a výkonu.",
   "downloadIntro": "Kompletní preview.14 obsahuje NVIDIA VFG, obě herní ukázky, neuronové OCR, CPU překladač, exportér a adaptér NR. Rozbal a spusť. Výchozí angličtinu přepneš do češtiny. CUNI Q3/Q5/Q8 jsou volitelné downloady.",
-  "faq5body": "V Titulcích ponech přibalené RapidOCR, vyber CPU nebo volitelné CUNI Q3/Q5/Q8 a vymez anglický text. Instalace Windows OCR není pro výchozí režim potřeba. Nastav dobu čtení a případné spojování rozdělených vět; další řádek se zpracovává průběžně. Q5 zatím nebylo inference-testované. Text se drží uvnitř viditelného obrazu. Překlad se může mýlit a přidává zpoždění; zvuk se nepřepisuje a cloud se nepoužívá."
+  "faq5body": "V Titulcích ponech přibalené RapidOCR, vyber CPU nebo volitelné CUNI Q3/Q5/Q8 a vymez anglický text. Instalace Windows OCR není pro výchozí režim potřeba. Nastav dobu čtení a případné spojování rozdělených vět; další řádek se zpracovává průběžně. Q5 zatím nemá benchmark kvality ani rychlosti. Text se drží uvnitř viditelného obrazu. Překlad se může mýlit a přidává zpoždění; zvuk se nepřepisuje a cloud se nepoužívá."
 });
 Object.assign(cs, {
   "localVideo0": "Tvoje video. Tvoje nastavení.",

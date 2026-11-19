@@ -6,7 +6,7 @@ Same desktop and enabled Avast as below. Neural OCR is now bundled. All 11 CTest
 
 The private 48.25-second portrait video was replayed through real RapidOCR + Q3 + VFG 2×. Its ending no longer gained the observed invented continuation; the next fragment was translated with the preceding context. Grammar and speaker gender remain model limitations. The downloaded personal clip, frames and dialogue traces are not redistributed. [Recognition comparison and scope](subtitle-ocr.md).
 
-Q5_K_M: publisher download complete, 5,131,409,728 bytes, SHA-256 verified. No Q5 model load, inference, quality or speed test was performed. Existing 300-text Q3/Q8 measurements below remain the preview.12 baseline.
+Q5_K_M: publisher download complete, 5,131,409,728 bytes, SHA-256 verified. On the owner’s subsequent request Q5 was activated: the runtime reported Q5_K_M and all 33/33 layers on GPU. This was a basic startup check, not a controlled quality or speed benchmark. Existing 300-text Q3/Q8 measurements below remain the preview.12 baseline.
 
 ## Retained preview.13 validation
 

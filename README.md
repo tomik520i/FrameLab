@@ -6,7 +6,7 @@
 
 **Preview.14: [Download the complete Windows app](https://github.com/tomik520i/FrameLab/releases/download/v0.2.0-preview.14/FrameLab-0.2.0-preview.14-windows-x64-full.zip) · [Česká instalace krok za krokem](INSTALL.cs.md) · [English installation](START_HERE.md) · [All release files](https://github.com/tomik520i/FrameLab/releases/tag/v0.2.0-preview.14)**
 
-English-picture subtitles → local Czech overlay, now with optional CUNI Q3/Q5/Q8 GPU models, resumable downloads and independently draggable placement. Neural OCR is bundled and works without installing Windows language features. Q5 is download/hash-verified only, with no inference, quality or speed test. [English subtitle setup](docs/subtitle-model-guide.md) · [Český návod titulků](docs/subtitle-model-guide.cs.md). Both gameplay clips and monitor/display controls are included. The release ZIP includes the model, Python, NVIDIA VFG, export tools and licenses. NR adapter and import wizard are included. External NR DLLs require a separate community download; [Czech setup](docs/enhancer-install.cs.md) / [English setup](docs/enhancer-install.en.md) give exact links, steps and licensing limits. The website provides the same complete preview.14 download and shows [real enhancer comparisons](https://opicebot.cz/framelab/#enhancer).
+English-picture subtitles → local Czech overlay, now with optional CUNI Q3/Q5/Q8 GPU models, resumable downloads and independently draggable placement. Neural OCR is bundled and works without installing Windows language features. Q5 download integrity and GPU loading were checked; no quality or speed benchmark was run. [English subtitle setup](docs/subtitle-model-guide.md) · [Český návod titulků](docs/subtitle-model-guide.cs.md). Both gameplay clips and monitor/display controls are included. The release ZIP includes the model, Python, NVIDIA VFG, export tools and licenses. NR adapter and import wizard are included. External NR DLLs require a separate community download; [Czech setup](docs/enhancer-install.cs.md) / [English setup](docs/enhancer-install.en.md) give exact links, steps and licensing limits. The website provides the same complete preview.14 download and shows [real enhancer comparisons](https://opicebot.cz/framelab/#enhancer).
 
 [Website / downloads](https://opicebot.cz/framelab/) · [Česky / Czech guide](docs/README.cs.md) · [Start here](START_HERE.md) · [2× comparison](examples/82183953/README.md) · [3× comparison](examples/112947656/README.md) · [3× combat](examples/113768562/README.md) · [4× artifacts](examples/84744531/README.md) · [Test system / GPU load](docs/test-system.md)
 
@@ -46,7 +46,7 @@ No Python/pip/model/SDK/compiler installation is required. Keep every folder tog
 
 - **Bundled neural OCR:** RapidOCR with PP-OCRv4 detection and PP-OCRv5 English recognition. No Windows OCR installation is needed for the default engine.
 - **Readable delayed subtitles:** independent reading time while the next line translates; optional split-sentence joining reduces the observed Q3 invented continuation. It cannot guarantee correct translation.
-- **Optional Q5_K_M:** 5.13 GB download, hash-verified. Q5 inference, quality and speed have **not** been tested for this release.
+- **Optional Q5_K_M:** 5.13 GB download, hash-verified. Q5 loaded on the owner’s RTX 5070 Ti; quality and speed are **not benchmarked**.
 - [OCR comparison, timing and limitations](docs/subtitle-ocr.md).
 
 ### Retained from preview.13

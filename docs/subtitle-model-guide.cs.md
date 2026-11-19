@@ -18,7 +18,7 @@ RapidOCR používá dvě CPU vlákna, detektor PP-OCRv4 a anglický rozpoznáva�
 | --- | ---: | --- |
 | OPUS-MT / CPU | Přibalený | Dvě CPU vlákna, bez GPU downloadu. |
 | CUNI-MH 7B Q3_K_M | 3,52 GB | Otestováno na stolní RTX 5070 Ti. |
-| CUNI-MH 7B Q5_K_M | 5,13 GB | Ověřeno pouze stažení a hash. Běh, kvalita ani rychlost neotestované. |
+| CUNI-MH 7B Q5_K_M | 5,13 GB | Ověřeno stažení, hash a místní GPU načtení. Kvalita a rychlost bez benchmarku. |
 | CUNI-MH 7B Q8_0 | 7,70 GB | Otestováno; větší spotřeba paměti. |
 
 Vyber GPU model a stiskni **Stáhnout / pokračovat a ověřit**. Poprvé se stáhne i přenosný runtime Ollama (1,62 GB); nech přibližně 8 GB navíc na jeho uložení a rozbalení. Ručně neinstaluješ Ollamu, nepotřebuješ účet ani API klíč. Soubory musí projít kontrolou připnutého SHA-256.
@@ -51,4 +51,4 @@ CPU používá soukromé roury; CUNI spouští vlastní proces Ollama pouze na `
 
 OPUS-MT en-cs opus-2019-12-18 má licenci CC BY 4.0 a je převedený na CTranslate2 int8 bez přetrénování. CUNI-MH je Mistral 7B doladěný týmem CUNI pro EN→CS; původní karta uvádí MIT. GGUF kvantizace poskytuje Richard Erkhov. Katalog zachovává zdroje a hashe. CUNI používá původní šablonu Instruction / Glossary / Previous text / Input / Response, prázdnou historii a slovník, teplotu 0, ukončení novým řádkem, kontext 2048 a limit 256 tokenů. Spojené části jdou společně do Input.
 
-Vývojář připraví komponenty pomocí `tools/prepare_translation.py` a `tools/prepare_ocr.py`; uživatel hotové aplikace nic z toho nespouští. Viz [sestavení](build-preview14.md), [OCR komponenty](ocr-components.json) a [překladové komponenty](translation-components.json). Testy pokrývají nastavení, okraje obrazu, hranice vět, skutečné neuronové OCR/CPU překlad, opožděné titulky a reset zdroje. Q5 bylo záměrně ponecháno bez testu inference.
+Vývojář připraví komponenty pomocí `tools/prepare_translation.py` a `tools/prepare_ocr.py`; uživatel hotové aplikace nic z toho nespouští. Viz [sestavení](build-preview14.md), [OCR komponenty](ocr-components.json) a [překladové komponenty](translation-components.json). Testy pokrývají nastavení, okraje obrazu, hranice vět, skutečné neuronové OCR/CPU překlad, opožděné titulky a reset zdroje. Q5 bylo po ověření zapnuté na počítači vlastníka; řízený benchmark kvality ani rychlosti neproběhl.

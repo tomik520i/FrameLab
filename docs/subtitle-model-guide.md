@@ -18,7 +18,7 @@ RapidOCR uses two CPU threads, a PP-OCRv4 detector and PP-OCRv5 English recogniz
 | --- | ---: | --- |
 | OPUS-MT / CPU | Included | Two CPU threads, no GPU model download. |
 | CUNI-MH 7B Q3_K_M | 3.52 GB | Tested on the desktop RTX 5070 Ti. |
-| CUNI-MH 7B Q5_K_M | 5.13 GB | Download/hash verified only. Inference, quality and speed untested. |
+| CUNI-MH 7B Q5_K_M | 5.13 GB | Download/hash and local GPU load verified. Quality and speed not benchmarked. |
 | CUNI-MH 7B Q8_0 | 7.70 GB | Tested; larger memory footprint. |
 
 Select a GPU model and press **Download / resume and verify**. First use also downloads the 1.62 GB portable Ollama runtime; allow about 8 GB additional disk space for runtime storage/extraction. No system Ollama installation, account or API key is required. Downloaded files must match pinned SHA-256 hashes.
@@ -51,4 +51,4 @@ The CPU worker uses private pipes; CUNI starts an owned Ollama process bound to 
 
 OPUS-MT en-cs opus-2019-12-18 is CC BY 4.0, converted to CTranslate2 int8 without retraining. CUNI-MH is the CUNI team's English-to-Czech Mistral 7B fine-tune; the original card identifies MIT licensing. Richard Erkhov supplies pinned GGUF quantizations. The catalog preserves publisher links and hashes. CUNI uses the original Instruction / Glossary / Previous text / Input / Response template, empty glossary/history, temperature 0, newline stop, 2048-token context and a 256-token limit. Joined fragments are sent together in Input.
 
-Developers use `tools/prepare_translation.py` and `tools/prepare_ocr.py`; end users need neither. See [build instructions](build-preview14.md), [OCR components](ocr-components.json) and [translation components](translation-components.json). Tests cover settings migration, viewport bounds, fragment boundaries, real neural OCR/CPU translation, delayed captions and source reset. Q5 is intentionally not inference-tested for this release.
+Developers use `tools/prepare_translation.py` and `tools/prepare_ocr.py`; end users need neither. See [build instructions](build-preview14.md), [OCR components](ocr-components.json) and [translation components](translation-components.json). Tests cover settings migration, viewport bounds, fragment boundaries, real neural OCR/CPU translation, delayed captions and source reset. Q5 was activated on the owner’s desktop after verification; no controlled quality or speed benchmark was run.

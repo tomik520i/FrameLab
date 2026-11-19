@@ -2,7 +2,7 @@
 
 Use the [English setup/model guide](subtitle-model-guide.md), [Czech guide](subtitle-model-guide.cs.md) and [OCR report](subtitle-ocr.md) for current behavior and measured limits.
 
-The input crop is sampled before FG/NR. OCR and translation use separate background workers; Czech is drawn after image processing. Neural OCR uses bounded shared-memory image crops and two CPU threads. The bundled OPUS-MT translator also uses two CPU threads. CUNI GPU models are optional; Q5 is download/hash-verified only in this release.
+The input crop is sampled before FG/NR. OCR and translation use separate background workers; Czech is drawn after image processing. Neural OCR uses bounded shared-memory image crops and two CPU threads. The bundled OPUS-MT translator also uses two CPU threads. CUNI GPU models are optional; Q5 has download/hash verification and a basic GPU startup check, without a quality/speed benchmark.
 
 The full ZIP includes RapidOCR, PP-OCRv4 detection, PP-OCRv5 English recognition and runtime. Windows OCR is an optional fallback; only that engine needs the Windows English capability. No microphone, STT, cloud translation or API key is used.
 
