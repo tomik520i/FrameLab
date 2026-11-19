@@ -1,4 +1,14 @@
-﻿LICENCE EXPERIMENTÁLNÍHO NR – stav ověření 18. 11. 2026
+﻿LICENCE EXPERIMENTÁLNÍHO NR – aktualizováno 19. 11. 2026
+
+Preview.11: přibalen je GPL adaptér FrameLabu a průvodce importem. Adaptér už
+nepoužívá statickou knihovnu ani hlavičky NVIDIA NGX SDK; vlastní úložiště
+parametrů implementuje pouze funkční ABI. NR modelové DLL se nešíří v našich
+archivech ani na našem serveru. Návod obsahuje přesný externí komunitní zdroj
+Veyra 2.1.9 (731012476 B) a lokální import ověřující SHA-256. Odkaz, import ani
+přesunutí downloadu na cizí server neudělují licenci a nejsou potvrzením práv
+k použití či distribuci. Použít pouze s příslušným oprávněním.
+Aktuální návod: https://opicebot.cz/framelab/guide/enhancer.html
+Níže zachované výsledky auditu konkrétních externích souborů stále platí.
 
 ROZHODNUTÍ PRO VYDÁNÍ: tento lokální balíček se dvěma NR DLL není připraven
 k veřejné distribuci. K těmto konkrétním souborům nemáme doložené oprávnění.
@@ -65,9 +75,9 @@ Soukromý test automaticky neodstraňuje licenční omezení. Nové spouštěče
 zapínají jen původní video, AI je výchozím stavem vypnutá. Existující lokální
 soubory nebyly vymazány. Kód, jeho veřejná distribuce, modely i runtime mají
 odlišné licenční hranice. Galerie porovnani/index.html používá pouze hotové
-obrázky a videa; nespouští DLL. Nic nebylo nahráno na GitHub.
+obrázky a videa; nespouští DLL. Žádná NR modelová DLL nebyla nahrána na GitHub; zdrojový kód a SDK-free adaptér ano.
 
-Setup skript nyní standardně připravuje pouze veřejné SDK. NR archiv automaticky
+Starší vývojářský setup skript připravuje veřejné SDK; preview.11 ho k sestavení adaptéru nepotřebuje. NR archiv automaticky
 nestahuje. Volitelné zpracování existujícího lokálního archivu nevytváří licenci.
 Odstranění DLL z budoucího release ani přejmenování položek samo o sobě neřeší
 všechny podmínky: před vydáním je potřeba dořešit i GPL/proprietární propojení.

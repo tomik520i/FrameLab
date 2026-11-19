@@ -1,6 +1,6 @@
-# FrameLab preview.10 — instalace a první spuštění
+# FrameLab preview.11 — instalace a první spuštění
 
-**[Stáhnout kompletní FrameLab pro Windows x64](https://github.com/tomik520i/FrameLab/releases/download/v0.2.0-preview.10/FrameLab-0.2.0-preview.10-windows-x64-full.zip)** · [Všechny soubory vydání](https://github.com/tomik520i/FrameLab/releases/tag/v0.2.0-preview.10) · [English](START_HERE.md)
+**[Stáhnout kompletní FrameLab pro Windows x64](https://github.com/tomik520i/FrameLab/releases/download/v0.2.0-preview.11/FrameLab-0.2.0-preview.11-windows-x64-full.zip)** · [Všechny soubory vydání](https://github.com/tomik520i/FrameLab/releases/tag/v0.2.0-preview.11) · [English](START_HERE.md)
 
 ## 1. Stáhnout → rozbalit → spustit
 
@@ -65,9 +65,9 @@ V **Zobrazení** vyber monitor, dostupnou velikost okna a režim **vměstnat / v
 
 Přibalené jsou aplikace, oficiální NVIDIA VFG runtime, potřebné Microsoft runtime DLL, dvě herní ukázky, umělý OCR test, překladový model a jeho Python, exportér s FFmpeg, návody a původní licence. Velké závislosti jsou v release ZIPu, nikoli v historii Git repozitáře.
 
-**DLSS 5 / NR enhancer není součástí veřejné binární verze.** Ve zdrojích zůstává volitelná experimentální integrace, výchozí sestavení ji vypíná. Pro konkrétní původní ani ShortFuse NR DLL není doložené oprávnění k veřejné distribuci. Vydání je nestahuje ani nepřibaluje. [Vysvětlení a primární zdroje](docs/NR-LICENSING-STATUS.txt) · [Skutečné předpočítané porovnání enhanceru](https://opicebot.cz/framelab/#enhancer).
+**Chceš také enhancer? [Dva downloady a průvodce: kompletní návod NR](docs/enhancer-install.cs.md).** Preview.11 už obsahuje potřebný adaptér a tlačítko AI / NR. Otevři `4 - Doplnit enhancer.cmd`: nabídne přesný externí odkaz a import staženého ZIPu bez ručního kopírování. Externí Veyra ZIP má dalších 731 MB. NR DLL nejsou v našem balíku; jde o komunitní zdroj s nepotvrzenými právy k použití a distribuci, nikoli oficiální download NVIDIA. Import je určen pro uživatele s příslušným oprávněním. [Původ a podmínky](docs/NR-LICENSING-STATUS.txt).
 
-Pokud máš soukromé experimentální sestavení, pořadí je vstup → zvolený frame gen → enhancer → český překryv → monitor. To není záruka násobení výkonu. Veřejné preview.10 používá vstup → frame gen → český překryv → monitor.
+Po doplnění a zapnutí NR je pořadí vstup → zvolený frame gen → enhancer → český překryv → monitor. Bez NR se tento krok vynechá. Další zpracování může přidat latenci nebo snížit výstupní FPS.
 
 Licence a zdroje: [THIRD_PARTY_NOTICES.md](THIRD_PARTY_NOTICES.md), [původ komponent](docs/runtime-distribution.md), [herní ukázky](docs/sample-provenance.md). Licence programu nepřelicencovává NVIDIA komponenty ani herní obsah.
 
@@ -90,4 +90,4 @@ Analytické RAW/FG nahrávky neobsahují český překryv ani NR a nenahrávají
 
 Nové vydání rozbal do **nové složky**. Starou kopii ponech, dokud novou nevyzkoušíš. Nastavení není nutné přenášet. Program neinstaluje službu ani ovladač; odinstalace je smazání jeho složky po ukončení aplikace (včetně případných záznamů, které si nejprve ulož jinam).
 
-Pro volitelnou kontrolu ZIPu v PowerShellu spusť `Get-FileHash .\FrameLab-0.2.0-preview.10-windows-x64-full.zip -Algorithm SHA256` a porovnej výsledek se souborem **SHA256SUMS.txt** u vydání. [Sestavení ze zdrojů](docs/build-preview10.md) je samostatná vývojářská cesta.
+Pro volitelnou kontrolu ZIPu v PowerShellu spusť `Get-FileHash .\FrameLab-0.2.0-preview.11-windows-x64-full.zip -Algorithm SHA256` a porovnej výsledek se souborem **SHA256SUMS.txt** u vydání. [Sestavení ze zdrojů](docs/build-preview11.md) je samostatná vývojářská cesta.

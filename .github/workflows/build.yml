@@ -18,5 +18,7 @@ jobs:
           name: FrameLab-experimental-windows-x64-no-nvidia-runtime
           path: |
             app/FrameLab.exe
+            app/FrameLab-Setup.exe
+            app/nr-host/nvngx.dll
             THIRD_PARTY_NOTICES.md
             website/assets/fonts/*OFL.txt

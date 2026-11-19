@@ -1,0 +1,42 @@
+<!doctype html><html lang="cs"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>FrameLab preview.11 — installation / instalace</title><link rel="stylesheet" href="../styles.css"><style>body{margin:0;background:#101511;color:#f1f3e8}main{max-width:960px;margin:40px auto;padding:24px;font:17px/1.7 system-ui}h1{font-size:clamp(30px,5vw,54px);line-height:1.1}h2{font-size:27px;margin-top:45px}h3{font-size:20px}a{color:#b8ff51;text-decoration:underline}li{margin:9px 0}code{font-size:.88em;background:#242e22;padding:2px 5px;border-radius:3px;overflow-wrap:anywhere}.table-wrap{overflow-x:auto}table{width:100%;border-collapse:collapse;font-size:15px}td{padding:12px;border-bottom:1px solid #3b4536}tr:first-child{font-weight:bold}p{margin:18px 0}</style><main><nav><a href="../#download">← FrameLab</a> · <a href="enhancer.html">Česky</a> · <a href="enhancer-en.html">English</a></nav><h1>FrameLab se všemi funkcemi: instalace enhanceru</h1>
+<p><strong>Dva ZIPy a jeden průvodce.</strong> Nic nekompiluješ, neinstaluješ Python ani SDK a nehledáš složky pro DLL. Hlavní FrameLab už obsahuje frame generation, dvě herní ukázky, český překlad včetně modelu, exportér a podporu NR. Externí NR soubory doplní průvodce.</p>
+<p><strong>NR je komunitní experiment.</strong> Ověřený veřejný instalační balík DLSS 5 NR přímo od NVIDIA k 19. 11. 2026 není dostupný. Níže uvedený druhý ZIP poskytuje Veyra, nikoli NVIDIA ani FrameLab. ShortFuse je upravený NVIDIA runtime. Práva k použití a redistribuci těchto souborů zde nejsou potvrzena; odkaz ani import je neuděluje. Tuto cestu použij, pokud k souborům máš příslušné oprávnění. <a href="https://forums.developer.nvidia.com/t/official-dlss-5-neural-rendering-plugin-access-for-unreal-engine-5-8-2/382731/11">Vyjádření NVIDIA</a> · <a href="https://github.com/Likely7/Veyra-NRVideo/blob/33dfdf71197e3056e250465150eb9541d0bb24ce/THIRD_PARTY_NOTICES.md#user-provided-shortfuse-nr-310916-2026-10-17-local-testing">Původ a podmínky komponent Veyry</a>.</p>
+<h2>1. Stáhni a rozbal FrameLab</h2>
+<ol>
+<li><strong><a href="https://github.com/tomik520i/FrameLab/releases/download/v0.2.0-preview.11/FrameLab-0.2.0-preview.11-windows-x64-full.zip">Stáhnout FrameLab preview.11 pro Windows x64</a></strong>. Přesná velikost je na <a href="https://opicebot.cz/framelab/#download">stránce stahování</a>.</li>
+<li>Pravé tlačítko na ZIP → <strong>Extrahovat vše</strong> → nová složka například na Ploše. Nepracuj uvnitř ZIPu. Počítej přibližně se 4 GB volného místa pro oba stažené archivy, rozbalení a import.</li>
+<li>Otevři <strong>1 - Spustit FrameLab.cmd</strong>. V kartě <strong>Vstup</strong> vyzkoušej CS:GO nebo Spider-Mana. Frame generation i titulky lze používat hned, NR ještě čeká na externí soubory. Pro OCR může Windows vyžadovat doinstalování anglického rozpoznávání textu; postup je v <a href="https://opicebot.cz/framelab/guide/">základním návodu</a>.</li>
+</ol>
+<h2>2. Stáhni přesný externí balík</h2>
+<ul>
+<li><strong><a href="https://github.com/Likely7/Veyra-NRVideo/releases/download/v2.1.9/Veyra-2.1.9-NVIDIA-win64-portable.zip">Externí download: Veyra-2.1.9-NVIDIA-win64-portable.zip — 731 MB</a></strong>.</li>
+<li><a href="https://github.com/Likely7/Veyra-NRVideo/releases/tag/v2.1.9">Stránka vydání autora a seznam souborů</a>. Když přímý odkaz nefunguje, otevři <strong>Assets</strong> a najdi přesně uvedené jméno.</li>
+<li>Nepoužívej AMD, Source code ani variantu s dodatkem Virtual Camera. Průvodce přijímá pouze tento ověřený archiv. <strong>ZIP nerozbaluj a Veyru nemusíš spouštět.</strong></li>
+<li>Tento download není na našem serveru. Oficiální <a href="https://developer.nvidia.com/rtx/dlss">NVIDIA DLSS download</a> nyní obsahuje jiné technologie DLSS; libovolné <code>nvngx_dlss.dll</code>, <code>nvngx_dlssd.dll</code> nebo <code>nvngx_dlssg.dll</code> tento NR soubor nenahradí.</li>
+</ul>
+<h2>3. Průvodce vše zkopíruje</h2>
+<ol>
+<li>Ukonči FrameLab. Ve složce FrameLabu otevři <strong>4 - Doplnit enhancer.cmd</strong>. Stejný průvodce jde otevřít přes <strong>AI / NR → Doplnit / zkontrolovat enhancer</strong>; před importem pak FrameLab zavři.</li>
+<li>Klikni <strong>2 - Vybrat stažený ZIP a doplnit soubory</strong> a vyber stažený <code>Veyra-2.1.9-NVIDIA-win64-portable.zip</code>.</li>
+<li>Počkej na <strong>Soubory jsou připravené</strong>. Kontroluje se SHA-256 celého ZIPu i obou DLL; při chybě se žádný neověřený soubor neinstaluje. Licence a původ se přenesou spolu se soubory. Neinstaluje se ovladač ani systémová služba a není potřeba administrátor.</li>
+<li>Znovu otevři <strong>1 - Spustit FrameLab.cmd</strong>, přejdi do <strong>AI / NR</strong> a zapni <strong>Zapnout enhancer (F6)</strong>. Pokud se GPU inicializace nepovede, enhancer se vypne a ukáže konkrétní chybu; původní obraz zůstane dostupný.</li>
+</ol>
+<h2>4. První porovnání</h2>
+<ul>
+<li>Začni limitem <strong>720p</strong>, silou <strong>65 %</strong> a <strong>Děleným porovnáním</strong>. Dělicí čáru posouvej posuvníkem. <strong>F8</strong> zmrazí stejný snímek, <strong>F7</strong> přepíná původní / upravený / dělený obraz, <strong>F6</strong> efekt vypne.</li>
+<li>V <strong>Runtime / diagnostika</strong> je výchozí <strong>ShortFuse NR 310.9.16</strong>, komunitní varianta ověřená zde na RTX 4050 Laptop. Řady RTX 20/30/50 nejsou tímto testem potvrzené. <strong>NVIDIA NR 310.8 original</strong> je určená pro RTX 50 a v tomto vydání nebyla na takové kartě otestovaná.</li>
+<li>Při zapnutém frame genu platí <strong>vstup → frame gen → enhancer → české titulky → monitor</strong>. Původní obraz v NR porovnání znamená snímek před enhancerem, tedy případně už generovaný. Pomalé AI může snížit počet zobrazených snímků a zvýšit latenci.</li>
+<li><strong><a href="https://opicebot.cz/framelab/#enhancer">Skutečné porovnání před / po s posuvnou lištou</a></strong>. Změna pixelů není automaticky lepší obraz; kontroluj obličeje, HUD a rychlý pohyb.</li>
+</ul>
+<h2>Když se něco nepovede</h2>
+<div class="table-wrap"><table><tbody>
+<tr><td>Problém</td><td>Co udělat</td></tr>
+<tr><td>Nemám kartu AI / NR</td><td>Máš preview.10 nebo starší build bez podpory NR. Stáhni celý preview.11; samotné přidání DLL do preview.10 nestačí.</td></tr>
+<tr><td>Kontrolní součet nesouhlasí</td><td>Stáhni přesný NVIDIA ZIP 2.1.9 bez dodatku. Zkontroluj dokončené stahování. Průvodce úmyslně nepřijímá neznámé verze.</td></tr>
+<tr><td>Soubor se používá / přístup odepřen</td><td>Ukonči všechny své instance FrameLabu a zkus import znovu. Celá složka musí být zapisovatelná.</td></tr>
+<tr><td>Průvodce je zablokovaný správcem</td><td>Neměň zásady počítače. Se souhlasem správce rozbal přesný externí ZIP a použij ruční cesty níže.</td></tr>
+<tr><td>Model nejde inicializovat</td><td>Ověř NVIDIA ovladač a profil. Zkus 360p/540p, uvolni paměť GPU a začni s FG 2×. Konkrétní chybu najdeš v AI / NR a <code>app/nr-cache/nr-host.log</code>.</td></tr>
+<tr><td>Stažení Veyry už není dostupné</td><td>Použij vlastní dříve získaný ověřený ZIP, pokud k němu máš oprávnění. Bez kompatibilního runtime NR nefunguje; zbytek FrameLabu dál ano. Neověřené DLL z náhodných webů nejsou náhrada.</td></tr>
+</tbody></table></div>
+<p>Ruční import pro správce: z kořene rozbalené Veyry zkopíruj <code>runtime/experimental/nr-ampere/nvngx_dlssnr.dll</code> do <code>FrameLab/app/runtime/nr-sf/nvngx_dlssnr.dll</code> a <code>runtime/experimental/nr-original/nvngx_dlssnr.dll</code> do <code>FrameLab/app/runtime/nr-original/nvngx_dlssnr.dll</code>. Zachovej původní licenční soubory z <code>licenses</code> pod <code>FrameLab/app/licenses/nr-external</code>. Nezaměňuj tyto DLL za přibalený <code>app/nr-host/nvngx.dll</code>: ten je malý adaptér FrameLabu, nikoli AI model ani ovladač NVIDIA.</p>
+<p>Ověřený externí ZIP: 731012476 bajtů; SHA-256 <code>4225ecb11a8e96c2826b4b0b798feb811d7ae237f3edf0b627f3b6895c79f362</code>. Přesné identity obou DLL jsou v <a href="https://github.com/tomik520i/FrameLab/blob/v0.2.0-preview.11/docs/NR-LICENSING-STATUS.txt">auditu</a>. Přesun downloadu na cizí web není vyřešení licence; veřejný FrameLab tyto DLL nepřebaluje ani neskrývá jejich původ.</p></main></html>

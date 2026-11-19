@@ -1,6 +1,6 @@
 # Complete portable bundle: components and provenance
 
-The **complete Windows x64 bundle** contains the FrameLab application, an optional NVIDIA VFG component and an isolated clip-export environment. Drivers are not bundled. Extract everything and use `Start FrameLab - NVIDIA.cmd` for NVIDIA VFG or `Start FrameLab - Optical Flow.cmd` for the alternative backend. Both enable generation; first-run FG defaults remain Medium / 2×; the complete preview.10 package starts in Czech. Existing saved preferences still apply.
+The **complete Windows x64 bundle** contains the FrameLab application, an optional NVIDIA VFG component and an isolated clip-export environment. Drivers are not bundled. Extract everything and use `Start FrameLab - NVIDIA.cmd` for NVIDIA VFG or `Start FrameLab - Optical Flow.cmd` for the alternative backend. Both enable generation; first-run FG defaults remain Medium / 2×; the complete preview.11 package starts in Czech. Existing saved preferences still apply.
 
 ## NVIDIA component
 
@@ -32,8 +32,11 @@ FrameLab's corresponding source ZIP accompanies every binary version. The applic
 
 ## Preview.10 offline OCR translation and samples
 
-The full preview.10 archive also contains Windows-independent model/interpreter files under `app/translation`: Helsinki-NLP OPUS-MT en-cs opus-2019-12-18, converted to CTranslate2 int8 (CC BY 4.0); CTranslate2 4.9.0 (MIT), SentencePiece 0.2.3 (Apache-2.0), NumPy 2.3.5 (BSD and bundled notices), PyYAML 6.0.3 (MIT), and CPython 3.11.9 (PSF). Original notices, model card, attribution, conversion description and publisher hashes are preserved. Windows.Media.Ocr remains an installed Windows feature; no Windows component is redistributed. See [translation provenance](translation-components.json) and [implementation](local-subtitles.md). No STT or network translation is used.
+The full preview.11 archive also contains Windows-independent model/interpreter files under `app/translation`: Helsinki-NLP OPUS-MT en-cs opus-2019-12-18, converted to CTranslate2 int8 (CC BY 4.0); CTranslate2 4.9.0 (MIT), SentencePiece 0.2.3 (Apache-2.0), NumPy 2.3.5 (BSD and bundled notices), PyYAML 6.0.3 (MIT), and CPython 3.11.9 (PSF). Original notices, model card, attribution, conversion description and publisher hashes are preserved. Windows.Media.Ocr remains an installed Windows feature; no Windows component is redistributed. See [translation provenance](translation-components.json) and [implementation](local-subtitles.md). No STT or network translation is used.
 
 All three sample MP4s are included in `app/samples`. See [sample provenance and content rights](sample-provenance.md). Gameplay is not relicensed as GPL.
 
 DLSS NR DLLs and the NR host are excluded from the public executable/package. [NR licensing audit](NR-LICENSING-STATUS.txt) records why a valid NVIDIA signature or Veyra GPL notice is not an NR redistribution grant. Preserving notices is not a blanket certification of all third-party uses or GPL/proprietary combination issues.
+
+
+Preview.11 also includes the GPL FrameLab NR adapter and the hash-checking PowerShell import wizard. The adapter contains no NVIDIA NGX static library. External NR model DLLs are not in this package: [guided setup and exact external source](enhancer-install.en.md). External hosting and user import do not establish usage/redistribution rights.

@@ -23,14 +23,16 @@ def main():
     p.add_argument('--base',type=Path,required=True)
     p.add_argument('--application',type=Path,required=True)
     p.add_argument('--build-cache',type=Path,required=True)
+    p.add_argument('--nr-host',type=Path,required=True)
+    p.add_argument('--setup',type=Path,required=True)
     p.add_argument('--output',type=Path,required=True)
-    p.add_argument('--version',default='0.2.0-preview.10')
+    p.add_argument('--version',default='0.2.0-preview.11')
     p.add_argument('--commit',required=True)
     a=p.parse_args()
     commit=subprocess.check_output(['git','rev-parse',a.commit],cwd=ROOT,text=True).strip()
     subprocess.run(['git','diff','--exit-code',commit,'--'],cwd=ROOT,check=True,stdout=subprocess.DEVNULL)
     cache=a.build_cache.read_text(encoding='utf-8')
-    assert 'FRAMELAB_EXPERIMENTAL_NR:BOOL=OFF' in cache,'Public build must have NR disabled'
+    assert 'FRAMELAB_EXPERIMENTAL_NR:BOOL=ON' in cache,'Build must include the SDK-free NR adapter'
     assert not list(a.base.rglob('nvngx_dlssnr.dll')) and not (a.base/'app/nr-host').exists()
     variant=json.loads((a.base/'build-variant.json').read_text(encoding='utf-8'))
     assert variant['FRAMELAB_EXPERIMENTAL_NR'] is False
@@ -44,6 +46,9 @@ def main():
             dest.parent.mkdir(parents=True,exist_ok=True)
             shutil.copy2(source,dest)
     shutil.copy2(a.application,stage/'app/FrameLab.exe')
+    shutil.copy2(a.setup,stage/'app/FrameLab-Setup.exe')
+    (stage/'app/nr-host').mkdir(exist_ok=True)
+    shutil.copy2(a.nr_host,stage/'app/nr-host/nvngx.dll')
     for file in ['README.md','START_HERE.md','INSTALL.cs.md','THIRD_PARTY_NOTICES.md','LICENSE']:
         shutil.copy2(ROOT/file,stage/file)
     for source in (ROOT/'docs').rglob('*'):
@@ -52,9 +57,9 @@ def main():
             dest.parent.mkdir(parents=True,exist_ok=True)
             shutil.copy2(source,dest)
     for source in ROOT.glob('*.cmd'):
-        if source.name.startswith(('Start FrameLab','1 - ','2 - ','3 - ','Ukazka - ')):
+        if source.name.startswith(('Start FrameLab','1 - ','2 - ','3 - ','4 - ','Ukazka - ')):
             shutil.copy2(source,stage/source.name)
-    for file in ['prepare_translation.py','translate_worker.py','package_release.py']:
+    for file in ['prepare_translation.py','translate_worker.py','package_release.py','Install-Enhancer.ps1']:
         shutil.copy2(ROOT/'tools'/file,stage/'tools'/file)
     shutil.copy2(ROOT/'docs/runtime-distribution.md',stage/'licenses/README.md')
     for sample in ['action','combat','ocr-demo']:
@@ -80,9 +85,14 @@ def main():
     assert (stage/'tools/python/python.exe').is_file()
     guide=(ROOT/'INSTALL.cs.md').read_text(encoding='utf-8')
     (stage/'ZACNI TADY.txt').write_text(guide,encoding='utf-8-sig')
-    (stage/'ZACNI TADY.html').write_text('<!doctype html><html lang="cs"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>FrameLab – instalace</title><style>body{max-width:900px;margin:40px auto;padding:0 24px;background:#101511;color:#f1f3e9;font:17px/1.65 system-ui}h1{color:#c1ff5e}pre{white-space:pre-wrap;font:inherit}</style><h1>FrameLab: rozbalit a spustit</h1><p>1. Rozbal celý ZIP. 2. Otevři „1 - Spustit FrameLab.cmd“. 3. Vyzkoušej ukázky v kartě Vstup.</p><pre>'+html.escape(guide)+'</pre></html>',encoding='utf-8')
-    (stage/'README-v3.txt').write_text('This is the public '+a.version+' full package. Start with ZACNI TADY.html, INSTALL.cs.md or START_HERE.md. NR is excluded.\n',encoding='utf-8')
-    metadata={'version':a.version,'source_commit':commit,'FRAMELAB_EXPERIMENTAL_NR':False,'application_sha256':digest(stage/'app/FrameLab.exe'),'bundled_translation':True,'bundled_game_samples':2,'nr_runtime_included':False}
+    local_guides={'index.html':'ZACNI TADY.html','en.html':'START HERE.html','enhancer.html':'NAVOD ENHANCER.html','enhancer-en.html':'ENHANCER GUIDE.html'}
+    for source_name,destination in local_guides.items():
+        markup=(ROOT/'website/guide'/source_name).read_text(encoding='utf-8')
+        markup=markup.replace('<link rel="stylesheet" href="../styles.css">','').replace('href="../#download"','href="https://opicebot.cz/framelab/#download"')
+        for old,new in local_guides.items():markup=markup.replace('href="'+old+'"','href="'+new+'"')
+        (stage/destination).write_text(markup,encoding='utf-8')
+    (stage/'README-v3.txt').write_text('This is the public '+a.version+' full package. Start with ZACNI TADY.html, INSTALL.cs.md or START_HERE.md. NR adapter and import wizard included; external NR model DLLs are not bundled.\n',encoding='utf-8')
+    metadata={'version':a.version,'source_commit':commit,'FRAMELAB_EXPERIMENTAL_NR':True,'setup_sha256':digest(stage/'app/FrameLab-Setup.exe'),'nr_host_sha256':digest(stage/'app/nr-host/nvngx.dll'),'nr_host_sdk_static_library':False,'application_sha256':digest(stage/'app/FrameLab.exe'),'bundled_translation':True,'bundled_game_samples':2,'nr_runtime_included':False}
     (stage/'build-variant.json').write_text(json.dumps(metadata,indent=2),encoding='utf-8')
     files=sorted(x for x in stage.rglob('*') if publishable(x,stage))
     (stage/'SHA256SUMS.txt').write_text(''.join(digest(x)+'  '+x.relative_to(stage).as_posix()+'\n' for x in files),encoding='utf-8')
@@ -102,7 +112,7 @@ def main():
     for archive in [portable,source]:
         with zipfile.ZipFile(archive) as z:
             assert z.testzip() is None
-            assert not any(x.lower().endswith('nvngx_dlssnr.dll') or '/nr-host/' in x.lower() for x in z.namelist())
+            assert not any(x.lower().endswith('nvngx_dlssnr.dll') for x in z.namelist())
         records.append({'name':archive.name,'bytes':archive.stat().st_size,'sha256':digest(archive)})
     (a.output/'SHA256SUMS.txt').write_text(''.join(x['sha256']+'  '+x['name']+'\n' for x in records),encoding='ascii')
     (a.output/'release-provenance.json').write_text(json.dumps({**metadata,'archives':records},indent=2),encoding='utf-8')

@@ -1,10 +1,10 @@
-# FrameLab preview.10 — download, install and run
+# FrameLab preview.11 — download, install and run
 
-**[Download the complete Windows x64 ZIP](https://github.com/tomik520i/FrameLab/releases/download/v0.2.0-preview.10/FrameLab-0.2.0-preview.10-windows-x64-full.zip)** · [Release files](https://github.com/tomik520i/FrameLab/releases/tag/v0.2.0-preview.10) · **[Česky: celý návod](INSTALL.cs.md)**
+**[Download the complete Windows x64 ZIP](https://github.com/tomik520i/FrameLab/releases/download/v0.2.0-preview.11/FrameLab-0.2.0-preview.11-windows-x64-full.zip)** · [Release files](https://github.com/tomik520i/FrameLab/releases/tag/v0.2.0-preview.11) · **[Česky: celý návod](INSTALL.cs.md)**
 
 ## 1. Extract and launch
 
-1. Download **FrameLab-0.2.0-preview.10-windows-x64-full.zip**. The automatic GitHub **Source code** files are for developers.
+1. Download **FrameLab-0.2.0-preview.11-windows-x64-full.zip**. The automatic GitHub **Source code** files are for developers.
 2. Right-click the ZIP → **Extract all** into a writable folder, for example your Desktop. Do not run inside the ZIP or copy only the EXE.
 3. Open **1 - Spustit FrameLab.cmd**. A bundled CS:GO clip loops immediately.
 4. Use the **CZ / EN** button for English. Under **Capture**, try Spider-Man or the artificial **EN > CS subtitle demo**. Both real gameplay clips are included, three seconds each.
@@ -41,9 +41,9 @@ If English OCR is absent, use the language-settings button offered by FrameLab o
 
 ## 5. What about DLSS 5 / NR enhancement?
 
-The full **public binary excludes NR**. The repository includes optional experimental source, OFF by default. Redistribution rights for the exact original/ShortFuse NR DLLs have not been established, so the release does not include or auto-download them. Veyra's GPL code license does not grant rights to NVIDIA model binaries. [Audit with primary sources](docs/NR-LICENSING-STATUS.txt) · [Technical notes](docs/experimental-nr.md) · [Real precomputed comparison](https://opicebot.cz/framelab/#enhancer).
+**[Complete NR setup: two downloads and one import wizard](docs/enhancer-install.en.md).** Preview.11 includes the NR adapter and AI / NR controls. Run `4 - Doplnit enhancer.cmd`, open the exact external download (731 MB), and select that ZIP in the wizard. No manual DLL placement, SDK, Python or compiler is needed. The external NR DLLs are not bundled by FrameLab; Veyra is a community source, not an official NVIDIA NR download. Usage/redistribution rights are not established; importing or linking does not grant them. Use with applicable authorization. [Audit](docs/NR-LICENSING-STATUS.txt).
 
-Public pipeline: input → one FG backend → Czech overlay → monitor. Private NR builds place enhancement after FG, before the overlay. Processing can drop frames and add latency. The website and this GitHub release provide the same OCR/display features.
+Pipeline: input → one FG backend → optional NR → Czech overlay → monitor. Processing can drop frames and add latency. The website and GitHub provide the same full package.
 
 ## 6. Troubleshooting and updates
 
@@ -59,7 +59,7 @@ Public pipeline: input → one FG backend → Czech overlay → monitor. Private
 
 For updates, extract a new version into a new folder and keep the previous one until tested. No service/driver is installed by FrameLab. Uninstall by closing it and deleting its folder after saving any recordings you need. Settings migration is optional.
 
-To verify the download, run `Get-FileHash .\FrameLab-0.2.0-preview.10-windows-x64-full.zip -Algorithm SHA256` in PowerShell and compare with the release's **SHA256SUMS.txt**. [Build from source](docs/build-preview10.md) · [Component provenance](docs/runtime-distribution.md) · [Third-party notices](THIRD_PARTY_NOTICES.md) · [Samples and content rights](docs/sample-provenance.md).
+To verify the download, run `Get-FileHash .\FrameLab-0.2.0-preview.11-windows-x64-full.zip -Algorithm SHA256` in PowerShell and compare with the release's **SHA256SUMS.txt**. [Build from source](docs/build-preview11.md) · [Component provenance](docs/runtime-distribution.md) · [Third-party notices](THIRD_PARTY_NOTICES.md) · [Samples and content rights](docs/sample-provenance.md).
 
 ## Manual NVIDIA runtime setup for older minimal packages
 

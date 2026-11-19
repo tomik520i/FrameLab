@@ -5,14 +5,14 @@
 This local FrameLab variant adds a real Feature-18 neural-rendering path based on the
 community integration in [Veyra-NRVideo](https://github.com/Likely7/Veyra-NRVideo),
 revision `33dfdf71197e3056e250465150eb9541d0bb24ce`. It is an experimental video/capture
-post-process, not an official NVIDIA game integration. The optional integration source is published with preview.10; NR runtime DLLs are not. The public application is built with NR disabled.
+post-process, not an official NVIDIA game integration. Preview.11 includes the SDK-free NR adapter and import wizard. External NR model DLLs are not bundled. [Complete installation](enhancer-install.en.md) / [Česky](enhancer-install.cs.md).
 
 ## Run
 
-In the private local bundle, use `1 - Spustit FrameLab.cmd`. It starts the included CS:GO
+In the preview.11 full bundle, use `1 - Spustit FrameLab.cmd`. It starts the included CS:GO
 1080p60 video with enhancement disabled by default. `Ukazka - Spider-Man.cmd` opens a second combat
 fixture. Double-clicking the EXE starts with enhancement off; source/device selection
-still works normally. Own video: `FrameLab-NR-Experimental-v2.exe --video "C:\clip.mp4"`.
+still works normally. Own video: `FrameLab.exe --video "C:\clip.mp4"`.
 
 - F6: enhancer on/off. F7: original/enhanced/split view. F8: freeze the comparison.
   F11: full screen. F1: dashboard.
@@ -80,24 +80,19 @@ uncompressed BGRA file. The original BGRA sample path remains a fallback.
 
 ## Build and validation
 
-Windows x64, MSVC 2022, Windows SDK, CMake and Ninja. Run the original
-`tools/setup-deps.ps1 -BuildOnly`, then `python tools/setup_nr_experiment.py`.
-This prepares only the pinned public NGX headers/static core library. It does not
-download NR runtimes. The optional `--archive` argument stages an existing local
-Veyra v2.1.9 archive with checksum verification; it does not confer usage or
-redistribution rights. See `NR-LICENSING-STATUS.txt`. DLLs remain ignored by Git.
+Windows x64, MSVC 2022, Windows SDK, CMake and Ninja. Use `tools/setup-deps.ps1 -BuildOnly`. No NGX SDK or static library is needed for the adapter. Runtime model files are optional local imports, not build dependencies. See the installation guide for the pinned external archive and rights limitations.
 
 From an x64 Developer Command Prompt:
 
 ```bat
-cmake -S . -B build-nr -G Ninja -DCMAKE_BUILD_TYPE=Release -DFRAMELAB_OUTPUT_NAME=FrameLab-NR-Experimental
+cmake -S . -B build-nr -G Ninja -DCMAKE_BUILD_TYPE=Release -DFRAMELAB_EXPERIMENTAL_NR=ON
 cmake --build build-nr --parallel 2
 ctest --test-dir build-nr --output-on-failure
 build-nr\nr_controls_test.exe
 ```
 
 Optional `FRAMELAB_APP_DIR` selects another portable output directory.
-`FRAMELAB_EXPERIMENTAL_NR=OFF` omits the host/SDK dependency; trying to enable NR
+`FRAMELAB_EXPERIMENTAL_NR=OFF` omits the host; trying to enable NR
 without a host shows a load error. Real inference tests are separate from default
 CTest and require a runtime with the applicable authorization to use it.
 Source sample reconstruction details are in the provenance files; the portable
@@ -110,3 +105,5 @@ single-in-flight enforcement, repeated-result rejection, reset/motion-off paths,
 half and full strength. All five existing CTest tests passed. Pixel changes establish
 that inference ran, not that every change improves image quality. Hardware timing
 is a smoke-test observation, not a sustained benchmark or a general RTX guarantee.
+
+Preview.11 validation (2026-11-19): the SDK-free parameter implementation completed 12 real GPU submissions on RTX 4050 Laptop with exact paired inputs, nonzero neural output and full alpha. Import wizard validates both original DLL hashes without executing Veyra. This verifies compatibility of the host, not a license grant or an image-quality benchmark.

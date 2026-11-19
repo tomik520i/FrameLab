@@ -1,9 +1,9 @@
-param([string]$Version = '0.2.0-preview', [string]$OutputDirectory = 'dist', [string]$ApplicationPath = 'app/FrameLab.exe', [switch]$Complete, [string]$SampleDirectory = 'app/samples', [switch]$Translation, [string]$TranslationDirectory = 'app/translation')
+param([string]$Version = '0.2.0-preview', [string]$OutputDirectory = 'dist', [string]$ApplicationPath = 'app/FrameLab.exe', [switch]$Complete, [string]$SampleDirectory = 'app/samples', [string]$SetupPath = 'app/FrameLab-Setup.exe', [string]$NrHostPath = 'app/nr-host/nvngx.dll', [switch]$Translation, [string]$TranslationDirectory = 'app/translation')
 $ErrorActionPreference = 'Stop'
 $root = Split-Path $PSScriptRoot -Parent
 Set-Location $root
 if (-not (Test-Path -LiteralPath $ApplicationPath)) { throw 'Build FrameLab first' }
-if ($Complete -and -not $Translation) { throw 'A complete preview.10 package must include translation: add -Translation' }
+if ($Complete -and -not $Translation) { throw 'A complete preview.11 package must include translation: add -Translation' }
 foreach ($sample in 'action.mp4','combat.mp4','ocr-demo.mp4','action.source.json','combat.source.json','ocr-demo.source.json') {
  if (-not (Test-Path -LiteralPath (Join-Path $SampleDirectory $sample))) { throw "Both sample videos and provenance must be bundled: missing $sample in $SampleDirectory" }
 }
@@ -19,6 +19,12 @@ $sourceZip = Join-Path $packageRoot "FrameLab-$Version-source.zip"
 if ((Test-Path -LiteralPath $stage) -or (Test-Path -LiteralPath $portableZip) -or (Test-Path -LiteralPath $sourceZip)) { throw 'Package output exists; choose a new version or output directory to preserve it' }
 New-Item -ItemType Directory -Force "$stage/app","$stage/tools","$stage/docs" | Out-Null
 Copy-Item -LiteralPath $ApplicationPath -Destination "$stage/app/FrameLab.exe"
+Copy-Item -LiteralPath $SetupPath -Destination "$stage/app/FrameLab-Setup.exe"
+if (!(Test-Path -LiteralPath $NrHostPath)) { throw 'Build the NR adapter first (or use the matching preview.10 packaging tool for an NR-OFF release)' }
+New-Item -ItemType Directory -Path "$stage/app/nr-host" -Force | Out-Null
+Copy-Item -LiteralPath $NrHostPath -Destination "$stage/app/nr-host/nvngx.dll"
+Copy-Item 'tools/Install-Enhancer.ps1' "$stage/tools/"
+Copy-Item '4 - Doplnit enhancer.cmd' $stage
 New-Item -ItemType Directory -Path "$stage/app/samples" -Force | Out-Null
 foreach ($sample in 'action.mp4','combat.mp4','ocr-demo.mp4','action.source.json','combat.source.json','ocr-demo.source.json') { Copy-Item -LiteralPath (Join-Path $SampleDirectory $sample) -Destination "$stage/app/samples/" }
 if ($Translation) { Copy-Item -LiteralPath $TranslationDirectory -Destination "$stage/app/translation" -Recurse }

@@ -5,6 +5,7 @@
 #include "NrResolution.hpp"
 #include <fstream>
 #include <cmath>
+#include <shellapi.h>
 struct NrControls {
  bool enabled=false,motion=true;float strength=.65f,split=.5f;int view=2,height=720,runtime=0;
  bool operator==(const NrControls&)const=default;
@@ -12,11 +13,19 @@ struct NrControls {
  void load(const std::filesystem::path& path){std::ifstream in(path);int version=0;float s=.65f,x=.5f;int v=2,h=720,r=0,m=1;
   if(in>>version>>s>>x>>v>>h>>r>>m&&version==1&&std::isfinite(s)&&std::isfinite(x)){strength=std::clamp(s,0.f,1.f);split=std::clamp(x,.05f,.95f);view=std::clamp(v,0,2);height=(h==0||(h>=180&&h<=8192))?h:720;runtime=r==1?1:0;motion=m!=0;}}
  void save(const std::filesystem::path& path)const{std::ofstream(path)<<1<<' '<<strength<<' '<<split<<' '<<view<<' '<<height<<' '<<runtime<<' '<<motion<<'\n';}
- bool panel(Enhancer* nr,const std::string& failure,unsigned sourceWidth=0,unsigned sourceHeight=0,unsigned monitorHeight=0){
+ bool available(const std::filesystem::path& app)const{std::error_code ec;return std::filesystem::is_regular_file(app/L"runtime"/(runtime?L"nr-original":L"nr-sf")/L"nvngx_dlssnr.dll",ec);}
+ bool panel(Enhancer* nr,const std::string& failure,unsigned sourceWidth=0,unsigned sourceHeight=0,unsigned monitorHeight=0,const std::filesystem::path& app={}){
   bool restart=false;
   ui::title(text("DLSS 5 / EXPERIMENT","DLSS 5 / EXPERIMENT"));
   ImGui::TextWrapped("%s",text("AI adjusts the finished image. Compare the result on the same frame.","AI upravuje hotový obraz. Výsledek porovnávej na stejném snímku."));
-  ImGui::Checkbox(text("Enable enhancer (F6)","Zapnout enhancer (F6)"),&enabled);
+  const bool installed=available(app);
+  if(!installed)ImGui::TextColored(ui::orange,"%s",text("External NR files are not installed for this profile.","Pro tento profil ještě nejsou doplněné externí NR soubory."));
+  if(ImGui::Button(text("Set up / check enhancer","Doplnit / zkontrolovat enhancer"))){
+   auto setup=app/L"FrameLab-Setup.exe";
+   ShellExecuteW(nullptr,L"open",setup.c_str(),nullptr,app.c_str(),SW_SHOWNORMAL);
+  }
+  ImGui::SameLine();if(ImGui::Button(text("Guide","Návod")))ShellExecuteW(nullptr,L"open",L"https://opicebot.cz/framelab/guide/enhancer.html",nullptr,nullptr,SW_SHOWNORMAL);
+  ImGui::BeginDisabled(!installed);ImGui::Checkbox(text("Enable enhancer (F6)","Zapnout enhancer (F6)"),&enabled);ImGui::EndDisabled();
   ui::field(text("Effect strength","Síla efektu"));float percent=strength*100;if(ImGui::SliderFloat("##nr-strength",&percent,0,100,"%.0f %%"))strength=percent/100;
   ImGui::TextDisabled("%s",text("0% = original, 100% = full AI change","0 % = původní obraz, 100 % = plná AI úprava"));
   const char* modes[]={text("Original","Původní"),text("Enhanced","Upravený"),text("Split comparison","Dělené porovnání")};
@@ -36,7 +45,7 @@ struct NrControls {
   if(ImGui::CollapsingHeader(text("Runtime / diagnostics","Runtime / diagnostika"))){
    const char* runtimes[]={"ShortFuse NR 310.9.16 (community modified)","NVIDIA NR 310.8 (original / RTX 50)"};
    if(ImGui::Combo("##nr-runtime",&runtime,runtimes,2))restart=true;
-   if(ImGui::Button(text("Reload enhancer","Znovu načíst enhancer"))){restart=true;enabled=true;}
+   ImGui::BeginDisabled(!installed);if(ImGui::Button(text("Reload enhancer","Znovu načíst enhancer"))){restart=true;enabled=true;}ImGui::EndDisabled();
    ImGui::TextWrapped("%s",text("Runtime support is verified by initialization, not the GPU label. No automatic driver changes.","Podporu ověří až inicializace runtime. Ovladač se automaticky nemění."));
    ImGui::TextWrapped("%s",text("ShortFuse modifies NVIDIA's runtime; Veyra is the integration reference. Redistribution rights for these NR files have not been established. See LICENCE-NR.txt.","ShortFuse upravuje runtime NVIDIA; Veyra je vzor integrace. Právo dále šířit tyto NR soubory nemáme ověřené. Viz LICENCE-NR.txt."));
   }
@@ -47,6 +56,7 @@ struct NrControls {
    ImGui::TextWrapped("%s",text("Input frame > smaller AI image > neural rendering > add changes back to source > strength blend. The engine's depth and motion data are unavailable: motion is estimated, depth is flat. Changes can help or harm details and HUD. This is the Veyra community experiment, not an official game integration.","Snímek > menší obraz pro AI > neural rendering > změny zpět do původního rozlišení > přimíchání podle síly. Skutečná data enginu chybí: pohyb se odhaduje, hloubka je plochá. Změny mohou detailům i HUD pomoci nebo uškodit. Jde o komunitní experiment podle Veyry, nikoli oficiální integraci do hry."));
    ImGui::TextWrapped("%s",text("A/B uses exactly the same input frame. With FG on, Original means before enhancement. Analysis recordings contain RAW/FG only.","A/B porovnává přesně stejný snímek. Při FG znamená Původní obraz před enhancerem. Analytický záznam ukládá jen RAW/FG."));
   }
+  if(!available(app))enabled=false;
   return restart;
  }
  void draw(ID3D11ShaderResourceView* base,ImVec2 size,Enhancer* nr,bool matched){

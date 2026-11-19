@@ -6,7 +6,9 @@
 #include <d3dcompiler.h>
 #include <dxgi1_6.h>
 #include <wrl/client.h>
-#include <nvsdk_ngx.h>
+#include "NrParameters.hpp"
+using nrabi::Result; using nrabi::Parameters; using nrabi::Handle;
+using ProgressCallback=void(__cdecl*)(float,bool&);
 #include <filesystem>
 #include <fstream>
 #include <array>
@@ -17,20 +19,20 @@
 using Microsoft::WRL::ComPtr;
 namespace {
 void hr(HRESULT r,const char* name){if(FAILED(r)){char b[160];snprintf(b,sizeof(b),"%s: HRESULT 0x%08X",name,unsigned(r));throw std::runtime_error(b);}}
-void ngx(NVSDK_NGX_Result r,const char* name){if(r!=NVSDK_NGX_Result_Success){char b[160];snprintf(b,sizeof(b),"%s: NGX 0x%08X",name,unsigned(r));throw std::runtime_error(b);}}
+void ngx(Result r,const char* name){if(r!=nrabi::success){char b[160];snprintf(b,sizeof(b),"%s: NGX 0x%08X",name,unsigned(r));throw std::runtime_error(b);}}
 void report(char* out,unsigned size,const char* text){if(out&&size)snprintf(out,size,"%s",text);}
-using InitFn=NVSDK_NGX_Result(NVSDK_CONV*)(unsigned long long,const wchar_t*,ID3D12Device*,NVSDK_NGX_Version,const NVSDK_NGX_Parameter*);
-using CreateFn=NVSDK_NGX_Result(NVSDK_CONV*)(ID3D12GraphicsCommandList*,NVSDK_NGX_Feature,NVSDK_NGX_Parameter*,NVSDK_NGX_Handle**);
-using EvalFn=NVSDK_NGX_Result(NVSDK_CONV*)(ID3D12GraphicsCommandList*,const NVSDK_NGX_Handle*,const NVSDK_NGX_Parameter*,PFN_NVSDK_NGX_ProgressCallback);
-using ReleaseFn=NVSDK_NGX_Result(NVSDK_CONV*)(NVSDK_NGX_Handle*);
-using ShutdownFn=NVSDK_NGX_Result(NVSDK_CONV*)(ID3D12Device*);
+using InitFn=Result(__cdecl*)(unsigned long long,const wchar_t*,ID3D12Device*,unsigned,const Parameters*);
+using CreateFn=Result(__cdecl*)(ID3D12GraphicsCommandList*,unsigned,Parameters*,Handle**);
+using EvalFn=Result(__cdecl*)(ID3D12GraphicsCommandList*,const Handle*,const Parameters*,ProgressCallback);
+using ReleaseFn=Result(__cdecl*)(Handle*);
+using ShutdownFn=Result(__cdecl*)(ID3D12Device*);
 // Keep SEH frames separate from functions holding C++ objects.
-NVSDK_NGX_Result safeInit(InitFn fn,const wchar_t* path,ID3D12Device* d){__try{return fn(0x0876232Cull,path,d,NVSDK_NGX_Version_API,nullptr);}__except(EXCEPTION_EXECUTE_HANDLER){return NVSDK_NGX_Result_FAIL_PlatformError;}}
-NVSDK_NGX_Result safeCreate(CreateFn fn,ID3D12GraphicsCommandList* l,NVSDK_NGX_Parameter* p,NVSDK_NGX_Handle** h){__try{return fn(l,static_cast<NVSDK_NGX_Feature>(18),p,h);}__except(EXCEPTION_EXECUTE_HANDLER){return NVSDK_NGX_Result_FAIL_PlatformError;}}
-NVSDK_NGX_Result safeEval(EvalFn fn,ID3D12GraphicsCommandList* l,NVSDK_NGX_Handle* h,NVSDK_NGX_Parameter* p){__try{return fn(l,h,p,nullptr);}__except(EXCEPTION_EXECUTE_HANDLER){return NVSDK_NGX_Result_FAIL_PlatformError;}}
-void safeRelease(ReleaseFn fn,NVSDK_NGX_Handle* h){__try{fn(h);}__except(EXCEPTION_EXECUTE_HANDLER){}}
+Result safeInit(InitFn fn,const wchar_t* path,ID3D12Device* d){__try{return fn(0x0876232Cull,path,d,0x15u,nullptr);}__except(EXCEPTION_EXECUTE_HANDLER){return nrabi::platformError;}}
+Result safeCreate(CreateFn fn,ID3D12GraphicsCommandList* l,Parameters* p,Handle** h){__try{return fn(l,18u,p,h);}__except(EXCEPTION_EXECUTE_HANDLER){return nrabi::platformError;}}
+Result safeEval(EvalFn fn,ID3D12GraphicsCommandList* l,Handle* h,Parameters* p){__try{return fn(l,h,p,nullptr);}__except(EXCEPTION_EXECUTE_HANDLER){return nrabi::platformError;}}
+void safeRelease(ReleaseFn fn,Handle* h){__try{fn(h);}__except(EXCEPTION_EXECUTE_HANDLER){}}
 void safeShutdown(ShutdownFn fn,ID3D12Device* d){__try{fn(d);}__except(EXCEPTION_EXECUTE_HANDLER){}}
-NVSDK_NGX_Result NVSDK_CONV scaling(NVSDK_NGX_Parameter* p){p->Set("DLSSNR.ScalingRatio",1.f);return NVSDK_NGX_Result_Success;}
+Result __cdecl scaling(Parameters* p){p->Set("DLSSNR.ScalingRatio",1.f);return nrabi::success;}
 struct Resource {ComPtr<ID3D12Resource> value;D3D12_RESOURCE_STATES state=D3D12_RESOURCE_STATE_COMMON;};
 struct Host {
  NrConfig config{};std::wstring runtime,cache;std::ofstream log;
@@ -42,7 +44,7 @@ struct Host {
  ComPtr<ID3D12PipelineState> prepare,flow,guides,composite;
  Resource input,output,proxy,previous,neural,smallFlow,motion,depth;
  HMODULE dll=nullptr;InitFn initFn=nullptr;CreateFn createFn=nullptr;EvalFn evalFn=nullptr;ReleaseFn releaseFn=nullptr;ShutdownFn shutdownFn=nullptr;
- NVSDK_NGX_Parameter* params=nullptr;NVSDK_NGX_Handle* feature=nullptr;bool core=false,initialized=false,history=false;
+ Parameters parameterStorage;Parameters* params=&parameterStorage;Handle* feature=nullptr;bool initialized=false,history=false;
  UINT descriptorSize=0;
  void transition(ID3D12GraphicsCommandList* l,Resource& r,D3D12_RESOURCE_STATES s){if(r.state==s)return;D3D12_RESOURCE_BARRIER b{};b.Type=D3D12_RESOURCE_BARRIER_TYPE_TRANSITION;b.Transition.pResource=r.value.Get();b.Transition.StateBefore=r.state;b.Transition.StateAfter=s;b.Transition.Subresource=D3D12_RESOURCE_BARRIER_ALL_SUBRESOURCES;l->ResourceBarrier(1,&b);r.state=s;}
  void uav(ID3D12GraphicsCommandList* l,Resource& r){D3D12_RESOURCE_BARRIER b{};b.Type=D3D12_RESOURCE_BARRIER_TYPE_UAV;b.UAV.pResource=r.value.Get();l->ResourceBarrier(1,&b);}
@@ -70,9 +72,6 @@ struct Host {
   for(auto r:srvs){D3D12_SHADER_RESOURCE_VIEW_DESC v{};v.Format=r->value->GetDesc().Format;v.ViewDimension=D3D12_SRV_DIMENSION_TEXTURE2D;v.Shader4ComponentMapping=D3D12_DEFAULT_SHADER_4_COMPONENT_MAPPING;v.Texture2D.MipLevels=1;device->CreateShaderResourceView(r->value.Get(),&v,cpu);cpu.ptr+=descriptorSize;}
   for(auto r:uavs){D3D12_UNORDERED_ACCESS_VIEW_DESC v{};v.Format=r->value->GetDesc().Format;v.ViewDimension=D3D12_UAV_DIMENSION_TEXTURE2D;device->CreateUnorderedAccessView(r->value.Get(),nullptr,&v,cpu);cpu.ptr+=descriptorSize;}
   prepare=shader("prepare");flow=shader("flow");guides=shader("guides");composite=shader("composite");
-  const wchar_t* paths[]={runtime.c_str()};NVSDK_NGX_FeatureCommonInfo common{};common.PathListInfo.Path=paths;common.PathListInfo.Length=1;
-  ngx(NVSDK_NGX_D3D12_Init_with_ProjectID("fc9bca90-526f-4d78-a346-1e4e0500aa19",NVSDK_NGX_ENGINE_TYPE_CUSTOM,"FrameLab-local-NR",cache.c_str(),device.Get(),&common,NVSDK_NGX_Version_API),"NGX core init");core=true;
-  ngx(NVSDK_NGX_D3D12_AllocateParameters(&params),"NGX parameter allocation");
   auto path=std::filesystem::absolute(std::filesystem::path(runtime)/L"nvngx_dlssnr.dll");dll=LoadLibraryExW(path.c_str(),nullptr,LOAD_LIBRARY_SEARCH_DLL_LOAD_DIR|LOAD_LIBRARY_SEARCH_SYSTEM32);if(!dll)throw std::runtime_error("Cannot load NR runtime, Win32 error "+std::to_string(GetLastError()));
   initFn=reinterpret_cast<InitFn>(GetProcAddress(dll,"NVSDK_NGX_D3D12_Init_Ext"));createFn=reinterpret_cast<CreateFn>(GetProcAddress(dll,"NVSDK_NGX_D3D12_CreateFeature"));evalFn=reinterpret_cast<EvalFn>(GetProcAddress(dll,"NVSDK_NGX_D3D12_EvaluateFeature"));releaseFn=reinterpret_cast<ReleaseFn>(GetProcAddress(dll,"NVSDK_NGX_D3D12_ReleaseFeature"));shutdownFn=reinterpret_cast<ShutdownFn>(GetProcAddress(dll,"NVSDK_NGX_D3D12_Shutdown1"));
   if(!initFn||!createFn||!evalFn||!releaseFn||!shutdownFn)throw std::runtime_error("Incomplete NR runtime exports");
@@ -103,8 +102,6 @@ struct Host {
   if(queue&&fence&&event){try{wait();}catch(...){}}
   if(feature&&releaseFn)safeRelease(releaseFn,feature);
   if(initialized&&shutdownFn)safeShutdown(shutdownFn,device.Get());
-  if(params)NVSDK_NGX_D3D12_DestroyParameters(params);
-  if(core)NVSDK_NGX_D3D12_Shutdown1(device.Get());
   if(dll)FreeLibrary(dll);if(event)CloseHandle(event);
  }
 };
