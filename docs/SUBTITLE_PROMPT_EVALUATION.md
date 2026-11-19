@@ -140,3 +140,77 @@ CPU OPUS-MT is neural; dictionary lookup is non-neural. A slower, worse hybrid
 does not establish that all post-editing systems fail. Compare total pipeline
 time, not only the final Q5 call, and include newly introduced errors as well as
 fixed ones. Existing development references must not become model hints.
+
+## QuickMT, sentence splitting and CPU-only variants
+
+`tools/evaluate_quickmt_translation.py` compares seven offline profiles on the
+same 300-case development corpus: original Q5, OPUS whole/split, QuickMT
+whole/split, QuickMT split with beam 1, and QuickMT split followed by Q5. No
+profile is wired into the running app. The hybrid deliberately retains the
+previous experiment's frozen draft prompt, so a model change is not confounded
+with a new prompt. The Q5 request receives the whole source and joined draft.
+
+```powershell
+python tools/evaluate_quickmt_translation.py website/translation/quality/data/corpus.jsonl analysis-output/study/quickmt-v1 --resources path/to/quickmt-resources --translation-root path/to/FrameLab/translation --url http://127.0.0.1:12345
+python tools/prompt_test_monitor.py analysis-output/study
+```
+
+The isolated resources directory contains `model/`, `deps/` and a
+`provenance.json` describing the model revision, licence, download URLs, sizes
+and SHA256 hashes. Use the CTranslate2 files from
+[QuickMT EN-CS](https://huggingface.co/quickmt/quickmt-en-cs/tree/da8d48f5a57bf942411ea9cf7b32ea6995a043c4):
+`model.bin`, `config.json`, both vocabulary JSON files, `src.spm.model`,
+`tgt.spm.model`, and the model card. The model is CC-BY-4.0; its 409,915,789-byte
+model.bin SHA256 is
+`08aae7d62fe34352244b8a248555c333aa27c6221b39521a4a1da8ca81a3572e`.
+Verify all publisher hashes before using downloaded files. Install pySBD 0.3.4
+in the isolated `deps/` directory; do not replace the application's dependencies.
+The installed CTranslate2 and SentencePiece are read from `--translation-root`.
+No QuickMT executable code or remote model Python code is needed.
+
+Both CPU models use two threads and requested int8 (resolved to int8_float32).
+pySBD runs without cleaning; a character-preservation check falls back to the
+whole source if splitting would lose non-whitespace characters. Sentences from
+one caption are batched, different captions never are. This common splitter
+differs from the official QuickMT wrapper's BlingFire. Each case rotates the
+seven variant positions, with reversal every seven cases. Loading and warmups
+are recorded outside steady-state timing. `--smoke` runs only unrelated probes
+for abbreviation, decimal, negation, line-break and fragment behavior.
+
+The local 2026-11-20 run used a Ryzen 9 5900X and RTX 5070 Ti. One warmed pass,
+with other PC/GPU activity possible, produced these assistant-reviewed results:
+
+| Variant | Material errors / 300 | Median translation time |
+| --- | ---: | ---: |
+| Original Q5 | 28 | 272.60 ms |
+| OPUS whole | 103 | 109.66 ms |
+| OPUS split | 77 | 107.62 ms |
+| QuickMT whole | 98 | 124.34 ms |
+| QuickMT split, beam 2 | 82 | 117.60 ms |
+| QuickMT split, beam 1 | 88 | 100.64 ms |
+| QuickMT split → Q5 | 68 | 386.37 ms |
+
+Splitting OPUS fixed 31 material errors and introduced five. Splitting QuickMT
+fixed 22 and introduced six. Q5 post-editing fixed 17 QuickMT-split errors and
+introduced three, but the hybrid was still worse and slower than original Q5.
+Beam 1 saved about 17 ms in median latency while introducing ten errors and
+fixing four relative to QuickMT split beam 2. No variant was promoted.
+
+These are semantic assistant grades, not independent human accuracy or a fresh
+holdout. The corpus includes game text and difficult idioms. CPU model speed
+does not prove better game FPS. Times exclude OCR, display, downloads and cold
+model loading. The often-quoted QuickMT 1.35-second result is a different
+[1,012-sentence GPU/batch benchmark](https://huggingface.co/quickmt/quickmt-en-cs/commit/600563dcce62c459b96cb640e4a0185529cd8ed0),
+not per-caption CPU latency.
+
+After actual semantic review of every new output, the local review workflow is
+`python tools/report_quickmt_translation.py ROOT`. It requires the previous
+reviewed `comparison.json` and `hybrid-comparison.json`, the `quickmt-v1` run,
+and `quickmt-review-notes.json` with completed review coverage, explicit score
+overrides and notes. It refuses incomplete runs/reviews or changed frozen
+source/corpus hashes. It writes `quickmt-report.html`, `quickmt-summary.json`
+and `quickmt-comparison.json`; the monitor links the report automatically.
+The report allows any two profiles side by side, filters fixes/regressions,
+and shows sentence splits, CPU outputs, exact Q5 prompts and timings. Exact
+previously reviewed outputs reuse grades; identical current outputs agree.
+Raw outputs, models and private review artifacts stay ignored and local.
