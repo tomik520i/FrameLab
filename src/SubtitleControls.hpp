@@ -1,6 +1,7 @@
 #pragma once
 #include "SubtitleTranslator.hpp"
 #include "SubtitleLayout.hpp"
+#include "SubtitleText.hpp"
 #include "SubtitleModels.hpp"
 #include "OcrSetup.hpp"
 #include "UiTheme.hpp"
@@ -127,10 +128,10 @@ inline bool drawSubtitleOverlay(ImVec2 origin,ImVec2 size,SubtitleSettings& sett
   else if(settings.showOriginal)text+='\n'+(state.displaySource.empty()?state.source:state.displaySource);
   float fs=std::round(std::max(16.f,visibleSize.y*settings.fontPercent/100)),wrap=visibleSize.x*.86f;
   auto font=ui::subtitleFont(fs);
-  auto measured=font->CalcTextSizeA(fs,FLT_MAX,wrap,text.c_str());
+  auto lines=wrapSubtitleText(font,fs,wrap,text);auto measured=lines.size;
   const float paddingScale=std::min(visibleSize.x,visibleSize.y),px=paddingScale*.009f,py=paddingScale*.006f;
   // Very long subtitles must remain visible at every aspect ratio.
-  for(int i=0;i<48&&(measured.y+2*py>visibleSize.y*.97f||measured.x+2*px>visibleSize.x*.97f);++i){fs*=.8f;measured=font->CalcTextSizeA(fs,FLT_MAX,wrap,text.c_str());}
+  for(int i=0;i<48&&(measured.y+2*py>visibleSize.y*.97f||measured.x+2*px>visibleSize.x*.97f);++i){fs*=.8f;lines=wrapSubtitleText(font,fs,wrap,text);measured=lines.size;}
   auto layout=placeSubtitle(settings,size.x,size.y,measured.x+2*px,measured.y+2*py,{visibleMin.x-origin.x,visibleMin.y-origin.y,visibleMax.x-origin.x,visibleMax.y-origin.y});
   ImVec2 a{origin.x+layout.x,origin.y+layout.y},b{a.x+layout.width,a.y+layout.height};
   if(edit){
@@ -147,8 +148,11 @@ inline bool drawSubtitleOverlay(ImVec2 origin,ImVec2 size,SubtitleSettings& sett
   ImVec2 p{a.x+px,a.y+py};
   p.x=std::round(p.x);p.y=std::round(p.y);
   draw->AddRectFilled(a,b,IM_COL32(0,0,0,int(settings.background*255)),5);
-  draw->AddText(font,fs,{p.x+1,p.y+1},IM_COL32(0,0,0,255),text.c_str(),nullptr,wrap);
-  draw->AddText(font,fs,p,IM_COL32(255,255,255,255),text.c_str(),nullptr,wrap);
+  for(size_t i=0;i<lines.lines.size();++i){const auto& line=lines.lines[i];
+   const ImVec2 pos{std::round(a.x+(layout.width-line.width)*.5f),std::round(p.y+float(i)*fs)};
+   draw->AddText(font,fs,{pos.x+1,pos.y+1},IM_COL32(0,0,0,255),line.text.c_str());
+   draw->AddText(font,fs,pos,IM_COL32(255,255,255,255),line.text.c_str());
+  }
   if(edit){draw->AddRect(a,b,IM_COL32(170,230,70,255),5,0,2);if(layout.usedOppositeSide||layout.clamped){
    const char* notice=layout.usedOppositeSide?(settings.placement==1?subText("No room below: moved above original","Dole není místo: přesunuto nad originál"):subText("No room above: moved below original","Nahoře není místo: přesunuto pod originál")):subText("Clamped inside image; may overlap original","Přisunuto do obrazu; může překrýt originál");
    draw->AddText({a.x,std::max(origin.y,a.y-20)},IM_COL32(255,190,70,255),notice);

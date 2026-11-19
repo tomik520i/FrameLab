@@ -16,6 +16,7 @@ int main(){try{
  SubtitleSettings s;s.enabled=true;s.showRegion=true;s.editOverlay=true;
  SubtitleSnapshot caption;caption.source="The door is locked.";caption.translated="Dveře jsou zamčené.";caption.observedAt=10;
  unsigned outsideCaptionPixels=0,minWhiteY=h,maxWhiteY=0,whiteBands=0;
+ std::vector<std::pair<unsigned,unsigned>> lineBounds;
  auto frame=[&](bool clean,bool cropped=false){
   ImGui_ImplDX11_NewFrame();ImGui::NewFrame();ImGui::SetNextWindowPos({0,0});ImGui::SetNextWindowSize({float(w),float(h)});
   ImGui::Begin("Subtitle test",nullptr,ImGuiWindowFlags_NoDecoration|ImGuiWindowFlags_NoSavedSettings);
@@ -23,8 +24,8 @@ int main(){try{
   else drawSubtitleOverlay({0,0},{float(w),float(h)},s,caption,10,clean);ImGui::End();ImGui::Render();
   const float clear[]={0,0,0,1};g.context->ClearRenderTargetView(rtv.Get(),clear);g.context->OMSetRenderTargets(1,rtv.GetAddressOf(),nullptr);ImGui_ImplDX11_RenderDrawData(ImGui::GetDrawData());
   g.context->CopyResource(staging.Get(),target.texture.Get());D3D11_MAPPED_SUBRESOURCE pixels{};check(g.context->Map(staging.Get(),0,D3D11_MAP_READ,0,&pixels),"Subtitle readback");
-  unsigned green=0,white=0;outsideCaptionPixels=0;minWhiteY=h;maxWhiteY=0;whiteBands=0;bool previousWhite=false;
-  for(unsigned y=0;y<h;++y){bool rowWhite=false;auto row=(const unsigned char*)pixels.pData+size_t(y)*pixels.RowPitch;for(unsigned x=0;x<w;++x){auto p=row+x*4;if(p[1]>190&&p[2]>100&&p[2]<200&&p[0]<120)++green;if(p[0]>220&&p[1]>220&&p[2]>220){rowWhite=true;++white;minWhiteY=std::min(minWhiteY,y);maxWhiteY=std::max(maxWhiteY,y);if(x<200||x>=1000||y<160||y>=560)++outsideCaptionPixels;}}if(rowWhite&&!previousWhite)++whiteBands;previousWhite=rowWhite;}
+  unsigned green=0,white=0;outsideCaptionPixels=0;minWhiteY=h;maxWhiteY=0;whiteBands=0;bool previousWhite=false;lineBounds.clear();
+  for(unsigned y=0;y<h;++y){bool rowWhite=false;unsigned left=w,right=0;auto row=(const unsigned char*)pixels.pData+size_t(y)*pixels.RowPitch;for(unsigned x=0;x<w;++x){auto p=row+x*4;if(p[1]>190&&p[2]>100&&p[2]<200&&p[0]<120)++green;if(p[0]>220&&p[1]>220&&p[2]>220){rowWhite=true;left=std::min(left,x);right=std::max(right,x);++white;minWhiteY=std::min(minWhiteY,y);maxWhiteY=std::max(maxWhiteY,y);if(x<200||x>=1000||y<160||y>=560)++outsideCaptionPixels;}}if(rowWhite){if(!previousWhite){++whiteBands;lineBounds.push_back({left,right});}else{lineBounds.back().first=std::min(lineBounds.back().first,left);lineBounds.back().second=std::max(lineBounds.back().second,right);}}previousWhite=rowWhite;}
   g.context->Unmap(staging.Get(),0);return std::pair{green,white};
  };
  frame(false);io.AddMousePosEvent(640,633);frame(false);io.AddMouseButtonEvent(0,true);frame(false);io.AddMousePosEvent(740,563);frame(false);io.AddMouseButtonEvent(0,false);auto edited=frame(false);
@@ -35,6 +36,10 @@ int main(){try{
  const auto before=s;io.AddMouseButtonEvent(0,true);frame(true);io.AddMousePosEvent(800,500);frame(true);io.AddMouseButtonEvent(0,false);frame(true);
  if(!(s==before))throw std::runtime_error("Clean fullscreen allowed editing");
  s.enabled=false;clean=frame(true);if(clean.first||clean.second)throw std::runtime_error("Disabled subtitle or edit preview leaked into fullscreen");
+ s.enabled=true;s.horizontal=.5f;s.position=.6f;s.fontPercent=5.5f;s.placement=0;
+ auto checkCentered=[&]{frame(true);if(lineBounds.size()<2)throw std::runtime_error("Expected multiple visible subtitle lines");auto center=(lineBounds.front().first+lineBounds.front().second)*.5f;for(auto [left,right]:lineBounds)if(std::abs((left+right)*.5f-center)>2.f)throw std::runtime_error("Subtitle lines do not share the same visual center");};
+ caption.translated="HHHHH HHHHH HHHHH\nHHH";checkCentered();
+ caption.translated="";for(int word=0;word<12;++word)caption.translated+="HHHHH ";checkCentered();
  s.enabled=true;s.horizontal=1;s.position=1;s.fontPercent=8;s.placement=0;
  // Solid capital stems give one connected white-pixel band per line; dots and
  // antialiased curves can produce multiple bands even when a line is intact.
