@@ -11,22 +11,23 @@ void SubtitleSettings::sanitize(){
  horizontal=std::clamp(finite(horizontal,.5f),0.f,1.f);gapPercent=std::clamp(finite(gapPercent,1.f),0.f,10.f);
  placement=std::clamp(placement,0,2);horizontalAlign=std::clamp(horizontalAlign,0,2);verticalAlign=std::clamp(verticalAlign,0,2);edgeFallback=std::clamp(edgeFallback,0,1);
  intervalMs=std::clamp(intervalMs,200,1500);
- model=std::clamp(model,0,2);
+ model=std::clamp(model,0,3);
  ocrEngine=std::clamp(ocrEngine,0,1);
  holdSeconds=std::clamp(finite(holdSeconds,1.2f),.5f,4.f);
  lingerSeconds=std::clamp(finite(lingerSeconds,3.f),holdSeconds,8.f);
 }
 void SubtitleSettings::load(const std::filesystem::path& p){
  int version=0;std::ifstream f(p);
- if(f>>version&&version>=1&&version<=5){
+ if(f>>version&&version>=1&&version<=6){
   f>>left>>top>>right>>bottom>>fontPercent>>position>>background>>intervalMs>>showOriginal;
   if(version>=2)f>>coverSource;
   if(version>=3)f>>horizontal>>gapPercent>>placement>>horizontalAlign>>verticalAlign>>edgeFallback;
   if(version>=4)f>>model;
   if(version>=5)f>>ocrEngine>>holdSeconds>>lingerSeconds;
+  if(version>=6)f>>joinFragments;
  }
  sanitize();enabled=false;showRegion=false;editOverlay=false;
 }
 void SubtitleSettings::save(const std::filesystem::path& p)const{
- std::ofstream(p)<<5<<' '<<left<<' '<<top<<' '<<right<<' '<<bottom<<' '<<fontPercent<<' '<<position<<' '<<background<<' '<<intervalMs<<' '<<showOriginal<<' '<<coverSource<<' '<<horizontal<<' '<<gapPercent<<' '<<placement<<' '<<horizontalAlign<<' '<<verticalAlign<<' '<<edgeFallback<<' '<<model<<' '<<ocrEngine<<' '<<holdSeconds<<' '<<lingerSeconds<<'\n';
+ std::ofstream(p)<<6<<' '<<left<<' '<<top<<' '<<right<<' '<<bottom<<' '<<fontPercent<<' '<<position<<' '<<background<<' '<<intervalMs<<' '<<showOriginal<<' '<<coverSource<<' '<<horizontal<<' '<<gapPercent<<' '<<placement<<' '<<horizontalAlign<<' '<<verticalAlign<<' '<<edgeFallback<<' '<<model<<' '<<ocrEngine<<' '<<holdSeconds<<' '<<lingerSeconds<<' '<<joinFragments<<'\n';
 }

@@ -12,15 +12,16 @@
 struct SubtitleModelInfo {
  const char* id;const char* name;double downloadGB,requiredGiB;
 };
-inline constexpr std::array<SubtitleModelInfo,3> subtitleModelCatalog{{
+inline constexpr std::array<SubtitleModelInfo,4> subtitleModelCatalog{{
  {"cpu","OPUS-MT / CPU",0,0},
  {"cuni-q3km","CUNI-MH 7B / Q3_K_M",3.52,4.4},
- {"cuni-q8","CUNI-MH 7B / Q8_0",7.70,8.5}
+ {"cuni-q8","CUNI-MH 7B / Q8_0",7.70,8.5},
+ {"cuni-q5km","CUNI-MH 7B / Q5_K_M",5.13,6.0}
 }};
 struct SubtitleModelDownload {std::string phase="starting",detail;uint64_t done=0,total=0;};
 // Filesystem and helper lifecycle live on a background thread, never in render().
 class SubtitleModels {
- std::filesystem::path app,session;std::mutex mutex;std::array<SubtitleModelDownload,3> states;
+ std::filesystem::path app,session;std::mutex mutex;std::array<SubtitleModelDownload,subtitleModelCatalog.size()> states;
  std::string requested;std::atomic<bool> stop=false;std::thread worker;
  void run(){
   HANDLE process=nullptr,job=nullptr;
@@ -57,6 +58,6 @@ public:
  explicit SubtitleModels(const std::filesystem::path& p):app(p),session(p/L"logs"/(L"subtitle-models-"+std::to_wstring(GetCurrentProcessId())+L"-"+std::to_wstring(GetTickCount64()))),worker([this]{run();}){}
  ~SubtitleModels(){stop=true;worker.join();}
  SubtitleModelDownload snapshot(int i){std::lock_guard lock(mutex);return states.at(i);}
- void download(int i){if(i<1||i>2)return;std::lock_guard lock(mutex);requested=std::string("download ")+subtitleModelCatalog[i].id;}
+ void download(int i){if(i<1||i>=int(states.size()))return;std::lock_guard lock(mutex);requested=std::string("download ")+subtitleModelCatalog[i].id;}
  void cancel(){std::lock_guard lock(mutex);requested="cancel";}
 };

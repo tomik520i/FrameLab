@@ -11,7 +11,7 @@ sys.path.insert(0, str(Path(__file__).resolve().parent))
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument('--model', type=Path, required=True)
-    parser.add_argument('--backend', choices=['cpu', 'cuni-q3km', 'cuni-q8'], default='cpu')
+    parser.add_argument('--backend', choices=['cpu', 'cuni-q3km', 'cuni-q8', 'cuni-q5km'], default='cpu')
     args = parser.parse_args()
     # Search only the sibling, bundled redistributable directory on Windows.
     runtime = Path(__file__).resolve().parents[1] / 'runtime'

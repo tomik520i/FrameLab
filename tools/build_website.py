@@ -46,7 +46,7 @@ def main():
             assert actual==record['sha256'], src.name
             shutil.copy2(src,dest)
             public.append({'name':src.name,'bytes':src.stat().st_size,'sha256':actual})
-        (target/'catalog.json').write_text(json.dumps({'version':'0.2.0-preview.13','files':public},indent=2),encoding='utf-8')
+        (target/'catalog.json').write_text(json.dumps({'version':'0.2.0-preview.14','files':public},indent=2),encoding='utf-8')
     manifest=[]
     for p in sorted(out.rglob('*')):
         if p.is_file() and p.name!='site-manifest.json':

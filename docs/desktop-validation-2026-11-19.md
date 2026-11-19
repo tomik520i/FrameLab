@@ -1,4 +1,15 @@
-# Desktop validation — preview.13, 19 November 2026
+# Desktop validation — preview.14, 19 November 2026
+
+## Preview.14 update
+
+Same desktop and enabled Avast as below. Neural OCR is now bundled. All 11 CTest checks and five offline download/integrity tests pass. Fragment-boundary tests cover completed sentences, speaker labels, generation changes, timeout, disabled joining and date cleanup. Settings persistence covers Q5 ID 3 without remapping existing Q8 ID 2.
+
+The private 48.25-second portrait video was replayed through real RapidOCR + Q3 + VFG 2×. Its ending no longer gained the observed invented continuation; the next fragment was translated with the preceding context. Grammar and speaker gender remain model limitations. The downloaded personal clip, frames and dialogue traces are not redistributed. [Recognition comparison and scope](subtitle-ocr.md).
+
+Q5_K_M: publisher download complete, 5,131,409,728 bytes, SHA-256 verified. No Q5 model load, inference, quality or speed test was performed. Existing 300-text Q3/Q8 measurements below remain the preview.12 baseline.
+
+## Retained preview.13 validation
+
 
 ## System and scope
 

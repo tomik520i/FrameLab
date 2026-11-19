@@ -29,7 +29,7 @@ int main(){try{
   require(crop.x>=700&&crop.y>=400&&crop.x+crop.width<=2200&&crop.y+crop.height<=1250,"Cropped viewport bounds at all anchors/presets");
  }
  auto path=std::filesystem::temp_directory_path()/"framelab-subtitle-layout-test.txt";
- s.model=2;s.ocrEngine=1;s.holdSeconds=2.5f;s.lingerSeconds=5.f;s.save(path);SubtitleSettings loaded;loaded.load(path);s.enabled=false;s.showRegion=false;s.editOverlay=false;require(s==loaded,"Placement, OCR, model and reading time roundtrip");
+ s.model=3;s.joinFragments=false;s.ocrEngine=1;s.holdSeconds=2.5f;s.lingerSeconds=5.f;s.save(path);SubtitleSettings loaded;loaded.load(path);s.enabled=false;s.showRegion=false;s.editOverlay=false;require(s==loaded,"Placement, Q5 ID, continuation toggle, OCR and reading time roundtrip");
  std::ofstream(path)<<"2 0.1 0.72 0.9 0.97 5.5 0.8 0.8 300 0 1\n";SubtitleSettings old;old.load(path);
  require(old.placement==0&&old.horizontal==.5f&&old.position==.8f&&old.coverSource,"Preview12 migration");
  std::filesystem::remove(path);s.horizontal=std::numeric_limits<float>::quiet_NaN();s.gapPercent=100;s.placement=-5;s.sanitize();require(s.horizontal==.5f&&s.gapPercent==10&&s.placement==0,"Invalid settings sanitized");

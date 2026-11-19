@@ -32,15 +32,19 @@ inline bool subtitlePanel(SubtitleSettings& settings,const SubtitleSnapshot& sta
  }
  }
  ui::field(subText("Translation model","Překladový model"));
- if(ImGui::Combo("##translation-model",&settings.model,"OPUS-MT / CPU\000CUNI-MH 7B / Q3_K_M\000CUNI-MH 7B / Q8_0\000"))settings.enabled=false;
+ if(ImGui::BeginCombo("##translation-model",subtitleModelCatalog[settings.model].name)){
+  for(int id:{0,1,3,2})if(ImGui::Selectable(subtitleModelCatalog[id].name,settings.model==id)){if(settings.model!=id){settings.model=id;settings.enabled=false;}}
+  ImGui::EndCombo();
+ }
  bool ready=settings.ocrEngine==0?rapidReady:capability.available==1;
  if(settings.model){
   const auto& item=subtitleModelCatalog[settings.model];const auto download=models.snapshot(settings.model);const bool modelReady=download.phase=="ready";ready=ready&&modelReady;
   ImGui::TextWrapped("%s",subText("CUNI is specialized for English to Czech. Q3 uses less memory; Q8 keeps more weight precision. Higher precision is not a guarantee of a better sentence.","CUNI je specializovaný na angličtinu do češtiny. Q3 šetří paměť, Q8 zachová větší přesnost vah. Vyšší přesnost nezaručuje lepší překlad každé věty."));
+  if(settings.model==3)ImGui::TextWrapped("%s",subText("Q5 is available to try. No Q5 quality, speed or hardware benchmark has been run for this release.","Q5 je k vyzkoušení. Pro toto vydání nemáme test kvality, rychlosti ani běhu Q5 na hardwaru."));
   ImGui::Text(subText("Model: %.2f GB | estimated GPU: %.1f GiB + headroom","Model: %.2f GB | odhad GPU: %.1f GiB + rezerva"),item.downloadGB,item.requiredGiB);
   ImGui::TextWrapped("%s",subText("First GPU download also needs the 1.62 GB portable runtime. Allow about 8 GB extra disk space for its archive and extraction. Models stay on this PC.","První GPU model stáhne také přenosný runtime (1,62 GB). Pro archiv a rozbalení nech dalších asi 8 GB místa. Modely zůstávají na tomto PC."));
   const bool busy=download.phase=="downloading"||download.phase=="verifying"||download.phase=="extracting";
-  const auto other=models.snapshot(3-settings.model);const bool otherBusy=other.phase=="downloading"||other.phase=="verifying"||other.phase=="extracting";
+  bool otherBusy=false;for(int id=1;id<int(subtitleModelCatalog.size());++id)if(id!=settings.model){const auto other=models.snapshot(id);otherBusy|=other.phase=="downloading"||other.phase=="verifying"||other.phase=="extracting";}
   ImGui::Text("%s: %s",subText("Download","Stažení"),download.phase.c_str());
   if(busy){float fraction=download.total?float(double(download.done)/download.total):0;ImGui::ProgressBar(fraction,{-1,0});ImGui::Text("%.2f / %.2f GB",download.done/1.e9,download.total/1.e9);if(ImGui::Button(subText("Pause download","Pozastavit stahování")))models.cancel();}
   else if(!modelReady){ImGui::BeginDisabled(otherBusy);if(ImGui::Button(subText("Download / resume and verify","Stáhnout / pokračovat a ověřit")))models.download(settings.model);ImGui::EndDisabled();}
@@ -60,8 +64,10 @@ inline bool subtitlePanel(SubtitleSettings& settings,const SubtitleSnapshot& sta
  ImGui::TextDisabled("English > Čeština | lokálně / offline");
  if(settings.enabled&&!state.status.empty())ImGui::TextWrapped("%s",state.status.c_str());
  ui::field(subText("Subtitle timing","Časování titulků"));
- ImGui::SliderFloat(subText("Minimum on screen (s)","Nejméně na obrazovce (s)"),&settings.holdSeconds,.5f,4.f,"%.1f");
- ImGui::SliderFloat(subText("Keep while waiting (s)","Ponechat při čekání (s)"),&settings.lingerSeconds,settings.holdSeconds,8.f,"%.1f");
+ ImGui::Checkbox(subText("Join split sentences","Spojovat rozdělené věty"),&settings.joinFragments);
+ ImGui::TextWrapped("%s",subText("Marks unfinished text and re-translates it with the next lowercase continuation (up to 6 s). Disable if separate dialogue is joined incorrectly.","Označí nedokončený text a přeloží jej znovu s navazující částí začínající malým písmenem (do 6 s). Vypni, pokud chybně spojí různé repliky."));
+ ui::field(subText("Minimum on screen (s)","Nejméně na obrazovce (s)"));ImGui::SliderFloat("##subtitle-hold",&settings.holdSeconds,.5f,4.f,"%.1f s");
+ ui::field(subText("Keep while waiting (s)","Ponechat při čekání (s)"));ImGui::SliderFloat("##subtitle-linger",&settings.lingerSeconds,settings.holdSeconds,8.f,"%.1f s");
  ImGui::TextWrapped("%s",subText("Time starts when Czech text appears. The next line is translated in parallel. Long captions get extra reading time; the next ready line can replace them after the minimum. Old queued work expires after 6 s.","Čas běží až od zobrazení češtiny. Další věta se mezitím překládá. Dlouhý titulek má víc času na čtení; další hotový jej může nahradit po minimu. Rozpracované titulky starší 6 s se zahodí."));
  ImGui::Checkbox(subText("Show reading area","Zobrazit oblast čtení"),&settings.showRegion);
  if(ImGui::CollapsingHeader(subText("Subtitle reading area","Oblast anglických titulků"),ImGuiTreeNodeFlags_DefaultOpen)){

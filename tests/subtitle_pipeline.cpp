@@ -16,6 +16,8 @@ int wmain(int argc,wchar_t** argv){try{
  while(tick()<deadline){worker.submit(pixels.data(),w,h,tick());std::this_thread::sleep_for(std::chrono::milliseconds(100));value=worker.snapshot();if(!value.translated.empty())break;}
  if(value.source!="The door is locked."||value.translated!="Dveře jsou zamčené.")throw std::runtime_error("Unexpected OCR / MT: "+value.status+" | "+value.source+" | "+value.translated);
  std::cout<<"{\"model\":"<<settings.model<<",\"source\":"<<std::quoted(value.source)<<",\"translated\":"<<std::quoted(value.translated)<<",\"milliseconds\":"<<value.milliseconds<<"}\n";
+ const auto staticUntil=tick()+4;
+ while(tick()<staticUntil){worker.submit(pixels.data(),w,h,tick());std::this_thread::sleep_for(std::chrono::milliseconds(100));if(worker.snapshot().translated!="Dveře jsou zamčené.")throw std::runtime_error("Visible source lost its Czech caption");}
  // Blank input must not flash away an already displayed translation. Its
  // reading timer begins on display, then it expires even without further OCR.
  for(size_t i=0;i<pixels.size();i+=4){pixels[i]=pixels[i+1]=pixels[i+2]=0;pixels[i+3]=255;}

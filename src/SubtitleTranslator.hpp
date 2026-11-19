@@ -11,9 +11,10 @@ struct SubtitleSettings {
  int placement=0,horizontalAlign=1,verticalAlign=1,edgeFallback=1;
  bool editOverlay=false; // preview controls only, never persisted or shown in fullscreen
  int intervalMs=300;
- int model=0; // 0: bundled CPU, 1: CUNI Q3_K_M, 2: CUNI Q8_0
+ int model=0; // 0: bundled CPU, 1: CUNI Q3_K_M, 2: CUNI Q8_0, 3: CUNI Q5_K_M (preserves old saved IDs)
  int ocrEngine=0; // 0: bundled RapidOCR / PP-OCRv5 English; 1: Windows English OCR
  float holdSeconds=1.2f,lingerSeconds=3.f;
+ bool joinFragments=true;
  bool operator==(const SubtitleSettings&)const=default;
  void sanitize();
  void load(const std::filesystem::path&);

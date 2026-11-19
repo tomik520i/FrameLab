@@ -29,8 +29,12 @@ with the old sentence. Changed numbers and negations remain distinct.
 
 OCR still makes mistakes on blurred, obscured or stylized text. Translation can
 also mistranslate a sentence or invent a continuation of a fragment; OCR accuracy
-is not translation accuracy. In particular, captions that split a sentence over
-time are translated separately. This is not a substitute for authored subtitles.
+is not translation accuracy. Incomplete input is now marked with an ellipsis. **Join split sentences** can
+retranslate an unfinished line with a lowercase continuation within six seconds,
+without crossing a completed sentence, speaker label or source reset. This
+explicit heuristic can join unrelated fragments; it can be disabled. The observed
+Q3 invented continuation was absent in the corrected end-to-end replay. This
+is not a guarantee against other hallucinations. This is not a substitute for authored subtitles.
 
 ## Local test, 2026-11-19
 
@@ -55,3 +59,14 @@ YOUR_APP/ocr` with Python 3.11 x64. This fetches the exact wheels/models listed 
 `--subtitle-trace PATH.jsonl` explicitly enables a local diagnostic text trace.
 It records OCR text, displayed translations, processing times and queue depth.
 It is off by default; traces can contain private dialogue and are not uploaded.
+
+## Translation regression in the final application
+
+The same complete clip was replayed with RapidOCR, CUNI Q3 and NVIDIA VFG 2×.
+The observed unsupported ending disappeared; the subsequent fragment was sent
+with its preceding sentence. A separate static synthetic clip kept its Czech
+caption visible while the English text remained on screen. Delayed-worker tests
+also verified readable captions after blank OCR and rejection after source reset.
+These are functional checks, not a new full translation-quality or performance
+benchmark. Q3 still produced awkward grammar and occasional wrong speaker gender.
+Q5 was downloaded and SHA-256 verified only; no Q5 inference was run.

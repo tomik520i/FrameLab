@@ -15,8 +15,8 @@ def inline(text):
                'subtitle-model-guide.md':'subtitles-en.html','subtitle-model-guide.cs.md':'subtitles.html'}
         if url in local:url=local[url]
         elif not url.startswith(('https://','http://','#')):
-            if url in ['NR-LICENSING-STATUS.txt','subtitle-models.json','translation-components.json']:url='docs/'+url
-            url='https://github.com/tomik520i/FrameLab/blob/v0.2.0-preview.13/'+url
+            if url in ['NR-LICENSING-STATUS.txt','subtitle-models.json','translation-components.json','ocr-components.json','subtitle-ocr.md','build-preview14.md']:url='docs/'+url
+            url='https://github.com/tomik520i/FrameLab/blob/v0.2.0-preview.14/'+url
         return '<a href="'+html.escape(url,quote=True)+'">'+m[1]+'</a>'
     text=re.sub(r'\[([^\]]+)\]\(([^)]+)\)',link,text)
     text=re.sub(r'`([^`]+)`',r'<code>\1</code>',text)
@@ -67,6 +67,6 @@ def main():
             shots=''.join(figure(key,lang,'-text') for key in shot_map.get(i,[]))
             content+='<section class="illustrated-section"><div class="step-copy">'+section+'</div><aside class="shots">'+shots+'</aside></section>' if shots else '<section class="text-only">'+section+'</section>'
         cs,en=('enhancer.html','enhancer-en.html') if name.startswith('enhancer') else ('subtitles.html','subtitles-en.html') if name.startswith('subtitles') else ('index.html','en.html')
-        (target/name).write_text('<!doctype html><html lang="'+lang+'"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>FrameLab preview.13 — installation / instalace</title><link rel="stylesheet" href="assets/visual.css"></head><body><main><nav><a href="../#download">← FrameLab</a> · <a href="'+cs+'">Česky</a> · <a href="'+en+'">English</a></nav>'+content+'</main>'+lightbox(lang)+'</body></html>',encoding='utf-8')
+        (target/name).write_text('<!doctype html><html lang="'+lang+'"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>FrameLab preview.14 — installation / instalace</title><link rel="stylesheet" href="assets/visual.css"></head><body><main><nav><a href="../#download">← FrameLab</a> · <a href="'+cs+'">Česky</a> · <a href="'+en+'">English</a></nav>'+content+'</main>'+lightbox(lang)+'</body></html>',encoding='utf-8')
 
 if __name__=='__main__':main()

@@ -1,5 +1,6 @@
 #include "SubtitleTranslator.hpp"
 #include "SubtitleState.hpp"
+#include "SubtitleSentence.hpp"
 #include <Windows.h>
 #include <winrt/Windows.Foundation.h>
 #include <winrt/Windows.Globalization.h>
@@ -34,7 +35,7 @@ struct TranslationProcess {
   errors.value=CreateFileW((app/L"logs"/(ocr?L"ocr-worker.log":L"translation-worker.log")).c_str(),GENERIC_WRITE,FILE_SHARE_READ,&sa,CREATE_ALWAYS,FILE_ATTRIBUTE_NORMAL,nullptr);
   STARTUPINFOW si{sizeof(si)};si.dwFlags=STARTF_USESTDHANDLES|STARTF_USESHOWWINDOW;si.wShowWindow=SW_HIDE;si.hStdInput=childInput;si.hStdOutput=childOutput;si.hStdError=errors;
   PROCESS_INFORMATION pi{};std::wstring command=L"\""+python.wstring()+L"\" -I \""+script.wstring()+L"\" ";
-  command+=ocr?L"--mapping \""+mapping+L"\"":L"--model \""+(base/L"model").wstring()+L"\" --backend "+(model==1?L"cuni-q3km":model==2?L"cuni-q8":L"cpu");
+  command+=ocr?L"--mapping \""+mapping+L"\"":L"--model \""+(base/L"model").wstring()+L"\" --backend "+(model==1?L"cuni-q3km":model==2?L"cuni-q8":model==3?L"cuni-q5km":L"cpu");
   job.value=CreateJobObjectW(nullptr,nullptr);JOBOBJECT_EXTENDED_LIMIT_INFORMATION limits{};limits.BasicLimitInformation.LimitFlags=JOB_OBJECT_LIMIT_KILL_ON_JOB_CLOSE;
   if(!job||!SetInformationJobObject(job,JobObjectExtendedLimitInformation,&limits,sizeof(limits)))throw std::runtime_error("Subtitle process isolation failed");
   if(!CreateProcessW(python.c_str(),command.data(),nullptr,nullptr,TRUE,CREATE_NO_WINDOW|CREATE_SUSPENDED,nullptr,base.c_str(),&si,&pi))throw std::runtime_error("Local translation process failed to start");
@@ -78,24 +79,24 @@ struct OcrProcess:TranslationProcess {
 struct SubtitleTranslator::Impl {
  struct Job{std::vector<unsigned char> pixels;unsigned w=0,h=0;double time=0;uint64_t generation=0;int engine=0;};
  struct TextJob{std::string source;uint64_t generation=0;float ocrMs=0;double time=0;};
- struct Caption{std::string source,translated;float ms=0;double time=0;};
+ struct Caption{std::string source,translated;float ms=0;double time=0;std::string observedSource;};
  std::filesystem::path app;mutable std::mutex mutex;std::condition_variable wake,translateWake;std::atomic<bool> stop=false;
  std::atomic<uint64_t> modelEpoch=1;
  std::atomic<uint64_t> ocrEpoch=1;
  std::atomic<int> activeModel=-1;
  SubtitleSettings settings;SubtitleSnapshot result;Job pending;std::deque<TextJob> texts;std::deque<Caption> captions;
  bool available=false,loading=false;uint64_t generation=1;double lastSubmitted=0;
- std::string modelError,ocrError;std::thread worker,translator;
+ std::string modelError,ocrError,displayReading;std::thread worker,translator;
  explicit Impl(std::filesystem::path p):app(std::move(p)),worker([this]{runOcr();}),translator([this]{runTranslation();}){}
  ~Impl(){stop=true;wake.notify_all();translateWake.notify_all();worker.join();translator.join();}
- void clearLocked(){++generation;pending={};texts.clear();captions.clear();available=false;lastSubmitted=0;result={};result.generation=generation;ocrError.clear();}
+ void clearLocked(){++generation;pending={};texts.clear();captions.clear();available=false;lastSubmitted=0;result={};result.generation=generation;ocrError.clear();displayReading.clear();}
  void displayLocked(double now,bool paused){
   // Never build an unlimited delay: retain at most three pending lines and
   // expire work older than six seconds. Source/seek/model resets still flush all.
   while(!captions.empty()&&now-captions.front().time>6)captions.pop_front();
   if(!captions.empty()&&(result.translated.empty()||(!paused&&now-result.displayedAt>=settings.holdSeconds))){
    auto caption=std::move(captions.front());captions.pop_front();
-   result.displaySource=std::move(caption.source);result.translated=std::move(caption.translated);result.milliseconds=caption.ms;result.displayedAt=now;
+   result.displaySource=std::move(caption.source);result.translated=std::move(caption.translated);result.milliseconds=caption.ms;result.displayedAt=now;displayReading=std::move(caption.observedSource);
    size_t letters=0;for(unsigned char c:result.translated)if((c&0xc0)!=0x80)++letters;
    result.expiresAt=now+std::max(double(settings.lingerSeconds),std::min(7.5,letters/25.0));
   }
@@ -126,7 +127,9 @@ struct SubtitleTranslator::Impl {
     std::lock_guard lock(mutex);if(generation!=job.generation)continue;
     result.source=source;result.observedAt=job.time;result.generation=job.generation;
     result.ocrMilliseconds=float((clockSeconds()-started)*1000);result.confidence=confidence;
-    if(!source.empty()&&SubtitleState::equivalent(source,result.displaySource))result.expiresAt=std::max(result.expiresAt,clockSeconds()+.5);
+    // Keep a caption while its source remains visible. The current OCR reading
+    // is only the final fragment of a joined sentence, not its full displaySource.
+    if(!source.empty()&&SubtitleState::equivalent(source,displayReading))result.expiresAt=std::max(result.expiresAt,clockSeconds()+std::max(1.0,2*settings.intervalMs/1000.));
     if(!loading&&modelError.empty())result.status=source.empty()?"Waiting for English subtitles":translate?"Subtitle queued for translation":"Reading English subtitles";
     if(translate){if(texts.size()>=3)texts.pop_front();texts.push_back({state.committed,generation,result.ocrMilliseconds,job.time});translateWake.notify_one();}
    }catch(const winrt::hresult_error& e){neural.reset();std::lock_guard lock(mutex);if(generation==job.generation)ocrError="OCR: "+winrt::to_string(e.message());failedGeneration=job.generation;}
@@ -136,7 +139,7 @@ struct SubtitleTranslator::Impl {
  }
  void runTranslation(){
   std::unique_ptr<TranslationProcess> process;uint64_t seenEpoch=0,failedEpoch=0;int loadedModel=-1;
-  std::unordered_map<std::string,std::string> cache;std::deque<std::string> order;
+  std::unordered_map<std::string,std::string> cache;std::deque<std::string> order;SubtitleSentence sentences;
   while(!stop){
    TextJob text;SubtitleSettings selected;uint64_t epoch;
    {std::unique_lock lock(mutex);translateWake.wait(lock,[&]{return stop||modelEpoch!=seenEpoch||!texts.empty();});if(stop)break;epoch=modelEpoch;seenEpoch=epoch;selected=settings;if(!texts.empty()){text=std::move(texts.front());texts.pop_front();}}
@@ -145,7 +148,7 @@ struct SubtitleTranslator::Impl {
    const auto cancelled=[&]{return stop||modelEpoch!=epoch;};
    try{
     if(!process||loadedModel!=selected.model){
-     process.reset();activeModel=-1;cache.clear();order.clear();
+     process.reset();activeModel=-1;cache.clear();order.clear();sentences.clear();
      {std::lock_guard lock(mutex);loading=true;modelError.clear();result.status="Loading and warming local translation model...";}
      process=std::make_unique<TranslationProcess>();process->launch(app,selected.model);
      const auto ready=process->receive(cancelled,120);if(ready!="READY")throw std::runtime_error(ready);
@@ -155,15 +158,16 @@ struct SubtitleTranslator::Impl {
     }
     if(text.source.empty())continue;
     {std::lock_guard lock(mutex);if(text.generation!=generation||clockSeconds()-text.time>6)continue;}
+    const auto input=sentences.prepare(text.source,text.time,text.generation,selected.joinFragments);
     const auto start=clockSeconds();std::string translated;
-    if(auto found=cache.find(text.source);found!=cache.end())translated=found->second;
+    if(auto found=cache.find(input.request);found!=cache.end())translated=found->second;
     else{
-     translated=process->translate(text.source,cancelled);
+     translated=process->translate(input.request,cancelled);
      if(cache.size()>=128){cache.erase(order.front());order.pop_front();}
-     cache[text.source]=translated;order.push_back(text.source);
+     cache[input.request]=translated;order.push_back(input.request);
     }
     // Continue OCR and translation while the previous Czech caption is readable.
-    {std::lock_guard lock(mutex);if(text.generation==generation&&modelEpoch==epoch&&clockSeconds()-text.time<=6){if(captions.size()>=3)captions.pop_front();captions.push_back({text.source,std::move(translated),text.ocrMs+float((clockSeconds()-start)*1000),text.time});result.status="Local OCR + EN > CS ready";}}
+    {std::lock_guard lock(mutex);if(text.generation==generation&&modelEpoch==epoch&&clockSeconds()-text.time<=6){if(captions.size()>=3)captions.pop_front();captions.push_back({input.source,std::move(translated),text.ocrMs+float((clockSeconds()-start)*1000),text.time,text.source});result.status=input.joined?"Translated sentence continuation":"Local OCR + EN > CS ready";}}
    }catch(const std::exception& e){process.reset();loadedModel=-1;activeModel=-1;std::lock_guard lock(mutex);loading=false;if(modelEpoch==epoch&&!stop){failedEpoch=epoch;modelError=e.what();result.status=modelError;result.translated.clear();}}
   }
  }
@@ -174,7 +178,7 @@ void SubtitleTranslator::configure(SubtitleSettings settings){
  settings.sanitize();std::lock_guard lock(impl->mutex);const auto& previous=impl->settings;
  const bool modelChanged=settings.enabled!=previous.enabled||settings.model!=previous.model||!impl->modelError.empty();
  const bool ocrChanged=settings.enabled!=previous.enabled||settings.ocrEngine!=previous.ocrEngine||!impl->ocrError.empty();
- const bool sourceChanged=modelChanged||ocrChanged||settings.left!=previous.left||settings.top!=previous.top||settings.right!=previous.right||settings.bottom!=previous.bottom||settings.intervalMs!=previous.intervalMs;
+ const bool sourceChanged=modelChanged||ocrChanged||settings.joinFragments!=previous.joinFragments||settings.left!=previous.left||settings.top!=previous.top||settings.right!=previous.right||settings.bottom!=previous.bottom||settings.intervalMs!=previous.intervalMs;
  if(modelChanged){++impl->modelEpoch;impl->modelError.clear();}if(ocrChanged)++impl->ocrEpoch;
  impl->settings=settings;if(sourceChanged)impl->clearLocked();impl->translateWake.notify_one();impl->wake.notify_one();
 }

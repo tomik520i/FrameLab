@@ -1,131 +1,54 @@
-# GPU subtitle models and overlay placement
+# Subtitle models, reading time and placement
 
 [Český návod](subtitle-model-guide.cs.md)
 
-FrameLab reads **English subtitles already visible in the input image**, translates
-them locally and draws Czech after frame generation and enhancement. Audio is not
-used. A better translator cannot repair text missed by OCR.
+FrameLab reads English subtitles already visible in a capture or local video, translates them locally and draws Czech after FG and NR. It does not transcribe audio or render SRT/embedded subtitle tracks.
 
-## Start
+## Start with bundled OCR
 
-1. Open **Subtitles**. If English OCR is missing, press **Install English OCR**
-   and approve the Windows administrator prompt. Then select a model and enable translation.
-2. Enable **Show reading area** and crop tightly around the English subtitle band.
-   Exclude chat, minimaps and objectives. Two matching OCR readings are required.
-3. Set the size and placement of the **Czech overlay** independently of the reading
-   area. Press F11 for the finished image without editing controls.
+1. Open **Subtitles** and select **RapidOCR / PP-OCRv5 English**. The complete ZIP contains the OCR runtime, detector and recognizer. No Windows language pack, administrator approval or extra download is required.
+2. Select **OPUS-MT / CPU** (included), enable translation and **Show reading area**. Crop tightly around the English subtitle band, excluding chat and HUD. Use the artificial subtitle demo under Capture to check setup.
+3. Choose the independent Czech text position. F11 shows the final image without editing controls. A local video waits for model warmup; pressing Play overrides that pause. External capture cannot be paused.
 
-Windows must have the **English OCR** language capability. FrameLab detects it
-automatically and offers a one-click install directly from Microsoft. Installation
-requires Internet and administrator approval, can take several minutes, and does
-not change your Windows display language. The app checks readiness again afterward;
-enable translation when it reports ready. If Windows requires a restart, the app
-explains that. Cancelling UAC is harmless and allows retry. Windows language settings
-remain a manual fallback. Recognition subsequently works offline. The complete ZIP
-already includes the CPU translation model.
+RapidOCR uses two CPU threads, a PP-OCRv4 detector and PP-OCRv5 English recognizer. **Windows OCR** remains selectable as a lighter fallback. Only that option needs the English Windows OCR capability; if absent, **Install English OCR** offers the Microsoft download with UAC approval. It does not change the Windows display language.
 
-## Choose a model
+## Choose a translation model
 
-| Model | Download | Intended tradeoff |
-|---|---:|---|
-| OPUS-MT / CPU | Included | Two CPU threads; leaves GPU memory for image processing. |
-| CUNI-MH 7B Q3_K_M | 3.52 GB | Smaller GPU model specialized for English to Czech. |
-| CUNI-MH 7B Q8_0 | 7.70 GB | Higher weight precision, substantially greater memory use. |
+| Model | Download | Status |
+| --- | ---: | --- |
+| OPUS-MT / CPU | Included | Two CPU threads, no GPU model download. |
+| CUNI-MH 7B Q3_K_M | 3.52 GB | Tested on the desktop RTX 5070 Ti. |
+| CUNI-MH 7B Q5_K_M | 5.13 GB | Download/hash verified only. Inference, quality and speed untested. |
+| CUNI-MH 7B Q8_0 | 7.70 GB | Tested; larger memory footprint. |
 
-For a GPU model, press **Download / resume and verify**. The first download also
-fetches the **1.62 GB portable Ollama runtime** from its official release. Allow
-roughly 8 GB additional disk space for its archive and extraction. Downloads are
-streamed, can be paused/resumed and must pass pinned SHA-256 checks before use.
-No Ollama system installation, account, API key or service is required.
+Select a GPU model and press **Download / resume and verify**. First use also downloads the 1.62 GB portable Ollama runtime; allow about 8 GB additional disk space for runtime storage/extraction. No system Ollama installation, account or API key is required. Downloaded files must match pinned SHA-256 hashes.
 
-The catalog is [subtitle-models.json](subtitle-models.json). Files go into
-`app/translation/models` and `app/translation/gpu-runtime` beside the portable app.
-On NTFS the inference cache uses a hardlink instead of a second model copy; other
-filesystems may need another 3.52 or 7.70 GB. Keep the whole application folder
-together when moving it. GPU models are optional downloads, not in the release ZIP.
+Files stay in `app/translation/models` and `app/translation/gpu-runtime`. NTFS uses a hardlink for the inference cache; other filesystems can need another full model copy. Keep the entire app folder together. GPU weights are optional downloads, not included in the release ZIP. [Exact catalog and sources](subtitle-models.json).
 
-Free VRAM is measured while your current effects are running. It includes the
-impact of other applications, capture resolution, frame generation and enhancement.
-Estimates include a margin; they are not a promise based on a GPU name. If capacity
-is insufficient, choose Q3 or CPU, lower enhancer resolution, or close another GPU
-application. Loading checks available physical memory and verifies complete GPU
-offload. A partial CPU fallback is an error, not accepted silently. Multi-GPU
-selection is not currently exposed; testing uses one NVIDIA GPU.
+Free VRAM is checked while other effects are running. Estimates (Q3 4.4 GiB, Q5 6.0 GiB, Q8 8.5 GiB, plus headroom) are not hardware guarantees. Partial CPU offload is rejected explicitly. Reduce effects or choose CPU if capacity is insufficient. Higher weight precision does not guarantee a better sentence.
 
-Q8 is not guaranteed to translate every sentence better than Q3. Compare quality
-separately from speed and memory. Earlier notebook reports labelled **Hy-MT2 Q8**
-refer to a different 1.8B model, not CUNI-MH 7B Q8.
+The existing 300-sentence **preview.12 baseline** measured Q3 median 212 ms versus Q8 360 ms alongside VFG 2×, NR 65% / 720p and the former OCR path. Those are exact-text request times, not full subtitle delay, and not a preview.14/Q5 benchmark. Both models were judged acceptable on 271/300 translations in the text preflight; judgments were not a blinded human study. [All measurements and translations](https://opicebot.cz/framelab/translation/).
 
-On the fixed 300-sentence desktop text-only comparison, both CUNI variants scored
-271/300 acceptable translations. Q3 had two major errors and Q8 five; 175 outputs
-were identical. These are assistant judgments, not a blinded human study. This
-preflight does not establish performance alongside OCR, frame generation or NR.
+## Place the Czech text
 
-On the RTX 5070 Ti with VFG 2×, NR 65% / 720p and the CPU OCR path active, Q3 had a **212 ms** median and Q8 **360 ms**. This is exact-text request time, not full subtitle delay. [Complete measurements and all 300 pairs](https://opicebot.cz/framelab/translation/).
+- **Custom position:** set anchors or enable **Drag Czech overlay in preview**. Text and its background move together, independently of the OCR area.
+- **Above original / Below original:** anchor to the OCR rectangle plus your chosen gap.
+- **When space runs out:** switch to the opposite side or clamp inside the visible image. This can overlap the original; very tall text shrinks to fit.
 
-## Place Czech text and its background
+Multiline text stays within the visible viewport at 4K, portrait, fullscreen, Fill/crop and 1:1. Font size, background opacity and **Cover original subtitle area** are independent. Fullscreen hides OCR outlines and editing handles; Escape/F11 returns to settings.
 
-- **Custom position:** choose horizontal/vertical position and anchoring, or enable
-  **Drag Czech overlay in preview** and drag text and its black box together.
-  Dragging switches to Custom without changing the OCR area.
-- **Below original / Above original:** uses the corresponding edge of the OCR
-  rectangle plus your selected gap. Keep that rectangle tight.
-- **When space runs out:** explicitly choose the opposite side or clamp inside the
-  image. If neither side fits, clamping keeps text visible but can overlap English.
-  The editing preview explains any adjusted placement.
+## Timing and split sentences
 
-Coordinates and the gap are relative to the image, so placement survives resizing,
-resolution changes and fullscreen. Multiline text and padding stay within the
-visible viewport, including Fill/crop and 1:1 views whose source image extends past
-the window; unusually tall text shrinks to fit. Font size and background opacity are
-separate settings. **Cover original subtitle area** is a separate black rectangle
-over the OCR band; leave it off to keep English visible.
+**Minimum on screen** defaults to 1.2 seconds; **Keep while waiting** defaults to 3 seconds. The clock starts when Czech appears, including delayed translations. Long text gets up to 7.5 seconds; a ready next caption can replace it after the minimum. OCR and translation continue on separate threads. Blank input does not immediately erase a displayed caption. Pausing local playback keeps it visible.
 
-Fullscreen shows only the final image and active subtitles. Editing handles, OCR
-outlines, labels and comparison dividers are hidden. Escape/F11 returns to settings.
+**Join split sentences** defaults on. An unfinished sentence is marked with an ellipsis for translation. A following lowercase fragment within six seconds can be translated again together with it. Completed sentences, new speaker labels, source changes and seeking block the join. Turn this off if separate dialogue is joined incorrectly; the ellipsis still marks incomplete input. This fixes the observed Q3 invented tail in the local test, not all possible hallucinations or grammar errors.
 
-## Latency, cancellation and privacy
+There are at most three pending text requests and three completed captions. Work more than six seconds behind is discarded; fast dialogue can still be missed. Case, whitespace and ordinary punctuation jitter do not retrigger translation. Seeking, changing source/ROI/model or disabling translation clears old work. Disabling unloads the owned model process. [OCR comparison and limitations](subtitle-ocr.md).
 
-OCR and translation use separate background threads. Sampling defaults to 300 ms
-and requires two stable readings. Only the latest pending image/text is retained.
-Changed or blank OCR clears the previous caption; completed translations for older
-lines are discarded. A bounded 128-line cache avoids repeating translation. Source
-resets clear pending captions; disabling translation unloads the model and its
-owned processes. Model loading/warmup does not run on the rendering thread.
+## Offline operation and developer provenance
 
-The CPU worker uses private stdin/stdout IPC. The GPU worker starts an owned Ollama
-process bound only to `127.0.0.1`, with cloud access disabled and one model/request
-at a time. Text inference stays on this PC. Downloads contact the publishers; they
-do not send captured images or subtitle text. Worker errors are under `app/logs`.
+The CPU worker uses private pipes; CUNI starts an owned Ollama process bound to `127.0.0.1`, with cloud access disabled and one model/request at a time. Publisher downloads do not send subtitle text or images. After setup, recognition and translation work offline. Optional `--subtitle-trace PATH.jsonl` records private local diagnostic text; it is off by default. RAW/FG analysis recordings omit the Czech overlay, NR and audio.
 
-Tiny, moving, stylized and short-lived text can still be missed. OCR errors,
-stabilization and inference add delay. Frozen previews retain the caption visible
-at freeze time. RAW/FG analytical recordings omit the subtitle overlay and NR;
-those files remain diagnostics of the input/frame-generation stages.
+OPUS-MT en-cs opus-2019-12-18 is CC BY 4.0, converted to CTranslate2 int8 without retraining. CUNI-MH is the CUNI team's English-to-Czech Mistral 7B fine-tune; the original card identifies MIT licensing. Richard Erkhov supplies pinned GGUF quantizations. The catalog preserves publisher links and hashes. CUNI uses the original Instruction / Glossary / Previous text / Input / Response template, empty glossary/history, temperature 0, newline stop, 2048-token context and a 256-token limit. Joined fragments are sent together in Input.
 
-## Provenance and developer checks
-
-The bundled CPU model is Helsinki-NLP / OPUS-MT `en-cs/opus-2019-12-18.zip`, licensed
-**CC BY 4.0** in that exact archive. It was converted to CTranslate2 4.9.0 int8
-without retraining. SentencePiece files, attribution and license are retained.
-[translation-components.json](translation-components.json) pins its inputs.
-
-CUNI-MH is Mistral 7B fine-tuned for English to Czech by the CUNI WMT team. The
-archived original model card identifies MIT licensing; Richard Erkhov supplies
-the pinned GGUF quantizations. Downloads use existing publisher repositories;
-FrameLab does not mirror or relabel weights. The catalog links exact revisions,
-hashes and the official runtime license. The CUNI prompt follows the original
-Instruction / Glossary / Previous text / Input / Response format with empty history
-and glossary, temperature 0, newline stop, 2048-token context and a 256-token limit.
-
-`python tools/prepare_translation.py` prepares portable components for developers.
-Release packaging copies current workers and the catalog into the app.
-`tests/subtitle_models.py` checks interrupted/resumed downloads, integrity rejection
-and unsafe archive paths, runtime repair and stale readiness without downloading
-real models. Native tests cover
-layout/persistence, actual Windows OCR + CPU translation, and asynchronous model
-cancellation/loading/unloading. GPU and actual OCR tests require their runtime/model
-or Windows capability and are run separately from CTest.
-
-The optional NR adapter is enabled in the default build; external model DLLs are
-not bundled. `FRAMELAB_EXPERIMENTAL_NR=OFF` excludes the adapter entirely.
+Developers use `tools/prepare_translation.py` and `tools/prepare_ocr.py`; end users need neither. See [build instructions](build-preview14.md), [OCR components](ocr-components.json) and [translation components](translation-components.json). Tests cover settings migration, viewport bounds, fragment boundaries, real neural OCR/CPU translation, delayed captions and source reset. Q5 is intentionally not inference-tested for this release.

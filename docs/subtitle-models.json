@@ -22,6 +22,16 @@
       "sha256": "461b6c6e20b0fd5162fc916878b680590b8ee10799fd83c1eae6e7ab87d0f18c",
       "estimated_vram_gib": 8.5,
       "url": "https://huggingface.co/RichardErkhov/wmt24-cuni_-_CUNI-MH-gguf/resolve/ebc7f2c321087d423cbed4079b80e63d89e4ac8c/CUNI-MH.Q8_0.gguf"
+    },
+    {
+      "id": "cuni-q5km",
+      "name": "CUNI-MH 7B Q5_K_M",
+      "file": "CUNI-MH.Q5_K_M.gguf",
+      "bytes": 5131409728,
+      "sha256": "d96594cb51af67f6eaea0bb0bff2bc356375f3e10a8bb2d30af17644d6f86084",
+      "estimated_vram_gib": 6.0,
+      "url": "https://huggingface.co/RichardErkhov/wmt24-cuni_-_CUNI-MH-gguf/resolve/ebc7f2c321087d423cbed4079b80e63d89e4ac8c/CUNI-MH.Q5_K_M.gguf",
+      "validation": "Downloaded and hash-verified only; no inference or performance benchmark."
     }
   ],
   "runtime": {

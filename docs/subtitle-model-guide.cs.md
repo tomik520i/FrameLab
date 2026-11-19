@@ -1,125 +1,54 @@
-# Lokální překlad titulků a umístění českého překryvu
+# Modely titulků, doba čtení a umístění
 
 [English guide](subtitle-model-guide.md)
 
-FrameLab čte **anglické titulky, které už jsou v obraze**, překládá je na tomto PC
-a vykresluje češtinu po generování snímků a enhanceru. Zvuk se nepoužívá. Lepší
-překladový model neopraví text, který OCR nepřečetlo správně.
+FrameLab čte anglické titulky viditelné v obrazu střihovky nebo místního videa, překládá je lokálně a vykresluje češtinu po FG a NR. Nepřepisuje zvuk ani nevykresluje SRT či vložené titulkové stopy.
 
-## Rychlé spuštění
+## Začni přibaleným OCR
 
-1. Otevři **Titulky**. Pokud OCR chybí, stiskni **Doplnit anglické OCR** a potvrď
-   správce ve Windows. Potom vyber model a zapni překlad.
-2. Zapni **Zobrazit oblast čtení** a vymez pruh těsně kolem anglických titulků.
-   Vynech chat, minimapu a úkoly. Překlad čeká na dvě shodná čtení.
-3. Velikost a polohu **českého překryvu** nastav nezávisle na oblasti čtení.
-   F11 zobrazí čistý výsledek bez editačních prvků.
+1. Otevři **Titulky** a vyber **RapidOCR / PP-OCRv5 English**. Kompletní ZIP obsahuje runtime, detektor i rozpoznávací model. Není potřeba jazykový doplněk Windows, správce ani další stažení.
+2. Vyber přibalený **OPUS-MT / CPU**, zapni překlad a **Zobrazit oblast čtení**. Vymez jen pruh anglických titulků bez HUDu a chatu. Nastavení zkontroluj na umělém testu titulků v kartě Vstup.
+3. Český překryv umísti samostatně. F11 ukáže výsledný obraz bez úchytů. Místní video počká na načtení modelu; Přehrát tuto pauzu zruší. Externí vstup zastavit nelze.
 
-Windows musí mít nainstalovanou anglickou součást **OCR**. Aplikace ji automaticky
-ověří a nabídne instalaci jedním tlačítkem přímo od Microsoftu. Potřebuje internet
-a potvrzení správce; může trvat několik minut. Jazyk Windows se tím nemění.
-Po instalaci se dostupnost znovu ověří. Až aplikace ohlásí připravené OCR, zapni
-překlad. Pokud Windows potřebují restart, aplikace na to upozorní. Zrušené UAC
-lze zkusit znovu. Jazykové nastavení Windows zůstává ruční záložní cestou.
-Rozpoznávání pak funguje offline. CPU překladač už je v kompletním ZIPu aplikace.
+RapidOCR používá dvě CPU vlákna, detektor PP-OCRv4 a anglický rozpoznávač PP-OCRv5. **Windows OCR** zůstává lehčí volitelnou zálohou. Jen tento režim potřebuje anglickou OCR součást Windows. Pokud chybí, **Doplnit anglické OCR** nabídne stažení od Microsoftu s potvrzením správce. Jazyk Windows se nemění.
 
-## Který model vybrat
+## Vyber překladový model
 
-| Model | Stažení | Co od něj čekat |
-|---|---:|---|
-| OPUS-MT / CPU | Přibalený | Dvě CPU vlákna, paměť grafiky zůstává pro obraz. |
-| CUNI-MH 7B Q3_K_M | 3,52 GB | Menší GPU model specializovaný na angličtinu do češtiny. |
-| CUNI-MH 7B Q8_0 | 7,70 GB | Přesnější uložení vah, podstatně vyšší nároky na paměť. |
+| Model | Stažení | Stav |
+| --- | ---: | --- |
+| OPUS-MT / CPU | Přibalený | Dvě CPU vlákna, bez GPU downloadu. |
+| CUNI-MH 7B Q3_K_M | 3,52 GB | Otestováno na stolní RTX 5070 Ti. |
+| CUNI-MH 7B Q5_K_M | 5,13 GB | Ověřeno pouze stažení a hash. Běh, kvalita ani rychlost neotestované. |
+| CUNI-MH 7B Q8_0 | 7,70 GB | Otestováno; větší spotřeba paměti. |
 
-U GPU modelu stiskni **Stáhnout / pokračovat a ověřit**. První stažení doplní také
-**přenosný Ollama runtime o velikosti 1,62 GB** z oficiálního vydání. Pro jeho
-archiv a rozbalení nech přibližně 8 GB volného místa navíc. Stahování můžeš
-pozastavit a obnovit. Před použitím se celý soubor ověří pomocí SHA-256.
-Nepotřebuješ účet, API klíč ani systémovou instalaci Ollamy.
+Vyber GPU model a stiskni **Stáhnout / pokračovat a ověřit**. Poprvé se stáhne i přenosný runtime Ollama (1,62 GB); nech přibližně 8 GB navíc na jeho uložení a rozbalení. Ručně neinstaluješ Ollamu, nepotřebuješ účet ani API klíč. Soubory musí projít kontrolou připnutého SHA-256.
 
-[Katalog modelů](subtitle-models.json) obsahuje přesné verze, velikosti, hashe
-a odkazy. Modely jsou v `app/translation/models`, runtime v
-`app/translation/gpu-runtime`. Na NTFS používá inference pevný odkaz na stejný
-soubor; jiný souborový systém může potřebovat další kopii modelu. Při přesouvání
-přenosné aplikace vezmi celou složku. GPU modely jsou volitelné stažení mimo ZIP.
+Modely zůstávají v `app/translation/models`, runtime v `app/translation/gpu-runtime`. NTFS používá pro cache pevný odkaz; jiný souborový systém může potřebovat další kopii modelu. Přenášej celou složku aplikace. GPU váhy nejsou v release ZIPu. [Přesný katalog a zdroje](subtitle-models.json).
 
-Aplikace měří volnou VRAM při současně zapnutých efektech. Do volné kapacity se
-promítá rozlišení, FG, enhancer i další programy. Doporučení je odhad s rezervou,
-nikoli záruka podle názvu grafiky. Při nedostatku paměti zkus Q3 nebo CPU, sniž
-pracovní rozlišení enhanceru nebo ukonči jinou GPU aplikaci. Při načítání se
-kontroluje fyzická volná paměť a úplné umístění modelu na GPU. Částečný přesun na
-CPU skončí vysvětlenou chybou. Výběr z více GPU zatím není v ovládání; testujeme
-s jednou NVIDIA grafikou.
+Volná VRAM se kontroluje při současně běžících efektech. Odhady Q3 4,4 GiB, Q5 6,0 GiB a Q8 8,5 GiB plus rezerva nejsou záruka pro konkrétní kartu. Částečný přesun na CPU se odmítne. Při nedostatku paměti sniž efekty nebo vyber CPU. Větší přesnost vah nezaručuje lepší větu.
 
-**Q8 nemusí překládat každou větu lépe.** V textovém srovnání stejných 300 vět
-na stolním PC dosáhly obě varianty 271 přijatelných překladů. Q3 mělo dvě zásadní
-chyby, Q8 pět; 175 výstupů bylo shodných. Hodnotil asistent, nejde o zaslepenou
-lidskou studii. Tento předběžný textový test neurčuje výkon při souběhu s OCR,
-frame genem a NR. Starší report **Hy-MT2 Q8** se týká jiného modelu o velikosti
-1,8B, nikoli CUNI-MH 7B Q8.
+Dosavadní test 300 vět na **základu preview.12** změřil medián Q3 212 ms a Q8 360 ms při VFG 2×, NR 65 % / 720p a původním OCR. Jde o čas přesného textového požadavku, ne celkové zpoždění titulků ani benchmark preview.14/Q5. Obě varianty měly v textovém předtestu 271/300 přijatelných překladů; hodnocení nebylo zaslepenou lidskou studií. [Všechna měření a překlady](https://opicebot.cz/framelab/translation/?lang=cs).
 
-Na RTX 5070 Ti při současném VFG 2×, NR 65 % / 720p a aktivní CPU OCR cestě měl Q3 medián **212 ms**, Q8 **360 ms**. Jde o dobu překladu přesného textu, ne celé zpoždění titulků. [Kompletní měření a všech 300 párů](https://opicebot.cz/framelab/translation/?lang=cs).
+## Umísti český překryv
 
-## Český text a jeho černé pozadí
+- **Vlastní poloha:** nastav kotvy nebo zapni **Přetahovat český překryv v náhledu**. Text i pozadí se pohybují společně, nezávisle na OCR oblasti.
+- **Nad originál / Pod originál:** navazuje na rámeček OCR a zvolený odstup.
+- **Při nedostatku místa:** přepni na opačnou stranu nebo omez překryv na viditelný obraz. Může zakrýt originál; příliš vysoký text se zmenší.
 
-- **Vlastní poloha:** nastav vodorovnou/svislou polohu a ukotvení, nebo zapni
-  **Přetahovat český překryv v náhledu**. Text a pozadí se posouvají společně.
-  Přetažení přepne na vlastní polohu; oblast OCR se tím nezmění.
-- **Pod originál / Nad originál:** poloha se počítá od příslušného okraje oblasti
-  OCR a zvolené mezery. Oblast proto vymez těsně kolem původních titulků.
-- **Když není místo:** vyber přesun na opačnou stranu, nebo přisunutí k okraji
-  obrazu. Když překryv nevejde ani na jednu stranu, zůstane uvnitř obrazu a může
-  se s angličtinou překrývat. Náhled na tuto úpravu upozorní.
+Více řádků zůstává uvnitř viditelné plochy při 4K, obrazu na výšku, fullscreenu, ořezu i 1:1. Velikost písma, krytí pozadí a **Zakrytí původní oblasti titulků** jsou samostatné. Fullscreen skryje OCR rámeček a úchyty; Escape/F11 vrátí nastavení.
 
-Poloha i mezera jsou uložené vzhledem k obrazu, takže přežijí změnu velikosti
-okna, rozlišení i fullscreen. Počítá se s více řádky a okraji černého pozadí.
-Překryv zůstává uvnitř viditelné části i v režimu vyplnění/ořezu nebo 1:1, kdy
-samotný zdrojový obraz může přesahovat okno.
-Neobvykle dlouhý text se zmenší, aby zůstal viditelný. Velikost písma a krytí
-pozadí mají vlastní nastavení.
+## Časování a rozdělené věty
 
-**Zakryt oblast původních titulků** je samostatný černý obdélník přes oblast OCR.
-Pokud chceš ponechat angličtinu viditelnou, tuto volbu vypni. Černé pozadí českého
-textu funguje nezávisle.
+**Nejméně na obrazovce** má výchozí hodnotu 1,2 s, **Ponechat při čekání** 3 s. Čas běží až od zobrazení češtiny, i když překlad přišel pozdě. Dlouhý text dostane až 7,5 s; další hotový titulek ho může nahradit po minimu. OCR a překlad běží odděleně. Prázdný vstup už zobrazený titulek okamžitě nemaže. Pauza místního videa jej ponechá.
 
-Fullscreen ukazuje jen výsledný obraz a aktivní překlad. Nemá úchyty, obrysy OCR,
-popisky ani porovnávací dělicí čáru. Esc nebo F11 tě vrátí do nastavení.
+**Spojovat rozdělené věty** je výchozí zapnuté. Neúplná věta dostane pro překladač výpustku. Navazující část začínající malým písmenem do šesti sekund se může znovu přeložit společně s ní. Dokončená věta, nový popisek mluvčího, změna zdroje a přetáčení spojení blokují. Pokud se chybně spojí různé repliky, volbu vypni; označení neúplného vstupu výpustkou zůstane. Oprava odstranila pozorované domyšlené pokračování Q3 v místním testu, nezaručuje bezchybný překlad všech vět.
 
-## Odezva, přepínání a soukromí
+Fronta má nejvýše tři čekající texty a tři hotové titulky. Práce opožděná přes šest sekund se zahodí; rychlý dialog se stále může ztratit. Změny velikosti písmen, mezer a běžné interpunkce nespouštějí opakovaný překlad. Přetáčení, změna zdroje/oblasti/modelu nebo vypnutí starou práci vyčistí. Vypnutí uvolní proces modelu. [Srovnání OCR a omezení](subtitle-ocr.md).
 
-OCR a překlad běží v oddělených pracovních vláknech. Výchozí interval čtení je
-300 ms a vyžadují se dvě shodná čtení. Ve frontě zůstává jen nejnovější čekající
-obraz a text. Změna nebo zmizení anglického textu vymaže předchozí překlad;
-opožděný výsledek už neplatné věty se nezobrazí. Cache uchovává nejvýše 128 vět.
-Změna zdroje vyčistí čekající titulky. Vypnutí překladu uvolní model i procesy,
-které pro něj FrameLab spustil. Načítání a zahřátí modelu nezastavuje vykreslování.
+## Offline provoz a původ komponent
 
-CPU překladač komunikuje soukromou rourou. GPU překladač spouští vlastní Ollamu
-pouze na `127.0.0.1`, s vypnutými cloudovými funkcemi, jedním modelem a jedním
-požadavkem současně. Obraz a překládané titulky zůstávají na tomto PC. Při
-stahování se připojuje k vydavatelům modelu/runtime; titulky se jim neposílají.
-Chyby pracovních procesů jsou v `app/logs`.
+CPU používá soukromé roury; CUNI spouští vlastní proces Ollama pouze na `127.0.0.1`, bez cloudu, s jedním modelem a požadavkem. Stahování neposílá obraz ani text titulků. Po přípravě vše funguje offline. Volitelné `--subtitle-trace PATH.jsonl` zapisuje soukromý diagnostický text; výchozí je vypnuté. RAW/FG záznamy neobsahují český překryv, NR ani zvuk.
 
-Malý, pohyblivý, stylizovaný nebo krátce zobrazený text může OCR minout.
-Rozpoznávání, čekání na stabilní text i samotný překlad přidávají zpoždění.
-Zmrazený náhled ponechá překlad platný v okamžiku zmrazení. Analytické RAW/FG
-záznamy nezahrnují český překryv ani NR; zachycují vstup a generování snímků.
+OPUS-MT en-cs opus-2019-12-18 má licenci CC BY 4.0 a je převedený na CTranslate2 int8 bez přetrénování. CUNI-MH je Mistral 7B doladěný týmem CUNI pro EN→CS; původní karta uvádí MIT. GGUF kvantizace poskytuje Richard Erkhov. Katalog zachovává zdroje a hashe. CUNI používá původní šablonu Instruction / Glossary / Previous text / Input / Response, prázdnou historii a slovník, teplotu 0, ukončení novým řádkem, kontext 2048 a limit 256 tokenů. Spojené části jdou společně do Input.
 
-## Původ komponent
-
-Přibalený CPU model je Helsinki-NLP / OPUS-MT `en-cs/opus-2019-12-18.zip`,
-v tomto konkrétním archivu pod licencí **CC BY 4.0**. Byl převeden na
-CTranslate2 4.9.0 int8 bez dalšího trénování. Atribuce, licence i SentencePiece
-soubory zůstávají přibalené. Přesné vstupy obsahuje
-[translation-components.json](translation-components.json).
-
-CUNI-MH je Mistral 7B doladěný týmem CUNI WMT pro překlad do češtiny.
-Archivovaná původní karta modelu uvádí MIT; kvantizace GGUF poskytuje Richard
-Erkhov. Odkazy vedou na existující repozitáře vydavatelů, FrameLab tyto váhy
-nepřejmenovává ani nezrcadlí. Katalog připíná konkrétní revize, hashe a licenci
-oficiálního runtime. Používáme původní formát promptu CUNI s prázdnou historií
-a slovníkem, teplotou 0, kontextem 2048 tokenů a limitem 256 tokenů.
-
-Podrobnosti sestavení a testů jsou v [anglickém návodu](subtitle-model-guide.md).
-Adaptér NR je ve výchozím sestavení zapnutý, externí modelové DLL se do veřejného
-balíku nepřibalují. `FRAMELAB_EXPERIMENTAL_NR=OFF` vynechá i adaptér.
+Vývojář připraví komponenty pomocí `tools/prepare_translation.py` a `tools/prepare_ocr.py`; uživatel hotové aplikace nic z toho nespouští. Viz [sestavení](build-preview14.md), [OCR komponenty](ocr-components.json) a [překladové komponenty](translation-components.json). Testy pokrývají nastavení, okraje obrazu, hranice vět, skutečné neuronové OCR/CPU překlad, opožděné titulky a reset zdroje. Q5 bylo záměrně ponecháno bez testu inference.

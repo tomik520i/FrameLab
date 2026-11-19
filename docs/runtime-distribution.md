@@ -32,7 +32,7 @@ FrameLab's corresponding source ZIP accompanies every binary version. The applic
 
 ## Preview.10 offline OCR translation and samples
 
-The full preview.13 archive also contains Windows-independent model/interpreter files under `app/translation`: Helsinki-NLP OPUS-MT en-cs opus-2019-12-18, converted to CTranslate2 int8 (CC BY 4.0); CTranslate2 4.9.0 (MIT), SentencePiece 0.2.3 (Apache-2.0), NumPy 2.3.5 (BSD and bundled notices), PyYAML 6.0.3 (MIT), and CPython 3.11.9 (PSF). Original notices, model card, attribution, conversion description and publisher hashes are preserved. Windows.Media.Ocr remains an installed Windows feature; no Windows component is redistributed. See [translation provenance](translation-components.json) and [implementation](local-subtitles.md). No STT or network translation is used.
+The full preview.14 archive also contains Windows-independent model/interpreter files under `app/translation`: Helsinki-NLP OPUS-MT en-cs opus-2019-12-18, converted to CTranslate2 int8 (CC BY 4.0); CTranslate2 4.9.0 (MIT), SentencePiece 0.2.3 (Apache-2.0), NumPy 2.3.5 (BSD and bundled notices), PyYAML 6.0.3 (MIT), and CPython 3.11.9 (PSF). Original notices, model card, attribution, conversion description and publisher hashes are preserved. Preview.14 also bundles RapidOCR and its English models as the default OCR engine; see ocr-components.json. Windows.Media.Ocr is an optional installed fallback; no Windows component is redistributed. See [translation provenance](translation-components.json) and [implementation](local-subtitles.md). No STT or network translation is used.
 
 All three sample MP4s are included in `app/samples`. See [sample provenance and content rights](sample-provenance.md). Gameplay is not relicensed as GPL.
 
@@ -40,3 +40,7 @@ External DLSS NR model/runtime DLLs are excluded from the public package. FrameL
 
 
 Preview.13 includes the GPL FrameLab NR adapter and the hash-checking PowerShell import wizard. The adapter contains no NVIDIA NGX static library. External NR model DLLs are not in this package: [guided setup and exact external source](enhancer-install.en.md). External hosting and user import do not establish usage/redistribution rights.
+
+## Preview.14 optional Q5
+
+CUNI-MH Q5_K_M (5,131,409,728 bytes) is a publisher download pinned in subtitle-models.json. Download and SHA-256 verification passed locally. Inference, quality and speed were intentionally not tested. No GGUF model or GPU runtime cache is included in the full ZIP.

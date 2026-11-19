@@ -1,6 +1,6 @@
-# FrameLab preview.13 — instalace a první spuštění
+# FrameLab preview.14 — instalace a první spuštění
 
-**[Stáhnout kompletní FrameLab pro Windows x64](https://github.com/tomik520i/FrameLab/releases/download/v0.2.0-preview.13/FrameLab-0.2.0-preview.13-windows-x64-full.zip)** · [Všechny soubory vydání](https://github.com/tomik520i/FrameLab/releases/tag/v0.2.0-preview.13) · [English](START_HERE.md)
+**[Stáhnout kompletní FrameLab pro Windows x64](https://github.com/tomik520i/FrameLab/releases/download/v0.2.0-preview.14/FrameLab-0.2.0-preview.14-windows-x64-full.zip)** · [Všechny soubory vydání](https://github.com/tomik520i/FrameLab/releases/tag/v0.2.0-preview.14) · [English](START_HERE.md)
 
 ## 1. Stáhnout → rozbalit → spustit
 
@@ -39,15 +39,15 @@ Rozlišení a frekvence jsou z nabídky ovladače. Když ovladač nabízí 4K ne
 
 ## 4. Anglické titulky v obraze → český překryv
 
-1. Otevři **Titulky**. Pokud anglické OCR chybí, stiskni **Doplnit anglické OCR**, potvrď UAC a počkej na připravený stav. Jde o jednorázové stažení od Microsoftu; jazyk Windows se nemění.
-2. Vyber přibalený **OPUS-MT / CPU**, nebo **CUNI-MH Q3_K_M / Q8_0** a stiskni **Stáhnout / pokračovat a ověřit**. První GPU model doplní i vlastní přenosný runtime. Ollamu ručně neinstaluješ a nepotřebuješ účet ani API klíč.
+1. Otevři **Titulky** a ponech **RapidOCR / PP-OCRv5 English**. Neuronové OCR i modely jsou přibalené: nepotřebuješ doplněk Windows ani správce. Windows OCR zůstává volitelnou zálohou.
+2. Vyber přibalený **OPUS-MT / CPU**, nebo **CUNI-MH Q3_K_M / Q5_K_M / Q8_0** a stiskni **Stáhnout / pokračovat a ověřit**. První GPU model doplní i vlastní přenosný runtime. Ollamu ručně neinstaluješ a nepotřebuješ účet ani API klíč.
 3. Zapni překlad a **Zobrazit oblast čtení**. Vymez jen pruh s anglickými titulky; vynech HUD a chat.
 4. Zvol **Pod originál**, **Nad originál** nebo **Vlastní poloha**. Volba **Přetahovat český překryv v náhledu** umožní táhnout text i černé pozadí společně. Oblast OCR se nemění. Více řádků zůstane uvnitř viditelné části obrazu, i při ořezu a ve fullscreenu. Neobvykle dlouhý text se zmenší, aby se vešel.
 5. F11 zobrazí čistý výsledek. Pro kontrolu použij umělou ukázku: „The door is locked.“ → „Dveře jsou zamčené.“.
 
-**[Celý návod: modely, stahování a umístění titulků](docs/subtitle-model-guide.cs.md)**. Q3 stahuje 3,52 GB, Q8 7,70 GB. První GPU model potřebuje také runtime archiv 1,62 GB a přibližně 8 GB místa navíc na runtime a rozbalení. Volná VRAM se kontroluje při současně zapnutých efektech. Model se načítá na pozadí; částečný přesun výpočtu na CPU se tiše nepovolí. CPU překladač funguje bez stahování GPU modelů.
+**[Celý návod: modely, stahování a umístění titulků](docs/subtitle-model-guide.cs.md)**. Q3 stahuje 3,52 GB, Q5 5,13 GB, Q8 7,70 GB. U Q5 je ověřené pouze stažení a hash; běh, kvalita ani rychlost zatím testované nejsou. První GPU model potřebuje také runtime archiv 1,62 GB a přibližně 8 GB místa navíc na runtime a rozbalení. Volná VRAM se kontroluje při současně zapnutých efektech. Model se načítá na pozadí; částečný přesun výpočtu na CPU se tiše nepovolí. CPU překladač funguje bez stahování GPU modelů.
 
-**Čte se obraz, nikoli zvuk. Není tu STT ani cloudový překlad.** OCR potřebuje dvě shodná čtení. Po stažení komponent funguje vše offline. Malý, stylizovaný či krátce zobrazený text se může přečíst špatně; lepší model neopraví chyby OCR. Změna nebo zmizení původního textu vyčistí český titulek a opožděný výsledek se už nezobrazí.
+**Čte se obraz, nikoli zvuk. Není tu STT ani cloudový překlad.** OCR přijímá velmi jisté nebo opakované stabilní čtení. Čeština zůstává viditelná, zatímco se překládá další věta. **Nejméně na obrazovce** (1,2 s) a **Ponechat při čekání** (3 s) běží až od zobrazení; delší text dostane víc času. Přetáčení nebo změna zdroje staré titulky vyčistí. **Spojovat rozdělené věty** přidá k nedokončené větě blízké pokračování malým písmenem; při chybném spojení replik volbu vypni. OCR i překlad se mohou mýlit. Místní video počká na načtení modelu; Přehrát tuto pauzu zruší.
 
 ## 5. Monitor, okno a klávesy
 
@@ -62,9 +62,9 @@ V **Zobrazení** vyber monitor, dostupnou velikost okna a režim **vměstnat / v
 
 ## 6. Co ZIP obsahuje a co není součástí
 
-Přibalené jsou aplikace, oficiální NVIDIA VFG runtime, potřebné Microsoft runtime DLL, dvě herní ukázky, umělý OCR test, překladový model a jeho Python, exportér s FFmpeg, návody a původní licence. Velké závislosti jsou v release ZIPu, nikoli v historii Git repozitáře.
+Přibalené jsou aplikace, oficiální NVIDIA VFG runtime, potřebné Microsoft runtime DLL, dvě herní ukázky, umělý OCR test, neuronové OCR, překladový model a jeho Python, exportér s FFmpeg, návody a původní licence. Velké závislosti jsou v release ZIPu, nikoli v historii Git repozitáře.
 
-**Chceš také enhancer? [Dva downloady a průvodce: kompletní návod NR](docs/enhancer-install.cs.md).** Preview.13 už obsahuje potřebný adaptér a tlačítko AI / NR. Otevři `4 - Doplnit enhancer.cmd`: nabídne přesný externí odkaz a import staženého ZIPu bez ručního kopírování. Externí Veyra ZIP má dalších 731 MB. NR DLL nejsou v našem balíku; jde o komunitní zdroj s nepotvrzenými právy k použití a distribuci, nikoli oficiální download NVIDIA. Import je určen pro uživatele s příslušným oprávněním. [Původ a podmínky](docs/NR-LICENSING-STATUS.txt).
+**Chceš také enhancer? [Dva downloady a průvodce: kompletní návod NR](docs/enhancer-install.cs.md).** Preview.14 už obsahuje potřebný adaptér a tlačítko AI / NR. Otevři `4 - Doplnit enhancer.cmd`: nabídne přesný externí odkaz a import staženého ZIPu bez ručního kopírování. Externí Veyra ZIP má dalších 731 MB. NR DLL nejsou v našem balíku; jde o komunitní zdroj s nepotvrzenými právy k použití a distribuci, nikoli oficiální download NVIDIA. Import je určen pro uživatele s příslušným oprávněním. [Původ a podmínky](docs/NR-LICENSING-STATUS.txt).
 
 Po doplnění a zapnutí NR je pořadí vstup → zvolený frame gen → enhancer → český překryv → monitor. Bez NR se tento krok vynechá. Další zpracování může přidat latenci nebo snížit výstupní FPS.
 
@@ -77,7 +77,7 @@ Licence a zdroje: [THIRD_PARTY_NOTICES.md](THIRD_PARTY_NOTICES.md), [původ komp
 | Chybějící DLL / model / ukázka | Rozbal znovu celý **full.zip** do nové složky. Nepoužívej automatický GitHub Source code ZIP pro spuštění. |
 | NVIDIA VFG nejde | Ověř RTX 40/50 a ovladač; zkus spouštěč Optical Flow. Podrobnosti jsou v `app/logs`. |
 | Černý živý vstup | Ověř kabel, signál a náhled výrobce karty; zavři další aplikace; zkus automaticky nebo 1080p. |
-| Překlad nic neukazuje | Ověř anglické OCR a rámeček; vyzkoušej umělý OCR test. Text musí být chvíli stabilní. |
+| Překlad nic neukazuje | Vyber přibalené RapidOCR a ověř rámeček; vyzkoušej umělý OCR test. Text musí být chvíli stabilní. |
 | Překlad čte HUD | Zmenši oblast čtení pouze na titulky. |
 | Nízký výkon / duchy | Sniž násobič na 2×, porovnej vypnutý FG, sniž vstupní rozlišení. |
 | Nevidím všechny karty nastavení | Použij šipky vpravo u záložek nebo zvětši okno. |
@@ -89,7 +89,7 @@ Analytické RAW/FG nahrávky neobsahují český překryv ani NR a nenahrávají
 
 Nové vydání rozbal do **nové složky**. Starou kopii ponech, dokud novou nevyzkoušíš. Nastavení není nutné přenášet. Program neinstaluje službu ani ovladač; odinstalace je smazání jeho složky po ukončení aplikace (včetně případných záznamů, které si nejprve ulož jinam).
 
-Pro volitelnou kontrolu ZIPu v PowerShellu spusť `Get-FileHash .\FrameLab-0.2.0-preview.13-windows-x64-full.zip -Algorithm SHA256` a porovnej výsledek se souborem **SHA256SUMS.txt** u vydání. [Sestavení ze zdrojů](docs/build-preview13.md) je samostatná vývojářská cesta.
+Pro volitelnou kontrolu ZIPu v PowerShellu spusť `Get-FileHash .\FrameLab-0.2.0-preview.14-windows-x64-full.zip -Algorithm SHA256` a porovnej výsledek se souborem **SHA256SUMS.txt** u vydání. [Sestavení ze zdrojů](docs/build-preview14.md) je samostatná vývojářská cesta.
 
 ## Vlastní video nebo film
 

@@ -42,7 +42,7 @@ Local subtitle translator (2026-11-19): Windows.Media.Ocr is provided by Windows
 
 Optional CUNI subtitle downloads (preview.13): CUNI-MH is the CUNI WMT team's
 English-to-Czech fine-tuning of Mistral 7B. The archived original model card states
-MIT licensing. Q3_K_M and Q8_0 GGUF files are published by Richard Erkhov in
+MIT licensing. Q3_K_M, Q5_K_M and Q8_0 GGUF files are published by Richard Erkhov in
 `RichardErkhov/wmt24-cuni_-_CUNI-MH-gguf`, pinned to revision
 `ebc7f2c321087d423cbed4079b80e63d89e4ac8c`. The app downloads the original publisher
 files and the official Ollama Windows portable 0.40.16 runtime (MIT project;

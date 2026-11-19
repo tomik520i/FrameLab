@@ -1,9 +1,22 @@
-param([string]$Version = '0.2.0-preview', [string]$OutputDirectory = 'dist', [string]$ApplicationPath = 'app/FrameLab.exe', [switch]$Complete, [string]$SampleDirectory = 'app/samples', [string]$SetupPath = 'app/FrameLab-Setup.exe', [string]$NrHostPath = 'app/nr-host/nvngx.dll', [switch]$Translation, [string]$TranslationDirectory = 'app/translation')
+param([string]$Version = '0.2.0-preview.14', [string]$OutputDirectory = 'dist', [string]$ApplicationPath = 'app/FrameLab.exe', [switch]$Complete, [string]$SampleDirectory = 'app/samples', [string]$SetupPath = 'app/FrameLab-Setup.exe', [string]$NrHostPath = 'app/nr-host/nvngx.dll', [switch]$Translation, [string]$TranslationDirectory = 'app/translation', [string]$OcrDirectory = 'app/ocr')
 $ErrorActionPreference = 'Stop'
 $root = Split-Path $PSScriptRoot -Parent
 Set-Location $root
 if (-not (Test-Path -LiteralPath $ApplicationPath)) { throw 'Build FrameLab first' }
-if ($Complete -and -not $Translation) { throw 'A complete preview.12 package must include translation: add -Translation' }
+if ($Complete -and -not $Translation) { throw 'A complete package must include translation: add -Translation' }
+if ($Complete -and -not (Test-Path -LiteralPath (Join-Path $OcrDirectory 'provenance.json'))) { throw 'Prepare bundled neural OCR with tools/prepare_ocr.py first' }
+function Copy-PublicComponent([string]$Source, [string]$Destination) {
+ $componentRoot = (Resolve-Path -LiteralPath $Source).Path
+ foreach ($item in (Get-ChildItem -LiteralPath $componentRoot -Recurse -File)) {
+  $relative = [IO.Path]::GetRelativePath($componentRoot, $item.FullName)
+  if ($relative -match '(^|[\\/])(__pycache__|logs|models-cache|gpu-runtime|downloads|ollama-models)([\\/]|$)' -or $item.Extension -in '.pyc','.gguf','.part' -or $item.Name -match '(settings|status|progress|verified)\.json$') { continue }
+  # Only the prepared CPU model directory is public; optional GPU downloads are not.
+  if ($Source -eq $TranslationDirectory -and $relative -match '^models[\\/]') { continue }
+  $destinationFile = Join-Path $Destination $relative
+  New-Item -ItemType Directory -Path (Split-Path $destinationFile -Parent) -Force | Out-Null
+  Copy-Item -LiteralPath $item.FullName -Destination $destinationFile
+ }
+}
 foreach ($sample in 'action.mp4','combat.mp4','ocr-demo.mp4','action.source.json','combat.source.json','ocr-demo.source.json') {
  if (-not (Test-Path -LiteralPath (Join-Path $SampleDirectory $sample))) { throw "Both sample videos and provenance must be bundled: missing $sample in $SampleDirectory" }
 }
@@ -27,13 +40,26 @@ Copy-Item 'tools/Install-Enhancer.ps1' "$stage/tools/"
 Copy-Item '4 - Doplnit enhancer.cmd' $stage
 New-Item -ItemType Directory -Path "$stage/app/samples" -Force | Out-Null
 foreach ($sample in 'action.mp4','combat.mp4','ocr-demo.mp4','action.source.json','combat.source.json','ocr-demo.source.json') { Copy-Item -LiteralPath (Join-Path $SampleDirectory $sample) -Destination "$stage/app/samples/" }
-if ($Translation) { Copy-Item -LiteralPath $TranslationDirectory -Destination "$stage/app/translation" -Recurse }
+if ($Translation) {
+ Copy-PublicComponent $TranslationDirectory "$stage/app/translation"
+ Copy-Item 'tools/translate_worker.py','tools/subtitle_models.py','tools/subtitle_model_manager.py','tools/subtitle_gpu.py' "$stage/app/translation/"
+ Copy-Item 'docs/subtitle-models.json' "$stage/app/translation/"
+}
+if ($Complete) {
+ Copy-PublicComponent $OcrDirectory "$stage/app/ocr"
+ Copy-Item 'tools/ocr_worker.py' "$stage/app/ocr/"
+ $ocrManifest = Get-Content -LiteralPath (Join-Path $OcrDirectory 'provenance.json') -Raw | ConvertFrom-Json
+ foreach ($model in $ocrManifest.models) {
+  if ((Get-FileHash -LiteralPath (Join-Path "$stage/app/ocr/models" $model.name)).Hash.ToLower() -cne $model.sha256) { throw "OCR model hash mismatch: $($model.name)" }
+ }
+}
 Copy-Item 'Start FrameLab.cmd','Start FrameLab - NVIDIA.cmd','Start FrameLab - Optical Flow.cmd','START_HERE.md','README.md','LICENSE','THIRD_PARTY_NOTICES.md' $stage
 Copy-Item 'INSTALL.cs.md','1 - Spustit FrameLab.cmd','2 - NVIDIA RTX 40-50.cmd','3 - Optical Flow.cmd','Ukazka - Spider-Man.cmd','Ukazka - Ceske titulky.cmd' $stage
 Copy-Item 'INSTALL.cs.md' "$stage/ZACNI TADY.txt"
-Set-Content -LiteralPath "$stage/app/language.txt" -Value '1' -NoNewline
+Set-Content -LiteralPath "$stage/app/language.txt" -Value '0' -NoNewline
 Copy-Item 'docs/*.md' "$stage/docs/"
 Copy-Item 'docs/NR-LICENSING-STATUS.txt','docs/translation-components.json','docs/sample-xiph-copyright.txt' "$stage/docs/"
+Copy-Item 'docs/ocr-components.json','docs/subtitle-models.json','docs/PaddleOCR-LICENSE.txt','docs/RapidOCR-LICENSE.txt' "$stage/docs/"
 Copy-Item 'docs/images' "$stage/docs/" -Recurse
 if (Test-Path 'docs/performance') { Copy-Item 'docs/performance' "$stage/docs/" -Recurse }
 Copy-Item 'examples' $stage -Recurse

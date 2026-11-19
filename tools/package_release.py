@@ -36,6 +36,7 @@ def main():
     cache=a.build_cache.read_text(encoding='utf-8')
     assert 'FRAMELAB_EXPERIMENTAL_NR:BOOL=ON' in cache,'Build must include the SDK-free NR adapter'
     assert not list(a.base.rglob('nvngx_dlssnr.dll')) and not (a.base/'app/nr-host').exists()
+    assert not list(a.base.rglob('*.gguf')) and not (a.base/'app/translation/gpu-runtime').exists(),'Use a clean public base without private GPU downloads'
     variant=json.loads((a.base/'build-variant.json').read_text(encoding='utf-8'))
     assert variant['FRAMELAB_EXPERIMENTAL_NR'] is False
     a.output.mkdir(parents=True,exist_ok=True)
@@ -122,7 +123,7 @@ def main():
     for archive in [portable,source]:
         with zipfile.ZipFile(archive) as z:
             assert z.testzip() is None
-            assert not any(x.lower().endswith('nvngx_dlssnr.dll') for x in z.namelist())
+            assert not any(x.lower().endswith(('nvngx_dlssnr.dll','.gguf')) for x in z.namelist())
         records.append({'name':archive.name,'bytes':archive.stat().st_size,'sha256':digest(archive)})
     (a.output/'SHA256SUMS.txt').write_text(''.join(x['sha256']+'  '+x['name']+'\n' for x in records),encoding='ascii')
     (a.output/'release-provenance.json').write_text(json.dumps({**metadata,'archives':records},indent=2),encoding='utf-8')
