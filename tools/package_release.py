@@ -26,8 +26,9 @@ def main():
     p.add_argument('--build-cache',type=Path,required=True)
     p.add_argument('--nr-host',type=Path,required=True)
     p.add_argument('--setup',type=Path,required=True)
+    p.add_argument('--ocr',type=Path,required=True,help='Verified output of prepare_ocr.py')
     p.add_argument('--output',type=Path,required=True)
-    p.add_argument('--version',default='0.2.0-preview.13')
+    p.add_argument('--version',default='0.2.0-preview.14')
     p.add_argument('--commit',required=True)
     a=p.parse_args()
     commit=subprocess.check_output(['git','rev-parse',a.commit],cwd=ROOT,text=True).strip()
@@ -48,6 +49,15 @@ def main():
             shutil.copy2(source,dest)
     shutil.copy2(a.application,stage/'app/FrameLab.exe')
     shutil.copy2(a.setup,stage/'app/FrameLab-Setup.exe')
+    ocr_manifest=json.loads((a.ocr/'provenance.json').read_text(encoding='utf-8'))
+    for model in ocr_manifest['models']:
+        assert digest(a.ocr/'models'/model['name'])==model['sha256'],model['name']
+    for file in a.ocr.rglob('*'):
+        if publishable(file,a.ocr):
+            dest=stage/'app/ocr'/file.relative_to(a.ocr)
+            dest.parent.mkdir(parents=True,exist_ok=True)
+            shutil.copy2(file,dest)
+    shutil.copy2(ROOT/'tools/ocr_worker.py',stage/'app/ocr/ocr_worker.py')
     (stage/'app/language.txt').write_text('0\n',encoding='ascii')
     (stage/'app/nr-host').mkdir(exist_ok=True)
     shutil.copy2(a.nr_host,stage/'app/nr-host/nvngx.dll')
@@ -61,7 +71,7 @@ def main():
     for source in ROOT.glob('*.cmd'):
         if source.name.startswith(('Start FrameLab','1 - ','2 - ','3 - ','4 - ','Ukazka - ')):
             shutil.copy2(source,stage/source.name)
-    for file in ['prepare_translation.py','translate_worker.py','subtitle_models.py','subtitle_model_manager.py','subtitle_gpu.py','package_release.py','package_guides.py','Install-Enhancer.ps1']:
+    for file in ['prepare_translation.py','prepare_ocr.py','ocr_worker.py','translate_worker.py','subtitle_models.py','subtitle_model_manager.py','subtitle_gpu.py','package_release.py','package_guides.py','Install-Enhancer.ps1']:
         shutil.copy2(ROOT/'tools'/file,stage/'tools'/file)
     for file in ['translate_worker.py','subtitle_models.py','subtitle_model_manager.py','subtitle_gpu.py']:
         shutil.copy2(ROOT/'tools'/file,stage/'app/translation'/file)
@@ -92,7 +102,7 @@ def main():
     (stage/'ZACNI TADY.txt').write_text(guide,encoding='utf-8-sig')
     copy_guides(stage)
     (stage/'README-v3.txt').write_text('This is the public '+a.version+' full package. Start with ZACNI TADY.html, INSTALL.cs.md or START_HERE.md. NR adapter and import wizard included; external NR model DLLs are not bundled.\n',encoding='utf-8')
-    metadata={'version':a.version,'source_commit':commit,'FRAMELAB_EXPERIMENTAL_NR':True,'setup_sha256':digest(stage/'app/FrameLab-Setup.exe'),'nr_host_sha256':digest(stage/'app/nr-host/nvngx.dll'),'nr_host_sdk_static_library':False,'application_sha256':digest(stage/'app/FrameLab.exe'),'bundled_translation':True,'bundled_game_samples':2,'nr_runtime_included':False}
+    metadata={'version':a.version,'source_commit':commit,'FRAMELAB_EXPERIMENTAL_NR':True,'setup_sha256':digest(stage/'app/FrameLab-Setup.exe'),'nr_host_sha256':digest(stage/'app/nr-host/nvngx.dll'),'nr_host_sdk_static_library':False,'application_sha256':digest(stage/'app/FrameLab.exe'),'bundled_translation':True,'bundled_ocr':True,'bundled_game_samples':2,'nr_runtime_included':False}
     (stage/'build-variant.json').write_text(json.dumps(metadata,indent=2),encoding='utf-8')
     files=sorted(x for x in stage.rglob('*') if publishable(x,stage))
     (stage/'SHA256SUMS.txt').write_text(''.join(digest(x)+'  '+x.relative_to(stage).as_posix()+'\n' for x in files),encoding='utf-8')

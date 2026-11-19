@@ -7,4 +7,11 @@ int main(){
  require(!s.observe(""));require(s.committed.empty());s.clear();require(!s.observe("Follow me."));
  require(SubtitleState::normalize("  Follow\n me.  ")=="Follow me.");require(SubtitleState::normalize("100 / 200").empty());
  require(SubtitleState::normalize("No!")=="No!");require(SubtitleState::normalize("Go!")=="Go!");require(SubtitleState::normalize("OK")=="OK");require(SubtitleState::normalize("+").empty());
+ s.clear();require(!s.observe("How come you never mentioned she was coming to this class?"));require(s.observe("How come you never mentioned she was coming to thisclass?"));require(!s.observe("How come YOU never mentioned she was coming to this class."));
+ require(!SubtitleState::equivalent("I like surprises.","I don't like surprises."));require(!SubtitleState::equivalent("February 26", "February 6"));require(!SubtitleState::equivalent("50%", "50"));
+ s.clear();require(s.observe("Follow me.",.99f));require(!s.observe("Follow me",.99f));
+ require(!s.observe(""));require(s.observe("Follow me.",.99f));
+ require(!SubtitleState::equivalent("1.2", "12"));require(SubtitleState::equivalent("February/26", "February 26."));
+ s.clear();require(s.observe("I see you two have met.",.99f));require(!s.observe("see you two have met.",.99f));require(!s.observe("see you two have met.",.99f));require(!s.observe("I see you two have met.",.99f));
+ s.clear();require(s.observe("We can finish this tonight.",.99f));require(!s.observe("We can't finish this tonight.",.99f));require(!s.observe("We can't finish this tonight.",.99f));require(s.observe("We can't finish this tonight.",.99f));
 }

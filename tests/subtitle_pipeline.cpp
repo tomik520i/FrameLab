@@ -16,12 +16,13 @@ int wmain(int argc,wchar_t** argv){try{
  while(tick()<deadline){worker.submit(pixels.data(),w,h,tick());std::this_thread::sleep_for(std::chrono::milliseconds(100));value=worker.snapshot();if(!value.translated.empty())break;}
  if(value.source!="The door is locked."||value.translated!="Dveře jsou zamčené.")throw std::runtime_error("Unexpected OCR / MT: "+value.status+" | "+value.source+" | "+value.translated);
  std::cout<<"{\"model\":"<<settings.model<<",\"source\":"<<std::quoted(value.source)<<",\"translated\":"<<std::quoted(value.translated)<<",\"milliseconds\":"<<value.milliseconds<<"}\n";
- // Blank input must remove old text, without waiting for the overlay TTL.
+ // Blank input must not flash away an already displayed translation. Its
+ // reading timer begins on display, then it expires even without further OCR.
  for(size_t i=0;i<pixels.size();i+=4){pixels[i]=pixels[i+1]=pixels[i+2]=0;pixels[i+3]=255;}
- const auto blankDeadline=tick()+4;bool cleared=false;
+ const auto firstDisplay=value.displayedAt;const auto blankDeadline=tick()+9;bool cleared=false;
  while(tick()<blankDeadline){worker.submit(pixels.data(),w,h,tick());std::this_thread::sleep_for(std::chrono::milliseconds(100));auto state=worker.snapshot();if(state.source.empty()&&state.translated.empty()){cleared=true;break;}}
- if(!cleared)throw std::runtime_error("Old subtitle survived blank source");
+ if(!cleared||tick()-firstDisplay<settings.holdSeconds)throw std::runtime_error("Caption reading lifetime incorrect");
  worker.reset();if(!worker.snapshot().translated.empty())throw std::runtime_error("Reset retained a caption");settings.enabled=false;worker.configure(settings);worker.submit(pixels.data(),w,h,tick());std::this_thread::sleep_for(std::chrono::milliseconds(300));if(!worker.snapshot().source.empty())throw std::runtime_error("Disabled worker produced OCR");
- std::cout<<"PASS: actual Windows OCR, offline EN-CS model, blank clearing, reset and disabled state\n";
+ std::cout<<"PASS: actual neural OCR, offline EN-CS model, readable lifetime, expiry, reset and disabled state\n";
  return 0;
 }catch(const std::exception& e){std::cerr<<e.what()<<'\n';return 1;}}

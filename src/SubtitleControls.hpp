@@ -8,11 +8,16 @@
 #include <cmath>
 
 inline const char* subText(const char* en,const char* cs){return czech?cs:en;}
-inline bool subtitlePanel(SubtitleSettings& settings,const SubtitleSnapshot& state,SubtitleModels& models,float freeVramMB,OcrSetup& ocr,HWND window){
+inline bool subtitlePanel(SubtitleSettings& settings,const SubtitleSnapshot& state,SubtitleModels& models,float freeVramMB,OcrSetup& ocr,HWND window,bool rapidReady){
  const auto before=settings;
  ui::title(subText("LOCAL SUBTITLE TRANSLATION","LOKÁLNÍ PŘEKLAD TITULKŮ"));
  ImGui::TextWrapped("%s",subText("Reads English text already visible in the picture and overlays Czech. Processing stays on this PC.","Čte anglický text už zobrazený v obraze a překrývá ho českým překladem. Zpracování probíhá na tomto PC."));
  const auto capability=ocr.snapshot();
+ ui::field(subText("Text recognition","Rozpoznávání textu"));
+ ImGui::Combo("##ocr-engine",&settings.ocrEngine,"RapidOCR / PP-OCRv5 English\000Windows English OCR\000");
+ if(settings.ocrEngine==0){
+  ImGui::TextWrapped("%s",rapidReady?subText("Neural OCR bundled and ready. Offline; Windows OCR installation is unnecessary.","Neuronové OCR je přibalené a připravené. Offline; instalace OCR ve Windows není potřeba."):subText("RapidOCR files missing. Extract the complete package, or choose Windows OCR.","Chybí soubory RapidOCR. Rozbal kompletní balíček, nebo vyber OCR ve Windows."));
+ }else{
  if(capability.available==1)ImGui::TextColored(ui::accent,"%s",subText("Windows English OCR is ready","Anglické OCR ve Windows je připravené"));
  else if(capability.installing)ImGui::TextWrapped("%s",subText("Installing English OCR through Windows. Confirm UAC if prompted; downloading and servicing can take several minutes. The picture keeps running.","Windows instalují anglické OCR. Potvrď případné UAC; stažení a instalace mohou trvat několik minut. Obraz běží dál."));
  else if(capability.available<0)ImGui::TextDisabled("%s",subText("Checking Windows English OCR...","Kontroluji anglické OCR ve Windows..."));
@@ -25,9 +30,10 @@ inline bool subtitlePanel(SubtitleSettings& settings,const SubtitleSnapshot& sta
   else if(!capability.outcome.empty())ImGui::TextWrapped("%s",subText("Windows could not install or detect OCR. Check Windows Update or install English language features in Settings.","Instalace nebo kontrola OCR se nepodařila. Zkontroluj Windows Update nebo doplň anglické jazykové funkce v Nastavení."));
   if(ImGui::Button(subText("Windows language settings","Jazykové nastavení Windows")))ShellExecuteW(window,L"open",L"ms-settings:regionlanguage",nullptr,nullptr,SW_SHOWNORMAL);
  }
+ }
  ui::field(subText("Translation model","Překladový model"));
  if(ImGui::Combo("##translation-model",&settings.model,"OPUS-MT / CPU\000CUNI-MH 7B / Q3_K_M\000CUNI-MH 7B / Q8_0\000"))settings.enabled=false;
- bool ready=capability.available==1;
+ bool ready=settings.ocrEngine==0?rapidReady:capability.available==1;
  if(settings.model){
   const auto& item=subtitleModelCatalog[settings.model];const auto download=models.snapshot(settings.model);const bool modelReady=download.phase=="ready";ready=ready&&modelReady;
   ImGui::TextWrapped("%s",subText("CUNI is specialized for English to Czech. Q3 uses less memory; Q8 keeps more weight precision. Higher precision is not a guarantee of a better sentence.","CUNI je specializovaný na angličtinu do češtiny. Q3 šetří paměť, Q8 zachová větší přesnost vah. Vyšší přesnost nezaručuje lepší překlad každé věty."));
@@ -53,6 +59,10 @@ inline bool subtitlePanel(SubtitleSettings& settings,const SubtitleSnapshot& sta
  if(settings.enabled&&ImGui::Button(subText("Unload translation model","Uvolnit překladový model")))settings.enabled=false;
  ImGui::TextDisabled("English > Čeština | lokálně / offline");
  if(settings.enabled&&!state.status.empty())ImGui::TextWrapped("%s",state.status.c_str());
+ ui::field(subText("Subtitle timing","Časování titulků"));
+ ImGui::SliderFloat(subText("Minimum on screen (s)","Nejméně na obrazovce (s)"),&settings.holdSeconds,.5f,4.f,"%.1f");
+ ImGui::SliderFloat(subText("Keep while waiting (s)","Ponechat při čekání (s)"),&settings.lingerSeconds,settings.holdSeconds,8.f,"%.1f");
+ ImGui::TextWrapped("%s",subText("Time starts when Czech text appears. The next line is translated in parallel. Long captions get extra reading time; the next ready line can replace them after the minimum. Old queued work expires after 6 s.","Čas běží až od zobrazení češtiny. Další věta se mezitím překládá. Dlouhý titulek má víc času na čtení; další hotový jej může nahradit po minimu. Rozpracované titulky starší 6 s se zahodí."));
  ImGui::Checkbox(subText("Show reading area","Zobrazit oblast čtení"),&settings.showRegion);
  if(ImGui::CollapsingHeader(subText("Subtitle reading area","Oblast anglických titulků"),ImGuiTreeNodeFlags_DefaultOpen)){
   ImGui::TextWrapped("%s",subText("Select just the subtitle band. Exclude chat, minimap and quest text.","Vyber jen pruh s titulky. Vynech chat, minimapu a úkoly."));
@@ -83,10 +93,11 @@ inline bool subtitlePanel(SubtitleSettings& settings,const SubtitleSnapshot& sta
  ImGui::Checkbox(subText("Include English in overlay","Přidat angličtinu do překryvu"),&settings.showOriginal);
  if(ImGui::CollapsingHeader(subText("Recognition details","Podrobnosti rozpoznání"))){
   ImGui::SliderInt(subText("Read interval (ms)","Interval čtení (ms)"),&settings.intervalMs,200,1500);
-  ImGui::TextWrapped("%s",state.status.c_str());ImGui::Text("OCR + MT: %.0f ms",state.milliseconds);
+  ImGui::TextWrapped("%s",state.status.c_str());ImGui::Text("OCR: %.0f ms | OCR + MT: %.0f ms",state.ocrMilliseconds,state.milliseconds);
+  if(settings.ocrEngine==0)ImGui::Text("OCR score: %.2f | queue: %d",state.confidence,state.pending);
   ImGui::TextWrapped("EN: %s",state.source.c_str());ImGui::TextWrapped("CS: %s",state.translated.c_str());
  }
- ImGui::TextWrapped("%s",subText("Needs two stable readings. Small, moving or stylized text can be misread; translation follows with a delay. Audio is not used.","Čeká na dvě shodná čtení. Malý, pohyblivý nebo stylizovaný text se může přečíst chybně; překlad má zpoždění. Zvuk se nepoužívá."));
+ ImGui::TextWrapped("%s",subText("Uses a very confident reading or two matching readings. OCR can still misread obscured or stylized text. Czech stays visible while the next line is processed. Audio is not used.","Použije velmi jisté čtení nebo dvě shodná čtení. OCR může chybovat u zakrytého či stylizovaného textu. Čeština zůstává vidět při zpracování další věty. Zvuk se nepoužívá."));
  settings.sanitize();return !(settings==before);
 }
 inline bool drawSubtitleOverlay(ImVec2 origin,ImVec2 size,SubtitleSettings& settings,const SubtitleSnapshot& state,double now,bool cleanOutput=false){
@@ -102,11 +113,12 @@ inline bool drawSubtitleOverlay(ImVec2 origin,ImVec2 size,SubtitleSettings& sett
  if(visibleSize.x<=0||visibleSize.y<=0)return false;
  draw->PushClipRect(visibleMin,visibleMax,true);
  if(settings.showRegion&&!cleanOutput){ImVec2 a{origin.x+size.x*settings.left,origin.y+size.y*settings.top},b{origin.x+size.x*settings.right,origin.y+size.y*settings.bottom};draw->AddRect(a,b,IM_COL32(170,230,70,255),0,0,2);draw->AddText({a.x+4,a.y+4},IM_COL32(170,230,70,255),"OCR: EN");}
- if(edit||(settings.enabled&&!state.translated.empty()&&now-state.observedAt<4.0)){
+ const double expires=state.expiresAt>0?state.expiresAt:state.observedAt+4.0;
+ if(edit||(settings.enabled&&!state.translated.empty()&&now<expires)){
   if(settings.coverSource)draw->AddRectFilled({origin.x+size.x*settings.left,origin.y+size.y*settings.top},{origin.x+size.x*settings.right,origin.y+size.y*settings.bottom},IM_COL32(0,0,0,255));
   std::string text=state.translated;
-  if(text.empty()||now-state.observedAt>=4.0)text="Ukázka českých titulků\nPřetáhni text i pozadí";
-  else if(settings.showOriginal)text+='\n'+state.source;
+  if(text.empty()||now>=expires)text="Ukázka českých titulků\nPřetáhni text i pozadí";
+  else if(settings.showOriginal)text+='\n'+(state.displaySource.empty()?state.source:state.displaySource);
   float fs=std::round(std::max(16.f,visibleSize.y*settings.fontPercent/100)),wrap=visibleSize.x*.86f;
   auto font=ui::subtitleFont(fs);
   auto measured=font->CalcTextSizeA(fs,FLT_MAX,wrap,text.c_str());

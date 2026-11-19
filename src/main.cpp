@@ -19,6 +19,7 @@
 #include "LocalVideoPlayer.hpp"
 #include <commdlg.h>
 #include "SubtitleControls.hpp"
+#include "SubtitleTrace.hpp"
 #include "DisplayControls.hpp"
 #include "WindowChrome.hpp"
 #include "imgui_impl_win32.h"
@@ -201,7 +202,7 @@ int WINAPI wWinMain(HINSTANCE instance,HINSTANCE,LPWSTR cmd,int){
   WNDCLASSW wc{};wc.lpfnWndProc=windowProc;wc.hInstance=instance;wc.lpszClassName=L"FrameLabWindow";wc.hCursor=LoadCursor(nullptr,IDC_ARROW);RegisterClassW(&wc);
   int initialWidth=1480,initialHeight=900;
   if(uiPreview){initialWidth=std::clamp(_wtoi(argument(L"--preview-width",L"1480").c_str()),640,3840);initialHeight=std::clamp(_wtoi(argument(L"--preview-height",L"900").c_str()),480,2160);}
-  HWND window=CreateWindowW(wc.lpszClassName,L"FrameLab | preview.13",uiPreview?WS_POPUP:WS_OVERLAPPEDWINDOW,100,80,initialWidth,initialHeight,nullptr,nullptr,instance,nullptr);
+  HWND window=CreateWindowW(wc.lpszClassName,L"FrameLab | preview.14 OCR",uiPreview?WS_POPUP:WS_OVERLAPPEDWINDOW,100,80,initialWidth,initialHeight,nullptr,nullptr,instance,nullptr);
   applyWindowChrome(window);
   Graphics g;g.init(window);graphics=&g;
   if(args.find(L"--verify-vfg")!=std::wstring::npos){for(unsigned m=2;m<=4;++m)for(unsigned i=1;i<m;++i)verifyInterpolation(g,root,m,i,args.find(L"--optical")!=std::wstring::npos);DestroyWindow(window);timeEndPeriod(1);CoUninitialize();return 0;}
@@ -226,13 +227,15 @@ int WINAPI wWinMain(HINSTANCE instance,HINSTANCE,LPWSTR cmd,int){
   {std::ifstream settings(root/L"audio-settings.txt");if(settings){settings>>std::quoted(savedOutput)>>audioVolume>>audioMuted;audioVolume=std::clamp(audioVolume,0,100);}}
   for(int i=0;i<int(outputs.size());++i){log("Audio output: "+outputs[i].friendlyName);if(outputs[i].monikerDisplayName==savedOutput)audioOutput=i;}
   auto saveAudio=[&]{std::ofstream(root/L"audio-settings.txt")<<std::quoted(outputs[audioOutput].monikerDisplayName)<<' '<<audioVolume<<' '<<audioMuted<<'\n';};
-  bool isLocalVideo=false;std::filesystem::path localVideoPath;
+  bool isLocalVideo=false,subtitleAutoPaused=false,subtitleWarmupOptout=false;std::filesystem::path localVideoPath;
   auto fileOutputs=LocalVideoPlayer::audioOutputs();int fileAudioOutput=0;std::wstring savedFileOutput;
   {std::wifstream settings(root/L"file-audio-settings.txt");settings>>std::quoted(savedFileOutput);}
   for(int i=0;i<int(fileOutputs.size());++i)if(fileOutputs[i].id==savedFileOutput)fileAudioOutput=i;
   uint64_t acceptedFileEpoch=0;float seekPosition=0;bool editingSeek=false;
   SubtitleSettings subtitleSettings;subtitleSettings.load(root/L"subtitle-settings.txt");bool subtitleStartupPending=args.find(L"--subtitles")!=std::wstring::npos;OcrSetup ocrSetup;
   if(uiPreview&&args.find(L"--preview-subtitle-edit")!=std::wstring::npos)subtitleSettings.editOverlay=true;
+  const bool rapidOcrReady=SubtitleTranslator::rapidOcrAvailable(root);
+  SubtitleTrace subtitleTrace;if(auto path=argument(L"--subtitle-trace");!path.empty())subtitleTrace.open(path);
   auto savedSubtitleSettings=subtitleSettings;SubtitleModels subtitleModels(root);SubtitleTranslator subtitles(root);subtitles.configure(subtitleSettings);SubtitleSnapshot frozenSubtitle;
   DisplayControls displayControls;displayControls.load(root/L"display-settings.txt");
   GpuMonitor gpu;AnalysisRecorder analysis;Mailbox mailbox;mailbox.subtitles=&subtitles;mailbox.recorder=&analysis;DirectShowCapture capture;std::atomic<bool> demoRun=false;std::jthread demo;LocalVideoPlayer localVideo;
@@ -267,7 +270,7 @@ int WINAPI wWinMain(HINSTANCE instance,HINSTANCE,LPWSTR cmd,int){
   History inputHistory,uniqueHistory,outputHistory,latencyHistory,gpuTimeHistory,utilHistory;
   std::vector<float> latencySamples;double start=now(),lastStats=start;uint64_t lastRaw=0,lastUnique=0,lastContent=0,lastPresents=0,lastGenerated=0;
   auto resetPipeline=[&]{freezePreview=false;subtitles.reset();retireEnhancer();analysis.finish("Source or settings changed");analysis.cancelPending();comparison.clear();readyImages.clear();imagePool.clear();pacer.reset();displayVerification.clearHistory();g.context->PSSetShaderResources(0,0,nullptr);vfg.reset();vfgInitialized=false;havePrevious=false;pending=false;initFailed=false;gpuMs=-1;displayed=nullptr;current=0;previousArrival=0;};
-  auto stopSource=[&]{localVideo.stop();isLocalVideo=false;acceptedFileEpoch=0;demoRun=false;if(demo.joinable()){demo.request_stop();demo.join();}capture.stop();live=false;isDemo=false;activeVideoName.clear();resetPipeline();mailbox.clear();lastRaw=lastUnique=0;};
+  auto stopSource=[&]{localVideo.stop();isLocalVideo=false;subtitleAutoPaused=false;subtitleWarmupOptout=false;acceptedFileEpoch=0;demoRun=false;if(demo.joinable()){demo.request_stop();demo.join();}capture.stop();live=false;isDemo=false;activeVideoName.clear();resetPipeline();mailbox.clear();lastRaw=lastUnique=0;};
   auto startDemo=[&]{stopSource();isDemo=true;live=true;demoRun=true;status="TEST SOURCE: 30 unique frames inside a 60 Hz stream. Synthetic input.";
    const bool largeDemo=test1440;
    demo=std::jthread([&,largeDemo](std::stop_token token){const unsigned dw=largeDemo?2560:1280,dh=largeDemo?1440:720;std::vector<unsigned char> pixels(size_t(dw)*dh*4);uint64_t tick=0;auto next=Clock::now();
@@ -325,8 +328,15 @@ int WINAPI wWinMain(HINSTANCE instance,HINSTANCE,LPWSTR cmd,int){
    if(resized){resized=false;const auto rw=resizeW,rh=resizeH;if(rw&&rh)g.resize(rw,rh);}
    if(IsIconic(window))return;
    if(legacyOutputWait&&g.waitable)WaitForSingleObject(g.waitable,20);
-   if(subtitleStartupPending){const auto capability=ocrSetup.snapshot();if(capability.available>=0){subtitleStartupPending=false;subtitleSettings.enabled=capability.available==1;subtitles.configure(subtitleSettings);}}
+   if(subtitleStartupPending){const auto capability=ocrSetup.snapshot();if(subtitleSettings.ocrEngine==0||capability.available>=0){subtitleStartupPending=false;subtitleSettings.enabled=subtitleSettings.ocrEngine==0?rapidOcrReady:capability.available==1;subtitles.configure(subtitleSettings);}}
    auto localSnapshot=localVideo.snapshot();
+   if(isLocalVideo&&!localSnapshot.opening&&!localSnapshot.ended){
+    const auto caption=subtitles.snapshot(localSnapshot.paused);
+    const bool warming=subtitleSettings.enabled&&(caption.loading||caption.activeModel!=subtitleSettings.model);
+    if(warming&&!subtitleWarmupOptout&&!localSnapshot.paused){localVideo.pause(true);subtitleAutoPaused=true;localSnapshot.paused=true;}
+    else if(subtitleAutoPaused&&!warming){subtitles.reset();localVideo.pause(false);subtitleAutoPaused=false;localSnapshot.paused=false;}
+   }
+   subtitleTrace.write(isLocalVideo?localSnapshot.position:now()-start,subtitles.snapshot(isLocalVideo&&localSnapshot.paused));
    if(isLocalVideo&&!localSnapshot.error.empty()){status=localSnapshot.error;live=false;}
    double t=now();analysis.poll(g);analysis.tick();if(analysisExporter&&WaitForSingleObject(analysisExporter,0)==WAIT_OBJECT_0){CloseHandle(analysisExporter);analysisExporter=nullptr;}
    if(!analysis.active&&!analysis.writing&&!analysis.folder.empty()&&analysis.folder!=exportedAnalysis&&std::filesystem::exists(analysis.folder/L"result.json")){
@@ -431,7 +441,7 @@ int WINAPI wWinMain(HINSTANCE instance,HINSTANCE,LPWSTR cmd,int){
    if(imageOnly){
     ImGui::SetNextWindowPos({0,0});ImGui::SetNextWindowSize(size);ImGui::PushStyleVar(ImGuiStyleVar_WindowPadding,ImVec2(0,0));
     ImGui::Begin("Fullscreen image",nullptr,ImGuiWindowFlags_NoDecoration|ImGuiWindowFlags_NoMove|ImGuiWindowFlags_NoSavedSettings|ImGuiWindowFlags_NoScrollbar);
-    if(displayed&&w&&h){float scale=displayControls.scale(w,h,size.x,size.y);ImGui::SetCursorPos({(size.x-w*scale)/2,(size.y-h*scale)/2});auto p=ImGui::GetCursorScreenPos();nrControls.draw(displayed,{w*scale,h*scale},enhancer.get(),enhancer&&displayed==enhancer->original.view.Get(),true);auto caption=freezePreview?frozenSubtitle:subtitles.snapshot();drawSubtitleOverlay(p,{w*scale,h*scale},subtitleSettings,caption,(freezePreview||(isLocalVideo&&localSnapshot.paused))?caption.observedAt:t,true);}ImGui::End();ImGui::PopStyleVar();
+    if(displayed&&w&&h){float scale=displayControls.scale(w,h,size.x,size.y);ImGui::SetCursorPos({(size.x-w*scale)/2,(size.y-h*scale)/2});auto p=ImGui::GetCursorScreenPos();nrControls.draw(displayed,{w*scale,h*scale},enhancer.get(),enhancer&&displayed==enhancer->original.view.Get(),true);auto caption=freezePreview?frozenSubtitle:subtitles.snapshot(isLocalVideo&&localSnapshot.paused);drawSubtitleOverlay(p,{w*scale,h*scale},subtitleSettings,caption,(freezePreview||(isLocalVideo&&localSnapshot.paused))?caption.observedAt:t,true);}ImGui::End();ImGui::PopStyleVar();
    }else{
    ImGui::SetNextWindowPos({0,0});ImGui::SetNextWindowSize({size.x-panel,size.y});
    ImGui::Begin("Preview",nullptr,ImGuiWindowFlags_NoDecoration|ImGuiWindowFlags_NoMove|ImGuiWindowFlags_NoSavedSettings|ImGuiWindowFlags_NoScrollbar);
@@ -440,12 +450,13 @@ int WINAPI wWinMain(HINSTANCE instance,HINSTANCE,LPWSTR cmd,int){
    if(ImGui::Button(nrControls.text(freezePreview?"Resume preview (F8)":"Freeze comparison (F8)",freezePreview?"Pokračovat (F8)":"Zmrazit porovnání (F8)")))toggleFreeze();ImGui::EndDisabled();
    if(freezePreview)ImGui::TextColored(ui::accent,"%s",nrControls.text("FROZEN PAIR: adjust strength or press F7. Input continues in the background.","ZMRAZENÝ PÁR: měň sílu nebo stiskni F7. Vstup na pozadí běží dál."));
    if(!activeVideoName.empty())ImGui::TextUnformatted(activeVideoName.c_str());
+   if(subtitleAutoPaused)ImGui::TextColored(ui::accent,"%s",nrControls.text("Video paused while the subtitle model loads. Playback resumes automatically.","Video čeká na načtení překladového modelu. Potom se samo rozběhne."));
    ui::eyebrow("01 CAPTURE   /   02 NVIDIA GPU   /   03 DISPLAY");
    if(isDemo&&!isLocalVideo)ImGui::TextColored(ui::orange,"%s",tr("TEST SOURCE"));
    ImGui::Separator();auto area=ImGui::GetContentRegionAvail();float aw=area.x;
    const float comparisonHeight=fg&&comparison.enabled?std::min(355.f,std::max(aw<680?310.f:270.f,area.y*.36f)):58.f;
    float ah=std::max(100.f,area.y-comparisonHeight-38);auto startPos=ImGui::GetCursorPos();
-   if(displayed&&w&&h){auto clip=ImGui::GetCursorScreenPos();ImGui::GetWindowDrawList()->PushClipRect(clip,{clip.x+aw,clip.y+ah},true);float scale=displayControls.scale(w,h,aw,ah);float iw=w*scale,ih=h*scale;ImGui::SetCursorPos({startPos.x+(aw-iw)/2,startPos.y+(ah-ih)/2});auto p=ImGui::GetCursorScreenPos();nrControls.draw(displayed,{iw,ih},enhancer.get(),enhancer&&displayed==enhancer->original.view.Get(),false,!subtitleSettings.editOverlay);auto caption=freezePreview?frozenSubtitle:subtitles.snapshot();drawSubtitleOverlay(p,{iw,ih},subtitleSettings,caption,(freezePreview||(isLocalVideo&&localSnapshot.paused))?caption.observedAt:t);ImGui::GetWindowDrawList()->PopClipRect();}
+   if(displayed&&w&&h){auto clip=ImGui::GetCursorScreenPos();ImGui::GetWindowDrawList()->PushClipRect(clip,{clip.x+aw,clip.y+ah},true);float scale=displayControls.scale(w,h,aw,ah);float iw=w*scale,ih=h*scale;ImGui::SetCursorPos({startPos.x+(aw-iw)/2,startPos.y+(ah-ih)/2});auto p=ImGui::GetCursorScreenPos();nrControls.draw(displayed,{iw,ih},enhancer.get(),enhancer&&displayed==enhancer->original.view.Get(),false,!subtitleSettings.editOverlay);auto caption=freezePreview?frozenSubtitle:subtitles.snapshot(isLocalVideo&&localSnapshot.paused);drawSubtitleOverlay(p,{iw,ih},subtitleSettings,caption,(freezePreview||(isLocalVideo&&localSnapshot.paused))?caption.observedAt:t);ImGui::GetWindowDrawList()->PopClipRect();}
    else {ImGui::TextUnformatted(tr("Waiting for capture or test source..."));}
    ImGui::SetCursorPos({startPos.x,startPos.y+ah+4});
    if(fg)comparison.draw(g,root,comparisonHeight);
@@ -495,6 +506,7 @@ int WINAPI wWinMain(HINSTANCE instance,HINSTANCE,LPWSTR cmd,int){
       auto clockText=[](double value){int sec=int(std::max(0.,value));char buffer[32];snprintf(buffer,sizeof(buffer),"%02d:%02d:%02d",sec/3600,(sec/60)%60,sec%60);return std::string(buffer);};
       ImGui::Text("%s / %s",clockText(localSnapshot.position).c_str(),clockText(localSnapshot.duration).c_str());
       if(ImGui::Button(nrControls.text(localSnapshot.ended?"Play again":localSnapshot.paused?"Play":"Pause",localSnapshot.ended?"Přehrát znovu":localSnapshot.paused?"Přehrát":"Pozastavit"))){
+       if(subtitleAutoPaused){subtitleAutoPaused=false;subtitleWarmupOptout=true;}
        freezePreview=false;if(localSnapshot.ended){localVideo.seek(0);localVideo.pause(false);}else localVideo.pause(!localSnapshot.paused);
       }
       ImGui::SameLine();bool loop=localSnapshot.loop;if(ImGui::Checkbox(nrControls.text("Loop","Opakovat"),&loop))localVideo.loop(loop);
@@ -510,7 +522,7 @@ int WINAPI wWinMain(HINSTANCE instance,HINSTANCE,LPWSTR cmd,int){
     if(ImGui::Button("CS:GO 1080p"))startSample(root/L"samples"/L"action.mp4");ImGui::SameLine();if(ImGui::Button("Spider-Man 540p"))startSample(root/L"samples"/L"combat.mp4");
     ImGui::TextDisabled("%s",nrControls.text("Both clips play locally, without downloading.","Oba klipy se přehrávají lokálně, bez stahování."));
     ImGui::BeginDisabled(!std::filesystem::is_regular_file(root/L"samples"/L"ocr-demo.mp4"));
-    if(ImGui::Button(nrControls.text("Try English > Czech subtitles","Vyzkoušet titulky EN > CZ"))){startSample(root/L"samples"/L"ocr-demo.mp4");subtitleStartupPending=true;if(ocrSetup.snapshot().available==0)status=nrControls.text("Open Subtitles and install Windows English OCR first.","Otevři Titulky a doplň anglické OCR ve Windows.");}
+    if(ImGui::Button(nrControls.text("Try English > Czech subtitles","Vyzkoušet titulky EN > CZ"))){startSample(root/L"samples"/L"ocr-demo.mp4");subtitleStartupPending=true;if(subtitleSettings.ocrEngine==1&&ocrSetup.snapshot().available==0)status=nrControls.text("Select bundled RapidOCR in Subtitles, or install Windows English OCR.","V Titulcích vyber přibalené RapidOCR, nebo doplň anglické OCR ve Windows.");}
     ImGui::EndDisabled();
     ui::field(tr("Next replay FPS"));int strideChoice=sampleStride-1;if(ImGui::Combo("##replay-fps",&strideChoice,"60\00030\00020\00015\000\000")){sampleStride=strideChoice+1;}
      ImGui::EndTabItem();}
@@ -533,7 +545,7 @@ int WINAPI wWinMain(HINSTANCE instance,HINSTANCE,LPWSTR cmd,int){
     ImGui::TextWrapped("%s",nrControls.text("Pipeline: input > selected FG backend > enhancer (if enabled) > Czech subtitles > display. Output FPS is limited by the slowest stage.","Pořadí: vstup > vybrané FG > enhancer (je-li zapnutý) > české titulky > monitor. Výstupní FPS omezuje nejpomalejší část."));
      ImGui::EndTabItem();}
      if(ImGui::BeginTabItem(nrControls.text("Subtitles","Titulky"),nullptr,previewTab==6?ImGuiTabItemFlags_SetSelected:0)){
-      auto previous=subtitleSettings;if(subtitlePanel(subtitleSettings,subtitles.snapshot(),subtitleModels,gpu.freeMemoryMB,ocrSetup,window)){if(previous.model!=subtitleSettings.model||previous.enabled!=subtitleSettings.enabled||previous.left!=subtitleSettings.left||previous.right!=subtitleSettings.right||previous.top!=subtitleSettings.top||previous.bottom!=subtitleSettings.bottom||previous.intervalMs!=subtitleSettings.intervalMs)subtitles.configure(subtitleSettings);}
+      auto previous=subtitleSettings;if(subtitlePanel(subtitleSettings,subtitles.snapshot(isLocalVideo&&localSnapshot.paused),subtitleModels,gpu.freeMemoryMB,ocrSetup,window,rapidOcrReady)){if(previous.model!=subtitleSettings.model||previous.enabled!=subtitleSettings.enabled||previous.ocrEngine!=subtitleSettings.ocrEngine||previous.holdSeconds!=subtitleSettings.holdSeconds||previous.lingerSeconds!=subtitleSettings.lingerSeconds||previous.left!=subtitleSettings.left||previous.right!=subtitleSettings.right||previous.top!=subtitleSettings.top||previous.bottom!=subtitleSettings.bottom||previous.intervalMs!=subtitleSettings.intervalMs)subtitles.configure(subtitleSettings);}
       ImGui::EndTabItem();
      }
      if(ImGui::BeginTabItem(nrControls.text("Display","Zobrazení"),nullptr,previewTab==7?ImGuiTabItemFlags_SetSelected:0)){auto previous=displayControls.fit;displayControls.panel(window,fullscreen);if(previous!=displayControls.fit)displayControls.save(root/L"display-settings.txt");ImGui::EndTabItem();}

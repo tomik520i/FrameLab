@@ -15,7 +15,7 @@ int wmain(int argc,wchar_t** argv){try{
  for(size_t i=3;i<blank.size();i+=4)blank[i]=255;
  std::ifstream file(argv[2],std::ios::binary);if(!file.read(reinterpret_cast<char*>(pixels.data()),pixels.size()))throw std::runtime_error("Missing fixture");
  std::ifstream second(argv[3],std::ios::binary);if(!second.read(reinterpret_cast<char*>(follow.data()),follow.size()))throw std::runtime_error("Missing second fixture");
- SubtitleTranslator worker(app);SubtitleSettings settings;settings.enabled=true;settings.intervalMs=200;worker.configure(settings);
+ SubtitleTranslator worker(app);SubtitleSettings settings;settings.enabled=true;settings.intervalMs=200;settings.ocrEngine=1;worker.configure(settings);
  auto wait=[&](auto ready,const std::vector<unsigned char>* input,double seconds){
   const auto end=tick()+seconds;
   while(tick()<end){if(input)worker.submit(input->data(),w,h,tick());if(ready())return;std::this_thread::sleep_for(std::chrono::milliseconds(10));}
@@ -28,8 +28,9 @@ int wmain(int argc,wchar_t** argv){try{
  if(std::filesystem::exists(ipc/L"completed-1"))throw std::runtime_error("Delayed translation was not in flight");
  std::ofstream(ipc/L"release-1")<<"release";
  wait([&]{return std::filesystem::exists(ipc/L"completed-1");},&blank,3);
+ wait([&]{return worker.snapshot().translated=="DELAYED RESULT 1";},&blank,3);
  const auto until=tick()+.6;
- while(tick()<until){if(!worker.snapshot().translated.empty())throw std::runtime_error("Stale result reappeared after blank OCR");std::this_thread::sleep_for(std::chrono::milliseconds(10));}
+ while(tick()<until){if(worker.snapshot().translated.empty())throw std::runtime_error("Delayed caption disappeared before reading time");std::this_thread::sleep_for(std::chrono::milliseconds(10));}
  // Reset while another real OCR line is awaiting translation.
  wait([&]{return std::filesystem::exists(ipc/L"started-2");},&follow,5);
  if(worker.snapshot().source!="Follow me.")throw std::runtime_error("Second OCR fixture was not read");
@@ -38,6 +39,6 @@ int wmain(int argc,wchar_t** argv){try{
  wait([&]{return std::filesystem::exists(ipc/L"completed-2");},&blank,3);
  const auto resetUntil=tick()+.6;
  while(tick()<resetUntil){if(!worker.snapshot().translated.empty())throw std::runtime_error("Previous source generation published a caption");std::this_thread::sleep_for(std::chrono::milliseconds(10));}
- std::cout<<"PASS: actual OCR continues during delayed IPC; blank and reset clear before completion; stale results rejected\n";
+ std::cout<<"PASS: OCR continues during delayed IPC; delayed result remains readable after source disappears; reset rejects old-generation results\n";
  return 0;
 }catch(const std::exception& e){std::cerr<<e.what()<<'\n';return 1;}}

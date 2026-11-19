@@ -1,5 +1,15 @@
 # Component provenance
 
+Preview.14 optional/bundled OCR: [RapidOCR](https://github.com/RapidAI/RapidOCR)
+1.4.4, Apache-2.0, with unmodified PP-OCRv4 detection and PP-OCRv5 English
+recognition ONNX weights from RapidAI / [PaddleOCR](https://github.com/PaddlePaddle/PaddleOCR)
+(Apache-2.0). Exact wheel/model URLs and SHA-256 are in `docs/ocr-components.json`.
+Original dependency licenses remain in `app/ocr/deps`; model attribution and
+provenance accompany `app/ocr`. ONNX Runtime MIT; OpenCV Apache-2.0; NumPy/Pillow
+BSD-style; Shapely BSD; PyYAML/pyclipper/six MIT; tqdm MPL-2.0/MIT; flatbuffers
+Apache-2.0; protobuf/colorama BSD; packaging Apache-2.0/BSD. Python is shared with
+the bundled translation runtime. No OCR model downloads occur during playback.
+
 Local NR licensing correction (2026-11-18): the SF file was already modified by
 ShortFuse upstream; copying it unchanged from Veyra does not make it an unmodified
 NVIDIA original. Redistribution rights for both included NR files are not
