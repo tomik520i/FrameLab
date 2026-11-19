@@ -101,3 +101,42 @@ profiles is imported by the production translator. Exact prompts and raw
 outputs remain the source of truth; assistant grades are not independent human
 accuracy measurements. Identical requests also showed some variation between
 long runs, so small differences require repeated, controlled measurements.
+
+## Dictionary and CPU-draft comparison
+
+`tools/evaluate_hybrid_translation.py` evaluates three frozen candidates on the
+original 300-case development corpus: production Q5, FreeDict alternatives + Q5,
+and the bundled CPU OPUS-MT draft + Q5. It never changes the live translator.
+The FreeDict EN–CS 0.1.3 source archive comes from
+[FreeDict downloads](https://freedict.org/downloads/); verify its published SHA512
+before extracting `eng-ces.tei`. The dictionary is GPL-2.0-or-later and is not
+bundled or published by these experiment scripts.
+
+```powershell
+python tools/evaluate_hybrid_translation.py website/translation/quality/data/corpus.jsonl analysis-output/study/hybrid-v1 --dictionary path/to/eng-ces.tei --translation-root path/to/FrameLab/translation --url http://127.0.0.1:12345
+python tools/prompt_test_monitor.py analysis-output/study
+```
+
+The model/runtime must already be running locally with Q5. The CPU model and
+libraries are read from the supplied existing application directory. Output
+directories cannot be reused. The manifest freezes source/corpus/dictionary
+hashes before evaluation; all six variant orders occur equally often. Each
+result includes the full prompt, dictionary candidates or CPU draft, raw Q5
+response, preparation time, Q5 API time, and total wall time. Model and dictionary
+loading are separate from warmed per-sentence timing. An invalid model response
+is retained and marked, not silently removed from quality statistics.
+
+The monitor shows per-variant counts and total/preparation medians. For the local
+review workflow, `tools/report_hybrid_translation.py ROOT` combines the prior
+`comparison.json`, the new `hybrid-v1` results and fully completed
+`hybrid-review-notes.json` into `hybrid-report.html`, `hybrid-comparison.json` and
+`hybrid-summary.json`. New output grades require actual semantic review; matching
+references or counting changed text is not a substitute. The report refuses an
+unfinished review/run or changed candidate/corpus hash. Its link appears in the
+monitor once the file exists. Outputs and private review artifacts stay local.
+
+This is one experiment with a specific lookup policy and CUNI prompt format.
+CPU OPUS-MT is neural; dictionary lookup is non-neural. A slower, worse hybrid
+does not establish that all post-editing systems fail. Compare total pipeline
+time, not only the final Q5 call, and include newly introduced errors as well as
+fixed ones. Existing development references must not become model hints.

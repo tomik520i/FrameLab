@@ -31,8 +31,15 @@ def snapshot():
         expected = m['count'] * len(m['profiles'])
         done = (manifest.parent/'COMPLETE.json').exists()
         age = time.time()-results.stat().st_mtime if results.exists() else None
+        profiles=[]
+        for profile in m['profiles']:
+            group=[r for r in rows if r['profile']==profile]
+            profiles.append(dict(profile=profile,count=len(group),
+                total_ms=round(statistics.median(r['wall_ms'] for r in group),1) if group else None,
+                prep_ms=round(statistics.median(r.get('prep_ms',0) for r in group),2) if group else None))
         runs.append(dict(name=manifest.parent.name, profiles=m['profiles'], count=len(rows), expected=expected,
                          complete=done, last_age_s=age, started=m.get('started_utc'),
+                         profile_stats=profiles, failed=(manifest.parent/'FAILED.json').exists(),
                          median_ms=round(statistics.median(r['wall_ms'] for r in rows),1) if rows else None,
                          last_id=rows[-1]['id'] if rows else None))
     status_path = root/'study-status.json'
@@ -46,17 +53,22 @@ def page(d):
     cards=[]
     for r in reversed(d['runs']):
         active=not r['complete'] and r['last_age_s'] is not None and r['last_age_s']<30
-        state='Hotovo' if r['complete'] else 'Překládá se' if active else 'Čeká / ověřuju stav'
+        state='Chyba běhu' if r['failed'] else 'Hotovo' if r['complete'] else 'Překládá se' if active else 'Čeká / ověřuju stav'
         age='—' if r['last_age_s'] is None else f"{r['last_age_s']:.0f} s"
         cards.append(f'''<article><div class="row"><h2>{e(r['name'])}</h2><strong class="{'done' if r['complete'] else 'live'}">{state}</strong></div><p>{e(' + '.join(r['profiles']))}</p><progress max="{r['expected']}" value="{r['count']}" aria-label="Hotové překlady"></progress><div class="row"><b>{r['count']} / {r['expected']} překladů</b><span>Medián {r['median_ms'] or '—'} ms</span></div><small>Poslední věta {e(str(r['last_id'] or '—'))} · poslední zápis před {age} · začátek {e(str(r['started']))}</small></article>''')
+        if r['name'].startswith('hybrid'):
+            details=''.join(f"<p><b>{e(s['profile'])}</b>: {s['count']} hotovo · medián celkem {s['total_ms']} ms · příprava {s['prep_ms']} ms</p>" for s in r['profile_stats'])
+            cards[-1]=cards[-1].replace('</article>',details+'</article>')
     status=d['status']
     report_link='<p><a href="/report.html">Otevřít kompletní porovnání a výsledky</a></p>' if (root/'report.html').is_file() else ''
-    return f'''<!doctype html><html lang="cs"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta http-equiv="refresh" content="4"><title>FrameLab — průběh testů</title><style>:root{{color-scheme:dark;font-family:Segoe UI,Arial,sans-serif;background:#10150f;color:#edf2e5}}body{{max-width:1040px;margin:auto;padding:35px 22px}}header{{border-bottom:1px solid #405036;padding-bottom:25px}}h1{{font-size:clamp(28px,4vw,46px);margin:10px 0}}h2{{font-size:18px;margin:0}}p{{line-height:1.5;color:#bac6b0}}.eyebrow{{color:#b6ff59;letter-spacing:.12em;font-size:14px}}.stats{{display:flex;gap:40px;margin:25px 0}}.stats b{{font-size:32px;display:block;color:#b6ff59}}article,.status{{background:#1c2418;border:1px solid #37462e;border-radius:12px;padding:20px;margin:18px 0}}.row{{display:flex;justify-content:space-between;gap:18px;flex-wrap:wrap}}progress{{width:100%;height:16px;accent-color:#b6ff59;margin:10px 0 18px}}small{{display:block;color:#a4b196;font-size:13px;margin-top:14px}}.done{{color:#79cbb1}}.live{{color:#ffd27e}}a{{color:#b6ff59}}footer{{color:#a4b196;margin:35px 0;font-size:14px}}</style><header><div class="eyebrow">FRAME / LAB · ŽIVÝ TEST</div><h1>Ladění překladu Q5</h1><p>300 původních vět pro ladění. Dalších 300 oddělených vět pro závěrečné ověření.</p><div class="stats"><div><b>{d['total']}</b>hotových překladů</div><div><b>{d['finished_runs']}</b>dokončených běhů</div></div></header><section class="status"><h2>{e(status.get('phase','Testování'))}</h2><p>{e(status.get('detail',''))}</p><small>Aktualizace stavu: {e(status.get('updated','—'))}</small>{report_link}</section>{''.join(cards)}<footer>Obnovení každé 4 sekundy · čas stránky {e(d['now'])}<br>Časy jsou lokální API odezva při zahřátém modelu, bez OCR a vykreslení. Hodnocení významu probíhá zvlášť; dokončení překladů ještě neznamená hotovou analýzu.<br><a href="/status.json">Podrobný stav JSON</a></footer></html>'''
+    if (root/'hybrid-report.html').is_file():
+        report_link='<p><a href="/hybrid-report.html">NOVÉ: Q5 vs. FreeDict vs. CPU návrh — výsledky</a></p>'+report_link
+    return f'''<!doctype html><html lang="cs"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta http-equiv="refresh" content="4"><title>FrameLab — průběh testů</title><style>:root{{color-scheme:dark;font-family:Segoe UI,Arial,sans-serif;background:#10150f;color:#edf2e5}}body{{max-width:1040px;margin:auto;padding:35px 22px}}header{{border-bottom:1px solid #405036;padding-bottom:25px}}h1{{font-size:clamp(28px,4vw,46px);margin:10px 0}}h2{{font-size:18px;margin:0}}p{{line-height:1.5;color:#bac6b0}}.eyebrow{{color:#b6ff59;letter-spacing:.12em;font-size:14px}}.stats{{display:flex;gap:40px;margin:25px 0}}.stats b{{font-size:32px;display:block;color:#b6ff59}}article,.status{{background:#1c2418;border:1px solid #37462e;border-radius:12px;padding:20px;margin:18px 0}}.row{{display:flex;justify-content:space-between;gap:18px;flex-wrap:wrap}}progress{{width:100%;height:16px;accent-color:#b6ff59;margin:10px 0 18px}}small{{display:block;color:#a4b196;font-size:13px;margin-top:14px}}.done{{color:#79cbb1}}.live{{color:#ffd27e}}a{{color:#b6ff59}}footer{{color:#a4b196;margin:35px 0;font-size:14px}}</style><header><div class="eyebrow">FRAME / LAB · ŽIVÝ TEST</div><h1>Ladění překladu Q5</h1><p>Nově: 300 vět × 3 varianty — Q5, FreeDict a CPU návrh. Níže zůstávají i předchozí běhy ladění a odděleného ověření.</p><div class="stats"><div><b>{d['total']}</b>hotových překladů</div><div><b>{d['finished_runs']}</b>dokončených běhů</div></div></header><section class="status"><h2>{e(status.get('phase','Testování'))}</h2><p>{e(status.get('detail',''))}</p><small>Aktualizace stavu: {e(status.get('updated','—'))}</small>{report_link}</section>{''.join(cards)}<footer>Obnovení každé 4 sekundy · čas stránky {e(d['now'])}<br>Časy jsou odezva překladu při zahřátém modelu, bez OCR a vykreslení. U hybridního testu zahrnují i slovníkovou nápovědu nebo CPU návrh. Hodnocení významu probíhá zvlášť; dokončení překladů ještě neznamená hotovou analýzu.<br><a href="/status.json">Podrobný stav JSON</a></footer></html>'''
 
 
 class Handler(BaseHTTPRequestHandler):
     def do_GET(self):
-        assets={'/report.html': ('report.html', 'text/html; charset=utf-8'), '/study-summary.json': ('study-summary.json', 'application/json; charset=utf-8')}
+        assets={'/report.html': ('report.html', 'text/html; charset=utf-8'), '/study-summary.json': ('study-summary.json', 'application/json; charset=utf-8'), '/hybrid-report.html': ('hybrid-report.html', 'text/html; charset=utf-8'), '/hybrid-summary.json': ('hybrid-summary.json', 'application/json; charset=utf-8')}
         if self.path in assets:
             name, mime=assets[self.path]
             path=root/name
