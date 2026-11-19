@@ -11,8 +11,9 @@ void createTexture(ID3D11Device* device,Texture& texture,unsigned w,unsigned h,D
  if(shared){ComPtr<IDXGIResource1> resource;check(texture.texture.As(&resource),"Enhancer shared resource");check(resource->CreateSharedHandle(nullptr,DXGI_SHARED_RESOURCE_READ|DXGI_SHARED_RESOURCE_WRITE,nullptr,handle),"Enhancer shared handle");}
 }
 }
-Enhancer::Enhancer(Graphics& graphics,unsigned width,unsigned height,unsigned maxHeight,const std::filesystem::path& app,const std::filesystem::path& runtime):g(graphics),w(width),h(height),runtimePath(std::filesystem::absolute(runtime)),cachePath(std::filesystem::absolute(app/L"nr-cache")){
+Enhancer::Enhancer(Graphics& graphics,unsigned width,unsigned height,unsigned maxHeight,const std::filesystem::path& app,const std::filesystem::path& runtime,unsigned passes):g(graphics),w(width),h(height),passCount(passes),runtimePath(std::filesystem::absolute(runtime)),cachePath(std::filesystem::absolute(app/L"nr-cache")){
  try{
+  if(passes<1||passes>4)throw std::runtime_error("NR passes must be between 1 and 4");
   if(!std::filesystem::is_regular_file(runtimePath/L"nvngx_dlssnr.dll"))throw std::runtime_error("NR runtime missing: "+(runtimePath/L"nvngx_dlssnr.dll").string());
   const auto dimensions=nrDimensions(w,h,maxHeight);iw=dimensions.first;ih=dimensions.second;
   auto path=std::filesystem::absolute(app/L"nr-host"/L"nvngx.dll");library=LoadLibraryExW(path.c_str(),nullptr,LOAD_LIBRARY_SEARCH_DLL_LOAD_DIR|LOAD_LIBRARY_SEARCH_SYSTEM32);if(!library)throw std::runtime_error("FrameLab NR adapter missing or failed to load (Win32 "+std::to_string(GetLastError())+")");
@@ -22,7 +23,7 @@ Enhancer::Enhancer(Graphics& graphics,unsigned width,unsigned height,unsigned ma
   createTexture(g.device.Get(),original,w,h,DXGI_FORMAT_B8G8R8A8_UNORM,false,nullptr);createTexture(g.device.Get(),result,w,h,DXGI_FORMAT_R8G8B8A8_UNORM,false,nullptr);
   check(device->CreateFence(0,D3D11_FENCE_FLAG_SHARED,IID_PPV_ARGS(&inputFence)),"Enhancer input fence");check(inputFence->CreateSharedHandle(nullptr,GENERIC_ALL,nullptr,&fenceHandle),"Enhancer fence handle");
   ComPtr<IDXGIDevice> dx;check(g.device.As(&dx),"Enhancer DXGI device");ComPtr<IDXGIAdapter> adapter;check(dx->GetAdapter(&adapter),"Enhancer adapter");DXGI_ADAPTER_DESC desc{};check(adapter->GetDesc(&desc),"Enhancer adapter identity");
-  NrConfig c{};c.adapter=desc.AdapterLuid;c.width=w;c.height=h;c.inferenceWidth=iw;c.inferenceHeight=ih;c.input=inputHandle;c.output=outputHandle;c.inputFence=fenceHandle;c.runtimeDirectory=runtimePath.c_str();c.cacheDirectory=cachePath.c_str();
+  NrConfig c{};c.passes=passCount;c.adapter=desc.AdapterLuid;c.width=w;c.height=h;c.inferenceWidth=iw;c.inferenceHeight=ih;c.input=inputHandle;c.output=outputHandle;c.inputFence=fenceHandle;c.runtimeDirectory=runtimePath.c_str();c.cacheDirectory=cachePath.c_str();
   worker=std::thread([this,c]{run(c);});
  }catch(const std::exception& e){fail(e.what());finished=true;}
 }

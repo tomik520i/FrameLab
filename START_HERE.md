@@ -68,3 +68,12 @@ To verify the download, run `Get-FileHash .\FrameLab-0.2.0-preview.13-windows-x6
 ## Manual NVIDIA runtime setup for older minimal packages
 
 Skip this for the full ZIP: the five VFG DLLs are included. For older minimal packages use the [existing runtime add-on](https://opicebot.cz/framelab/downloads/FrameLab-NVIDIA-VFG-1.3-addon.zip), preserving its notices, or NVIDIA's [official VFX SDK installation instructions](https://docs.nvidia.com/maxine/vfx/latest/WindowsVFXSDK/InstalltheVFXSDK.html). The matching VFG 1.3 files belong in `app/runtime`: `cudart64_12.dll`, `NVCVImage.dll`, `nvngxruntime.dll`, `NVVideoEffects.dll`, `nvVFXVideoFrameGeneration.dll`. Do not confuse this component with DLSS NR.
+
+## Your own video or movie
+
+1. Open **Capture → Your video / movie → Open video…** and choose a local file. No capture card is needed. Playback uses the file's native timestamps; **Next replay FPS** applies only to the bundled demo player.
+2. Use **Pause / Play**, the position slider, **Loop**, or **Play again** after the end. A paused seek updates the picture. Changing position clears interpolation/enhancement history and old translated captions.
+3. In **Audio**, choose the video-file output and volume/mute. Changing the device reopens playback at the current position. Sound and decoded video share one media clock; FG, NR and display processing add video delay. This does not measure or automatically remove the final A/V offset.
+4. Enable FG, NR or subtitles exactly as for a capture card. **F11** shows the finished image; return with Escape to reach the playback controls. **F8 freezes the comparison only**; use Pause to stop both the movie and its sound.
+
+Verified with SDR H.264/AAC MP4 and silent MP4. Other formats depend on installed Windows Media Foundation codecs; the extension alone does not guarantee support. HEVC may need Microsoft's codec. No DRM/HDCP bypass, HDR tone mapping, audio-track selection or external SRT/embedded subtitle-track rendering is provided. The first video/audio tracks are used. OCR reads English subtitles already visible in the picture, not the movie's audio. Diagnostic recordings still omit audio, NR and translated overlays.

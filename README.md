@@ -1,5 +1,7 @@
 # FrameLab
 
+**Also in preview.13:** [open your own video/movie](START_HERE.md#your-own-video-or-movie) with audio and playback controls; [1–4 sequential NR passes](docs/enhancer-install.en.md#nr-passes-start-at-one), independent of the FG multiplier.
+
 **[CUNI Q3 vs Q8 on RTX 5070 Ti: speed, memory and all 300 translations](https://opicebot.cz/framelab/translation/)**
 
 **Preview.13: [Download the complete Windows app](https://github.com/tomik520i/FrameLab/releases/download/v0.2.0-preview.13/FrameLab-0.2.0-preview.13-windows-x64-full.zip) · [Česká instalace krok za krokem](INSTALL.cs.md) · [English installation](START_HERE.md) · [All release files](https://github.com/tomik520i/FrameLab/releases/tag/v0.2.0-preview.13)**

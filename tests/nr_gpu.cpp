@@ -18,14 +18,14 @@ void bmp(const std::filesystem::path& path,const std::vector<unsigned char>& dat
 }
 int wmain(int argc,wchar_t** argv){
  try{
-  if(argc<3)throw std::runtime_error("Usage: nr_gpu_test app-dir result-dir [input.bgra width height] [runtime-name] [inference-height]");
+  if(argc<3)throw std::runtime_error("Usage: nr_gpu_test app-dir result-dir [input.bgra width height] [runtime-name] [inference-height] [passes]");
   auto app=std::filesystem::absolute(argv[1]),dir=std::filesystem::absolute(argv[2]);std::filesystem::create_directories(dir);
   unsigned w=argc>4?_wtoi(argv[4]):640,h=argc>5?_wtoi(argv[5]):360,ih=argc>7?_wtoi(argv[7]):360;
   std::vector<unsigned char> image(size_t(w)*h*4);
   if(argc>3){std::ifstream in(argv[3],std::ios::binary);if(!in.read((char*)image.data(),image.size()))throw std::runtime_error("Input BGRA missing or truncated");}
   else for(unsigned y=0;y<h;++y)for(unsigned x=0;x<w;++x){auto p=image.data()+(size_t(y)*w+x)*4;p[0]=32+x*160/w;p[1]=32+y*160/h;p[2]=((x/20+y/20)%2)?170:90;p[3]=255;}
   Graphics g;g.initDevice();Texture input;input.create(g.device.Get(),w,h);g.context->UpdateSubresource(input.texture.Get(),0,nullptr,image.data(),w*4,0);
-  Enhancer nr(g,w,h,ih,app,app/L"runtime"/(argc>6?argv[6]:L"nr-sf"));
+  Enhancer nr(g,w,h,ih,app,app/L"runtime"/(argc>6?argv[6]:L"nr-sf"),argc>8?_wtoi(argv[8]):1);
   auto deadline=Clock::now()+std::chrono::seconds(150);
   while(nr.state()==Enhancer::State::Loading){if(Clock::now()>deadline)throw std::runtime_error("Loading timeout");Sleep(10);}
   if(nr.state()==Enhancer::State::Failed)throw std::runtime_error(nr.error());
@@ -35,7 +35,7 @@ int wmain(int argc,wchar_t** argv){
    // Vary a marker so a stale input/output pairing fails byte verification.
    if(frame<11)for(unsigned y=0;y<std::min(h,32u);++y)for(unsigned x=0;x<std::min(w,32u);++x){auto p=image.data()+(size_t(y)*w+x)*4;p[0]=frame*21;p[1]=255-frame*19;}
    g.context->UpdateSubresource(input.texture.Get(),0,nullptr,image.data(),w*4,0);
-   if(!nr.submit(input.texture.Get(),frame==0||frame==6,frame!=7))throw std::runtime_error("Submit refused");
+   if(!nr.submit(input.texture.Get(),frame==0||frame==6||frame==11,frame!=7))throw std::runtime_error("Submit refused");
    if(nr.submit(input.texture.Get()))throw std::runtime_error("Accepted a second in-flight frame");
    deadline=Clock::now()+std::chrono::seconds(30);
    while(!nr.take()){if(nr.state()==Enhancer::State::Failed)throw std::runtime_error(nr.error());if(Clock::now()>deadline)throw std::runtime_error("Inference timeout");Sleep(1);}
@@ -44,6 +44,26 @@ int wmain(int argc,wchar_t** argv){
    if(nr.take())throw std::runtime_error("Published a frame twice");
   }
   auto before=pixels(g,nr.original,w,h,false),after=pixels(g,nr.result,w,h,true);
+  if(nr.passes()>1){
+   // Independent CPU readback/re-upload chain must match the all-GPU chain.
+   // Reset each step so feature history cannot disguise an accidental replay
+   // of the original frame. Runtime arithmetic can differ by a rounding unit.
+   Enhancer single(g,w,h,ih,app,app/L"runtime"/(argc>6?argv[6]:L"nr-sf"));
+   deadline=Clock::now()+std::chrono::seconds(150);
+   while(single.state()==Enhancer::State::Loading){if(Clock::now()>deadline)throw std::runtime_error("Reference load timeout");Sleep(10);}
+   auto reference=image;
+   for(unsigned pass=0;pass<nr.passes();++pass){
+    if(single.state()==Enhancer::State::Failed)throw std::runtime_error(single.error());
+    g.context->UpdateSubresource(input.texture.Get(),0,nullptr,reference.data(),w*4,0);
+    if(!single.submit(input.texture.Get(),true,true))throw std::runtime_error("Reference submit failed");
+    deadline=Clock::now()+std::chrono::seconds(30);
+    while(!single.take()){if(single.state()==Enhancer::State::Failed)throw std::runtime_error(single.error());if(Clock::now()>deadline)throw std::runtime_error("Reference inference timeout");Sleep(1);}
+    reference=pixels(g,single.result,w,h,true);
+   }
+   double error=0;for(size_t i=0;i<reference.size();++i)error+=std::abs(int(reference[i])-int(after[i]));
+   error/=reference.size();std::cout<<"independent_chain_mae="<<error<<std::endl;
+   if(error>0.5)throw std::runtime_error("GPU passes do not match the independent sequential chain");
+  }
   size_t changed=0,referenceErrors=0,opaque=0;double difference=0,brightness=0;
   for(size_t i=0;i<image.size();i+=4){bool different=false;for(int c=0;c<3;++c){referenceErrors+=before[i+c]!=image[i+c];auto delta=std::abs(int(after[i+c])-int(before[i+c]));difference+=delta;different|=delta>1;brightness+=after[i+c];}changed+=different;opaque+=after[i+3]==255;}
   double mae=difference/(w*h*3.0);bool pass=referenceErrors==0&&changed>w*h/1000&&brightness>w*h*3.0&&opaque==size_t(w)*h;

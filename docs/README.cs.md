@@ -1,5 +1,7 @@
 # FrameLab — český návod preview.13
 
+**Navíc v preview.13:** vlastní video/film se zvukem a ovládáním přehrávání; 1–4 navazující průchody NR, nezávislé na násobiči FG. Viz [návod](../INSTALL.cs.md).
+
 **[CUNI Q3 vs Q8 na RTX 5070 Ti: výkon, paměť a všech 300 překladů](https://opicebot.cz/framelab/translation/?lang=cs)**
 
 **[Kompletní instalace, nastavení a řešení problémů](../INSTALL.cs.md)** · [Stáhnout hotovou aplikaci](https://github.com/tomik520i/FrameLab/releases/download/v0.2.0-preview.13/FrameLab-0.2.0-preview.13-windows-x64-full.zip)

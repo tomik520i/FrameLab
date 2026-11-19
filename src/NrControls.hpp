@@ -7,12 +7,12 @@
 #include <cmath>
 #include <shellapi.h>
 struct NrControls {
- bool enabled=false,motion=true;float strength=.65f,split=.5f;int view=1,height=720,runtime=0;
+ bool enabled=false,motion=true;float strength=.65f,split=.5f;int view=1,height=720,runtime=0,passes=1;
  bool operator==(const NrControls&)const=default;
  const char* text(const char* en,const char* cs)const{return czech?cs:en;}
  void load(const std::filesystem::path& path){std::ifstream in(path);int version=0;float s=.65f,x=.5f;int v=2,h=720,r=0,m=1;
-  if(in>>version>>s>>x>>v>>h>>r>>m&&version==1&&std::isfinite(s)&&std::isfinite(x)){strength=std::clamp(s,0.f,1.f);split=std::clamp(x,.05f,.95f);view=std::clamp(v,0,2);height=(h==0||(h>=180&&h<=8192))?h:720;runtime=r==1?1:0;motion=m!=0;}}
- void save(const std::filesystem::path& path)const{std::ofstream(path)<<1<<' '<<strength<<' '<<split<<' '<<view<<' '<<height<<' '<<runtime<<' '<<motion<<'\n';}
+  if(in>>version>>s>>x>>v>>h>>r>>m&&(version==1||version==2)&&std::isfinite(s)&&std::isfinite(x)){strength=std::clamp(s,0.f,1.f);split=std::clamp(x,.05f,.95f);view=std::clamp(v,0,2);height=(h==0||(h>=180&&h<=8192))?h:720;runtime=r==1?1:0;motion=m!=0;passes=1;if(version==2){int count=1;if(in>>count)passes=std::clamp(count,1,4);}}}
+ void save(const std::filesystem::path& path)const{std::ofstream(path)<<2<<' '<<strength<<' '<<split<<' '<<view<<' '<<height<<' '<<runtime<<' '<<motion<<' '<<passes<<'\n';}
  bool available(const std::filesystem::path& app)const{std::error_code ec;return std::filesystem::is_regular_file(app/L"runtime"/(runtime?L"nr-original":L"nr-sf")/L"nvngx_dlssnr.dll",ec);}
  bool panel(Enhancer* nr,const std::string& failure,unsigned sourceWidth=0,unsigned sourceHeight=0,unsigned monitorHeight=0,const std::filesystem::path& app={}){
   bool restart=false;
@@ -26,6 +26,10 @@ struct NrControls {
   }
   ImGui::SameLine();if(ImGui::Button(text("Guide","Návod")))ShellExecuteW(nullptr,L"open",L"https://opicebot.cz/framelab/guide/enhancer.html",nullptr,nullptr,SW_SHOWNORMAL);
   ImGui::BeginDisabled(!installed);ImGui::Checkbox(text("Enable enhancer (F6)","Zapnout enhancer (F6)"),&enabled);ImGui::EndDisabled();
+  ui::field(text("NR passes","Počet průchodů NR"));int passChoice=passes-1;
+  const char* passLabels[]={text("1 pass (default)","1 průchod (výchozí)"),text("2 passes","2 průchody"),text("3 passes","3 průchody"),text("4 passes","4 průchody")};
+  if(ImGui::Combo("##nr-passes",&passChoice,passLabels,4)){passes=passChoice+1;restart=true;}
+  ImGui::TextWrapped("%s",text("Each pass enhances the previous result. More passes need more GPU time and VRAM and can amplify artifacts. Strength blends the final result once.","Každý průchod upravuje výsledek předchozího. Více průchodů spotřebuje více času GPU i VRAM a může zesílit artefakty. Síla efektu se aplikuje až na konečný výsledek."));
   ui::field(text("Effect strength","Síla efektu"));float percent=strength*100;if(ImGui::SliderFloat("##nr-strength",&percent,0,100,"%.0f %%"))strength=percent/100;
   ImGui::TextDisabled("%s",text("0% = original, 100% = full AI change","0 % = původní obraz, 100 % = plná AI úprava"));
   const char* modes[]={text("Original","Původní"),text("Enhanced","Upravený"),text("Split comparison","Dělené porovnání")};
@@ -51,7 +55,7 @@ struct NrControls {
    ImGui::TextWrapped("%s",text("ShortFuse modifies NVIDIA's runtime; Veyra is the integration reference. Redistribution rights for these NR files have not been established. See LICENCE-NR.txt.","ShortFuse upravuje runtime NVIDIA; Veyra je vzor integrace. Právo dále šířit tyto NR soubory nemáme ověřené. Viz LICENCE-NR.txt."));
   }
   if(nr){const auto s=nr->state();if(s==Enhancer::State::Loading)ImGui::TextColored(ui::orange,"%s",text("Loading AI model... preview remains available","Načítání AI modelu... náhled zůstává dostupný"));
-   else if(s!=Enhancer::State::Failed){ImGui::Text("AI %u x %u | %.1f ms",nr->inferenceWidth(),nr->inferenceHeight(),nr->processingMs());ImGui::TextDisabled("%s",text("Last completed operation, including GPU wait","Poslední dokončená operace včetně čekání na GPU"));}}
+   else if(s!=Enhancer::State::Failed){ImGui::Text(text("AI %u x %u | %u pass(es) | %.1f ms total","AI %u x %u | průchodů: %u | celkem %.1f ms"),nr->inferenceWidth(),nr->inferenceHeight(),nr->passes(),nr->processingMs());ImGui::TextDisabled("%s",text("All passes of the last completed frame, including GPU wait","Všechny průchody posledního snímku včetně čekání na GPU"));}}
   if(!failure.empty())ImGui::TextWrapped("%s",failure.c_str());
   if(ImGui::CollapsingHeader(text("How it works / limitations","Jak to funguje / omezení"))){
    ImGui::TextWrapped("%s",text("Input frame > smaller AI image > neural rendering > add changes back to source > strength blend. The engine's depth and motion data are unavailable: motion is estimated, depth is flat. Changes can help or harm details and HUD. This is the Veyra community experiment, not an official game integration.","Snímek > menší obraz pro AI > neural rendering > změny zpět do původního rozlišení > přimíchání podle síly. Skutečná data enginu chybí: pohyb se odhaduje, hloubka je plochá. Změny mohou detailům i HUD pomoci nebo uškodit. Jde o komunitní experiment podle Veyry, nikoli oficiální integraci do hry."));

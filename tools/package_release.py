@@ -17,7 +17,7 @@ def digest(path):
 
 def publishable(path,base):
     rel=path.relative_to(base)
-    return path.is_file() and not set(rel.parts).intersection({'logs','__pycache__','nr-cache','.git'}) and path.suffix!='.pyc' and path.name not in {'nr-settings.txt','subtitle-settings.txt','display-settings.txt','audio-settings.txt','imgui.ini','SHA256SUMS.txt'}
+    return path.is_file() and not set(rel.parts).intersection({'logs','__pycache__','nr-cache','.git'}) and path.suffix!='.pyc' and path.name not in {'nr-settings.txt','subtitle-settings.txt','display-settings.txt','audio-settings.txt','file-audio-settings.txt','imgui.ini','SHA256SUMS.txt'}
 
 def main():
     p=argparse.ArgumentParser(description=__doc__)

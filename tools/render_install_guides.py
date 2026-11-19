@@ -56,10 +56,10 @@ def main():
         content=render((ROOT/source).read_text(encoding='utf-8'))
         sections=re.split(r'(?=<h2>)',content)
         shot_map={
-            'index.html':{1:['launch','samples'],2:['fg'],3:['capture'],4:['ocr'],5:['display'],6:['wizard'],7:['longpath']},
-            'en.html':{1:['launch'],2:['fg','capture'],3:['ocr'],4:['display'],5:['wizard'],6:['longpath']},
-            'enhancer.html':{1:['extract','destination'],2:['wizard'],3:['select','ready'],4:['nr']},
-            'enhancer-en.html':{1:['wizard','select','ready','nr'],2:['longpath']},
+            'index.html':{1:['launch','samples'],2:['fg'],3:['capture'],4:['ocr'],5:['display'],6:['wizard'],7:['longpath'],9:['local-video']},
+            'en.html':{1:['launch'],2:['fg','capture'],3:['ocr'],4:['display'],5:['wizard'],6:['longpath'],8:['local-video']},
+            'enhancer.html':{1:['extract','destination'],2:['wizard'],3:['select','ready'],4:['nr'],6:['passes']},
+            'enhancer-en.html':{1:['wizard','select','ready','nr'],2:['longpath'],3:['passes']},
             'subtitles.html':{1:['ocr'],2:['cuni'],3:['caption-bounds']},'subtitles-en.html':{1:['ocr'],2:['cuni'],3:['caption-bounds']},
         }[name]
         content=sections[0]+guide_banner(lang)

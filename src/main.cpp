@@ -16,6 +16,8 @@
 #include "UiPreview.hpp"
 #include "NrControls.hpp"
 #include "VideoFileReplay.hpp"
+#include "LocalVideoPlayer.hpp"
+#include <commdlg.h>
 #include "SubtitleControls.hpp"
 #include "DisplayControls.hpp"
 #include "WindowChrome.hpp"
@@ -41,15 +43,16 @@ using Clock=std::chrono::steady_clock;
 double now(){return std::chrono::duration<double>(Clock::now().time_since_epoch()).count();}
 std::ofstream trace;
 void log(const std::string& s){trace<<std::fixed<<std::setprecision(4)<<now()<<" "<<s<<std::endl;}
-struct Packet {std::vector<unsigned char> data;unsigned w=0,h=0;double received=0;uint64_t serial=0,scene=0;};
+struct Packet {std::vector<unsigned char> data;unsigned w=0,h=0;double received=0;uint64_t serial=0,scene=0,sourceEpoch=0;};
 struct Mailbox {
  SubtitleTranslator* subtitles=nullptr;
  AnalysisRecorder* recorder=nullptr;
  std::mutex mutex;Packet latest;bool available=false;std::vector<unsigned char> signature,previousPixels,normalized;
  std::atomic<uint64_t> raw=0,unique=0,dropped=0,invalid=0;std::atomic<double> lastArrival=0,sourceInterval=1./30;double lastChangedArrival=0;
- uint64_t scene=0;LONGLONG lastPts=-1;
+ uint64_t scene=0,sourceEpoch=0;LONGLONG lastPts=-1;
  std::atomic<float> threshold=0.f;std::atomic<bool> dedup=true;unsigned sw=0,sh=0;
- void ingest(const DirectShowCapture::Frame& f){
+ void ingest(const DirectShowCapture::Frame& f,uint64_t epoch=0){
+  if(epoch!=sourceEpoch){sourceEpoch=epoch;++scene;lastPts=-1;lastChangedArrival=0;signature.clear();if(subtitles)subtitles->reset();}
   const double arrival=now();lastArrival=arrival;++raw;
   const unsigned fullH=f.sampleHeight?f.sampleHeight:f.height;
   if(!f.data||!f.width||!f.height||f.stride<f.width*4||f.dataSize<size_t(f.stride)*fullH||f.contentLeft+f.width>f.stride/4||f.contentTop+f.height>fullH){++invalid;return;}
@@ -78,10 +81,10 @@ struct Mailbox {
   if(!changed&&dedup)return;
   std::lock_guard lock(mutex);if(available)++dropped;latest.data.resize(size_t(f.width)*f.height*4);
   for(unsigned y=0;y<f.height;++y)memcpy(latest.data.data()+size_t(y)*f.width*4,row(y),f.width*4);
-  latest.w=f.width;latest.h=f.height;latest.received=arrival;latest.serial=raw;latest.scene=scene;available=true;
+  latest.w=f.width;latest.h=f.height;latest.received=arrival;latest.serial=raw;latest.scene=scene;latest.sourceEpoch=sourceEpoch;available=true;
  }
  bool take(Packet& p){std::lock_guard lock(mutex);if(!available)return false;std::swap(p,latest);available=false;return true;}
- void clear(){std::lock_guard lock(mutex);available=false;signature.clear();sw=sh=0;scene=0;lastPts=-1;raw=0;unique=0;dropped=0;invalid=0;lastArrival=0;lastChangedArrival=0;sourceInterval=1./30;}
+ void clear(){std::lock_guard lock(mutex);available=false;signature.clear();sw=sh=0;scene=sourceEpoch=0;lastPts=-1;raw=0;unique=0;dropped=0;invalid=0;lastArrival=0;lastChangedArrival=0;sourceInterval=1./30;}
 };
 struct GpuMonitor {
  HMODULE dll=nullptr;void* device=nullptr;float utilization=-1,memoryMB=-1,freeMemoryMB=-1,temp=-1,power=-1;char name[96]="NVIDIA GPU";
@@ -223,11 +226,16 @@ int WINAPI wWinMain(HINSTANCE instance,HINSTANCE,LPWSTR cmd,int){
   {std::ifstream settings(root/L"audio-settings.txt");if(settings){settings>>std::quoted(savedOutput)>>audioVolume>>audioMuted;audioVolume=std::clamp(audioVolume,0,100);}}
   for(int i=0;i<int(outputs.size());++i){log("Audio output: "+outputs[i].friendlyName);if(outputs[i].monikerDisplayName==savedOutput)audioOutput=i;}
   auto saveAudio=[&]{std::ofstream(root/L"audio-settings.txt")<<std::quoted(outputs[audioOutput].monikerDisplayName)<<' '<<audioVolume<<' '<<audioMuted<<'\n';};
+  bool isLocalVideo=false;std::filesystem::path localVideoPath;
+  auto fileOutputs=LocalVideoPlayer::audioOutputs();int fileAudioOutput=0;std::wstring savedFileOutput;
+  {std::wifstream settings(root/L"file-audio-settings.txt");settings>>std::quoted(savedFileOutput);}
+  for(int i=0;i<int(fileOutputs.size());++i)if(fileOutputs[i].id==savedFileOutput)fileAudioOutput=i;
+  uint64_t acceptedFileEpoch=0;float seekPosition=0;bool editingSeek=false;
   SubtitleSettings subtitleSettings;subtitleSettings.load(root/L"subtitle-settings.txt");bool subtitleStartupPending=args.find(L"--subtitles")!=std::wstring::npos;OcrSetup ocrSetup;
   if(uiPreview&&args.find(L"--preview-subtitle-edit")!=std::wstring::npos)subtitleSettings.editOverlay=true;
   auto savedSubtitleSettings=subtitleSettings;SubtitleModels subtitleModels(root);SubtitleTranslator subtitles(root);subtitles.configure(subtitleSettings);SubtitleSnapshot frozenSubtitle;
   DisplayControls displayControls;displayControls.load(root/L"display-settings.txt");
-  GpuMonitor gpu;AnalysisRecorder analysis;Mailbox mailbox;mailbox.subtitles=&subtitles;mailbox.recorder=&analysis;DirectShowCapture capture;std::atomic<bool> demoRun=false;std::jthread demo;
+  GpuMonitor gpu;AnalysisRecorder analysis;Mailbox mailbox;mailbox.subtitles=&subtitles;mailbox.recorder=&analysis;DirectShowCapture capture;std::atomic<bool> demoRun=false;std::jthread demo;LocalVideoPlayer localVideo;
   std::mutex replayErrorMutex;std::string replayError;
   bool live=false,isDemo=false,vfgInitialized=false,havePrevious=false,pending=false,vsync=args.find(L"--no-vsync")==std::wstring::npos,initFailed=false;
   int quality=args.find(L"--medium")!=std::wstring::npos?1:args.find(L"--high")!=std::wstring::npos?2:args.find(L"--low")!=std::wstring::npos?0:1,resolution=0;unsigned current=0,w=0,h=0;Texture originals[2],generated;FrameGenerator vfg;vfg.useOptical=args.find(L"--optical")!=std::wstring::npos;ID3D11ShaderResourceView* displayed=nullptr;
@@ -239,6 +247,7 @@ int WINAPI wWinMain(HINSTANCE instance,HINSTANCE,LPWSTR cmd,int){
   bool freezePreview=false;std::string activeVideoName;
   NrControls nrControls;nrControls.load(root/L"nr-settings.txt");nrControls.enabled=FRAMELAB_WITH_NR&&args.find(L"--nr")!=std::wstring::npos;auto savedNrControls=nrControls;
   if(!argument(L"--nr-height").empty()){auto limit=_wtoi(argument(L"--nr-height").c_str());nrControls.height=limit==0?0:std::clamp(limit,180,8192);}
+  if(!argument(L"--nr-passes").empty())nrControls.passes=std::clamp(_wtoi(argument(L"--nr-passes").c_str()),1,4);
   std::unique_ptr<Enhancer> enhancer;std::vector<std::unique_ptr<Enhancer>> retiringEnhancers;QueuedImage nrPending{};std::string nrFailure;
   uint64_t currentScene=0,nrLastScene=0;double nrLastSourceTime=0;bool nrReset=true,nrWasEnabled=nrControls.enabled,nrDiscardPending=false;
   auto retireEnhancer=[&]{if(enhancer){if(displayed==enhancer->original.view.Get())displayed=presentedImage.view.Get();enhancer->requestStop();retiringEnhancers.push_back(std::move(enhancer));}nrReset=true;nrLastSourceTime=0;};
@@ -258,7 +267,7 @@ int WINAPI wWinMain(HINSTANCE instance,HINSTANCE,LPWSTR cmd,int){
   History inputHistory,uniqueHistory,outputHistory,latencyHistory,gpuTimeHistory,utilHistory;
   std::vector<float> latencySamples;double start=now(),lastStats=start;uint64_t lastRaw=0,lastUnique=0,lastContent=0,lastPresents=0,lastGenerated=0;
   auto resetPipeline=[&]{freezePreview=false;subtitles.reset();retireEnhancer();analysis.finish("Source or settings changed");analysis.cancelPending();comparison.clear();readyImages.clear();imagePool.clear();pacer.reset();displayVerification.clearHistory();g.context->PSSetShaderResources(0,0,nullptr);vfg.reset();vfgInitialized=false;havePrevious=false;pending=false;initFailed=false;gpuMs=-1;displayed=nullptr;current=0;previousArrival=0;};
-  auto stopSource=[&]{demoRun=false;if(demo.joinable()){demo.request_stop();demo.join();}capture.stop();live=false;isDemo=false;activeVideoName.clear();resetPipeline();mailbox.clear();lastRaw=lastUnique=0;};
+  auto stopSource=[&]{localVideo.stop();isLocalVideo=false;acceptedFileEpoch=0;demoRun=false;if(demo.joinable()){demo.request_stop();demo.join();}capture.stop();live=false;isDemo=false;activeVideoName.clear();resetPipeline();mailbox.clear();lastRaw=lastUnique=0;};
   auto startDemo=[&]{stopSource();isDemo=true;live=true;demoRun=true;status="TEST SOURCE: 30 unique frames inside a 60 Hz stream. Synthetic input.";
    const bool largeDemo=test1440;
    demo=std::jthread([&,largeDemo](std::stop_token token){const unsigned dw=largeDemo?2560:1280,dh=largeDemo?1440:720;std::vector<unsigned char> pixels(size_t(dw)*dh*4);uint64_t tick=0;auto next=Clock::now();
@@ -274,6 +283,21 @@ int WINAPI wWinMain(HINSTANCE instance,HINSTANCE,LPWSTR cmd,int){
     const size_t bytes=1920ull*1080*4;std::ifstream file(path,std::ios::binary);std::vector<unsigned char> pixels(bytes);auto next=Clock::now();size_t index=0,count=std::filesystem::file_size(path)/bytes;
     while(demoRun&&!token.stop_requested()){file.seekg((index%count)*bytes);if(!file.read((char*)pixels.data(),bytes))break;DirectShowCapture::Frame f{};f.width=f.sampleWidth=1920;f.height=f.sampleHeight=1080;f.stride=1920*4;f.data=pixels.data();f.dataSize=bytes;mailbox.ingest(f);index+=stride;next+=std::chrono::nanoseconds(1000000000ll*stride/60);std::this_thread::sleep_until(next);}
    });};
+  auto startLocalVideo=[&](std::filesystem::path path,double position=0,bool paused=false){
+   stopSource();localVideoPath=std::move(path);isLocalVideo=true;isDemo=true;live=true;
+   auto filename=localVideoPath.filename().u8string();activeVideoName.assign(filename.begin(),filename.end());
+   status=nrControls.text("Opening local video...","Otevírání místního videa...");
+   localVideo.open(localVideoPath,fileOutputs[fileAudioOutput].id,audioVolume,audioMuted,[&](const auto& frame,uint64_t epoch){mailbox.ingest(frame,epoch);});
+   if(position>0)localVideo.seek(position);localVideo.pause(paused);
+  };
+  auto chooseLocalVideo=[&]{
+   wchar_t file[32768]{};OPENFILENAMEW picker{sizeof(picker)};picker.hwndOwner=window;
+   picker.lpstrFilter=L"Video files\0*.mp4;*.m4v;*.mov;*.mkv;*.avi;*.wmv;*.webm;*.m2ts;*.ts\0All files\0*.*\0\0";
+   picker.lpstrFile=file;picker.nMaxFile=DWORD(std::size(file));picker.Flags=OFN_FILEMUSTEXIST|OFN_PATHMUSTEXIST|OFN_NOCHANGEDIR|OFN_EXPLORER;
+   picker.lpstrTitle=czech?L"Otevřít vlastní video / film":L"Open your video / movie";
+   if(GetOpenFileNameW(&picker))startLocalVideo(file);
+   else if(auto error=CommDlgExtendedError())status="Video picker error: "+std::to_string(error);
+  };
   auto startCapture=[&]{stopSource();if(devices.empty()){status="No DirectShow capture device found.";return;}try{DirectShowCapture::Options o;o.deviceMoniker=devices[selected].monikerDisplayName;o.enableAudio=true;o.audioOutputMoniker=outputs[audioOutput].monikerDisplayName;o.audioVolume=audioVolume;o.audioMuted=audioMuted;if(resolution>0&&resolution<=int(resolutions.size())){auto mode=resolutions[resolution-1];o.desiredWidth=mode.width;o.desiredHeight=mode.height;o.desiredFrameRate=requestedFps;}
     capture.start([&](const auto& f){mailbox.ingest(f);},o);live=true;status="Capture running: "+devices[selected].friendlyName;log(status);
    }catch(const std::exception& e){status=e.what();log(status);}};
@@ -292,7 +316,7 @@ int WINAPI wWinMain(HINSTANCE instance,HINSTANCE,LPWSTR cmd,int){
     }
    });
   };
-  if(!argument(L"--replay-recording").empty())startRecordedReplay();else if(args.find(L"--sample")!=std::wstring::npos||!argument(L"--video").empty())startSample(argument(L"--video"));else if(demoRequested)startDemo();else if(captureRequested)startCapture();
+  if(!argument(L"--file").empty())startLocalVideo(argument(L"--file"));else if(!argument(L"--replay-recording").empty())startRecordedReplay();else if(args.find(L"--sample")!=std::wstring::npos||!argument(L"--video").empty())startSample(argument(L"--video"));else if(demoRequested)startDemo();else if(captureRequested)startCapture();
   log("FrameLab started GPU="+std::string(gpu.name)+" quality="+std::to_string(quality)+" vsync="+std::to_string(vsync));
   auto renderFrame=[&]{
    if(frameBusy||!running)return;
@@ -302,6 +326,8 @@ int WINAPI wWinMain(HINSTANCE instance,HINSTANCE,LPWSTR cmd,int){
    if(IsIconic(window))return;
    if(legacyOutputWait&&g.waitable)WaitForSingleObject(g.waitable,20);
    if(subtitleStartupPending){const auto capability=ocrSetup.snapshot();if(capability.available>=0){subtitleStartupPending=false;subtitleSettings.enabled=capability.available==1;subtitles.configure(subtitleSettings);}}
+   auto localSnapshot=localVideo.snapshot();
+   if(isLocalVideo&&!localSnapshot.error.empty()){status=localSnapshot.error;live=false;}
    double t=now();analysis.poll(g);analysis.tick();if(analysisExporter&&WaitForSingleObject(analysisExporter,0)==WAIT_OBJECT_0){CloseHandle(analysisExporter);analysisExporter=nullptr;}
    if(!analysis.active&&!analysis.writing&&!analysis.folder.empty()&&analysis.folder!=exportedAnalysis&&std::filesystem::exists(analysis.folder/L"result.json")){
     const auto portablePython=root.parent_path()/L"tools"/L"python"/L"python.exe";
@@ -327,6 +353,7 @@ int WINAPI wWinMain(HINSTANCE instance,HINSTANCE,LPWSTR cmd,int){
   }
     // Never overwrite a texture while its generated frame or real partner is pending.
     if(!freezePreview&&!pending&&readyImages.size()<2&&mailbox.take(packet)){
+     if(isLocalVideo&&packet.sourceEpoch!=acceptedFileEpoch){resetPipeline();acceptedFileEpoch=packet.sourceEpoch;}
      currentScene=packet.scene;
      if(packet.w!=w||packet.h!=h){resetPipeline();w=packet.w;h=packet.h;for(auto& tex:originals)tex.create(g.device.Get(),w,h);generated.create(g.device.Get(),w,h);presentedImage.create(g.device.Get(),w,h);log("Input size "+std::to_string(w)+"x"+std::to_string(h));}
      if(fg&&!vfgInitialized&&!initFailed){status=std::string("Loading ")+vfg.name();log(status);vfg.initialize(g.device.Get(),generated.texture.Get(),w,h,unsigned(quality),root/L"runtime",automaticCuts);vfgInitialized=true;havePrevious=false;status=std::string(vfg.name())+" active | "+std::to_string(w)+" x "+std::to_string(h);log(status);}
@@ -353,7 +380,7 @@ int WINAPI wWinMain(HINSTANCE instance,HINSTANCE,LPWSTR cmd,int){
    retiringEnhancers.erase(std::remove_if(retiringEnhancers.begin(),retiringEnhancers.end(),[](const auto& nr){return nr->stopped();}),retiringEnhancers.end());
    if(nrControls.enabled!=nrWasEnabled){nrReset=true;if(!nrControls.enabled)nrDiscardPending=true;nrWasEnabled=nrControls.enabled;}
    if(nrControls.enabled&&!enhancer&&retiringEnhancers.empty()&&w&&h&&live){
-    enhancer=std::make_unique<Enhancer>(g,w,h,nrControls.height,root,root/L"runtime"/(nrControls.runtime?L"nr-original":L"nr-sf"));nrFailure.clear();nrReset=true;nrDiscardPending=false;
+    enhancer=std::make_unique<Enhancer>(g,w,h,nrControls.height,root,root/L"runtime"/(nrControls.runtime?L"nr-original":L"nr-sf"),nrControls.passes);nrFailure.clear();nrReset=true;nrDiscardPending=false;
    }
    if(enhancer&&enhancer->state()==Enhancer::State::Failed){nrFailure=enhancer->error();log("NR disabled: "+nrFailure);nrControls.enabled=false;retireEnhancer();}
    if(!freezePreview&&enhancer&&enhancer->take()){
@@ -404,7 +431,7 @@ int WINAPI wWinMain(HINSTANCE instance,HINSTANCE,LPWSTR cmd,int){
    if(imageOnly){
     ImGui::SetNextWindowPos({0,0});ImGui::SetNextWindowSize(size);ImGui::PushStyleVar(ImGuiStyleVar_WindowPadding,ImVec2(0,0));
     ImGui::Begin("Fullscreen image",nullptr,ImGuiWindowFlags_NoDecoration|ImGuiWindowFlags_NoMove|ImGuiWindowFlags_NoSavedSettings|ImGuiWindowFlags_NoScrollbar);
-    if(displayed&&w&&h){float scale=displayControls.scale(w,h,size.x,size.y);ImGui::SetCursorPos({(size.x-w*scale)/2,(size.y-h*scale)/2});auto p=ImGui::GetCursorScreenPos();nrControls.draw(displayed,{w*scale,h*scale},enhancer.get(),enhancer&&displayed==enhancer->original.view.Get(),true);auto caption=freezePreview?frozenSubtitle:subtitles.snapshot();drawSubtitleOverlay(p,{w*scale,h*scale},subtitleSettings,caption,freezePreview?caption.observedAt:t,true);}ImGui::End();ImGui::PopStyleVar();
+    if(displayed&&w&&h){float scale=displayControls.scale(w,h,size.x,size.y);ImGui::SetCursorPos({(size.x-w*scale)/2,(size.y-h*scale)/2});auto p=ImGui::GetCursorScreenPos();nrControls.draw(displayed,{w*scale,h*scale},enhancer.get(),enhancer&&displayed==enhancer->original.view.Get(),true);auto caption=freezePreview?frozenSubtitle:subtitles.snapshot();drawSubtitleOverlay(p,{w*scale,h*scale},subtitleSettings,caption,(freezePreview||(isLocalVideo&&localSnapshot.paused))?caption.observedAt:t,true);}ImGui::End();ImGui::PopStyleVar();
    }else{
    ImGui::SetNextWindowPos({0,0});ImGui::SetNextWindowSize({size.x-panel,size.y});
    ImGui::Begin("Preview",nullptr,ImGuiWindowFlags_NoDecoration|ImGuiWindowFlags_NoMove|ImGuiWindowFlags_NoSavedSettings|ImGuiWindowFlags_NoScrollbar);
@@ -414,17 +441,17 @@ int WINAPI wWinMain(HINSTANCE instance,HINSTANCE,LPWSTR cmd,int){
    if(freezePreview)ImGui::TextColored(ui::accent,"%s",nrControls.text("FROZEN PAIR: adjust strength or press F7. Input continues in the background.","ZMRAZENÝ PÁR: měň sílu nebo stiskni F7. Vstup na pozadí běží dál."));
    if(!activeVideoName.empty())ImGui::TextUnformatted(activeVideoName.c_str());
    ui::eyebrow("01 CAPTURE   /   02 NVIDIA GPU   /   03 DISPLAY");
-   if(isDemo)ImGui::TextColored(ui::orange,"%s",tr("TEST SOURCE"));
+   if(isDemo&&!isLocalVideo)ImGui::TextColored(ui::orange,"%s",tr("TEST SOURCE"));
    ImGui::Separator();auto area=ImGui::GetContentRegionAvail();float aw=area.x;
    const float comparisonHeight=fg&&comparison.enabled?std::min(355.f,std::max(aw<680?310.f:270.f,area.y*.36f)):58.f;
    float ah=std::max(100.f,area.y-comparisonHeight-38);auto startPos=ImGui::GetCursorPos();
-   if(displayed&&w&&h){auto clip=ImGui::GetCursorScreenPos();ImGui::GetWindowDrawList()->PushClipRect(clip,{clip.x+aw,clip.y+ah},true);float scale=displayControls.scale(w,h,aw,ah);float iw=w*scale,ih=h*scale;ImGui::SetCursorPos({startPos.x+(aw-iw)/2,startPos.y+(ah-ih)/2});auto p=ImGui::GetCursorScreenPos();nrControls.draw(displayed,{iw,ih},enhancer.get(),enhancer&&displayed==enhancer->original.view.Get(),false,!subtitleSettings.editOverlay);auto caption=freezePreview?frozenSubtitle:subtitles.snapshot();drawSubtitleOverlay(p,{iw,ih},subtitleSettings,caption,freezePreview?caption.observedAt:t);ImGui::GetWindowDrawList()->PopClipRect();}
+   if(displayed&&w&&h){auto clip=ImGui::GetCursorScreenPos();ImGui::GetWindowDrawList()->PushClipRect(clip,{clip.x+aw,clip.y+ah},true);float scale=displayControls.scale(w,h,aw,ah);float iw=w*scale,ih=h*scale;ImGui::SetCursorPos({startPos.x+(aw-iw)/2,startPos.y+(ah-ih)/2});auto p=ImGui::GetCursorScreenPos();nrControls.draw(displayed,{iw,ih},enhancer.get(),enhancer&&displayed==enhancer->original.view.Get(),false,!subtitleSettings.editOverlay);auto caption=freezePreview?frozenSubtitle:subtitles.snapshot();drawSubtitleOverlay(p,{iw,ih},subtitleSettings,caption,(freezePreview||(isLocalVideo&&localSnapshot.paused))?caption.observedAt:t);ImGui::GetWindowDrawList()->PopClipRect();}
    else {ImGui::TextUnformatted(tr("Waiting for capture or test source..."));}
    ImGui::SetCursorPos({startPos.x,startPos.y+ah+4});
    if(fg)comparison.draw(g,root,comparisonHeight);
    else ImGui::TextWrapped("%s",FRAMELAB_WITH_NR?nrControls.text("F8: freeze preview. F7: original / enhanced / split. Sample videos are in Input.","F8: zmrazit náhled. F7: původní / upravený / dělený obraz. Ukázková videa jsou ve Vstupu."):nrControls.text("F8: freeze preview. F11: fullscreen. Sample videos are in Input; local Czech translation is in Subtitles.","F8: zmrazit náhled. F11: celá obrazovka. Ukázky jsou ve Vstupu, lokální český překlad v Titulcích."));
    ImGui::TextDisabled("%s | %u x %u | F1 dashboard | F11 fullscreen",fg&&vfgInitialized?vfg.name():tr("Native preview"),w,h);
-   if(live&&now()-mailbox.lastArrival.load()>2)ImGui::TextColored({1,.65f,.3f,1},"Waiting for capture samples. Check signal / HDCP / other capture apps.");
+   if(live&&!isLocalVideo&&now()-mailbox.lastArrival.load()>2)ImGui::TextColored({1,.65f,.3f,1},"Waiting for capture samples. Check signal / HDCP / other capture apps.");
    ImGui::End();
    if(showPanel){ImGui::SetNextWindowPos({size.x-panel,0});ImGui::SetNextWindowSize({panel,size.y});ImGui::Begin("Telemetry",nullptr,(ImGuiWindowFlags_NoDecoration&~ImGuiWindowFlags_NoScrollbar)|ImGuiWindowFlags_NoMove|ImGuiWindowFlags_NoSavedSettings);
     ui::eyebrow(tr("CONTROL ROOM"));
@@ -439,7 +466,7 @@ int WINAPI wWinMain(HINSTANCE instance,HINSTANCE,LPWSTR cmd,int){
       ImGui::EndTabItem();
      }
      if(ImGui::BeginTabItem(tr("Capture"),nullptr,previewTab==0?ImGuiTabItemFlags_SetSelected:0)){ImGui::Spacing();
-    ui::field(tr("Source"));if(ImGui::BeginCombo("##capture-source",devices.empty()?tr("No capture devices"):devices[selected].friendlyName.c_str())){for(int i=0;i<int(devices.size());++i)if(ImGui::Selectable(devices[i].friendlyName.c_str(),selected==i)){if(selected!=i){stopSource();selected=i;resolution=0;refreshModes();}}ImGui::EndCombo();}
+    ui::field(isLocalVideo?nrControls.text("Capture device (not active)","Střihovka (není aktivní)"):tr("Source"));if(ImGui::BeginCombo("##capture-source",devices.empty()?tr("No capture devices"):devices[selected].friendlyName.c_str())){for(int i=0;i<int(devices.size());++i)if(ImGui::Selectable(devices[i].friendlyName.c_str(),selected==i)){if(selected!=i){stopSource();selected=i;resolution=0;refreshModes();}}ImGui::EndCombo();}
     ImGui::TextWrapped(tr("Delivered frames: %u x %u | %.1f FPS"),w,h,inFps);ImGui::TextDisabled(tr("HDMI signal: not reported by this API"));
     auto modeName=[&](int i){if(i==0)return std::string(tr("Automatic (device)"));auto m=resolutions.at(i-1);return std::to_string(m.width)+" x "+std::to_string(m.height)+"  ["+aspectLabel(m.width,m.height)+"]"+(m.width==3840&&m.height==2160?" 4K":"");};
     ui::field(tr("Resolution"));if(ImGui::BeginCombo("##capture-resolution",modeName(resolution).c_str())){for(int i=0;i<=int(resolutions.size());++i)if(ImGui::Selectable(modeName(i).c_str(),resolution==i)){resolution=i;requestedFps=0;}ImGui::EndCombo();}
@@ -456,6 +483,29 @@ int WINAPI wWinMain(HINSTANCE instance,HINSTANCE,LPWSTR cmd,int){
     if(ImGui::IsItemHovered())ImGui::SetTooltip(tr("Select a resolution to request FPS. Rates come from driver defaults and ranges; the driver may round them. Automatic is not HDMI signal detection."));
     }
     if(ui::button(tr("Start capture"),true))startCapture();ui::nextButton(tr("Test 30 FPS"));if(ImGui::Button(tr("Test 30 FPS"))){fg=true;startDemo();}ui::nextButton(tr("Stop"));if(ImGui::Button(tr("Stop"))){stopSource();status="Stopped";}
+    ui::section(nrControls.text("YOUR VIDEO / MOVIE","VLASTNÍ VIDEO / FILM"));
+    if(ui::button(nrControls.text("Open video...","Otevřít video..."),true))chooseLocalVideo();
+    ImGui::TextWrapped("%s",nrControls.text("Local playback with audio, FG, enhancer and OCR subtitles. Uses Windows codecs; protected streaming downloads are unsupported.","Místní přehrávání se zvukem, FG, enhancerem a OCR titulky. Používá kodeky Windows; chráněné stažené filmy ze streamovacích služeb nepodporuje."));
+    if(isLocalVideo){
+     ImGui::TextWrapped("%s",activeVideoName.c_str());
+     if(localSnapshot.opening)ImGui::TextUnformatted(nrControls.text("Opening...","Otevírání..."));
+     else if(!localSnapshot.error.empty())ImGui::TextWrapped("%s",localSnapshot.error.c_str());
+     else{
+      ImGui::Text(nrControls.text("Native: %u x %u | %.3f FPS","Zdroj: %u x %u | %.3f FPS"),localSnapshot.width,localSnapshot.height,localSnapshot.fps);
+      auto clockText=[](double value){int sec=int(std::max(0.,value));char buffer[32];snprintf(buffer,sizeof(buffer),"%02d:%02d:%02d",sec/3600,(sec/60)%60,sec%60);return std::string(buffer);};
+      ImGui::Text("%s / %s",clockText(localSnapshot.position).c_str(),clockText(localSnapshot.duration).c_str());
+      if(ImGui::Button(nrControls.text(localSnapshot.ended?"Play again":localSnapshot.paused?"Play":"Pause",localSnapshot.ended?"Přehrát znovu":localSnapshot.paused?"Přehrát":"Pozastavit"))){
+       freezePreview=false;if(localSnapshot.ended){localVideo.seek(0);localVideo.pause(false);}else localVideo.pause(!localSnapshot.paused);
+      }
+      ImGui::SameLine();bool loop=localSnapshot.loop;if(ImGui::Checkbox(nrControls.text("Loop","Opakovat"),&loop))localVideo.loop(loop);
+      if(localSnapshot.duration>0){
+       if(!editingSeek)seekPosition=float(localSnapshot.position);
+       ImGui::SliderFloat("##file-position",&seekPosition,0,float(localSnapshot.duration),"%.1f s");editingSeek=ImGui::IsItemActive();
+       if(ImGui::IsItemDeactivatedAfterEdit()){freezePreview=false;localVideo.seek(seekPosition);editingSeek=false;}
+      }
+      ImGui::TextWrapped("%s",nrControls.text("Sound output is in Audio. Decoded video and sound share one media clock; FG/NR and the display add video delay. This is not an A/V latency measurement.","Zvukový výstup vybereš ve Zvuku. Dekódovaný obraz a zvuk mají společné hodiny; FG/NR a monitor přidávají zpoždění obrazu. Nejde o měření A/V latence."));
+     }
+    }
     ui::section(nrControls.text("INCLUDED SAMPLE VIDEOS","PŘIBALENÁ UKÁZKOVÁ VIDEA"));
     if(ImGui::Button("CS:GO 1080p"))startSample(root/L"samples"/L"action.mp4");ImGui::SameLine();if(ImGui::Button("Spider-Man 540p"))startSample(root/L"samples"/L"combat.mp4");
     ImGui::TextDisabled("%s",nrControls.text("Both clips play locally, without downloading.","Oba klipy se přehrávají lokálně, bez stahování."));
@@ -488,8 +538,19 @@ int WINAPI wWinMain(HINSTANCE instance,HINSTANCE,LPWSTR cmd,int){
      }
      if(ImGui::BeginTabItem(nrControls.text("Display","Zobrazení"),nullptr,previewTab==7?ImGuiTabItemFlags_SetSelected:0)){auto previous=displayControls.fit;displayControls.panel(window,fullscreen);if(previous!=displayControls.fit)displayControls.save(root/L"display-settings.txt");ImGui::EndTabItem();}
      if(ImGui::BeginTabItem(tr("Audio"),nullptr,previewTab==2?ImGuiTabItemFlags_SetSelected:0)){ImGui::Spacing();
+    if(isLocalVideo){
+     ui::field(nrControls.text("Video file audio output","Zvukový výstup videa"));
+     if(ImGui::BeginCombo("##file-audio-output",fileOutputs[fileAudioOutput].name.c_str())){
+      for(int i=0;i<int(fileOutputs.size());++i)if(ImGui::Selectable(fileOutputs[i].name.c_str(),fileAudioOutput==i)&&i!=fileAudioOutput){
+       fileAudioOutput=i;std::wofstream(root/L"file-audio-settings.txt")<<std::quoted(fileOutputs[i].id);
+       startLocalVideo(localVideoPath,localSnapshot.position,localSnapshot.paused);localVideo.loop(localSnapshot.loop);
+      }ImGui::EndCombo();
+     }
+     ImGui::TextWrapped("%s",localSnapshot.audio?nrControls.text("Video audio uses the selected Windows endpoint.","Zvuk videa používá vybrané zařízení Windows."):nrControls.text("No audio track / opening video.","Bez zvukové stopy / otevírání videa."));
+    }else{
     ui::field(tr("Output"));if(ImGui::BeginCombo("##audio-output",outputs[audioOutput].friendlyName.c_str())){for(int i=0;i<int(outputs.size());++i)if(ImGui::Selectable(outputs[i].friendlyName.c_str(),audioOutput==i)){audioOutput=i;saveAudio();if(live&&!isDemo)startCapture();}ImGui::EndCombo();}
-    ui::field(tr("Volume"));bool volumeChanged=ImGui::SliderInt("##audio-volume",&audioVolume,0,100,"%d%%");volumeChanged|=ImGui::Checkbox(tr("Mute"),&audioMuted);if(volumeChanged){capture.setAudioVolume(audioVolume,audioMuted);saveAudio();}
+    }
+    ui::field(tr("Volume"));bool volumeChanged=ImGui::SliderInt("##audio-volume",&audioVolume,0,100,"%d%%");volumeChanged|=ImGui::Checkbox(tr("Mute"),&audioMuted);if(volumeChanged){capture.setAudioVolume(audioVolume,audioMuted);localVideo.volume(audioVolume,audioMuted);saveAudio();}
     if(live&&!isDemo){ImGui::PushStyleColor(ImGuiCol_Text,capture.audioConnected()?ui::accent:ui::orange);ImGui::TextWrapped("%s",capture.audioStatus().c_str());ImGui::PopStyleColor();}
      ImGui::EndTabItem();}
      if(ImGui::BeginTabItem(tr("Recording"),nullptr,previewTab==3?ImGuiTabItemFlags_SetSelected:0)){ImGui::Spacing();
@@ -527,7 +588,7 @@ int WINAPI wWinMain(HINSTANCE instance,HINSTANCE,LPWSTR cmd,int){
     saveUiPreview(g,previewPath);auto caption=subtitles.snapshot();
     std::ofstream(root/L"logs"/L"subtitle-preview.txt")<<caption.status<<'\n'<<caption.source<<'\n'<<caption.translated<<'\n';
     std::ofstream(root/L"logs"/L"pipeline-preview.txt")
-     <<"vfg_enabled="<<fg<<"\nvfg_initialized="<<vfgInitialized<<"\nnr_enabled="<<nrControls.enabled
+     <<"local_video="<<isLocalVideo<<"\nlocal_video_audio="<<localSnapshot.audio<<"\nlocal_video_position="<<localSnapshot.position<<"\nlocal_video_error="<<localSnapshot.error<<"\n"<<"nr_passes="<<nrControls.passes<<"\n"<<"vfg_enabled="<<fg<<"\nvfg_initialized="<<vfgInitialized<<"\nnr_enabled="<<nrControls.enabled
      <<"\nnr_has_result="<<bool(enhancer&&enhancer->hasResult)<<"\nnr_processing_ms="<<(enhancer?enhancer->processingMs():0)
      <<"\nsubtitle_active_model="<<caption.activeModel<<"\nsubtitle_loading="<<caption.loading
      <<"\ninput_width="<<w<<"\ninput_height="<<h<<"\nclean_output="<<imageOnly<<'\n';

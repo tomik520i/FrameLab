@@ -20,6 +20,7 @@ const output=path.join(root,'analysis-output/website-qa');fs.mkdirSync(output,{r
  await page.locator('[data-take="2x"]').focus();await page.keyboard.press('ArrowRight');
  assert.equal(await page.locator('[data-take="3x"]').getAttribute('aria-selected'),'true');
  await page.locator('#language').click();assert.equal(await page.locator('html').getAttribute('lang'),'cs');
+ assert.equal(await page.locator('#local-video h2').textContent(),'Tvoje video. Tvoje nastavení.');
  await page.reload({waitUntil:'networkidle'});assert.equal(await page.locator('html').getAttribute('lang'),'cs');
  await page.locator('#language').click();
  await page.locator('.phase-preview').click();assert(await page.locator('#lightbox').evaluate(e=>e.open));

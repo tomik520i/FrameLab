@@ -1,0 +1,44 @@
+[
+  {
+    "name": "preview13-local-video",
+    "pipeline": {
+      "local_video": "1",
+      "local_video_audio": "1",
+      "local_video_position": "11.8076",
+      "local_video_error": "",
+      "nr_passes": "2",
+      "vfg_enabled": "1",
+      "vfg_initialized": "1",
+      "nr_enabled": "1",
+      "nr_has_result": "1",
+      "nr_processing_ms": "5.836",
+      "subtitle_active_model": "0",
+      "subtitle_loading": "0",
+      "input_width": "1280",
+      "input_height": "720",
+      "clean_output": "0"
+    },
+    "caption": "Local OCR + EN > CS ready\nThe door is locked.\nDveře jsou zamčené.\n"
+  },
+  {
+    "name": "preview13-nr-passes",
+    "pipeline": {
+      "local_video": "1",
+      "local_video_audio": "1",
+      "local_video_position": "11.7787",
+      "local_video_error": "",
+      "nr_passes": "2",
+      "vfg_enabled": "1",
+      "vfg_initialized": "1",
+      "nr_enabled": "1",
+      "nr_has_result": "1",
+      "nr_processing_ms": "5.9269",
+      "subtitle_active_model": "0",
+      "subtitle_loading": "0",
+      "input_width": "1280",
+      "input_height": "720",
+      "clean_output": "0"
+    },
+    "caption": "Local OCR + EN > CS ready\nThe door is locked.\nDveře jsou zamčené.\n"
+  }
+]

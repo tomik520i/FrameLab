@@ -5,6 +5,11 @@
 
 // Offscreen integration test of the actual preview draw path. No window input.
 int main(){try{
+ auto settings=std::filesystem::temp_directory_path()/L"framelab-nr-passes-test.txt";
+ {std::ofstream(settings)<<"1 0.65 0.5 1 720 0 1\n";NrControls old;old.load(settings);if(old.passes!=1)throw std::runtime_error("Old settings must use one pass");}
+ {NrControls saved;saved.passes=4;saved.strength=.42f;saved.save(settings);NrControls loaded;loaded.load(settings);if(loaded.passes!=4||std::abs(loaded.strength-.42f)>.001f)throw std::runtime_error("NR settings did not round-trip");}
+ {std::ofstream(settings)<<"2 0.65 0.5 1 720 0 1 99\n";NrControls invalid;invalid.load(settings);if(invalid.passes!=4)throw std::runtime_error("NR passes not bounded");}
+ std::filesystem::remove(settings);
  Graphics g;g.initDevice();constexpr unsigned w=256,h=128;
  Enhancer fixture(g,w,h,h,std::filesystem::temp_directory_path(),L"missing-test-runtime");
  if(fixture.state()!=Enhancer::State::Failed||fixture.error().find("missing")==std::string::npos)throw std::runtime_error("Missing runtime was not handled");

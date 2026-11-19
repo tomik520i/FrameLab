@@ -6,7 +6,7 @@
 
 ## 1. Stáhni a rozbal FrameLab
 
-1. **[Stáhnout FrameLab preview.12 pro Windows x64](https://github.com/tomik520i/FrameLab/releases/download/v0.2.0-preview.12/FrameLab-0.2.0-preview.12-windows-x64-full.zip)**. Přesná velikost je na [stránce stahování](https://opicebot.cz/framelab/#download).
+1. **[Stáhnout FrameLab preview.13 pro Windows x64](https://github.com/tomik520i/FrameLab/releases/download/v0.2.0-preview.13/FrameLab-0.2.0-preview.13-windows-x64-full.zip)**. Přesná velikost je na [stránce stahování](https://opicebot.cz/framelab/#download).
 2. Pravé tlačítko na ZIP → **Extrahovat vše** → nová složka například na Ploše. Nepracuj uvnitř ZIPu. Počítej přibližně se 4 GB volného místa pro oba stažené archivy, rozbalení a import.
 3. Otevři **1 - Spustit FrameLab.cmd**. V kartě **Vstup** vyzkoušej CS:GO nebo Spider-Mana. Frame generation i titulky lze používat hned, NR ještě čeká na externí soubory. Pro OCR může Windows vyžadovat doinstalování anglického rozpoznávání textu; postup je v [základním návodu](https://opicebot.cz/framelab/guide/).
 
@@ -27,7 +27,7 @@
 ## 4. První porovnání
 
 - Začni limitem **720p**, silou **65 %** a **Děleným porovnáním**. Dělicí čáru posouvej posuvníkem. **F8** zmrazí stejný snímek, **F7** přepíná původní / upravený / dělený obraz, **F6** efekt vypne.
-- V **Runtime / diagnostika** je výchozí **ShortFuse NR 310.9.16**, komunitní varianta ověřená zde na RTX 4050 Laptop. Řady RTX 20/30/50 nejsou tímto testem potvrzené. **NVIDIA NR 310.8 original** je určená pro RTX 50 a v tomto vydání nebyla na takové kartě otestovaná.
+- V **Runtime / diagnostika** je výchozí **ShortFuse NR 310.9.16**, komunitní varianta ověřená zde na RTX 4050 Laptop a RTX 5070 Ti. **NVIDIA NR 310.8 original** byla na RTX 5070 Ti ověřena i se dvěma navazujícími průchody. Ostatní karty tím nejsou potvrzené.
 - Při zapnutém frame genu platí **vstup → frame gen → enhancer → české titulky → monitor**. Původní obraz v NR porovnání znamená snímek před enhancerem, tedy případně už generovaný. Pomalé AI může snížit počet zobrazených snímků a zvýšit latenci.
 - **[Skutečné porovnání před / po s posuvnou lištou](https://opicebot.cz/framelab/#enhancer)**. Změna pixelů není automaticky lepší obraz; kontroluj obličeje, HUD a rychlý pohyb.
 
@@ -35,7 +35,7 @@
 
 | Problém | Co udělat |
 | --- | --- |
-| Nemám kartu AI / NR | Máš preview.10 nebo starší build bez podpory NR. Stáhni celý preview.12; samotné přidání DLL do preview.10 nestačí. |
+| Nemám kartu AI / NR | Máš preview.10 nebo starší build bez podpory NR. Stáhni celý preview.13; samotné přidání DLL do preview.10 nestačí. |
 | Kontrolní součet nesouhlasí | Stáhni přesný NVIDIA ZIP 2.1.9 bez dodatku. Zkontroluj dokončené stahování. Průvodce úmyslně nepřijímá neznámé verze. |
 | Soubor se používá / přístup odepřen | Ukonči všechny své instance FrameLabu a zkus import znovu. Celá složka musí být zapisovatelná. |
 | Průvodce je zablokovaný správcem | Neměň zásady počítače. Se souhlasem správce rozbal přesný externí ZIP a použij ruční cesty níže. |
@@ -47,3 +47,11 @@ Ruční import pro správce: z kořene rozbalené Veyry zkopíruj `runtime/exper
 Ověřený externí ZIP: 731012476 bajtů; SHA-256 `4225ecb11a8e96c2826b4b0b798feb811d7ae237f3edf0b627f3b6895c79f362`. Přesné identity obou DLL jsou v [auditu](NR-LICENSING-STATUS.txt). Přesun downloadu na cizí web není vyřešení licence; veřejný FrameLab tyto DLL nepřebaluje ani neskrývá jejich původ.
 
 **Celá obrazovka:** F11 automaticky skryje porovnání a ukáže jeden výsledný obraz s nastavenou silou enhanceru. Esc/F11 vrátí nastavení. [Obrazový návod fullscreen](https://opicebot.cz/framelab/guide/fullscreen.html).
+
+## Počet průchodů NR
+
+V **AI / NR → Počet průchodů NR** vyber **1, 2, 3 nebo 4**. Výchozí je jeden, i při načtení staršího nastavení. Není to násobič frame genu: dva průchody upraví snímek dvakrát, nevytvoří dvojnásobné FPS.
+
+Každý průchod dostává plný výsledek předchozího a má vlastní historii obrazu. **Síla efektu** se přimíchá až na konečný výsledek. F7/F8 umožní porovnat stejný vstupní snímek. Údaj **celkem … ms** měří všechny průchody posledního dokončeného snímku včetně čekání na GPU. Není to čas jednoho průchodu ani celková latence.
+
+Více průchodů potřebuje více výkonu i VRAM a může zesílit artefakty. Zkus dva při stejném limitu 720p a stejné síle. Při propadu výstupních FPS vrať jeden nebo sniž výpočetní rozlišení. Původní a ShortFuse profil se mohou lišit. Starší NR porovnání na webu používají **jeden průchod**, nejsou tedy důkazem kvality více průchodů.

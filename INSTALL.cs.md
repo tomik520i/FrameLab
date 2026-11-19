@@ -90,3 +90,12 @@ Analytické RAW/FG nahrávky neobsahují český překryv ani NR a nenahrávají
 Nové vydání rozbal do **nové složky**. Starou kopii ponech, dokud novou nevyzkoušíš. Nastavení není nutné přenášet. Program neinstaluje službu ani ovladač; odinstalace je smazání jeho složky po ukončení aplikace (včetně případných záznamů, které si nejprve ulož jinam).
 
 Pro volitelnou kontrolu ZIPu v PowerShellu spusť `Get-FileHash .\FrameLab-0.2.0-preview.13-windows-x64-full.zip -Algorithm SHA256` a porovnej výsledek se souborem **SHA256SUMS.txt** u vydání. [Sestavení ze zdrojů](docs/build-preview13.md) je samostatná vývojářská cesta.
+
+## Vlastní video nebo film
+
+1. Otevři **Vstup → Vlastní video / film → Otevřít video…** a vyber místní soubor. Střihovku nepotřebuješ. Přehrávání používá původní časování videa; **FPS příštího přehrávání** se vztahuje jen na přibalený přehrávač ukázek.
+2. Ovládej **Pozastavit / Přehrát**, posuvník pozice, **Opakovat** nebo **Přehrát znovu** po konci. I přetáčení v pauze aktualizuje obraz. Změna pozice vyčistí historii FG/NR a staré přeložené titulky.
+3. Ve **Zvuku** zvol výstup videa a hlasitost/ztlumení. Změna zařízení otevře video znovu na aktuální pozici. Dekódovaný obraz a zvuk mají společné hodiny; FG, NR a monitor přidávají zpoždění obrazu. Konečný A/V posun se automaticky neměří ani neodstraňuje.
+4. Zapni FG, NR či překlad stejně jako u střihovky. **F11** zobrazí výsledek; Escape vrátí ovládání. **F8 zmrazí pouze porovnání**, film i se zvukem zastavíš tlačítkem Pozastavit.
+
+Ověřeno s SDR MP4 H.264/AAC a MP4 bez zvuku. Další formáty závisí na kodecích Windows Media Foundation; přípona nezaručuje podporu. HEVC může potřebovat kodek Microsoftu. Neobchází se DRM/HDCP, není HDR převod, přepínání zvukových stop ani vykreslování externích SRT/vložených titulkových stop. Použije se první obrazová a zvuková stopa. OCR čte anglické titulky již viditelné v obraze, nikoli zvuk filmu. Analytické záznamy stále vynechávají zvuk, NR a český překryv.

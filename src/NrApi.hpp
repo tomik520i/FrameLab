@@ -11,6 +11,7 @@ struct NrConfig {
     HANDLE input{}, output{}, inputFence{};
     const wchar_t* runtimeDirectory{};
     const wchar_t* cacheDirectory{};
+    unsigned passes = 1;
 };
 struct NrFrame {
     uint64_t inputFenceValue{};

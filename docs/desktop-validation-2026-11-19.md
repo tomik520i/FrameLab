@@ -44,6 +44,32 @@ capture the desktop or measure new PS5/capture-card latency. Avast remained enab
   fullscreen caption above the lower edge. These are functional tests, not latency
   benchmarks. No desktop screen capture was used.
 
+## Additional local-video and multi-pass checks
+
+- Clocked Media Foundation playback tested with an 8-second **24 FPS H.264/AAC
+  MP4**, a silent MP4 and an explicitly selected Windows audio endpoint. Tests
+  verify native timestamps, red-top/blue-bottom pixel orientation, actual signal
+  in this process's audio session, pause of the clock and video callbacks, paused
+  seeking, resume, EOF, looping, shutdown and missing-file errors. The Windows
+  Video Processor MFT handles decoder padding before delivering packed RGB32.
+- Actual application own renders verify **local MP4 + audio topology + VFG 2× +
+  NR two passes + Windows OCR / CPU translation** together. This is a functional
+  check, not a physical audio/video synchronization or long-film benchmark.
+- GPU chaining tests pass with **ShortFuse: two passes at 360p and four at 720p**,
+  and **original NVIDIA NR 310.8: two passes at 720p**, all on RTX 5070 Ti. Twelve
+  submissions include resets and motion disabled. Final results exactly match an
+  independent CPU readback / re-upload chain (RGB-byte MAE **0**). Reference
+  frames match the submitted input. This proves sequential processing, not
+  improved quality. Separate feature/history state is maintained per layer.
+- NR settings retain one pass for version-1 files, round-trip version-2 pass
+  count/strength, and bound invalid counts. Existing ImGui strength/split/fullscreen
+  tests and all ten CTests still pass. Changing passes rebuilds the enhancer.
+- Files use their own native playback timing. The existing bundled benchmark
+  decoder and its FPS ceiling are unchanged. First audio/video tracks only;
+  SDR H.264/AAC is the tested baseline. No DRM, HDR tone mapping or external /
+  embedded subtitle-track rendering. Decoder/audio timing shares a clock;
+  subsequent FG/NR/display delay is not automatically compensated.
+
 ## Controlled coexistence measurement
 
 Both CUNI quantizations completed **300 exact-text requests plus 3×60 paced

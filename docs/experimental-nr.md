@@ -107,3 +107,20 @@ that inference ran, not that every change improves image quality. Hardware timin
 is a smoke-test observation, not a sustained benchmark or a general RTX guarantee.
 
 Preview.12 validation (2026-11-19): the SDK-free parameter implementation completed 12 real GPU submissions on RTX 4050 Laptop with exact paired inputs, nonzero neural output and full alpha. Import wizard validates both original DLL hashes without executing Veyra. This verifies compatibility of the host, not a license grant or an image-quality benchmark.
+
+## Sequential passes (preview.13)
+
+The private app/adapter ABI now carries a bounded 1–4 pass count. The D3D12 host
+creates one Feature-18 handle, parameter store, motion estimate and previous
+proxy per pass. Full-resolution intermediate textures connect the layers on the
+same GPU. Each layer reads the preceding layer's residual-composited output.
+Resets propagate to every layer; the original A/B reference remains the first
+input. Strength is applied once by the final display blend. The worker reports
+wall time for the entire chain, including GPU waits. There is still only one
+frame in flight; changing pass count retires the old host before creating a new
+one. Update the EXE and local adapter DLL together.
+
+Related experiment: [Phosphenq/gta6-dlss5](https://github.com/Phosphenq/gta6-dlss5)
+documents a Veyra / PS5 Remote Play setup using two original-NR layers, a temporal
+stabilizer, Video Super Resolution and frame generation. FrameLab's pass control
+does not implement that entire preset or give GTA VI native engine integration.

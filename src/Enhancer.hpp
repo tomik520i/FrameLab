@@ -14,7 +14,7 @@ class Enhancer {
 public:
  enum class State {Loading,Idle,Working,Ready,Failed,Stopped};
  Enhancer(Graphics& graphics,unsigned width,unsigned height,unsigned maxHeight,
-          const std::filesystem::path& app,const std::filesystem::path& runtime);
+          const std::filesystem::path& app,const std::filesystem::path& runtime,unsigned passes=1);
  ~Enhancer();
  Enhancer(const Enhancer&)=delete;Enhancer& operator=(const Enhancer&)=delete;
  bool submit(ID3D11Texture2D* source,bool reset=false,bool motion=true);
@@ -24,12 +24,13 @@ public:
  State state()const{return phase.load();}
  std::string error()const;
  float processingMs()const{return elapsedMs.load();}
+ unsigned passes()const{return passCount;}
  unsigned width()const{return w;}unsigned height()const{return h;}
  unsigned inferenceWidth()const{return iw;}unsigned inferenceHeight()const{return ih;}
  bool hasResult=false;
  Texture original,result;
 private:
- Graphics& g;unsigned w,h,iw,ih;HMODULE library=nullptr;
+ Graphics& g;unsigned w,h,iw,ih,passCount;HMODULE library=nullptr;
  NrCreateFn create=nullptr;NrProcessFn process=nullptr;NrDestroyFn destroy=nullptr;
  Texture input,output;ComPtr<ID3D11Fence> inputFence;ComPtr<ID3D11DeviceContext4> context;
  HANDLE inputHandle=nullptr,outputHandle=nullptr,fenceHandle=nullptr;

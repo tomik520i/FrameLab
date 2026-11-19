@@ -26,6 +26,12 @@ and administrator approval; the Windows display language stays unchanged.
   Multiline text stays inside; unusually tall captions shrink to fit.
 - Fullscreen keeps the final caption and hides all editing handles and OCR outlines.
 
+## Local video playback and NR passes
+
+- **Capture → Open video…** selects a local movie with its native timestamps and audio. Pause, seek, loop and replay are available; Audio selects the Windows endpoint. Both streams share a Media Foundation clock. FG/NR still add video delay. SDR H.264/AAC and silent MP4 were checked; other codecs depend on Windows. Only the first audio/video tracks are used; no DRM/HDR or SRT/embedded subtitle rendering.
+- **AI / NR → NR passes** chooses 1–4 sequential passes, default 1. Each layer has independent temporal state and processes the preceding output. Strength blends once at the end. The displayed computation time covers all passes. More passes can amplify artifacts and lower output FPS; this is separate from the FG multiplier.
+- GPU readback tests of two/four passes matched independent repeated single-pass processing exactly in the tested fixtures. This verifies chaining, not better image quality. Original NVIDIA NR 310.8 and ShortFuse 310.9.16 were checked on RTX 5070 Ti.
+
 ## Download and guides
 
 The complete Windows x64 ZIP starts in **English**; Czech is available in the

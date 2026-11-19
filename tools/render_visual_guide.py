@@ -9,6 +9,14 @@ VEYRA = 'https://github.com/Likely7/Veyra-NRVideo/releases/download/v2.1.9/Veyra
 # Each marker is (label cs/en, circle x/y, target rectangle x/y/width/height).
 # Coordinates refer to the observed screenshots, not inferred UI positions.
 SHOTS = {
+ 'passes': ('32-preview13-nr-passes.png',(1660,1440),None,[
+   (('Počet průchodů','NR passes'),1095,485,1198,445,443,56),
+   (('Celkový čas všech průchodů','Total time, all passes'),1095,930,1198,917,443,52)],
+   ('Preview.13: dva navazující průchody, FG a skutečný CPU překlad umělé OCR ukázky. Časy jsou okamžitý stav, ne benchmark kvality.', 'Preview.13: two sequential passes, FG and real CPU translation of an artificial OCR fixture. Timings are a momentary state, not a quality benchmark.')),
+ 'local-video': ('33-preview13-local-video.png',(1660,1440),None,[
+   (('Otevřít vlastní video','Open your video'),1095,677,1198,640,443,65),
+   (('Pauza, opakování a pozice','Pause, loop and position'),1095,844,1198,796,443,96)],
+   ('Vlastní místní MP4 se zvukovou stopou prochází FG, NR a OCR. Vybraný HDMI zdroj nahoře je neaktivní; běží soubor. Obrázek je vlastní render aplikace.', 'A local MP4 with an audio track runs through FG, NR and OCR. The selected HDMI source above is inactive; the file is playing. This is the application’s own render.')),
  'download': ('01-download.jpg', (639,600), None, [
    (('Kompletní balík','Complete package'),550,468,24,500,460,74)],
    ('Tlačítko na webu při původním průchodu preview.11. Aktuální download je preview.13; postup rozbalení je stejný.', 'Website button from the original preview.11 walkthrough. The current download is preview.13; extraction steps are unchanged.')),

@@ -55,6 +55,12 @@ Object.assign(cs, {
   "downloadIntro": "Kompletní preview.13 obsahuje NVIDIA VFG, obě herní ukázky, CPU překladač, exportér a adaptér NR. Rozbal a spusť. Výchozí angličtinu přepneš tlačítkem do češtiny. Volitelné CUNI GPU modely stáhne aplikace.",
   "faq5body": "Otevři Titulky a ověř dostupnost OCR. Pokud chybí, Doplnit anglické OCR ho stáhne od Microsoftu po potvrzení UAC. CPU model je přibalený, CUNI Q3/Q8 jsou volitelné downloady přímo v aplikaci. Vyber jen pruh anglických titulků. Češtinu umísti nad/pod něj nebo přetáhni zvlášť; více řádků zůstane ve viditelném obrazu. Rozpoznávání a překlad jsou experimentální a přidávají zpoždění. Zvuk se nepřepisuje a překlad nejde do cloudu."
 });
+Object.assign(cs, {
+  "localVideo0": "Tvoje video. Tvoje nastavení.",
+  "localVideo1": "Otevři místní film se zvukem, pozastav ho, přetoč nebo opakuj. Pak zkus FG, enhancer a OCR titulky. Střihovku nepotřebuješ. NR má nově 1–4 navazující průchody; začni jedním a porovnávej.",
+  "localVideo2": "Ověřeno SDR MP4 H.264/AAC. Další kodeky závisí na Windows. Více průchodů NR může zesílit artefakty i zpoždění; nejde o násobič frame genu.",
+  "localVideo3": "Návod k přehrávání (EN / CZ) ↗"
+});
 const en = Object.fromEntries([...document.querySelectorAll('[data-i18n]')].map(el=>[el.dataset.i18n,el.innerHTML]));
 const takes = {
   '2x':{id:'82183953',resolution:'2560 × 1440',quality:'Medium',vsync:false,input:'40.0',output:'79.0',submitted:'80.0',latency:'45.36 ms',title:['The 2× baseline.','Základ ve 2×.'],description:['Extra positions between originals. The practical starting point, with occasional edge and HUD errors.','Nové polohy mezi originály. Rozumný začátek, s občasnými chybami hran a HUDu.']},
