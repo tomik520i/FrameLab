@@ -1,11 +1,11 @@
-# FrameLab preview.11 — instalace a první spuštění
+# FrameLab preview.12 — instalace a první spuštění
 
-**[Stáhnout kompletní FrameLab pro Windows x64](https://github.com/tomik520i/FrameLab/releases/download/v0.2.0-preview.11/FrameLab-0.2.0-preview.11-windows-x64-full.zip)** · [Všechny soubory vydání](https://github.com/tomik520i/FrameLab/releases/tag/v0.2.0-preview.11) · [English](START_HERE.md)
+**[Stáhnout kompletní FrameLab pro Windows x64](https://github.com/tomik520i/FrameLab/releases/download/v0.2.0-preview.12/FrameLab-0.2.0-preview.12-windows-x64-full.zip)** · [Všechny soubory vydání](https://github.com/tomik520i/FrameLab/releases/tag/v0.2.0-preview.12) · [English](START_HERE.md)
 
 ## 1. Stáhnout → rozbalit → spustit
 
 1. Stáhni výše uvedený soubor **windows-x64-full.zip**. GitHubové **Source code** je pro vývojáře, není to hotová aplikace.
-2. Pravým tlačítkem na ZIP → **Extrahovat vše**. Celou složku dej například na Plochu. Nespouštěj program přímo ze ZIPu.
+2. Pravým tlačítkem na ZIP → **Extrahovat vše**. Celou složku dej například do nové krátké složky na Ploše. Dlouhé zanořené cesty mohou ve Windows způsobit chybu 0x80010135; v tom případě rozbalení zopakuj do kratší cesty a žádné soubory nepřeskakuj. Nespouštěj program přímo ze ZIPu.
 3. Otevři **1 - Spustit FrameLab.cmd**. Spustí se přibalená třísekundová ukázka CS:GO ve smyčce.
 4. V kartě **Vstup** můžeš přepnout na **Spider-Mana** nebo na test **Vyzkoušet titulky EN > CZ**. Pro ukázky nepotřebuješ střihovou kartu.
 
@@ -46,6 +46,8 @@ Rozlišení a frekvence jsou z nabídky ovladače. Když ovladač nabízí 4K ne
 
 **Čte se obraz, nikoli zvuk. Není tu STT, cloud ani API klíč.** Windows OCR přečte angličtinu, přibalený OPUS-MT model ji přeloží na CPU a aplikace vykreslí češtinu až po obrazových efektech. Čeká na dvě shodná čtení, takže překlad má zpoždění. Malý, stylizovaný nebo rychle mizející text se může přečíst nesprávně; jména a herní slang nemusí být přeložené dobře.
 
+Český překryv se kreslí až ve výstupním rozlišení se samostatným kvalitnějším písmem. Velikost nastav v Titulcích; rozmazané anglické titulky už obsažené ve zdrojovém videu tato úprava sama neopravuje.
+
 ### Pokud chybí anglické OCR ve Windows
 
 Použij tlačítko jazykového nastavení nabídnuté aplikací, nebo otevři **Nastavení Windows → Čas a jazyk → Jazyk a oblast** (Windows 10: **Jazyk**). Přidej **English (United States)** a v jazykových možnostech stáhni dostupné základní psaní / optické rozpoznávání textu. Názvy položek se podle Windows liší. Správce PC může instalaci jazykových funkcí omezovat. Pak FrameLab restartuj nebo překlad vypni a zapni.
@@ -56,16 +58,18 @@ Toto je jediná případná jazyková závislost dodávaná samotnými Windows. 
 
 V **Zobrazení** vyber monitor, dostupnou velikost okna a režim **vměstnat / vyplnit s ořezem / 1:1**. FrameLab nemění rozlišení ani obnovovací frekvenci Windows; ty nastav v systémovém nastavení displeje. Nabídka okna respektuje pracovní plochu monitoru.
 
-- **F11**: hlavní obraz přes celou obrazovku; **Escape**: návrat.
-- **F1**: ovládací panel / obraz.
-- **F8**: zmrazit porovnání.
+- **F11**: jeden výsledný obraz s nastavenými efekty a titulky. Porovnání, panely, popisky a rámeček OCR se automaticky skryjí. Zmrazené porovnání se při přechodu rozběhne. **Escape / F11**: návrat do nastavení.
+- **F1**: skrýt/zobrazit ovládací panel pouze v okně. Ve fullscreenu nic skrývat nemusíš.
+- **F8**: zmrazit porovnání v okně. Dělicí čáru NR lze táhnout myší. Ve fullscreenu se porovnání nezobrazuje.
+- Kurzor ve fullscreenu zmizí po **2 sekundách** nečinnosti nad obrazem. Pohybem se objeví.
+- **[Obrazový návod: fullscreen krok za krokem](https://opicebot.cz/framelab/guide/fullscreen.html)**. V ZIPu otevři **FULLSCREEN.html**; obrázky fungují i offline.
 - **CZ / EN**: změna jazyka. Kompletní balík začíná česky.
 
 ## 6. Co ZIP obsahuje a co není součástí
 
 Přibalené jsou aplikace, oficiální NVIDIA VFG runtime, potřebné Microsoft runtime DLL, dvě herní ukázky, umělý OCR test, překladový model a jeho Python, exportér s FFmpeg, návody a původní licence. Velké závislosti jsou v release ZIPu, nikoli v historii Git repozitáře.
 
-**Chceš také enhancer? [Dva downloady a průvodce: kompletní návod NR](docs/enhancer-install.cs.md).** Preview.11 už obsahuje potřebný adaptér a tlačítko AI / NR. Otevři `4 - Doplnit enhancer.cmd`: nabídne přesný externí odkaz a import staženého ZIPu bez ručního kopírování. Externí Veyra ZIP má dalších 731 MB. NR DLL nejsou v našem balíku; jde o komunitní zdroj s nepotvrzenými právy k použití a distribuci, nikoli oficiální download NVIDIA. Import je určen pro uživatele s příslušným oprávněním. [Původ a podmínky](docs/NR-LICENSING-STATUS.txt).
+**Chceš také enhancer? [Dva downloady a průvodce: kompletní návod NR](docs/enhancer-install.cs.md).** Preview.12 už obsahuje potřebný adaptér a tlačítko AI / NR. Otevři `4 - Doplnit enhancer.cmd`: nabídne přesný externí odkaz a import staženého ZIPu bez ručního kopírování. Externí Veyra ZIP má dalších 731 MB. NR DLL nejsou v našem balíku; jde o komunitní zdroj s nepotvrzenými právy k použití a distribuci, nikoli oficiální download NVIDIA. Import je určen pro uživatele s příslušným oprávněním. [Původ a podmínky](docs/NR-LICENSING-STATUS.txt).
 
 Po doplnění a zapnutí NR je pořadí vstup → zvolený frame gen → enhancer → český překryv → monitor. Bez NR se tento krok vynechá. Další zpracování může přidat latenci nebo snížit výstupní FPS.
 
@@ -90,4 +94,4 @@ Analytické RAW/FG nahrávky neobsahují český překryv ani NR a nenahrávají
 
 Nové vydání rozbal do **nové složky**. Starou kopii ponech, dokud novou nevyzkoušíš. Nastavení není nutné přenášet. Program neinstaluje službu ani ovladač; odinstalace je smazání jeho složky po ukončení aplikace (včetně případných záznamů, které si nejprve ulož jinam).
 
-Pro volitelnou kontrolu ZIPu v PowerShellu spusť `Get-FileHash .\FrameLab-0.2.0-preview.11-windows-x64-full.zip -Algorithm SHA256` a porovnej výsledek se souborem **SHA256SUMS.txt** u vydání. [Sestavení ze zdrojů](docs/build-preview11.md) je samostatná vývojářská cesta.
+Pro volitelnou kontrolu ZIPu v PowerShellu spusť `Get-FileHash .\FrameLab-0.2.0-preview.12-windows-x64-full.zip -Algorithm SHA256` a porovnej výsledek se souborem **SHA256SUMS.txt** u vydání. [Sestavení ze zdrojů](docs/build-preview12.md) je samostatná vývojářská cesta.

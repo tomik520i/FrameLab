@@ -8,3 +8,5 @@
 @media(max-width:800px){.hero-media:before{inset:0}.backend-number{white-space:nowrap}}
 @media(max-width:480px){.backend-number{font-size:32px}}
 .hero-media:before{inset:0}
+
+.guide-path{display:grid;gap:8px;margin:22px 0}.guide-path a{display:block;padding:15px 18px;border:1px solid var(--line,#3a4833);border-radius:6px;background:#1b2418;color:#c1ff5e;text-decoration:none;line-height:1.5}.guide-path a:hover,.guide-path a:focus-visible{background:#293923;border-color:#b8ff51}

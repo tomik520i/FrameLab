@@ -2,6 +2,7 @@
 #include "SubtitleTranslator.hpp"
 #include "UiTheme.hpp"
 #include "Localization.hpp"
+#include <cmath>
 
 inline const char* subText(const char* en,const char* cs){return czech?cs:en;}
 inline bool subtitlePanel(SubtitleSettings& settings,const SubtitleSnapshot& state){
@@ -33,16 +34,18 @@ inline bool subtitlePanel(SubtitleSettings& settings,const SubtitleSnapshot& sta
  ImGui::TextWrapped("%s",subText("Needs two stable readings. Small, moving or stylized text can be misread; translation follows with a delay. Audio is not used.","Čeká na dvě shodná čtení. Malý, pohyblivý nebo stylizovaný text se může přečíst chybně; překlad má zpoždění. Zvuk se nepoužívá."));
  settings.sanitize();return !(settings==before);
 }
-inline void drawSubtitleOverlay(ImVec2 origin,ImVec2 size,const SubtitleSettings& settings,const SubtitleSnapshot& state,double now){
+inline void drawSubtitleOverlay(ImVec2 origin,ImVec2 size,const SubtitleSettings& settings,const SubtitleSnapshot& state,double now,bool cleanOutput=false){
  auto draw=ImGui::GetWindowDrawList();const ImVec2 end{origin.x+size.x,origin.y+size.y};draw->PushClipRect(origin,end,true);
- if(settings.showRegion){ImVec2 a{origin.x+size.x*settings.left,origin.y+size.y*settings.top},b{origin.x+size.x*settings.right,origin.y+size.y*settings.bottom};draw->AddRect(a,b,IM_COL32(170,230,70,255),0,0,2);draw->AddText({a.x+4,a.y+4},IM_COL32(170,230,70,255),"OCR: EN");}
+ if(settings.showRegion&&!cleanOutput){ImVec2 a{origin.x+size.x*settings.left,origin.y+size.y*settings.top},b{origin.x+size.x*settings.right,origin.y+size.y*settings.bottom};draw->AddRect(a,b,IM_COL32(170,230,70,255),0,0,2);draw->AddText({a.x+4,a.y+4},IM_COL32(170,230,70,255),"OCR: EN");}
  if(settings.enabled&&!state.translated.empty()&&now-state.observedAt<4.0){
   if(settings.coverSource)draw->AddRectFilled({origin.x+size.x*settings.left,origin.y+size.y*settings.top},{origin.x+size.x*settings.right,origin.y+size.y*settings.bottom},IM_COL32(0,0,0,255));
   std::string text=state.translated;if(settings.showOriginal)text+='\n'+state.source;
-  auto font=ImGui::GetFont();float fs=std::max(16.f,size.y*settings.fontPercent/100),wrap=size.x*.86f;
+  float fs=std::round(std::max(16.f,std::min(size.y,ImGui::GetIO().DisplaySize.y)*settings.fontPercent/100)),wrap=size.x*.86f;
+  auto font=ui::subtitleFont(fs);
   auto measured=font->CalcTextSizeA(fs,FLT_MAX,wrap,text.c_str());
   ImVec2 p{origin.x+(size.x-measured.x)/2,origin.y+size.y*settings.position-measured.y/2};
   p.y=std::clamp(p.y,origin.y+8,std::max(origin.y+8,end.y-measured.y-8));
+  p.x=std::round(p.x);p.y=std::round(p.y);
   draw->AddRectFilled({p.x-10,p.y-7},{p.x+measured.x+10,p.y+measured.y+7},IM_COL32(0,0,0,int(settings.background*255)),5);
   draw->AddText(font,fs,{p.x+1,p.y+1},IM_COL32(0,0,0,255),text.c_str(),nullptr,wrap);
   draw->AddText(font,fs,p,IM_COL32(255,255,255,255),text.c_str(),nullptr,wrap);

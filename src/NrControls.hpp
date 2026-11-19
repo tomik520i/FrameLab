@@ -7,7 +7,7 @@
 #include <cmath>
 #include <shellapi.h>
 struct NrControls {
- bool enabled=false,motion=true;float strength=.65f,split=.5f;int view=2,height=720,runtime=0;
+ bool enabled=false,motion=true;float strength=.65f,split=.5f;int view=1,height=720,runtime=0;
  bool operator==(const NrControls&)const=default;
  const char* text(const char* en,const char* cs)const{return czech?cs:en;}
  void load(const std::filesystem::path& path){std::ifstream in(path);int version=0;float s=.65f,x=.5f;int v=2,h=720,r=0,m=1;
@@ -30,7 +30,8 @@ struct NrControls {
   ImGui::TextDisabled("%s",text("0% = original, 100% = full AI change","0 % = původní obraz, 100 % = plná AI úprava"));
   const char* modes[]={text("Original","Původní"),text("Enhanced","Upravený"),text("Split comparison","Dělené porovnání")};
   ui::field(text("Compare (F7)","Porovnání (F7)"));ImGui::Combo("##nr-view",&view,modes,3);
-  if(view==2)ImGui::SliderFloat(text("Divider","Dělicí čára"),&split,.05f,.95f,"%.2f");
+  if(view==2){ImGui::SliderFloat(text("Divider","Dělicí čára"),&split,.05f,.95f,"%.2f");ImGui::TextWrapped("%s",text("Drag the divider in the preview. F8 freezes the same frame on both sides.","Čáru v náhledu můžeš táhnout myší. F8 zmrazí stejný snímek na obou stranách."));}
+  ImGui::TextWrapped("%s",text("F11 shows the final output fullscreen. Comparisons and labels are hidden automatically. Esc returns to settings.","F11 zobrazí výsledný obraz. Porovnání a popisky se automaticky skryjí. Esc vrátí nastavení."));
   if(ImGui::CollapsingHeader(text("Quality and performance","Kvalita a výkon"))){
   auto label=[&](int value){std::string s=value?std::string(text("Up to ","Až "))+std::to_string(value)+"p":text("Source resolution","Rozlišení zdroje");if(sourceWidth&&sourceHeight){auto [x,y]=nrDimensions(sourceWidth,sourceHeight,unsigned(value));s+="  ("+std::to_string(x)+" x "+std::to_string(y)+")";}return s;};
   ui::field(text("AI processing limit","Limit výpočetního rozlišení AI"));
@@ -59,14 +60,27 @@ struct NrControls {
   if(!available(app))enabled=false;
   return restart;
  }
- void draw(ID3D11ShaderResourceView* base,ImVec2 size,Enhancer* nr,bool matched){
+ void draw(ID3D11ShaderResourceView* base,ImVec2 size,Enhancer* nr,bool matched,bool cleanOutput=false){
   auto p=ImGui::GetCursorScreenPos();ImGui::Image((ImTextureID)(intptr_t)base,size);
   if(!enabled||!matched||!nr||!nr->hasResult)return;
   auto d=ImGui::GetWindowDrawList();ImVec2 end{p.x+size.x,p.y+size.y};
-  if(view!=0&&strength>0){if(view==2)d->PushClipRect({p.x+size.x*split,p.y},end,true);d->AddImage((ImTextureID)(intptr_t)nr->result.view.Get(),p,end,{0,0},{1,1},IM_COL32(255,255,255,int(strength*255+.5f)));if(view==2)d->PopClipRect();}
-  if(view==2){float x=p.x+size.x*split;d->AddLine({x,p.y},{x,end.y},IM_COL32(193,255,94,255),2);}
+  const int outputView=cleanOutput?1:view; // Fullscreen never inherits the preview comparison mode.
+  // Only the settings preview is interactive. Fullscreen is the chosen output.
+  if(outputView==2&&!cleanOutput){
+   const auto next=ImGui::GetCursorScreenPos();
+   ImGui::SetCursorScreenPos({p.x+size.x*split-14,p.y});
+   ImGui::InvisibleButton("##nr-divider",{28,size.y});
+   if(ImGui::IsItemHovered()||ImGui::IsItemActive())ImGui::SetMouseCursor(ImGuiMouseCursor_ResizeEW);
+   if(ImGui::IsItemActive()&&ImGui::IsMouseDragging(ImGuiMouseButton_Left,0))split=std::clamp((ImGui::GetIO().MousePos.x-p.x)/size.x,.05f,.95f);
+   ImGui::SetCursorScreenPos(next);
+  }
+  if(outputView!=0&&strength>0){if(outputView==2)d->PushClipRect({p.x+size.x*split,p.y},end,true);d->AddImage((ImTextureID)(intptr_t)nr->result.view.Get(),p,end,{0,0},{1,1},IM_COL32(255,255,255,int(strength*255+.5f)));if(outputView==2)d->PopClipRect();}
+  if(outputView==2){float x=p.x+size.x*split;d->AddLine({x,p.y},{x,end.y},IM_COL32(193,255,94,255),2);
+   if(!cleanOutput){float y=p.y+size.y*.5f;d->AddCircleFilled({x,y},15,IM_COL32(193,255,94,255));d->AddText({x-10,y-9},IM_COL32(16,22,15,255),"< >");}
+  }
+  if(cleanOutput)return;
   auto label=[&](const char* value,float x){auto s=ImGui::CalcTextSize(value);d->AddRectFilled({x-6,p.y+6},{x+s.x+6,p.y+s.y+16},IM_COL32(0,0,0,185),3);d->AddText({x,p.y+11},IM_COL32(255,255,255,255),value);};
-  label(view==1?text("ENHANCED","UPRAVENÝ"):text("ORIGINAL","PŮVODNÍ"),p.x+12);
-  if(view==2)label(text("ENHANCED","UPRAVENÝ"),p.x+size.x*split+12);
+  label(outputView==1?text("ENHANCED","UPRAVENÝ"):text("ORIGINAL","PŮVODNÍ"),p.x+12);
+  if(outputView==2)label(text("ENHANCED","UPRAVENÝ"),p.x+size.x*split+12);
  }
 };

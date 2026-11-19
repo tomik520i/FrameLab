@@ -6,7 +6,7 @@
 
 ## 1. Stáhni a rozbal FrameLab
 
-1. **[Stáhnout FrameLab preview.11 pro Windows x64](https://github.com/tomik520i/FrameLab/releases/download/v0.2.0-preview.11/FrameLab-0.2.0-preview.11-windows-x64-full.zip)**. Přesná velikost je na [stránce stahování](https://opicebot.cz/framelab/#download).
+1. **[Stáhnout FrameLab preview.12 pro Windows x64](https://github.com/tomik520i/FrameLab/releases/download/v0.2.0-preview.12/FrameLab-0.2.0-preview.12-windows-x64-full.zip)**. Přesná velikost je na [stránce stahování](https://opicebot.cz/framelab/#download).
 2. Pravé tlačítko na ZIP → **Extrahovat vše** → nová složka například na Ploše. Nepracuj uvnitř ZIPu. Počítej přibližně se 4 GB volného místa pro oba stažené archivy, rozbalení a import.
 3. Otevři **1 - Spustit FrameLab.cmd**. V kartě **Vstup** vyzkoušej CS:GO nebo Spider-Mana. Frame generation i titulky lze používat hned, NR ještě čeká na externí soubory. Pro OCR může Windows vyžadovat doinstalování anglického rozpoznávání textu; postup je v [základním návodu](https://opicebot.cz/framelab/guide/).
 
@@ -35,7 +35,7 @@
 
 | Problém | Co udělat |
 | --- | --- |
-| Nemám kartu AI / NR | Máš preview.10 nebo starší build bez podpory NR. Stáhni celý preview.11; samotné přidání DLL do preview.10 nestačí. |
+| Nemám kartu AI / NR | Máš preview.10 nebo starší build bez podpory NR. Stáhni celý preview.12; samotné přidání DLL do preview.10 nestačí. |
 | Kontrolní součet nesouhlasí | Stáhni přesný NVIDIA ZIP 2.1.9 bez dodatku. Zkontroluj dokončené stahování. Průvodce úmyslně nepřijímá neznámé verze. |
 | Soubor se používá / přístup odepřen | Ukonči všechny své instance FrameLabu a zkus import znovu. Celá složka musí být zapisovatelná. |
 | Průvodce je zablokovaný správcem | Neměň zásady počítače. Se souhlasem správce rozbal přesný externí ZIP a použij ruční cesty níže. |
@@ -45,3 +45,5 @@
 Ruční import pro správce: z kořene rozbalené Veyry zkopíruj `runtime/experimental/nr-ampere/nvngx_dlssnr.dll` do `FrameLab/app/runtime/nr-sf/nvngx_dlssnr.dll` a `runtime/experimental/nr-original/nvngx_dlssnr.dll` do `FrameLab/app/runtime/nr-original/nvngx_dlssnr.dll`. Zachovej původní licenční soubory z `licenses` pod `FrameLab/app/licenses/nr-external`. Nezaměňuj tyto DLL za přibalený `app/nr-host/nvngx.dll`: ten je malý adaptér FrameLabu, nikoli AI model ani ovladač NVIDIA.
 
 Ověřený externí ZIP: 731012476 bajtů; SHA-256 `4225ecb11a8e96c2826b4b0b798feb811d7ae237f3edf0b627f3b6895c79f362`. Přesné identity obou DLL jsou v [auditu](NR-LICENSING-STATUS.txt). Přesun downloadu na cizí web není vyřešení licence; veřejný FrameLab tyto DLL nepřebaluje ani neskrývá jejich původ.
+
+**Celá obrazovka:** F11 automaticky skryje porovnání a ukáže jeden výsledný obraz s nastavenou silou enhanceru. Esc/F11 vrátí nastavení. [Obrazový návod fullscreen](https://opicebot.cz/framelab/guide/fullscreen.html).

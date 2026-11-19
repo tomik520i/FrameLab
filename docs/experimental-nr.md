@@ -5,11 +5,11 @@
 This local FrameLab variant adds a real Feature-18 neural-rendering path based on the
 community integration in [Veyra-NRVideo](https://github.com/Likely7/Veyra-NRVideo),
 revision `33dfdf71197e3056e250465150eb9541d0bb24ce`. It is an experimental video/capture
-post-process, not an official NVIDIA game integration. Preview.11 includes the SDK-free NR adapter and import wizard. External NR model DLLs are not bundled. [Complete installation](enhancer-install.en.md) / [Česky](enhancer-install.cs.md).
+post-process, not an official NVIDIA game integration. Preview.12 includes the SDK-free NR adapter and import wizard. External NR model DLLs are not bundled. [Complete installation](enhancer-install.en.md) / [Česky](enhancer-install.cs.md).
 
 ## Run
 
-In the preview.11 full bundle, use `1 - Spustit FrameLab.cmd`. It starts the included CS:GO
+In the preview.12 full bundle, use `1 - Spustit FrameLab.cmd`. It starts the included CS:GO
 1080p60 video with enhancement disabled by default. `Ukazka - Spider-Man.cmd` opens a second combat
 fixture. Double-clicking the EXE starts with enhancement off; source/device selection
 still works normally. Own video: `FrameLab.exe --video "C:\clip.mp4"`.
@@ -106,4 +106,4 @@ half and full strength. All five existing CTest tests passed. Pixel changes esta
 that inference ran, not that every change improves image quality. Hardware timing
 is a smoke-test observation, not a sustained benchmark or a general RTX guarantee.
 
-Preview.11 validation (2026-11-19): the SDK-free parameter implementation completed 12 real GPU submissions on RTX 4050 Laptop with exact paired inputs, nonzero neural output and full alpha. Import wizard validates both original DLL hashes without executing Veyra. This verifies compatibility of the host, not a license grant or an image-quality benchmark.
+Preview.12 validation (2026-11-19): the SDK-free parameter implementation completed 12 real GPU submissions on RTX 4050 Laptop with exact paired inputs, nonzero neural output and full alpha. Import wizard validates both original DLL hashes without executing Veyra. This verifies compatibility of the host, not a license grant or an image-quality benchmark.

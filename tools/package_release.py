@@ -7,6 +7,7 @@ import json
 import shutil
 import subprocess
 import zipfile
+from package_guides import copy_guides
 
 ROOT=Path(__file__).resolve().parents[1]
 
@@ -26,7 +27,7 @@ def main():
     p.add_argument('--nr-host',type=Path,required=True)
     p.add_argument('--setup',type=Path,required=True)
     p.add_argument('--output',type=Path,required=True)
-    p.add_argument('--version',default='0.2.0-preview.11')
+    p.add_argument('--version',default='0.2.0-preview.12')
     p.add_argument('--commit',required=True)
     a=p.parse_args()
     commit=subprocess.check_output(['git','rev-parse',a.commit],cwd=ROOT,text=True).strip()
@@ -59,7 +60,7 @@ def main():
     for source in ROOT.glob('*.cmd'):
         if source.name.startswith(('Start FrameLab','1 - ','2 - ','3 - ','4 - ','Ukazka - ')):
             shutil.copy2(source,stage/source.name)
-    for file in ['prepare_translation.py','translate_worker.py','package_release.py','Install-Enhancer.ps1']:
+    for file in ['prepare_translation.py','translate_worker.py','package_release.py','package_guides.py','Install-Enhancer.ps1']:
         shutil.copy2(ROOT/'tools'/file,stage/'tools'/file)
     shutil.copy2(ROOT/'docs/runtime-distribution.md',stage/'licenses/README.md')
     for sample in ['action','combat','ocr-demo']:
@@ -85,12 +86,7 @@ def main():
     assert (stage/'tools/python/python.exe').is_file()
     guide=(ROOT/'INSTALL.cs.md').read_text(encoding='utf-8')
     (stage/'ZACNI TADY.txt').write_text(guide,encoding='utf-8-sig')
-    local_guides={'index.html':'ZACNI TADY.html','en.html':'START HERE.html','enhancer.html':'NAVOD ENHANCER.html','enhancer-en.html':'ENHANCER GUIDE.html'}
-    for source_name,destination in local_guides.items():
-        markup=(ROOT/'website/guide'/source_name).read_text(encoding='utf-8')
-        markup=markup.replace('<link rel="stylesheet" href="../styles.css">','').replace('href="../#download"','href="https://opicebot.cz/framelab/#download"')
-        for old,new in local_guides.items():markup=markup.replace('href="'+old+'"','href="'+new+'"')
-        (stage/destination).write_text(markup,encoding='utf-8')
+    copy_guides(stage)
     (stage/'README-v3.txt').write_text('This is the public '+a.version+' full package. Start with ZACNI TADY.html, INSTALL.cs.md or START_HERE.md. NR adapter and import wizard included; external NR model DLLs are not bundled.\n',encoding='utf-8')
     metadata={'version':a.version,'source_commit':commit,'FRAMELAB_EXPERIMENTAL_NR':True,'setup_sha256':digest(stage/'app/FrameLab-Setup.exe'),'nr_host_sha256':digest(stage/'app/nr-host/nvngx.dll'),'nr_host_sdk_static_library':False,'application_sha256':digest(stage/'app/FrameLab.exe'),'bundled_translation':True,'bundled_game_samples':2,'nr_runtime_included':False}
     (stage/'build-variant.json').write_text(json.dumps(metadata,indent=2),encoding='utf-8')

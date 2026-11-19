@@ -136,6 +136,8 @@ void verifyInterpolation(Graphics& g,const std::filesystem::path& root,unsigned 
  log("VFG pixel verification center="+std::to_string(center)+" passed="+std::to_string(passed));if(!passed)throw std::runtime_error("VFG output did not contain the expected intermediate position");
 }
 Graphics* graphics=nullptr;bool resized=false;unsigned resizeW=0,resizeH=0;bool running=true,showPanel=true,fullscreen=false,imageOnly=false;
+ULONGLONG pointerActivity=0;POINT lastPointer{LONG_MIN,LONG_MIN};bool reportedCursorHidden=false;
+bool hideOutputCursor(){return imageOnly&&GetTickCount64()-pointerActivity>=2000;}
 // DefWindowProc owns the thread during an interactive resize. Keep the same
 // render tick alive from that modal loop; never render recursively.
 std::function<void()> modalFrame;std::exception_ptr modalFailure;
@@ -153,6 +155,9 @@ struct FrameTickBinding {
 extern IMGUI_IMPL_API LRESULT ImGui_ImplWin32_WndProcHandler(HWND,UINT,WPARAM,LPARAM);
 LRESULT WINAPI windowProc(HWND h,UINT msg,WPARAM w,LPARAM l){
  if(msg==WM_THEMECHANGED||msg==WM_SETTINGCHANGE)applyWindowChrome(h);
+ if(msg==WM_MOUSEMOVE){POINT p{short(LOWORD(l)),short(HIWORD(l))};if(p.x!=lastPointer.x||p.y!=lastPointer.y){lastPointer=p;pointerActivity=GetTickCount64();if(imageOnly)SetCursor(LoadCursor(nullptr,IDC_ARROW));}}
+ if(msg==WM_LBUTTONDOWN||msg==WM_RBUTTONDOWN||msg==WM_MOUSEWHEEL)pointerActivity=GetTickCount64();
+ if(msg==WM_SETCURSOR&&imageOnly&&LOWORD(l)==HTCLIENT){SetCursor(hideOutputCursor()?nullptr:LoadCursor(nullptr,IDC_ARROW));return 1;}
  if(ImGui_ImplWin32_WndProcHandler(h,msg,w,l))return 1;
  if(msg==WM_ENTERSIZEMOVE){inSizeMove=true;modalFrames=0;SetTimer(h,resizeTimer,16,nullptr);log("Interactive resize/move entered");return 0;}
  if(msg==WM_EXITSIZEMOVE){KillTimer(h,resizeTimer);inSizeMove=false;RECT rc{};GetClientRect(h,&rc);resizeW=rc.right;resizeH=rc.bottom;resized=true;renderModalFrame();log("Interactive resize/move exited; live ticks="+std::to_string(modalFrames));return 0;}
@@ -161,8 +166,8 @@ LRESULT WINAPI windowProc(HWND h,UINT msg,WPARAM w,LPARAM l){
  if(msg==WM_ERASEBKGND)return 1;
  if(msg==WM_CLOSE){running=false;return 0;}if(msg==WM_DESTROY){PostQuitMessage(0);return 0;}
  if(msg==WM_KEYDOWN&&w==VK_ESCAPE&&imageOnly){SendMessageW(h,WM_KEYDOWN,VK_F11,0);return 0;}
- if(msg==WM_KEYDOWN&&w==VK_F1){showPanel=!showPanel;return 0;}
- if(msg==WM_KEYDOWN&&w==VK_F11){static RECT old{};fullscreen=!fullscreen;imageOnly=fullscreen;if(fullscreen){GetWindowRect(h,&old);MONITORINFO m{sizeof(m)};GetMonitorInfo(MonitorFromWindow(h,MONITOR_DEFAULTTONEAREST),&m);SetWindowLongPtr(h,GWL_STYLE,WS_POPUP|WS_VISIBLE);SetWindowPos(h,HWND_TOP,m.rcMonitor.left,m.rcMonitor.top,m.rcMonitor.right-m.rcMonitor.left,m.rcMonitor.bottom-m.rcMonitor.top,SWP_FRAMECHANGED);}else{SetWindowLongPtr(h,GWL_STYLE,WS_OVERLAPPEDWINDOW|WS_VISIBLE);SetWindowPos(h,nullptr,old.left,old.top,old.right-old.left,old.bottom-old.top,SWP_FRAMECHANGED|SWP_NOZORDER);}return 0;}
+ if(msg==WM_KEYDOWN&&w==VK_F1){if(!imageOnly)showPanel=!showPanel;return 0;}
+ if(msg==WM_KEYDOWN&&w==VK_F11){static RECT old{};fullscreen=!fullscreen;imageOnly=fullscreen;pointerActivity=GetTickCount64();SetCursor(LoadCursor(nullptr,IDC_ARROW));if(fullscreen){GetWindowRect(h,&old);MONITORINFO m{sizeof(m)};GetMonitorInfo(MonitorFromWindow(h,MONITOR_DEFAULTTONEAREST),&m);SetWindowLongPtr(h,GWL_STYLE,WS_POPUP|WS_VISIBLE);SetWindowPos(h,HWND_TOP,m.rcMonitor.left,m.rcMonitor.top,m.rcMonitor.right-m.rcMonitor.left,m.rcMonitor.bottom-m.rcMonitor.top,SWP_FRAMECHANGED);}else{SetWindowLongPtr(h,GWL_STYLE,WS_OVERLAPPEDWINDOW|WS_VISIBLE);SetWindowPos(h,nullptr,old.left,old.top,old.right-old.left,old.bottom-old.top,SWP_FRAMECHANGED|SWP_NOZORDER);}return 0;}
  return DefWindowProc(h,msg,w,l);
 }
 int WINAPI wWinMain(HINSTANCE instance,HINSTANCE,LPWSTR cmd,int){
@@ -193,7 +198,7 @@ int WINAPI wWinMain(HINSTANCE instance,HINSTANCE,LPWSTR cmd,int){
   WNDCLASSW wc{};wc.lpfnWndProc=windowProc;wc.hInstance=instance;wc.lpszClassName=L"FrameLabWindow";wc.hCursor=LoadCursor(nullptr,IDC_ARROW);RegisterClassW(&wc);
   int initialWidth=1480,initialHeight=900;
   if(uiPreview){initialWidth=std::clamp(_wtoi(argument(L"--preview-width",L"1480").c_str()),640,3840);initialHeight=std::clamp(_wtoi(argument(L"--preview-height",L"900").c_str()),480,2160);}
-  HWND window=CreateWindowW(wc.lpszClassName,L"FrameLab | preview.11",uiPreview?WS_POPUP:WS_OVERLAPPEDWINDOW,100,80,initialWidth,initialHeight,nullptr,nullptr,instance,nullptr);
+  HWND window=CreateWindowW(wc.lpszClassName,L"FrameLab | preview.12",uiPreview?WS_POPUP:WS_OVERLAPPEDWINDOW,100,80,initialWidth,initialHeight,nullptr,nullptr,instance,nullptr);
   applyWindowChrome(window);
   Graphics g;g.init(window);graphics=&g;
   if(args.find(L"--verify-vfg")!=std::wstring::npos){for(unsigned m=2;m<=4;++m)for(unsigned i=1;i<m;++i)verifyInterpolation(g,root,m,i,args.find(L"--optical")!=std::wstring::npos);DestroyWindow(window);timeEndPeriod(1);CoUninitialize();return 0;}
@@ -231,7 +236,7 @@ int WINAPI wWinMain(HINSTANCE instance,HINSTANCE,LPWSTR cmd,int){
   std::vector<Texture> imagePool;
   std::deque<QueuedImage> readyImages; FramePacer pacer;Texture presentedImage;
   bool freezePreview=false;std::string activeVideoName;
-  NrControls nrControls;nrControls.load(root/L"nr-settings.txt");nrControls.enabled=FRAMELAB_WITH_NR&&args.find(L"--nr")!=std::wstring::npos;
+  NrControls nrControls;nrControls.load(root/L"nr-settings.txt");nrControls.enabled=FRAMELAB_WITH_NR&&args.find(L"--nr")!=std::wstring::npos;auto savedNrControls=nrControls;
   if(!argument(L"--nr-height").empty()){auto limit=_wtoi(argument(L"--nr-height").c_str());nrControls.height=limit==0?0:std::clamp(limit,180,8192);}
   std::unique_ptr<Enhancer> enhancer;std::vector<std::unique_ptr<Enhancer>> retiringEnhancers;QueuedImage nrPending{};std::string nrFailure;
   uint64_t currentScene=0,nrLastScene=0;double nrLastSourceTime=0;bool nrReset=true,nrWasEnabled=nrControls.enabled,nrDiscardPending=false;
@@ -381,16 +386,23 @@ int WINAPI wWinMain(HINSTANCE instance,HINSTANCE,LPWSTR cmd,int){
     inputHistory.add(inFps);uniqueHistory.add(contentFps);outputHistory.add(outFps);latencyHistory.add(std::max(0.f,latency));gpuTimeHistory.add(std::max(0.f,gpuMs));utilHistory.add(std::max(0.f,gpu.utilization));
     csv<<std::fixed<<std::setprecision(3)<<t-start<<','<<inFps<<','<<contentFps<<','<<outFps<<','<<presentFps<<','<<genFps<<','<<latency<<','<<p95<<','<<gpuMs<<','<<gpu.utilization<<','<<gpu.memoryMB<<','<<mailbox.dropped<<','<<mailbox.invalid<<','<<dxgiRate<<','<<readyImages.size()<<','<<presentationDrops<<','<<confirmedGenFps<<','<<displayVerification.displayHz<<','<<pairInterval*1000<<std::endl;lastStats=t;
    }
+   // Fullscreen owns only its client cursor; never change the global ShowCursor counter.
+   if(imageOnly)io.ConfigFlags|=ImGuiConfigFlags_NoMouseCursorChange;else io.ConfigFlags&=~ImGuiConfigFlags_NoMouseCursorChange;
+   if(imageOnly&&GetForegroundWindow()==window){POINT p{};GetCursorPos(&p);if(WindowFromPoint(p)==window){
+    const bool hide=hideOutputCursor();SetCursor(hide?nullptr:LoadCursor(nullptr,IDC_ARROW));
+    if(hide!=reportedCursorHidden){CURSORINFO cursor{sizeof(cursor)};GetCursorInfo(&cursor);log(std::string("Fullscreen cursor ")+(hide?"idle / hidden":"moved / visible")+"; Windows flags="+std::to_string(cursor.flags));reportedCursorHidden=hide;}
+   }}
    ImGui_ImplDX11_NewFrame();ImGui_ImplWin32_NewFrame();ImGui::NewFrame();ImVec2 size=io.DisplaySize;float panel=showPanel?std::min(480.f,size.x*.62f):0.f;
    auto toggleFreeze=[&]{if(!displayed)return;if(nrControls.enabled&&(!enhancer||!enhancer->hasResult))return;freezePreview=!freezePreview;if(freezePreview)frozenSubtitle=subtitles.snapshot();else{nrReset=true;nrDiscardPending=true;readyImages.clear();}log(std::string("NR comparison freeze=")+(freezePreview?"1":"0"));};
-   if(ImGui::IsKeyPressed(ImGuiKey_F8))toggleFreeze();
+   if(imageOnly&&freezePreview)toggleFreeze(); // A frozen comparison must not freeze the viewing output.
+   if(!imageOnly&&ImGui::IsKeyPressed(ImGuiKey_F8))toggleFreeze();
    if(FRAMELAB_WITH_NR&&nrControls.available(root)&&ImGui::IsKeyPressed(ImGuiKey_F6))nrControls.enabled=!nrControls.enabled;
-   if(ImGui::IsKeyPressed(ImGuiKey_F7)){nrControls.view=(nrControls.view+1)%3;nrControls.save(root/L"nr-settings.txt");}
+   if(!imageOnly&&FRAMELAB_WITH_NR&&ImGui::IsKeyPressed(ImGuiKey_F7))nrControls.view=(nrControls.view+1)%3;
    if(nrControls.enabled!=nrWasEnabled){nrReset=true;if(!nrControls.enabled){nrDiscardPending=true;if(!freezePreview&&enhancer&&displayed==enhancer->original.view.Get())displayed=presentedImage.view.Get();}nrWasEnabled=nrControls.enabled;}
    if(imageOnly){
     ImGui::SetNextWindowPos({0,0});ImGui::SetNextWindowSize(size);ImGui::PushStyleVar(ImGuiStyleVar_WindowPadding,ImVec2(0,0));
     ImGui::Begin("Fullscreen image",nullptr,ImGuiWindowFlags_NoDecoration|ImGuiWindowFlags_NoMove|ImGuiWindowFlags_NoSavedSettings|ImGuiWindowFlags_NoScrollbar);
-    if(displayed&&w&&h){float scale=displayControls.scale(w,h,size.x,size.y);ImGui::SetCursorPos({(size.x-w*scale)/2,(size.y-h*scale)/2});auto p=ImGui::GetCursorScreenPos();nrControls.draw(displayed,{w*scale,h*scale},enhancer.get(),enhancer&&displayed==enhancer->original.view.Get());auto caption=freezePreview?frozenSubtitle:subtitles.snapshot();drawSubtitleOverlay(p,{w*scale,h*scale},subtitleSettings,caption,freezePreview?caption.observedAt:t);}ImGui::End();ImGui::PopStyleVar();
+    if(displayed&&w&&h){float scale=displayControls.scale(w,h,size.x,size.y);ImGui::SetCursorPos({(size.x-w*scale)/2,(size.y-h*scale)/2});auto p=ImGui::GetCursorScreenPos();nrControls.draw(displayed,{w*scale,h*scale},enhancer.get(),enhancer&&displayed==enhancer->original.view.Get(),true);auto caption=freezePreview?frozenSubtitle:subtitles.snapshot();drawSubtitleOverlay(p,{w*scale,h*scale},subtitleSettings,caption,freezePreview?caption.observedAt:t,true);}ImGui::End();ImGui::PopStyleVar();
    }else{
    ImGui::SetNextWindowPos({0,0});ImGui::SetNextWindowSize({size.x-panel,size.y});
    ImGui::Begin("Preview",nullptr,ImGuiWindowFlags_NoDecoration|ImGuiWindowFlags_NoMove|ImGuiWindowFlags_NoSavedSettings|ImGuiWindowFlags_NoScrollbar);
@@ -421,9 +433,7 @@ int WINAPI wWinMain(HINSTANCE instance,HINSTANCE,LPWSTR cmd,int){
     ui::section(tr("SETTINGS"));
     if(ImGui::BeginTabBar("Control tabs",ImGuiTabBarFlags_FittingPolicyScroll)){
      if(FRAMELAB_WITH_NR&&ImGui::BeginTabItem("AI / NR",nullptr,previewTab==5||(args.find(L"--nr")!=std::wstring::npos&&t-start<.5)?ImGuiTabItemFlags_SetSelected:0)){
-      const auto previousControls=nrControls;
       if(nrControls.panel(enhancer.get(),nrFailure,w,h,displayVerification.displayHeight,root)){freezePreview=false;retireEnhancer();}
-      if(!(previousControls==nrControls))nrControls.save(root/L"nr-settings.txt");
       ImGui::EndTabItem();
      }
      if(ImGui::BeginTabItem(tr("Capture"),nullptr,previewTab==0?ImGuiTabItemFlags_SetSelected:0)){ImGui::Spacing();
@@ -509,6 +519,7 @@ int WINAPI wWinMain(HINSTANCE instance,HINSTANCE,LPWSTR cmd,int){
     ImGui::End();
    }
    }
+   if(!(savedNrControls==nrControls)&&!ImGui::IsMouseDown(ImGuiMouseButton_Left)){nrControls.save(root/L"nr-settings.txt");savedNrControls=nrControls;}
    ImGui::Render();g.begin();ImGui_ImplDX11_RenderDrawData(ImGui::GetDrawData());
    if(uiPreview&&t-start>=previewDelay){saveUiPreview(g,previewPath);auto caption=subtitles.snapshot();std::ofstream(root/L"logs"/L"subtitle-preview.txt")<<caption.status<<'\n'<<caption.source<<'\n'<<caption.translated<<'\n';running=false;}
    auto hr=g.present(inSizeMove?false:vsync);

@@ -2,6 +2,7 @@
 #include "imgui.h"
 #include "FrameLabFonts.hpp"
 #include <algorithm>
+#include <array>
 
 // Shared visual language with opicebot.cz/framelab. Fonts are embedded so the
 // portable executable never needs a download or a system font installation.
@@ -11,6 +12,11 @@ inline const ImVec4 background=rgb(16,19,17),panel=rgb(23,28,24),line=rgb(50,59,
 inline const ImVec4 ink=rgb(243,244,233),muted=rgb(165,175,160),accent=rgb(193,255,94);
 inline const ImVec4 orange=rgb(255,129,91),input=rgb(115,193,169);
 inline ImFont *body=nullptr,*heading=nullptr,*mono=nullptr,*number=nullptr;
+inline std::array<ImFont*,6> subtitleFonts{};
+inline ImFont* subtitleFont(float pixels){
+ for(auto font:subtitleFonts)if(font&&font->FontSize>=pixels)return font;
+ return subtitleFonts.back()?subtitleFonts.back():ImGui::GetFont();
+}
 inline void initialize(){
  auto& io=ImGui::GetIO();
  static const ImWchar ranges[]={0x20,0x17f,0x2000,0x206f,0};
@@ -20,6 +26,13 @@ inline void initialize(){
  heading=font(fonts::bold,sizeof(fonts::bold),26);
  mono=font(fonts::mono,sizeof(fonts::mono),12);
  number=font(fonts::bold,sizeof(fonts::bold),26);
+ // Rasterize subtitles separately from the small UI font. Select a native-size
+ // atlas (or downsample) at output resolution, never enlarge the 17px UI glyphs.
+ static ImVector<ImWchar> subtitleRanges;
+ if(subtitleRanges.empty()){ImFontGlyphRangesBuilder glyphs;glyphs.AddRanges(io.Fonts->GetGlyphRangesDefault());glyphs.AddText("ěščřžýáíéúůďťňĚŠČŘŽÝÁÍÉÚŮĎŤŇ…–—„“”‘’");glyphs.BuildRanges(&subtitleRanges);}
+ ImFontConfig subtitleConfig=config;subtitleConfig.OversampleH=1;subtitleConfig.OversampleV=1;
+ constexpr float sizes[]={32,48,64,96,144,192};
+ for(size_t i=0;i<subtitleFonts.size();++i)subtitleFonts[i]=io.Fonts->AddFontFromMemoryTTF(const_cast<unsigned char*>(fonts::sans),sizeof(fonts::sans),sizes[i],&subtitleConfig,subtitleRanges.Data);
  io.FontDefault=body;
  ImGui::StyleColorsDark();auto& s=ImGui::GetStyle();
  s.WindowRounding=0;s.WindowBorderSize=0; // NoDecoration alone leaves a 1px frame and clipped edge.

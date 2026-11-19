@@ -3,7 +3,7 @@ $ErrorActionPreference = 'Stop'
 $root = Split-Path $PSScriptRoot -Parent
 Set-Location $root
 if (-not (Test-Path -LiteralPath $ApplicationPath)) { throw 'Build FrameLab first' }
-if ($Complete -and -not $Translation) { throw 'A complete preview.11 package must include translation: add -Translation' }
+if ($Complete -and -not $Translation) { throw 'A complete preview.12 package must include translation: add -Translation' }
 foreach ($sample in 'action.mp4','combat.mp4','ocr-demo.mp4','action.source.json','combat.source.json','ocr-demo.source.json') {
  if (-not (Test-Path -LiteralPath (Join-Path $SampleDirectory $sample))) { throw "Both sample videos and provenance must be bundled: missing $sample in $SampleDirectory" }
 }
@@ -74,6 +74,10 @@ if ($Complete) {
  }
 }
 if (Get-ChildItem -LiteralPath $stage -Recurse -File -Filter 'nvngx_dlssnr.dll') { throw 'NR runtimes are not approved for a public package' }
+python tools/render_install_guides.py
+if ($LASTEXITCODE) { throw 'Guide rendering failed' }
+python tools/package_guides.py $stage
+if ($LASTEXITCODE) { throw 'Offline guide packaging failed' }
 Compress-Archive -Path "$stage/*" -DestinationPath $portableZip
 # Exact reviewed source set from the Git index, not ignored personal data.
 $tree = git write-tree

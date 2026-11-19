@@ -35,6 +35,7 @@ struct DisplayControls {
    ImGui::EndCombo();
   }ImGui::EndDisabled();
   if(ImGui::Button(czech?"Celá obrazovka (F11)":"Fullscreen (F11)"))SendMessageW(window,WM_KEYDOWN,VK_F11,0);
+  ImGui::TextWrapped("%s",czech?"F11 = čistý výsledný obraz včetně efektů a titulků. Porovnání, panely, popisky a rámeček OCR se skryjí automaticky. Myš se skryje po 2 sekundách nečinnosti; pohyb ji zobrazí. Esc / F11 vrátí nastavení.":"F11 = the final image, including effects and subtitles. Comparisons, controls, labels and the OCR outline are hidden automatically. The cursor hides after 2 seconds idle; move it to show it. Esc / F11 returns to settings.");
   ImGui::TextWrapped("%s",czech?"Okno a režim celé obrazovky používají aktuální rozlišení a frekvenci Windows. Měřítko zachovává poměr stran; Vyplnit a 1:1 mohou oříznout okraje. Rozlišení vstupu nastav ve Vstupu.":"The window and fullscreen use the current Windows resolution and refresh rate. Scaling keeps aspect ratio; Fill and 1:1 can crop edges. Choose capture resolution in Input.");
  }
 };

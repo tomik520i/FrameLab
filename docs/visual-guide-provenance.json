@@ -1,0 +1,120 @@
+{
+  "captured_at": "2026-11-19",
+  "application": "FrameLab preview.11 installation walkthrough; preview.12 fullscreen/comparison",
+  "machine": "Windows 11 / RTX 4050 Laptop",
+  "method": "Actual browser and Windows UI screenshots. SVG overlays are separate from the original screenshot bytes. Imagegen trial rejected because it changed UI filenames; no generated UI image is published.",
+  "verification": [
+    "Windows Explorer extraction to short Desktop path succeeded; every archive entry present.",
+    "Actual native GUI archive selection and import completed: Soubory jsou připravené.",
+    "Both included games played; NVIDIA VFG 2x active.",
+    "NR split view and F8 frozen pair captured.",
+    "Local Windows OCR and EN-CS model produced Dveře jsou zamčené with NR + VFG enabled.",
+    "Preview.12 fullscreen automatically hides NR split, RAW/FG/RAW comparisons, labels and OCR guide while retaining local Czech subtitles.",
+    "Frozen comparison resumes on fullscreen entry; F11 and Escape return to the selected window comparison. F1 does not show fullscreen controls.",
+    "Windows cursor flags=0 logged after idle fullscreen on RTX 4050 Laptop.",
+    "GPU readback verifies original/strength blend and absence of comparison divider or labels in clean output, including when split is selected.",
+    "Final preview.12 screenshot shows Czech text rasterized from dedicated font atlases; headless tests cover Czech glyphs and 1080p/4K font sizes."
+  ],
+  "limitations": [
+    "Physical capture card and live audio not exercised. Capture-control picture lists the laptop webcam.",
+    "Installation screenshots retain preview.11 filenames; download links and fullscreen steps target preview.12.",
+    "FPS shown in screenshots are momentary UI values, not benchmarks."
+  ],
+  "files": [
+    {
+      "file": "01-download.jpg",
+      "bytes": 33790,
+      "sha256": "03d66b0399ce8d19cbebcd814e9750885cf7b16e4fb042ef32423909b432305b"
+    },
+    {
+      "file": "02-extract-menu.png",
+      "bytes": 65769,
+      "sha256": "02a0afb36787039756f6970b89833819a402cebaae4cc4308321ae16f8f26944"
+    },
+    {
+      "file": "03-extract-confirm.png",
+      "bytes": 24477,
+      "sha256": "4fa830bf55016947f4b06752919afd709891b0296ed5d4a37b2908a620e031fb"
+    },
+    {
+      "file": "04-launchers.png",
+      "bytes": 86985,
+      "sha256": "d7c466b6b12ce9972f05c5bf9f22e4a24ff9075f81136616b19fe328e5d403bf"
+    },
+    {
+      "file": "05-first-launch.png",
+      "bytes": 114588,
+      "sha256": "041c7cdca103dfd5a6f87b0fb0c2cb7d2e3c04c5c1b412919b7e5f3f7928334e"
+    },
+    {
+      "file": "06-input-samples.png",
+      "bytes": 104069,
+      "sha256": "5e6acc887959b04a32167af51c67625f824d1b1c12d0ed1326c824b0edb82b2e"
+    },
+    {
+      "file": "07-frame-gen.png",
+      "bytes": 101089,
+      "sha256": "2c396d5402bb2c2ef259ff0d4cacfa3056bc8d70555f1bb239f82ceebb63b247"
+    },
+    {
+      "file": "08-enhancer-wizard.png",
+      "bytes": 92148,
+      "sha256": "6fe6d7c3e94066dff5ebd8c5c165a49e0e6ae01a207e9e9b85cc95a8a3d58317"
+    },
+    {
+      "file": "09-select-zip.png",
+      "bytes": 57086,
+      "sha256": "d9d381c3d23bf854e4b90136c3b96c6237fdb866d1ad57bc5cce8dd9062e3885"
+    },
+    {
+      "file": "10-import-ready.png",
+      "bytes": 95181,
+      "sha256": "d18906d1e1cbd5d5062e49081cbcbe58d6dedb9c80c9103816a46e55c8662443"
+    },
+    {
+      "file": "12-subtitles.png",
+      "bytes": 79105,
+      "sha256": "71d41723d773c6c45d08954929c402fa1765fc1e6e7404f36cb6a79fd08da01f"
+    },
+    {
+      "file": "13-display.png",
+      "bytes": 70934,
+      "sha256": "3c146c7fb901fb6dcbcc899dc945a08a41778a5615a2ec3dacf990424559c18d"
+    },
+    {
+      "file": "14-fullscreen-monitor.png",
+      "bytes": 102122,
+      "sha256": "7fb346352563a2fbbfa0cb5576f28d1fcfb0ba73c90e0e86597d21769789b885"
+    },
+    {
+      "file": "15-fullscreen-scaling.png",
+      "bytes": 102827,
+      "sha256": "6750877eb3c8eff3d1a04eee5997cb9cc3869695e897b35e2d176528a5053c35"
+    },
+    {
+      "file": "26-preview12-clean-subtitles.png",
+      "bytes": 50516,
+      "sha256": "182d9126040229c6467d58f832193ff75f202ef779ec8d058fab914e1cd2b738"
+    },
+    {
+      "file": "27-preview12-clean-gameplay.png",
+      "bytes": 154566,
+      "sha256": "28507dfde918894f51e3555b9938494f196960d977d4f81e86f193335958473c"
+    },
+    {
+      "file": "28-preview12-comparison-settings.png",
+      "bytes": 111538,
+      "sha256": "35fe916cf5f591f3ff00f8e9cd82a79275fd6afc348783b041aa5dea951edaa7"
+    },
+    {
+      "file": "29-preview12-return-to-settings.png",
+      "bytes": 109305,
+      "sha256": "4ce5c7d8732aa31f86653b512160e970d5f57f18ecb5c812a21d1a35b94dd4e7"
+    },
+    {
+      "file": "trouble-long-path.png",
+      "bytes": 23540,
+      "sha256": "899e8a001a1a9aa94e10b4bb9fe8e7216588d890a22f3c087312ac35f93eb77e"
+    }
+  ]
+}

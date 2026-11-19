@@ -22,7 +22,7 @@ function Get-NrStatus {
     return $items
 }
 function Import-NrArchive([string]$Path) {
-    if (!(Test-Path -LiteralPath (Join-Path $AppDir 'nr-host/nvngx.dll'))) { throw 'Tato kopie nema podporu NR. Stahnete cely FrameLab preview.11 a rozbalte vsechny soubory.' }
+    if (!(Test-Path -LiteralPath (Join-Path $AppDir 'nr-host/nvngx.dll'))) { throw 'Tato kopie nema podporu NR. Stahnete cely FrameLab preview.12 a rozbalte vsechny soubory.' }
     if (!(Test-Path -LiteralPath $Path -PathType Leaf)) { throw 'Vyberte stazeny ZIP Veyra-2.1.9-NVIDIA-win64-portable.zip.' }
     if ((Get-FileHash -LiteralPath $Path -Algorithm SHA256).Hash -ne $ArchiveHash) { throw 'Kontrolni soucet ZIPu nesouhlasi. Pouzijte presny NVIDIA portable 2.1.9 bez dodatku Virtual Camera; pripadne stahnete archiv znovu.' }
     $base = [IO.Path]::GetFullPath($AppDir)
@@ -76,5 +76,5 @@ if ($Archive) { Import-NrArchive $Archive | ConvertTo-Json; exit 0 }
 if ($NoGui) { throw 'Zadejte -Archive nebo -CheckOnly.' }
 
 $wizard = Join-Path $AppDir 'FrameLab-Setup.exe'
-if (!(Test-Path -LiteralPath $wizard)) { throw 'Rozbalte cely FrameLab preview.11; chybi app/FrameLab-Setup.exe.' }
+if (!(Test-Path -LiteralPath $wizard)) { throw 'Rozbalte cely FrameLab preview.12; chybi app/FrameLab-Setup.exe.' }
 Start-Process -FilePath $wizard

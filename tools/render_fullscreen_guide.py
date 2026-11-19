@@ -1,0 +1,45 @@
+"""Generate the bilingual fullscreen walkthrough from real application captures."""
+from render_visual_guide import ROOT, SHOTS, figure, lightbox
+
+SHOTS.update({
+ 'fs-settings': ('28-preview12-comparison-settings.png',(1171,714),None,[
+  (('Porovnání zůstává v nastavení','Comparison stays in settings'),700,475,800,460,354,60),
+  (('F11 spustí čistý výstup','F11 starts clean output'),220,106,114,43,127,30)],
+  ('Preview.12: zapnutý enhancer, NVIDIA VFG a porovnání v okně. Před F11 není nutné porovnání vypnout.', 'Preview.12: enhancer, NVIDIA VFG and window comparison enabled. There is no need to disable comparisons before F11.')),
+ 'fs-monitor': ('14-fullscreen-monitor.png',(1171,714),None,[],
+  ('Vyber cílový monitor. Tento notebook má jeden 1920 × 1080 / 165 Hz; druhý displej zde nebyl fyzicky testovaný.', 'Choose the target monitor. This laptop has one 1920 × 1080 / 165 Hz display; a second display was not physically tested here.')),
+ 'fs-scaling': ('15-fullscreen-scaling.png',(1171,714),None,[],
+  ('Přizpůsobit zachová celý obraz. Vyplnit ořízne okraje. 1:1 odpovídá zdrojovým pixelům.', 'Fit preserves the entire image. Fill crops edges. 1:1 uses source pixels.')),
+ 'fs-output': ('27-preview12-clean-gameplay.png',(1536,864),None,[],
+  ('Skutečný fullscreen preview.12 s NVIDIA VFG a NR. Žádná dělicí čára, popisky, panely ani grafy FrameLabu. Herní HUD je součástí zdroje.', 'Actual preview.12 fullscreen with NVIDIA VFG and NR. No FrameLab divider, labels, panels or charts. The game HUD is part of the source.')),
+ 'fs-subtitles': ('26-preview12-clean-subtitles.png',(1536,864),None,[],
+  ('Skutečný lokální překlad s VFG + NR v čistém fullscreenu. Barevný obraz je přibalený umělý test, nikoli hra. Pomocný rámeček OCR a porovnání se skryjí automaticky.', 'Real local translation with VFG + NR in clean fullscreen. Color bars are the bundled synthetic test, not a game. The OCR outline and comparisons hide automatically.')),
+ 'fs-return': ('29-preview12-return-to-settings.png',(1171,714),None,[],
+  ('Po návratu je opět dostupné původně vybrané porovnání. Výstup se nemění zásahem do herního HUDu; skrývá se pouze rozhraní FrameLabu.', 'After returning, the previously selected comparison is available again. This hides only FrameLab UI, without modifying the game HUD.')),
+})
+
+def main():
+ for lang in ('cs','en'):
+  en=lang=='en';i=int(en)
+  title=('Nastav v aplikaci. Hraj přes celý monitor.','Configure in the app. View it fullscreen.')[i]
+  intro=('F11 automaticky ukáže jeden výsledný obraz: zdroj → zvolený frame gen → zapnutý enhancer → české titulky. Porovnání, panely, popisky a rámeček OCR se skryjí samy. Nic nemusíš ručně vypínat.', 'F11 automatically shows one final image: source → selected frame generation → enabled enhancer → Czech subtitles. Comparisons, panels, labels and the OCR outline hide themselves. There is nothing to turn off manually.')[i]
+  steps=[
+   (('Nejdřív nastav výsledný obraz','Configure the output first')[i],
+    ('<p>Spusť ukázku nebo vstup z capture karty. V <strong>Frame gen</strong> nastav backend a násobič; v <strong>AI / NR</strong> zapni enhancer a nastav sílu. V <strong>Titulcích</strong> vyber oblast anglického textu a polohu češtiny.</p><p>Pro zkoušení zvol <strong>Dělené porovnání</strong>, táhni čáru myší a případně použij <strong>F8</strong>. Porovnání slouží jen v okně nastavení. Při F11 se automaticky skryje a zmrazený obraz se rozběhne. Síla a zapnutí efektů se zachovají.</p>',
+     '<p>Start a demo or capture input. Choose the backend and multiplier in <strong>Frame gen</strong>, enable the enhancer and strength in <strong>AI / NR</strong>, and configure the reading region and Czech text in <strong>Subtitles</strong>.</p><p>For inspection choose <strong>Split comparison</strong>, drag its divider and optionally freeze with <strong>F8</strong>. Comparison is for the settings window. F11 automatically hides it and resumes a frozen image, preserving effect strength and enabled features.</p>')[i],['fs-settings']),
+   (('Vyber monitor a měřítko','Choose monitor and scaling')[i],
+    ('<p>Otevři <strong>Zobrazení</strong> (když kartu nevidíš, použij šipky vpravo od záložek). Vyber cílový <strong>Monitor</strong>. Okno se na něj přesune.</p><ul><li><strong>Přizpůsobit / zachovat celý obraz</strong>: doporučený začátek, případně černé pruhy.</li><li><strong>Vyplnit / oříznout okraje</strong>: zaplní displej, může oříznout HUD.</li><li><strong>1:1 / zdrojové pixely</strong>: malý zdroj bude menší; větší může přesahovat displej.</li></ul><p>Rozlišení a Hz monitoru nastav ve Windows. <strong>Velikost okna</strong> mění jen okno; fullscreen používá celý vybraný monitor. TV musí být připojená k výstupu grafiky tohoto PC. HDMI passthrough střihovky efekty FrameLabu neobsahuje.</p>',
+     '<p>Open <strong>Display</strong> (use the arrows beside the tabs if hidden). Choose the target <strong>Monitor</strong>; the window moves there.</p><ul><li><strong>Fit / show whole image</strong>: recommended starting point, with black bars if needed.</li><li><strong>Fill / crop edges</strong>: fills the display and may crop the HUD.</li><li><strong>1:1 / source pixels</strong>: small sources stay small; larger sources may exceed the screen.</li></ul><p>Set monitor resolution and Hz in Windows. <strong>Window size</strong> only changes the window; fullscreen fills the target monitor. A TV must connect to this PC’s GPU. Capture-card HDMI passthrough does not carry FrameLab effects.</p>')[i],['fs-monitor','fs-scaling']),
+   (('Stiskni F11. To je vše.','Press F11. That is all.')[i],
+    ('<p>Stiskni <strong>F11</strong> nebo tlačítko <strong>Celá obrazovka (F11)</strong>. Maximalizace okna ve Windows není totéž.</p><p>Zůstane <strong>jeden výsledný obraz</strong> se zapnutými efekty a titulky. Automaticky zmizí dělicí čára NR, porovnání RAW/FG/RAW, ovládání, počítadla, popisky a pomocná oblast OCR. Vybrané porovnání v aplikaci na tom nic nemění.</p><p><strong>Myš nad fullscreenem zmizí po 2 sekundách nečinnosti.</strong> Pohybem ji znovu zobrazíš. Herní HUD a případné externí overlaye jiných programů FrameLab neskrývá.</p>',
+     '<p>Press <strong>F11</strong> or click <strong>Fullscreen (F11)</strong>. Maximizing a Windows window is different.</p><p>You get <strong>one final image</strong> with enabled effects and subtitles. NR split lines, RAW/FG/RAW comparison, controls, counters, labels and the OCR guide disappear automatically, regardless of the selected window comparison.</p><p><strong>The cursor over fullscreen hides after 2 idle seconds.</strong> Move it to show it again. The source game HUD and other applications’ external overlays are not hidden by FrameLab.</p>')[i],['fs-output','fs-subtitles']),
+   (('Esc nebo F11 vrátí nastavení','Esc or F11 returns to settings')[i],
+    ('<p>Stiskni <strong>Esc</strong> nebo znovu <strong>F11</strong>. Vrátíš se do okna a původní režim porovnání bude opět dostupný. Podle potřeby změň nastavení a znovu stiskni F11.</p><p><strong>F1</strong> přepíná ovládací panel pouze v okně. Ve fullscreenu panely nikdy nezapíná. <strong>F7/F8</strong> jsou pro porovnávání v okně; ve fullscreenu je nemusíš hledat.</p><p>Pokud je okno po návratu bez pravého panelu, byl předtím skrytý klávesou F1 — v okně jej F1 obnoví. Pro vypnutí samotného enhanceru vypni jeho zaškrtávací políčko nebo nastav sílu na 0 %.</p>',
+     '<p>Press <strong>Esc</strong> or <strong>F11</strong> again. The window returns with the previously selected comparison available. Change settings as needed, then press F11 again.</p><p><strong>F1</strong> toggles the dashboard only in windowed mode. It never shows panels over fullscreen. <strong>F7/F8</strong> are window comparison controls, so there is no need to find them in fullscreen.</p><p>If the right panel is missing after returning, it was hidden earlier with F1; press F1 in the window to restore it. To disable the enhancer itself, uncheck it or set strength to 0%.</p>')[i],['fs-return']),
+  ]
+  sections=''.join(f'<section class="step" id="step-{n}"><div class="step-copy"><span class="step-index">0{n} / 04</span><h2>{heading}</h2>{body}</div><div class="shots">'+''.join(figure(key,lang,'-fs') for key in shots)+'</div></section>' for n,(heading,body,shots) in enumerate(steps,1))
+  nav=('visual-en.html' if en else 'visual.html');label=('Celý obrazový návod','Complete illustrated guide')[i]
+  page=f'<!doctype html><html lang="{lang}"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>FrameLab preview.12 — fullscreen</title><link rel="stylesheet" href="assets/visual.css"></head><body><main><nav><a href="../#download">← FrameLab</a><a href="fullscreen.html">Česky</a><a href="fullscreen-en.html">English</a><a href="{nav}">{label}</a></nav><header><p class="eyebrow">FRAME/LAB · PREVIEW.12 · FULLSCREEN</p><h1>{title}</h1><p class="intro">{intro}</p></header>{sections}</main>{lightbox(lang)}</body></html>'
+  (ROOT/'website/guide'/('fullscreen-en.html' if en else 'fullscreen.html')).write_text(page,encoding='utf-8')
+
+if __name__=='__main__':main()

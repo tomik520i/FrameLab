@@ -17,17 +17,21 @@ int main(){try{
  ComPtr<ID3D11Texture2D> read;check(g.device->CreateTexture2D(&desc,nullptr,&read),"Test staging");
  ImGui::CreateContext();auto& io=ImGui::GetIO();io.IniFilename=nullptr;io.DisplaySize={float(w),float(h)};io.DeltaTime=1.f/60;
  if(!ImGui_ImplDX11_Init(g.device.Get(),g.context.Get()))throw std::runtime_error("ImGui backend init failed");
- struct Case {bool enabled,matched;int view;float strength;unsigned left,right;};
- const Case cases[]={{false,true,1,1,0xffff0000,0xffff0000},{true,true,1,0,0xffff0000,0xffff0000},{true,true,1,1,0xff0000ff,0xff0000ff},{true,true,2,1,0xffff0000,0xff0000ff},{true,true,0,1,0xffff0000,0xffff0000},{true,false,1,1,0xffff0000,0xffff0000},{true,true,1,.5f,0xff7f0080,0xff7f0080}};
+ struct Case {bool enabled,matched;int view;float strength;unsigned left,right;bool clean=false;};
+ const Case cases[]={{false,true,1,1,0xffff0000,0xffff0000},{true,true,1,0,0xffff0000,0xffff0000},{true,true,1,1,0xff0000ff,0xff0000ff},{true,true,2,1,0xffff0000,0xff0000ff},{true,true,0,1,0xffff0000,0xffff0000},{true,false,1,1,0xffff0000,0xffff0000},{true,true,1,.5f,0xff7f0080,0xff7f0080},
+  {true,true,0,1,0xff0000ff,0xff0000ff,true},{true,true,1,1,0xff0000ff,0xff0000ff,true},{true,true,2,1,0xff0000ff,0xff0000ff,true},{false,true,2,1,0xffff0000,0xffff0000,true},{true,true,2,0,0xffff0000,0xffff0000,true}};
  for(const auto& c:cases){
   ImGui_ImplDX11_NewFrame();ImGui::NewFrame();ImGui::SetNextWindowPos({0,0});ImGui::SetNextWindowSize({float(w),float(h)});
   ImGui::Begin("test",nullptr,ImGuiWindowFlags_NoDecoration|ImGuiWindowFlags_NoSavedSettings);ImGui::SetCursorScreenPos({0,0});
-  NrControls controls;controls.enabled=c.enabled;controls.view=c.view;controls.strength=c.strength;controls.draw(fixture.original.view.Get(),{float(w),float(h)},&fixture,c.matched);ImGui::End();ImGui::Render();
+  NrControls controls;controls.enabled=c.enabled;controls.view=c.view;controls.strength=c.strength;controls.draw(fixture.original.view.Get(),{float(w),float(h)},&fixture,c.matched,c.clean);ImGui::End();ImGui::Render();
   const float clear[]={0,1,0,1};g.context->ClearRenderTargetView(rtv.Get(),clear);g.context->OMSetRenderTargets(1,rtv.GetAddressOf(),nullptr);ImGui_ImplDX11_RenderDrawData(ImGui::GetDrawData());
   g.context->CopyResource(read.Get(),target.texture.Get());D3D11_MAPPED_SUBRESOURCE m{};check(g.context->Map(read.Get(),0,D3D11_MAP_READ,0,&m),"Test readback");
-  auto row=reinterpret_cast<unsigned*>(static_cast<unsigned char*>(m.pData)+100*m.RowPitch);const auto a=row[32],b=row[224];g.context->Unmap(read.Get(),0);
+  // In clean output sample where the normal preview labels would obscure pixels.
+  auto row=reinterpret_cast<unsigned*>(static_cast<unsigned char*>(m.pData)+(c.clean?15:100)*m.RowPitch);const auto a=row[32],b=row[224];
+  if(c.clean){auto middle=reinterpret_cast<unsigned*>(static_cast<unsigned char*>(m.pData)+64*m.RowPitch);if(middle[128]!=c.right)throw std::runtime_error("Comparison divider leaked into fullscreen");}
+  g.context->Unmap(read.Get(),0);
   auto close=[](unsigned a,unsigned b){for(int s=0;s<32;s+=8)if(std::abs(int((a>>s)&255)-int((b>>s)&255))>1)return false;return true;};
   if(!close(a,c.left)||!close(b,c.right))throw std::runtime_error("Preview strength/split/reference mismatch");
  }
- ImGui_ImplDX11_Shutdown();ImGui::DestroyContext();std::cout<<"PASS: off, zero/full/half strength, original, split, unmatched frame, missing runtime\n";return 0;
+ ImGui_ImplDX11_Shutdown();ImGui::DestroyContext();std::cout<<"PASS: off, zero/full/half strength, original, split, unmatched frame, missing runtime, clean fullscreen pixels\n";return 0;
 }catch(const std::exception& e){std::cerr<<e.what()<<'\n';return 1;}}

@@ -2,6 +2,8 @@
 from pathlib import Path
 import html
 import re
+from render_visual_guide import figure, lightbox, guide_banner, main as render_visual
+from render_fullscreen_guide import main as render_fullscreen
 ROOT=Path(__file__).resolve().parents[1]
 
 def inline(text):
@@ -12,7 +14,7 @@ def inline(text):
         if url in local:url=local[url]
         elif not url.startswith(('https://','http://','#')):
             if url=='NR-LICENSING-STATUS.txt':url='docs/'+url
-            url='https://github.com/tomik520i/FrameLab/blob/v0.2.0-preview.11/'+url
+            url='https://github.com/tomik520i/FrameLab/blob/v0.2.0-preview.12/'+url
         return '<a href="'+html.escape(url,quote=True)+'">'+m[1]+'</a>'
     text=re.sub(r'\[([^\]]+)\]\(([^)]+)\)',link,text)
     text=re.sub(r'`([^`]+)`',r'<code>\1</code>',text)
@@ -40,10 +42,22 @@ def render(text):
 
 def main():
     target=ROOT/'website/guide';target.mkdir(exist_ok=True)
+    render_visual()
+    render_fullscreen()
     for source,name,lang in [('INSTALL.cs.md','index.html','cs'),('START_HERE.md','en.html','en'),('docs/enhancer-install.cs.md','enhancer.html','cs'),('docs/enhancer-install.en.md','enhancer-en.html','en')]:
         content=render((ROOT/source).read_text(encoding='utf-8'))
-        style='body{margin:0;background:#101511;color:#f1f3e8}main{max-width:960px;margin:40px auto;padding:24px;font:17px/1.7 system-ui}h1{font-size:clamp(30px,5vw,54px);line-height:1.1}h2{font-size:27px;margin-top:45px}h3{font-size:20px}a{color:#b8ff51;text-decoration:underline}li{margin:9px 0}code{font-size:.88em;background:#242e22;padding:2px 5px;border-radius:3px;overflow-wrap:anywhere}.table-wrap{overflow-x:auto}table{width:100%;border-collapse:collapse;font-size:15px}td{padding:12px;border-bottom:1px solid #3b4536}tr:first-child{font-weight:bold}p{margin:18px 0}'
+        sections=re.split(r'(?=<h2>)',content)
+        shot_map={
+            'index.html':{1:['launch','samples'],2:['fg'],3:['capture'],4:['ocr'],5:['display'],6:['wizard'],7:['longpath']},
+            'en.html':{1:['launch'],2:['fg','capture'],3:['ocr'],4:['display'],5:['wizard'],6:['longpath']},
+            'enhancer.html':{1:['extract','destination'],2:['wizard'],3:['select','ready'],4:['nr']},
+            'enhancer-en.html':{1:['wizard','select','ready','nr'],2:['longpath']},
+        }[name]
+        content=sections[0]+guide_banner(lang)
+        for i,section in enumerate(sections[1:],1):
+            shots=''.join(figure(key,lang,'-text') for key in shot_map.get(i,[]))
+            content+='<section class="illustrated-section"><div class="step-copy">'+section+'</div><aside class="shots">'+shots+'</aside></section>' if shots else '<section class="text-only">'+section+'</section>'
         cs,en=('enhancer.html','enhancer-en.html') if name.startswith('enhancer') else ('index.html','en.html')
-        (target/name).write_text('<!doctype html><html lang="'+lang+'"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>FrameLab preview.11 — installation / instalace</title><link rel="stylesheet" href="../styles.css"><style>'+style+'</style><main><nav><a href="../#download">← FrameLab</a> · <a href="'+cs+'">Česky</a> · <a href="'+en+'">English</a></nav>'+content+'</main></html>',encoding='utf-8')
+        (target/name).write_text('<!doctype html><html lang="'+lang+'"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>FrameLab preview.12 — installation / instalace</title><link rel="stylesheet" href="assets/visual.css"></head><body><main><nav><a href="../#download">← FrameLab</a> · <a href="'+cs+'">Česky</a> · <a href="'+en+'">English</a></nav>'+content+'</main>'+lightbox(lang)+'</body></html>',encoding='utf-8')
 
 if __name__=='__main__':main()
