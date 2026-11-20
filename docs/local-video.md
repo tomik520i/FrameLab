@@ -16,6 +16,11 @@ Once the file opens, the same panel shows:
   Selecting Czech subtitles directly does not require AI translation.
 - Pause, seek, looping, native dimensions and the player backend.
 
+Seeking while paused reopens the decoder at the requested time before holding
+the first picture. This avoids accepting a stale pre-seek frame from LibVLC's
+asynchronous callback; a paused seek can therefore take longer than a seek
+during playback. Track selections are retained.
+
 Audio/subtitle selections are preserved when changing the audio output device
 within the same open file. They are not saved as global defaults across different
 movies. Named **OCR appearance profiles** are separate: see [subtitle-ocr.md](subtitle-ocr.md).

@@ -2,6 +2,7 @@
 
 - Subtitle word/color/size selection, a larger multiline reading area and persistent named appearance profiles. The primary picker button is visible near the top of Subtitles.
 - Bundled LibVLC 3.0.24 for MKV and other local video, with audio/subtitle track selection. Embedded subtitle pixels enter before FG/NR; translation still uses OCR.
+- Paused local-video seeking reloads the requested position instead of stopping on a stale pre-seek callback; selected tracks are retained.
 - Corrected double end-of-source token in the bundled OPUS CPU translation worker. Q5 remains an optional selected model; no universal quality gain is claimed.
 - Lossless compressed recording of input/FG, synchronized before/after NR and final captions. SRT, frame IDs, settings and playable previews. Destination selection and free-space feedback.
 - Completed GPU readbacks survive delayed CPU polling. Still-busy transfers time out after two seconds. Partial takes export their complete prefix, with explicit incomplete metadata.

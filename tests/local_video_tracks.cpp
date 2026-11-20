@@ -29,6 +29,8 @@ int wmain(int argc,wchar_t** argv){try{
  std::cout<<"Second subtitle rendered"<<std::endl;player.selectSubtitleTrack(-1);wait([&](auto v){return v.subtitleTrack==-1&&whites==0;},"Subtitles Off did not remove pixels");std::cout<<"Subtitles Off passed"<<std::endl;
  player.pause(true);wait([](auto v){return v.paused;},"Pause failed");Sleep(150);auto before=frames.load();Sleep(300);if(frames!=before)throw std::runtime_error("Video advanced while paused");
  player.seek(4.2);wait([&](auto v){return v.paused&&v.position>=4&&v.generation>1&&seekMarker;},"Paused seek did not show the requested frame");
+ std::cout<<"Paused seek verified in pixels"<<std::endl;
+ for(double target:{1.2,5.2}){auto generation=player.snapshot().generation;player.seek(target);wait([&](auto v){return v.paused&&std::abs(v.position-target)<.1&&v.generation>generation&&seekMarker==(target>4);},"Repeated paused seek retained stale pixels");}
  player.pause(false);wait([](auto v){return v.playing&&v.position>4.3;},"Resume failed");
  player.seek(7.7);wait([](auto v){return v.ended;},"MKV EOF failed");player.loop(true);wait([](auto v){return v.playing&&v.position<2;},"MKV loop failed");
  Sleep(500);s=player.snapshot();if(s.subtitleTrack!=-1||s.audioTrack!=audio.back())throw std::runtime_error("Loop lost selected tracks");

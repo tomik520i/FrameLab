@@ -224,8 +224,8 @@ void runVlc(const std::shared_ptr<Shared>& shared,const std::filesystem::path& p
   float appliedVolume=-1;{std::lock_guard state(shared->mutex);appliedVolume=shared->wantVolume;api.volume(media.player,int(appliedVolume*100));api.mute(media.player,appliedVolume==0);shared->state.backend=std::string("LibVLC ")+api.version();}
   {std::lock_guard delivery(shared->delivery);shared->accept=true;}
   if(api.play(media.player)!=0)throw std::runtime_error("Cannot play this video with the bundled runtime");
-  bool paused=false;double tracksAt=-1;uint64_t pauseAfterFrame=0;bool pauseAfterSeek=false;
-  int pendingAudio=-2,pendingSubtitle=-2;double pendingSeek=-1;bool restarting=false;
+  bool paused=false;double tracksAt=-1,pausedSeekPosition=-1;uint64_t pauseAfterFrame=0;bool pauseAfterSeek=false;
+  int pendingAudio=-2,pendingSubtitle=-2,preferredAudio=-2,preferredSubtitle=-2;double pendingSeek=-1;bool restarting=false;
   const auto started=std::chrono::steady_clock::now();
   auto tracks=[&](vlc::TrackDescription* first){std::vector<LocalVideoPlayer::Track> out;for(auto p=first;p;p=p->next)out.push_back({p->id,p->id==-1?"Off":p->name?p->name:"Track "+std::to_string(p->id)});if(first)api.freeTracks(first);return out;};
   while(!shared->stopping){
@@ -235,7 +235,7 @@ void runVlc(const std::shared_ptr<Shared>& shared,const std::filesystem::path& p
    if(restarting&&state!=6&&state!=5)restarting=false;
    if(seek>=0)pendingSeek=seek;
    if(volume!=appliedVolume){api.volume(media.player,int(volume*100));api.mute(media.player,volume==0);appliedVolume=volume;}
-   if(audio!=-2)pendingAudio=audio;if(subtitle!=-2)pendingSubtitle=subtitle;
+   if(audio!=-2)preferredAudio=pendingAudio=audio;if(subtitle!=-2)preferredSubtitle=pendingSubtitle=subtitle;
    // Requests can arrive while a file is still opening (e.g. endpoint change).
    // Wait for playback to expose streams instead of silently losing the choice.
    if((state==3||state==4)&&pendingAudio!=-2){auto ok=api.setAudio(media.player,pendingAudio)==0;pendingAudio=-2;std::lock_guard guard(shared->mutex);shared->state.trackStatus=ok?"":"Could not switch audio track";tracksAt=-1;}
@@ -243,7 +243,7 @@ void runVlc(const std::shared_ptr<Shared>& shared,const std::filesystem::path& p
     auto ok=api.setSubtitle(media.player,pendingSubtitle)==0;pendingSubtitle=-2;
     // Re-read the current cue after switching. Long cues may have started well
     // before this instant; merely enabling their stream would miss that packet.
-    if(ok&&pendingSeek<0)pendingSeek=std::max(0.,api.time(media.player)/1000.);
+    if(ok&&pendingSeek<0&&!pauseAfterSeek)pendingSeek=std::max(0.,api.time(media.player)/1000.);
     std::lock_guard guard(shared->mutex);shared->state.trackStatus=ok?"":"Could not switch subtitle track";tracksAt=-1;
    }
    if(state==6&&wantLoop&&pendingSeek<0){pendingSeek=0;wantPause=false;}
@@ -258,11 +258,24 @@ void runVlc(const std::shared_ptr<Shared>& shared,const std::filesystem::path& p
     seek=pendingSeek;pendingSeek=-1;
     {std::lock_guard delivery(shared->delivery);shared->accept=false;}
     ++shared->generation;
-    api.setPause(media.player,0);paused=false;
-    auto duration=api.length(media.player)/1000.;seek=std::clamp(seek,0.,duration>0?std::max(0.,duration-.05):seek);api.setTime(media.player,int64_t(seek*1000));pixels.positionMs=int64_t(seek*1000);
+    auto duration=api.length(media.player)/1000.;seek=std::clamp(seek,0.,duration>0?std::max(0.,duration-.05):seek);
+    if(wantPause){
+     // LibVLC 3 vmem supplies no picture PTS. A callback after set_time can
+     // still contain the old frame; pausing there leaves the wrong image.
+     // Reopen this input at start-time for paused seeks only, so its first
+     // decoded picture comes from the requested position. Normal playback
+     // retains the inexpensive in-place seek path.
+     {std::lock_guard guard(shared->mutex);if(pendingAudio==-2)pendingAudio=preferredAudio!=-2?preferredAudio:shared->state.audioTracks.empty()?-2:shared->state.audioTrack;if(pendingSubtitle==-2)pendingSubtitle=preferredSubtitle!=-2?preferredSubtitle:shared->state.subtitleTracks.empty()?-2:shared->state.subtitleTrack;}
+     api.stop(media.player);
+     auto replacement=api.mediaNewPath(media.instance,file.c_str());if(!replacement)throw std::runtime_error("Cannot reopen paused video");
+     api.mediaOption(replacement,":file-caching=150");auto startTime=std::string(":start-time=")+std::to_string(seek);api.mediaOption(replacement,startTime.c_str());
+     api.setMedia(media.player,replacement);api.mediaRelease(media.media);media.media=replacement;
+    }else{api.setPause(media.player,0);api.setTime(media.player,int64_t(seek*1000));}
+    paused=false;pausedSeekPosition=wantPause?seek:-1;pixels.positionMs=int64_t(seek*1000);
     {std::lock_guard guard(shared->mutex);pauseAfterFrame=shared->state.frames;}
     pauseAfterSeek=wantPause;
     {std::lock_guard delivery(shared->delivery);shared->accept=true;}
+    if(wantPause&&api.play(media.player)!=0)throw std::runtime_error("Cannot seek paused video");
    }
    bool soughtFrame=true;if(pauseAfterSeek){std::lock_guard guard(shared->mutex);soughtFrame=shared->state.frames>pauseAfterFrame;}
    if((state==3||state==4)&&wantPause!=paused&&(!pauseAfterSeek||soughtFrame)){
@@ -271,7 +284,10 @@ void runVlc(const std::shared_ptr<Shared>& shared,const std::filesystem::path& p
     {std::lock_guard delivery(shared->delivery);shared->accept=!wantPause;}
     api.setPause(media.player,wantPause);paused=wantPause;pauseAfterSeek=false;
    }
-   const auto pos=api.time(media.player);pixels.positionMs=std::max<int64_t>(0,pos);const double seconds=api.length(media.player)/1000.;
+   if(!wantPause)pausedSeekPosition=-1;
+   // VLC may not publish its clock until playback resumes after the first
+   // start-time picture. Keep the requested seek time while holding that image.
+   const auto pos=paused&&pausedSeekPosition>=0?int64_t(pausedSeekPosition*1000):api.time(media.player);pixels.positionMs=std::max<int64_t>(0,pos);const double seconds=api.length(media.player)/1000.;
    const double elapsed=std::chrono::duration<double>(std::chrono::steady_clock::now()-started).count();
    if(elapsed-tracksAt>.3&&(state==3||state==4)){auto audios=tracks(api.audioTracks(media.player)),subs=tracks(api.subtitleTracks(media.player));auto audioId=api.getAudio(media.player),subtitleId=api.getSubtitle(media.player);auto fps=api.fps(media.player);std::lock_guard guard(shared->mutex);shared->state.audioTracks=std::move(audios);shared->state.subtitleTracks=std::move(subs);shared->state.audioTrack=audioId;shared->state.subtitleTrack=subtitleId;shared->state.audio=std::any_of(shared->state.audioTracks.begin(),shared->state.audioTracks.end(),[](auto& t){return t.id>=0;});shared->state.fps=fps;tracksAt=elapsed;}
    state=api.state(media.player);
