@@ -65,3 +65,11 @@ New fields include foreground/fullscreen state, window size, presentation waitin
 ## Updating
 
 Close the app and back up your folder/settings. Extract the new ZIP separately. Transfer personal settings/profiles and optional verified models/runtime as needed; do not replace new workers or executable with old ones. Public packages contain no owner logs, recordings or personal settings.
+
+## Preview.16 recovery and small fullscreen statistics
+
+In **Debug & measurement**, enable the small fullscreen statistics overlay, or press **F10**. It shows software-confirmed/submitted FPS and app latency mean/P95 in the upper-right corner. This excludes capture-card and monitor delay; it is not controller-to-photon latency. It is not burned into analysis recordings.
+
+Ordinary launch now restores the saved session, including the logging state. Stop logging before closing if you do not want it to resume. If a subtitle worker fails, the app retries up to three times after 2, 5 and 15 seconds and resubmits unchanged OCR text. Turning subtitles off cancels retries. Optional GPU translation remains resident while enabled; switching it off unloads the model.
+
+The stopped three-hour session has [all 1,747 translations assessed](https://opicebot.cz/framelab/runs/2026-11-20-3h/), with original logs and disclosed errors. Experimental prompt comparisons do not automatically change the app prompt.

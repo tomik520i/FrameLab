@@ -65,3 +65,11 @@ Nově se ukládá zaměření/fullscreen, velikost okna, čekání na prezentaci
 ## Aktualizace
 
 Aplikaci zavřete a zálohujte starou složku/nastavení. Nový ZIP rozbalte zvlášť. Přeneste osobní nastavení/profily a případně ověřené modely/runtime; staré skripty ani program nekopírujte přes nové. Veřejný balíček neobsahuje soukromé logy, záznamy ani nastavení autora.
+
+## Preview.16: obnova titulků a malé statistiky
+
+V **Debug a měření** zapni malé fullscreen statistiky, případně stiskni **F10**. Vpravo nahoře uvidíš softwarově potvrzené/odeslané FPS a průměr/P95 odezvy uvnitř aplikace. Chybí zpoždění střihovky a monitoru; nejde o úplnou odezvu od ovladače. Statistika se nevypaluje do analytického záznamu.
+
+Běžné spuštění obnoví uloženou relaci včetně stavu logování. Pokud jej při příštím startu nechceš zapnout, před zavřením ho zastav. Při pádu překladače aplikace zkusí nejvýše tři obnovy po 2, 5 a 15 sekundách a znovu odešle i nezměněný OCR text. Vypnutí titulků opakování zruší. GPU model zůstává načtený, dokud jsou titulky zapnuté; vypnutím se uvolní.
+
+[Úplný tříhodinový audit](https://opicebot.cz/framelab/runs/2026-11-20-3h/?lang=cs) má posouzených všech 1 747 překladů a obsahuje původní logy i chyby. Experimentální testy promptů samy nemění prompt aplikace.

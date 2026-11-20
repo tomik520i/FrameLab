@@ -1,0 +1,11 @@
+{
+  "session_id": "debug-1795196244267574",
+  "build_label": "preview.16-local-nr-pacing",
+  "app_sha256": "0547B3CD514999BF3382C86179E4141BBDC872A6740D3EE44ACC49C318B24C0D",
+  "build_note": "Local preview.16 fixes, not the public preview.15 download. SHA-256 from the local installation verification.",
+  "source": "Owner-provided stopped local debug session. Game/source identification (PS5 / GTA VI) is provided by the owner, not established by this numeric/text log.",
+  "publication_scope": "The ten files in source-manifest.json, computed tables, explicit review labels and analysis scripts. No desktop capture, video, audio, model weights, credentials or preferences archive.",
+  "quality_review": "Single non-blinded AI reviewer (Codex). All 1,584 unique source/output pairs explicitly reviewed; exact duplicates mapped to all 1,747 jobs. Frozen original 300-pair sample retained. Not human-validated accuracy.",
+  "source_bytes": 358079129,
+  "raw_archive": "raw-debug-1795196244267574.zip"
+}

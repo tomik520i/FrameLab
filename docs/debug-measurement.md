@@ -1,4 +1,4 @@
-# Debug & measurement — preview.15
+# Debug & measurement — preview.16
 
 Open the settings tab using the tab arrows. **Start** begins a new timestamped folder under `app/logs/debug-*`; **F9** toggles logging. The visible warning explains that data continues to accumulate until stopped. `--resume` restores the saved logging state. Stop before closing if the next session should start with logging off.
 
@@ -23,3 +23,11 @@ The opt-in developer flag `--background-qos` asks Windows to stop process-local 
 ## Published session
 
 [November 20 evidence](../examples/2026-11-20/README.md) includes 1,217 metric rows, 75,315 frame rows in the original private log, 90 caption pairs and zero dropped log rows. The public subset removes local paths/identifiers and retains requested game text. The session includes menus, setup, gameplay, recording and export. It is descriptive evidence, not a controlled game-performance benchmark. [Interactive graph](https://opicebot.cz/framelab/#debug).
+
+## Preview.16 additions
+
+F10 toggles an optional saved fullscreen HUD in the upper-right corner: confirmed/submitted output FPS, app latency mean and P95. This does not measure hardware latency or unique panel scanout; the HUD is excluded from recorded evidence. Normal startup restores the saved session.
+
+Subtitle lifecycle events and rotating worker/runtime stderr logs help diagnose failures; debug text includes OCR source and Czech output. A bounded 2/5/15-second retry handles worker load/crash failures and resubmits an unchanged caption. Disable cancels retry.
+
+[Complete three-hour audit](https://opicebot.cz/framelab/runs/2026-11-20-3h/): all 1,747 jobs assessed, 1,584 distinct input/output pairs, 163 exact repetitions, zero unreviewed. This later session does not replace the separately labeled original 20-minute comparison. Detailed notes disclose translation errors and missing OCR reference images.

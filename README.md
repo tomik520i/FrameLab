@@ -4,6 +4,8 @@ Capture card or video → NVIDIA GPU → your display. An experimental Windows a
 
 **[Download preview.15](https://github.com/tomik520i/FrameLab/releases/download/v0.2.0-preview.15/FrameLab-0.2.0-preview.15-windows-x64-full.zip) · [Website & comparisons](https://opicebot.cz/framelab/) · [Česky](docs/README.cs.md)**
 
+[Prepared preview.16 changes](docs/release-preview16.md) · [Complete 1,747-translation audit](https://opicebot.cz/framelab/runs/2026-11-20-3h/)
+
 ![FrameLab preview.15](docs/images/preview15/app.png)
 
 ![Original versus recorded 2× FG, four times slower](docs/images/preview15/gta-2x-slow.gif)

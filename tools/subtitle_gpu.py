@@ -75,8 +75,13 @@ class GpuTranslator:
         env = os.environ.copy()
         env.update(OLLAMA_HOST=f'127.0.0.1:{port}', OLLAMA_MODELS=str(models), OLLAMA_NUM_PARALLEL='1',
                    OLLAMA_MAX_LOADED_MODELS='1', OLLAMA_FLASH_ATTENTION='1', OLLAMA_CONTEXT_LENGTH='2048',
-                   OLLAMA_NO_CLOUD='1', OLLAMA_DEBUG='1')
-        self.log = (root.parent / 'logs' / 'subtitle-gpu-runtime.log').open('w', encoding='utf-8')
+                   OLLAMA_NO_CLOUD='1', OLLAMA_DEBUG='0')
+        log_path = root.parent / 'logs' / 'subtitle-gpu-runtime.log'
+        if log_path.exists() and log_path.stat().st_size > 8 * 1024 ** 2:
+            os.replace(log_path, log_path.with_suffix('.previous.log'))
+        self.log = log_path.open('a', encoding='utf-8')
+        self.log.write('\n--- FrameLab GPU runtime start ' + time.strftime('%Y-%m-%dT%H:%M:%SZ', time.gmtime()) + ' ---\n')
+        self.log.flush()
         self.process = subprocess.Popen([str(root / 'gpu-runtime' / 'ollama.exe'), 'serve'], env=env,
                                         stdout=self.log, stderr=subprocess.STDOUT,
                                         creationflags=subprocess.CREATE_NO_WINDOW)
@@ -101,7 +106,7 @@ class GpuTranslator:
                 # that also touches our verified download; preserve its metadata.
                 os.utime(source, ns=(stamp.st_atime_ns, stamp.st_mtime_ns))
             verify(source, self.asset)
-            self.translate('We should get moving before sunrise.')
+            self.translate('We should get moving before sunrise.', timeout=90)
             loaded = self.api('/api/ps')['models']
             if len(loaded) != 1 or loaded[0]['size_vram'] < loaded[0]['size']:
                 raise RuntimeError('Model did not run fully on the GPU. Check the GPU driver/runtime and free VRAM. Choose Q3_K_M or CPU, or reduce FG/enhancer load.')
@@ -114,9 +119,9 @@ class GpuTranslator:
         with self.opener.open(request, timeout=timeout) as response:
             return json.load(response)
 
-    def translate(self, text):
+    def translate(self, text, timeout=25):
         result = self.api('/api/generate', dict(model=self.name, prompt=PROMPT.replace('{text}', text),
-                         raw=True, stream=False, keep_alive='30m', options=OPTIONS))
+                         raw=True, stream=False, keep_alive=-1, options=OPTIONS), timeout=timeout)
         if result.get('done_reason') == 'length':
             raise RuntimeError('Translation exceeded the token limit; shorten the OCR region.')
         return result.get('response', '').strip()

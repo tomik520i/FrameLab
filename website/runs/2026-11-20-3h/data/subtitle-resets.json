@@ -1,0 +1,56 @@
+[
+  {
+    "utc": "2026-11-20T17:37:24.269Z",
+    "time_s": 0.001913099986,
+    "event": "subtitle_reset",
+    "generation": 4
+  },
+  {
+    "utc": "2026-11-20T17:37:24.351Z",
+    "time_s": 0.08416149998,
+    "event": "subtitle_reset",
+    "generation": 5
+  },
+  {
+    "utc": "2026-11-20T20:35:13.836Z",
+    "time_s": 10669.56847,
+    "event": "subtitle_reset",
+    "generation": 6
+  },
+  {
+    "utc": "2026-11-20T20:35:22.317Z",
+    "time_s": 10678.05002,
+    "event": "subtitle_reset",
+    "generation": 7
+  },
+  {
+    "utc": "2026-11-20T20:35:34.185Z",
+    "time_s": 10689.91824,
+    "event": "subtitle_reset",
+    "generation": 8
+  },
+  {
+    "utc": "2026-11-20T20:35:39.300Z",
+    "time_s": 10695.0325,
+    "event": "subtitle_reset",
+    "generation": 9
+  },
+  {
+    "utc": "2026-11-20T20:35:40.795Z",
+    "time_s": 10696.5277,
+    "event": "subtitle_reset",
+    "generation": 10
+  },
+  {
+    "utc": "2026-11-20T20:35:48.555Z",
+    "time_s": 10704.28809,
+    "event": "subtitle_reset",
+    "generation": 11
+  },
+  {
+    "utc": "2026-11-20T20:35:55.136Z",
+    "time_s": 10710.86917,
+    "event": "subtitle_reset",
+    "generation": 12
+  }
+]

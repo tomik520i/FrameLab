@@ -17,7 +17,7 @@ def inline(text):
             elif 'docs/'+key in LINKS:url=LINKS['docs/'+key]+(sep+anchor if sep else '')
             else:
                 if '/' not in key and key not in ('README.md','LICENSE','START_HERE.md','INSTALL.cs.md','THIRD_PARTY_NOTICES.md'):key='docs/'+key
-                url='https://github.com/tomik520i/FrameLab/blob/v0.2.0-preview.15/'+key+(sep+anchor if sep else '')
+                url='https://github.com/tomik520i/FrameLab/blob/v0.2.0-preview.16/'+key+(sep+anchor if sep else '')
         tokens.append('<a href="'+html.escape(url,quote=True)+'">'+html.escape(label)+'</a>');return f'ZZCODE{len(tokens)-1}ZZ'
     text=re.sub(r'\[([^\]]+)\]\(([^)]+)\)',link,text);text=html.escape(text)
     text=re.sub(r'\*\*([^*]+)\*\*',r'<strong>\1</strong>',text)
@@ -70,6 +70,6 @@ def main():
         figure=f'<figure><a href="assets/preview15/{shot}.png"><img src="assets/preview15/{shot}.png" alt="FrameLab {shot} controls" loading="lazy"></a><figcaption>{note}</figcaption></figure>' if (assets/(shot+'.png')).exists() else ''
         nav=f'<nav><a href="../#download">FrameLab</a><a href="{counterpart}">{"English" if cs else "Česky"}</a><a href="{"index.html" if cs else "en.html"}">{"Instalace" if cs else "Start here"}</a><a href="{"subtitles.html" if cs else "subtitles-en.html"}">{"Titulky" if cs else "Subtitles"}</a><a href="{"recording.html" if cs else "recording-en.html"}">{"Nahrávání" if cs else "Recording"}</a></nav>'
         content=render(text);cut=content.find('</h1>')+5;content=content[:cut]+figure+content[cut:]
-        (out/name).write_text(f'<!doctype html><html lang="{lang}"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>{html.escape(title)}</title><style>{CSS}</style></head><body><main>{nav}<div class="version">FRAMELAB / PREVIEW.15</div>{content}</main></body></html>',encoding='utf8')
+        (out/name).write_text(f'<!doctype html><html lang="{lang}"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>{html.escape(title)}</title><style>{CSS}</style></head><body><main>{nav}<div class="version">FRAMELAB / PREVIEW.16</div>{content}</main></body></html>',encoding='utf8')
     print('Rendered',len(PAGES),'current guides')
 if __name__=='__main__':main()

@@ -1,0 +1,379 @@
+{
+  "dev": {
+    "inputs": 300,
+    "outputs": 1200,
+    "profiles": {
+      "baseline": {
+        "count": 300,
+        "grades": {
+          "good": 237,
+          "minor": 39,
+          "major": 21,
+          "unjudgeable": 3
+        },
+        "wall_ms": {
+          "n": 300,
+          "mean": 447.86699566776707,
+          "median": 374.0759500215063,
+          "p95": 919.0109000192024,
+          "p99": 1251.0366999777034,
+          "max": 1859.3668999965303
+        },
+        "prompt_tokens": {
+          "n": 300,
+          "mean": 48.06333333333333,
+          "median": 47.0,
+          "p95": 61,
+          "p99": 66,
+          "max": 89
+        },
+        "output_tokens": {
+          "n": 300,
+          "mean": 18.036666666666665,
+          "median": 14.5,
+          "p95": 38,
+          "p99": 56,
+          "max": 81
+        },
+        "changed_text_count": 0,
+        "paired_wall_delta_ms": {
+          "n": 300,
+          "mean": 0.0,
+          "median": 0.0,
+          "p95": 0.0,
+          "p99": 0.0,
+          "max": 0.0
+        },
+        "major_to_good": [],
+        "major_to_minor": [],
+        "introduced_major": [],
+        "major_to_unjudgeable": [],
+        "unjudgeable_to_major": []
+      },
+      "rules-v1": {
+        "count": 300,
+        "grades": {
+          "good": 231,
+          "major": 25,
+          "minor": 42,
+          "unjudgeable": 2
+        },
+        "wall_ms": {
+          "n": 300,
+          "mean": 458.49514033354353,
+          "median": 373.21169998904224,
+          "p95": 949.5347999909427,
+          "p99": 1232.5218000041787,
+          "max": 1864.5393000042532
+        },
+        "prompt_tokens": {
+          "n": 300,
+          "mean": 109.06333333333333,
+          "median": 108.0,
+          "p95": 122,
+          "p99": 127,
+          "max": 150
+        },
+        "output_tokens": {
+          "n": 300,
+          "mean": 18.083333333333332,
+          "median": 15.0,
+          "p95": 40,
+          "p99": 55,
+          "max": 83
+        },
+        "changed_text_count": 85,
+        "paired_wall_delta_ms": {
+          "n": 300,
+          "mean": 10.628144665776441,
+          "median": 9.633950001443736,
+          "p95": 100.67509999498725,
+          "p99": 236.70300000230782,
+          "max": 474.4582999846898
+        },
+        "major_to_good": [
+          928,
+          676
+        ],
+        "major_to_minor": [
+          923
+        ],
+        "introduced_major": [
+          1500,
+          221,
+          876,
+          1435,
+          1723,
+          328
+        ],
+        "major_to_unjudgeable": [],
+        "unjudgeable_to_major": [
+          1633
+        ]
+      },
+      "examples-v1": {
+        "count": 300,
+        "grades": {
+          "good": 247,
+          "minor": 33,
+          "major": 17,
+          "unjudgeable": 3
+        },
+        "wall_ms": {
+          "n": 300,
+          "mean": 471.0635743343543,
+          "median": 388.1128999928478,
+          "p95": 1023.7032000150066,
+          "p99": 1371.6103000042494,
+          "max": 1911.7778999789152
+        },
+        "prompt_tokens": {
+          "n": 300,
+          "mean": 515.0633333333334,
+          "median": 514.0,
+          "p95": 528,
+          "p99": 533,
+          "max": 556
+        },
+        "output_tokens": {
+          "n": 300,
+          "mean": 18.02,
+          "median": 14.0,
+          "p95": 38,
+          "p99": 55,
+          "max": 79
+        },
+        "changed_text_count": 116,
+        "paired_wall_delta_ms": {
+          "n": 300,
+          "mean": 23.196578666587204,
+          "median": 14.965250011300668,
+          "p95": 143.80930000334047,
+          "p99": 432.30769998626783,
+          "max": 780.9817999659572
+        },
+        "major_to_good": [
+          1423,
+          928,
+          1428,
+          587,
+          849,
+          676
+        ],
+        "major_to_minor": [
+          1737,
+          1616,
+          848
+        ],
+        "introduced_major": [
+          844,
+          221,
+          49,
+          1435,
+          1047
+        ],
+        "major_to_unjudgeable": [],
+        "unjudgeable_to_major": []
+      },
+      "baseline-repeat": {
+        "count": 300,
+        "grades": {
+          "good": 241,
+          "minor": 35,
+          "major": 21,
+          "unjudgeable": 3
+        },
+        "wall_ms": {
+          "n": 300,
+          "mean": 453.91925833265606,
+          "median": 384.2404000024544,
+          "p95": 976.265000004787,
+          "p99": 1344.2530000174884,
+          "max": 1934.897800005274
+        },
+        "prompt_tokens": {
+          "n": 300,
+          "mean": 48.06333333333333,
+          "median": 47.0,
+          "p95": 61,
+          "p99": 66,
+          "max": 89
+        },
+        "output_tokens": {
+          "n": 300,
+          "mean": 18.026666666666667,
+          "median": 15.0,
+          "p95": 38,
+          "p99": 56,
+          "max": 81
+        },
+        "changed_text_count": 16,
+        "paired_wall_delta_ms": {
+          "n": 300,
+          "mean": 6.0522626648889855,
+          "median": 4.457449991605245,
+          "p95": 102.55420001340099,
+          "p99": 217.12739998474717,
+          "max": 883.5689999978058
+        },
+        "major_to_good": [],
+        "major_to_minor": [],
+        "introduced_major": [],
+        "major_to_unjudgeable": [],
+        "unjudgeable_to_major": []
+      }
+    }
+  },
+  "heldout": {
+    "inputs": 1284,
+    "outputs": 2568,
+    "profiles": {
+      "baseline": {
+        "count": 1284,
+        "grades": {
+          "good": 1038,
+          "minor": 148,
+          "major": 74,
+          "unjudgeable": 24
+        },
+        "wall_ms": {
+          "n": 1284,
+          "mean": 444.56887718070135,
+          "median": 396.0487000003923,
+          "p95": 911.5038000163622,
+          "p99": 1205.686200002674,
+          "max": 1677.3659999889787
+        },
+        "prompt_tokens": {
+          "n": 1284,
+          "mean": 47.42211838006231,
+          "median": 46.0,
+          "p95": 58,
+          "p99": 65,
+          "max": 83
+        },
+        "output_tokens": {
+          "n": 1284,
+          "mean": 16.45482866043614,
+          "median": 14.0,
+          "p95": 34,
+          "p99": 45,
+          "max": 64
+        },
+        "changed_text_count": 0,
+        "paired_wall_delta_ms": {
+          "n": 1284,
+          "mean": 0.0,
+          "median": 0.0,
+          "p95": 0.0,
+          "p99": 0.0,
+          "max": 0.0
+        },
+        "major_to_good": [],
+        "major_to_minor": [],
+        "introduced_major": [],
+        "major_to_unjudgeable": [],
+        "unjudgeable_to_major": []
+      },
+      "examples-v1": {
+        "count": 1284,
+        "grades": {
+          "good": 1011,
+          "minor": 166,
+          "major": 83,
+          "unjudgeable": 24
+        },
+        "wall_ms": {
+          "n": 1284,
+          "mean": 449.80574719690065,
+          "median": 401.8003499950282,
+          "p95": 902.2590999957174,
+          "p99": 1211.951399978716,
+          "max": 1939.0087999927346
+        },
+        "prompt_tokens": {
+          "n": 1284,
+          "mean": 514.4221183800623,
+          "median": 513.0,
+          "p95": 525,
+          "p99": 532,
+          "max": 550
+        },
+        "output_tokens": {
+          "n": 1284,
+          "mean": 16.369158878504674,
+          "median": 14.0,
+          "p95": 34,
+          "p99": 45,
+          "max": 83
+        },
+        "changed_text_count": 412,
+        "paired_wall_delta_ms": {
+          "n": 1284,
+          "mean": 5.236870016199298,
+          "median": 7.338049996178597,
+          "p95": 128.97170000360347,
+          "p99": 211.78370001143776,
+          "max": 323.24620001600124
+        },
+        "major_to_good": [
+          440,
+          104,
+          1144,
+          1492,
+          1706,
+          1517,
+          1501,
+          1170,
+          705
+        ],
+        "major_to_minor": [
+          159,
+          972
+        ],
+        "introduced_major": [
+          868,
+          1638,
+          1590,
+          766,
+          739,
+          305,
+          564,
+          1185,
+          477,
+          372,
+          399,
+          1438,
+          290,
+          75,
+          1539,
+          301,
+          35,
+          926,
+          1134,
+          999
+        ],
+        "major_to_unjudgeable": [],
+        "unjudgeable_to_major": []
+      }
+    }
+  },
+  "coverage": {
+    "original_jobs": 1747,
+    "original_unique_pairs": 1584,
+    "test_responses": 3768,
+    "test_responses_assessed": 3768,
+    "unreviewed": 0,
+    "validation_source_strings_also_in_dev": 0
+  },
+  "limitations": [
+    "One AI reviewer; not independent human validation or a reference-translation accuracy metric.",
+    "Original 300 cases informed prompt design. Validation used the frozen prompt on the remaining recorded pairs; fragments/near-duplicates from the same run are correlated.",
+    "Review queues hid profile names, but some known-error comparisons were inspected with names; not fully blind.",
+    "Grade reuse requires an exact English/Czech pair. All new pairs were explicitly assessed; no default passing grades.",
+    "Unjudgeable is a substantive context limitation, not an unreviewed record. Major-to-unjudgeable is NOT counted as a demonstrated fix.",
+    "Warmed wall time on a GPU shared with the unchanged app; uncontrolled concurrent load. No OCR/display latency or fully end-to-end claim.",
+    "Every profile uses the production incomplete-sentence ellipsis marker. Original debug source field excludes that appended marker.",
+    "No production prompt, running application settings, application server or public executable changed during this test."
+  ]
+}
