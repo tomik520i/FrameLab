@@ -1,5 +1,15 @@
 # Component provenance
 
+Portable local-file player (2026-11-20): unmodified VideoLAN VLC **3.0.24**
+Windows x64 libraries and plugins, downloaded from the official VideoLAN archive.
+The LibVLC API library is LGPL-2.1-or-later; VLC/plugins also contain GPL and
+other separately licensed components. Original `COPYING.txt`, `AUTHORS.txt`,
+`README.txt` and source information accompany `app/media/vlc`. Exact archive
+URL, SHA-256 and corresponding source URL are in `docs/media-runtime.json`.
+FrameLab dynamically loads these shared libraries and does not modify them.
+See [local video playback](docs/local-video.md). Distribution must retain the
+upstream notices and corresponding-source access for the included build.
+
 Preview.14 optional/bundled OCR: [RapidOCR](https://github.com/RapidAI/RapidOCR)
 1.4.4, Apache-2.0, with unmodified PP-OCRv4 detection and PP-OCRv5 English
 recognition ONNX weights from RapidAI / [PaddleOCR](https://github.com/PaddlePaddle/PaddleOCR)

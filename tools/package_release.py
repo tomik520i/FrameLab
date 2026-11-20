@@ -17,7 +17,7 @@ def digest(path):
 
 def publishable(path,base):
     rel=path.relative_to(base)
-    return path.is_file() and not set(rel.parts).intersection({'logs','__pycache__','nr-cache','.git'}) and path.suffix!='.pyc' and path.name not in {'nr-settings.txt','subtitle-settings.txt','display-settings.txt','audio-settings.txt','file-audio-settings.txt','imgui.ini','SHA256SUMS.txt'}
+    return path.is_file() and not set(rel.parts).intersection({'logs','recordings','__pycache__','nr-cache','.git'}) and path.suffix!='.pyc' and path.name not in {'recording-folder.txt','recording-folder.txt.tmp','runtime-session.txt','runtime-session.txt.tmp','nr-settings.txt','subtitle-settings.txt','subtitle-profiles.txt','subtitle-profiles.txt.tmp','display-settings.txt','audio-settings.txt','file-audio-settings.txt','imgui.ini','SHA256SUMS.txt'}
 
 def main():
     p=argparse.ArgumentParser(description=__doc__)
@@ -27,9 +27,11 @@ def main():
     p.add_argument('--nr-host',type=Path,required=True)
     p.add_argument('--setup',type=Path,required=True)
     p.add_argument('--ocr',type=Path,required=True,help='Verified output of prepare_ocr.py')
+    p.add_argument('--media',type=Path,required=True,help='Verified output of prepare_media.py')
     p.add_argument('--output',type=Path,required=True)
-    p.add_argument('--version',default='0.2.0-preview.14')
+    p.add_argument('--version',default='0.2.0-preview.15')
     p.add_argument('--commit',required=True)
+    p.add_argument('--gta-sample',type=Path,required=True)
     a=p.parse_args()
     commit=subprocess.check_output(['git','rev-parse',a.commit],cwd=ROOT,text=True).strip()
     subprocess.run(['git','diff','--exit-code',commit,'--'],cwd=ROOT,check=True,stdout=subprocess.DEVNULL)
@@ -44,12 +46,15 @@ def main():
     stage=a.output/name
     assert not stage.exists(),'Choose a fresh output directory'
     for source in a.base.rglob('*'):
-        if publishable(source,a.base):
+        if publishable(source,a.base) and source.name not in {'combat.mp4','combat.source.json','Ukazka - Spider-Man.cmd'}:
             dest=stage/source.relative_to(a.base)
             dest.parent.mkdir(parents=True,exist_ok=True)
             shutil.copy2(source,dest)
     shutil.copy2(a.application,stage/'app/FrameLab.exe')
+    shutil.copy2(a.application.parent/'FrameLabPixels.dll',stage/'app/FrameLabPixels.dll')
     shutil.copy2(a.setup,stage/'app/FrameLab-Setup.exe')
+    for file in ['export_analysis.py','export_pipeline.py','recording_archive.py']:
+        shutil.copy2(ROOT/'tools'/file,stage/'tools'/file)
     ocr_manifest=json.loads((a.ocr/'provenance.json').read_text(encoding='utf-8'))
     for model in ocr_manifest['models']:
         assert digest(a.ocr/'models'/model['name'])==model['sha256'],model['name']
@@ -59,6 +64,11 @@ def main():
             dest.parent.mkdir(parents=True,exist_ok=True)
             shutil.copy2(file,dest)
     shutil.copy2(ROOT/'tools/ocr_worker.py',stage/'app/ocr/ocr_worker.py')
+    shutil.copy2(ROOT/'tools/ocr_style.py',stage/'app/ocr/ocr_style.py')
+    media_pin=json.loads((ROOT/'docs/media-runtime.json').read_text(encoding='utf-8'))
+    assert json.loads((a.media/'provenance.json').read_text(encoding='utf-8'))==media_pin,'Media runtime provenance mismatch'
+    assert (a.media/'libvlc.dll').is_file() and (a.media/'libvlccore.dll').is_file() and (a.media/'plugins/demux/libmkv_plugin.dll').is_file(),'Incomplete media runtime'
+    shutil.copytree(a.media,stage/'app/media/vlc',dirs_exist_ok=True)
     (stage/'app/language.txt').write_text('0\n',encoding='ascii')
     (stage/'app/nr-host').mkdir(exist_ok=True)
     shutil.copy2(a.nr_host,stage/'app/nr-host/nvngx.dll')
@@ -70,15 +80,17 @@ def main():
             dest.parent.mkdir(parents=True,exist_ok=True)
             shutil.copy2(source,dest)
     for source in ROOT.glob('*.cmd'):
-        if source.name.startswith(('Start FrameLab','1 - ','2 - ','3 - ','4 - ','Ukazka - ')):
+        if source.name.startswith(('Start FrameLab','1 - ','2 - ','3 - ','4 - ','Ukazka - ')) and source.name!='Ukazka - Spider-Man.cmd':
             shutil.copy2(source,stage/source.name)
-    for file in ['prepare_translation.py','prepare_ocr.py','ocr_worker.py','translate_worker.py','subtitle_models.py','subtitle_model_manager.py','subtitle_gpu.py','package_release.py','package_guides.py','Install-Enhancer.ps1']:
+    for file in ['prepare_translation.py','prepare_ocr.py','prepare_media.py','ocr_worker.py','ocr_style.py','translate_worker.py','subtitle_models.py','subtitle_model_manager.py','subtitle_gpu.py','package_release.py','package_guides.py','Install-Enhancer.ps1']:
         shutil.copy2(ROOT/'tools'/file,stage/'tools'/file)
     for file in ['translate_worker.py','subtitle_models.py','subtitle_model_manager.py','subtitle_gpu.py']:
         shutil.copy2(ROOT/'tools'/file,stage/'app/translation'/file)
     shutil.copy2(ROOT/'docs/subtitle-models.json',stage/'app/translation/subtitle-models.json')
     shutil.copy2(ROOT/'docs/runtime-distribution.md',stage/'licenses/README.md')
-    for sample in ['action','combat','ocr-demo']:
+    shutil.copy2(a.gta_sample,stage/'app/samples/gta.mp4')
+    shutil.copy2(ROOT/'docs/sample-gta-source.json',stage/'app/samples/gta.source.json')
+    for sample in ['action','gta','ocr-demo']:
         assert (stage/'app/samples'/f'{sample}.mp4').stat().st_size>100000
         meta=stage/'app/samples'/f'{sample}.source.json'
         info=json.loads(meta.read_text(encoding='utf-8'))
@@ -87,8 +99,8 @@ def main():
         if sample=='action':
             info['rights']='Recording public domain per Xiph/Twitch notice; underlying game content remains copyrighted and subject to applicable fair use. Not relicensed as GPL.'
             info['rights_source']='https://media.xiph.org/video/derf/twitch/copyright.txt'
-        elif sample=='combat':
-            info['rights']='Short excerpt of project owner previously published gameplay capture; game content retains respective rights. Not relicensed as GPL. See docs/sample-provenance.md.'
+        elif sample=='gta':
+            info['rights']='Short excerpt of project owner gameplay capture; game content retains respective rights. Not relicensed as GPL. See docs/sample-provenance.md.'
         meta.write_text(json.dumps(info,indent=2,ensure_ascii=False),encoding='utf-8')
     shutil.copy2(ROOT/'docs/sample-xiph-copyright.txt',stage/'app/samples/XIPH-COPYRIGHT.txt')
     for manifest in [stage/'app/runtime/manifest.json',stage/'licenses/microsoft-vc-manifest.json']:

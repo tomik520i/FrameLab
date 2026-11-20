@@ -1,3 +1,3 @@
 @echo off
-cd /d "%~dp0app"
-start "" FrameLab.exe --optical --fg
+cd /d "%~dp0"
+start "" "%~dp0app\FrameLab.exe" --video "%~dp0app\samples\gta.mp4" --fg --optical

@@ -1,0 +1,424 @@
+{
+  "recording_id": "analysis-15s-114426140",
+  "settings": {
+    "recording_id": "analysis-15s-114426140",
+    "settings_id": "analysis-15s-114426140_settings",
+    "backend": "NVIDIA VFG",
+    "pacing_version": 3,
+    "output_scheduler": "independent-gpu-pump-content-deadline",
+    "gpu": "NVIDIA GeForce RTX 5070 Ti",
+    "vsync": false,
+    "dedup": true,
+    "dedup_threshold": 0,
+    "requested_seconds": 15,
+    "source": "AVerMedia HD Capture GC573 1",
+    "width": 2560,
+    "height": 1440,
+    "quality": 1,
+    "multiplier": 2,
+    "automatic_cut_detection": true,
+    "pixel_format": "BGRA8 opaque, top-down",
+    "hdmi_signal_resolution": "unknown; dimensions describe delivered capture frames"
+  },
+  "result": {
+    "duration_seconds": 15,
+    "raw_frames": 615,
+    "generated_frames": 323,
+    "present_events": 617,
+    "recorder_drops": 0,
+    "ram_raw_bytes": 26276659200,
+    "ram_stored_bytes": 14871483016,
+    "ram_peak_bytes": 15089135103,
+    "reason": "15 seconds completed",
+    "note": "Lossless RAM compression preserves every BGRA byte. Diagnostic readback/compression may affect performance. Presents reference image IDs; pre-start images may be absent. Matched output before/after enhancement and burned Czech captions are recorded in source resolution. Subtitle timing is in output-frames.jsonl. Audio, UI chrome and physical monitor scanout are not recorded."
+  },
+  "raw_changed_frames": 463,
+  "raw_adjacent_repeats": 152,
+  "valid_generated_pairs": 322,
+  "generated_endpoint_copies": 1,
+  "submitted_image_ids": 607,
+  "valid_output_rows": 607,
+  "missing_output_rows": [],
+  "usable_prefix_end_s": 15,
+  "subtitle_cues": [],
+  "bins": [
+    {
+      "second": 0,
+      "raw": 43,
+      "raw_changes": 32,
+      "generated": 21,
+      "submitted_ids": 43
+    },
+    {
+      "second": 1,
+      "raw": 40,
+      "raw_changes": 32,
+      "generated": 21,
+      "submitted_ids": 40
+    },
+    {
+      "second": 2,
+      "raw": 39,
+      "raw_changes": 31,
+      "generated": 20,
+      "submitted_ids": 42
+    },
+    {
+      "second": 3,
+      "raw": 42,
+      "raw_changes": 32,
+      "generated": 22,
+      "submitted_ids": 41
+    },
+    {
+      "second": 4,
+      "raw": 40,
+      "raw_changes": 31,
+      "generated": 23,
+      "submitted_ids": 39
+    },
+    {
+      "second": 5,
+      "raw": 41,
+      "raw_changes": 32,
+      "generated": 22,
+      "submitted_ids": 42
+    },
+    {
+      "second": 6,
+      "raw": 40,
+      "raw_changes": 30,
+      "generated": 21,
+      "submitted_ids": 40
+    },
+    {
+      "second": 7,
+      "raw": 39,
+      "raw_changes": 30,
+      "generated": 21,
+      "submitted_ids": 41
+    },
+    {
+      "second": 8,
+      "raw": 41,
+      "raw_changes": 31,
+      "generated": 20,
+      "submitted_ids": 41
+    },
+    {
+      "second": 9,
+      "raw": 43,
+      "raw_changes": 31,
+      "generated": 23,
+      "submitted_ids": 38
+    },
+    {
+      "second": 10,
+      "raw": 40,
+      "raw_changes": 31,
+      "generated": 20,
+      "submitted_ids": 39
+    },
+    {
+      "second": 11,
+      "raw": 39,
+      "raw_changes": 30,
+      "generated": 20,
+      "submitted_ids": 41
+    },
+    {
+      "second": 12,
+      "raw": 44,
+      "raw_changes": 30,
+      "generated": 24,
+      "submitted_ids": 41
+    },
+    {
+      "second": 13,
+      "raw": 42,
+      "raw_changes": 30,
+      "generated": 22,
+      "submitted_ids": 40
+    },
+    {
+      "second": 14,
+      "raw": 42,
+      "raw_changes": 30,
+      "generated": 23,
+      "submitted_ids": 39
+    }
+  ],
+  "enhanced_sampled_changes": [
+    {
+      "time_s": 0.001881600008,
+      "output_id": 1,
+      "mean_abs_rgb_change": 5.995286464691162,
+      "pixel_fraction_change_over_10": 0.2880902777777778,
+      "subtitle": ""
+    },
+    {
+      "time_s": 0.3678567,
+      "output_id": 17,
+      "mean_abs_rgb_change": 5.878417015075684,
+      "pixel_fraction_change_over_10": 0.2737673611111111,
+      "subtitle": ""
+    },
+    {
+      "time_s": 0.7397736,
+      "output_id": 33,
+      "mean_abs_rgb_change": 5.514891624450684,
+      "pixel_fraction_change_over_10": 0.2305295138888889,
+      "subtitle": ""
+    },
+    {
+      "time_s": 1.1436159,
+      "output_id": 49,
+      "mean_abs_rgb_change": 5.3895111083984375,
+      "pixel_fraction_change_over_10": 0.21563802083333333,
+      "subtitle": ""
+    },
+    {
+      "time_s": 1.5217467,
+      "output_id": 65,
+      "mean_abs_rgb_change": 5.600227355957031,
+      "pixel_fraction_change_over_10": 0.24773871527777777,
+      "subtitle": ""
+    },
+    {
+      "time_s": 1.937107,
+      "output_id": 81,
+      "mean_abs_rgb_change": 5.380434036254883,
+      "pixel_fraction_change_over_10": 0.21807725694444444,
+      "subtitle": ""
+    },
+    {
+      "time_s": 2.3043577,
+      "output_id": 97,
+      "mean_abs_rgb_change": 5.366286277770996,
+      "pixel_fraction_change_over_10": 0.216796875,
+      "subtitle": ""
+    },
+    {
+      "time_s": 2.6978147,
+      "output_id": 113,
+      "mean_abs_rgb_change": 4.96652364730835,
+      "pixel_fraction_change_over_10": 0.17898871527777777,
+      "subtitle": ""
+    },
+    {
+      "time_s": 3.0843355,
+      "output_id": 129,
+      "mean_abs_rgb_change": 4.9858927726745605,
+      "pixel_fraction_change_over_10": 0.18237413194444443,
+      "subtitle": ""
+    },
+    {
+      "time_s": 3.4726813,
+      "output_id": 145,
+      "mean_abs_rgb_change": 5.392654895782471,
+      "pixel_fraction_change_over_10": 0.2263454861111111,
+      "subtitle": ""
+    },
+    {
+      "time_s": 3.8567418,
+      "output_id": 161,
+      "mean_abs_rgb_change": 4.848410129547119,
+      "pixel_fraction_change_over_10": 0.17135416666666667,
+      "subtitle": ""
+    },
+    {
+      "time_s": 4.2625734,
+      "output_id": 177,
+      "mean_abs_rgb_change": 5.303133487701416,
+      "pixel_fraction_change_over_10": 0.21776475694444444,
+      "subtitle": ""
+    },
+    {
+      "time_s": 4.7065038,
+      "output_id": 193,
+      "mean_abs_rgb_change": 5.2155842781066895,
+      "pixel_fraction_change_over_10": 0.20522569444444444,
+      "subtitle": ""
+    },
+    {
+      "time_s": 5.0855926,
+      "output_id": 209,
+      "mean_abs_rgb_change": 5.130836009979248,
+      "pixel_fraction_change_over_10": 0.1995529513888889,
+      "subtitle": ""
+    },
+    {
+      "time_s": 5.4595803,
+      "output_id": 225,
+      "mean_abs_rgb_change": 4.727417469024658,
+      "pixel_fraction_change_over_10": 0.15928819444444445,
+      "subtitle": ""
+    },
+    {
+      "time_s": 5.8543751,
+      "output_id": 241,
+      "mean_abs_rgb_change": 5.0367865562438965,
+      "pixel_fraction_change_over_10": 0.18914496527777777,
+      "subtitle": ""
+    },
+    {
+      "time_s": 6.2389612,
+      "output_id": 257,
+      "mean_abs_rgb_change": 4.512457847595215,
+      "pixel_fraction_change_over_10": 0.13895399305555556,
+      "subtitle": ""
+    },
+    {
+      "time_s": 6.6292819,
+      "output_id": 273,
+      "mean_abs_rgb_change": 4.346898078918457,
+      "pixel_fraction_change_over_10": 0.12357204861111111,
+      "subtitle": ""
+    },
+    {
+      "time_s": 7.0243286,
+      "output_id": 289,
+      "mean_abs_rgb_change": 4.808780193328857,
+      "pixel_fraction_change_over_10": 0.16767795138888889,
+      "subtitle": ""
+    },
+    {
+      "time_s": 7.4301195,
+      "output_id": 305,
+      "mean_abs_rgb_change": 4.782974720001221,
+      "pixel_fraction_change_over_10": 0.1630078125,
+      "subtitle": ""
+    },
+    {
+      "time_s": 7.8211071,
+      "output_id": 321,
+      "mean_abs_rgb_change": 4.798081398010254,
+      "pixel_fraction_change_over_10": 0.16116753472222223,
+      "subtitle": ""
+    },
+    {
+      "time_s": 8.2016567,
+      "output_id": 337,
+      "mean_abs_rgb_change": 4.252473831176758,
+      "pixel_fraction_change_over_10": 0.11094618055555555,
+      "subtitle": ""
+    },
+    {
+      "time_s": 8.5887354,
+      "output_id": 353,
+      "mean_abs_rgb_change": 4.657754421234131,
+      "pixel_fraction_change_over_10": 0.14563368055555556,
+      "subtitle": ""
+    },
+    {
+      "time_s": 8.990775,
+      "output_id": 369,
+      "mean_abs_rgb_change": 4.326170444488525,
+      "pixel_fraction_change_over_10": 0.11428385416666667,
+      "subtitle": ""
+    },
+    {
+      "time_s": 9.3920848,
+      "output_id": 385,
+      "mean_abs_rgb_change": 4.586288928985596,
+      "pixel_fraction_change_over_10": 0.142421875,
+      "subtitle": ""
+    },
+    {
+      "time_s": 9.8446893,
+      "output_id": 401,
+      "mean_abs_rgb_change": 4.186410427093506,
+      "pixel_fraction_change_over_10": 0.1022439236111111,
+      "subtitle": ""
+    },
+    {
+      "time_s": 10.2614494,
+      "output_id": 417,
+      "mean_abs_rgb_change": 4.100046157836914,
+      "pixel_fraction_change_over_10": 0.09336371527777777,
+      "subtitle": ""
+    },
+    {
+      "time_s": 10.6674172,
+      "output_id": 433,
+      "mean_abs_rgb_change": 4.394529819488525,
+      "pixel_fraction_change_over_10": 0.1257638888888889,
+      "subtitle": ""
+    },
+    {
+      "time_s": 11.0577593,
+      "output_id": 449,
+      "mean_abs_rgb_change": 4.489427089691162,
+      "pixel_fraction_change_over_10": 0.13317708333333333,
+      "subtitle": ""
+    },
+    {
+      "time_s": 11.4396092,
+      "output_id": 465,
+      "mean_abs_rgb_change": 4.367575168609619,
+      "pixel_fraction_change_over_10": 0.12092447916666667,
+      "subtitle": ""
+    },
+    {
+      "time_s": 11.8361598,
+      "output_id": 481,
+      "mean_abs_rgb_change": 3.949606418609619,
+      "pixel_fraction_change_over_10": 0.08352430555555555,
+      "subtitle": ""
+    },
+    {
+      "time_s": 12.21507,
+      "output_id": 497,
+      "mean_abs_rgb_change": 4.274293899536133,
+      "pixel_fraction_change_over_10": 0.11733072916666666,
+      "subtitle": ""
+    },
+    {
+      "time_s": 12.6297483,
+      "output_id": 513,
+      "mean_abs_rgb_change": 4.420319557189941,
+      "pixel_fraction_change_over_10": 0.13623697916666666,
+      "subtitle": ""
+    },
+    {
+      "time_s": 13.0201762,
+      "output_id": 529,
+      "mean_abs_rgb_change": 4.3423943519592285,
+      "pixel_fraction_change_over_10": 0.12171006944444444,
+      "subtitle": ""
+    },
+    {
+      "time_s": 13.425475,
+      "output_id": 545,
+      "mean_abs_rgb_change": 3.9724016189575195,
+      "pixel_fraction_change_over_10": 0.08579427083333334,
+      "subtitle": ""
+    },
+    {
+      "time_s": 13.8064141,
+      "output_id": 561,
+      "mean_abs_rgb_change": 4.323045253753662,
+      "pixel_fraction_change_over_10": 0.12444444444444444,
+      "subtitle": ""
+    },
+    {
+      "time_s": 14.2275187,
+      "output_id": 577,
+      "mean_abs_rgb_change": 4.394260883331299,
+      "pixel_fraction_change_over_10": 0.13026475694444445,
+      "subtitle": ""
+    },
+    {
+      "time_s": 14.6541753,
+      "output_id": 593,
+      "mean_abs_rgb_change": 4.027554988861084,
+      "pixel_fraction_change_over_10": 0.08938802083333333,
+      "subtitle": ""
+    }
+  ],
+  "limitations": [
+    "Captured pixel changes are not engine FPS.",
+    "No true intermediate frame or enhanced ground truth: changes are not an accuracy score.",
+    "Recording load can reduce cadence. Presentation is not physical scanout."
+  ]
+}

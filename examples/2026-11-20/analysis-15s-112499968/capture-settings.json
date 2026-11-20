@@ -1,0 +1,1 @@
+{"recording_strategy":"LZ4 lossless RAM first, disk after capture","ram_compression_workers":4,"fg_enabled":true,"capture_fps_at_start":83.2918,"content_fps_at_start":32.3368,"estimated_uncompressed_bytes":29417472000,"queue_budget_bytes":28241817600,"system_reserve_bytes":12884901888,"quality_name":"Medium","utc_epoch_ms":1795176985369}

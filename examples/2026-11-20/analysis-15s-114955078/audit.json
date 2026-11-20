@@ -1,0 +1,444 @@
+{
+  "recording_id": "analysis-15s-114955078",
+  "settings": {
+    "recording_id": "analysis-15s-114955078",
+    "settings_id": "analysis-15s-114955078_settings",
+    "backend": "NVIDIA VFG",
+    "pacing_version": 3,
+    "output_scheduler": "independent-gpu-pump-content-deadline",
+    "gpu": "NVIDIA GeForce RTX 5070 Ti",
+    "vsync": false,
+    "dedup": true,
+    "dedup_threshold": 0,
+    "requested_seconds": 15,
+    "source": "AVerMedia HD Capture GC573 1",
+    "width": 2560,
+    "height": 1440,
+    "quality": 1,
+    "multiplier": 2,
+    "automatic_cut_detection": true,
+    "pixel_format": "BGRA8 opaque, top-down",
+    "hdmi_signal_resolution": "unknown; dimensions describe delivered capture frames"
+  },
+  "result": {
+    "duration_seconds": 6.71194,
+    "raw_frames": 198,
+    "generated_frames": 88,
+    "present_events": 182,
+    "recorder_drops": 1,
+    "ram_raw_bytes": 9437184000,
+    "ram_stored_bytes": 4246517561,
+    "ram_peak_bytes": 4286066807,
+    "reason": "Recording stopped: GPU readback exceeded 100 ms",
+    "note": "Lossless RAM compression preserves every BGRA byte. Diagnostic readback/compression may affect performance. Presents reference image IDs; pre-start images may be absent. Matched output before/after enhancement and burned Czech captions are recorded in source resolution. Subtitle timing is in output-frames.jsonl. Audio, UI chrome and physical monitor scanout are not recorded."
+  },
+  "raw_changed_frames": 171,
+  "raw_adjacent_repeats": 27,
+  "valid_generated_pairs": 86,
+  "generated_endpoint_copies": 2,
+  "submitted_image_ids": 166,
+  "valid_output_rows": 165,
+  "missing_output_rows": [
+    {
+      "time_s": 6.6090122,
+      "output_id": 165,
+      "source_id": 25036,
+      "generated": true,
+      "source_A": 60975,
+      "source_B": 60978,
+      "phase": 0.5,
+      "before": [
+        "B",
+        165
+      ],
+      "after": [
+        "E",
+        165
+      ],
+      "final": [
+        "F",
+        165
+      ],
+      "nr_applied": true,
+      "nr_strength": 1,
+      "subtitle": "Můžeš znát vraky lodí jako své boty, ale když se oceán pohne...",
+      "subtitle_source": "I mean, you could know the shipwrecks like the back of your hand, but when that ocean moves..",
+      "missing": [
+        "before"
+      ]
+    }
+  ],
+  "usable_prefix_end_s": 6.6090122,
+  "subtitle_cues": [
+    {
+      "start_s": 0.002556899999,
+      "text": "Opravdu. Tady a tam dole.",
+      "source": "For real. Around here, and down there.",
+      "end_s": 1.0820325
+    },
+    {
+      "start_s": 1.3109718,
+      "text": "Myslím, že byste mohl znát vraky lodí jako své boty, ...",
+      "source": "I mean, you could know the shipwrecks like the back of your hand,",
+      "end_s": 4.317208
+    },
+    {
+      "start_s": 4.5114836,
+      "text": "Můžeš znát vraky lodí jako své boty, ale když se oceán pohne...",
+      "source": "I mean, you could know the shipwrecks like the back of your hand, but when that ocean moves..",
+      "end_s": 6.6090122
+    }
+  ],
+  "bins": [
+    {
+      "second": 0,
+      "raw": 31,
+      "raw_changes": 23,
+      "generated": 14,
+      "submitted_ids": 25
+    },
+    {
+      "second": 1,
+      "raw": 30,
+      "raw_changes": 28,
+      "generated": 13,
+      "submitted_ids": 26
+    },
+    {
+      "second": 2,
+      "raw": 31,
+      "raw_changes": 25,
+      "generated": 14,
+      "submitted_ids": 27
+    },
+    {
+      "second": 3,
+      "raw": 30,
+      "raw_changes": 26,
+      "generated": 12,
+      "submitted_ids": 26
+    },
+    {
+      "second": 4,
+      "raw": 29,
+      "raw_changes": 25,
+      "generated": 14,
+      "submitted_ids": 23
+    },
+    {
+      "second": 5,
+      "raw": 27,
+      "raw_changes": 26,
+      "generated": 11,
+      "submitted_ids": 23
+    },
+    {
+      "second": 6,
+      "raw": 20,
+      "raw_changes": 18,
+      "generated": 10,
+      "submitted_ids": 16
+    }
+  ],
+  "enhanced_sampled_changes": [
+    {
+      "time_s": 0.002556899999,
+      "output_id": 1,
+      "mean_abs_rgb_change": 5.511754989624023,
+      "pixel_fraction_change_over_10": 0.24141059027777778,
+      "subtitle": "Opravdu. Tady a tam dole."
+    },
+    {
+      "time_s": 0.1182281,
+      "output_id": 5,
+      "mean_abs_rgb_change": 5.497199058532715,
+      "pixel_fraction_change_over_10": 0.23971788194444443,
+      "subtitle": "Opravdu. Tady a tam dole."
+    },
+    {
+      "time_s": 0.3328624,
+      "output_id": 9,
+      "mean_abs_rgb_change": 5.483086109161377,
+      "pixel_fraction_change_over_10": 0.23712673611111112,
+      "subtitle": "Opravdu. Tady a tam dole."
+    },
+    {
+      "time_s": 0.5066941,
+      "output_id": 13,
+      "mean_abs_rgb_change": 5.590758323669434,
+      "pixel_fraction_change_over_10": 0.24284722222222221,
+      "subtitle": "Opravdu. Tady a tam dole."
+    },
+    {
+      "time_s": 0.683127,
+      "output_id": 17,
+      "mean_abs_rgb_change": 5.559664249420166,
+      "pixel_fraction_change_over_10": 0.2430512152777778,
+      "subtitle": "Opravdu. Tady a tam dole."
+    },
+    {
+      "time_s": 0.8295742,
+      "output_id": 21,
+      "mean_abs_rgb_change": 5.364365100860596,
+      "pixel_fraction_change_over_10": 0.2336545138888889,
+      "subtitle": "Opravdu. Tady a tam dole."
+    },
+    {
+      "time_s": 0.9791414,
+      "output_id": 25,
+      "mean_abs_rgb_change": 5.295886993408203,
+      "pixel_fraction_change_over_10": 0.22596788194444445,
+      "subtitle": "Opravdu. Tady a tam dole."
+    },
+    {
+      "time_s": 1.1413715,
+      "output_id": 29,
+      "mean_abs_rgb_change": 5.4249653816223145,
+      "pixel_fraction_change_over_10": 0.23991753472222221,
+      "subtitle": ""
+    },
+    {
+      "time_s": 1.2674995,
+      "output_id": 33,
+      "mean_abs_rgb_change": 4.419586181640625,
+      "pixel_fraction_change_over_10": 0.16765190972222221,
+      "subtitle": ""
+    },
+    {
+      "time_s": 1.4046378,
+      "output_id": 37,
+      "mean_abs_rgb_change": 4.35258674621582,
+      "pixel_fraction_change_over_10": 0.16104166666666667,
+      "subtitle": "Myslím, že byste mohl znát vraky lodí jako své boty, ..."
+    },
+    {
+      "time_s": 1.5538872,
+      "output_id": 41,
+      "mean_abs_rgb_change": 4.273839473724365,
+      "pixel_fraction_change_over_10": 0.1635199652777778,
+      "subtitle": "Myslím, že byste mohl znát vraky lodí jako své boty, ..."
+    },
+    {
+      "time_s": 1.7038101,
+      "output_id": 45,
+      "mean_abs_rgb_change": 4.078388214111328,
+      "pixel_fraction_change_over_10": 0.15274739583333333,
+      "subtitle": "Myslím, že byste mohl znát vraky lodí jako své boty, ..."
+    },
+    {
+      "time_s": 1.8766406,
+      "output_id": 49,
+      "mean_abs_rgb_change": 3.917686700820923,
+      "pixel_fraction_change_over_10": 0.144921875,
+      "subtitle": "Myslím, že byste mohl znát vraky lodí jako své boty, ..."
+    },
+    {
+      "time_s": 2.0270649,
+      "output_id": 53,
+      "mean_abs_rgb_change": 3.808462142944336,
+      "pixel_fraction_change_over_10": 0.13870225694444444,
+      "subtitle": "Myslím, že byste mohl znát vraky lodí jako své boty, ..."
+    },
+    {
+      "time_s": 2.1572126,
+      "output_id": 57,
+      "mean_abs_rgb_change": 3.8142969608306885,
+      "pixel_fraction_change_over_10": 0.13851996527777777,
+      "subtitle": "Myslím, že byste mohl znát vraky lodí jako své boty, ..."
+    },
+    {
+      "time_s": 2.3032358,
+      "output_id": 61,
+      "mean_abs_rgb_change": 3.801724433898926,
+      "pixel_fraction_change_over_10": 0.1394748263888889,
+      "subtitle": "Myslím, že byste mohl znát vraky lodí jako své boty, ..."
+    },
+    {
+      "time_s": 2.4771455,
+      "output_id": 65,
+      "mean_abs_rgb_change": 3.9190711975097656,
+      "pixel_fraction_change_over_10": 0.15010416666666668,
+      "subtitle": "Myslím, že byste mohl znát vraky lodí jako své boty, ..."
+    },
+    {
+      "time_s": 2.6329264,
+      "output_id": 69,
+      "mean_abs_rgb_change": 3.9492998123168945,
+      "pixel_fraction_change_over_10": 0.15371961805555556,
+      "subtitle": "Myslím, že byste mohl znát vraky lodí jako své boty, ..."
+    },
+    {
+      "time_s": 2.8111516,
+      "output_id": 73,
+      "mean_abs_rgb_change": 4.013575077056885,
+      "pixel_fraction_change_over_10": 0.1562326388888889,
+      "subtitle": "Myslím, že byste mohl znát vraky lodí jako své boty, ..."
+    },
+    {
+      "time_s": 2.9583698,
+      "output_id": 77,
+      "mean_abs_rgb_change": 5.729447364807129,
+      "pixel_fraction_change_over_10": 0.222421875,
+      "subtitle": "Myslím, že byste mohl znát vraky lodí jako své boty, ..."
+    },
+    {
+      "time_s": 3.1078564,
+      "output_id": 81,
+      "mean_abs_rgb_change": 5.648670196533203,
+      "pixel_fraction_change_over_10": 0.2153862847222222,
+      "subtitle": "Myslím, že byste mohl znát vraky lodí jako své boty, ..."
+    },
+    {
+      "time_s": 3.2682047,
+      "output_id": 85,
+      "mean_abs_rgb_change": 5.74285888671875,
+      "pixel_fraction_change_over_10": 0.21754340277777778,
+      "subtitle": "Myslím, že byste mohl znát vraky lodí jako své boty, ..."
+    },
+    {
+      "time_s": 3.4123289,
+      "output_id": 89,
+      "mean_abs_rgb_change": 5.453301429748535,
+      "pixel_fraction_change_over_10": 0.194375,
+      "subtitle": "Myslím, že byste mohl znát vraky lodí jako své boty, ..."
+    },
+    {
+      "time_s": 3.5806111,
+      "output_id": 93,
+      "mean_abs_rgb_change": 5.51181697845459,
+      "pixel_fraction_change_over_10": 0.19891927083333333,
+      "subtitle": "Myslím, že byste mohl znát vraky lodí jako své boty, ..."
+    },
+    {
+      "time_s": 3.7413863,
+      "output_id": 97,
+      "mean_abs_rgb_change": 6.535714626312256,
+      "pixel_fraction_change_over_10": 0.2646354166666667,
+      "subtitle": "Myslím, že byste mohl znát vraky lodí jako své boty, ..."
+    },
+    {
+      "time_s": 3.8948972,
+      "output_id": 101,
+      "mean_abs_rgb_change": 6.040948867797852,
+      "pixel_fraction_change_over_10": 0.24495225694444445,
+      "subtitle": "Myslím, že byste mohl znát vraky lodí jako své boty, ..."
+    },
+    {
+      "time_s": 4.0513154,
+      "output_id": 105,
+      "mean_abs_rgb_change": 5.8470659255981445,
+      "pixel_fraction_change_over_10": 0.23243489583333332,
+      "subtitle": "Myslím, že byste mohl znát vraky lodí jako své boty, ..."
+    },
+    {
+      "time_s": 4.2470696,
+      "output_id": 109,
+      "mean_abs_rgb_change": 5.801430702209473,
+      "pixel_fraction_change_over_10": 0.22740451388888888,
+      "subtitle": "Myslím, že byste mohl znát vraky lodí jako své boty, ..."
+    },
+    {
+      "time_s": 4.4366006,
+      "output_id": 113,
+      "mean_abs_rgb_change": 5.800849437713623,
+      "pixel_fraction_change_over_10": 0.22280815972222223,
+      "subtitle": ""
+    },
+    {
+      "time_s": 4.5872336,
+      "output_id": 117,
+      "mean_abs_rgb_change": 5.816462516784668,
+      "pixel_fraction_change_over_10": 0.22616753472222223,
+      "subtitle": "Můžeš znát vraky lodí jako své boty, ale když se oceán pohne..."
+    },
+    {
+      "time_s": 4.7469836,
+      "output_id": 121,
+      "mean_abs_rgb_change": 5.718193054199219,
+      "pixel_fraction_change_over_10": 0.22404079861111112,
+      "subtitle": "Můžeš znát vraky lodí jako své boty, ale když se oceán pohne..."
+    },
+    {
+      "time_s": 4.9312941,
+      "output_id": 125,
+      "mean_abs_rgb_change": 5.720403671264648,
+      "pixel_fraction_change_over_10": 0.22545572916666667,
+      "subtitle": "Můžeš znát vraky lodí jako své boty, ale když se oceán pohne..."
+    },
+    {
+      "time_s": 5.0787432,
+      "output_id": 129,
+      "mean_abs_rgb_change": 5.774547100067139,
+      "pixel_fraction_change_over_10": 0.22796006944444444,
+      "subtitle": "Můžeš znát vraky lodí jako své boty, ale když se oceán pohne..."
+    },
+    {
+      "time_s": 5.2123181,
+      "output_id": 133,
+      "mean_abs_rgb_change": 5.760279178619385,
+      "pixel_fraction_change_over_10": 0.22848090277777777,
+      "subtitle": "Můžeš znát vraky lodí jako své boty, ale když se oceán pohne..."
+    },
+    {
+      "time_s": 5.3803611,
+      "output_id": 137,
+      "mean_abs_rgb_change": 5.704615116119385,
+      "pixel_fraction_change_over_10": 0.22435763888888888,
+      "subtitle": "Můžeš znát vraky lodí jako své boty, ale když se oceán pohne..."
+    },
+    {
+      "time_s": 5.5956459,
+      "output_id": 141,
+      "mean_abs_rgb_change": 5.731966018676758,
+      "pixel_fraction_change_over_10": 0.22575086805555555,
+      "subtitle": "Můžeš znát vraky lodí jako své boty, ale když se oceán pohne..."
+    },
+    {
+      "time_s": 5.7879185,
+      "output_id": 145,
+      "mean_abs_rgb_change": 5.764243125915527,
+      "pixel_fraction_change_over_10": 0.23020833333333332,
+      "subtitle": "Můžeš znát vraky lodí jako své boty, ale když se oceán pohne..."
+    },
+    {
+      "time_s": 5.9519065,
+      "output_id": 149,
+      "mean_abs_rgb_change": 5.752147197723389,
+      "pixel_fraction_change_over_10": 0.22772135416666667,
+      "subtitle": "Můžeš znát vraky lodí jako své boty, ale když se oceán pohne..."
+    },
+    {
+      "time_s": 6.0892835,
+      "output_id": 153,
+      "mean_abs_rgb_change": 5.807085990905762,
+      "pixel_fraction_change_over_10": 0.23559027777777777,
+      "subtitle": "Můžeš znát vraky lodí jako své boty, ale když se oceán pohne..."
+    },
+    {
+      "time_s": 6.2734114,
+      "output_id": 157,
+      "mean_abs_rgb_change": 5.797718524932861,
+      "pixel_fraction_change_over_10": 0.23637586805555555,
+      "subtitle": "Můžeš znát vraky lodí jako své boty, ale když se oceán pohne..."
+    },
+    {
+      "time_s": 6.4443052,
+      "output_id": 161,
+      "mean_abs_rgb_change": 5.855121612548828,
+      "pixel_fraction_change_over_10": 0.23728298611111112,
+      "subtitle": "Můžeš znát vraky lodí jako své boty, ale když se oceán pohne..."
+    },
+    {
+      "time_s": 6.6817591,
+      "output_id": 166,
+      "mean_abs_rgb_change": 5.913285732269287,
+      "pixel_fraction_change_over_10": 0.2345876736111111,
+      "subtitle": "Můžeš znát vraky lodí jako své boty, ale když se oceán pohne..."
+    }
+  ],
+  "limitations": [
+    "Captured pixel changes are not engine FPS.",
+    "No true intermediate frame or enhanced ground truth: changes are not an accuracy score.",
+    "Recording load can reduce cadence. Presentation is not physical scanout."
+  ]
+}

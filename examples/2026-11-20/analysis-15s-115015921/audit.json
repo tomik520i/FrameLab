@@ -1,0 +1,431 @@
+{
+  "recording_id": "analysis-15s-115015921",
+  "settings": {
+    "recording_id": "analysis-15s-115015921",
+    "settings_id": "analysis-15s-115015921_settings",
+    "backend": "NVIDIA VFG",
+    "pacing_version": 3,
+    "output_scheduler": "independent-gpu-pump-content-deadline",
+    "gpu": "NVIDIA GeForce RTX 5070 Ti",
+    "vsync": false,
+    "dedup": true,
+    "dedup_threshold": 0,
+    "requested_seconds": 15,
+    "source": "AVerMedia HD Capture GC573 1",
+    "width": 2560,
+    "height": 1440,
+    "quality": 1,
+    "multiplier": 2,
+    "automatic_cut_detection": true,
+    "pixel_format": "BGRA8 opaque, top-down",
+    "hdmi_signal_resolution": "unknown; dimensions describe delivered capture frames"
+  },
+  "result": {
+    "duration_seconds": 3.56595,
+    "raw_frames": 108,
+    "generated_frames": 45,
+    "present_events": 91,
+    "recorder_drops": 1,
+    "ram_raw_bytes": 5146214400,
+    "ram_stored_bytes": 2343284161,
+    "ram_peak_bytes": 2408088665,
+    "reason": "Recording stopped: GPU readback exceeded 100 ms",
+    "note": "Lossless RAM compression preserves every BGRA byte. Diagnostic readback/compression may affect performance. Presents reference image IDs; pre-start images may be absent. Matched output before/after enhancement and burned Czech captions are recorded in source resolution. Subtitle timing is in output-frames.jsonl. Audio, UI chrome and physical monitor scanout are not recorded."
+  },
+  "raw_changed_frames": 100,
+  "raw_adjacent_repeats": 8,
+  "valid_generated_pairs": 43,
+  "generated_endpoint_copies": 1,
+  "submitted_image_ids": 88,
+  "valid_output_rows": 87,
+  "missing_output_rows": [
+    {
+      "time_s": 3.4590857,
+      "output_id": 87,
+      "source_id": 26666,
+      "generated": true,
+      "source_A": 64422,
+      "source_B": 64425,
+      "phase": 0.5,
+      "before": [
+        "B",
+        87
+      ],
+      "after": [
+        "E",
+        87
+      ],
+      "final": [
+        "F",
+        87
+      ],
+      "nr_applied": true,
+      "nr_strength": 1,
+      "subtitle": "Pojď, ty impotente. Tahle sračka nás stála dva tácy.",
+      "subtitle_source": "Let's go, limpdick. This shit cost us like two grand.",
+      "missing": [
+        "before"
+      ]
+    }
+  ],
+  "usable_prefix_end_s": 3.4590857,
+  "subtitle_cues": [
+    {
+      "start_s": 0.002663599997,
+      "text": "Jo, spíš nejhorší muž.",
+      "source": "Yeah, more like worst man.",
+      "end_s": 1.1823137
+    },
+    {
+      "start_s": 1.5314584,
+      "text": "Pojď, ty impotente. Tahle sračka nás stála dva tácy.",
+      "source": "Let's go, limpdick. This shit cost us like two grand.",
+      "end_s": 3.4590857
+    }
+  ],
+  "bins": [
+    {
+      "second": 0,
+      "raw": 30,
+      "raw_changes": 27,
+      "generated": 12,
+      "submitted_ids": 25
+    },
+    {
+      "second": 1,
+      "raw": 32,
+      "raw_changes": 29,
+      "generated": 14,
+      "submitted_ids": 27
+    },
+    {
+      "second": 2,
+      "raw": 30,
+      "raw_changes": 29,
+      "generated": 11,
+      "submitted_ids": 23
+    },
+    {
+      "second": 3,
+      "raw": 16,
+      "raw_changes": 15,
+      "generated": 8,
+      "submitted_ids": 13
+    }
+  ],
+  "enhanced_sampled_changes": [
+    {
+      "time_s": 0.002663599997,
+      "output_id": 1,
+      "mean_abs_rgb_change": 7.359061241149902,
+      "pixel_fraction_change_over_10": 0.4051779513888889,
+      "subtitle": "Jo, spíš nejhorší muž."
+    },
+    {
+      "time_s": 0.0994261,
+      "output_id": 3,
+      "mean_abs_rgb_change": 7.4851837158203125,
+      "pixel_fraction_change_over_10": 0.4342230902777778,
+      "subtitle": "Jo, spíš nejhorší muž."
+    },
+    {
+      "time_s": 0.1524233,
+      "output_id": 5,
+      "mean_abs_rgb_change": 7.460726261138916,
+      "pixel_fraction_change_over_10": 0.43190104166666665,
+      "subtitle": "Jo, spíš nejhorší muž."
+    },
+    {
+      "time_s": 0.2043206,
+      "output_id": 7,
+      "mean_abs_rgb_change": 7.376239776611328,
+      "pixel_fraction_change_over_10": 0.4221831597222222,
+      "subtitle": "Jo, spíš nejhorší muž."
+    },
+    {
+      "time_s": 0.2882141,
+      "output_id": 9,
+      "mean_abs_rgb_change": 7.050905704498291,
+      "pixel_fraction_change_over_10": 0.3957074652777778,
+      "subtitle": "Jo, spíš nejhorší muž."
+    },
+    {
+      "time_s": 0.3826462,
+      "output_id": 11,
+      "mean_abs_rgb_change": 6.971223831176758,
+      "pixel_fraction_change_over_10": 0.39591145833333335,
+      "subtitle": "Jo, spíš nejhorší muž."
+    },
+    {
+      "time_s": 0.4802122,
+      "output_id": 13,
+      "mean_abs_rgb_change": 6.673758506774902,
+      "pixel_fraction_change_over_10": 0.37158420138888887,
+      "subtitle": "Jo, spíš nejhorší muž."
+    },
+    {
+      "time_s": 0.6052878,
+      "output_id": 15,
+      "mean_abs_rgb_change": 5.781700134277344,
+      "pixel_fraction_change_over_10": 0.26447482638888886,
+      "subtitle": "Jo, spíš nejhorší muž."
+    },
+    {
+      "time_s": 0.686787,
+      "output_id": 17,
+      "mean_abs_rgb_change": 4.955273628234863,
+      "pixel_fraction_change_over_10": 0.13608506944444446,
+      "subtitle": "Jo, spíš nejhorší muž."
+    },
+    {
+      "time_s": 0.7428653,
+      "output_id": 19,
+      "mean_abs_rgb_change": 4.917487144470215,
+      "pixel_fraction_change_over_10": 0.17133680555555555,
+      "subtitle": "Jo, spíš nejhorší muž."
+    },
+    {
+      "time_s": 0.8180897,
+      "output_id": 21,
+      "mean_abs_rgb_change": 5.294008731842041,
+      "pixel_fraction_change_over_10": 0.1884939236111111,
+      "subtitle": "Jo, spíš nejhorší muž."
+    },
+    {
+      "time_s": 0.8793132,
+      "output_id": 23,
+      "mean_abs_rgb_change": 5.215358734130859,
+      "pixel_fraction_change_over_10": 0.18319878472222223,
+      "subtitle": "Jo, spíš nejhorší muž."
+    },
+    {
+      "time_s": 0.9640382,
+      "output_id": 25,
+      "mean_abs_rgb_change": 4.7819342613220215,
+      "pixel_fraction_change_over_10": 0.17351128472222221,
+      "subtitle": "Jo, spíš nejhorší muž."
+    },
+    {
+      "time_s": 1.0357205,
+      "output_id": 27,
+      "mean_abs_rgb_change": 4.790121555328369,
+      "pixel_fraction_change_over_10": 0.18092881944444444,
+      "subtitle": "Jo, spíš nejhorší muž."
+    },
+    {
+      "time_s": 1.1175414,
+      "output_id": 29,
+      "mean_abs_rgb_change": 4.727258205413818,
+      "pixel_fraction_change_over_10": 0.18797743055555555,
+      "subtitle": "Jo, spíš nejhorší muž."
+    },
+    {
+      "time_s": 1.1823137,
+      "output_id": 31,
+      "mean_abs_rgb_change": 4.737310409545898,
+      "pixel_fraction_change_over_10": 0.18888020833333333,
+      "subtitle": ""
+    },
+    {
+      "time_s": 1.2803081,
+      "output_id": 33,
+      "mean_abs_rgb_change": 4.834078311920166,
+      "pixel_fraction_change_over_10": 0.21581597222222224,
+      "subtitle": ""
+    },
+    {
+      "time_s": 1.3575897,
+      "output_id": 35,
+      "mean_abs_rgb_change": 4.818385601043701,
+      "pixel_fraction_change_over_10": 0.21366753472222222,
+      "subtitle": ""
+    },
+    {
+      "time_s": 1.4246789,
+      "output_id": 37,
+      "mean_abs_rgb_change": 4.926449775695801,
+      "pixel_fraction_change_over_10": 0.21049913194444445,
+      "subtitle": ""
+    },
+    {
+      "time_s": 1.5060688,
+      "output_id": 39,
+      "mean_abs_rgb_change": 4.976475715637207,
+      "pixel_fraction_change_over_10": 0.2052517361111111,
+      "subtitle": ""
+    },
+    {
+      "time_s": 1.5510923,
+      "output_id": 41,
+      "mean_abs_rgb_change": 4.915415287017822,
+      "pixel_fraction_change_over_10": 0.19307725694444444,
+      "subtitle": "Pojď, ty impotente. Tahle sračka nás stála dva tácy."
+    },
+    {
+      "time_s": 1.6254758,
+      "output_id": 43,
+      "mean_abs_rgb_change": 4.832251071929932,
+      "pixel_fraction_change_over_10": 0.1750607638888889,
+      "subtitle": "Pojď, ty impotente. Tahle sračka nás stála dva tácy."
+    },
+    {
+      "time_s": 1.6972377,
+      "output_id": 45,
+      "mean_abs_rgb_change": 4.850177764892578,
+      "pixel_fraction_change_over_10": 0.17563802083333332,
+      "subtitle": "Pojď, ty impotente. Tahle sračka nás stála dva tácy."
+    },
+    {
+      "time_s": 1.7744005,
+      "output_id": 47,
+      "mean_abs_rgb_change": 5.289532661437988,
+      "pixel_fraction_change_over_10": 0.18276909722222223,
+      "subtitle": "Pojď, ty impotente. Tahle sračka nás stála dva tácy."
+    },
+    {
+      "time_s": 1.8523479,
+      "output_id": 49,
+      "mean_abs_rgb_change": 5.547598361968994,
+      "pixel_fraction_change_over_10": 0.19111545138888889,
+      "subtitle": "Pojď, ty impotente. Tahle sračka nás stála dva tácy."
+    },
+    {
+      "time_s": 1.9559926,
+      "output_id": 51,
+      "mean_abs_rgb_change": 5.677145481109619,
+      "pixel_fraction_change_over_10": 0.20111979166666666,
+      "subtitle": "Pojď, ty impotente. Tahle sračka nás stála dva tácy."
+    },
+    {
+      "time_s": 2.0066786,
+      "output_id": 53,
+      "mean_abs_rgb_change": 5.856649398803711,
+      "pixel_fraction_change_over_10": 0.1907595486111111,
+      "subtitle": "Pojď, ty impotente. Tahle sračka nás stála dva tácy."
+    },
+    {
+      "time_s": 2.1044525,
+      "output_id": 55,
+      "mean_abs_rgb_change": 5.878641605377197,
+      "pixel_fraction_change_over_10": 0.18108940972222223,
+      "subtitle": "Pojď, ty impotente. Tahle sračka nás stála dva tácy."
+    },
+    {
+      "time_s": 2.1828267,
+      "output_id": 57,
+      "mean_abs_rgb_change": 6.005834579467773,
+      "pixel_fraction_change_over_10": 0.18257378472222222,
+      "subtitle": "Pojď, ty impotente. Tahle sračka nás stála dva tácy."
+    },
+    {
+      "time_s": 2.2560122,
+      "output_id": 59,
+      "mean_abs_rgb_change": 7.7921295166015625,
+      "pixel_fraction_change_over_10": 0.4793923611111111,
+      "subtitle": "Pojď, ty impotente. Tahle sračka nás stála dva tácy."
+    },
+    {
+      "time_s": 2.3388883,
+      "output_id": 61,
+      "mean_abs_rgb_change": 7.767470836639404,
+      "pixel_fraction_change_over_10": 0.48082465277777775,
+      "subtitle": "Pojď, ty impotente. Tahle sračka nás stála dva tácy."
+    },
+    {
+      "time_s": 2.4392715,
+      "output_id": 63,
+      "mean_abs_rgb_change": 7.747866153717041,
+      "pixel_fraction_change_over_10": 0.4735286458333333,
+      "subtitle": "Pojď, ty impotente. Tahle sračka nás stála dva tácy."
+    },
+    {
+      "time_s": 2.5223164,
+      "output_id": 65,
+      "mean_abs_rgb_change": 7.73679256439209,
+      "pixel_fraction_change_over_10": 0.46370225694444445,
+      "subtitle": "Pojď, ty impotente. Tahle sračka nás stála dva tácy."
+    },
+    {
+      "time_s": 2.6195306,
+      "output_id": 67,
+      "mean_abs_rgb_change": 7.562896251678467,
+      "pixel_fraction_change_over_10": 0.44897569444444446,
+      "subtitle": "Pojď, ty impotente. Tahle sračka nás stála dva tácy."
+    },
+    {
+      "time_s": 2.722507,
+      "output_id": 69,
+      "mean_abs_rgb_change": 7.477070331573486,
+      "pixel_fraction_change_over_10": 0.4438064236111111,
+      "subtitle": "Pojď, ty impotente. Tahle sračka nás stála dva tácy."
+    },
+    {
+      "time_s": 2.8027804,
+      "output_id": 71,
+      "mean_abs_rgb_change": 7.106283187866211,
+      "pixel_fraction_change_over_10": 0.4164496527777778,
+      "subtitle": "Pojď, ty impotente. Tahle sračka nás stála dva tácy."
+    },
+    {
+      "time_s": 2.874358,
+      "output_id": 73,
+      "mean_abs_rgb_change": 7.083929538726807,
+      "pixel_fraction_change_over_10": 0.39990017361111113,
+      "subtitle": "Pojď, ty impotente. Tahle sračka nás stála dva tácy."
+    },
+    {
+      "time_s": 2.9492901,
+      "output_id": 75,
+      "mean_abs_rgb_change": 6.9662065505981445,
+      "pixel_fraction_change_over_10": 0.37872395833333333,
+      "subtitle": "Pojď, ty impotente. Tahle sračka nás stála dva tácy."
+    },
+    {
+      "time_s": 3.0548367,
+      "output_id": 77,
+      "mean_abs_rgb_change": 6.994166851043701,
+      "pixel_fraction_change_over_10": 0.3732725694444444,
+      "subtitle": "Pojď, ty impotente. Tahle sračka nás stála dva tácy."
+    },
+    {
+      "time_s": 3.1606852,
+      "output_id": 79,
+      "mean_abs_rgb_change": 7.001264572143555,
+      "pixel_fraction_change_over_10": 0.3717404513888889,
+      "subtitle": "Pojď, ty impotente. Tahle sračka nás stála dva tácy."
+    },
+    {
+      "time_s": 3.2347461,
+      "output_id": 81,
+      "mean_abs_rgb_change": 6.9454498291015625,
+      "pixel_fraction_change_over_10": 0.3608984375,
+      "subtitle": "Pojď, ty impotente. Tahle sračka nás stála dva tácy."
+    },
+    {
+      "time_s": 3.31921,
+      "output_id": 83,
+      "mean_abs_rgb_change": 6.545934677124023,
+      "pixel_fraction_change_over_10": 0.3303732638888889,
+      "subtitle": "Pojď, ty impotente. Tahle sračka nás stála dva tácy."
+    },
+    {
+      "time_s": 3.3887327,
+      "output_id": 85,
+      "mean_abs_rgb_change": 6.76942253112793,
+      "pixel_fraction_change_over_10": 0.345859375,
+      "subtitle": "Pojď, ty impotente. Tahle sračka nás stála dva tácy."
+    },
+    {
+      "time_s": 3.537939,
+      "output_id": 88,
+      "mean_abs_rgb_change": 7.282359600067139,
+      "pixel_fraction_change_over_10": 0.3668576388888889,
+      "subtitle": "Pojď, ty impotente. Tahle sračka nás stála dva tácy."
+    }
+  ],
+  "limitations": [
+    "Captured pixel changes are not engine FPS.",
+    "No true intermediate frame or enhanced ground truth: changes are not an accuracy score.",
+    "Recording load can reduce cadence. Presentation is not physical scanout."
+  ]
+}

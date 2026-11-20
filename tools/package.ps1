@@ -1,4 +1,4 @@
-param([string]$Version = '0.2.0-preview.14', [string]$OutputDirectory = 'dist', [string]$ApplicationPath = 'app/FrameLab.exe', [switch]$Complete, [string]$SampleDirectory = 'app/samples', [string]$SetupPath = 'app/FrameLab-Setup.exe', [string]$NrHostPath = 'app/nr-host/nvngx.dll', [switch]$Translation, [string]$TranslationDirectory = 'app/translation', [string]$OcrDirectory = 'app/ocr')
+param([string]$Version = '0.2.0-preview.15', [string]$OutputDirectory = 'dist', [string]$ApplicationPath = 'app/FrameLab.exe', [switch]$Complete, [string]$SampleDirectory = 'app/samples', [string]$SetupPath = 'app/FrameLab-Setup.exe', [string]$NrHostPath = 'app/nr-host/nvngx.dll', [switch]$Translation, [string]$TranslationDirectory = 'app/translation', [string]$OcrDirectory = 'app/ocr', [string]$MediaDirectory = 'app/media/vlc')
 $ErrorActionPreference = 'Stop'
 $root = Split-Path $PSScriptRoot -Parent
 Set-Location $root
@@ -17,7 +17,7 @@ function Copy-PublicComponent([string]$Source, [string]$Destination) {
   Copy-Item -LiteralPath $item.FullName -Destination $destinationFile
  }
 }
-foreach ($sample in 'action.mp4','combat.mp4','ocr-demo.mp4','action.source.json','combat.source.json','ocr-demo.source.json') {
+foreach ($sample in 'action.mp4','gta.mp4','ocr-demo.mp4','action.source.json','gta.source.json','ocr-demo.source.json') {
  if (-not (Test-Path -LiteralPath (Join-Path $SampleDirectory $sample))) { throw "Both sample videos and provenance must be bundled: missing $sample in $SampleDirectory" }
 }
 if ($Translation -and -not (Test-Path -LiteralPath (Join-Path $TranslationDirectory 'provenance.json'))) { throw 'Prepare the complete offline translation component first' }
@@ -32,6 +32,7 @@ $sourceZip = Join-Path $packageRoot "FrameLab-$Version-source.zip"
 if ((Test-Path -LiteralPath $stage) -or (Test-Path -LiteralPath $portableZip) -or (Test-Path -LiteralPath $sourceZip)) { throw 'Package output exists; choose a new version or output directory to preserve it' }
 New-Item -ItemType Directory -Force "$stage/app","$stage/tools","$stage/docs" | Out-Null
 Copy-Item -LiteralPath $ApplicationPath -Destination "$stage/app/FrameLab.exe"
+Copy-Item -LiteralPath (Join-Path (Split-Path $ApplicationPath -Parent) 'FrameLabPixels.dll') -Destination "$stage/app/FrameLabPixels.dll"
 Copy-Item -LiteralPath $SetupPath -Destination "$stage/app/FrameLab-Setup.exe"
 if (!(Test-Path -LiteralPath $NrHostPath)) { throw 'Build the NR adapter first (or use the matching preview.10 packaging tool for an NR-OFF release)' }
 New-Item -ItemType Directory -Path "$stage/app/nr-host" -Force | Out-Null
@@ -39,7 +40,7 @@ Copy-Item -LiteralPath $NrHostPath -Destination "$stage/app/nr-host/nvngx.dll"
 Copy-Item 'tools/Install-Enhancer.ps1' "$stage/tools/"
 Copy-Item '4 - Doplnit enhancer.cmd' $stage
 New-Item -ItemType Directory -Path "$stage/app/samples" -Force | Out-Null
-foreach ($sample in 'action.mp4','combat.mp4','ocr-demo.mp4','action.source.json','combat.source.json','ocr-demo.source.json') { Copy-Item -LiteralPath (Join-Path $SampleDirectory $sample) -Destination "$stage/app/samples/" }
+foreach ($sample in 'action.mp4','gta.mp4','ocr-demo.mp4','action.source.json','gta.source.json','ocr-demo.source.json') { Copy-Item -LiteralPath (Join-Path $SampleDirectory $sample) -Destination "$stage/app/samples/" }
 if ($Translation) {
  Copy-PublicComponent $TranslationDirectory "$stage/app/translation"
  Copy-Item 'tools/translate_worker.py','tools/subtitle_models.py','tools/subtitle_model_manager.py','tools/subtitle_gpu.py' "$stage/app/translation/"
@@ -47,23 +48,32 @@ if ($Translation) {
 }
 if ($Complete) {
  Copy-PublicComponent $OcrDirectory "$stage/app/ocr"
+ if (-not (Test-Path -LiteralPath (Join-Path $MediaDirectory 'provenance.json'))) { throw 'Prepare the media runtime with tools/prepare_media.py first' }
+ $mediaPin = Get-Content -LiteralPath 'docs/media-runtime.json' -Raw | ConvertFrom-Json
+ $mediaInfo = Get-Content -LiteralPath (Join-Path $MediaDirectory 'provenance.json') -Raw | ConvertFrom-Json
+ if ($mediaInfo.sha256 -cne $mediaPin.sha256 -or $mediaInfo.version -cne $mediaPin.version) { throw 'Media runtime provenance mismatch' }
+ foreach ($file in 'libvlc.dll','libvlccore.dll','plugins/demux/libmkv_plugin.dll') { if (-not (Test-Path -LiteralPath (Join-Path $MediaDirectory $file))) { throw "Incomplete media runtime: $file" } }
+ Copy-PublicComponent $MediaDirectory "$stage/app/media/vlc"
  Copy-Item 'tools/ocr_worker.py' "$stage/app/ocr/"
+ Copy-Item 'tools/ocr_style.py' "$stage/app/ocr/"
  $ocrManifest = Get-Content -LiteralPath (Join-Path $OcrDirectory 'provenance.json') -Raw | ConvertFrom-Json
  foreach ($model in $ocrManifest.models) {
   if ((Get-FileHash -LiteralPath (Join-Path "$stage/app/ocr/models" $model.name)).Hash.ToLower() -cne $model.sha256) { throw "OCR model hash mismatch: $($model.name)" }
  }
 }
 Copy-Item 'Start FrameLab.cmd','Start FrameLab - NVIDIA.cmd','Start FrameLab - Optical Flow.cmd','START_HERE.md','README.md','LICENSE','THIRD_PARTY_NOTICES.md' $stage
-Copy-Item 'INSTALL.cs.md','1 - Spustit FrameLab.cmd','2 - NVIDIA RTX 40-50.cmd','3 - Optical Flow.cmd','Ukazka - Spider-Man.cmd','Ukazka - Ceske titulky.cmd' $stage
+Copy-Item 'INSTALL.cs.md','1 - Spustit FrameLab.cmd','2 - NVIDIA RTX 40-50.cmd','3 - Optical Flow.cmd','Ukazka - GTA.cmd','Ukazka - Ceske titulky.cmd' $stage
 Copy-Item 'INSTALL.cs.md' "$stage/ZACNI TADY.txt"
 Set-Content -LiteralPath "$stage/app/language.txt" -Value '0' -NoNewline
 Copy-Item 'docs/*.md' "$stage/docs/"
 Copy-Item 'docs/NR-LICENSING-STATUS.txt','docs/translation-components.json','docs/sample-xiph-copyright.txt' "$stage/docs/"
 Copy-Item 'docs/ocr-components.json','docs/subtitle-models.json','docs/PaddleOCR-LICENSE.txt','docs/RapidOCR-LICENSE.txt' "$stage/docs/"
+Copy-Item 'docs/media-runtime.json' "$stage/docs/"
+Copy-Item 'tools/prepare_media.py' "$stage/tools/"
 Copy-Item 'docs/images' "$stage/docs/" -Recurse
 if (Test-Path 'docs/performance') { Copy-Item 'docs/performance' "$stage/docs/" -Recurse }
 Copy-Item 'examples' $stage -Recurse
-Copy-Item 'tools/export_analysis.py','tools/requirements.txt','tools/setup-diagnostics.ps1','tools/import-runtime.ps1' "$stage/tools/"
+Copy-Item 'tools/export_analysis.py','tools/export_pipeline.py','tools/recording_archive.py','tools/requirements.txt','tools/setup-diagnostics.ps1','tools/import-runtime.ps1' "$stage/tools/"
 Copy-Item 'third_party/CaptureKVM-LICENSE.txt' "$stage/docs/"
 Copy-Item 'third_party/imgui/LICENSE.txt' "$stage/docs/ImGui-LICENSE.txt"
 Copy-Item 'third_party/lz4/LICENSE' "$stage/docs/LZ4-LICENSE.txt"

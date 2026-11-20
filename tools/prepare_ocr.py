@@ -34,6 +34,7 @@ def main():
         assert digest(original) == model['sha256'], model['name']
         shutil.copy2(original, target)
     shutil.copy2(ROOT / 'tools/ocr_worker.py', out / 'ocr_worker.py')
+    shutil.copy2(ROOT / 'tools/ocr_style.py', out / 'ocr_style.py')
     for name in ['RapidOCR-LICENSE.txt','PaddleOCR-LICENSE.txt']:
         shutil.copy2(ROOT / 'docs' / name, out / name)
     (out / 'provenance.json').write_text(json.dumps(pins, indent=2)+'\n', encoding='utf-8')

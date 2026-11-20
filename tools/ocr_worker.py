@@ -5,12 +5,14 @@ The GPU remains available to frame generation, enhancement and translation.
 """
 from pathlib import Path
 import argparse
+import json
 import mmap
 import os
 import struct
 import sys
 
 ROOT = Path(__file__).resolve().parent
+sys.path.insert(0, str(ROOT))
 sys.path.insert(0, str(ROOT / 'deps'))
 CAPACITY = 16 * 1024 * 1024
 
@@ -40,6 +42,7 @@ def recognize(engine, image):
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument('--mapping', required=True)
+    parser.add_argument('--style-protocol', action='store_true')
     args = parser.parse_args()
     runtime = ROOT.parent / 'runtime'
     dll_directory = os.add_dll_directory(str(runtime)) if runtime.is_dir() else None
@@ -60,20 +63,40 @@ def main():
 
     try:
         import numpy as np
+        from ocr_style import learn_style, filter_rows, encode_result
         engine = create_engine()
         memory = mmap.mmap(-1, CAPACITY, tagname=args.mapping, access=mmap.ACCESS_READ)
         recognize(engine, np.zeros((96, 320, 3), dtype=np.uint8))
         send('READY')
         while True:
             width, height = struct.unpack('<II', exact(8))
+            config = {}
+            if args.style_protocol:
+                config_length, = struct.unpack('<I', exact(4))
+                if config_length > 4096:
+                    raise ValueError('Invalid OCR configuration length')
+                config = json.loads(exact(config_length).decode('utf-8'))
             length = width * height * 4
             if not width or not height or length > CAPACITY:
                 raise ValueError('Invalid OCR image dimensions')
             # The producer writes the next image only after this response.
             image = np.frombuffer(memory, dtype=np.uint8, count=length).reshape(height, width, 4)
-            text, confidence = recognize(engine, np.ascontiguousarray(image[:, :, :3]))
+            bgr = np.ascontiguousarray(image[:, :, :3])
             del image
-            send(f'{confidence:.6f}\t{text}')
+            if args.style_protocol:
+                try:
+                    profile = config.get('profile')
+                    if config.get('sample') is not None:
+                        profile = learn_style(bgr, config['sample'], config.get('full_height', height))
+                    rows, _ = engine(bgr, use_cls=False)
+                    result = filter_rows(bgr, rows, profile, config.get('full_height', height), config.get('area', [0, 0, 1, 1]))
+                    send(encode_result(result))
+                except ValueError as exc:
+                    # A poor user selection is recoverable; keep the worker alive.
+                    send('ERROR: ' + str(exc))
+            else:
+                text, confidence = recognize(engine, bgr)
+                send(f'{confidence:.6f}\t{text}')
     except EOFError:
         return
     except Exception as exc:

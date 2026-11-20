@@ -1,0 +1,1 @@
+{"recording_strategy":"LZ4 lossless RAM first, compressed FLP archive after capture; no BGRA files","ram_compression_workers":4,"fg_enabled":true,"capture_fps_at_start":62.2581,"content_fps_at_start":31.6232,"estimated_uncompressed_bytes":23887872000,"queue_budget_bytes":4770816000,"system_reserve_bytes":12884901888,"quality_name":"Medium","utc_epoch_ms":1795179476814}

@@ -62,7 +62,7 @@ struct NrControls {
   if(!failure.empty())ImGui::TextWrapped("%s",failure.c_str());
   if(ImGui::CollapsingHeader(text("How it works / limitations","Jak to funguje / omezení"))){
    ImGui::TextWrapped("%s",text("Input frame > smaller AI image > neural rendering > add changes back to source > strength blend. The engine's depth and motion data are unavailable: motion is estimated, depth is flat. Changes can help or harm details and HUD. This is the Veyra community experiment, not an official game integration.","Snímek > menší obraz pro AI > neural rendering > změny zpět do původního rozlišení > přimíchání podle síly. Skutečná data enginu chybí: pohyb se odhaduje, hloubka je plochá. Změny mohou detailům i HUD pomoci nebo uškodit. Jde o komunitní experiment podle Veyry, nikoli oficiální integraci do hry."));
-   ImGui::TextWrapped("%s",text("A/B uses exactly the same input frame. With FG on, Original means before enhancement. Analysis recordings contain RAW/FG only.","A/B porovnává přesně stejný snímek. Při FG znamená Původní obraz před enhancerem. Analytický záznam ukládá jen RAW/FG."));
+   ImGui::TextWrapped("%s",text("A/B uses exactly the same input frame. With FG on, Original means before enhancement. New analysis recordings include before/after enhancement and Czech subtitles.","A/B porovnává přesně stejný snímek. Při FG znamená Původní obraz před enhancerem. Nový analytický záznam ukládá také obraz před/po enhanceru a české titulky."));
   }
   if(!available(app))enabled=false;
   return restart;

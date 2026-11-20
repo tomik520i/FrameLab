@@ -1,3 +1,7 @@
+# Current preview.15 evidence
+
+[GTA camera, enhancer, Czech captions, RTX 5070 Ti telemetry and focus checks](../examples/2026-11-20/README.md) · [Interactive website](https://opicebot.cz/framelab/). This new set supersedes the older front-page samples; the historical measurements below retain their original dates and conditions.
+
 # Test systems and live GPU load
 
 [FrameLab](../README.md) · [Česky](test-system.cs.md) · [Raw measurements](performance/2026-11-18/summary.json)

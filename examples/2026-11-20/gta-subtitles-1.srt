@@ -1,0 +1,12 @@
+﻿1
+00:00:00,000 --> 00:00:01,079
+Opravdu. Tady a tam dole.
+
+2
+00:00:01,308 --> 00:00:04,315
+Myslím, že byste mohl znát vraky lodí jako své boty, ...
+
+3
+00:00:04,509 --> 00:00:06,606
+Můžeš znát vraky lodí jako své boty, ale když se oceán pohne...
+

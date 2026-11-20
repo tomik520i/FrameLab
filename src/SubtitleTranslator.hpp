@@ -3,6 +3,23 @@
 #include <memory>
 #include <string>
 #include <cstdint>
+#include <array>
+#include <vector>
+
+struct SubtitleStyleProfile {
+ bool enabled=false;
+ float height=0; // glyph height / full source height, independent of OCR crop
+ std::array<float,3> rgb{0,0,0};
+ float heightTolerance=.42f,colorTolerance=35.f;
+ bool operator==(const SubtitleStyleProfile&)const=default;
+};
+struct SubtitleOcrLine {
+ std::array<float,4> rect{};float confidence=0;int reason=0;std::string text;
+};
+struct SubtitleStyleSample {
+ uint64_t id=0;bool busy=false;SubtitleStyleProfile profile;
+ std::vector<SubtitleOcrLine> lines;std::string text,error;float milliseconds=0;
+};
 
 struct SubtitleSettings {
  bool enabled=false,showRegion=false,showOriginal=false,coverSource=false;
@@ -15,6 +32,7 @@ struct SubtitleSettings {
  int ocrEngine=0; // 0: bundled RapidOCR / PP-OCRv5 English; 1: Windows English OCR
  float holdSeconds=1.2f,lingerSeconds=3.f;
  bool joinFragments=true;
+ SubtitleStyleProfile style;
  bool operator==(const SubtitleSettings&)const=default;
  void sanitize();
  void load(const std::filesystem::path&);
@@ -25,7 +43,7 @@ struct SubtitlePerformance {
  double ocrQueueMs=0,translationMs=0,translationQueueMs=0,displayLatencyMs=0,modelLoadMs=0;
  bool ocrBusy=false,translationBusy=false;
 };
-struct SubtitleSnapshot {std::string source,translated,displaySource,status;float milliseconds=0,ocrMilliseconds=0,confidence=0;double observedAt=0,displayedAt=0,expiresAt=0;uint64_t generation=0;int activeModel=-1,pending=0;bool loading=false;SubtitlePerformance performance;};
+struct SubtitleSnapshot {std::string source,translated,displaySource,status;float milliseconds=0,ocrMilliseconds=0,confidence=0;double observedAt=0,displayedAt=0,expiresAt=0;uint64_t generation=0;int activeModel=-1,pending=0;bool loading=false;SubtitlePerformance performance;std::vector<SubtitleOcrLine> ocrLines;};
 class Diagnostics;
 class SubtitleTranslator {
 public:
@@ -36,6 +54,9 @@ public:
  void setDiagnostics(Diagnostics* recorder); // recorder must outlive this instance
  void submit(const unsigned char* bgra,unsigned w,unsigned h,double captureTime);
  SubtitleSnapshot snapshot(bool paused=false)const;
+ uint64_t requestStyleSample(const unsigned char* bgra,unsigned w,unsigned h,std::array<float,4> word,std::array<float,4> area);
+ SubtitleStyleSample styleSample()const;
+ void cancelStyleSample();
  static bool rapidOcrAvailable(const std::filesystem::path& app);
 private:
  struct Impl;std::unique_ptr<Impl> impl;

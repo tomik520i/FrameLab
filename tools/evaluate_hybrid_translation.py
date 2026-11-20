@@ -65,6 +65,7 @@ def main():
     import sentencepiece
     started = time.perf_counter()
     model_dir = args.translation_root/'model'
+    model_config = json.loads((model_dir/'config.json').read_text(encoding='utf-8'))
     source = sentencepiece.SentencePieceProcessor(model_file=str(model_dir/'source.spm'))
     target = sentencepiece.SentencePieceProcessor(model_file=str(model_dir/'target.spm'))
     cpu = ctranslate2.Translator(str(model_dir),device='cpu',compute_type='int8',inter_threads=1,intra_threads=2)
@@ -77,7 +78,9 @@ def main():
             hints = dictionary.lookup(text)
             prompt = dictionary_prompt(text,hints)
         elif profile=='cpu-draft-v1':
-            tokens = source.encode(text,out_type=str)+['</s>']
+            tokens = source.encode(text,out_type=str)
+            if not model_config.get('add_source_eos', False):
+                tokens.append(model_config.get('eos_token', '</s>'))
             answer = cpu.translate_batch([tokens],beam_size=2,max_decoding_length=192,repetition_penalty=1.1)[0].hypotheses[0]
             draft = target.decode(answer)
             prompt = draft_prompt(text,draft)
@@ -99,6 +102,7 @@ def main():
         manifest.update(runtime=api('/api/version'),model_state=state,warmups=warmups,dictionary_entries=dictionary.entry_count,
             dictionary_headwords=len(dictionary.entries),dictionary_load_ms=dictionary_load_ms,cpu_load_ms=cpu_load_ms,
             cpu_library_version=ctranslate2.__version__,cpu_model_sha256=hashlib.sha256((model_dir/'model.bin').read_bytes()).hexdigest(),
+            cpu_config=model_config,cpu_eos_policy='exactly one; respect add_source_eos',
             cpu_settings=dict(compute_type='int8',inter_threads=1,intra_threads=2,beam_size=2,max_decoding_length=192,repetition_penalty=1.1))
         save(args.output/'manifest.json',manifest)
         orders = list(itertools.permutations(PROFILES))

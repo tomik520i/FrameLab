@@ -1,0 +1,722 @@
+[
+  {
+    "utc": "2026-11-20T12:57:11.071Z",
+    "time_s": 763.1874295,
+    "job_id": 66,
+    "capture_to_display_ms": 2785.8833,
+    "source": "Hey.",
+    "translation": "Ahoj."
+  },
+  {
+    "utc": "2026-11-20T12:57:12.272Z",
+    "time_s": 764.3884649,
+    "job_id": 69,
+    "capture_to_display_ms": 3047.8362,
+    "source": "Happy you made it, my friend.",
+    "translation": "Jsem rád, že jsi to zvládnul, příteli."
+  },
+  {
+    "utc": "2026-11-20T12:57:13.474Z",
+    "time_s": 765.5904452,
+    "job_id": 74,
+    "capture_to_display_ms": 2717.8706,
+    "source": "Just in time, too.",
+    "translation": "A taky právě včas."
+  },
+  {
+    "utc": "2026-11-20T12:57:14.675Z",
+    "time_s": 766.7910546,
+    "job_id": 78,
+    "capture_to_display_ms": 2681.6261,
+    "source": "First trip out since beautiful Juliana came through.",
+    "translation": "První výlet od té doby, co tudy projela krásná Juliana."
+  },
+  {
+    "utc": "2026-11-20T12:57:16.078Z",
+    "time_s": 768.1940044,
+    "job_id": 88,
+    "capture_to_display_ms": 1016.2803,
+    "source": "That hurricane really tore shit up around here.",
+    "translation": "Ten hurikán tady fakt hodně zničil."
+  },
+  {
+    "utc": "2026-11-20T12:57:17.104Z",
+    "time_s": 769.2204786,
+    "job_id": 93,
+    "capture_to_display_ms": 683.7408,
+    "source": "That hurricane really tore shit up around here.",
+    "translation": "Ten hurikán tady fakt hodně zničil."
+  },
+  {
+    "utc": "2026-11-20T12:57:18.305Z",
+    "time_s": 770.4217792,
+    "job_id": 96,
+    "capture_to_display_ms": 958.39,
+    "source": "For real. Around here, and down there.",
+    "translation": "Opravdu. Tady a tam dole."
+  },
+  {
+    "utc": "2026-11-20T12:57:21.785Z",
+    "time_s": 773.9016536,
+    "job_id": 106,
+    "capture_to_display_ms": 1387.7028,
+    "source": "I mean, you could know the shipwrecks like the back of your hand,",
+    "translation": "Myslím, že byste mohl znát vraky lodí jako své boty, ..."
+  },
+  {
+    "utc": "2026-11-20T12:57:24.974Z",
+    "time_s": 777.0906532,
+    "job_id": 116,
+    "capture_to_display_ms": 1411.4899,
+    "source": "I mean, you could know the shipwrecks like the back of your hand, but when that ocean moves..",
+    "translation": "Můžeš znát vraky lodí jako své boty, ale když se oceán pohne..."
+  },
+  {
+    "utc": "2026-11-20T12:57:27.203Z",
+    "time_s": 779.3193188,
+    "job_id": 124,
+    "capture_to_display_ms": 1035.0952,
+    "source": "They change completely.",
+    "translation": "Úplně se změní."
+  },
+  {
+    "utc": "2026-11-20T12:57:28.937Z",
+    "time_s": 781.052932,
+    "job_id": 129,
+    "capture_to_display_ms": 1243.6945,
+    "source": "There are endless things to find, if you know when to look.",
+    "translation": "Je tu nekonečně věcí, které můžete najít, když víte, kde hledat."
+  },
+  {
+    "utc": "2026-11-20T12:57:33.359Z",
+    "time_s": 785.4755542,
+    "job_id": 144,
+    "capture_to_display_ms": 1039.8031,
+    "source": "I already have a good dive location in mind,",
+    "translation": "Už mám na mysli jedno dobré místo k potápění, ..."
+  },
+  {
+    "utc": "2026-11-20T12:57:35.569Z",
+    "time_s": 787.6851,
+    "job_id": 150,
+    "capture_to_display_ms": 1402.6505,
+    "source": "I already have a good dive location in mind, but Bancroft will be down there checkin' the wrecks too,",
+    "translation": "Už mám na mysli jedno dobré místo k potápění, ale Bancroft tam bude taky a bude kontrolovat vraky..."
+  },
+  {
+    "utc": "2026-11-20T12:57:38.464Z",
+    "time_s": 790.5798568,
+    "job_id": 159,
+    "capture_to_display_ms": 1535.8877,
+    "source": "I already have a good dive location in mind, but Bancroft will be down there checkin' the wrecks too, so it's too risky for me to dive with you.",
+    "translation": "Už mám na mysli jedno dobré místo k potápění, ale Bancroft bude dole taky kontrolovat vraky, takže je pro mě příliš riskantní potápět se s tebou."
+  },
+  {
+    "utc": "2026-11-20T12:57:41.855Z",
+    "time_s": 793.9710958,
+    "job_id": 173,
+    "capture_to_display_ms": 646.4791,
+    "source": "Sir Todd Bancroft",
+    "translation": "Sir Todd Bancroft..."
+  },
+  {
+    "utc": "2026-11-20T12:57:43.770Z",
+    "time_s": 795.8863386,
+    "job_id": 179,
+    "capture_to_display_ms": 724.2968,
+    "source": "This rich English asshole.",
+    "translation": "Tenhle bohatý anglický debil."
+  },
+  {
+    "utc": "2026-11-20T12:57:46.317Z",
+    "time_s": 798.4329818,
+    "job_id": 187,
+    "capture_to_display_ms": 780.3095,
+    "source": "Calls himself 'the ultimate explorer.",
+    "translation": "Sám sebe nazývá \"největším průzkumníkem\"."
+  },
+  {
+    "utc": "2026-11-20T12:57:49.109Z",
+    "time_s": 801.2249293,
+    "job_id": 196,
+    "capture_to_display_ms": 794.909,
+    "source": "He's got the permits for every wreck around here.",
+    "translation": "Má povolení na všechny vraky v okolí."
+  },
+  {
+    "utc": "2026-11-20T12:57:52.214Z",
+    "time_s": 804.3302461,
+    "job_id": 206,
+    "capture_to_display_ms": 836.9769,
+    "source": "Not to mention, that little cyat ratted me out.",
+    "translation": "Nemluvě o tom, že mě ten malý kocour prásknul."
+  },
+  {
+    "utc": "2026-11-20T12:57:55.544Z",
+    "time_s": 807.6607292,
+    "job_id": 216,
+    "capture_to_display_ms": 1086.362,
+    "source": "Now, I can only go out with a cover.",
+    "translation": "Teď můžu jít ven jen s krycím příběhem."
+  },
+  {
+    "utc": "2026-11-20T12:57:58.423Z",
+    "time_s": 810.5390066,
+    "job_id": 226,
+    "capture_to_display_ms": 870.3231,
+    "source": "What's the cover?",
+    "translation": "Jaké je krytí?"
+  },
+  {
+    "utc": "2026-11-20T12:57:59.648Z",
+    "time_s": 811.7639622,
+    "job_id": 229,
+    "capture_to_display_ms": 1142.6599,
+    "source": "Ahoy, bitches!",
+    "translation": "Ahoj, děvky!"
+  },
+  {
+    "utc": "2026-11-20T12:58:01.551Z",
+    "time_s": 813.667074,
+    "job_id": 236,
+    "capture_to_display_ms": 799.4174,
+    "source": "Let's go ye scallywaggers!",
+    "translation": "Jdeme, vy darebáci!"
+  },
+  {
+    "utc": "2026-11-20T12:58:03.429Z",
+    "time_s": 815.5453423,
+    "job_id": 242,
+    "capture_to_display_ms": 819.4739,
+    "source": "Oh, man, I'm gonna throw up.",
+    "translation": "Oh, chlape, asi budu zvracet."
+  },
+  {
+    "utc": "2026-11-20T12:58:04.630Z",
+    "time_s": 816.7465651,
+    "job_id": 245,
+    "capture_to_display_ms": 1089.879,
+    "source": "Hey. you boys ready?",
+    "translation": "Hej. Jste připraveni, kluci?"
+  },
+  {
+    "utc": "2026-11-20T12:58:05.831Z",
+    "time_s": 817.9475248,
+    "job_id": 249,
+    "capture_to_display_ms": 1046.9102,
+    "source": "Hell yeah!",
+    "translation": "Sakra jo!"
+  },
+  {
+    "utc": "2026-11-20T12:58:07.032Z",
+    "time_s": 819.1482837,
+    "job_id": 253,
+    "capture_to_display_ms": 1015.5032,
+    "source": "Dude, stop yelling.",
+    "translation": "Kámo, přestaň křičet."
+  },
+  {
+    "utc": "2026-11-20T12:58:08.234Z",
+    "time_s": 820.3503585,
+    "job_id": 255,
+    "capture_to_display_ms": 1592.6792,
+    "source": "Those suits okay for you?",
+    "translation": "Jsou ty obleky v pořádku?"
+  },
+  {
+    "utc": "2026-11-20T12:58:09.440Z",
+    "time_s": 821.5565916,
+    "job_id": 259,
+    "capture_to_display_ms": 1568.6532,
+    "source": "You got one with a smaller crotch for this guy?",
+    "translation": "Máš pro něj nějakou s menším rozkrokem?"
+  },
+  {
+    "utc": "2026-11-20T12:58:10.923Z",
+    "time_s": 823.0388674,
+    "job_id": 266,
+    "capture_to_display_ms": 904.0026,
+    "source": "Clearly she's just marrying him for the money.",
+    "translation": "Očividně si ho bere jen kvůli penězům."
+  },
+  {
+    "utc": "2026-11-20T12:58:12.953Z",
+    "time_s": 825.0695356,
+    "job_id": 273,
+    "capture_to_display_ms": 791.6094,
+    "source": "This is Jason.",
+    "translation": "Tohle je Jason."
+  },
+  {
+    "utc": "2026-11-20T12:58:15.320Z",
+    "time_s": 827.4367112,
+    "job_id": 281,
+    "capture_to_display_ms": 701.7515,
+    "source": "He's going to be diving with you today.",
+    "translation": "Bude s vámi dnes potápět."
+  },
+  {
+    "utc": "2026-11-20T12:58:16.586Z",
+    "time_s": 828.7021349,
+    "job_id": 285,
+    "capture_to_display_ms": 734.1429,
+    "source": "S'up, I'm Kyle.",
+    "translation": "Ahoj, já jsem Kyle."
+  },
+  {
+    "utc": "2026-11-20T12:58:18.275Z",
+    "time_s": 830.3910908,
+    "job_id": 290,
+    "capture_to_display_ms": 892.9276,
+    "source": "Dobbs, best man.",
+    "translation": "Dobbsi, nejlepší muž."
+  },
+  {
+    "utc": "2026-11-20T12:58:19.476Z",
+    "time_s": 831.5922465,
+    "job_id": 294,
+    "capture_to_display_ms": 881.5277,
+    "source": "Yeah, more like worst man.",
+    "translation": "Jo, spíš nejhorší muž."
+  },
+  {
+    "utc": "2026-11-20T12:58:22.854Z",
+    "time_s": 834.9700432,
+    "job_id": 303,
+    "capture_to_display_ms": 1501.7323,
+    "source": "Let's go, limpdick. This shit cost us like two grand.",
+    "translation": "Pojď, ty impotente. Tahle sračka nás stála dva tácy."
+  },
+  {
+    "utc": "2026-11-20T12:58:25.410Z",
+    "time_s": 837.5261561,
+    "job_id": 313,
+    "capture_to_display_ms": 865.7157,
+    "source": "Really? Fuck.",
+    "translation": "Vážně? Kurva."
+  },
+  {
+    "utc": "2026-11-20T12:58:26.624Z",
+    "time_s": 838.740083,
+    "job_id": 316,
+    "capture_to_display_ms": 1158.7826,
+    "source": "It's a beautiful day, boys. You're going to swim the reef,",
+    "translation": "Je krásný den, chlapci. Půjdete si zaplavat k útesu, ..."
+  },
+  {
+    "utc": "2026-11-20T12:58:29.367Z",
+    "time_s": 841.4828284,
+    "job_id": 325,
+    "capture_to_display_ms": 1135.5266,
+    "source": "It's a beautiful day, boys. You're going to swim the reef, check out a shipwreck.",
+    "translation": "Je krásný den, chlapci. Půjdete si zaplavat u útesu, podívat se na vrak lodi."
+  },
+  {
+    "utc": "2026-11-20T12:58:30.570Z",
+    "time_s": 842.6864529,
+    "job_id": 328,
+    "capture_to_display_ms": 1415.1221,
+    "source": "It's gonna be a good time.",
+    "translation": "Bude to fakt dobrá zábava."
+  },
+  {
+    "utc": "2026-11-20T12:58:31.771Z",
+    "time_s": 843.8869353,
+    "job_id": 332,
+    "capture_to_display_ms": 1369.7542,
+    "source": "Okay, just point us to the cooler, my guy.",
+    "translation": "Dobře, jen nás nasměruj k chladničce, kámo."
+  },
+  {
+    "utc": "2026-11-20T12:58:34.415Z",
+    "time_s": 846.5309308,
+    "job_id": 342,
+    "capture_to_display_ms": 957.5783,
+    "source": "I need another beer.",
+    "translation": "Potřebuju další pivo."
+  },
+  {
+    "utc": "2026-11-20T12:58:35.616Z",
+    "time_s": 847.7318446,
+    "job_id": 346,
+    "capture_to_display_ms": 928.0021,
+    "source": "Oh man.",
+    "translation": "Oh, chlape."
+  },
+  {
+    "utc": "2026-11-20T12:58:47.382Z",
+    "time_s": 859.4986325,
+    "job_id": 385,
+    "capture_to_display_ms": 701.044,
+    "source": "You still with it, brother?",
+    "translation": "Jsi pořád s náma, brácho?"
+  },
+  {
+    "utc": "2026-11-20T12:58:49.348Z",
+    "time_s": 861.4639896,
+    "job_id": 391,
+    "capture_to_display_ms": 821.2591,
+    "source": "You gonna get us there or what?",
+    "translation": "Tak dostaneš nás tam nebo ne?"
+  },
+  {
+    "utc": "2026-11-20T12:58:50.991Z",
+    "time_s": 863.1068732,
+    "job_id": 396,
+    "capture_to_display_ms": 911.4055,
+    "source": "Yeah, don't leave us hanging, bruh!",
+    "translation": "Jo, nenechávej nás čekat, brácho!"
+  },
+  {
+    "utc": "2026-11-20T12:58:53.304Z",
+    "time_s": 865.42019,
+    "job_id": 404,
+    "capture_to_display_ms": 790.0718,
+    "source": "Let's get this road on the show..",
+    "translation": "Pojďme tuhle cestu dostat do show."
+  },
+  {
+    "utc": "2026-11-20T12:58:55.019Z",
+    "time_s": 867.1348706,
+    "job_id": 410,
+    "capture_to_display_ms": 655.6124,
+    "source": "Show on the road.",
+    "translation": "Ukaž se na silnici."
+  },
+  {
+    "utc": "2026-11-20T12:58:56.219Z",
+    "time_s": 868.3350139,
+    "job_id": 412,
+    "capture_to_display_ms": 1241.4023,
+    "source": "I fuckin' know, bro, I was doing opposites!",
+    "translation": "Já to kurva vím, brácho, dělal jsem opak!"
+  },
+  {
+    "utc": "2026-11-20T13:02:55.170Z",
+    "time_s": 1107.286213,
+    "job_id": 1189,
+    "capture_to_display_ms": 643.2718,
+    "source": "Okay. guys, listen here.",
+    "translation": "Dobře, lidi, poslouchejte."
+  },
+  {
+    "utc": "2026-11-20T13:02:56.856Z",
+    "time_s": 1108.972499,
+    "job_id": 1194,
+    "capture_to_display_ms": 793.0589,
+    "source": "Your masks have comms, so you'll be able to talk to each other",
+    "translation": "Vaše masky mají komunikátory, takže budete moci spolu mluvit..."
+  },
+  {
+    "utc": "2026-11-20T13:03:01.077Z",
+    "time_s": 1113.193573,
+    "job_id": 1206,
+    "capture_to_display_ms": 1341.599,
+    "source": "Your masks have comms, so you'll be able to talk to each other but in case something goes wrong.",
+    "translation": "Vaše masky mají komunikátory, takže spolu budete moci mluvit, ale pro případ, že by se něco pokazilo."
+  },
+  {
+    "utc": "2026-11-20T13:03:02.845Z",
+    "time_s": 1114.961415,
+    "job_id": 1214,
+    "capture_to_display_ms": 651.384,
+    "source": "use this hand signal.",
+    "translation": "Použijte tento signál rukou."
+  },
+  {
+    "utc": "2026-11-20T13:03:54.159Z",
+    "time_s": 1166.275283,
+    "job_id": 1381,
+    "capture_to_display_ms": 645.367,
+    "source": "This is \"something's wrong\", okay?",
+    "translation": "Tohle je \"něco je špatně\", jasné?"
+  },
+  {
+    "utc": "2026-11-20T13:03:57.159Z",
+    "time_s": 1169.275436,
+    "job_id": 1390,
+    "capture_to_display_ms": 867.5987,
+    "source": "Then you just point to wherever the problem is.",
+    "translation": "Pak jenom ukážete na místo, kde je problém."
+  },
+  {
+    "utc": "2026-11-20T13:03:59.016Z",
+    "time_s": 1171.132558,
+    "job_id": 1397,
+    "capture_to_display_ms": 550.2451,
+    "source": "Oh.",
+    "translation": "Oh."
+  },
+  {
+    "utc": "2026-11-20T13:04:00.218Z",
+    "time_s": 1172.334172,
+    "job_id": 1398,
+    "capture_to_display_ms": 1441.9345,
+    "source": "That's it?",
+    "translation": "To je všechno?"
+  },
+  {
+    "utc": "2026-11-20T13:04:01.423Z",
+    "time_s": 1173.539372,
+    "job_id": 1402,
+    "capture_to_display_ms": 1399.5508,
+    "source": "Yeah, that's it, you're good.",
+    "translation": "Jo, to je ono, jsi dobrá."
+  },
+  {
+    "utc": "2026-11-20T13:04:02.982Z",
+    "time_s": 1175.098425,
+    "job_id": 1410,
+    "capture_to_display_ms": 490.5167,
+    "source": "Okay.",
+    "translation": "Dobře."
+  },
+  {
+    "utc": "2026-11-20T13:04:05.029Z",
+    "time_s": 1177.145404,
+    "job_id": 1416,
+    "capture_to_display_ms": 714.8012,
+    "source": "Don't people need to train for this?",
+    "translation": "Nemusí se na tohle lidé trénovat?"
+  },
+  {
+    "utc": "2026-11-20T13:04:06.230Z",
+    "time_s": 1178.346239,
+    "job_id": 1417,
+    "capture_to_display_ms": 1610.6025,
+    "source": "Don't people need to train for this? bat Charters",
+    "translation": "Nemusí se na tohle lidé trénovat? bat Charters ..."
+  },
+  {
+    "utc": "2026-11-20T13:04:07.431Z",
+    "time_s": 1179.547224,
+    "job_id": 1418,
+    "capture_to_display_ms": 2509.5395,
+    "source": "Don't people need to train for this?",
+    "translation": "Nemusí se na tohle lidé trénovat?"
+  },
+  {
+    "utc": "2026-11-20T13:04:08.639Z",
+    "time_s": 1180.755585,
+    "job_id": 1422,
+    "capture_to_display_ms": 2471.9008,
+    "source": "Yeah, this guy skips all that bullshit, alright?",
+    "translation": "Jo, tenhle chlap přeskočí všechny tyhle kraviny, jasný?"
+  },
+  {
+    "utc": "2026-11-20T13:04:10.098Z",
+    "time_s": 1182.213904,
+    "job_id": 1432,
+    "capture_to_display_ms": 863.8902,
+    "source": "Yeah, I set it up. You're welcome.",
+    "translation": "Jo, zařídil jsem to. Nemáš zač."
+  },
+  {
+    "utc": "2026-11-20T13:04:12.491Z",
+    "time_s": 1184.607327,
+    "job_id": 1440,
+    "capture_to_display_ms": 811.8531,
+    "source": "That's why you sign the waiver, eh?",
+    "translation": "Proto jste podepsal to prohlášení, že?"
+  },
+  {
+    "utc": "2026-11-20T13:04:14.150Z",
+    "time_s": 1186.265832,
+    "job_id": 1446,
+    "capture_to_display_ms": 630.7831,
+    "source": "Ahh.",
+    "translation": "Ahh."
+  },
+  {
+    "utc": "2026-11-20T13:04:15.981Z",
+    "time_s": 1188.097658,
+    "job_id": 1452,
+    "capture_to_display_ms": 621.0321,
+    "source": "Yeah,okay",
+    "translation": "Jo, dobře..."
+  },
+  {
+    "utc": "2026-11-20T13:04:18.926Z",
+    "time_s": 1191.042592,
+    "job_id": 1461,
+    "capture_to_display_ms": 803.9538,
+    "source": "Can we just go quadding, or something?",
+    "translation": "Můžeme prostě jet na čtyřkolce nebo tak něco?"
+  },
+  {
+    "utc": "2026-11-20T13:04:20.318Z",
+    "time_s": 1192.434237,
+    "job_id": 1466,
+    "capture_to_display_ms": 655.6997,
+    "source": "We're doing that tomorrow.",
+    "translation": "To uděláme zítra."
+  },
+  {
+    "utc": "2026-11-20T13:04:21.790Z",
+    "time_s": 1193.905942,
+    "job_id": 1470,
+    "capture_to_display_ms": 887.9924,
+    "source": "Yeah! I brought shrooms and everything",
+    "translation": "Jo! Přinesl jsem houbičky a všechno..."
+  },
+  {
+    "utc": "2026-11-20T13:04:24.840Z",
+    "time_s": 1196.956373,
+    "job_id": 1480,
+    "capture_to_display_ms": 788.4921,
+    "source": "Can we just do one thing sober?",
+    "translation": "Můžeme aspoň jednu věc udělat střízlivě?"
+  },
+  {
+    "utc": "2026-11-20T13:04:26.517Z",
+    "time_s": 1198.633062,
+    "job_id": 1486,
+    "capture_to_display_ms": 616.0612,
+    "source": "Nope.",
+    "translation": "Ne."
+  },
+  {
+    "utc": "2026-11-20T13:04:27.730Z",
+    "time_s": 1199.846196,
+    "job_id": 1487,
+    "capture_to_display_ms": 1522.3215,
+    "source": "Nope. Ah, shut up, man. We're sober right now.",
+    "translation": "Ne. Ah, zmlkni, chlape. Jsme teď střízliví."
+  },
+  {
+    "utc": "2026-11-20T13:04:28.932Z",
+    "time_s": 1201.048192,
+    "job_id": 1490,
+    "capture_to_display_ms": 1781.9115,
+    "source": "Ah, shut up, man. We're sober right now.",
+    "translation": "Ah, zmlkni, chlape. Právě jsme střízliví."
+  },
+  {
+    "utc": "2026-11-20T13:04:30.137Z",
+    "time_s": 1202.253032,
+    "job_id": 1498,
+    "capture_to_display_ms": 520.1426,
+    "source": "Sorry.",
+    "translation": "Promiň."
+  },
+  {
+    "utc": "2026-11-20T13:04:35.255Z",
+    "time_s": 1207.371423,
+    "job_id": 1514,
+    "capture_to_display_ms": 747.4023,
+    "source": "at Charters",
+    "translation": "v Charters ..."
+  },
+  {
+    "utc": "2026-11-20T13:04:36.456Z",
+    "time_s": 1208.572484,
+    "job_id": 1515,
+    "capture_to_display_ms": 1644.5019,
+    "source": "How you-doing-up here?",
+    "translation": "Jak se tady nahoře máš?"
+  },
+  {
+    "utc": "2026-11-20T13:04:37.669Z",
+    "time_s": 1209.785294,
+    "job_id": 1519,
+    "capture_to_display_ms": 1628.4555,
+    "source": "Great. I think-l got it under control.",
+    "translation": "Skvělé. Myslím, že to mám pod kontrolou."
+  },
+  {
+    "utc": "2026-11-20T13:04:38.870Z",
+    "time_s": 1210.986265,
+    "job_id": 1522,
+    "capture_to_display_ms": 1883.7669,
+    "source": "Great. I think l got it under control.",
+    "translation": "Myslím, že to mám pod kontrolou."
+  },
+  {
+    "utc": "2026-11-20T13:04:40.071Z",
+    "time_s": 1212.187292,
+    "job_id": 1527,
+    "capture_to_display_ms": 1535.6679,
+    "source": "Nice, listen.",
+    "translation": "Hezky, poslouchej."
+  },
+  {
+    "utc": "2026-11-20T13:04:41.357Z",
+    "time_s": 1213.47344,
+    "job_id": 1533,
+    "capture_to_display_ms": 975.3449,
+    "source": "When we get to this spot,",
+    "translation": "Až se dostaneme na tohle místo, ..."
+  },
+  {
+    "utc": "2026-11-20T13:04:43.543Z",
+    "time_s": 1215.659566,
+    "job_id": 1540,
+    "capture_to_display_ms": 989.9583,
+    "source": "When we get to this spot, you take them through the trench and over to the wreck.",
+    "translation": "Až se dostaneme na tohle místo, vezmeš je přes příkop k vraku."
+  },
+  {
+    "utc": "2026-11-20T13:04:44.744Z",
+    "time_s": 1216.860112,
+    "job_id": 1544,
+    "capture_to_display_ms": 969.4684,
+    "source": "you take them through-the trench-and over to the wreck.",
+    "translation": "Vezmete je přes zákop až k vraku."
+  },
+  {
+    "utc": "2026-11-20T13:04:45.944Z",
+    "time_s": 1218.060253,
+    "job_id": 1546,
+    "capture_to_display_ms": 1557.0657,
+    "source": "you take them through the trench and over to the wreck.",
+    "translation": "Vezmete je přes příkop až k vraku."
+  },
+  {
+    "utc": "2026-11-20T13:04:47.154Z",
+    "time_s": 1219.270472,
+    "job_id": 1552,
+    "capture_to_display_ms": 928.6866,
+    "source": "I don't give a shit what they do,",
+    "translation": "Je mi u prdele, co dělají, ..."
+  },
+  {
+    "utc": "2026-11-20T13:04:49.808Z",
+    "time_s": 1221.924558,
+    "job_id": 1560,
+    "capture_to_display_ms": 1122.6707,
+    "source": "I don't give a shit what they do, but you... start searching, right?",
+    "translation": "Je mi u prdele, co dělají, ale ty... začni hledat, jasný?"
+  },
+  {
+    "utc": "2026-11-20T13:04:52.208Z",
+    "time_s": 1224.324518,
+    "job_id": 1569,
+    "capture_to_display_ms": 756.3746,
+    "source": "Yeah. I got you.",
+    "translation": "Jo, mám tě."
+  },
+  {
+    "utc": "2026-11-20T13:04:55.975Z",
+    "time_s": 1228.091081,
+    "job_id": 1581,
+    "capture_to_display_ms": 818.6373,
+    "source": "I hope we see a killer whale down there.",
+    "translation": "Doufám, že tam dole uvidíme kosatku."
+  },
+  {
+    "utc": "2026-11-20T13:04:58.748Z",
+    "time_s": 1230.863908,
+    "job_id": 1588,
+    "capture_to_display_ms": 1446.7773,
+    "source": "I hope we see a killer whale down there. Wait, they're in-this part of the water too?",
+    "translation": "Doufám, že tam dole uvidíme kosatku. Počkej, oni jsou I v téhle části vody?"
+  },
+  {
+    "utc": "2026-11-20T13:04:59.961Z",
+    "time_s": 1232.077078,
+    "job_id": 1590,
+    "capture_to_display_ms": 2029.1341,
+    "source": "Wait, they're in this part of the water too?",
+    "translation": "Počkej, oni jsou I v téhle části vody?"
+  }
+]

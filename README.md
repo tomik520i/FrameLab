@@ -1,159 +1,73 @@
 # FrameLab
 
-**Also in preview.14:** [open your own video/movie](START_HERE.md#your-own-video-or-movie) with audio and playback controls; [1–4 sequential NR passes](docs/enhancer-install.en.md#nr-passes-start-at-one), independent of the FG multiplier.
+Capture card or video → NVIDIA GPU → your display. An experimental Windows app for frame generation, optional neural enhancement and local English-to-Czech subtitles.
 
-**[CUNI Q3 vs Q8 on RTX 5070 Ti: speed, memory and all 300 translations](https://opicebot.cz/framelab/translation/)**
+**[Download preview.15](https://github.com/tomik520i/FrameLab/releases/download/v0.2.0-preview.15/FrameLab-0.2.0-preview.15-windows-x64-full.zip) · [Website & comparisons](https://opicebot.cz/framelab/) · [Česky](docs/README.cs.md)**
 
-**Preview.14: [Download the complete Windows app](https://github.com/tomik520i/FrameLab/releases/download/v0.2.0-preview.14/FrameLab-0.2.0-preview.14-windows-x64-full.zip) · [Česká instalace krok za krokem](INSTALL.cs.md) · [English installation](START_HERE.md) · [All release files](https://github.com/tomik520i/FrameLab/releases/tag/v0.2.0-preview.14)**
+![FrameLab preview.15](docs/images/preview15/app.png)
 
-English-picture subtitles → local Czech overlay, now with optional CUNI Q3/Q5/Q8 GPU models, resumable downloads and independently draggable placement. Neural OCR is bundled and works without installing Windows language features. Q5 download integrity and GPU loading were checked; no quality or speed benchmark was run. [English subtitle setup](docs/subtitle-model-guide.md) · [Český návod titulků](docs/subtitle-model-guide.cs.md). Both gameplay clips and monitor/display controls are included. The release ZIP includes the model, Python, NVIDIA VFG, export tools and licenses. NR adapter and import wizard are included. External NR DLLs require a separate community download; [Czech setup](docs/enhancer-install.cs.md) / [English setup](docs/enhancer-install.en.md) give exact links, steps and licensing limits. The website provides the same complete preview.14 download and shows [real enhancer comparisons](https://opicebot.cz/framelab/#enhancer).
+![Original versus recorded 2× FG, four times slower](docs/images/preview15/gta-2x-slow.gif)
 
-[Website / downloads](https://opicebot.cz/framelab/) · [Česky / Czech guide](docs/README.cs.md) · [Start here](START_HERE.md) · [2× comparison](examples/82183953/README.md) · [3× comparison](examples/112947656/README.md) · [3× combat](examples/113768562/README.md) · [4× artifacts](examples/84744531/README.md) · [Test system / GPU load](docs/test-system.md)
+Three seconds of the same GTA camera movement, played over twelve seconds. The right side contains the app's recorded generated images; no new interpolation was added during export. [MP4](https://opicebot.cz/framelab/media/gta-2x-slow.mp4) · [Frame IDs, settings and analysis](examples/2026-11-20/README.md).
 
-**Capture device → GPU frame interpolation → monitor.** Experimental Windows desktop application, independent of the connected console, camera or second PC. The complete preview.14 ZIP starts in English; select **EN / CZ** for Czech. A source-only build defaults to English. Driver messages and technical diagnostics remain in English.
+## What it does
 
-![FrameLab live capture, frame comparison and telemetry](docs/images/framelab-preview9-ui.png)
+- **Frame generation:** NVIDIA VFG or a separate Optical Flow backend, 2× / 3× / 4×. Start at 2×; higher multipliers can produce severe artifacts. This is video interpolation without game motion vectors, not in-engine DLSS.
+- **Optional NR enhancement:** same-frame original/enhanced comparison, strength, processing limit and 1–4 sequential passes. [External runtime setup](docs/enhancer-install.en.md).
+- **Local Czech captions:** bundled neural OCR and CPU translation; optional CUNI Q3/Q5/Q8 downloads. Select one subtitle word to learn color/size, mark the reading area and save named profiles.
+- **Capture or your own movie:** separate resolution/FPS controls; MP4/MKV playback with audio and subtitle track selection through bundled LibVLC.
+- **Full pipeline recording:** input, generated images, before/after enhancement and final image with captions, linked by IDs. Playable clips, SRT and settings JSON; incomplete takes are labeled.
+- **Debug & measurement:** timestamped FPS, CPU/GPU load, queues, timings, OCR, translations and settings until logging is stopped. Fullscreen, audio routing, monitor controls and English/Czech UI.
 
-*Preview.9 interface with replayed RAW gameplay. Its counters describe this layout preview, not a live performance benchmark. Capture, frame gen, audio, recording and detailed statistics have separate tabs.*
+## Start
 
-**Same movement, extra frames on the right.** RAW versus NVIDIA VFG 2×, slowed 6× — one second of gameplay stretched to six.
+1. Download the **full Windows x64 ZIP** and **extract all** into a writable folder.
+2. Run **Start FrameLab.cmd**. A clean installation opens the GTA demo; later launches restore the saved session. No compiler, Python or SDK installation is needed.
+3. Open **Capture** for your card or **Open video…** for a file. Begin with **2×** in Frame gen. **F11** opens fullscreen.
 
-![Slow-motion comparison: original capture on the left, NVIDIA VFG 2x on the right](docs/images/framelab-2x-slow-comparison.gif)
+**[English step-by-step guide](START_HERE.md) · [Česká instalace](INSTALL.cs.md) · [Illustrated guide](https://opicebot.cz/framelab/guide/en.html)**
 
-*Timing is aligned to the source, so processing delay is removed. [Full video](https://github.com/tomik520i/FrameLab/releases/download/v0.2.0-preview.6/analysis-15s-82183953_source-aligned_3s_4x-slow.mp4) · [Settings and artifacts](examples/82183953/README.md) · [GIF frame mapping](docs/images/framelab-2x-slow-comparison.json)*
+VFG, neural OCR, CPU translation, media codecs and export tools are bundled. GPU translation models download inside the app. External NR DLLs are **not bundled or mirrored** because redistribution permission has not been established. The [import wizard and exact links](docs/enhancer-install.en.md) are included.
 
-**New: original versus 3×, slowed 6×.** Recorded 1080p gameplay, NVIDIA VFG Medium.
+## Real captures, including the limits
 
-![Slow-motion comparison: original capture versus NVIDIA VFG 3x](docs/images/framelab-3x-slow-comparison.gif)
+The new [GTA evidence set](examples/2026-11-20/README.md) includes settings, frame mappings, native PNG crops, full usable clips, Czech SRTs and sanitized debug data.
 
-*Source-time alignment removes processing delay; this GIF is not a monitor-FPS or latency measurement. [Full video](https://github.com/tomik520i/FrameLab/releases/download/v0.2.0-preview.7/analysis-15s-112947656_source-aligned_3s_4x-slow.mp4) · [3× analysis and artifacts](examples/112947656/README.md) · [GIF frame mapping](docs/images/framelab-3x-slow-comparison.json). This take is 1080p; the 2× example above is a different 1440p gameplay run.*
+| 2560 × 1440 camera take, FG 2× Medium | Over 15 seconds |
+|---|---:|
+| Input images with changed RGB pixels | 29.33/s |
+| Generated images recorded | 29.20/s |
+| Complete A / generated / B pairs checked | 437 |
+| Generated images identical to an endpoint | 0 / 437 |
+| Distinct images submitted by the app | 52.07/s |
 
-## Download and start
+The generated pixels really differ. That alone does not prove correct motion: inspect edges, HUD and occlusions. This recording did **not** sustain 60 distinct submitted images/s. Submitted frames and DXGI counters do not measure physical monitor scanout or controller-to-photon latency.
 
-1. Download the **[complete Windows x64 ZIP](https://github.com/tomik520i/FrameLab/releases/download/v0.2.0-preview.14/FrameLab-0.2.0-preview.14-windows-x64-full.zip)** from [preview.14](https://github.com/tomik520i/FrameLab/releases/tag/v0.2.0-preview.14). GitHub's automatic **Source code** download is not a runnable package.
-2. Right-click → **Extract all**, then open **1 - Spustit FrameLab.cmd**. The bundled CS:GO video plays immediately; no capture card is needed for the demo.
-3. Use **2 - NVIDIA RTX 40-50.cmd** for VFG 2×, or **3 - Optical Flow.cmd** for the alternative. **Capture / Vstup** contains Spider-Man and a separate artificial subtitle demo.
+![Native detail before/after enhancement](docs/images/preview15/gta-enhancer-crop.png)
 
-No Python/pip/model/SDK/compiler installation is required. Keep every folder together. Windows x64 and compatible installed GPU/capture drivers are required. Neural English OCR and the CPU translator are included and work offline. Windows OCR is an optional fallback; only that engine needs a separate Windows language capability.
+[Two enhancer takes](https://opicebot.cz/framelab/#enhancer) compare the **same output ID**, at 1440p, one pass, 100% strength, motion estimation on. One is complete; the other has a **12.28-second** complete prefix. Changed detail is not automatically more faithful detail.
 
-**[Complete installation, controls and troubleshooting](START_HERE.md)** · **[Český návod](INSTALL.cs.md)** · [Component licenses/provenance](docs/runtime-distribution.md). The website and GitHub provide the same complete preview.14 package.
+![Actual Czech overlay](docs/images/preview15/gta-captions.png)
 
-## Illustrated setup and fullscreen guides
+[Three caption takes](https://opicebot.cz/framelab/#subtitles) retain the actual Q5 translations, including mistakes. Complete prefixes: **6.61, 3.70 and 3.46 seconds**. Missing frames or words were not reconstructed. Preview.15 fixes the aggressive GPU-readback timeout that stopped these recordings; memory/disk still limits recording length.
 
-[Česky: obrazový návod](https://opicebot.cz/framelab/guide/visual.html) · [English illustrated guide](https://opicebot.cz/framelab/guide/visual-en.html). Real Windows screenshots with separate numbered annotations cover download, extraction, both games, VFG, graphical NR import, same-frame comparison and local Czech subtitles. Images appear beside the existing text guides and are included offline as **OBRAZOVY NAVOD.html / VISUAL GUIDE.html**. The same CZ/EN guides are online and offline. [Clean fullscreen](https://opicebot.cz/framelab/guide/fullscreen.html) automatically hides all comparison views, controls, labels and the OCR outline; the cursor hides after two idle seconds. No external NR model DLLs are bundled.
+## Performance and focus
 
-## New in preview.14
+**RTX 5070 Ti 16 GB, Ryzen 9 5900X, 64 GB RAM, Windows 11 Pro, AVerMedia GC573**, 2560 × 1440 / 165 Hz monitor, driver 617.14. The user's mixed 20-minute session contains setup, gameplay, recording and export. Median OCR: **333 ms**; capture-to-Czech-caption: **958 ms**; NR worker: **5.83 ms**. These stages overlap and must not be added. [Methodology and data](examples/2026-11-20/README.md).
 
-- **Bundled neural OCR:** RapidOCR with PP-OCRv4 detection and PP-OCRv5 English recognition. No Windows OCR installation is needed for the default engine.
-- **Readable delayed subtitles:** independent reading time while the next line translates; optional split-sentence joining reduces the observed Q3 invented continuation. It cannot guarantee correct translation.
-- **Optional Q5_K_M:** 5.13 GB download, hash-verified. Q5 loaded on the owner’s RTX 5070 Ti; quality and speed are **not benchmarked**.
-- [OCR comparison, timing and limitations](docs/subtitle-ocr.md).
+A controlled replay with FG 2× + NR gave **53.81 submitted FPS foreground, 52.93 behind a maximized window, 54.82 fullscreen**. Severe focus-related loss was not reproduced. Subtitles were off in this isolation test. A process-local timer/QoS experiment gave no material improvement and remains **off by default**. [Measurements](examples/2026-11-20/focus/summary.json).
 
-### Retained from preview.13
+## Documentation
 
-- **Sharper Czech subtitles:** dedicated font raster sizes for output resolutions up to 4K, drawn after enhancement instead of enlarging the 17px UI font.
-- **Clean fullscreen:** F11 shows one final processed image with enabled subtitles. Preview comparisons and frozen comparison state are automatically removed from the fullscreen output. Esc/F11 returns to settings; the selected comparison remains available in the window.
-- **Draggable NR comparison:** drag the split divider directly in the settings preview; F8 freezes a matching pair. Fullscreen always displays the final enhanced image at the configured strength when NR is enabled.
-- **Illustrated guides:** actual Windows screenshots, numbered arrows, zoomable images and a dedicated fullscreen walkthrough, all bundled offline in Czech and English.
+- [Release notes](docs/release-notes-preview15.md), [build/package](docs/build-preview15.md)
+- [OCR profiles](docs/subtitle-ocr.md), [subtitle models](docs/subtitle-model-guide.md), [movies and tracks](docs/local-video.md)
+- [Recording](docs/pipeline-recording.md), [debug](docs/debug-measurement.md), [translation experiments](https://opicebot.cz/framelab/translation/)
+- [Third-party notices](THIRD_PARTY_NOTICES.md), [runtime distribution](docs/runtime-distribution.md), [sample provenance](docs/sample-provenance.md), [TODO](docs/TODO.md)
 
-### Also included
+Windows x64 and a compatible GPU/driver are required. VFG targets RTX 40/50; Optical Flow is a separate path for other suitable hardware. Actual device support and performance vary. Delivered capture dimensions are displayed; source HDMI timing is not reported by this API. Older Spider-Man 3×/4× examples remain in the repository's historical evidence and releases.
 
-The native Windows title bar now matches FrameLab's dark colors on Windows 11, preserving standard window controls, resizing and Snap. Older Windows versions fall back to supported system styling.
+## Support
 
-- **Subtitles / Titulky:** Bundled RapidOCR reads a selectable English subtitle region; Windows OCR remains an optional fallback. Use the bundled OPUS-MT CPU translator or download CUNI-MH Q3/Q5/Q8 in the app. Drag Czech text and its background independently, place it above/below the original, and keep multiline captions within the visible window even in cropped views. No STT, microphone, cloud or API key. [Setup and models](docs/subtitle-model-guide.md).
-- **Bundled tests:** CS:GO 1080p60, Spider-Man 540p60, and a clearly labeled artificial OCR test. Both gameplay clips are three-second loops, not full games. [Sources and content rights](docs/sample-provenance.md).
-- **Display / Zobrazení:** monitor selection, window sizes, fit/fill/1:1 and fullscreen. Capture resolution/FPS follow driver modes; display controls do not change Windows refresh rate.
-- **NR ready, without NR model DLLs:** the executable, SDK-free adapter and import wizard are bundled. Run `4 - Doplnit enhancer.cmd` or AI / NR → Set up / check enhancer. Exact external download, hash-checked import, source notices and troubleshooting: [NR setup](docs/enhancer-install.en.md). External hosting does not grant usage/redistribution rights. VFG remains a separate bundled feature.
+**[Donate through my Opicebot portal](https://opicebot.cz/?public=prdelniopice&donation2=prdelniopice)** — the donation page is **Czech only**, with PayPal support in **CZK**.
 
-Pipeline: capture/video → selected frame-generation backend → optional NR enhancement → Czech overlay → display. More processing can add latency/drop frames; it does not guarantee multiplied display FPS.
-
-## Backends
-
-| Backend | Intended GPU support | Status |
-| --- | --- | --- |
-| NVIDIA Video Frame Generation (Maxine) | Windows Ada / Blackwell, including GeForce RTX 40 / 50 | Tested on RTX 5070 Ti and RTX 4050 Laptop |
-| D3D11 Optical Flow | NVIDIA GPUs with Direct3D feature level 11 / Shader Model 5, including RTX 20 / 30 / 40 / 50 | Experimental block matching + motion warping; tested on RTX 5070 Ti and RTX 4050 Laptop |
-| Native preview | NVIDIA Direct3D 11 adapter | No interpolation |
-
-Optical Flow does not require CUDA runtime DLLs or NVIDIA AI models at runtime. It is **not DLSS, NVIDIA Optical Flow SDK, or equivalent in quality to the Maxine model**. It can smear edges, ghost occlusions and fail on fast motion / scene cuts. Maxine support is defined by [NVIDIA's VFG documentation](https://docs.nvidia.com/maxine/vfx/latest/Filters/VideoFrameGeneration.html), not the availability of DLSS in a game. No measured RTX 20/30 performance is claimed.
-
-## Run
-
-Launch `Start FrameLab.cmd`. Choose a **Source**, **Resolution**, **Capture FPS**, audio **Output**, and **Start capture**. Enable **Frame generation**, select the backend, start with **2× / Medium**. Quality and automatic cut detection apply to NVIDIA only. 3×/4× are experimental and can amplify artifacts.
-
-Resolution and capture FPS are separate. **Automatic (device)** leaves the choice to the driver; it does not detect HDMI wire timings. Choose an explicit resolution to request FPS. FPS options include advertised defaults and common rates inside `MinFrameInterval` / `MaxFrameInterval`; a range is not a guarantee that every value is supported. The driver can reject or round requests. FrameLab reads `GetFormat` after negotiation and separately shows measured callback FPS. No global 60-FPS output cap is introduced by capture selection.
-
-On the local GC573 driver, the capability ranges reach 4K60, 1440p144, 1080p240, and 3440×1440 at 100 FPS. These are driver reports, not hardware tests with high-refresh source signals. Input frame changes still determine interpolation cadence; a 40-FPS game captured at 120 Hz remains approximately 40 unique FPS.
-
-Resolutions list their aspect ratio: 16:9, 16:10, 4:3, ultrawide or any other dimensions the driver advertises. 3440×1440 is exactly 43:18 (commonly marketed as 21:9). Preview and fullscreen preserve the delivered pixel aspect ratio without stretching. 4K is native capture dimensions, not AI upscaling. Raw/generated diagnostics retain the capture dimensions.
-
-The FPS negotiation follows [Microsoft's documented procedure](https://learn.microsoft.com/en-us/windows/win32/directshow/configure-the-video-output-format): set `AvgTimePerFrame`, call `SetFormat`, then query the actual format.
-
-Any DirectShow source convertible by the installed graph to BGRA8 may work; this is not a promise of every card, compressed format or network source. Only AVerMedia GC573 has been locally exercised so far. No HDR pipeline or HDCP bypass is implemented. Move the window to the desired monitor; **F11** shows only the main image and **Escape** returns. HDMI passthrough from the capture card does not contain generated frames.
-
-Audio routes to the selected DirectSound output. Volume, mute and output persist. Audio latency and A/V synchronization are not measured. Close other programs holding the capture device.
-
-## Build
-
-[Complete preview.14 build/package instructions](docs/build-preview14.md). Standard builds include the SDK-free adapter (`FRAMELAB_EXPERIMENTAL_NR=ON`); model DLLs are never fetched during the build.
-
-Windows x64, Visual Studio 2022 C++ Build Tools + Windows SDK, CMake, Python 3.11+ (dependency setup / optional diagnostics). Git is optional for ZIP builds.
-
-```powershell
-.\tools\setup-deps.ps1
-.\build.ps1
-ctest --test-dir build -C Release --output-on-failure
-```
-
-Dependencies are pinned in the setup script. CUDA headers are needed to build the optional NVIDIA implementation, but no CUDA compiler is needed. To run NVIDIA VFG, obtain the matching VFX SDK 1.3 core + VFG feature from [NVIDIA](https://docs.nvidia.com/maxine/vfx/latest/WindowsVFXSDK/InstalltheVFXSDK.html), accept its terms yourself, and import the required runtime DLLs:
-
-```powershell
-.\tools\import-runtime.ps1 -RuntimeDirectory 'C:\path\to\your\runtime'
-```
-
-A source-only build excludes external runtime/model files. The complete release ZIP includes the separate official NVIDIA VFG runtime and the CPU translation model, but no NR runtime. D3D11 Optical Flow works without NVIDIA model DLLs. Missing runtime leaves native preview available with a visible error. The application is unsigned; no security settings are changed.
-
-## Timing and diagnostics
-
-Compute and presentation are separated by a bounded GPU texture queue. A presentation clock spaces content submissions; a late result rebases instead of producing a catch-up burst. This adds buffering latency. Overload can still drop source / output frames; counters are visible. VSync and monitor refresh can limit actual display cadence. No claim of perfect VRR timing or physical monitor FPS is made.
-
-- Input: capture callbacks, including duplicates.
-- Content: changed captured pixels, not the source engine FPS.
-- Output: submitted image IDs, including SDK copy fallbacks; not unique scanout frames.
-- Windows confirmed: observed DXGI display confirmations resolved to raw/generated image IDs. This is a conservative sampled rate; it excludes repeated IDs, but different IDs can contain identical pixels. Missing confirmation data is shown as unavailable. The display's current Windows mode and last confirmed image ID are shown separately. This is not a physical camera measurement.
-- Latency: capture callback to Present return; excludes source rendering, capture hardware buffering and monitor scanout.
-- GPU time: backend GPU work; utilization is whole-device including other apps.
-
-**Record 15 s analysis** buffers raw and generated frames with background **lossless RAM compression**, then writes the original BGRA bytes and exports clips. It preserves every pixel and supports 2×/3×/4× through the same bounded buffer. Preflight leaves 12 GiB for the system and checks estimated disk needs before creating a folder. Incompressible data or slow compression can still fill the budget; the recording then stops with an explicit reason. Playback at 4K does not require that recorder RAM budget. No data is automatically deleted. This diagnostic can affect timing. No audio is recorded. New takes also save sampled Windows image-ID confirmations. The **complete preview.14 bundle includes the clip-export dependencies**; older minimal packages can use `tools/setup-diagnostics.ps1`. See [recording format](docs/recordings.md).
-
-```powershell
-app\FrameLab.exe --verify-core
-app\FrameLab.exe --verify-vfg
-app\FrameLab.exe --verify-vfg --optical
-app\FrameLab.exe --demo --fg --medium --1440 --no-vsync --verify-pacing --seconds 25
-app\FrameLab.exe --demo --fg --optical --1440 --no-vsync --verify-pacing --seconds 25
-```
-
-These synthetic runs do not start an analysis recording. `--verify-pacing` writes lightweight submission timestamps. A source moving at 40 FPS inside 60-Hz capture should not be described as 30→60.
-
-## Examples and distribution
-
-[3× combat: 113768562](examples/113768562/README.md): **1440p with VSync on**, 39.8 changing input images/s → 90.6 submitted/Windows-observed IDs/s, 89.87 known submitted RGB changes/s. Three seconds of fighting slowed to twelve, both kick phases, ghost limbs, distorted aiming reticle and complete settings. [Slowed combat MP4](https://github.com/tomik520i/FrameLab/releases/download/v0.2.0-preview.7/analysis-15s-113768562_source-aligned_3s_4x-slow.mp4). Different resolution, VSync and action from the 1080p take below; not a controlled comparison.
-
-[New 3× gameplay: 112947656](examples/112947656/README.md): 1080p, 40 changing input images/s, 110.8 submitted/Windows-observed IDs/s and 105.6 known RGB changes/s. Includes both 3× phases, ghosting/HUD failure cases, 74 exact endpoint copies, and original settings. This is a different scene and resolution from the older 1440p examples.
-
-[4× artifact example: 84744531](examples/84744531/README.md): severe doubled character contours and background warping. Includes all three generated phases of the same source pair and slow motion. This diagnostic take reached 87.87 submitted IDs/s and 87.80 Windows-confirmed IDs/s; more FPS did not mean clean images. These are different gameplay runs, not a controlled same-input 2×/4× benchmark.
-
-[Test system and normal live GPU load](docs/test-system.md): Ryzen 9 5900X, RTX 5070 Ti, 64 GB RAM, AVerMedia GC573. Measurements are taken during live generation without analysis recording or export.
-
-[3× / 4× tuning experiments](docs/vfg-tuning.md): repeated original-video playback, quality/cut sweeps, native artifact crops and latency measurements. Included in preview.7.
-
-[New measured gameplay comparison: 82183953](examples/82183953/README.md): 15 seconds of 1440p capture, 40 changing source images/s and 80 submitted image IDs/s. Includes a 3-second action segment at 4× slow motion, actual submission timing, full-resolution frames, native-pixel character/HUD crops, settings and failure cases. This is NVIDIA VFG Medium 2×, not the Optical Flow backend. Image-ID counts are not physical monitor FPS or a quality score.
-
-[Existing gameplay example](examples/79277359/README.md) documents a **pre-fix** 15-second take, including visible errors. It is not evidence that the new scheduler or optical backend fixes those images. Compact clips and matched metadata are prepared separately as release assets, not committed as raw pixel dumps. [Release preparation](docs/releasing.md) explains packaging and reproducible comparisons.
-
-GPL-3.0 source. Dependencies retain their own licenses; see [third-party notices](THIRD_PARTY_NOTICES.md). Experimental software, not a production compatibility certification.
-
-## Support development
-
-If you would like to support FrameLab, you can [donate via my Opicebot portal](https://opicebot.cz/?public=prdelniopice&donation2=prdelniopice), which I also use for my Twitch bot. Donations are in **CZK via PayPal**. **The donation page is available in Czech only.** Donations are optional; FrameLab remains free.
+Source: GPL-3.0. Third-party components and game footage retain their own terms. This community experiment is not affiliated with NVIDIA or game publishers.

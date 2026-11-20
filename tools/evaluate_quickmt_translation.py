@@ -80,10 +80,12 @@ def main():
         cpu = ctranslate2.Translator(str(folder), device='cpu', compute_type='int8', inter_threads=1, intra_threads=2)
         source = sentencepiece.SentencePieceProcessor(model_file=str(folder/src))
         target = sentencepiece.SentencePieceProcessor(model_file=str(folder/tgt))
-        models[name] = (cpu, source, target)
+        config = json.loads((folder/'config.json').read_text(encoding='utf-8'))
+        models[name] = (cpu, source, target, config)
         manifest[name] = dict(load_ms=(time.perf_counter()-start)*1000, model_sha256=sha(folder/'model.bin'),
                               compute_type=cpu.compute_type, device=cpu.device,
-                              inter_threads=1, intra_threads=2)
+                              inter_threads=1, intra_threads=2, config=config,
+                              eos_policy='exactly one; respect add_source_eos')
     manifest['cpu_library_version'] = ctranslate2.__version__
     manifest['cpu_decode'] = dict(opus=dict(beam_size=2,max_decoding_length=192,repetition_penalty=1.1),
         quickmt=dict(beam_size='2, or 1 for quickmt-fast',max_decoding_length=256,
@@ -110,9 +112,10 @@ def main():
         cpu_ms = 0.0
         if profile != 'baseline':
             name = 'opus' if profile.startswith('opus') else 'quickmt'
-            cpu, source, target = models[name]
+            cpu, source, target, config = models[name]
             cpu_start = time.perf_counter()
-            tokens = [source.encode(s,out_type=str)+['</s>'] for s in parts]
+            eos = [] if config.get('add_source_eos', False) else [config.get('eos_token', '</s>')]
+            tokens = [source.encode(s,out_type=str)+eos for s in parts]
             settings = (dict(beam_size=2,max_decoding_length=192,repetition_penalty=1.1) if name=='opus' else
                         dict(beam_size=1 if profile=='quickmt-fast' else 2,max_decoding_length=256,
                              repetition_penalty=1.0,disable_unk=True,max_batch_size=32))

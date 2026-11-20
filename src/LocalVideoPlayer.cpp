@@ -1,4 +1,5 @@
 #include "LocalVideoPlayer.hpp"
+#include "VlcRuntime.hpp"
 #include <Windows.h>
 #include <mfapi.h>
 #include <mfidl.h>
@@ -15,6 +16,7 @@
 #include <stdexcept>
 #include <cstdio>
 #include <cmath>
+#include <malloc.h>
 using Microsoft::WRL::ComPtr;
 namespace {
 void require(HRESULT r,const char* context){if(FAILED(r)){char text[256];snprintf(text,sizeof(text),"%s (0x%08X). Try an unprotected MP4 with H.264/AAC, or install the required Windows codec.",context,unsigned(r));throw std::runtime_error(text);}}
@@ -29,6 +31,7 @@ struct Shared {
  LocalVideoPlayer::Handler handler;
  std::atomic<bool> stopping{false};
  bool wantPause=false,wantLoop=false;double wantSeek=-1;float wantVolume=.75f;
+ int wantAudioTrack=-2,wantSubtitleTrack=-2;
  std::atomic<uint64_t> generation{1};unsigned width=0,height=0;bool accept=false;
 };
 class VideoSink final:public IMFSampleGrabberSinkCallback {
@@ -166,15 +169,131 @@ void run(const std::shared_ptr<Shared>& shared,const std::filesystem::path& path
  {std::lock_guard delivery(shared->delivery);shared->accept=false;shared->handler={};}
 }
 }
-struct LocalVideoPlayer::Impl {std::shared_ptr<Shared> shared=std::make_shared<Shared>();std::thread worker;};
-LocalVideoPlayer::LocalVideoPlayer():impl(std::make_unique<Impl>()){}
+namespace {
+struct VlcPixels {
+ std::shared_ptr<Shared> shared;std::mutex mutex;unsigned char* data=nullptr;unsigned w=0,h=0,pitch=0,nativeWidth=0,nativeHeight=0;std::atomic<int64_t> positionMs=0;
+ ~VlcPixels(){_aligned_free(data);}
+ static unsigned format(void** opaque,char* chroma,unsigned* width,unsigned* height,unsigned* pitches,unsigned* lines){
+  auto& self=*static_cast<VlcPixels*>(*opaque);try{
+   // Decoder buffers can include padding (e.g. 320x192 for a 320x180 movie).
+   // Request the parsed visible dimensions, not the padded coded rectangle.
+   if(self.nativeWidth&&self.nativeHeight){*width=self.nativeWidth;*height=self.nativeHeight;}
+   if(!*width||!*height||*width>7680||*height>4320)return 0;
+   std::lock_guard lock(self.mutex);self.w=*width;self.h=*height;self.pitch=(self.w*4+31)&~31u;
+   _aligned_free(self.data);self.data=static_cast<unsigned char*>(_aligned_malloc(size_t(self.pitch)*self.h,32));if(!self.data)return 0;
+   memcpy(chroma,"RV32",4);pitches[0]=self.pitch;lines[0]=self.h;return 1;
+  }catch(...){return 0;}
+ }
+ static void* lock(void* opaque,void** planes){auto& self=*static_cast<VlcPixels*>(opaque);self.mutex.lock();planes[0]=self.data;return opaque;}
+ static void unlock(void* opaque,void*,void*const*){static_cast<VlcPixels*>(opaque)->mutex.unlock();}
+ static void display(void* opaque,void*){
+  auto& self=*static_cast<VlcPixels*>(opaque);try{
+   // VLC 3 vmem calls Prepare (lock/copy/unlock) then Display on its vout thread.
+   // Protect against format changes and serialize delivery with seek/shutdown.
+   std::lock_guard pixels(self.mutex);std::lock_guard delivery(self.shared->delivery);
+   if(self.shared->stopping||!self.shared->accept||!self.data)return;
+   DirectShowCapture::Frame frame{};frame.width=frame.sampleWidth=self.w;frame.height=frame.sampleHeight=self.h;frame.stride=self.pitch;frame.data=self.data;frame.dataSize=size_t(self.pitch)*self.h;frame.bottomUp=false;
+   // LibVLC's display callback exposes no per-picture PTS. This is a playback
+   // clock estimate for source discontinuity handling, not an exact frame PTS.
+   frame.timestamp100ns=uint64_t(std::max<int64_t>(0,self.positionMs))*10000;
+   self.shared->handler(frame,self.shared->generation);
+   std::lock_guard state(self.shared->mutex);++self.shared->state.frames;self.shared->state.width=self.w;self.shared->state.height=self.h;self.shared->state.generation=self.shared->generation;
+  }catch(...){std::lock_guard state(self.shared->mutex);self.shared->state.error="Video frame delivery failed";}
+ }
+};
+struct VlcSession {
+ vlc::Runtime& api;vlc::Instance* instance=nullptr;vlc::Media* media=nullptr;vlc::Player* player=nullptr;
+ ~VlcSession(){if(player){api.stop(player);api.playerRelease(player);}if(media)api.mediaRelease(media);if(instance)api.release(instance);}
+};
+void runVlc(const std::shared_ptr<Shared>& shared,const std::filesystem::path& path,const std::wstring& endpoint,const std::filesystem::path& runtime){
+ try{
+  if(!std::filesystem::is_regular_file(path))throw std::runtime_error("Video file does not exist");
+  vlc::Runtime api(runtime);VlcPixels pixels;pixels.shared=shared;VlcSession media{api};
+  const char* options[]={"--quiet","--ignore-config","--no-video-title-show","--no-osd","--no-media-library","--no-metadata-network-access","--no-sub-autodetect-file"};
+  media.instance=api.create(int(std::size(options)),options);if(!media.instance)throw std::runtime_error("Cannot start bundled video runtime");
+  auto file=utf8(std::filesystem::absolute(path).wstring());media.media=api.mediaNewPath(media.instance,file.c_str());if(!media.media)throw std::runtime_error("Cannot open this local video");
+  if(api.parse(media.media,0,10000)==0){auto end=std::chrono::steady_clock::now()+std::chrono::seconds(11);while(!api.parsedStatus(media.media)&&!shared->stopping&&std::chrono::steady_clock::now()<end)Sleep(10);}
+  vlc::MediaTrack** metadata=nullptr;const auto trackCount=api.mediaTracks(media.media,&metadata);
+  for(unsigned i=0;i<trackCount;++i)if(metadata[i]->type==1&&metadata[i]->video){auto v=metadata[i]->video;pixels.nativeWidth=v->width;pixels.nativeHeight=v->height;if(v->orientation>=4)std::swap(pixels.nativeWidth,pixels.nativeHeight);break;}
+  if(metadata)api.freeMediaTracks(metadata,trackCount);if(shared->stopping)return;
+  api.mediaOption(media.media,":file-caching=150");
+  media.player=api.playerNew(media.media);if(!media.player)throw std::runtime_error("Cannot create local video player");
+  api.callbacks(media.player,VlcPixels::lock,VlcPixels::unlock,VlcPixels::display,&pixels);api.formatCallbacks(media.player,VlcPixels::format,nullptr);
+  if(api.audioOutput(media.player,"mmdevice")!=0)throw std::runtime_error("Bundled Windows audio output is unavailable");
+  auto device=utf8(endpoint);if(!device.empty())api.audioDevice(media.player,nullptr,device.c_str());
+  float appliedVolume=-1;{std::lock_guard state(shared->mutex);appliedVolume=shared->wantVolume;api.volume(media.player,int(appliedVolume*100));api.mute(media.player,appliedVolume==0);shared->state.backend=std::string("LibVLC ")+api.version();}
+  {std::lock_guard delivery(shared->delivery);shared->accept=true;}
+  if(api.play(media.player)!=0)throw std::runtime_error("Cannot play this video with the bundled runtime");
+  bool paused=false;double tracksAt=-1;uint64_t pauseAfterFrame=0;bool pauseAfterSeek=false;
+  int pendingAudio=-2,pendingSubtitle=-2;double pendingSeek=-1;bool restarting=false;
+  const auto started=std::chrono::steady_clock::now();
+  auto tracks=[&](vlc::TrackDescription* first){std::vector<LocalVideoPlayer::Track> out;for(auto p=first;p;p=p->next)out.push_back({p->id,p->id==-1?"Off":p->name?p->name:"Track "+std::to_string(p->id)});if(first)api.freeTracks(first);return out;};
+  while(!shared->stopping){
+   bool wantPause,wantLoop;double seek;float volume;int audio,subtitle;
+   {std::lock_guard state(shared->mutex);wantPause=shared->wantPause;wantLoop=shared->wantLoop;seek=shared->wantSeek;shared->wantSeek=-1;volume=shared->wantVolume;audio=shared->wantAudioTrack;subtitle=shared->wantSubtitleTrack;shared->wantAudioTrack=shared->wantSubtitleTrack=-2;}
+   auto state=api.state(media.player);if(state==7)throw std::runtime_error("Video decoding failed. This codec or file may be unsupported or damaged.");
+   if(restarting&&state!=6&&state!=5)restarting=false;
+   if(seek>=0)pendingSeek=seek;
+   if(volume!=appliedVolume){api.volume(media.player,int(volume*100));api.mute(media.player,volume==0);appliedVolume=volume;}
+   if(audio!=-2)pendingAudio=audio;if(subtitle!=-2)pendingSubtitle=subtitle;
+   // Requests can arrive while a file is still opening (e.g. endpoint change).
+   // Wait for playback to expose streams instead of silently losing the choice.
+   if((state==3||state==4)&&pendingAudio!=-2){auto ok=api.setAudio(media.player,pendingAudio)==0;pendingAudio=-2;std::lock_guard guard(shared->mutex);shared->state.trackStatus=ok?"":"Could not switch audio track";tracksAt=-1;}
+   if((state==3||state==4)&&pendingSubtitle!=-2){
+    auto ok=api.setSubtitle(media.player,pendingSubtitle)==0;pendingSubtitle=-2;
+    // Re-read the current cue after switching. Long cues may have started well
+    // before this instant; merely enabling their stream would miss that packet.
+    if(ok&&pendingSeek<0)pendingSeek=std::max(0.,api.time(media.player)/1000.);
+    std::lock_guard guard(shared->mutex);shared->state.trackStatus=ok?"":"Could not switch subtitle track";tracksAt=-1;
+   }
+   if(state==6&&wantLoop&&pendingSeek<0){pendingSeek=0;wantPause=false;}
+   if((state==6||state==5)&&pendingSeek>=0&&!restarting){
+    {std::lock_guard delivery(shared->delivery);shared->accept=false;}
+    // New demux input otherwise reselects its default language after a loop.
+    {std::lock_guard guard(shared->mutex);if(pendingAudio==-2&&!shared->state.audioTracks.empty())pendingAudio=shared->state.audioTrack;if(pendingSubtitle==-2&&!shared->state.subtitleTracks.empty())pendingSubtitle=shared->state.subtitleTrack;}
+    api.stop(media.player);if(api.play(media.player)!=0)throw std::runtime_error("Cannot restart video");
+    restarting=true;paused=false;Sleep(5);continue;
+   }
+   if(pendingSeek>=0&&(state==3||state==4)){
+    seek=pendingSeek;pendingSeek=-1;
+    {std::lock_guard delivery(shared->delivery);shared->accept=false;}
+    ++shared->generation;
+    api.setPause(media.player,0);paused=false;
+    auto duration=api.length(media.player)/1000.;seek=std::clamp(seek,0.,duration>0?std::max(0.,duration-.05):seek);api.setTime(media.player,int64_t(seek*1000));pixels.positionMs=int64_t(seek*1000);
+    {std::lock_guard guard(shared->mutex);pauseAfterFrame=shared->state.frames;}
+    pauseAfterSeek=wantPause;
+    {std::lock_guard delivery(shared->delivery);shared->accept=true;}
+   }
+   bool soughtFrame=true;if(pauseAfterSeek){std::lock_guard guard(shared->mutex);soughtFrame=shared->state.frames>pauseAfterFrame;}
+   if((state==3||state==4)&&wantPause!=paused&&(!pauseAfterSeek||soughtFrame)){
+    // vout can redisplay its last image while paused. Stop delivering these
+    // callbacks as new source frames (they must not drive FG/OCR or the clock).
+    {std::lock_guard delivery(shared->delivery);shared->accept=!wantPause;}
+    api.setPause(media.player,wantPause);paused=wantPause;pauseAfterSeek=false;
+   }
+   const auto pos=api.time(media.player);pixels.positionMs=std::max<int64_t>(0,pos);const double seconds=api.length(media.player)/1000.;
+   const double elapsed=std::chrono::duration<double>(std::chrono::steady_clock::now()-started).count();
+   if(elapsed-tracksAt>.3&&(state==3||state==4)){auto audios=tracks(api.audioTracks(media.player)),subs=tracks(api.subtitleTracks(media.player));auto audioId=api.getAudio(media.player),subtitleId=api.getSubtitle(media.player);auto fps=api.fps(media.player);std::lock_guard guard(shared->mutex);shared->state.audioTracks=std::move(audios);shared->state.subtitleTracks=std::move(subs);shared->state.audioTrack=audioId;shared->state.subtitleTrack=subtitleId;shared->state.audio=std::any_of(shared->state.audioTracks.begin(),shared->state.audioTracks.end(),[](auto& t){return t.id>=0;});shared->state.fps=fps;tracksAt=elapsed;}
+   state=api.state(media.player);
+   {std::lock_guard guard(shared->mutex);auto& s=shared->state;s.opening=s.frames==0&&state!=6;s.playing=state==3&&!paused;s.paused=paused;s.ended=state==6;s.position=s.ended&&seconds>0?seconds:std::max(0.,pos/1000.);s.duration=std::max(0.,seconds);s.loop=wantLoop;if(elapsed>30&&s.frames==0)throw std::runtime_error("No video frames decoded within 30 seconds");}
+   Sleep(5);
+  }
+  {std::lock_guard delivery(shared->delivery);shared->accept=false;}
+ }catch(const std::exception& e){std::lock_guard guard(shared->mutex);shared->state.error=e.what();shared->state.opening=shared->state.playing=false;}
+ {std::lock_guard delivery(shared->delivery);shared->accept=false;shared->handler={};}
+}
+}
+struct LocalVideoPlayer::Impl {std::shared_ptr<Shared> shared=std::make_shared<Shared>();std::thread worker;std::filesystem::path runtime;};
+LocalVideoPlayer::LocalVideoPlayer(const std::filesystem::path& runtime):impl(std::make_unique<Impl>()){if(!runtime.empty())impl->runtime=runtime;else{wchar_t exe[32768];auto n=GetModuleFileNameW(nullptr,exe,DWORD(std::size(exe)));if(n&&n<std::size(exe))impl->runtime=std::filesystem::path(exe).parent_path()/L"media"/L"vlc";}}
 LocalVideoPlayer::~LocalVideoPlayer(){stop();}
 void LocalVideoPlayer::stop(){impl->shared->stopping=true;if(impl->worker.joinable())impl->worker.join();impl->shared=std::make_shared<Shared>();}
-void LocalVideoPlayer::open(const std::filesystem::path& path,const std::wstring& endpoint,int volume,bool muted,Handler handler){stop();auto s=impl->shared;s->handler=std::move(handler);s->wantVolume=muted?0.f:std::clamp(volume,0,100)/100.f;s->state.opening=true;impl->worker=std::thread([s,path,endpoint]{run(s,path,endpoint);});}
+void LocalVideoPlayer::open(const std::filesystem::path& path,const std::wstring& endpoint,int volume,bool muted,Handler handler){stop();auto s=impl->shared;s->handler=std::move(handler);s->wantVolume=muted?0.f:std::clamp(volume,0,100)/100.f;s->state.opening=true;auto runtime=impl->runtime;impl->worker=std::thread([s,path,endpoint,runtime]{if(std::filesystem::is_regular_file(runtime/L"libvlc.dll"))runVlc(s,path,endpoint,runtime);else run(s,path,endpoint);});}
 void LocalVideoPlayer::pause(bool value){std::lock_guard lock(impl->shared->mutex);impl->shared->wantPause=value;}
 void LocalVideoPlayer::seek(double value){if(!std::isfinite(value))return;std::lock_guard lock(impl->shared->mutex);impl->shared->wantSeek=std::max(0.,value);}
 void LocalVideoPlayer::loop(bool value){std::lock_guard lock(impl->shared->mutex);impl->shared->wantLoop=value;}
 void LocalVideoPlayer::volume(int value,bool muted){std::lock_guard lock(impl->shared->mutex);impl->shared->wantVolume=muted?0.f:std::clamp(value,0,100)/100.f;}
+void LocalVideoPlayer::selectAudioTrack(int id){std::lock_guard lock(impl->shared->mutex);impl->shared->wantAudioTrack=id;}
+void LocalVideoPlayer::selectSubtitleTrack(int id){std::lock_guard lock(impl->shared->mutex);impl->shared->wantSubtitleTrack=id;}
 LocalVideoPlayer::Snapshot LocalVideoPlayer::snapshot()const{std::lock_guard lock(impl->shared->mutex);return impl->shared->state;}
 std::vector<LocalVideoPlayer::AudioOutput> LocalVideoPlayer::audioOutputs(){
  std::vector<AudioOutput> result{{L"","Windows default output"}};

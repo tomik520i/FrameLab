@@ -1,0 +1,157 @@
+{
+  "recording_id": "analysis-15s-112499968",
+  "settings": {
+    "recording_id": "analysis-15s-112499968",
+    "settings_id": "analysis-15s-112499968_settings",
+    "backend": "NVIDIA VFG",
+    "pacing_version": 3,
+    "output_scheduler": "independent-gpu-pump-content-deadline",
+    "gpu": "NVIDIA GeForce RTX 5070 Ti",
+    "vsync": false,
+    "dedup": true,
+    "dedup_threshold": 0,
+    "requested_seconds": 15,
+    "source": "AVerMedia HD Capture GC573 1",
+    "width": 2560,
+    "height": 1440,
+    "quality": 1,
+    "multiplier": 2,
+    "automatic_cut_detection": true,
+    "pixel_format": "BGRA8 opaque, top-down",
+    "hdmi_signal_resolution": "unknown; dimensions describe delivered capture frames"
+  },
+  "result": {
+    "duration_seconds": 15,
+    "raw_frames": 822,
+    "generated_frames": 438,
+    "present_events": 845,
+    "recorder_drops": 0,
+    "ram_raw_bytes": 18579456000,
+    "ram_stored_bytes": 9001962319,
+    "ram_peak_bytes": 9021132144,
+    "reason": "15 seconds completed",
+    "note": "Lossless RAM compression preserves every BGRA byte. Diagnostic readback/compression may affect performance. Presents reference image IDs; pre-start images may be absent. Audio, UI chrome and physical monitor scanout are not recorded."
+  },
+  "raw_changed_frames": 440,
+  "raw_adjacent_repeats": 382,
+  "valid_generated_pairs": 437,
+  "generated_endpoint_copies": 0,
+  "submitted_image_ids": 781,
+  "valid_output_rows": 0,
+  "missing_output_rows": [],
+  "usable_prefix_end_s": 15,
+  "subtitle_cues": [],
+  "bins": [
+    {
+      "second": 0,
+      "raw": 56,
+      "raw_changes": 28,
+      "generated": 28,
+      "submitted_ids": 50
+    },
+    {
+      "second": 1,
+      "raw": 56,
+      "raw_changes": 29,
+      "generated": 29,
+      "submitted_ids": 51
+    },
+    {
+      "second": 2,
+      "raw": 55,
+      "raw_changes": 28,
+      "generated": 28,
+      "submitted_ids": 50
+    },
+    {
+      "second": 3,
+      "raw": 53,
+      "raw_changes": 32,
+      "generated": 31,
+      "submitted_ids": 53
+    },
+    {
+      "second": 4,
+      "raw": 57,
+      "raw_changes": 27,
+      "generated": 27,
+      "submitted_ids": 50
+    },
+    {
+      "second": 5,
+      "raw": 51,
+      "raw_changes": 30,
+      "generated": 30,
+      "submitted_ids": 52
+    },
+    {
+      "second": 6,
+      "raw": 56,
+      "raw_changes": 29,
+      "generated": 28,
+      "submitted_ids": 50
+    },
+    {
+      "second": 7,
+      "raw": 55,
+      "raw_changes": 29,
+      "generated": 30,
+      "submitted_ids": 57
+    },
+    {
+      "second": 8,
+      "raw": 55,
+      "raw_changes": 30,
+      "generated": 30,
+      "submitted_ids": 53
+    },
+    {
+      "second": 9,
+      "raw": 54,
+      "raw_changes": 31,
+      "generated": 30,
+      "submitted_ids": 52
+    },
+    {
+      "second": 10,
+      "raw": 54,
+      "raw_changes": 30,
+      "generated": 30,
+      "submitted_ids": 54
+    },
+    {
+      "second": 11,
+      "raw": 57,
+      "raw_changes": 28,
+      "generated": 28,
+      "submitted_ids": 51
+    },
+    {
+      "second": 12,
+      "raw": 55,
+      "raw_changes": 29,
+      "generated": 30,
+      "submitted_ids": 51
+    },
+    {
+      "second": 13,
+      "raw": 53,
+      "raw_changes": 30,
+      "generated": 28,
+      "submitted_ids": 52
+    },
+    {
+      "second": 14,
+      "raw": 55,
+      "raw_changes": 30,
+      "generated": 31,
+      "submitted_ids": 55
+    }
+  ],
+  "enhanced_sampled_changes": [],
+  "limitations": [
+    "Captured pixel changes are not engine FPS.",
+    "No true intermediate frame or enhanced ground truth: changes are not an accuracy score.",
+    "Recording load can reduce cadence. Presentation is not physical scanout."
+  ]
+}

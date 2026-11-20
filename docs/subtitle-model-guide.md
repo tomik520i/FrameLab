@@ -2,7 +2,7 @@
 
 [Český návod](subtitle-model-guide.cs.md)
 
-FrameLab reads English subtitles already visible in a capture or local video, translates them locally and draws Czech after FG and NR. It does not transcribe audio or render SRT/embedded subtitle tracks.
+FrameLab reads English subtitles already visible in a capture or local video, translates them locally and draws Czech after FG and NR. It does not transcribe audio. The local player can render embedded subtitle tracks into the source image through LibVLC; OCR then reads that image.
 
 ## Start with bundled OCR
 
@@ -12,13 +12,17 @@ FrameLab reads English subtitles already visible in a capture or local video, tr
 
 RapidOCR uses two CPU threads, a PP-OCRv4 detector and PP-OCRv5 English recognizer. **Windows OCR** remains selectable as a lighter fallback. Only that option needs the English Windows OCR capability; if absent, **Install English OCR** offers the Microsoft download with UAC approval. It does not change the Windows display language.
 
+## Save a subtitle appearance profile
+
+Use **Select subtitle word + reading area…** while a subtitle is visible. Select one word to learn color and letter height, then a larger reading area for all subtitle lines. Save a named profile and select it again later; the selected profile persists. Text outside the area or unlike the sampled appearance is filtered. White HUD text of similar size can still pass. [Details](subtitle-ocr.md).
+
 ## Choose a translation model
 
 | Model | Download | Status |
 | --- | ---: | --- |
 | OPUS-MT / CPU | Included | Two CPU threads, no GPU model download. |
 | CUNI-MH 7B Q3_K_M | 3.52 GB | Tested on the desktop RTX 5070 Ti. |
-| CUNI-MH 7B Q5_K_M | 5.13 GB | Download/hash and local GPU load verified. Quality and speed not benchmarked. |
+| CUNI-MH 7B Q5_K_M | 5.13 GB | Used in the published GTA captions and debug session; compare on your material. |
 | CUNI-MH 7B Q8_0 | 7.70 GB | Tested; larger memory footprint. |
 
 Select a GPU model and press **Download / resume and verify**. First use also downloads the 1.62 GB portable Ollama runtime; allow about 8 GB additional disk space for runtime storage/extraction. No system Ollama installation, account or API key is required. Downloaded files must match pinned SHA-256 hashes.
@@ -47,8 +51,8 @@ There are at most three pending text requests and three completed captions. Work
 
 ## Offline operation and developer provenance
 
-The CPU worker uses private pipes; CUNI starts an owned Ollama process bound to `127.0.0.1`, with cloud access disabled and one model/request at a time. Publisher downloads do not send subtitle text or images. After setup, recognition and translation work offline. Optional `--subtitle-trace PATH.jsonl` records private local diagnostic text; it is off by default. RAW/FG analysis recordings omit the Czech overlay, NR and audio.
+The CPU worker uses private pipes; CUNI starts an owned Ollama process bound to `127.0.0.1`, with cloud access disabled and one model/request at a time. Publisher downloads do not send subtitle text or images. After setup, recognition and translation work offline. Optional `--subtitle-trace PATH.jsonl` records private local diagnostic text; it is off by default. Preview.15 full-pipeline recordings include before/after NR and the final Czech overlay, plus SRT. Audio is not recorded.
 
 OPUS-MT en-cs opus-2019-12-18 is CC BY 4.0, converted to CTranslate2 int8 without retraining. CUNI-MH is the CUNI team's English-to-Czech Mistral 7B fine-tune; the original card identifies MIT licensing. Richard Erkhov supplies pinned GGUF quantizations. The catalog preserves publisher links and hashes. CUNI uses the original Instruction / Glossary / Previous text / Input / Response template, empty glossary/history, temperature 0, newline stop, 2048-token context and a 256-token limit. Joined fragments are sent together in Input.
 
-Developers use `tools/prepare_translation.py` and `tools/prepare_ocr.py`; end users need neither. See [build instructions](build-preview14.md), [OCR components](ocr-components.json) and [translation components](translation-components.json). Tests cover settings migration, viewport bounds, fragment boundaries, real neural OCR/CPU translation, delayed captions and source reset. Q5 was activated on the owner’s desktop after verification; no controlled quality or speed benchmark was run.
+Developers use `tools/prepare_translation.py` and `tools/prepare_ocr.py`; end users need neither. See [build instructions](build-preview15.md), [OCR components](ocr-components.json) and [translation components](translation-components.json). Tests cover settings migration, viewport bounds, fragment boundaries, real neural OCR/CPU translation, delayed captions and source reset. The November 20 GTA captions and debug data document actual Q5 use; they are not a blinded quality ranking.

@@ -1,101 +1,67 @@
-# FrameLab preview.14 — instalace a první spuštění
+# FrameLab preview.15 — česká instalace
 
-**[Stáhnout kompletní FrameLab pro Windows x64](https://github.com/tomik520i/FrameLab/releases/download/v0.2.0-preview.14/FrameLab-0.2.0-preview.14-windows-x64-full.zip)** · [Všechny soubory vydání](https://github.com/tomik520i/FrameLab/releases/tag/v0.2.0-preview.14) · [English](START_HERE.md)
+[English](START_HERE.md) · [Web a ukázky](https://opicebot.cz/framelab/?lang=cs)
 
-## 1. Stáhnout → rozbalit → spustit
+## Stáhnout a spustit
 
-1. Stáhni výše uvedený soubor **windows-x64-full.zip**. GitHubové **Source code** je pro vývojáře, není to hotová aplikace.
-2. Pravým tlačítkem na ZIP → **Extrahovat vše**. Celou složku dej například do nové krátké složky na Ploše. Dlouhé zanořené cesty mohou ve Windows způsobit chybu 0x80010135; v tom případě rozbalení zopakuj do kratší cesty a žádné soubory nepřeskakuj. Nespouštěj program přímo ze ZIPu.
-3. Otevři **1 - Spustit FrameLab.cmd**. Spustí se přibalená třísekundová ukázka CS:GO ve smyčce.
-4. V kartě **Vstup** můžeš přepnout na **Spider-Mana** nebo na test **Vyzkoušet titulky EN > CZ**. Pro ukázky nepotřebuješ střihovou kartu.
+1. [Stáhněte celý ZIP pro Windows x64](https://github.com/tomik520i/FrameLab/releases/download/v0.2.0-preview.15/FrameLab-0.2.0-preview.15-windows-x64-full.zip) a **rozbalte vše**, například do D:/FrameLab. Nespouštějte aplikaci uvnitř ZIPu.
+2. Spusťte **Start FrameLab.cmd** nebo **1 - Spustit FrameLab.cmd**. Nová instalace pustí GTA ukázku, další spuštění obnoví relaci. Python, SDK ani systémový VLC nepotřebujete; složky balíčku musí zůstat pohromadě.
+3. Začněte s **Frame gen → 2×**. **F11** zobrazí čistý výstup, Escape/F11 vrátí ovládání. Tlačítkem **EN / CZ** přepnete anglické rozhraní do češtiny.
 
-To je celý postup instalace. **Python, pip, NVIDIA SDK ani kompilátor neinstaluješ.** CPU model už je přibalený; volitelné CUNI modely se stahují přímo tlačítkem v aplikaci. Všechny potřebné soubory aplikace jsou přibalené. Složky `app`, `tools`, `deps` a `licenses` nech u sebe; nestačí překopírovat samotné EXE. První spuštění nevyžaduje přihlášení ani automatické stahování modelu.
+VFG cílí na RTX 40/50. Spouštěč **3 - Optical Flow.cmd** zvolí samostatnou alternativu; podporu a výkon je nutné ověřit na konkrétní kartě. VFG runtime, neuronové OCR, CPU překladač, kodeky a export jsou přibalené. GPU modely jsou volitelné stažení; enhancer vyžaduje externí import. Antivirus může první spuštění zdržet; ochranu nevypínejte, zkontrolujte případné chyby.
 
-Požadavky: **Windows 10/11 x64**, NVIDIA grafika s Direct3D 11, aktuální ovladač grafiky a pro živý vstup ovladač capture karty. NVIDIA VFG vyžaduje **RTX 40/50 (Ada/Blackwell)**. Alternativní Optical Flow je experimentální a má jinou kvalitu. Fyzicky byly zkoušené RTX 5070 Ti a RTX 4050 Laptop; starší RTX nejsou tímto vydáním hardwarově ověřené. ARM, Linux a macOS nejsou podporované sestavení.
+## Střihovka
 
-Aplikace není digitálně podepsaná. Ověř původ stažení a případně SHA-256 podle vydání; není potřeba vypínat antivirus ani ochrany Windows.
+V **Capture / Vstup** zvolte zdroj, **Rozlišení** a **FPS vstupu** zvlášť. Použijí se tlačítkem **Spustit vstup**. Automatika nechá volbu ovladači. 4K i jiné poměry stran závisejí na nabízených režimech karty.
 
-## 2. Vyzkoušet frame generation
+**Přijaté snímky** ukazují skutečné rozměry a rychlost dodávání obrazu. API nehlásí vstupní časování HDMI. Šedesát snímků střihovky může opakovat obrazy 30FPS hry. Odstranění opakovaných snímků tomu pomáhá; odhad obsahu není čítač herního enginu.
 
-| Co otevřít | Co se spustí |
-| --- | --- |
-| `1 - Spustit FrameLab.cmd` | CS:GO bez dopočtu |
-| `2 - NVIDIA RTX 40-50.cmd` | CS:GO + NVIDIA VFG 2× / Medium |
-| `3 - Optical Flow.cmd` | CS:GO + alternativní Optical Flow 2× |
-| `Ukazka - Spider-Man.cmd` | Přibalený Spider-Man |
-| `Ukazka - Ceske titulky.cmd` | Označený umělý test anglického textu + český překlad + VFG |
+Černý obraz: zkontrolujte správnou kartu, kabel, povolený zdroj a stav aplikace. Zavřete jiné programy využívající kartu. **Test 30 FPS** je umělý test, nikoli PS5.
 
-V kartě **Frame gen** zapni generování, vyber backend a začni **2× / Střední**. 3× a 4× mohou přidávat artefakty, latenci a zahozené snímky. NVIDIA VFG a Optical Flow jsou alternativy; nezapínají se oba za sebou. Počet odeslaných snímků není záruka skutečných FPS monitoru.
+## Vlastní video, MKV a stopy
 
-## 3. Připojit konzoli nebo druhé PC
+**Capture → Open video… / Otevřít video…** otevře soubor. K dispozici je pauza, posun, rychlost a opakování. Přibalený **LibVLC 3.0.24** přehrává MP4/MKV. Po načtení stop vyberte zvuk a titulky, případně vložené titulky vypněte. [Podrobnosti](docs/local-video.md).
 
-1. Zdrojové zařízení připoj HDMI k capture kartě, kartu k tomuto PC podle návodu výrobce.
-2. Zavři jiné programy, které kartu právě používají.
-3. **Vstup → Zdroj**: vyber svoji kartu. Zkus automatický režim nebo 1920 × 1080 a odpovídající vstupní FPS.
-4. Klikni na **Spustit vstup**. V kartě **Zvuk** vyber výstup a hlasitost.
-5. Zapni požadovaný dopočet v **Frame gen**.
+Titulková stopa se vykreslí do vstupu před FG/NR. OCR překládá viditelný obraz, nikoli přímo textovou stopu; řeč nepřepisuje. Chráněné streamovací soubory nejsou podporované. Dekódování a kopírování mohou zatížit CPU.
 
-Rozlišení a frekvence jsou z nabídky ovladače. Když ovladač nabízí 4K nebo širokoúhlý režim, objeví se v seznamu. Nejde o slib, že karta přijme každý signál; ovladač může požadavek odmítnout nebo upravit. Automaticky neznamená detekci skutečného HDMI režimu. Veškeré 4K/vysoké frekvence nebyly v této verzi fyzicky otestované. HDCP se neobchází a HDR není implementované.
+## FG a enhancer
 
-## 4. Anglické titulky v obraze → český překryv
+Začněte na **2× / Medium**. Kontrolujte hrany, HUD a rychlý pohyb; 3×/4× mohou dělat silné artefakty. Násobič nezaručuje stejný nárůst skutečně zobrazených snímků.
 
-1. Otevři **Titulky** a ponech **RapidOCR / PP-OCRv5 English**. Neuronové OCR i modely jsou přibalené: nepotřebuješ doplněk Windows ani správce. Windows OCR zůstává volitelnou zálohou.
-2. Vyber přibalený **OPUS-MT / CPU**, nebo **CUNI-MH Q3_K_M / Q5_K_M / Q8_0** a stiskni **Stáhnout / pokračovat a ověřit**. První GPU model doplní i vlastní přenosný runtime. Ollamu ručně neinstaluješ a nepotřebuješ účet ani API klíč.
-3. Zapni překlad a **Zobrazit oblast čtení**. Vymez jen pruh s anglickými titulky; vynech HUD a chat.
-4. Zvol **Pod originál**, **Nad originál** nebo **Vlastní poloha**. Volba **Přetahovat český překryv v náhledu** umožní táhnout text i černé pozadí společně. Oblast OCR se nemění. Více řádků zůstane uvnitř viditelné části obrazu, i při ořezu a ve fullscreenu. Neobvykle dlouhý text se zmenší, aby se vešel.
-5. F11 zobrazí čistý výsledek. Pro kontrolu použij umělou ukázku: „The door is locked.“ → „Dveře jsou zamčené.“.
+V **AI / NR** je volitelný enhancer. [Přesný postup importu](docs/enhancer-install.cs.md). Začněte na **720p a jednom průchodu**. Při nízkých FPS snižte limit rozlišení/průchody nebo vypněte odhad pohybu. Síla efektu pouze míchá výsledek, nesnižuje práci neuronové sítě. F6 zapíná NR, F7 mění porovnání, F8 zmrazí pár. Originál u NR může už obsahovat FG. Pořadí: vstup → FG → NR → český titulek → displej.
 
-**[Celý návod: modely, stahování a umístění titulků](docs/subtitle-model-guide.cs.md)**. Q3 stahuje 3,52 GB, Q5 5,13 GB, Q8 7,70 GB. U Q5 je ověřené stažení, hash a načtení na místní GPU; kvalita ani rychlost zatím nemají benchmark. První GPU model potřebuje také runtime archiv 1,62 GB a přibližně 8 GB místa navíc na runtime a rozbalení. Volná VRAM se kontroluje při současně zapnutých efektech. Model se načítá na pozadí; částečný přesun výpočtu na CPU se tiše nepovolí. CPU překladač funguje bez stahování GPU modelů.
+## České titulky a uložené profily
 
-**Čte se obraz, nikoli zvuk. Není tu STT ani cloudový překlad.** OCR přijímá velmi jisté nebo opakované stabilní čtení. Čeština zůstává viditelná, zatímco se překládá další věta. **Nejméně na obrazovce** (1,2 s) a **Ponechat při čekání** (3 s) běží až od zobrazení; delší text dostane víc času. Přetáčení nebo změna zdroje staré titulky vyčistí. **Spojovat rozdělené věty** přidá k nedokončené větě blízké pokračování malým písmenem; při chybném spojení replik volbu vypni. OCR i překlad se mohou mýlit. Místní video počká na načtení modelu; Přehrát tuto pauzu zruší.
+V **Subtitles / Titulky** zvolte **RapidOCR**, **OPUS-MT / CPU** a zapněte překlad. RapidOCR nepotřebuje Windows OCR jazyk. Umělá ukázka EN → CZ v Capture pomůže ověřit nastavení.
 
-## 5. Monitor, okno a klávesy
+Když je vidět anglický titulek, klikněte na **Vybrat slovo titulku + oblast čtení…**. Náhled se zmrazí. Obtáhněte **jedno slovo**, potom celou oblast pro titulky včetně více řádků a potvrďte. Učí se barva a přibližná výška písmen, nikoli konkrétní slovo. Pokud lze, držte SPZ a HUD mimo oblast čtení.
 
-V **Zobrazení** vyber monitor, dostupnou velikost okna a režim **vměstnat / vyplnit s ořezem / 1:1**. FrameLab nemění rozlišení ani obnovovací frekvenci Windows; ty nastav v systémovém nastavení displeje. Nabídka okna respektuje pracovní plochu monitoru.
+Profil pojmenujte a uložte. Vzhled, oblast i výběr se pamatují; pro další hru lze načíst jiný profil. Filtr vzhledu omezuje nesouvisející text, není to stoprocentní detekce titulků.
 
-- **F11**: jeden výsledný obraz s nastavenými efekty a titulky. Porovnání, panely, popisky a rámeček OCR se automaticky skryjí. Zmrazené porovnání se při přechodu rozběhne. **Escape / F11**: návrat do nastavení.
-- **F1**: skrýt/zobrazit ovládací panel pouze v okně. Ve fullscreenu nic skrývat nemusíš.
-- **F8**: zmrazit porovnání v okně. Dělicí čáru NR lze táhnout myší. Ve fullscreenu se porovnání nezobrazuje.
-- Kurzor ve fullscreenu zmizí po **2 sekundách** nečinnosti nad obrazem. Pohybem se objeví.
-- **[Obrazový návod: fullscreen krok za krokem](https://opicebot.cz/framelab/guide/fullscreen.html)**. V ZIPu otevři **FULLSCREEN.html**; obrázky fungují i offline.
-- **CZ / EN**: změna jazyka. Kompletní balík začíná anglicky; tlačítkem EN / CZ přepneš do češtiny.
+Pro GPU překlad vyberte **CUNI Q3/Q5/Q8** a **Stáhnout / pokračovat a ověřit**. Aplikace stáhne model i přenosný runtime, ověří hashe a ukáže průběh. Q5 je v publikovaných GTA ukázkách; vyšší přesnost nemusí vždy znamenat lepší překlad. [Velikosti a časování](docs/subtitle-model-guide.cs.md).
 
-## 6. Co ZIP obsahuje a co není součástí
+České řádky se centrují, jejich pozici lze přesouvat nezávisle od OCR. Text zůstává uvnitř obrazu. Minimální doba zobrazení a ponechání při čekání dávají čas číst opožděné titulky, zatímco OCR pokračuje. Rychlé dialogy a chyby překladů zůstávají omezením.
 
-Přibalené jsou aplikace, oficiální NVIDIA VFG runtime, potřebné Microsoft runtime DLL, dvě herní ukázky, umělý OCR test, neuronové OCR, překladový model a jeho Python, exportér s FFmpeg, návody a původní licence. Velké závislosti jsou v release ZIPu, nikoli v historii Git repozitáře.
+## Displej a zvuk
 
-**Chceš také enhancer? [Dva downloady a průvodce: kompletní návod NR](docs/enhancer-install.cs.md).** Preview.14 už obsahuje potřebný adaptér a tlačítko AI / NR. Otevři `4 - Doplnit enhancer.cmd`: nabídne přesný externí odkaz a import staženého ZIPu bez ručního kopírování. Externí Veyra ZIP má dalších 731 MB. NR DLL nejsou v našem balíku; jde o komunitní zdroj s nepotvrzenými právy k použití a distribuci, nikoli oficiální download NVIDIA. Import je určen pro uživatele s příslušným oprávněním. [Původ a podmínky](docs/NR-LICENSING-STATUS.txt).
+**Display / Zobrazení** vybírá monitor a Fit/Fill/1:1. Fit zachová obraz s pruhy; Fill i 1:1 větší než okno mohou ořezávat. F11 skryje ovládání, porovnání a OCR editaci; český titulek zůstane ve výstupu.
 
-Po doplnění a zapnutí NR je pořadí vstup → zvolený frame gen → enhancer → český překryv → monitor. Bez NR se tento krok vynechá. Další zpracování může přidat latenci nebo snížit výstupní FPS.
+**Audio / Zvuk** nabízí výstup, hlasitost a ztlumení. Video a střihovka mají vlastní zvukové ovládání. Analytické klipy zvuk neobsahují. Odeslané/DXGI FPS neměří fyzický panel ani celou odezvu od ovladače.
 
-Licence a zdroje: [THIRD_PARTY_NOTICES.md](THIRD_PARTY_NOTICES.md), [původ komponent](docs/runtime-distribution.md), [herní ukázky](docs/sample-provenance.md). Licence programu nepřelicencovává NVIDIA komponenty ani herní obsah.
+## Nahrávání před/po a titulků
 
-## 7. Řešení problémů
+V **Recording / Nahrávání** vyberte složku a **Nahrát 15 s pro analýzu**. Cesta se uloží. Pro 1440p se všemi efekty doporučujeme alespoň **36 GiB volného místa**; spotřeba záleží na materiálu.
 
-| Problém | Postup |
-| --- | --- |
-| Chybějící DLL / model / ukázka | Rozbal znovu celý **full.zip** do nové složky. Nepoužívej automatický GitHub Source code ZIP pro spuštění. |
-| NVIDIA VFG nejde | Ověř RTX 40/50 a ovladač; zkus spouštěč Optical Flow. Podrobnosti jsou v `app/logs`. |
-| Černý živý vstup | Ověř kabel, signál a náhled výrobce karty; zavři další aplikace; zkus automaticky nebo 1080p. |
-| Překlad nic neukazuje | Vyber přibalené RapidOCR a ověř rámeček; vyzkoušej umělý OCR test. Text musí být chvíli stabilní. |
-| Překlad čte HUD | Zmenši oblast čtení pouze na titulky. |
-| Nízký výkon / duchy | Sniž násobič na 2×, porovnej vypnutý FG, sniž vstupní rozlišení. |
-| Nevidím všechny karty nastavení | Použij šipky vpravo u záložek nebo zvětši okno. |
-| Obraz na HDMI passthrough nemá FG | Zpracovaný výstup je v okně FrameLabu / na jeho monitoru, ne v passthrough karty. |
+Snímky se bezeztrátově komprimují do omezené RAM, poté ukládají a exportují. Počkejte na dokončení. Nedostatek paměti/disku nebo pomalé čtení GPU může ukončit záznam dřív; částečný záznam je označený a vyexportuje se úplný úsek.
 
-Analytické RAW/FG nahrávky neobsahují český překryv ani NR a nenahrávají zvuk. Recorder potřebuje dost RAM a místa. [Podrobnosti](docs/recordings.md).
+Výstupy: RAW/generované přehledy, synchronizované před/po/finál, trojité porovnání, **subtitles.cs.srt**, texty, časování a nastavení s ID. Finál obsahuje skutečný titulek včetně zpoždění. Plocha ani zvuk se nenahrávají. [Formát a limity](docs/pipeline-recording.md).
 
-## Aktualizace, odstranění a kontrola stažení
+## Debug a měření
 
-Nové vydání rozbal do **nové složky**. Starou kopii ponech, dokud novou nevyzkoušíš. Nastavení není nutné přenášet. Program neinstaluje službu ani ovladač; odinstalace je smazání jeho složky po ukončení aplikace (včetně případných záznamů, které si nejprve ulož jinam).
+Záložku najdete šipkami v řadě nastavení. Přečtěte upozornění a zapněte log; **F9** jej přepíná. Ukládá časová razítka, CPU/GPU, FPS, fronty, texty OCR/překladů a nastavení **až do vypnutí**. Před sdílením zkontrolujte soukromé texty.
 
-Pro volitelnou kontrolu ZIPu v PowerShellu spusť `Get-FileHash .\FrameLab-0.2.0-preview.14-windows-x64-full.zip -Algorithm SHA256` a porovnej výsledek se souborem **SHA256SUMS.txt** u vydání. [Sestavení ze zdrojů](docs/build-preview14.md) je samostatná vývojářská cesta.
+Nově se ukládá zaměření/fullscreen, velikost okna, čekání na prezentaci a prodlevy smyčky. [Význam měření](docs/debug-measurement.md).
 
-## Vlastní video nebo film
+## Aktualizace
 
-1. Otevři **Vstup → Vlastní video / film → Otevřít video…** a vyber místní soubor. Střihovku nepotřebuješ. Přehrávání používá původní časování videa; **FPS příštího přehrávání** se vztahuje jen na přibalený přehrávač ukázek.
-2. Ovládej **Pozastavit / Přehrát**, posuvník pozice, **Opakovat** nebo **Přehrát znovu** po konci. I přetáčení v pauze aktualizuje obraz. Změna pozice vyčistí historii FG/NR a staré přeložené titulky.
-3. Ve **Zvuku** zvol výstup videa a hlasitost/ztlumení. Změna zařízení otevře video znovu na aktuální pozici. Dekódovaný obraz a zvuk mají společné hodiny; FG, NR a monitor přidávají zpoždění obrazu. Konečný A/V posun se automaticky neměří ani neodstraňuje.
-4. Zapni FG, NR či překlad stejně jako u střihovky. **F11** zobrazí výsledek; Escape vrátí ovládání. **F8 zmrazí pouze porovnání**, film i se zvukem zastavíš tlačítkem Pozastavit.
-
-Ověřeno s SDR MP4 H.264/AAC a MP4 bez zvuku. Další formáty závisí na kodecích Windows Media Foundation; přípona nezaručuje podporu. HEVC může potřebovat kodek Microsoftu. Neobchází se DRM/HDCP, není HDR převod, přepínání zvukových stop ani vykreslování externích SRT/vložených titulkových stop. Použije se první obrazová a zvuková stopa. OCR čte anglické titulky již viditelné v obraze, nikoli zvuk filmu. Analytické záznamy stále vynechávají zvuk, NR a český překryv.
+Aplikaci zavřete a zálohujte starou složku/nastavení. Nový ZIP rozbalte zvlášť. Přeneste osobní nastavení/profily a případně ověřené modely/runtime; staré skripty ani program nekopírujte přes nové. Veřejný balíček neobsahuje soukromé logy, záznamy ani nastavení autora.

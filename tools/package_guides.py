@@ -7,7 +7,8 @@ GUIDES = {'index.html': 'ZACNI TADY.html', 'en.html': 'START HERE.html',
           'enhancer.html': 'NAVOD ENHANCER.html', 'enhancer-en.html': 'ENHANCER GUIDE.html',
           'visual.html': 'OBRAZOVY NAVOD.html', 'visual-en.html': 'VISUAL GUIDE.html',
           'fullscreen.html': 'FULLSCREEN.html', 'fullscreen-en.html': 'FULLSCREEN EN.html',
-          'subtitles.html':'TITULKY A MODELY.html','subtitles-en.html':'SUBTITLES AND MODELS.html'}
+          'subtitles.html':'TITULKY A MODELY.html','subtitles-en.html':'SUBTITLES AND MODELS.html',
+          'recording.html':'NAHRAVANI.html','recording-en.html':'RECORDING.html'}
 
 def copy_guides(stage):
     stage = Path(stage)

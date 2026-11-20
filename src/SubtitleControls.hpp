@@ -6,13 +6,20 @@
 #include "OcrSetup.hpp"
 #include "UiTheme.hpp"
 #include "Localization.hpp"
+#include "SubtitleProfiles.hpp"
 #include <cmath>
 
 inline const char* subText(const char* en,const char* cs){return czech?cs:en;}
-inline bool subtitlePanel(SubtitleSettings& settings,const SubtitleSnapshot& state,SubtitleModels& models,float freeVramMB,OcrSetup& ocr,HWND window,bool rapidReady){
+inline bool subtitlePanel(SubtitleSettings& settings,const SubtitleSnapshot& state,SubtitleModels& models,float freeVramMB,OcrSetup& ocr,HWND window,bool rapidReady,bool* selectStyle=nullptr,SubtitleProfiles* profiles=nullptr){
  const auto before=settings;
  ui::title(subText("LOCAL SUBTITLE TRANSLATION","LOKÁLNÍ PŘEKLAD TITULKŮ"));
  ImGui::TextWrapped("%s",subText("Reads English text already visible in the picture and overlays Czech. Processing stays on this PC.","Čte anglický text už zobrazený v obraze a překrývá ho českým překladem. Zpracování probíhá na tomto PC."));
+ if(selectStyle){
+  ImGui::BeginDisabled(settings.ocrEngine!=0||!rapidReady);
+  if(ui::button(subText("Select subtitle word + reading area...","Označit slovo titulku + oblast čtení..."),true))*selectStyle=true;
+  ImGui::EndDisabled();
+  ImGui::TextWrapped("%s",subText("Mark one word to learn its color and size. Set a larger reading area for multiple lines; save the result as a profile below.","Označ jedno slovo pro barvu a velikost. Oblast čtení nech větší pro více řádků; výběr můžeš níže uložit jako profil."));
+ }
  const auto capability=ocr.snapshot();
  ui::field(subText("Text recognition","Rozpoznávání textu"));
  ImGui::Combo("##ocr-engine",&settings.ocrEngine,"RapidOCR / PP-OCRv5 English\000Windows English OCR\000");
@@ -41,7 +48,7 @@ inline bool subtitlePanel(SubtitleSettings& settings,const SubtitleSnapshot& sta
  if(settings.model){
   const auto& item=subtitleModelCatalog[settings.model];const auto download=models.snapshot(settings.model);const bool modelReady=download.phase=="ready";ready=ready&&modelReady;
   ImGui::TextWrapped("%s",subText("CUNI is specialized for English to Czech. Q3 uses less memory; Q8 keeps more weight precision. Higher precision is not a guarantee of a better sentence.","CUNI je specializovaný na angličtinu do češtiny. Q3 šetří paměť, Q8 zachová větší přesnost vah. Vyšší přesnost nezaručuje lepší překlad každé věty."));
-  if(settings.model==3)ImGui::TextWrapped("%s",subText("Q5 is available to try. No Q5 quality, speed or hardware benchmark has been run for this release.","Q5 je k vyzkoušení. Pro toto vydání nemáme test kvality, rychlosti ani běhu Q5 na hardwaru."));
+  if(settings.model==3)ImGui::TextWrapped("%s",subText("Q5 is used in the published live-caption examples. Compare quality on your own material; higher precision does not guarantee a better translation.","Q5 je použitý ve zveřejněných ukázkách živých titulků. Kvalitu porovnej na vlastním obsahu; vyšší přesnost nezaručuje lepší překlad."));
   ImGui::Text(subText("Model: %.2f GB | estimated GPU: %.1f GiB + headroom","Model: %.2f GB | odhad GPU: %.1f GiB + rezerva"),item.downloadGB,item.requiredGiB);
   ImGui::TextWrapped("%s",subText("First GPU download also needs the 1.62 GB portable runtime. Allow about 8 GB extra disk space for its archive and extraction. Models stay on this PC.","První GPU model stáhne také přenosný runtime (1,62 GB). Pro archiv a rozbalení nech dalších asi 8 GB místa. Modely zůstávají na tomto PC."));
   const bool busy=download.phase=="downloading"||download.phase=="verifying"||download.phase=="extracting";
@@ -63,6 +70,32 @@ inline bool subtitlePanel(SubtitleSettings& settings,const SubtitleSnapshot& sta
  if(!ready)ImGui::EndDisabled();
  if(settings.enabled&&ImGui::Button(subText("Unload translation model","Uvolnit překladový model")))settings.enabled=false;
  ImGui::TextDisabled("English > Čeština | lokálně / offline");
+ ui::field(subText("Subtitle appearance","Vzhled originálních titulků"));
+ if(profiles){
+  const auto active=profiles->find(profiles->selected);std::string label=active?active->name:subText("Current settings","Aktuální nastavení");if(active&&!SubtitleProfiles::matches(*active,settings))label+=subText(" (modified)"," (upraveno)");
+  if(ImGui::BeginCombo("##subtitle-profile",label.c_str())){for(auto& p:profiles->entries)if(ImGui::Selectable(p.name.c_str(),p.id==profiles->selected))profiles->choose(p.id,settings);if(profiles->entries.empty())ImGui::TextDisabled("%s",subText("No saved profiles yet","Zatím nejsou uložené profily"));ImGui::EndCombo();}
+  static char profileName[160]{};
+  if(ImGui::Button(subText("Save as...","Uložit jako…"))){profileName[0]=0;ImGui::OpenPopup("##name-subtitle-profile");}
+  if(active){ImGui::SameLine();if(ImGui::Button(subText("Save changes","Uložit změny")))profiles->update(settings);}
+  if(ImGui::BeginPopup("##name-subtitle-profile")){ImGui::TextUnformatted(subText("Profile name","Název profilu"));ImGui::InputText("##profile-name",profileName,sizeof(profileName));if(ImGui::Button(subText("Save profile","Uložit profil"))&&profiles->add(profileName,settings))ImGui::CloseCurrentPopup();ImGui::EndPopup();}
+  if(active&&ImGui::SmallButton(subText("Delete profile...","Smazat profil…")))ImGui::OpenPopup("##delete-subtitle-profile");
+  if(ImGui::BeginPopup("##delete-subtitle-profile")){ImGui::TextWrapped("%s",subText("Delete this saved profile? Current settings will stay active.","Smazat tento uložený profil? Aktuální nastavení zůstane aktivní."));if(ImGui::Button(subText("Delete","Smazat"))){profiles->removeSelected();ImGui::CloseCurrentPopup();}ImGui::EndPopup();}
+  if(!profiles->error.empty())ImGui::TextWrapped("%s",subText("Profiles could not be saved or loaded. Check that the application folder is writable and enter a valid name.","Profily se nepodařilo uložit nebo načíst. Ověř zápis do složky aplikace a vyplň platný název."));
+ }
+ ImGui::BeginDisabled(!rapidReady||settings.ocrEngine!=0||!selectStyle);
+ if(ImGui::Button(subText("Select text sample...","Vybrat vzor textu…"))&&selectStyle)*selectStyle=true;
+ ImGui::EndDisabled();
+ if(settings.style.enabled){
+  ImGui::SameLine();if(ImGui::Button(subText("Reset to automatic","Obnovit automatiku")))settings.style.enabled=false;
+  ImGui::TextWrapped("%s",settings.ocrEngine==0?subText("Matching colour and letter size. The reading area still allows longer and multiline captions.","Čte odpovídající barvu a velikost písmen. Oblast čtení dál umožňuje delší i víceřádkové titulky."):subText("Saved appearance filter is inactive with Windows OCR. Select RapidOCR to use it.","Uložený filtr vzhledu se ve Windows OCR nepoužívá. Aktivuješ jej výběrem RapidOCR."));
+ }else ImGui::TextWrapped("%s",subText("Reading signs or number plates? Select one subtitle word as a colour and size sample.","Čte nápisy nebo SPZ? Vyber jedno slovo titulku jako vzor barvy a velikosti."));
+ if(settings.ocrEngine!=0)ImGui::TextDisabled("%s",subText("Appearance selection requires bundled RapidOCR.","Výběr vzhledu vyžaduje přibalené RapidOCR."));
+ if(settings.style.enabled&&ImGui::CollapsingHeader(subText("Appearance details","Podrobnosti vzhledu"))){
+  ImGui::SliderFloat(subText("Size tolerance","Tolerance velikosti"),&settings.style.heightTolerance,.15f,.8f,"%.2f");
+  ImGui::SliderFloat(subText("Colour tolerance","Tolerance barvy"),&settings.style.colorTolerance,10.f,65.f,"%.0f");
+  ImGui::TextWrapped("%s",subText("Similar-looking signs can still match. Narrow the reading area if needed. No match means waiting, never falling back to all text.","Podobně vypadající nápis může stále projít. Pomůže zúžení oblasti čtení. Když nic neodpovídá, čeká se; filtr se sám nevypíná."));
+  for(const auto& line:state.ocrLines){const char* en[]={"accepted","outside area","size","colour"};const char* cs[]={"přijato","mimo oblast","velikost","barva"};ImGui::TextWrapped("%s: %s",(czech?cs:en)[std::clamp(line.reason,0,3)],line.text.c_str());}
+ }
  if(settings.enabled&&!state.status.empty())ImGui::TextWrapped("%s",state.status.c_str());
  ui::field(subText("Subtitle timing","Časování titulků"));
  ImGui::Checkbox(subText("Join split sentences","Spojovat rozdělené věty"),&settings.joinFragments);
@@ -107,13 +140,13 @@ inline bool subtitlePanel(SubtitleSettings& settings,const SubtitleSnapshot& sta
  ImGui::TextWrapped("%s",subText("Uses a very confident reading or two matching readings. OCR can still misread obscured or stylized text. Czech stays visible while the next line is processed. Audio is not used.","Použije velmi jisté čtení nebo dvě shodná čtení. OCR může chybovat u zakrytého či stylizovaného textu. Čeština zůstává vidět při zpracování další věty. Zvuk se nepoužívá."));
  settings.sanitize();return !(settings==before);
 }
-inline bool drawSubtitleOverlay(ImVec2 origin,ImVec2 size,SubtitleSettings& settings,const SubtitleSnapshot& state,double now,bool cleanOutput=false){
+inline bool drawSubtitleOverlay(ImVec2 origin,ImVec2 size,SubtitleSettings& settings,const SubtitleSnapshot& state,double now,bool cleanOutput=false,ImDrawList* recordingDraw=nullptr){
  bool changed=false;const bool edit=settings.editOverlay&&!cleanOutput;
  if(size.x<=0||size.y<=0)return false;
- auto draw=ImGui::GetWindowDrawList();const ImVec2 end{origin.x+size.x,origin.y+size.y};
+ auto draw=recordingDraw?recordingDraw:ImGui::GetWindowDrawList();const ImVec2 end{origin.x+size.x,origin.y+size.y};
  // Fit/fill/crop can place parts of the input image outside the actual viewport.
  // Keep the full caption inside the visible image AND window, not just source bounds.
- const auto clipMin=draw->GetClipRectMin(),clipMax=draw->GetClipRectMax(),display=ImGui::GetIO().DisplaySize;
+ const auto clipMin=draw->GetClipRectMin(),clipMax=draw->GetClipRectMax(),display=recordingDraw?end:ImGui::GetIO().DisplaySize;
  const ImVec2 visibleMin{std::max({origin.x,clipMin.x,0.f}),std::max({origin.y,clipMin.y,0.f})};
  const ImVec2 visibleMax{std::min({end.x,clipMax.x,display.x}),std::min({end.y,clipMax.y,display.y})};
  const ImVec2 visibleSize{visibleMax.x-visibleMin.x,visibleMax.y-visibleMin.y};

@@ -6,7 +6,7 @@
 
 ## 1. Stáhni a rozbal FrameLab
 
-1. **[Stáhnout FrameLab preview.13 pro Windows x64](https://github.com/tomik520i/FrameLab/releases/download/v0.2.0-preview.14/FrameLab-0.2.0-preview.14-windows-x64-full.zip)**. Přesná velikost je na [stránce stahování](https://opicebot.cz/framelab/#download).
+1. **[Stáhnout FrameLab preview.15 pro Windows x64](https://github.com/tomik520i/FrameLab/releases/download/v0.2.0-preview.15/FrameLab-0.2.0-preview.15-windows-x64-full.zip)**. Přesná velikost je na [stránce stahování](https://opicebot.cz/framelab/#download).
 2. Pravé tlačítko na ZIP → **Extrahovat vše** → nová složka například na Ploše. Nepracuj uvnitř ZIPu. Počítej přibližně se 4 GB volného místa pro oba stažené archivy, rozbalení a import.
 3. Otevři **1 - Spustit FrameLab.cmd**. V kartě **Vstup** vyzkoušej CS:GO nebo Spider-Mana. Frame generation i titulky lze používat hned, NR ještě čeká na externí soubory. Pro OCR může Windows vyžadovat doinstalování anglického rozpoznávání textu; postup je v [základním návodu](https://opicebot.cz/framelab/guide/).
 
@@ -35,7 +35,7 @@
 
 | Problém | Co udělat |
 | --- | --- |
-| Nemám kartu AI / NR | Máš preview.10 nebo starší build bez podpory NR. Stáhni celý preview.13; samotné přidání DLL do preview.10 nestačí. |
+| Nemám kartu AI / NR | Máš preview.10 nebo starší build bez podpory NR. Stáhni celý preview.15; samotné přidání DLL do preview.10 nestačí. |
 | Kontrolní součet nesouhlasí | Stáhni přesný NVIDIA ZIP 2.1.9 bez dodatku. Zkontroluj dokončené stahování. Průvodce úmyslně nepřijímá neznámé verze. |
 | Soubor se používá / přístup odepřen | Ukonči všechny své instance FrameLabu a zkus import znovu. Celá složka musí být zapisovatelná. |
 | Průvodce je zablokovaný správcem | Neměň zásady počítače. Se souhlasem správce rozbal přesný externí ZIP a použij ruční cesty níže. |

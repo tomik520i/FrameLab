@@ -1,4 +1,4 @@
-# Subtitle OCR and reading time (preview.14)
+# Subtitle OCR, appearance profiles and reading time (preview.15)
 
 The recommended **RapidOCR / PP-OCRv5 English** option reads English subtitles
 already burned into the video. It runs locally, with bundled models and two CPU
@@ -7,7 +7,50 @@ remains selectable. Only that fallback needs the English Windows OCR capability.
 
 Select the subtitle band in **Subtitles**, choose your translation model, and
 enable **Translate subtitles to Czech**. The source can be a capture device or
-a local video. This does not transcribe speech or read embedded subtitle tracks.
+a local video. This does not transcribe speech. Embedded subtitles selected in
+the [local video player](local-video.md) are rendered into the source and can be
+recognized with OCR; their original text is not extracted directly.
+
+## Select one word; save the appearance
+
+When OCR reads signs or number plates, open **Subtitles → Select text sample…**.
+The dialog freezes one existing source frame while playback/audio continue.
+Draw tightly around one clear subtitle word with several letters, including the
+full letter height. The word teaches approximate foreground colour and letter
+size, not a fixed word rectangle or a font family.
+
+The yellow **reading area** remains independent. Keep it large enough for all
+subtitle lines, or use **Adjust reading area** to draw the complete subtitle
+band. One, two and three lines can match the same learned appearance. The preview
+shows green accepted lines and red ignored text, with reasons. Choose **Use this
+style** to apply it; Cancel leaves the previous settings unchanged.
+
+Use **Save as…** to name the profile (for example, a game or subtitle colour).
+The dropdown recalls its appearance and reading area. **Save changes** updates
+the selected profile. The last selection and current custom settings survive
+restart. Modified settings are labelled **(modified)** until saved; restarting
+does not silently replace them with an older preset. Profiles do not switch the
+translation model, sound device or Czech overlay placement. Removing a named
+profile keeps the current settings active. Translation itself still starts
+disabled, as before.
+
+**Reset to automatic** disables appearance filtering. It does not erase saved
+profiles. The feature requires bundled RapidOCR; Windows OCR remains available
+but does not apply this filter. **Appearance details** exposes optional colour
+and size tolerances. No matching text means waiting, not falling back to all text.
+
+This is an appearance heuristic, not a semantic subtitle detector. A sign with
+the same colour and size can still pass. Strong animation, blur, changed HUD
+scale or a different speaker colour may require another profile or tolerance.
+Filtering operates on detected OCR lines; mixed styles within one detected line
+are not separated into independently classified words.
+
+Storage is local: `app/subtitle-profiles.txt` and `app/subtitle-settings.txt`.
+These personal files are excluded from public packages. Debug sessions include
+`ocr_style_sample` and `ocr_style_line` events (0 accepted, 1 outside area,
+2 size, 3 colour). Normal line rectangles are relative to the OCR crop; picker
+rectangles are relative to the frozen frame. Recognized text is logged only when
+the existing text-logging option is enabled.
 
 **Minimum on screen** defaults to 1.2 seconds. **Keep while waiting** defaults to
 3 seconds; long translations receive extra reading time, up to 7.5 seconds.
@@ -69,4 +112,4 @@ caption visible while the English text remained on screen. Delayed-worker tests
 also verified readable captions after blank OCR and rejection after source reset.
 These are functional checks, not a new full translation-quality or performance
 benchmark. Q3 still produced awkward grammar and occasional wrong speaker gender.
-Q5 was downloaded and SHA-256 verified, then activated at the owner’s request. GPU loading was confirmed; no comparative quality or speed test was run.
+At that earlier test Q5 had only been downloaded and loaded. The November 20 release now includes actual Q5 GTA captions and mixed-session timings: see ../examples/2026-11-20/README.md. This is not a blinded model ranking.

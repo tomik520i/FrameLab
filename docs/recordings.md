@@ -1,3 +1,7 @@
+# Current preview.15 evidence
+
+[GTA camera, enhancer, Czech captions, RTX 5070 Ti telemetry and focus checks](../examples/2026-11-20/README.md) · [Interactive website](https://opicebot.cz/framelab/). This new set supersedes the older front-page samples; the historical measurements below retain their original dates and conditions.
+
 # Recording and comparison data
 
 Each `app/recordings/analysis-15s-ID` contains a recording ID and settings ID. `session.json` records GPU, backend, pacing version, source, dimensions, quality, multiplier, automatic cuts, dedup and VSync. Preview.7 records pacing version 3 and `output_scheduler` to distinguish independent GPU work from the diagnostic legacy wait mode. `capture-settings.json` adds RAM strategy, capture rate snapshot and start time. `result.json` distinguishes complete and interrupted takes.

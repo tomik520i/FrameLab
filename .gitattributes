@@ -6,3 +6,4 @@
 *.cmd text eol=crlf
 # Published measurement/source bytes have their own SHA-256 manifests.
 website/translation/** -text whitespace=cr-at-eol,-blank-at-eof
+examples/2026-11-20/** -text whitespace=cr-at-eol,-blank-at-eof

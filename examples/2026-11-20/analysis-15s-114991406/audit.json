@@ -1,0 +1,444 @@
+{
+  "recording_id": "analysis-15s-114991406",
+  "settings": {
+    "recording_id": "analysis-15s-114991406",
+    "settings_id": "analysis-15s-114991406_settings",
+    "backend": "NVIDIA VFG",
+    "pacing_version": 3,
+    "output_scheduler": "independent-gpu-pump-content-deadline",
+    "gpu": "NVIDIA GeForce RTX 5070 Ti",
+    "vsync": false,
+    "dedup": true,
+    "dedup_threshold": 0,
+    "requested_seconds": 15,
+    "source": "AVerMedia HD Capture GC573 1",
+    "width": 2560,
+    "height": 1440,
+    "quality": 1,
+    "multiplier": 2,
+    "automatic_cut_detection": true,
+    "pixel_format": "BGRA8 opaque, top-down",
+    "hdmi_signal_resolution": "unknown; dimensions describe delivered capture frames"
+  },
+  "result": {
+    "duration_seconds": 3.80503,
+    "raw_frames": 111,
+    "generated_frames": 49,
+    "present_events": 102,
+    "recorder_drops": 1,
+    "ram_raw_bytes": 5278924800,
+    "ram_stored_bytes": 2511667899,
+    "ram_peak_bytes": 2538300128,
+    "reason": "Recording stopped: GPU readback exceeded 100 ms",
+    "note": "Lossless RAM compression preserves every BGRA byte. Diagnostic readback/compression may affect performance. Presents reference image IDs; pre-start images may be absent. Matched output before/after enhancement and burned Czech captions are recorded in source resolution. Subtitle timing is in output-frames.jsonl. Audio, UI chrome and physical monitor scanout are not recorded."
+  },
+  "raw_changed_frames": 103,
+  "raw_adjacent_repeats": 8,
+  "valid_generated_pairs": 47,
+  "generated_endpoint_copies": 2,
+  "submitted_image_ids": 90,
+  "valid_output_rows": 89,
+  "missing_output_rows": [
+    {
+      "time_s": 3.7005024,
+      "output_id": 89,
+      "source_id": 25988,
+      "generated": true,
+      "source_A": 62986,
+      "source_B": 62988,
+      "phase": 0.5,
+      "before": [
+        "B",
+        89
+      ],
+      "after": [
+        "E",
+        89
+      ],
+      "final": [
+        "F",
+        89
+      ],
+      "nr_applied": true,
+      "nr_strength": 1,
+      "subtitle": "Ahoj, děvky!",
+      "subtitle_source": "Ahoy, bitches!",
+      "missing": [
+        "before"
+      ]
+    }
+  ],
+  "usable_prefix_end_s": 3.7005024,
+  "subtitle_cues": [
+    {
+      "start_s": 0.005241099992,
+      "text": "Teď můžu jít ven jen s krycím příběhem.",
+      "source": "Now, I can only go out with a cover.",
+      "end_s": 1.6091756
+    },
+    {
+      "start_s": 1.6091756,
+      "text": "Jaké je krytí?",
+      "source": "What's the cover?",
+      "end_s": 2.8338231
+    },
+    {
+      "start_s": 2.8338231,
+      "text": "Ahoj, děvky!",
+      "source": "Ahoy, bitches!",
+      "end_s": 3.7005024
+    }
+  ],
+  "bins": [
+    {
+      "second": 0,
+      "raw": 30,
+      "raw_changes": 28,
+      "generated": 12,
+      "submitted_ids": 24
+    },
+    {
+      "second": 1,
+      "raw": 29,
+      "raw_changes": 28,
+      "generated": 14,
+      "submitted_ids": 26
+    },
+    {
+      "second": 2,
+      "raw": 29,
+      "raw_changes": 26,
+      "generated": 13,
+      "submitted_ids": 21
+    },
+    {
+      "second": 3,
+      "raw": 23,
+      "raw_changes": 21,
+      "generated": 10,
+      "submitted_ids": 19
+    }
+  ],
+  "enhanced_sampled_changes": [
+    {
+      "time_s": 0.005241099992,
+      "output_id": 1,
+      "mean_abs_rgb_change": 4.846452713012695,
+      "pixel_fraction_change_over_10": 0.19623697916666666,
+      "subtitle": "Teď můžu jít ven jen s krycím příběhem."
+    },
+    {
+      "time_s": 0.08520999999,
+      "output_id": 3,
+      "mean_abs_rgb_change": 4.668805122375488,
+      "pixel_fraction_change_over_10": 0.18934895833333334,
+      "subtitle": "Teď můžu jít ven jen s krycím příběhem."
+    },
+    {
+      "time_s": 0.1845497,
+      "output_id": 5,
+      "mean_abs_rgb_change": 4.522012233734131,
+      "pixel_fraction_change_over_10": 0.1843142361111111,
+      "subtitle": "Teď můžu jít ven jen s krycím příběhem."
+    },
+    {
+      "time_s": 0.2630537,
+      "output_id": 7,
+      "mean_abs_rgb_change": 4.411533355712891,
+      "pixel_fraction_change_over_10": 0.17141493055555557,
+      "subtitle": "Teď můžu jít ven jen s krycím příběhem."
+    },
+    {
+      "time_s": 0.3247509,
+      "output_id": 9,
+      "mean_abs_rgb_change": 4.3070573806762695,
+      "pixel_fraction_change_over_10": 0.1616232638888889,
+      "subtitle": "Teď můžu jít ven jen s krycím příběhem."
+    },
+    {
+      "time_s": 0.4332432,
+      "output_id": 11,
+      "mean_abs_rgb_change": 4.19926643371582,
+      "pixel_fraction_change_over_10": 0.14439670138888888,
+      "subtitle": "Teď můžu jít ven jen s krycím příběhem."
+    },
+    {
+      "time_s": 0.5137112,
+      "output_id": 13,
+      "mean_abs_rgb_change": 3.9365813732147217,
+      "pixel_fraction_change_over_10": 0.11424479166666666,
+      "subtitle": "Teď můžu jít ven jen s krycím příběhem."
+    },
+    {
+      "time_s": 0.5989997,
+      "output_id": 15,
+      "mean_abs_rgb_change": 4.236789703369141,
+      "pixel_fraction_change_over_10": 0.11465711805555556,
+      "subtitle": "Teď můžu jít ven jen s krycím příběhem."
+    },
+    {
+      "time_s": 0.6655706,
+      "output_id": 17,
+      "mean_abs_rgb_change": 4.378913402557373,
+      "pixel_fraction_change_over_10": 0.14226128472222221,
+      "subtitle": "Teď můžu jít ven jen s krycím příběhem."
+    },
+    {
+      "time_s": 0.7347553,
+      "output_id": 19,
+      "mean_abs_rgb_change": 4.6066436767578125,
+      "pixel_fraction_change_over_10": 0.16624131944444445,
+      "subtitle": "Teď můžu jít ven jen s krycím příběhem."
+    },
+    {
+      "time_s": 0.8015764,
+      "output_id": 21,
+      "mean_abs_rgb_change": 4.525393486022949,
+      "pixel_fraction_change_over_10": 0.1490234375,
+      "subtitle": "Teď můžu jít ven jen s krycím příběhem."
+    },
+    {
+      "time_s": 0.9109966,
+      "output_id": 23,
+      "mean_abs_rgb_change": 4.755372047424316,
+      "pixel_fraction_change_over_10": 0.1624435763888889,
+      "subtitle": "Teď můžu jít ven jen s krycím příběhem."
+    },
+    {
+      "time_s": 1.0333922,
+      "output_id": 25,
+      "mean_abs_rgb_change": 5.015954971313477,
+      "pixel_fraction_change_over_10": 0.18984809027777777,
+      "subtitle": "Teď můžu jít ven jen s krycím příběhem."
+    },
+    {
+      "time_s": 1.0985323,
+      "output_id": 27,
+      "mean_abs_rgb_change": 4.70911169052124,
+      "pixel_fraction_change_over_10": 0.185,
+      "subtitle": "Teď můžu jít ven jen s krycím příběhem."
+    },
+    {
+      "time_s": 1.1898058,
+      "output_id": 29,
+      "mean_abs_rgb_change": 4.641563892364502,
+      "pixel_fraction_change_over_10": 0.17048611111111112,
+      "subtitle": "Teď můžu jít ven jen s krycím příběhem."
+    },
+    {
+      "time_s": 1.2612097,
+      "output_id": 31,
+      "mean_abs_rgb_change": 4.475949287414551,
+      "pixel_fraction_change_over_10": 0.15519097222222222,
+      "subtitle": "Teď můžu jít ven jen s krycím příběhem."
+    },
+    {
+      "time_s": 1.3180948,
+      "output_id": 33,
+      "mean_abs_rgb_change": 4.644898891448975,
+      "pixel_fraction_change_over_10": 0.1604123263888889,
+      "subtitle": "Teď můžu jít ven jen s krycím příběhem."
+    },
+    {
+      "time_s": 1.387497,
+      "output_id": 35,
+      "mean_abs_rgb_change": 4.576228141784668,
+      "pixel_fraction_change_over_10": 0.15702690972222222,
+      "subtitle": "Teď můžu jít ven jen s krycím příběhem."
+    },
+    {
+      "time_s": 1.5041008,
+      "output_id": 37,
+      "mean_abs_rgb_change": 4.558748722076416,
+      "pixel_fraction_change_over_10": 0.1587326388888889,
+      "subtitle": "Teď můžu jít ven jen s krycím příběhem."
+    },
+    {
+      "time_s": 1.5744525,
+      "output_id": 39,
+      "mean_abs_rgb_change": 4.466122627258301,
+      "pixel_fraction_change_over_10": 0.1561545138888889,
+      "subtitle": "Teď můžu jít ven jen s krycím příběhem."
+    },
+    {
+      "time_s": 1.6473171,
+      "output_id": 41,
+      "mean_abs_rgb_change": 4.4705424308776855,
+      "pixel_fraction_change_over_10": 0.16313802083333334,
+      "subtitle": "Jaké je krytí?"
+    },
+    {
+      "time_s": 1.7308376,
+      "output_id": 43,
+      "mean_abs_rgb_change": 4.507719993591309,
+      "pixel_fraction_change_over_10": 0.16718315972222222,
+      "subtitle": "Jaké je krytí?"
+    },
+    {
+      "time_s": 1.7979436,
+      "output_id": 45,
+      "mean_abs_rgb_change": 4.6684112548828125,
+      "pixel_fraction_change_over_10": 0.1815407986111111,
+      "subtitle": "Jaké je krytí?"
+    },
+    {
+      "time_s": 1.8452358,
+      "output_id": 47,
+      "mean_abs_rgb_change": 5.943890571594238,
+      "pixel_fraction_change_over_10": 0.2326779513888889,
+      "subtitle": "Jaké je krytí?"
+    },
+    {
+      "time_s": 1.9238729,
+      "output_id": 49,
+      "mean_abs_rgb_change": 5.929111480712891,
+      "pixel_fraction_change_over_10": 0.2285763888888889,
+      "subtitle": "Jaké je krytí?"
+    },
+    {
+      "time_s": 2.0134462,
+      "output_id": 51,
+      "mean_abs_rgb_change": 5.962528705596924,
+      "pixel_fraction_change_over_10": 0.22800347222222223,
+      "subtitle": "Jaké je krytí?"
+    },
+    {
+      "time_s": 2.1345384,
+      "output_id": 53,
+      "mean_abs_rgb_change": 6.040379047393799,
+      "pixel_fraction_change_over_10": 0.2254861111111111,
+      "subtitle": "Jaké je krytí?"
+    },
+    {
+      "time_s": 2.2142637,
+      "output_id": 55,
+      "mean_abs_rgb_change": 6.16670560836792,
+      "pixel_fraction_change_over_10": 0.23304253472222222,
+      "subtitle": "Jaké je krytí?"
+    },
+    {
+      "time_s": 2.2950702,
+      "output_id": 57,
+      "mean_abs_rgb_change": 6.482112407684326,
+      "pixel_fraction_change_over_10": 0.2627777777777778,
+      "subtitle": "Jaké je krytí?"
+    },
+    {
+      "time_s": 2.4067883,
+      "output_id": 59,
+      "mean_abs_rgb_change": 6.337291717529297,
+      "pixel_fraction_change_over_10": 0.2592361111111111,
+      "subtitle": "Jaké je krytí?"
+    },
+    {
+      "time_s": 2.4923455,
+      "output_id": 61,
+      "mean_abs_rgb_change": 6.48472785949707,
+      "pixel_fraction_change_over_10": 0.2663628472222222,
+      "subtitle": "Jaké je krytí?"
+    },
+    {
+      "time_s": 2.5628898,
+      "output_id": 63,
+      "mean_abs_rgb_change": 6.633695125579834,
+      "pixel_fraction_change_over_10": 0.27340711805555556,
+      "subtitle": "Jaké je krytí?"
+    },
+    {
+      "time_s": 2.7066054,
+      "output_id": 65,
+      "mean_abs_rgb_change": 6.519217491149902,
+      "pixel_fraction_change_over_10": 0.26319878472222225,
+      "subtitle": "Jaké je krytí?"
+    },
+    {
+      "time_s": 2.7949976,
+      "output_id": 67,
+      "mean_abs_rgb_change": 6.503650188446045,
+      "pixel_fraction_change_over_10": 0.26360677083333334,
+      "subtitle": "Jaké je krytí?"
+    },
+    {
+      "time_s": 2.8902226,
+      "output_id": 69,
+      "mean_abs_rgb_change": 6.423983097076416,
+      "pixel_fraction_change_over_10": 0.2564887152777778,
+      "subtitle": "Ahoj, děvky!"
+    },
+    {
+      "time_s": 2.9840294,
+      "output_id": 71,
+      "mean_abs_rgb_change": 6.263462066650391,
+      "pixel_fraction_change_over_10": 0.2514409722222222,
+      "subtitle": "Ahoj, děvky!"
+    },
+    {
+      "time_s": 3.0609407,
+      "output_id": 73,
+      "mean_abs_rgb_change": 6.203399658203125,
+      "pixel_fraction_change_over_10": 0.24462239583333334,
+      "subtitle": "Ahoj, děvky!"
+    },
+    {
+      "time_s": 3.1318909,
+      "output_id": 75,
+      "mean_abs_rgb_change": 6.2957987785339355,
+      "pixel_fraction_change_over_10": 0.2504296875,
+      "subtitle": "Ahoj, děvky!"
+    },
+    {
+      "time_s": 3.2203607,
+      "output_id": 77,
+      "mean_abs_rgb_change": 6.20850133895874,
+      "pixel_fraction_change_over_10": 0.2413237847222222,
+      "subtitle": "Ahoj, děvky!"
+    },
+    {
+      "time_s": 3.3501942,
+      "output_id": 79,
+      "mean_abs_rgb_change": 6.060947418212891,
+      "pixel_fraction_change_over_10": 0.2308376736111111,
+      "subtitle": "Ahoj, děvky!"
+    },
+    {
+      "time_s": 3.4124499,
+      "output_id": 81,
+      "mean_abs_rgb_change": 5.791455268859863,
+      "pixel_fraction_change_over_10": 0.21020399305555557,
+      "subtitle": "Ahoj, děvky!"
+    },
+    {
+      "time_s": 3.4779008,
+      "output_id": 83,
+      "mean_abs_rgb_change": 5.993378162384033,
+      "pixel_fraction_change_over_10": 0.23726128472222222,
+      "subtitle": "Ahoj, děvky!"
+    },
+    {
+      "time_s": 3.5369825,
+      "output_id": 85,
+      "mean_abs_rgb_change": 5.386528015136719,
+      "pixel_fraction_change_over_10": 0.20977864583333333,
+      "subtitle": "Ahoj, děvky!"
+    },
+    {
+      "time_s": 3.6324432,
+      "output_id": 87,
+      "mean_abs_rgb_change": 5.339780330657959,
+      "pixel_fraction_change_over_10": 0.21465711805555557,
+      "subtitle": "Ahoj, děvky!"
+    },
+    {
+      "time_s": 3.7736529,
+      "output_id": 90,
+      "mean_abs_rgb_change": 5.382688045501709,
+      "pixel_fraction_change_over_10": 0.21708767361111111,
+      "subtitle": "Ahoj, děvky!"
+    }
+  ],
+  "limitations": [
+    "Captured pixel changes are not engine FPS.",
+    "No true intermediate frame or enhanced ground truth: changes are not an accuracy score.",
+    "Recording load can reduce cadence. Presentation is not physical scanout."
+  ]
+}

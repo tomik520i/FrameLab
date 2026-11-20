@@ -2,6 +2,7 @@
 import sys,csv,json,subprocess,statistics,hashlib,bisect,traceback
 from pathlib import Path
 ROOT=Path(__file__).resolve().parents[1];sys.path.insert(0,str(ROOT/'deps/python'))
+sys.path.insert(0,str(Path(__file__).resolve().parent))
 from PIL import Image,ImageDraw
 folder=Path(sys.argv[1]).resolve()
 ffmpeg=next((ROOT/'deps/python/imageio_ffmpeg/binaries').glob('ffmpeg*.exe'))
@@ -68,6 +69,11 @@ def export():
     if (folder/'display-confirmations.csv').exists():manifest['display_confirmations_file']='display-confirmations.csv';manifest['display_confirmation_note']='Sampled OS-confirmed image IDs; conservative lower bound, not physical scanout or pixel uniqueness.'
     (folder/'clips.json').write_text(json.dumps(manifest,indent=2),encoding='utf-8')
     (folder/'index.html').write_text('<!doctype html><meta charset="utf-8"><title>'+rid+'</title><style>body{background:#101820;color:white;font:18px system-ui;margin:30px}video{width:95%;max-height:70vh}a{color:#62ddbd}</style><h1>'+rid+'</h1><p><a href="clips.json">Clip IDs + settings JSON</a> | <a href="session.json">Session settings</a> | <a href="frames.csv">Every recorded frame</a></p><h2>Matched RAW A / generated / RAW B</h2><video controls src="'+comparison.name+'"></video><h2>Output timeline preview (60 FPS)</h2><video controls src="'+output.name+'"></video><p>Full-resolution lossless RAW and generated clips: '+ ' · '.join('<a href="'+c['file']+'">'+c['clip_id']+'</a>' for c in clips if c['lossless'])+'</p>',encoding='utf-8')
-try:export()
+try:
+    if (folder/'R.flp').exists():
+        from export_pipeline import export as export_pipeline
+        export_pipeline(folder, ffmpeg, ROOT/'app/FrameLabPixels.dll')
+    else:
+        export()
 except Exception:
     (folder/'export-error.txt').write_text(traceback.format_exc(),encoding='utf-8');raise

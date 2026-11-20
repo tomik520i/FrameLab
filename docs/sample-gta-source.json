@@ -1,0 +1,14 @@
+{
+  "title": "GTA gameplay recorded by the project owner",
+  "recording_id": "analysis-15s-112499968",
+  "from_seconds": 1,
+  "to_seconds": 4,
+  "input": "Original R pixels only; timestamp-aligned holds at 30 fps. No generated or enhanced frames.",
+  "width": 1280,
+  "height": 720,
+  "fps": 30,
+  "audio": false,
+  "encoding": "H.264 CRF17; Lanczos downscale from 2560x1440",
+  "rights": "User-provided gameplay excerpt for demonstrating FrameLab. Underlying game imagery retains its owners rights; not relicensed as GPL.",
+  "sha256": "f786a86cc51dc1610dc644d016f8f5fa5df455fd955483170a4b8473a783bb10"
+}

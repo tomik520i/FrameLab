@@ -1,4 +1,10 @@
-# Bundled sample videos
+# Current bundled samples — preview.15
+
+The full ZIP now bundles **gta.mp4** (1280 × 720, 30 FPS, 3 seconds), **action.mp4** (CS:GO) and the artificial **ocr-demo.mp4**. GTA uses seconds 1–4 of the project owner's original RAW capture analysis-15s-112499968. Original images are held on the source timeline and downscaled; no generated/enhanced images enter the source demo. Exact SHA-256 and provenance: [sample-gta-source.json](sample-gta-source.json).
+
+The short GTA excerpt is user-provided gameplay illustrating the app. Game imagery, characters, trademarks and underlying assets retain their respective rights and are not GPL licensed. It is not an official GTA VI benchmark. Spider-Man is no longer the bundled/current front-page demo; historical public comparisons retain their original provenance below.
+
+# Historical bundled samples
 
 These silent, short looping test clips are bundled inside the full preview.10 release. They are not downloaded at startup. Exact source URLs, crops, encoding parameters and SHA-256 values accompany each file in app/samples/*.source.json.
 

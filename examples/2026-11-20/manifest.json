@@ -1,0 +1,491 @@
+{
+  "takes": [
+    {
+      "recording_id": "analysis-15s-112499968",
+      "duration_s": 15,
+      "matched_prefix_s": 15,
+      "raw_frames": 822,
+      "raw_changes": 440,
+      "generated_frames": 438,
+      "generated_pairs_checked": 437,
+      "endpoint_copies": 0,
+      "submitted_image_ids": 781,
+      "subtitle_cues": 0,
+      "recorder_drops": 0,
+      "reason": "15 seconds completed"
+    },
+    {
+      "recording_id": "analysis-15s-114426140",
+      "duration_s": 15,
+      "matched_prefix_s": 15,
+      "raw_frames": 615,
+      "raw_changes": 463,
+      "generated_frames": 323,
+      "generated_pairs_checked": 322,
+      "endpoint_copies": 1,
+      "submitted_image_ids": 607,
+      "subtitle_cues": 0,
+      "recorder_drops": 0,
+      "reason": "15 seconds completed"
+    },
+    {
+      "recording_id": "analysis-15s-114773125",
+      "duration_s": 12.3158,
+      "matched_prefix_s": 12.2796512,
+      "raw_frames": 497,
+      "raw_changes": 368,
+      "generated_frames": 278,
+      "generated_pairs_checked": 276,
+      "endpoint_copies": 1,
+      "submitted_image_ids": 503,
+      "subtitle_cues": 0,
+      "recorder_drops": 1,
+      "reason": "Recording stopped: compressed RAM buffer full; reduce capture resolution"
+    },
+    {
+      "recording_id": "analysis-15s-114955078",
+      "duration_s": 6.71194,
+      "matched_prefix_s": 6.6090122,
+      "raw_frames": 198,
+      "raw_changes": 171,
+      "generated_frames": 88,
+      "generated_pairs_checked": 86,
+      "endpoint_copies": 2,
+      "submitted_image_ids": 166,
+      "subtitle_cues": 3,
+      "recorder_drops": 1,
+      "reason": "Recording stopped: GPU readback exceeded 100 ms"
+    },
+    {
+      "recording_id": "analysis-15s-114991406",
+      "duration_s": 3.80503,
+      "matched_prefix_s": 3.7005024,
+      "raw_frames": 111,
+      "raw_changes": 103,
+      "generated_frames": 49,
+      "generated_pairs_checked": 47,
+      "endpoint_copies": 2,
+      "submitted_image_ids": 90,
+      "subtitle_cues": 3,
+      "recorder_drops": 1,
+      "reason": "Recording stopped: GPU readback exceeded 100 ms"
+    },
+    {
+      "recording_id": "analysis-15s-115015921",
+      "duration_s": 3.56595,
+      "matched_prefix_s": 3.4590857,
+      "raw_frames": 108,
+      "raw_changes": 100,
+      "generated_frames": 45,
+      "generated_pairs_checked": 43,
+      "endpoint_copies": 1,
+      "submitted_image_ids": 88,
+      "subtitle_cues": 2,
+      "recorder_drops": 1,
+      "reason": "Recording stopped: GPU readback exceeded 100 ms"
+    }
+  ],
+  "media": [
+    {
+      "file": "debug/captions.json",
+      "bytes": 23025,
+      "sha256": "80e3824153a76ee30f95d408c84b0753223cf93e7801bd2233251ced696134b2"
+    },
+    {
+      "file": "debug/events-numeric.jsonl",
+      "bytes": 33698339,
+      "sha256": "f18f71b5fd0535edfeaef805940b180bf9123bd09f0ead521596642f36213a19"
+    },
+    {
+      "file": "debug/metrics.csv",
+      "bytes": 545678,
+      "sha256": "571042c8a0cf408f134dcf5d55b1ba77cffc0c2e3ebf7d7cac0856608819f21c"
+    },
+    {
+      "file": "debug/settings-timeline.json",
+      "bytes": 45450,
+      "sha256": "83b8875b4b1a45cc2377e32986acb15e525efcf173e5cc94abe1ae78f6eddd19"
+    },
+    {
+      "file": "debug/summary.json",
+      "bytes": 13905,
+      "sha256": "300495b73b3c45ae15f9d07dd332de01e69289d6b49e8f066f160d7b4b80dbe5"
+    },
+    {
+      "file": "gta-2x-mapping.json",
+      "bytes": 34474,
+      "sha256": "1581e852a263e37c8cdf79bfb9bcf7211e569d082f7d98bfb5999db2ccfb21ac"
+    },
+    {
+      "file": "gta-2x-realtime.mp4",
+      "bytes": 4147647,
+      "sha256": "b1397821444e206fc203131c37f6fcf7ad72006c0252218bd79ffcae736884a4"
+    },
+    {
+      "file": "gta-2x-slow.gif",
+      "bytes": 22183528,
+      "sha256": "56274f754f1bceb29dfb6f7b18322369dcbf3c2303a0cc9dc2660e878c7214ea"
+    },
+    {
+      "file": "gta-2x-slow.mp4",
+      "bytes": 7688922,
+      "sha256": "e5cf0533c2a319a220027b0a44ad2563a54ca6e03fd97630f5f06f05d8f04bae"
+    },
+    {
+      "file": "gta-enhancer-1-after-full.png",
+      "bytes": 4631210,
+      "sha256": "080ad55e6e95eb3dd3ced034f6447ff1cc7ddfb0621296de2ef9edc397cb366d"
+    },
+    {
+      "file": "gta-enhancer-1-after.mp4",
+      "bytes": 18976611,
+      "sha256": "dd5730cb047d35ae0c86b9d5ef48d8f92593221eebeb46113b2434672fca34d0"
+    },
+    {
+      "file": "gta-enhancer-1-before-full.png",
+      "bytes": 4075789,
+      "sha256": "f150a97c6ac8b2f45f7cc16ec57dad5688a5238eb9971efdba4ab8b318ad7887"
+    },
+    {
+      "file": "gta-enhancer-1-before.mp4",
+      "bytes": 15959317,
+      "sha256": "80a8f437506004db6bc0fd45f3436eff876433a893a04c70f0a6ba1e1f57ea25"
+    },
+    {
+      "file": "gta-enhancer-1-crop.png",
+      "bytes": 966609,
+      "sha256": "7691038cb3be52b4d1ca5381355951cebb9376db319db7335ad660711f05812f"
+    },
+    {
+      "file": "gta-enhancer-1-final-full.png",
+      "bytes": 4631210,
+      "sha256": "080ad55e6e95eb3dd3ced034f6447ff1cc7ddfb0621296de2ef9edc397cb366d"
+    },
+    {
+      "file": "gta-enhancer-1-final.mp4",
+      "bytes": 18976611,
+      "sha256": "dd5730cb047d35ae0c86b9d5ef48d8f92593221eebeb46113b2434672fca34d0"
+    },
+    {
+      "file": "gta-enhancer-1-mapping.json",
+      "bytes": 95724,
+      "sha256": "9ebae4ea3f01041c4f637d0d4abaaf8927ef8fd9d3fb811947e8c44bf69315ba"
+    },
+    {
+      "file": "gta-enhancer-1-pair-1.png",
+      "bytes": 1699986,
+      "sha256": "2aaa1d3cee25bc62bc1633eed5bedb2f87ac0683ea0b04c54d2bfc448d0056cf"
+    },
+    {
+      "file": "gta-enhancer-1-pair-2.png",
+      "bytes": 1645322,
+      "sha256": "c113a4beda560c315441882e7ac543595b69f718ae99402983849d378dc2bd96"
+    },
+    {
+      "file": "gta-enhancer-1-pair-3.png",
+      "bytes": 1592316,
+      "sha256": "08c4da428d514691825d8466cfa51d74330559cb5373399ce48a7acbcef83d72"
+    },
+    {
+      "file": "gta-enhancer-1.mp4",
+      "bytes": 13005676,
+      "sha256": "fa533cc95d58c4fe7496a13fd00a34c25e5ba2bc6b7c7c0249d44cd197a2ce10"
+    },
+    {
+      "file": "gta-enhancer-1.srt",
+      "bytes": 3,
+      "sha256": "f1945cd6c19e56b3c1c78943ef5ec18116907a4ca1efc40a57d48ab1db7adfc5"
+    },
+    {
+      "file": "gta-enhancer-2-after-full.png",
+      "bytes": 5631037,
+      "sha256": "5e00f9eb281714223ff507276ed54349c56497794b167be0a048458227d9eefa"
+    },
+    {
+      "file": "gta-enhancer-2-after.mp4",
+      "bytes": 29736874,
+      "sha256": "bc4aeeca419813e452429640106fa421a549bb8a44845223ac2e159f4e224a9b"
+    },
+    {
+      "file": "gta-enhancer-2-before-full.png",
+      "bytes": 4563301,
+      "sha256": "4edca71c566ed00bceecef4afefd6ebf8db650952b00ae6e5fc3f7788f614f0c"
+    },
+    {
+      "file": "gta-enhancer-2-before.mp4",
+      "bytes": 25820388,
+      "sha256": "d974a9f90efc1fd1b1bdd12fb6ed868330950120fa3f2dd17496e65413ffcd79"
+    },
+    {
+      "file": "gta-enhancer-2-crop.png",
+      "bytes": 1136693,
+      "sha256": "7e57f7407cffbdd2ef3727b7d72e75a10c5ee0ee322461ec1bd3721886ec813d"
+    },
+    {
+      "file": "gta-enhancer-2-final-full.png",
+      "bytes": 5631037,
+      "sha256": "5e00f9eb281714223ff507276ed54349c56497794b167be0a048458227d9eefa"
+    },
+    {
+      "file": "gta-enhancer-2-final.mp4",
+      "bytes": 29736874,
+      "sha256": "bc4aeeca419813e452429640106fa421a549bb8a44845223ac2e159f4e224a9b"
+    },
+    {
+      "file": "gta-enhancer-2-mapping.json",
+      "bytes": 78983,
+      "sha256": "26a8e32361209c455563fbf38419b1a99459f106da463397b9c80be38b96b42c"
+    },
+    {
+      "file": "gta-enhancer-2-pair-1.png",
+      "bytes": 1570343,
+      "sha256": "30670c7bba3740af3b98536d54054a65012c5ebde14eb43ce0df5b516da37b3c"
+    },
+    {
+      "file": "gta-enhancer-2-pair-2.png",
+      "bytes": 1936692,
+      "sha256": "7e9c98b9f9cff195a44f4efb321a4d3511e384918d6781d2ef734bc392baa6be"
+    },
+    {
+      "file": "gta-enhancer-2-pair-3.png",
+      "bytes": 1632262,
+      "sha256": "85609da4f37d3874bbcfbe02b979ae379068d86cc639d9662ba1962547f62a6b"
+    },
+    {
+      "file": "gta-enhancer-2.mp4",
+      "bytes": 18315765,
+      "sha256": "096d35812bb374e3feda929d7afdbb33708f4d888489f91f668b93513f21d743"
+    },
+    {
+      "file": "gta-enhancer-2.srt",
+      "bytes": 3,
+      "sha256": "f1945cd6c19e56b3c1c78943ef5ec18116907a4ca1efc40a57d48ab1db7adfc5"
+    },
+    {
+      "file": "gta-fg-a-full.png",
+      "bytes": 2550984,
+      "sha256": "63953ef54d774bdc7472229b9f8059a7d2f15b0474eda29845bda423c685ab84"
+    },
+    {
+      "file": "gta-fg-b-full.png",
+      "bytes": 2582669,
+      "sha256": "39f935ae0f7b87be19c1e131adca6f6c63568cfe218a340ab3ebf116a7dc3c49"
+    },
+    {
+      "file": "gta-fg-crop.png",
+      "bytes": 810270,
+      "sha256": "b03cdad119f256d6f4005aaad7fcdabd795786fc72d2d9f0e9b3f2ee367ea90a"
+    },
+    {
+      "file": "gta-fg-generated-full.png",
+      "bytes": 2659097,
+      "sha256": "11008805e22b200f97ba47b9c0cc393531656802609db974bf4376cb8534138c"
+    },
+    {
+      "file": "gta-fg-pair.png",
+      "bytes": 899635,
+      "sha256": "606e6a217d792e2eebf9d6c704771ee8c523050173858f56c7c6c0dbef964837"
+    },
+    {
+      "file": "gta-source.mp4",
+      "bytes": 3280504,
+      "sha256": "f786a86cc51dc1610dc644d016f8f5fa5df455fd955483170a4b8473a783bb10"
+    },
+    {
+      "file": "gta-subtitles-1-after-full.png",
+      "bytes": 3578079,
+      "sha256": "5c0941915f515cd9c92a639c357d83903c0f65cbd7a73204c7c820349aca5196"
+    },
+    {
+      "file": "gta-subtitles-1-after.mp4",
+      "bytes": 5879947,
+      "sha256": "a2c37d471591d45ac79f088cd28d15342b730659c3f3768a60b181187ebcb1d5"
+    },
+    {
+      "file": "gta-subtitles-1-before-full.png",
+      "bytes": 2577707,
+      "sha256": "8fa0a8391182c0db70a60d7ddef2993884d1bdf558ed6db757c2486197b3fcf1"
+    },
+    {
+      "file": "gta-subtitles-1-before.mp4",
+      "bytes": 4841281,
+      "sha256": "de4186b2f7c16765e1566499fdcb51b46740189b2bb4bfdd91829e40f3d270eb"
+    },
+    {
+      "file": "gta-subtitles-1-crop.png",
+      "bytes": 920834,
+      "sha256": "a57960675451a062505656fc83f6be75b8d6ebbf3a3ca79dfa276448dd078a6c"
+    },
+    {
+      "file": "gta-subtitles-1-final-full.png",
+      "bytes": 3575403,
+      "sha256": "b2327ecc8c5b4377a51a947a34b5f73af3af6bd11d69644430ad476effc4f216"
+    },
+    {
+      "file": "gta-subtitles-1-final.mp4",
+      "bytes": 5872788,
+      "sha256": "d17ee4725d58aad8acaaff14c00c5f7ff0bc92d513d7ff79537fcdeed6a864dd"
+    },
+    {
+      "file": "gta-subtitles-1-mapping.json",
+      "bytes": 43662,
+      "sha256": "d08b0e15d356d378a202f767c37a1e2aabdbbb910a6c9eaba87a9bb22409afcc"
+    },
+    {
+      "file": "gta-subtitles-1-pair-1.png",
+      "bytes": 1252363,
+      "sha256": "21dbd2167f80caafd58f54d3eb1c2a8a9e9d0b8cc7db4d5d5378847d792a659d"
+    },
+    {
+      "file": "gta-subtitles-1-pair-2.png",
+      "bytes": 1233787,
+      "sha256": "dbd488ca3a30457ede1bcd5cebfa6c49f456a8d888f82fc978c5ce54ce50c56b"
+    },
+    {
+      "file": "gta-subtitles-1-pair-3.png",
+      "bytes": 1208621,
+      "sha256": "f4998a9d665091a9a16c2e332e8d9bfbd152de23a0d54f08adaff1b851322707"
+    },
+    {
+      "file": "gta-subtitles-1.mp4",
+      "bytes": 3505328,
+      "sha256": "dfa38cdfc3a6a328eb62e129998191dbb677d1501c321ad41205e72ce66f3afe"
+    },
+    {
+      "file": "gta-subtitles-1.srt",
+      "bytes": 274,
+      "sha256": "30f1e487e300b692926283c8f03e7595c92c3f0fdce3a43109cbd3d0efb4f4c3"
+    },
+    {
+      "file": "gta-subtitles-2-after-full.png",
+      "bytes": 3727618,
+      "sha256": "d0cf208319f8fa2426038cb50763d516e141263a77a7af28e75f62664ce669c3"
+    },
+    {
+      "file": "gta-subtitles-2-after.mp4",
+      "bytes": 4824034,
+      "sha256": "3dbf3c91e8b3be4bf97276280ca53fe0e666132d6ecf8552088d6d8e56063bd1"
+    },
+    {
+      "file": "gta-subtitles-2-before-full.png",
+      "bytes": 2981284,
+      "sha256": "10e8a8af7b2a834a2ca9dc68918b839ee5607c791574082ea01f1bc32ee704ca"
+    },
+    {
+      "file": "gta-subtitles-2-before.mp4",
+      "bytes": 4203760,
+      "sha256": "5c2492a4bdb093c73e99cec62ec736b4280562bd2513a5fc8b808f3ba798e447"
+    },
+    {
+      "file": "gta-subtitles-2-crop.png",
+      "bytes": 867954,
+      "sha256": "08d5b74b8d9b8201f0f4850a7a3aa98f30524bd3510569603c1b428eaaebff9e"
+    },
+    {
+      "file": "gta-subtitles-2-final-full.png",
+      "bytes": 3737545,
+      "sha256": "07b289e3eb82c7a666c53c425e3596e295ea30fdfc38398c742447f378a5fa99"
+    },
+    {
+      "file": "gta-subtitles-2-final.mp4",
+      "bytes": 4836870,
+      "sha256": "56593e72c0b7e5a0825a3db15a7f8261bae7aa3e0be688fc1b149af2c0c45980"
+    },
+    {
+      "file": "gta-subtitles-2-mapping.json",
+      "bytes": 25044,
+      "sha256": "3aa1c061991de7a7d7bb384557c57de4e1c10228dbb2fb04213a3280766cce04"
+    },
+    {
+      "file": "gta-subtitles-2-pair-1.png",
+      "bytes": 1093729,
+      "sha256": "01432d44ecffddec280f6a0f57e6dbe30db9edbc6f745b2b3154213760aa61bb"
+    },
+    {
+      "file": "gta-subtitles-2-pair-2.png",
+      "bytes": 1243112,
+      "sha256": "e9feea8d98ced4c5409f3c3e4a4e9fc3bc6c0dae5305d1623013745cb1660baa"
+    },
+    {
+      "file": "gta-subtitles-2-pair-3.png",
+      "bytes": 1237170,
+      "sha256": "4c3f9cc9aad63893f3cda70481de0de7447c491f2d91b496c3cf82ed39e86ff7"
+    },
+    {
+      "file": "gta-subtitles-2.mp4",
+      "bytes": 3059363,
+      "sha256": "203fcfbf9a03e112b383e4a075833e0f05a5b6ac4fd3b31cb1986f8380f75278"
+    },
+    {
+      "file": "gta-subtitles-2.srt",
+      "bytes": 193,
+      "sha256": "aa3cdc09f1fb797659e10d14d85dc558d92fc3cc7e224f42dab1c5dc1c549bd5"
+    },
+    {
+      "file": "gta-subtitles-3-after-full.png",
+      "bytes": 3511997,
+      "sha256": "e9a79d2f516d974f0d85fdf36406f49faea0bf4c4b574b7253ff840e4871aff6"
+    },
+    {
+      "file": "gta-subtitles-3-after.mp4",
+      "bytes": 5293367,
+      "sha256": "68a89733054d288b1721c3c895fee731e210880bac2611e680cd43e3b9d68264"
+    },
+    {
+      "file": "gta-subtitles-3-before-full.png",
+      "bytes": 2746189,
+      "sha256": "f3a6d4b366fefafe4040bc44cfc43da38af9622bb0cad765e0aa07cbc0624125"
+    },
+    {
+      "file": "gta-subtitles-3-before.mp4",
+      "bytes": 4517902,
+      "sha256": "42d982215322a57e2bbcee83bc079f2d4364f5dc4a020fe75bda8d9bb5c8e3ee"
+    },
+    {
+      "file": "gta-subtitles-3-crop.png",
+      "bytes": 1013146,
+      "sha256": "36164d3f4e589b9b58eecd6222f619b733684f7db82aa3c9317faac39ac92bb1"
+    },
+    {
+      "file": "gta-subtitles-3-final-full.png",
+      "bytes": 3511250,
+      "sha256": "24c32fae65dc5ad4cf83a7a3fb033b7adf619588a1026a7c81e737f9ab9e315f"
+    },
+    {
+      "file": "gta-subtitles-3-final.mp4",
+      "bytes": 5299697,
+      "sha256": "462400d92254c0f7498395dc4fc76b089ef46f3e2349550d800094cf515d99bf"
+    },
+    {
+      "file": "gta-subtitles-3-mapping.json",
+      "bytes": 23546,
+      "sha256": "4600d6be9b9223cfa0b44b59033848bb0faad3164e04b8978dd6cca3b6b58d8f"
+    },
+    {
+      "file": "gta-subtitles-3-pair-1.png",
+      "bytes": 1084352,
+      "sha256": "e91a2f5c251ffdb7b43adb1f17aee350720f23ed88625f1c876b78da3d6c9aca"
+    },
+    {
+      "file": "gta-subtitles-3-pair-2.png",
+      "bytes": 1169988,
+      "sha256": "9a1a152c6fddc6accdf78b519320006f279cc18f23da0b228ee0513c5775dce2"
+    },
+    {
+      "file": "gta-subtitles-3-pair-3.png",
+      "bytes": 1439412,
+      "sha256": "fe37fb180278ef7b658cc3db36d4375d0159ece564265b046ada74c80f7f0196"
+    },
+    {
+      "file": "gta-subtitles-3.mp4",
+      "bytes": 3629622,
+      "sha256": "6a7b6d3ec0e4ca7dfad02d7058e7564ecf88cda7bf4b63689691b154b3f89569"
+    },
+    {
+      "file": "gta-subtitles-3.srt",
+      "bytes": 163,
+      "sha256": "74f030251043eb7a0aa3c8e8951b00871cd29f24a640980dfde97be5394e008c"
+    }
+  ],
+  "pixel_source": "Original user recordings. No replacement interpolation, enhancement or translation during export. MP4/GIF are lossy previews; PNGs are exact selected pixels except labeled layouts and explicitly scaled overview panels."
+}

@@ -1,6 +1,7 @@
 """Local EN -> CS translation. Length-prefixed UTF-8; GPU uses owned loopback API."""
 from pathlib import Path
 import argparse
+import json
 import struct
 import sys
 import unicodedata
@@ -36,6 +37,9 @@ def main():
         if args.backend == 'cpu':
             import ctranslate2
             import sentencepiece
+            config = json.loads((args.model / 'config.json').read_text(encoding='utf-8'))
+            add_source_eos = bool(config.get('add_source_eos', False))
+            eos_token = config.get('eos_token', '</s>')
             source = sentencepiece.SentencePieceProcessor(model_file=str(args.model / 'source.spm'))
             target = sentencepiece.SentencePieceProcessor(model_file=str(args.model / 'target.spm'))
             model = ctranslate2.Translator(str(args.model), device='cpu', compute_type='int8', inter_threads=1, intra_threads=2)
@@ -55,7 +59,11 @@ def main():
             if gpu:
                 send(gpu.translate(text))
             else:
-                tokens = source.encode(text, out_type=str) + ['</s>']
+                tokens = source.encode(text, out_type=str)
+                # Marian exports can add EOS inside CTranslate2. Add it here
+                # only when that is disabled; two end tokens alter translation.
+                if not add_source_eos:
+                    tokens.append(eos_token)
                 result = model.translate_batch([tokens], beam_size=2, max_decoding_length=192,
                                                repetition_penalty=1.1)[0].hypotheses[0]
                 send(target.decode(result))

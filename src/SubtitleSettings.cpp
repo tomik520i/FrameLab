@@ -2,6 +2,8 @@
 #include <algorithm>
 #include <cmath>
 #include <fstream>
+#include <iomanip>
+#include <limits>
 
 void SubtitleSettings::sanitize(){
  auto finite=[](float v,float fallback){return std::isfinite(v)?v:fallback;};
@@ -15,19 +17,24 @@ void SubtitleSettings::sanitize(){
  ocrEngine=std::clamp(ocrEngine,0,1);
  holdSeconds=std::clamp(finite(holdSeconds,1.2f),.5f,4.f);
  lingerSeconds=std::clamp(finite(lingerSeconds,3.f),holdSeconds,8.f);
+ if(!std::isfinite(style.height)||style.height<.001f||style.height>.25f){style.enabled=false;style.height=0;}
+ for(auto& c:style.rgb)c=std::clamp(finite(c,0),0.f,255.f);
+ style.heightTolerance=std::clamp(finite(style.heightTolerance,.42f),.15f,.8f);
+ style.colorTolerance=std::clamp(finite(style.colorTolerance,35.f),10.f,65.f);
 }
 void SubtitleSettings::load(const std::filesystem::path& p){
  int version=0;std::ifstream f(p);
- if(f>>version&&version>=1&&version<=6){
+ if(f>>version&&version>=1&&version<=7){
   f>>left>>top>>right>>bottom>>fontPercent>>position>>background>>intervalMs>>showOriginal;
   if(version>=2)f>>coverSource;
   if(version>=3)f>>horizontal>>gapPercent>>placement>>horizontalAlign>>verticalAlign>>edgeFallback;
   if(version>=4)f>>model;
   if(version>=5)f>>ocrEngine>>holdSeconds>>lingerSeconds;
   if(version>=6)f>>joinFragments;
+  if(version>=7){SubtitleStyleProfile candidate;if(f>>candidate.enabled>>candidate.height>>candidate.rgb[0]>>candidate.rgb[1]>>candidate.rgb[2]>>candidate.heightTolerance>>candidate.colorTolerance)style=candidate;}
  }
  sanitize();enabled=false;showRegion=false;editOverlay=false;
 }
 void SubtitleSettings::save(const std::filesystem::path& p)const{
- std::ofstream(p)<<6<<' '<<left<<' '<<top<<' '<<right<<' '<<bottom<<' '<<fontPercent<<' '<<position<<' '<<background<<' '<<intervalMs<<' '<<showOriginal<<' '<<coverSource<<' '<<horizontal<<' '<<gapPercent<<' '<<placement<<' '<<horizontalAlign<<' '<<verticalAlign<<' '<<edgeFallback<<' '<<model<<' '<<ocrEngine<<' '<<holdSeconds<<' '<<lingerSeconds<<' '<<joinFragments<<'\n';
+ std::ofstream(p)<<std::setprecision(std::numeric_limits<float>::max_digits10)<<7<<' '<<left<<' '<<top<<' '<<right<<' '<<bottom<<' '<<fontPercent<<' '<<position<<' '<<background<<' '<<intervalMs<<' '<<showOriginal<<' '<<coverSource<<' '<<horizontal<<' '<<gapPercent<<' '<<placement<<' '<<horizontalAlign<<' '<<verticalAlign<<' '<<edgeFallback<<' '<<model<<' '<<ocrEngine<<' '<<holdSeconds<<' '<<lingerSeconds<<' '<<joinFragments<<' '<<style.enabled<<' '<<style.height<<' '<<style.rgb[0]<<' '<<style.rgb[1]<<' '<<style.rgb[2]<<' '<<style.heightTolerance<<' '<<style.colorTolerance<<'\n';
 }

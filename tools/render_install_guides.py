@@ -69,4 +69,6 @@ def main():
         cs,en=('enhancer.html','enhancer-en.html') if name.startswith('enhancer') else ('subtitles.html','subtitles-en.html') if name.startswith('subtitles') else ('index.html','en.html')
         (target/name).write_text('<!doctype html><html lang="'+lang+'"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>FrameLab preview.14 — installation / instalace</title><link rel="stylesheet" href="assets/visual.css"></head><body><main><nav><a href="../#download">← FrameLab</a> · <a href="'+cs+'">Česky</a> · <a href="'+en+'">English</a></nav>'+content+'</main>'+lightbox(lang)+'</body></html>',encoding='utf-8')
 
-if __name__=='__main__':main()
+if __name__=='__main__':
+    from render_current_guides import main as current_main
+    current_main()
