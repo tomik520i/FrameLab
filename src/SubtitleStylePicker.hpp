@@ -1,6 +1,7 @@
 #pragma once
 #include "Graphics.hpp"
 #include "SubtitleControls.hpp"
+#include "SubtitleInspector.hpp"
 #include <array>
 #include <vector>
 
@@ -8,7 +9,7 @@
 class SubtitleStylePicker {
 public:
  bool requested=false;
- bool draw(Graphics& g,SubtitleTranslator& worker,SubtitleSettings& settings,const std::vector<unsigned char>& frame,unsigned width,unsigned height,bool cleanOutput=false){
+ bool draw(Graphics& g,SubtitleTranslator& worker,SubtitleSettings& settings,const std::vector<unsigned char>& frame,unsigned width,unsigned height,bool cleanOutput=false,const std::filesystem::path& root={}){
   const char* title=subText("Select subtitle appearance","Vybrat vzhled titulků");
   if(cleanupPending){pixels.clear();texture={};cleanupPending=false;}
   if(cleanOutput){requested=false;if(ImGui::BeginPopupModal(title)){ImGui::CloseCurrentPopup();ImGui::EndPopup();worker.cancelStyleSample();pixels.clear();texture={};}return false;}
@@ -30,7 +31,7 @@ public:
    ImGui::SameLine();ImGui::TextColored(ui::accent,"%s",areaMode?subText("Drag the whole subtitle band","Obtáhni celou oblast titulků"):subText("Drag one word","Obtáhni jedno slovo"));
    auto sample=worker.styleSample();
    if(!pixels.empty()){
-    const auto avail=ImGui::GetContentRegionAvail();const float scale=std::min(avail.x/w,std::max(80.f,avail.y-190.f)/h);
+    const auto avail=ImGui::GetContentRegionAvail();const float scale=std::min(avail.x/w,std::max(80.f,avail.y-360.f)/h);
     const ImVec2 origin=ImGui::GetCursorScreenPos(),size{w*scale,h*scale};
     ImGui::InvisibleButton("##subtitle-style-canvas",size);auto draw=ImGui::GetWindowDrawList();
     draw->AddImage((ImTextureID)texture.view.Get(),origin,{origin.x+size.x,origin.y+size.y});
@@ -52,12 +53,17 @@ public:
    const auto accepted=std::count_if(sample.lines.begin(),sample.lines.end(),[](auto& line){return line.reason==0;});
    if(current&&sample.busy)ImGui::TextWrapped("%s",subText("Checking appearance and matching text...","Zjišťuji vzhled a odpovídající text…"));
    else if(current&&!sample.error.empty())ImGui::TextWrapped("%s",subText("Could not learn this sample. Select a clear word with several letters, including the full letter height.","Tento vzor se nepodařilo určit. Vyber čitelné slovo s několika písmeny a celou výškou písmen."));
-   else if(current&&sample.profile.enabled){ImGui::ColorButton("##sample-colour",{sample.profile.rgb[0]/255,sample.profile.rgb[1]/255,sample.profile.rgb[2]/255,1});ImGui::SameLine();ImGui::Text(subText("Letter height: about %.0f px | accepted lines: %d","Výška písmen: asi %.0f px | přijatých řádků: %d"),sample.profile.height*h,int(accepted));if(!accepted)ImGui::TextWrapped("%s",subText("No matching text in the reading area. Adjust the area or select another word.","V oblasti čtení není odpovídající text. Uprav oblast nebo vyber jiné slovo."));}
+   else if(current&&sample.profile.enabled){
+    if(hasWord){const float sw=std::max(1.f,(word[2]-word[0])*w),sh=std::max(1.f,(word[3]-word[1])*h),scale=std::min({2.f,ImGui::GetContentRegionAvail().x/sw,60.f/sh});ImGui::Image((ImTextureID)texture.view.Get(),{sw*scale,sh*scale},{word[0],word[1]},{word[2],word[3]});}
+    subtitleProfileDescription(sample.profile,h);ImGui::Text(subText("Accepted lines: %d","Přijatých řádků: %d"),int(accepted));if(!accepted)ImGui::TextWrapped("%s",subText("No matching text in the reading area. Adjust the area or select another word.","V oblasti čtení není odpovídající text. Uprav oblast nebo vyber jiné slovo."));}
    else if(sampleId&&!current)ImGui::TextWrapped("%s",subText("The source changed. Select the word again.","Vstup se změnil. Vyber slovo znovu."));
    if(!error.empty())ImGui::TextWrapped("%s",error.c_str());
-   if(ImGui::CollapsingHeader(subText("Recognized text / reasons","Rozpoznané texty / důvody"))&&current){for(const auto& line:sample.lines){const char* en[]={"accepted","outside area","different size","different colour"};const char* cs[]={"přijato","mimo oblast","jiná velikost","jiná barva"};ImGui::TextWrapped("%s: %s",(czech?cs:en)[std::clamp(line.reason,0,3)],line.text.c_str());}}
+   if(ImGui::CollapsingHeader(subText("Recognized text / measured values / reasons","Rozpoznané texty / naměřené hodnoty / důvody"))&&current)subtitleOcrRows(sample.lines,h);
    ImGui::BeginDisabled(!current||sample.busy||!sample.error.empty()||!sample.profile.enabled||!accepted);
-   if(ImGui::Button(subText("Use this style","Použít tento vzhled"))){settings.style=sample.profile;settings.left=area[0];settings.top=area[1];settings.right=area[2];settings.bottom=area[3];settings.sanitize();applied=true;keepOpen=false;ImGui::CloseCurrentPopup();}
+   if(ImGui::Button(subText("Use this style","Použít tento vzhled"))){
+    auto profile=sample.profile;
+    if(!root.empty()&&!saveSubtitleStyleEvidence(root,pixels,w,h,word,profile))error=subText("Could not save the sample image. Check free space and write access to the app folder.","Nelze uložit obrázek vzoru. Ověř volné místo a zápis do složky aplikace.");
+    else{settings.style=std::move(profile);settings.left=area[0];settings.top=area[1];settings.right=area[2];settings.bottom=area[3];settings.sanitize();applied=true;keepOpen=false;ImGui::CloseCurrentPopup();}}
    ImGui::EndDisabled();ImGui::SameLine();if(ImGui::Button(subText("Cancel","Zrušit"))){keepOpen=false;ImGui::CloseCurrentPopup();}
    ImGui::EndPopup();
   }

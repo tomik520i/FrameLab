@@ -18,7 +18,7 @@ int wmain(int argc,wchar_t** argv){try{
  SubtitleTranslator worker(argv[1]);SubtitleSettings settings;settings.left=0;settings.top=.35f;settings.right=1;settings.bottom=.98f;
  SubtitleStylePicker picker;picker.requested=true;ImVec4 canvas{};bool applied=false;ImVec2 useButton{};
  auto frame=[&]{
-  ImGui_ImplDX11_NewFrame();ImGui::NewFrame();applied=picker.draw(g,worker,settings,source,sw,sh);
+  ImGui_ImplDX11_NewFrame();ImGui::NewFrame();applied=picker.draw(g,worker,settings,source,sw,sh,false,argv[1]);
   if(auto window=ImGui::FindWindowByName("Select subtitle appearance"))useButton={window->DC.CursorStartPos.x+70,window->DC.CursorPosPrevLine.y+ImGui::GetFrameHeight()*.5f};
   ImGui::Render();const float clear[]={.05f,.07f,.05f,1};g.context->ClearRenderTargetView(rtv.Get(),clear);g.context->OMSetRenderTargets(1,rtv.GetAddressOf(),nullptr);ImGui_ImplDX11_RenderDrawData(ImGui::GetDrawData());
   auto data=ImGui::GetDrawData();for(int l=0;l<data->CmdListsCount;++l){auto list=data->CmdLists[l];for(const auto& cmd:list->CmdBuffer){if(cmd.ElemCount!=6||cmd.GetTexID()==io.Fonts->TexID)continue;float x0=1e9f,y0=1e9f,x1=0,y1=0;for(unsigned i=0;i<6;++i){auto p=list->VtxBuffer[list->IdxBuffer[cmd.IdxOffset+i]+cmd.VtxOffset].pos;x0=std::min(x0,p.x);y0=std::min(y0,p.y);x1=std::max(x1,p.x);y1=std::max(y1,p.y);}if(x1-x0>200&&y1-y0>100)canvas={x0,y0,x1,y1};}}
@@ -35,5 +35,13 @@ int wmain(int argc,wchar_t** argv){try{
  std::ofstream output(argv[3],std::ios::binary);output.write(reinterpret_cast<char*>(&fh),sizeof(fh));output.write(reinterpret_cast<char*>(&ih),sizeof(ih));for(unsigned y=0;y<h;++y)output.write(static_cast<const char*>(map.pData)+size_t(y)*map.RowPitch,w*4);g.context->Unmap(staging.Get(),0);output.close();
  io.AddMousePosEvent(useButton.x,useButton.y);frame();io.AddMouseButtonEvent(0,true);frame();io.AddMouseButtonEvent(0,false);frame();
  if(!applied||!settings.style.enabled||settings.left!=0||settings.top!=.35f||settings.right!=1||settings.bottom!=.98f)throw std::runtime_error("Use style button failed or changed reading area to word size");
+ if(settings.style.sampleText!="Follow"||!settings.style.sampleId)throw std::runtime_error("Selected word evidence not saved");
+ SubtitleStyleEvidence savedEvidence;if(!savedEvidence.load(g,argv[1],settings.style.sampleId))throw std::runtime_error("Saved crop failed to reload");
+ settings.enabled=true;settings.inspectOcr=true;worker.configure(settings);auto until=std::chrono::steady_clock::now()+std::chrono::seconds(40);
+ while(worker.snapshot().ocrLines.empty()&&std::chrono::steady_clock::now()<until){const auto t=std::chrono::duration<double>(std::chrono::steady_clock::now().time_since_epoch()).count();worker.submit(source.data(),sw,sh,t);std::this_thread::sleep_for(std::chrono::milliseconds(50));}
+ if(worker.snapshot().ocrLines.size()<6)throw std::runtime_error("Inspector live rows missing");settings.inspectOcr=false;
+ SubtitleInspector inspector;inspector.open=true;auto inspectorFrame=[&]{ImGui_ImplDX11_NewFrame();ImGui::NewFrame();inspector.draw(g,argv[1],worker,settings,sh,false);ImGui::Render();const float clear[]={.05f,.07f,.05f,1};g.context->ClearRenderTargetView(rtv.Get(),clear);g.context->OMSetRenderTargets(1,rtv.GetAddressOf(),nullptr);ImGui_ImplDX11_RenderDrawData(ImGui::GetDrawData());};inspectorFrame();inspectorFrame();if(!settings.inspectOcr)throw std::runtime_error("Inspector did not enable measurements");
+ g.context->CopyResource(staging.Get(),target.texture.Get());check(g.context->Map(staging.Get(),0,D3D11_MAP_READ,0,&map),"Inspector map");auto inspectorPath=std::filesystem::path(argv[3]);inspectorPath.replace_filename(L"inspector.bmp");std::ofstream inspectorImage(inspectorPath,std::ios::binary);inspectorImage.write(reinterpret_cast<char*>(&fh),sizeof(fh));inspectorImage.write(reinterpret_cast<char*>(&ih),sizeof(ih));for(unsigned y=0;y<h;++y)inspectorImage.write(static_cast<const char*>(map.pData)+size_t(y)*map.RowPitch,w*4);g.context->Unmap(staging.Get(),0);inspectorImage.close();
+ inspector.open=false;ImGui_ImplDX11_NewFrame();ImGui::NewFrame();inspector.draw(g,argv[1],worker,settings,sh,false);if(settings.inspectOcr)throw std::runtime_error("Inspector left extra work enabled");ImGui::Render();
  ImGui_ImplDX11_Shutdown();ImGui::DestroyContext();std::cout<<"PASS: real ImGui word drag, worker preview, rendered decisions, confirmation, unchanged reading area\n";return 0;
 }catch(const std::exception& e){std::cerr<<e.what()<<'\n';return 1;}}

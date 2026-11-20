@@ -75,15 +75,20 @@ struct OcrProcess:TranslationProcess {
   if(!WriteFile(input,request.data(),DWORD(request.size()),&sent,nullptr)||sent!=request.size())throw std::runtime_error("OCR request failed");
   const auto value=receive(cancelled,15);if(value.starts_with("ERROR:"))throw std::runtime_error(value);
   std::istringstream stream(value);stream.imbue(std::locale::classic());std::string headerLine,magic;std::getline(stream,headerLine);std::istringstream fields(headerLine);fields.imbue(std::locale::classic());Reading out;unsigned count=0;
-  if(!(fields>>magic>>out.confidence>>out.profile.enabled>>out.profile.height>>out.profile.rgb[0]>>out.profile.rgb[1]>>out.profile.rgb[2]>>count)||magic!="STYLE2"||count>64)throw std::runtime_error("Invalid OCR style response; update bundled OCR files");
+  if(!(fields>>magic>>out.confidence>>out.profile.enabled>>out.profile.height>>out.profile.rgb[0]>>out.profile.rgb[1]>>out.profile.rgb[2]>>count)||(magic!="STYLE2"&&magic!="STYLE3")||count>64)throw std::runtime_error("Invalid OCR style response; update bundled OCR files");
   std::getline(stream,out.text);
-  for(unsigned i=0;i<count;++i){std::string line;if(!std::getline(stream,line))throw std::runtime_error("Incomplete OCR style response");const auto tab=line.find('\t');if(tab==std::string::npos)throw std::runtime_error("Invalid OCR line");std::istringstream f(line.substr(0,tab));f.imbue(std::locale::classic());SubtitleOcrLine r;if(!(f>>r.rect[0]>>r.rect[1]>>r.rect[2]>>r.rect[3]>>r.confidence>>r.reason))throw std::runtime_error("Invalid OCR geometry");r.text=line.substr(tab+1);out.lines.push_back(std::move(r));}
+  if(magic=="STYLE3")std::getline(stream,out.profile.sampleText);
+  for(unsigned i=0;i<count;++i){std::string line;if(!std::getline(stream,line))throw std::runtime_error("Incomplete OCR style response");const auto tab=line.find('\t');if(tab==std::string::npos)throw std::runtime_error("Invalid OCR line");std::istringstream f(line.substr(0,tab));f.imbue(std::locale::classic());SubtitleOcrLine r;if(!(f>>r.rect[0]>>r.rect[1]>>r.rect[2]>>r.rect[3]>>r.confidence>>r.reason))throw std::runtime_error("Invalid OCR geometry");
+   if(magic=="STYLE3"&&!(f>>r.measured>>r.height>>r.rgb[0]>>r.rgb[1]>>r.rgb[2]>>r.boxHeight))throw std::runtime_error("Invalid OCR measurements");
+   if(!std::isfinite(r.height)||!std::isfinite(r.boxHeight)||!std::isfinite(r.confidence)||r.height<0||r.boxHeight<0)throw std::runtime_error("Invalid OCR measurement values");
+   for(auto& c:r.rgb)if(!std::isfinite(c)||c<0||c>255)throw std::runtime_error("Invalid OCR colour");
+   r.text=line.substr(tab+1);out.lines.push_back(std::move(r));}
   return out;
  }
 };
 }
 struct SubtitleTranslator::Impl {
- struct Job{std::vector<unsigned char> pixels;unsigned w=0,h=0;double time=0;uint64_t generation=0,id=0;int engine=0;float fullHeight=0;SubtitleStyleProfile style;bool preview=false;std::array<float,4> word{},area{0,0,1,1};};
+ struct Job{std::vector<unsigned char> pixels;unsigned w=0,h=0,sourceHeight=0;double time=0;uint64_t generation=0,id=0;int engine=0;float fullHeight=0;SubtitleStyleProfile style;bool preview=false,inspect=false;std::array<float,4> word{},area{0,0,1,1};};
  struct TextJob{std::string source;uint64_t generation=0;float ocrMs=0;double time=0,queuedAt=0;uint64_t id=0;};
  struct Caption{std::string source,translated;float ms=0;double time=0;std::string observedSource;uint64_t id=0;};
  std::filesystem::path app;mutable std::mutex mutex;std::condition_variable wake,translateWake;std::atomic<bool> stop=false;
@@ -130,7 +135,8 @@ struct SubtitleTranslator::Impl {
      auto n=[](float v){return Diagnostics::number(v);};
      const auto& s=job.style;std::string config="{\"full_height\":"+n(job.fullHeight)+",\"profile\":{\"enabled\":"+(s.enabled?std::string("true"):std::string("false"))+",\"height\":"+n(s.height)+",\"rgb\":["+n(s.rgb[0])+","+n(s.rgb[1])+","+n(s.rgb[2])+"],\"height_tolerance\":"+n(s.heightTolerance)+",\"color_tolerance\":"+n(s.colorTolerance)+"}";
      if(job.preview){config+=",\"sample\":["+n(job.word[0])+","+n(job.word[1])+","+n(job.word[2])+","+n(job.word[3])+"],\"area\":["+n(job.area[0])+","+n(job.area[1])+","+n(job.area[2])+","+n(job.area[3])+"]";}
-     config+='}';auto reading=neural->recognize(job.pixels,job.w,job.h,config,cancelled);
+     config+=",\"inspect\":"+std::string(job.inspect?"true":"false")+'}';auto reading=neural->recognize(job.pixels,job.w,job.h,config,cancelled);
+     if(job.preview)reading.profile.sampleFrameHeight=job.sourceHeight;
      if(job.preview){std::lock_guard lock(mutex);if(sampleEpoch==job.id){sampleResult={job.id,false,reading.profile,std::move(reading.lines),reading.text,{},float((clockSeconds()-started)*1000)};event("ocr_style_sample",{{"sample_id",double(job.id)},{"height_ratio",reading.profile.height},{"r",reading.profile.rgb[0]},{"g",reading.profile.rgb[1]},{"b",reading.profile.rgb[2]}},reading.text);}continue;}
      source=SubtitleState::normalize(reading.text);confidence=reading.confidence;lines=std::move(reading.lines);
     }else{
@@ -143,7 +149,8 @@ struct SubtitleTranslator::Impl {
     std::lock_guard lock(mutex);perf.ocrBusy=false;++perf.ocrCompleted;if(generation!=job.generation)continue;
     result.source=source;result.observedAt=job.time;result.generation=job.generation;
     result.ocrLines=std::move(lines);
-    if(job.style.enabled)for(const auto& r:result.ocrLines)event("ocr_style_line",{{"job_id",double(job.id)},{"reason",double(r.reason)},{"left",r.rect[0]},{"top",r.rect[1]},{"right",r.rect[2]},{"bottom",r.rect[3]},{"confidence",r.confidence}},r.text);
+    result.sourceHeight=job.sourceHeight;result.inspected=job.inspect;
+    if(job.style.enabled||job.inspect)for(const auto& r:result.ocrLines)event("ocr_style_line",{{"job_id",double(job.id)},{"reason",double(r.reason)},{"left",r.rect[0]},{"top",r.rect[1]},{"right",r.rect[2]},{"bottom",r.rect[3]},{"confidence",r.confidence},{"measured",double(r.measured)},{"glyph_height_ratio",r.height},{"glyph_height_source_px",r.height*job.sourceHeight},{"box_height_source_px",r.boxHeight*job.sourceHeight},{"r",r.rgb[0]},{"g",r.rgb[1]},{"b",r.rgb[2]}},r.text);
     result.ocrMilliseconds=float((clockSeconds()-started)*1000);result.confidence=confidence;
     event("ocr_complete",{{"job_id",double(job.id)},{"generation",double(job.generation)},{"ocr_ms",result.ocrMilliseconds},{"queue_ms",perf.ocrQueueMs},{"confidence",confidence},{"translate",double(translate)}},source);
     // Keep a caption while its source remains visible. The current OCR reading
@@ -208,7 +215,7 @@ bool SubtitleTranslator::rapidOcrAvailable(const std::filesystem::path& app){ret
 SubtitleStyleSample SubtitleTranslator::styleSample()const{std::lock_guard lock(impl->mutex);return impl->sampleResult;}
 void SubtitleTranslator::cancelStyleSample(){std::lock_guard lock(impl->mutex);++impl->sampleEpoch;impl->sampleAvailable=false;impl->samplePending={};impl->sampleResult={};}
 uint64_t SubtitleTranslator::requestStyleSample(const unsigned char* bgra,unsigned w,unsigned h,std::array<float,4> word,std::array<float,4> area){
- if(!bgra||!w||!h)return 0;std::lock_guard lock(impl->mutex);Impl::Job job;job.preview=true;job.id=++impl->sampleEpoch;job.generation=impl->generation;job.time=clockSeconds();job.word=word;job.area=area;
+ if(!bgra||!w||!h)return 0;std::lock_guard lock(impl->mutex);Impl::Job job;job.preview=true;job.sourceHeight=h;job.id=++impl->sampleEpoch;job.generation=impl->generation;job.time=clockSeconds();job.word=word;job.area=area;
  const unsigned factor=std::max({1u,(w+1919)/1920,(h+1919)/1920});job.w=w/factor;job.h=h/factor;job.fullHeight=float(h)/factor;job.pixels.resize(size_t(job.w)*job.h*4);
  for(unsigned row=0;row<job.h;++row)for(unsigned col=0;col<job.w;++col)memcpy(job.pixels.data()+(size_t(row)*job.w+col)*4,bgra+(size_t(row*factor)*w+col*factor)*4,4);
  impl->sampleResult={};impl->sampleResult.id=job.id;impl->sampleResult.busy=true;impl->samplePending=std::move(job);impl->sampleAvailable=true;impl->wake.notify_one();return impl->sampleResult.id;
@@ -219,7 +226,7 @@ void SubtitleTranslator::submit(const unsigned char* bgra,unsigned w,unsigned h,
  impl->lastSubmitted=time;unsigned x=unsigned(w*s.left),y=unsigned(h*s.top),cw=std::max(1u,unsigned(w*s.right)-x),ch=std::max(1u,unsigned(h*s.bottom)-y);
  // Bound OCR work without touching the full-frame rendering path.
  unsigned factor=std::max({1u,(cw+1919)/1920,(ch+1919)/1920});unsigned ow=cw/factor,oh=ch/factor;if(!ow||!oh)return;
- Impl::Job job;job.w=ow;job.h=oh;job.time=time;job.generation=impl->generation;job.engine=s.ocrEngine;job.style=s.style;job.fullHeight=float(h)/factor;job.pixels.resize(size_t(ow)*oh*4);
+ Impl::Job job;job.w=ow;job.h=oh;job.sourceHeight=h;job.inspect=s.inspectOcr;job.time=time;job.generation=impl->generation;job.engine=s.ocrEngine;job.style=s.style;job.fullHeight=float(h)/factor;job.pixels.resize(size_t(ow)*oh*4);
  for(unsigned row=0;row<oh;++row)for(unsigned col=0;col<ow;++col)memcpy(job.pixels.data()+(size_t(row)*ow+col)*4,bgra+(size_t(y+row*factor)*w+x+col*factor)*4,4);
  job.id=++impl->nextJob;++impl->perf.submitted;if(impl->available){++impl->perf.ocrSuperseded;impl->event("ocr_superseded",{{"job_id",double(impl->pending.id)}});}impl->event("ocr_submit",{{"job_id",double(job.id)},{"width",double(ow)},{"height",double(oh)}});
  impl->pending=std::move(job);impl->available=true;impl->wake.notify_one();

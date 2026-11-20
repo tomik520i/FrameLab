@@ -63,7 +63,7 @@ def main():
 
     try:
         import numpy as np
-        from ocr_style import learn_style, filter_rows, encode_result
+        from ocr_style import learn_style, filter_rows, encode_result, rect_pixels
         engine = create_engine()
         memory = mmap.mmap(-1, CAPACITY, tagname=args.mapping, access=mmap.ACCESS_READ)
         recognize(engine, np.zeros((96, 320, 3), dtype=np.uint8))
@@ -89,7 +89,11 @@ def main():
                     if config.get('sample') is not None:
                         profile = learn_style(bgr, config['sample'], config.get('full_height', height))
                     rows, _ = engine(bgr, use_cls=False)
-                    result = filter_rows(bgr, rows, profile, config.get('full_height', height), config.get('area', [0, 0, 1, 1]))
+                    result = filter_rows(bgr, rows, profile, config.get('full_height', height), config.get('area', [0, 0, 1, 1]), inspect=bool(config.get('inspect') or config.get('sample')))
+                    if config.get('sample') is not None:
+                        x0, y0, x1, y1 = rect_pixels(config['sample'], width, height)
+                        words, _ = engine(bgr[y0:y1, x0:x1], use_det=False, use_cls=False)
+                        result['sample_text'] = ' '.join(str(row[0]) for row in (words or []) if float(row[1]) >= .5)
                     send(encode_result(result))
                 except ValueError as exc:
                     # A poor user selection is recoverable; keep the worker alive.

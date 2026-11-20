@@ -1,5 +1,8 @@
 # Subtitle OCR, appearance profiles and reading time (preview.15)
 
+Current source additionally includes an [OCR inspector](ocr-inspector.md) in the
+preview.16 development build. The preview.15 release ZIP does not contain it.
+
 The recommended **RapidOCR / PP-OCRv5 English** option reads English subtitles
 already burned into the video. It runs locally, with bundled models and two CPU
 threads, leaving the GPU available for FG, NR and CUNI translation. Windows OCR

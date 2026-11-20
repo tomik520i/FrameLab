@@ -85,7 +85,7 @@ def learn_style(image, selection, full_height):
                 height_tolerance=.42, color_tolerance=35.)
 
 
-def filter_rows(image, rows, profile=None, full_height=None, area=(0, 0, 1, 1)):
+def filter_rows(image, rows, profile=None, full_height=None, area=(0, 0, 1, 1), inspect=False):
     """Return accepted text and per-line decisions, with normalized geometry.
 
     full_height is source-frame height in these image pixels, even for an ROI
@@ -121,9 +121,17 @@ def filter_rows(image, rows, profile=None, full_height=None, area=(0, 0, 1, 1)):
                     reason = 'color'
                 elif abs(measured['height'] / expected - 1) > profile.get('height_tolerance', .42):
                     reason = 'size'
+        # Optional inspection measures rejected/automatic rows too. It never
+        # changes the decision or falls back to unrelated text for translation.
+        observed = measured
+        if inspect and observed is None:
+            x0, y0, x1, y1 = rect_pixels(rect, w, h)
+            observed = appearance(image[y0:y1, x0:x1])
         decisions.append(dict(rect=rect, text=' '.join(str(text).split())[:256],
                               confidence=float(confidence), accepted=reason == 'accepted',
-                              reason=reason, measured=measured))
+                              reason=reason, measured=measured, observed=observed,
+                              height_ratio=observed['height'] / full_height if observed else 0.,
+                              box_height_ratio=(bottom - top) / full_height))
     accepted = [r for r in decisions if r['accepted'] and r['text']]
     # Preserve OCR line order and punctuation. Short words and numbers are valid.
     return dict(text=' '.join(r['text'] for r in accepted),
@@ -137,9 +145,12 @@ REASONS = {'accepted': 0, 'outside_area': 1, 'size': 2, 'color': 3}
 def encode_result(result):
     p = result.get('profile') or {}
     rgb = p.get('rgb', [0, 0, 0])
-    header = 'STYLE2 ' + ' '.join(str(v) for v in [result['confidence'], int(bool(p.get('enabled'))),
+    header = 'STYLE3 ' + ' '.join(str(v) for v in [result['confidence'], int(bool(p.get('enabled'))),
                  p.get('height', 0), *rgb, len(result['rows'])])
-    out = [header, result['text']]
+    out = [header, result['text'], ' '.join(result.get('sample_text', '').split())[:256]]
     for r in result['rows']:
-        out.append(' '.join(str(v) for v in [*r['rect'], r['confidence'], REASONS[r['reason']]]) + '\t' + r['text'])
+        observed = r.get('observed')
+        out.append(' '.join(str(v) for v in [*r['rect'], r['confidence'], REASONS[r['reason']],
+                   int(observed is not None), r.get('height_ratio', 0),
+                   *(observed['rgb'] if observed else [0, 0, 0]), r.get('box_height_ratio', 0)]) + '\t' + r['text'])
     return '\n'.join(out)

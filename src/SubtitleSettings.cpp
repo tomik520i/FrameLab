@@ -21,10 +21,13 @@ void SubtitleSettings::sanitize(){
  for(auto& c:style.rgb)c=std::clamp(finite(c,0),0.f,255.f);
  style.heightTolerance=std::clamp(finite(style.heightTolerance,.42f),.15f,.8f);
  style.colorTolerance=std::clamp(finite(style.colorTolerance,35.f),10.f,65.f);
+ if(style.sampleText.size()>256)style.sampleText.clear();
+ for(auto& c:style.sampleText)if(static_cast<unsigned char>(c)<32)c=' ';
+ if(style.sampleFrameHeight>32768)style.sampleFrameHeight=0;
 }
 void SubtitleSettings::load(const std::filesystem::path& p){
  int version=0;std::ifstream f(p);
- if(f>>version&&version>=1&&version<=7){
+ if(f>>version&&version>=1&&version<=8){
   f>>left>>top>>right>>bottom>>fontPercent>>position>>background>>intervalMs>>showOriginal;
   if(version>=2)f>>coverSource;
   if(version>=3)f>>horizontal>>gapPercent>>placement>>horizontalAlign>>verticalAlign>>edgeFallback;
@@ -32,9 +35,10 @@ void SubtitleSettings::load(const std::filesystem::path& p){
   if(version>=5)f>>ocrEngine>>holdSeconds>>lingerSeconds;
   if(version>=6)f>>joinFragments;
   if(version>=7){SubtitleStyleProfile candidate;if(f>>candidate.enabled>>candidate.height>>candidate.rgb[0]>>candidate.rgb[1]>>candidate.rgb[2]>>candidate.heightTolerance>>candidate.colorTolerance)style=candidate;}
+  if(version>=8)f>>std::quoted(style.sampleText)>>style.sampleFrameHeight>>style.sampleId;
  }
- sanitize();enabled=false;showRegion=false;editOverlay=false;
+ sanitize();enabled=false;showRegion=false;editOverlay=false;inspectOcr=false;
 }
 void SubtitleSettings::save(const std::filesystem::path& p)const{
- std::ofstream(p)<<std::setprecision(std::numeric_limits<float>::max_digits10)<<7<<' '<<left<<' '<<top<<' '<<right<<' '<<bottom<<' '<<fontPercent<<' '<<position<<' '<<background<<' '<<intervalMs<<' '<<showOriginal<<' '<<coverSource<<' '<<horizontal<<' '<<gapPercent<<' '<<placement<<' '<<horizontalAlign<<' '<<verticalAlign<<' '<<edgeFallback<<' '<<model<<' '<<ocrEngine<<' '<<holdSeconds<<' '<<lingerSeconds<<' '<<joinFragments<<' '<<style.enabled<<' '<<style.height<<' '<<style.rgb[0]<<' '<<style.rgb[1]<<' '<<style.rgb[2]<<' '<<style.heightTolerance<<' '<<style.colorTolerance<<'\n';
+ std::ofstream(p)<<std::setprecision(std::numeric_limits<float>::max_digits10)<<8<<' '<<left<<' '<<top<<' '<<right<<' '<<bottom<<' '<<fontPercent<<' '<<position<<' '<<background<<' '<<intervalMs<<' '<<showOriginal<<' '<<coverSource<<' '<<horizontal<<' '<<gapPercent<<' '<<placement<<' '<<horizontalAlign<<' '<<verticalAlign<<' '<<edgeFallback<<' '<<model<<' '<<ocrEngine<<' '<<holdSeconds<<' '<<lingerSeconds<<' '<<joinFragments<<' '<<style.enabled<<' '<<style.height<<' '<<style.rgb[0]<<' '<<style.rgb[1]<<' '<<style.rgb[2]<<' '<<style.heightTolerance<<' '<<style.colorTolerance<<' '<<std::quoted(style.sampleText)<<' '<<style.sampleFrameHeight<<' '<<style.sampleId<<'\n';
 }

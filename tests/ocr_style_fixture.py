@@ -70,6 +70,11 @@ for name, scale, color, lines in [('three-lines', 1., (245, 245, 245), 3), ('one
     start = time.perf_counter()
     result = filter_rows(bgr, rows, profile, bgr.shape[0], [0, .35, 1, .98])
     filter_ms = (time.perf_counter() - start) * 1000
+    inspected = filter_rows(bgr, rows, profile, bgr.shape[0], [0, .35, 1, .98], inspect=True)
+    assert inspected['text'] == result['text']
+    assert [r['reason'] for r in inspected['rows']] == [r['reason'] for r in result['rows']]
+    assert all(r['observed'] and r['height_ratio'] > 0 for r in inspected['rows'])
+    result = inspected
     image.save(args.output / (name + '.png'))
     normalized = lambda text: ''.join(c.lower() for c in text if c.isalnum())
     success = normalized(result['text']) == normalized(' '.join(expected))

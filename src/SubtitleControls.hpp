@@ -10,7 +10,7 @@
 #include <cmath>
 
 inline const char* subText(const char* en,const char* cs){return czech?cs:en;}
-inline bool subtitlePanel(SubtitleSettings& settings,const SubtitleSnapshot& state,SubtitleModels& models,float freeVramMB,OcrSetup& ocr,HWND window,bool rapidReady,bool* selectStyle=nullptr,SubtitleProfiles* profiles=nullptr){
+inline bool subtitlePanel(SubtitleSettings& settings,const SubtitleSnapshot& state,SubtitleModels& models,float freeVramMB,OcrSetup& ocr,HWND window,bool rapidReady,bool* selectStyle=nullptr,SubtitleProfiles* profiles=nullptr,bool* inspector=nullptr){
  const auto before=settings;
  ui::title(subText("LOCAL SUBTITLE TRANSLATION","LOKÁLNÍ PŘEKLAD TITULKŮ"));
  ImGui::TextWrapped("%s",subText("Reads English text already visible in the picture and overlays Czech. Processing stays on this PC.","Čte anglický text už zobrazený v obraze a překrývá ho českým překladem. Zpracování probíhá na tomto PC."));
@@ -20,6 +20,7 @@ inline bool subtitlePanel(SubtitleSettings& settings,const SubtitleSnapshot& sta
   ImGui::EndDisabled();
   ImGui::TextWrapped("%s",subText("Mark one word to learn its color and size. Set a larger reading area for multiple lines; save the result as a profile below.","Označ jedno slovo pro barvu a velikost. Oblast čtení nech větší pro více řádků; výběr můžeš níže uložit jako profil."));
  }
+ if(inspector){if(ui::button(subText("OCR inspector / saved sample...","Inspektor OCR / uložený vzor…"),true))*inspector=true;ImGui::TextWrapped("%s",subText("See the sampled word, colour, letter height and accepted/rejected text.","Zobraz vzor slova, barvu, výšku písmen a přijaté/odmítnuté texty."));}
  const auto capability=ocr.snapshot();
  ui::field(subText("Text recognition","Rozpoznávání textu"));
  ImGui::Combo("##ocr-engine",&settings.ocrEngine,"RapidOCR / PP-OCRv5 English\000Windows English OCR\000");

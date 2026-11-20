@@ -215,7 +215,7 @@ int WINAPI wWinMain(HINSTANCE instance,HINSTANCE,LPWSTR cmd,int){
   WNDCLASSW wc{};wc.lpfnWndProc=windowProc;wc.hInstance=instance;wc.lpszClassName=L"FrameLabWindow";wc.hCursor=LoadCursor(nullptr,IDC_ARROW);RegisterClassW(&wc);
   int initialWidth=1480,initialHeight=900;
   if(uiPreview){initialWidth=std::clamp(_wtoi(argument(L"--preview-width",L"1480").c_str()),640,3840);initialHeight=std::clamp(_wtoi(argument(L"--preview-height",L"900").c_str()),480,2160);}
-  HWND window=CreateWindowW(wc.lpszClassName,L"FrameLab | preview.15 | OCR profiles + full pipeline recording",uiPreview?WS_POPUP:WS_OVERLAPPEDWINDOW,100,80,initialWidth,initialHeight,nullptr,nullptr,instance,nullptr);
+  HWND window=CreateWindowW(wc.lpszClassName,L"FrameLab | preview.16-dev | OCR inspector",uiPreview?WS_POPUP:WS_OVERLAPPEDWINDOW,100,80,initialWidth,initialHeight,nullptr,nullptr,instance,nullptr);
   applyWindowChrome(window);
   Graphics g;g.init(window);graphics=&g;
   if(args.find(L"--verify-vfg")!=std::wstring::npos){for(unsigned m=2;m<=4;++m)for(unsigned i=1;i<m;++i)verifyInterpolation(g,root,m,i,args.find(L"--optical")!=std::wstring::npos);DestroyWindow(window);timeEndPeriod(1);CoUninitialize();return 0;}
@@ -251,7 +251,7 @@ int WINAPI wWinMain(HINSTANCE instance,HINSTANCE,LPWSTR cmd,int){
   SubtitleTrace subtitleTrace;if(auto path=argument(L"--subtitle-trace");!path.empty())subtitleTrace.open(path);
   Diagnostics diagnostics;SystemTelemetry systemTelemetry;
   auto savedSubtitleSettings=subtitleSettings;SubtitleModels subtitleModels(root);SubtitleTranslator subtitles(root);subtitles.setDiagnostics(&diagnostics);subtitles.configure(subtitleSettings);SubtitleSnapshot frozenSubtitle;
-  SubtitleStylePicker subtitleStylePicker;SubtitleProfiles subtitleProfiles;subtitleProfiles.load(root/L"subtitle-profiles.txt");
+  SubtitleStylePicker subtitleStylePicker;SubtitleInspector subtitleInspector;SubtitleProfiles subtitleProfiles;subtitleProfiles.load(root/L"subtitle-profiles.txt");
   DisplayControls displayControls;displayControls.load(root/L"display-settings.txt");
   GpuMonitor gpu;AnalysisRecorder analysis;RecordingLocation recordingLocation;recordingLocation.load(root,analysis);RecordingOutput recordingOutput;Mailbox mailbox;mailbox.subtitles=&subtitles;mailbox.recorder=&analysis;DirectShowCapture capture;std::atomic<bool> demoRun=false;std::jthread demo;LocalVideoPlayer localVideo(root/L"media"/L"vlc");
   std::mutex replayErrorMutex;std::string replayError;
@@ -296,11 +296,11 @@ int WINAPI wWinMain(HINSTANCE instance,HINSTANCE,LPWSTR cmd,int){
   std::vector<float> latencySamples;double start=now(),lastStats=start;uint64_t lastRaw=0,lastUnique=0,lastContent=0,lastPresents=0,lastGenerated=0;
   auto settingsJson=[&]{
    auto values=Diagnostics::object({{"width",double(w)},{"height",double(h)},{"capture_requested_fps",requestedFps},{"fg",double(fg)},{"multiplier",double(multiplier)},{"quality",double(quality)},{"vsync",double(vsync)},{"dedup",double(mailbox.dedup.load())},{"automatic_cuts",double(automaticCuts)},{"nr_enabled",double(nrControls.enabled)},{"nr_height_limit",double(nrControls.height)},{"nr_passes",double(nrControls.passes)},{"nr_strength",nrControls.strength},{"nr_motion",double(nrControls.motion)},{"nr_runtime",double(nrControls.runtime)},{"nr_view",double(nrControls.view)},{"subtitles",double(subtitleSettings.enabled)},{"subtitle_model",double(subtitleSettings.model)},{"ocr_engine",double(subtitleSettings.ocrEngine)},{"ocr_interval_ms",double(subtitleSettings.intervalMs)},{"ocr_left",subtitleSettings.left},{"ocr_top",subtitleSettings.top},{"ocr_right",subtitleSettings.right},{"ocr_bottom",subtitleSettings.bottom},{"caption_hold_s",subtitleSettings.holdSeconds},{"caption_linger_s",subtitleSettings.lingerSeconds},{"subtitle_font_percent",subtitleSettings.fontPercent},{"subtitle_position",subtitleSettings.position},{"subtitle_horizontal",subtitleSettings.horizontal},{"subtitle_placement",double(subtitleSettings.placement)},{"subtitle_background",subtitleSettings.background},{"subtitle_show_original",double(subtitleSettings.showOriginal)},{"subtitle_cover_source",double(subtitleSettings.coverSource)},{"subtitle_horizontal_align",double(subtitleSettings.horizontalAlign)},{"subtitle_vertical_align",double(subtitleSettings.verticalAlign)},{"subtitle_gap_percent",subtitleSettings.gapPercent},{"subtitle_edge_fallback",double(subtitleSettings.edgeFallback)},{"display_fit",double(displayControls.fit)},{"audio_volume",double(audioVolume)},{"audio_muted",double(audioMuted)},{"nr_split",nrControls.split},{"legacy_nr_scheduling",double(legacyNrScheduling)}});
-   const auto& sp=subtitleSettings.style;auto styleJson=Diagnostics::object({{"enabled",double(sp.enabled)},{"height_ratio",sp.height},{"r",sp.rgb[0]},{"g",sp.rgb[1]},{"b",sp.rgb[2]},{"height_tolerance",sp.heightTolerance},{"color_tolerance",sp.colorTolerance}});
+   const auto& sp=subtitleSettings.style;auto styleJson=Diagnostics::object({{"enabled",double(sp.enabled)},{"height_ratio",sp.height},{"r",sp.rgb[0]},{"g",sp.rgb[1]},{"b",sp.rgb[2]},{"height_tolerance",sp.heightTolerance},{"color_tolerance",sp.colorTolerance},{"inspector_open",double(subtitleSettings.inspectOcr)},{"sample_id",double(sp.sampleId)},{"sample_frame_height",double(sp.sampleFrameHeight)}});
    values.pop_back();return values+",\"ocr_style\":"+styleJson+",\"backend\":"+Diagnostics::quote(vfg.name())+",\"source\":"+Diagnostics::quote(isDemo?(activeVideoName.empty()?"synthetic":activeVideoName):(devices.empty()?"none":devices[selected].friendlyName))+"}";
   };
   auto startDebug=[&]{
-   lastContentAt=0;lastDebugSettings=settingsJson();auto meta="{\"build\":\"preview.15-full-pipeline\",\"gpu\":"+Diagnostics::quote(gpu.name)+",\"cpu\":"+Diagnostics::quote(systemTelemetry.cpuName)+",\"logical_processors\":"+std::to_string(systemTelemetry.threads)+",\"settings\":"+lastDebugSettings+",\"timing_note\":\"App latency excludes capture hardware and scanout. CPU/GPU totals include other apps. NR GPU phases use D3D12 timestamps; worker time also includes GPU waits. OCR/MT times include IPC; displayed caption delay includes queues and reading hold.\"}";
+   lastContentAt=0;lastDebugSettings=settingsJson();auto meta="{\"build\":\"preview.16-ocr-inspector\",\"gpu\":"+Diagnostics::quote(gpu.name)+",\"cpu\":"+Diagnostics::quote(systemTelemetry.cpuName)+",\"logical_processors\":"+std::to_string(systemTelemetry.threads)+",\"settings\":"+lastDebugSettings+",\"timing_note\":\"App latency excludes capture hardware and scanout. CPU/GPU totals include other apps. NR GPU phases use D3D12 timestamps; worker time also includes GPU waits. OCR/MT times include IPC; displayed caption delay includes queues and reading hold.\"}";
    diagnostics.start(root/L"logs",meta,debugFrames,debugText,debugDuration);
   };
   auto resetPipeline=[&]{freezePreview=false;subtitles.reset();retireEnhancer();analysis.finish("Source or settings changed");analysis.cancelPending();comparison.clear();readyImages.clear();imagePool.clear();pacer.reset();displayVerification.clearHistory();g.context->PSSetShaderResources(0,0,nullptr);vfg.reset();vfgInitialized=false;havePrevious=false;pending=false;initFailed=false;gpuMs=-1;displayed=nullptr;current=0;previousArrival=0;};
@@ -638,7 +638,7 @@ int WINAPI wWinMain(HINSTANCE instance,HINSTANCE,LPWSTR cmd,int){
     ImGui::TextWrapped("%s",nrControls.text("Pipeline: input > selected FG backend > enhancer (if enabled) > Czech subtitles > display. Output FPS is limited by the slowest stage.","Pořadí: vstup > vybrané FG > enhancer (je-li zapnutý) > české titulky > monitor. Výstupní FPS omezuje nejpomalejší část."));
      ImGui::EndTabItem();}
      if(ImGui::BeginTabItem(nrControls.text("Subtitles","Titulky"),nullptr,previewTab==6?ImGuiTabItemFlags_SetSelected:0)){
-      if(subtitlePanel(subtitleSettings,subtitles.snapshot(isLocalVideo&&localSnapshot.paused),subtitleModels,gpu.freeMemoryMB,ocrSetup,window,rapidOcrReady,&subtitleStylePicker.requested,&subtitleProfiles))subtitles.configure(subtitleSettings);
+      if(subtitlePanel(subtitleSettings,subtitles.snapshot(isLocalVideo&&localSnapshot.paused),subtitleModels,gpu.freeMemoryMB,ocrSetup,window,rapidOcrReady,&subtitleStylePicker.requested,&subtitleProfiles,&subtitleInspector.open))subtitles.configure(subtitleSettings);
       ImGui::EndTabItem();
      }
      if(ImGui::BeginTabItem(nrControls.text("Display","Zobrazení"),nullptr,previewTab==7?ImGuiTabItemFlags_SetSelected:0)){auto previous=displayControls.fit;displayControls.panel(window,fullscreen);if(previous!=displayControls.fit)displayControls.save(root/L"display-settings.txt");ImGui::EndTabItem();}
@@ -718,7 +718,8 @@ int WINAPI wWinMain(HINSTANCE instance,HINSTANCE,LPWSTR cmd,int){
     ImGui::End();
    }
    }
-   if(subtitleStylePicker.draw(g,subtitles,subtitleSettings,packet.data,packet.w,packet.h,imageOnly))subtitles.configure(subtitleSettings);
+   if(subtitleStylePicker.draw(g,subtitles,subtitleSettings,packet.data,packet.w,packet.h,imageOnly,root))subtitles.configure(subtitleSettings);
+   if(subtitleInspector.draw(g,root,subtitles,subtitleSettings,packet.h,imageOnly,isLocalVideo&&localSnapshot.paused))subtitles.configure(subtitleSettings);
    if(!(savedSubtitleSettings==subtitleSettings)&&!ImGui::IsMouseDown(ImGuiMouseButton_Left)){subtitleSettings.save(root/L"subtitle-settings.txt");savedSubtitleSettings=subtitleSettings;}
    if(!(savedNrControls==nrControls)&&!ImGui::IsMouseDown(ImGuiMouseButton_Left)){nrControls.save(root/L"nr-settings.txt");savedNrControls=nrControls;}
    ImGui::Render();
