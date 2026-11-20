@@ -37,10 +37,10 @@ def main():
     subprocess.run(['git','diff','--exit-code',commit,'--'],cwd=ROOT,check=True,stdout=subprocess.DEVNULL)
     cache=a.build_cache.read_text(encoding='utf-8')
     assert 'FRAMELAB_EXPERIMENTAL_NR:BOOL=ON' in cache,'Build must include the SDK-free NR adapter'
-    assert not list(a.base.rglob('nvngx_dlssnr.dll')) and not (a.base/'app/nr-host').exists()
+    assert not list(a.base.rglob('nvngx_dlssnr.dll')),'External NR model runtime is not a public packaging dependency'
     assert not list(a.base.rglob('*.gguf')) and not (a.base/'app/translation/gpu-runtime').exists(),'Use a clean public base without private GPU downloads'
     variant=json.loads((a.base/'build-variant.json').read_text(encoding='utf-8'))
-    assert variant['FRAMELAB_EXPERIMENTAL_NR'] is False
+    assert variant['FRAMELAB_EXPERIMENTAL_NR'] is False or (variant.get('nr_runtime_included') is False and variant.get('nr_host_sdk_static_library') is False),'Base must have no external NR runtime or SDK static library'
     a.output.mkdir(parents=True,exist_ok=True)
     name='FrameLab-'+a.version
     stage=a.output/name

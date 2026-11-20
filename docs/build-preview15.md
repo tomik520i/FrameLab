@@ -57,7 +57,7 @@ This checks required samples, translation files, NVIDIA/Microsoft hashes and sig
 
 ## Media runtime and current validation
 
-Run `python tools/prepare_media.py --output app/media/vlc` for the pinned LibVLC runtime. Its provenance must match docs/media-runtime.json. `package_release.py` requires `--media`, `--ocr` and `--gta-sample` as explicit paths. Supply a clean public NR-disabled base, an NR-enabled current executable, the built NR host/setup helper, and the exact clean Git commit. It excludes personal settings, logs, model caches and external NR DLLs. Generate guides with `python tools/render_install_guides.py` first.
+Run `python tools/prepare_media.py --output app/media/vlc` for the pinned LibVLC runtime. Its provenance must match docs/media-runtime.json. `package_release.py` requires `--media`, `--ocr` and `--gta-sample` as explicit paths. Supply a verified clean public base without external NR model DLLs, an NR-enabled current executable, the built NR host/setup helper, and the exact clean Git commit. It excludes personal settings, logs, model caches and external NR DLLs. Generate guides with `python tools/render_install_guides.py` first.
 
 The GTA source demo is available in the full release under app/samples/gta.mp4; its hash is docs/sample-gta-source.json. Do not substitute the comparison video for original input. Preparation uses Python 3.11 x64. Neither Python nor a compiler is required by the end user.
 
