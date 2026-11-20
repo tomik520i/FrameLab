@@ -7,12 +7,12 @@
 #include <cmath>
 #include <shellapi.h>
 struct NrControls {
- bool enabled=false,motion=true;float strength=.65f,split=.5f;int view=1,height=720,runtime=0,passes=1;
+ bool enabled=false,motion=true,economy=false;float strength=.65f,split=.5f;int view=1,height=720,runtime=0,passes=1;
  bool operator==(const NrControls&)const=default;
  const char* text(const char* en,const char* cs)const{return czech?cs:en;}
  void load(const std::filesystem::path& path){std::ifstream in(path);int version=0;float s=.65f,x=.5f;int v=2,h=720,r=0,m=1;
-  if(in>>version>>s>>x>>v>>h>>r>>m&&(version==1||version==2)&&std::isfinite(s)&&std::isfinite(x)){strength=std::clamp(s,0.f,1.f);split=std::clamp(x,.05f,.95f);view=std::clamp(v,0,2);height=(h==0||(h>=180&&h<=8192))?h:720;runtime=r==1?1:0;motion=m!=0;passes=1;if(version==2){int count=1;if(in>>count)passes=std::clamp(count,1,4);}}}
- void save(const std::filesystem::path& path)const{std::ofstream(path)<<2<<' '<<strength<<' '<<split<<' '<<view<<' '<<height<<' '<<runtime<<' '<<motion<<' '<<passes<<'\n';}
+  if(in>>version>>s>>x>>v>>h>>r>>m&&(version>=1&&version<=3)&&std::isfinite(s)&&std::isfinite(x)){strength=std::clamp(s,0.f,1.f);split=std::clamp(x,.05f,.95f);view=std::clamp(v,0,2);height=(h==0||(h>=180&&h<=8192))?h:720;runtime=r==1?1:0;motion=m!=0;passes=1;economy=false;if(version>=2){int count=1;if(in>>count)passes=std::clamp(count,1,4);}if(version>=3){int mode=0;if(in>>mode)economy=mode==1;}}}
+ void save(const std::filesystem::path& path)const{std::ofstream(path)<<3<<' '<<strength<<' '<<split<<' '<<view<<' '<<height<<' '<<runtime<<' '<<motion<<' '<<passes<<' '<<economy<<'\n';}
  bool available(const std::filesystem::path& app)const{std::error_code ec;return std::filesystem::is_regular_file(app/L"runtime"/(runtime?L"nr-original":L"nr-sf")/L"nvngx_dlssnr.dll",ec);}
  bool panel(Enhancer* nr,const std::string& failure,unsigned sourceWidth=0,unsigned sourceHeight=0,unsigned monitorHeight=0,const std::filesystem::path& app={}){
   bool restart=false;
@@ -26,6 +26,8 @@ struct NrControls {
   }
   ImGui::SameLine();if(ImGui::Button(text("Guide","Návod")))ShellExecuteW(nullptr,L"open",L"https://opicebot.cz/framelab/guide/enhancer.html",nullptr,nullptr,SW_SHOWNORMAL);
   ImGui::BeginDisabled(!installed);ImGui::Checkbox(text("Enable enhancer (F6)","Zapnout enhancer (F6)"),&enabled);ImGui::EndDisabled();
+  if(ImGui::Checkbox(text("Eco: enhance before frame gen (experimental)","Úsporně: enhancer před frame genem (experiment)"),&economy))restart=true;
+  if(economy)ImGui::TextWrapped("%s",text("AI runs on source frames; FG then interpolates the enhanced images. Fewer AI evaluations, potentially more delay and different artifacts. Source resolution and strength stay unchanged. A second FG reference keeps before/after comparison exact; it uses extra VRAM.","AI upravuje vstupní snímky a FG až potom dopočítá upravený pohyb. Méně výpočtů AI, možná větší odezva a jiné artefakty. Rozlišení i síla zůstávají stejné. Druhý FG pro přesné porovnání před/po potřebuje další VRAM."));
   ui::field(text("NR passes","Počet průchodů NR"));int passChoice=passes-1;
   const char* passLabels[]={text("1 pass (default)","1 průchod (výchozí)"),text("2 passes","2 průchody"),text("3 passes","3 průchody"),text("4 passes","4 průchody")};
   if(ImGui::Combo("##nr-passes",&passChoice,passLabels,4)){passes=passChoice+1;restart=true;}
@@ -39,7 +41,7 @@ struct NrControls {
   if(ImGui::CollapsingHeader(text("Quality and performance","Kvalita a výkon"))){
   if(ImGui::Button(text("720p / 1 pass","720p / 1 průchod"))){height=720;passes=1;restart=true;}ImGui::SameLine();
   if(ImGui::Button(text("1080p / 1 pass","1080p / 1 průchod"))){height=1080;passes=1;restart=true;}
-  ImGui::TextWrapped("%s",text("FG multiplies the frames the enhancer must process. Lower AI resolution or fewer passes saves GPU work; lowering effect strength only changes the blend. The output keeps its source resolution.","FG násobí počet snímků pro enhancer. Nižší rozlišení AI nebo méně průchodů šetří GPU; síla efektu mění jen přimíchání. Výstup zachovává rozlišení zdroje."));
+  ImGui::TextWrapped("%s",text("Standard mode enhances every FG output. Eco enhances source frames before FG. Lower AI resolution or fewer passes saves GPU work in both modes; effect strength only changes the blend. Output resolution is preserved.","Běžný režim upravuje každý výstup FG. Úsporný upravuje zdroj před FG. Nižší rozlišení AI nebo méně průchodů šetří GPU v obou režimech; síla mění jen přimíchání. Výstupní rozlišení zůstává."));
   auto label=[&](int value){std::string s=value?std::string(text("Up to ","Až "))+std::to_string(value)+"p":text("Source resolution","Rozlišení zdroje");if(sourceWidth&&sourceHeight){auto [x,y]=nrDimensions(sourceWidth,sourceHeight,unsigned(value));s+="  ("+std::to_string(x)+" x "+std::to_string(y)+")";}return s;};
   ui::field(text("AI processing limit","Limit výpočetního rozlišení AI"));
   if(ImGui::BeginCombo("##nr-height",label(height).c_str())){
@@ -68,8 +70,11 @@ struct NrControls {
   return restart;
  }
  void draw(ID3D11ShaderResourceView* base,ImVec2 size,Enhancer* nr,bool matched,bool cleanOutput=false,bool interactive=true){
+  drawPair(base,size,nr&&nr->hasResult&&matched?nr->result.view.Get():nullptr,cleanOutput,interactive);
+ }
+ void drawPair(ID3D11ShaderResourceView* base,ImVec2 size,ID3D11ShaderResourceView* enhanced,bool cleanOutput=false,bool interactive=true){
   auto p=ImGui::GetCursorScreenPos();ImGui::Image((ImTextureID)(intptr_t)base,size);
-  if(!enabled||!matched||!nr||!nr->hasResult)return;
+  if(!enabled||!enhanced)return;
   auto d=ImGui::GetWindowDrawList();ImVec2 end{p.x+size.x,p.y+size.y};
   const int outputView=cleanOutput?1:view; // Fullscreen never inherits the preview comparison mode.
   // Only the settings preview is interactive. Fullscreen is the chosen output.
@@ -81,7 +86,7 @@ struct NrControls {
    if(ImGui::IsItemActive()&&ImGui::IsMouseDragging(ImGuiMouseButton_Left,0))split=std::clamp((ImGui::GetIO().MousePos.x-p.x)/size.x,.05f,.95f);
    ImGui::SetCursorScreenPos(next);
   }
-  if(outputView!=0&&strength>0){if(outputView==2)d->PushClipRect({p.x+size.x*split,p.y},end,true);d->AddImage((ImTextureID)(intptr_t)nr->result.view.Get(),p,end,{0,0},{1,1},IM_COL32(255,255,255,int(strength*255+.5f)));if(outputView==2)d->PopClipRect();}
+  if(outputView!=0&&strength>0){if(outputView==2)d->PushClipRect({p.x+size.x*split,p.y},end,true);d->AddImage((ImTextureID)(intptr_t)enhanced,p,end,{0,0},{1,1},IM_COL32(255,255,255,int(strength*255+.5f)));if(outputView==2)d->PopClipRect();}
   if(outputView==2){float x=p.x+size.x*split;d->AddLine({x,p.y},{x,end.y},IM_COL32(193,255,94,255),2);
    if(!cleanOutput){float y=p.y+size.y*.5f;d->AddCircleFilled({x,y},15,IM_COL32(193,255,94,255));d->AddText({x-10,y-9},IM_COL32(16,22,15,255),"< >");}
   }

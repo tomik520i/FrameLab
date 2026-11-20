@@ -10,6 +10,7 @@ struct Vfg::Impl {
  HMODULE driver=nullptr;std::vector<HMODULE> dlls;DLL_DIRECTORY_COOKIE directory=nullptr;
  CUcontext ctx=nullptr;CUdevice gpu=0;CUstream stream=nullptr;CUevent first=nullptr,last=nullptr;
  CUgraphicsResource resource=nullptr;CUdeviceptr inputs[2]{},output=0;void* images[3]{};void* effect=nullptr;
+ CUgraphicsResource inputResources[2]{};ComPtr<ID3D11Texture2D> inputTextures[2];
  unsigned w=0,h=0,multiplier=2;bool pending=false;float ms=0;
  std::uint64_t uploadRevision=0;VfgPairBinding pairBinding;
 #define FN(n) decltype(&n) n##Fn=nullptr
@@ -32,6 +33,7 @@ struct Vfg::Impl {
   if(ctx&&cuCtxSetCurrentFn)cuCtxSetCurrentFn(ctx);if(stream&&cuStreamSynchronizeFn)cuStreamSynchronizeFn(stream);
   if(effect&&destroy)destroy(effect);for(auto i:images)if(i&&imageDestroy)imageDestroy(i);
   if(resource&&cuGraphicsUnregisterResourceFn)cuGraphicsUnregisterResourceFn(resource);
+  for(auto r:inputResources)if(r&&cuGraphicsUnregisterResourceFn)cuGraphicsUnregisterResourceFn(r);
   for(auto a:inputs)if(a&&cuMemFreeFn)cuMemFreeFn(a);if(output&&cuMemFreeFn)cuMemFreeFn(output);
   if(first&&cuEventDestroyFn)cuEventDestroyFn(first);if(last&&cuEventDestroyFn)cuEventDestroyFn(last);
   if(stream&&cuStreamDestroyFn)cuStreamDestroyFn(stream);if(ctx&&cuDevicePrimaryCtxReleaseFn)cuDevicePrimaryCtxReleaseFn(gpu);
@@ -77,6 +79,27 @@ void Vfg::initialize(ID3D11Device* device,ID3D11Texture2D* texture,unsigned w,un
  a.cv(a.load(a.effect),"Load VFG model");a.cv(a.setImage(a.effect,"DstImage0",a.images[2]),"Output");a.cv(a.setU32(a.effect,"FrameMultiplier",2),"2x mode");p=std::move(q);
 }
 void Vfg::upload(const unsigned char* pixels,unsigned i){auto& a=*p;if(i>1||a.pending)throw std::runtime_error("Invalid or busy VFG upload");a.cu(a.cuMemcpyHtoDFn(a.inputs[i],pixels,size_t(a.w)*a.h*4),"Upload CUDA input");++a.uploadRevision;}
+void Vfg::upload(ID3D11Texture2D* texture,unsigned i){auto& a=*p;
+ if(i>1||a.pending)throw std::runtime_error("Invalid or busy VFG texture upload");
+ D3D11_TEXTURE2D_DESC d{};texture->GetDesc(&d);
+ if(d.Width!=a.w||d.Height!=a.h||d.Format!=DXGI_FORMAT_B8G8R8A8_UNORM)throw std::runtime_error("VFG texture dimensions/format mismatch");
+ a.cu(a.cuCtxSetCurrentFn(a.ctx),"Texture upload context");
+ const bool sharedWithOther=a.inputTextures[1-i].Get()==texture;
+ if(!sharedWithOther&&a.inputTextures[i].Get()!=texture){
+  a.cu(a.cuStreamSynchronizeFn(a.stream),"Retire input transfer");
+  if(a.inputResources[i])a.cu(a.cuGraphicsUnregisterResourceFn(a.inputResources[i]),"Unregister input");
+  a.inputResources[i]=nullptr;a.inputTextures[i]=texture;
+  a.cu(a.cuGraphicsD3D11RegisterResourceFn(&a.inputResources[i],texture,0),"CUDA D3D11 input");
+ }
+ auto resource=a.inputResources[sharedWithOther?1-i:i];a.cu(a.cuGraphicsMapResourcesFn(1,&resource,a.stream),"Map input");
+ CUarray array=nullptr;
+ try{
+  a.cu(a.cuGraphicsSubResourceGetMappedArrayFn(&array,resource,0,0),"Input array");
+  CUDA_MEMCPY2D copy{};copy.srcMemoryType=CU_MEMORYTYPE_ARRAY;copy.srcArray=array;copy.dstMemoryType=CU_MEMORYTYPE_DEVICE;copy.dstDevice=a.inputs[i];copy.dstPitch=a.w*4;copy.WidthInBytes=a.w*4;copy.Height=a.h;
+  a.cu(a.cuMemcpy2DAsyncFn(&copy,a.stream),"GPU input copy");
+ }catch(...){a.cuGraphicsUnmapResourcesFn(1,&resource,a.stream);throw;}
+ a.cu(a.cuGraphicsUnmapResourcesFn(1,&resource,a.stream),"Unmap input");++a.uploadRevision;
+}
 void Vfg::generate(unsigned current,bool cut,unsigned index,unsigned multiplier){auto& a=*p;
  if(current>1||a.pending||multiplier<2||multiplier>4||index<1||index>=multiplier)throw std::runtime_error("Invalid or busy VFG temporal position");
  if(a.multiplier!=multiplier){a.cv(a.setU32(a.effect,"FrameMultiplier",multiplier),"Frame multiplier");a.multiplier=multiplier;}

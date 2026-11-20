@@ -11,6 +11,7 @@ public:
   reset();if(useOptical){optical=std::make_unique<OpticalFlow>();optical->initialize(d,t,w,h);}else nvidia.initialize(d,t,w,h,mode,runtime,cuts);
  }
  void upload(const unsigned char* p,unsigned i){if(optical)optical->upload(p,i);else nvidia.upload(p,i);}
+ void upload(ID3D11Texture2D* t,unsigned i){if(optical)optical->upload(t,i);else nvidia.upload(t,i);}
  void generate(unsigned current,bool cut,unsigned index=1,unsigned multiplier=2){if(optical)optical->generate(current,cut,index,multiplier);else nvidia.generate(current,cut,index,multiplier);}
  bool ready(){return optical?optical->ready():nvidia.ready();}
  float gpuMs()const{return optical?optical->gpuMs():nvidia.gpuMs();}

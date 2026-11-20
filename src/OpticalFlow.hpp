@@ -57,6 +57,12 @@ public:
   for(auto item:{std::pair{D3D11_QUERY_EVENT,std::addressof(done)},std::pair{D3D11_QUERY_TIMESTAMP,std::addressof(beginTime)},std::pair{D3D11_QUERY_TIMESTAMP,std::addressof(endTime)},std::pair{D3D11_QUERY_TIMESTAMP_DISJOINT,std::addressof(disjoint)}}){D3D11_QUERY_DESC q{item.first,0};check(d->CreateQuery(&q,item.second->GetAddressOf()),"Flow query");}
  }
  void upload(const unsigned char* data,unsigned parity){context->UpdateSubresource(inputs[parity].texture.Get(),0,nullptr,data,w*4,0);}
+ void upload(ID3D11Texture2D* texture,unsigned parity){
+  if(parity>1||pending)throw std::runtime_error("Invalid or busy optical input");
+  D3D11_TEXTURE2D_DESC d{};texture->GetDesc(&d);
+  if(d.Width!=w||d.Height!=h||d.Format!=DXGI_FORMAT_B8G8R8A8_UNORM)throw std::runtime_error("Optical input format mismatch");
+  context->CopyResource(inputs[parity].texture.Get(),texture);
+ }
  void generate(unsigned current,bool cut,unsigned index,unsigned multiplier){
   float params[]={float(w),float(h),float(index)/multiplier,cut?1.f:0.f};context->UpdateSubresource(constants.Get(),0,nullptr,params,0,0);
   ID3D11ShaderResourceView* views[]={inputs[1-current].view.Get(),inputs[current].view.Get(),flowView.Get()};ID3D11ShaderResourceView* nullViews[3]{};
