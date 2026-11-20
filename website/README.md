@@ -6,7 +6,9 @@ Country ranges are attributed to [IPdeny](https://www.ipdeny.com/) and refreshed
 
 The live website can evolve independently of a packaged application release; application source ZIPs preserve their exact build tree. Use current `main` for the latest website source.
 
-Build with `python tools/build_website.py --downloads PATH_TO_REVIEWED_ASSET_CATALOG`. Output defaults to ignored `dist/framelab-web`. The catalog lists explicit paths and SHA-256 hashes; raw recordings, credentials and personal preferences are never included. Recorded movies are copied without re-encoding; WebP posters and screenshot previews are resized display derivatives, not new interpolated evidence. PNG/GIF originals remain downloadable.
+Build with `python tools/build_website.py --downloads PATH_TO_REVIEWED_ASSET_CATALOG`. Output defaults to ignored `dist/framelab-web-preview15`. The catalog lists explicit paths and SHA-256 hashes; raw recordings, credentials and personal preferences are never included. Recorded movies are copied without re-encoding; WebP posters and screenshot previews are resized display derivatives, not new interpolated evidence. PNG/GIF originals remain downloadable.
+
+The historical Spider-Man section retains the original 2×, 3×, combat and 4× clips, two opt-in GIFs and the combat phase strip. Before building, populate ignored `release-assets/spiderman-web/` with the exact files listed in `website/spiderman-media.json`. They are available at `https://opicebot.cz/framelab/media/<file>`; the build verifies their SHA-256 hashes. These recordings used different builds and settings and are labelled accordingly. Do not regenerate them as if they were measurements of the latest release.
 
 Publish the completed directory as `/var/www/html/framelab` on the existing authorized host. Validate against `site-manifest.json` before exposing it, preserve a previous deployment outside the public root, and verify public HTTP responses and video byte ranges. No modification to the parent Opicebot application, database or virtual-host configuration is required. New versions should retain old download filenames until references are updated.
 

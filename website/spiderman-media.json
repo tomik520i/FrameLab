@@ -1,0 +1,62 @@
+[
+  {
+    "file": "2x-poster.webp",
+    "bytes": 136530,
+    "sha256": "cd5eb49235e101e113d6f3447cfc569f819b5e7697ea10911749d41064314c92"
+  },
+  {
+    "file": "2x-slow.mp4",
+    "bytes": 15963045,
+    "sha256": "be7c267441a7c05f616ae5c4cb8decbd949c970abdb25ad4e86c65a82537b589"
+  },
+  {
+    "file": "3x-poster.webp",
+    "bytes": 155998,
+    "sha256": "f305182be34005e696266d97eea0a5e3ad53c38c7662317cecffaea0ae0056da"
+  },
+  {
+    "file": "3x-slow.mp4",
+    "bytes": 19598128,
+    "sha256": "0272b90bf2aff16034143aa9ff1a6c92470685e1e577c26a7a61f0f1c6260d83"
+  },
+  {
+    "file": "4x-poster.webp",
+    "bytes": 144858,
+    "sha256": "a8e38bdcd324577c74a9622f55662e1298e37ee9c51e5aee7e66d8b946a63496"
+  },
+  {
+    "file": "4x-slow.mp4",
+    "bytes": 13373483,
+    "sha256": "24a9f8be206d1257391fa6bba2610679b3a4c92f8568c64f0e378d513b28cd6e"
+  },
+  {
+    "file": "combat-phases.png",
+    "bytes": 2750216,
+    "sha256": "c820e89b15ba32b328fc83cb2672a28bac13bdb876abf2c6087f2aecc47877db"
+  },
+  {
+    "file": "combat-phases.webp",
+    "bytes": 176344,
+    "sha256": "0038e58a028c10e5ce26abde111574338ce5daefc6d4b71a33e994e351caa291"
+  },
+  {
+    "file": "combat-poster.webp",
+    "bytes": 124330,
+    "sha256": "2d232bdc4c1f264f56b78485268b9dd5ffb45c9e55c0b9c95749964f7d35738b"
+  },
+  {
+    "file": "combat-slow.mp4",
+    "bytes": 15285037,
+    "sha256": "5d207035f9c4eb660e0682841aa968e07343c14039be95fbc2b5f6b5d6ea6936"
+  },
+  {
+    "file": "framelab-2x-slow-comparison.gif",
+    "bytes": 7978258,
+    "sha256": "ef53cad83ee84ff17e5ae98504e3c5e3926c60993df4a7b24f8be2fb427d7721"
+  },
+  {
+    "file": "framelab-3x-slow-comparison.gif",
+    "bytes": 9229573,
+    "sha256": "dccd06046a8de88efece4d9a30ea03f46bfc643239cdfcde2658bf85f51afd36"
+  }
+]

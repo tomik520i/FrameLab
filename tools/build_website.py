@@ -17,6 +17,12 @@ def main():
         for n in range(1,count+1):
             stem=f'{prefix}-{n}';names += [stem+'.mp4',stem+'-before.mp4',stem+'-after.mp4',stem+'-final.mp4',stem+'-before-full.png',stem+'-after-full.png',stem+'-final-full.png',stem+'-crop.png',stem+'.srt',stem+'-mapping.json']
     for name in names:shutil.copy2(source/name,media/name)
+    # Explicit historical media, unchanged from the original published comparisons.
+    for item in json.loads((ROOT/'website/spiderman-media.json').read_text(encoding='utf8')):
+        historical=ROOT/'release-assets/spiderman-web'/item['file']
+        if not historical.is_file() or sha(historical)!=item['sha256']:
+            raise RuntimeError(f"Missing or changed historical media: {historical}. See website/README.md.")
+        shutil.copy2(historical,media/item['file'])
     shutil.copy2(ROOT/'docs/images/preview15/gta-2x-slow.gif',media/'gta-2x-slow.gif')
     shutil.copy2(ROOT/'docs/images/preview15/app.png',media/'app-preview15.png')
     for file in list(media.glob('*-full.png'))+[media/'gta-fg-pair.png',media/'app-preview15.png']:

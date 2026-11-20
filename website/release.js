@@ -25,6 +25,9 @@
   }));
   // Only one clip plays at a time; nothing autoplays or preloads full videos.
   document.querySelectorAll('video').forEach(v=>v.addEventListener('play',()=>document.querySelectorAll('video').forEach(other=>{if(other!==v)other.pause()})));
+  document.querySelectorAll('.archive-gifs').forEach(panel=>panel.addEventListener('toggle',()=>{
+    panel.querySelectorAll('[data-gif-src]').forEach(img=>{if(panel.open)img.src=img.dataset.gifSrc;else img.removeAttribute('src')});
+  }));
   Promise.all([fetch('data/debug/metrics.csv').then(r=>{if(!r.ok)throw Error();return r.text()}),fetch('data/debug/summary.json').then(r=>r.json())]).then(([csv,summary])=>{
     const lines=csv.trim().split(/\r?\n/),header=lines.shift().split(','),rows=lines.map(line=>Object.fromEntries(line.split(',').map((v,i)=>[header[i],header[i]==='utc'?v:Number(v)])));
     const canvas=$('#telemetry-chart'),ctx=canvas.getContext('2d');let selected=-1;
