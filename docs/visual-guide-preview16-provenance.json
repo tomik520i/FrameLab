@@ -1,0 +1,158 @@
+{
+  "version": "0.2.0-preview.16",
+  "capture_method": "Windows computer-use UI screenshot; original pixels preserved; separate SVG callouts and viewBox crops",
+  "hardware": "NVIDIA GeForce RTX 5070 Ti",
+  "limits": [
+    "Screenshots are interface illustrations, not performance benchmarks",
+    "Capture-card settings are shown while a local sample is playing",
+    "Historical unchanged installation captures are explicitly labelled",
+    "The OCR fixture is artificial; no claim of real-dialogue accuracy",
+    "Personal settings restored after the walkthrough"
+  ],
+  "captures": [
+    {
+      "file": "01-overview.png",
+      "width": 2560,
+      "height": 1392,
+      "sha256": "30fed9752d45ba9bd489d5e3d30097104474f139c1f861329afe76b7ec45e811",
+      "captured_utc": "2026-11-20T22:53:31.777Z",
+      "window_title": "FrameLab | preview.16 | OCR + frame pacing"
+    },
+    {
+      "file": "02-subtitles-models.png",
+      "width": 2560,
+      "height": 1392,
+      "sha256": "577d30fc287887d62b32919a346f1445dbd009342fc3855adf5aefd8b73e21fc",
+      "captured_utc": "2026-11-20T22:56:09.915Z",
+      "window_title": "FrameLab | preview.16 | OCR + frame pacing"
+    },
+    {
+      "file": "03-capture.png",
+      "width": 2560,
+      "height": 1392,
+      "sha256": "1d6278d89e459dfd6f04075cf11940f3b8af4593bff506a35b290a5f385a0340",
+      "captured_utc": "2026-11-20T22:56:16.858Z",
+      "window_title": "FrameLab | preview.16 | OCR + frame pacing"
+    },
+    {
+      "file": "04-ocr-word.png",
+      "width": 2560,
+      "height": 1392,
+      "sha256": "8d04fa3d201fa7a4e6b433fffceef5d75e46433aeadc1822b1dcc7a584e03c63",
+      "captured_utc": "2026-11-20T22:57:10.591Z",
+      "window_title": "FrameLab | preview.16 | OCR + frame pacing"
+    },
+    {
+      "file": "05-ocr-inspector.png",
+      "width": 2560,
+      "height": 1392,
+      "sha256": "918539066c173017824526dfabe2be23ef9660badddc3b02f26af4ffbcaebae8",
+      "captured_utc": "2026-11-20T22:57:16.820Z",
+      "window_title": "FrameLab | preview.16 | OCR + frame pacing"
+    },
+    {
+      "file": "06-save-profile.png",
+      "width": 2560,
+      "height": 1392,
+      "sha256": "4df8547665525f80d0213c3bfd20ee0138630e62fb03226e17733b6b880a5a71",
+      "captured_utc": "2026-11-20T22:57:47.074Z",
+      "window_title": "FrameLab | preview.16 | OCR + frame pacing"
+    },
+    {
+      "file": "07-subtitles-running.png",
+      "width": 2560,
+      "height": 1392,
+      "sha256": "fc05bf3edc08689aabe9036e6ab2743aa683289ffa9fa18870997b22522891d2",
+      "captured_utc": "2026-11-20T22:57:55.079Z",
+      "window_title": "FrameLab | preview.16 | OCR + frame pacing"
+    },
+    {
+      "file": "08-subtitles-timing.png",
+      "width": 2560,
+      "height": 1392,
+      "sha256": "47f21bf2d10b9f2f3ab54675cf08e1aaf68d6d9157daedc12d7bf7ad388e7d16",
+      "captured_utc": "2026-11-20T22:58:04.329Z",
+      "window_title": "FrameLab | preview.16 | OCR + frame pacing"
+    },
+    {
+      "file": "09-subtitles-placement.png",
+      "width": 2560,
+      "height": 1392,
+      "sha256": "4fa87cb2bb3b464438dc372e30c3abbabd79b616c0f2bd75f4956b5b43920000",
+      "captured_utc": "2026-11-20T22:58:12.947Z",
+      "window_title": "FrameLab | preview.16 | OCR + frame pacing"
+    },
+    {
+      "file": "10-local-video.png",
+      "width": 2560,
+      "height": 1392,
+      "sha256": "ebbdeb585d24840205843a31d5f1b1464aa5d26dfc82deb3ebe02496f03dd237",
+      "captured_utc": "2026-11-20T22:59:26.392Z",
+      "window_title": "FrameLab | preview.16 | OCR + frame pacing"
+    },
+    {
+      "file": "11-frame-gen.png",
+      "width": 2560,
+      "height": 1392,
+      "sha256": "66dc857eab109d0c25019a71c74a6574753c4f216e9604dddedd69eb19c84188",
+      "captured_utc": "2026-11-20T22:59:34.174Z",
+      "window_title": "FrameLab | preview.16 | OCR + frame pacing"
+    },
+    {
+      "file": "12-enhancer-eco.png",
+      "width": 2560,
+      "height": 1392,
+      "sha256": "1a42b5599a1a2556b677d536fd0b94eb5bfb6c35b1d86ea4b0431ca85836aca6",
+      "captured_utc": "2026-11-20T23:00:04.909Z",
+      "window_title": "FrameLab | preview.16 | OCR + frame pacing"
+    },
+    {
+      "file": "13-display.png",
+      "width": 2560,
+      "height": 1392,
+      "sha256": "b6e80178660f2f59c2bc7d301aaddabaf916fee4e7260bea6186ce55c6022d29",
+      "captured_utc": "2026-11-20T23:00:13.543Z",
+      "window_title": "FrameLab | preview.16 | OCR + frame pacing"
+    },
+    {
+      "file": "14-audio.png",
+      "width": 2560,
+      "height": 1392,
+      "sha256": "1eac35f5281c3e66ab045caa8a1d6f96bb532b92960887ae9efcb364b7c5eff1",
+      "captured_utc": "2026-11-20T23:00:21.357Z",
+      "window_title": "FrameLab | preview.16 | OCR + frame pacing"
+    },
+    {
+      "file": "15-recording.png",
+      "width": 2560,
+      "height": 1392,
+      "sha256": "2a9ac41b24aae60ad4079cd051225fb586e12a9008643d7ed045d53aeb0de70c",
+      "captured_utc": "2026-11-20T23:00:36.128Z",
+      "window_title": "FrameLab | preview.16 | OCR + frame pacing"
+    },
+    {
+      "file": "16-stats.png",
+      "width": 2560,
+      "height": 1392,
+      "sha256": "83e85217085237d002be1eaa272bf2060549f2007511175e29132f1f3f90190c",
+      "captured_utc": "2026-11-20T23:00:53.408Z",
+      "window_title": "FrameLab | preview.16 | OCR + frame pacing"
+    },
+    {
+      "file": "17-debug.png",
+      "width": 2560,
+      "height": 1392,
+      "sha256": "c31e0c24ba34e5125fabce4f170bc9ac56db206133ee88c135b3092724013028",
+      "captured_utc": "2026-11-20T23:01:00.149Z",
+      "window_title": "FrameLab | preview.16 | OCR + frame pacing"
+    },
+    {
+      "file": "18-fullscreen-hud.png",
+      "width": 2560,
+      "height": 1440,
+      "sha256": "b814f191fff3f3d791c949694ef0758aec412ee30e0ff3808e7882a9777b31c5",
+      "captured_utc": "2026-11-20T23:01:19.460Z",
+      "window_title": "FrameLab | preview.16 | OCR + frame pacing"
+    }
+  ]
+}

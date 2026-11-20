@@ -1,10 +1,12 @@
-# FrameLab preview.15 — start here
+# FrameLab preview.16 — start here
 
 [Česky](INSTALL.cs.md) · [Web comparisons](https://opicebot.cz/framelab/)
 
+[Illustrated walkthrough: current screenshots, numbered steps and zoom](https://opicebot.cz/framelab/guide/visual-en.html). The same guide is included offline as **VISUAL GUIDE.html**.
+
 ## Download and launch
 
-1. [Download the full Windows x64 ZIP](https://github.com/tomik520i/FrameLab/releases/download/v0.2.0-preview.15/FrameLab-0.2.0-preview.15-windows-x64-full.zip) and **extract all** to a short writable folder, for example D:/FrameLab.
+1. [Download the full Windows x64 ZIP](https://github.com/tomik520i/FrameLab/releases/download/v0.2.0-preview.16/FrameLab-0.2.0-preview.16-windows-x64-full.zip) and **extract all** to a short writable folder, for example D:/FrameLab.
 2. Run **Start FrameLab.cmd**. A new installation opens the GTA demo; subsequent launches restore the saved session. No compiler, Python, SDK or system VLC installation is needed. Keep the entire folder together.
 3. Begin with **Frame gen → 2×**. **F11** opens fullscreen; Escape/F11 returns. **EN / CZ** changes language; English is the clean-install default.
 
@@ -30,11 +32,15 @@ Start with **2× / Medium**. Inspect edges, HUD and fast motion: 3×/4× can pro
 
 For **AI / NR**, follow the [exact import guide](docs/enhancer-install.en.md). Start at **720p, one pass**. Lower the processing limit/passes or disable motion estimation if FPS drops. Lower strength only changes the blend, not inference cost. F6 toggles NR; F7 changes comparison; F8 freezes a pair. NR Original can already contain FG. Order: input → FG → NR → Czech overlay → display.
 
+**Optional Eco:** in AI / NR, enable **Eco: enhance before frame gen (experimental)**. It enhances source frames before interpolation, reducing NR evaluations when FG is active. It can add latency, extra VRAM use and different artifacts. Default is off; resolution and strength are preserved. [Measured results and limits](docs/NR_ECO.md).
+
 ## Czech subtitles and saved profiles
 
 Open **Subtitles**, choose bundled **RapidOCR**, **OPUS-MT / CPU**, then enable translation. RapidOCR needs no Windows OCR language download. The artificial EN → Czech sample under Capture helps check setup.
 
 While English text is visible, click **Select subtitle word + reading area…**. The preview freezes. Mark **one word**, then the complete area where multiple subtitle lines can appear, and confirm. It learns color and approximate letter height, not the word itself. Leave room for extra lines and exclude HUD/license plates where possible.
+
+Use **OCR inspector / saved sample…** to inspect the measured colour, letter height and accepted/rejected text. It uses the saved source image, not a live desktop capture.
 
 Name and save a profile. Appearance, region and selected profile persist; load a different profile for another game. Style matching reduces unrelated text, but cannot guarantee perfect detection.
 

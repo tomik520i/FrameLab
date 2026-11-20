@@ -7,7 +7,7 @@ from PIL import Image
 def sha(p):
     with p.open('rb') as f:return hashlib.file_digest(f,'sha256').hexdigest()
 def main():
-    p=argparse.ArgumentParser();p.add_argument('--output',type=Path,default=ROOT/'dist/framelab-web-preview15');p.add_argument('--downloads',type=Path);p.add_argument('--version',default='0.2.0-preview.15');a=p.parse_args();out=a.output.resolve();out.mkdir(parents=True,exist_ok=True)
+    p=argparse.ArgumentParser();p.add_argument('--output',type=Path,default=ROOT/'dist/framelab-web-preview16');p.add_argument('--downloads',type=Path);p.add_argument('--version',default='0.2.0-preview.16');a=p.parse_args();out=a.output.resolve();out.mkdir(parents=True,exist_ok=True)
     for source in (ROOT/'website').rglob('*'):
         if source.is_file() and source.name not in {'README.md','runtime-config.json'}:
             dest=out/source.relative_to(ROOT/'website');dest.parent.mkdir(parents=True,exist_ok=True);shutil.copy2(source,dest)
@@ -40,7 +40,8 @@ def main():
         shutil.copy2(historical,media/item['file'])
     shutil.copy2(ROOT/'docs/images/preview15/gta-2x-slow.gif',media/'gta-2x-slow.gif')
     shutil.copy2(ROOT/'docs/images/preview15/app.png',media/'app-preview15.png')
-    for file in list(media.glob('*-full.png'))+[media/'gta-fg-pair.png',media/'app-preview15.png']:
+    shutil.copy2(ROOT/'docs/images/preview16/01-overview.png',media/'app-preview16.png')
+    for file in list(media.glob('*-full.png'))+[media/'gta-fg-pair.png',media/'app-preview15.png',media/'app-preview16.png']:
         with Image.open(file) as im:
             im.thumbnail((1800,1200));im.convert('RGB').save(file.with_suffix('.webp'),quality=92)
     data=out/'data/debug';data.mkdir(parents=True,exist_ok=True)

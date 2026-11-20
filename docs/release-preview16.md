@@ -1,7 +1,9 @@
-# Preview.16 — prepared release
+# Preview.16 — recovery, Eco enhancer and illustrated guides
 
-Public downloads remain preview.15 until the preview.16 artifacts are uploaded and verified. This document describes the prepared source and package, not an already published release.
+Windows portable prerelease. Includes the existing features plus the local fixes and documentation below.
 
+- The EN/CZ illustrated walkthrough returns with 18 new screenshots from the actual app, numbered steps, arrows and click-to-enlarge. It covers input/video, FG, NR/Eco, OCR selection/inspector, profiles, model downloads, subtitle timing/placement, audio, display, recording, graphs, logging and the fullscreen HUD. It is included offline in the full ZIP.
+- Optional [Eco enhancement](NR_ECO.md) processes source frames before FG. It reduces NR evaluations when FG is active, at the cost of extra reference VRAM and potentially different latency/artifacts. Existing settings remain in Standard mode. GPU polling uses a high-resolution waitable timer instead of relying on coarse hidden-window Sleep wakeups.
 - Subtitle workers recover automatically after load failures or crashes, with bounded 2/5/15-second retries. Unchanged OCR text is resubmitted after recovery; disabling subtitles cancels retries.
 - GPU translation stays loaded while enabled and unloads explicitly on disable. Runtime request timeouts finish before the parent IPC timeout. Worker process handles are isolated and diagnostic stderr logs rotate instead of silently replacing earlier failures.
 - The enhancer presentation queue preserves enough images for the selected FG multiplier and discards obsolete work by age. Ordinary queue trimming no longer resets temporal history. This reduces avoidable scheduling loss; it does not guarantee stable 60 fps on every workload.

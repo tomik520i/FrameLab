@@ -1,10 +1,13 @@
-# FrameLab preview.15 — česká instalace
+# FrameLab preview.16 — česká instalace
 
 [English](START_HERE.md) · [Web a ukázky](https://opicebot.cz/framelab/?lang=cs)
 
+
+[Obrazový návod: aktuální screenshoty, očíslované kroky a zvětšování](https://opicebot.cz/framelab/guide/visual.html). Stejný návod je v ZIPu jako **OBRAZOVY NAVOD.html**.
+
 ## Stáhnout a spustit
 
-1. [Stáhněte celý ZIP pro Windows x64](https://github.com/tomik520i/FrameLab/releases/download/v0.2.0-preview.15/FrameLab-0.2.0-preview.15-windows-x64-full.zip) a **rozbalte vše**, například do D:/FrameLab. Nespouštějte aplikaci uvnitř ZIPu.
+1. [Stáhněte celý ZIP pro Windows x64](https://github.com/tomik520i/FrameLab/releases/download/v0.2.0-preview.16/FrameLab-0.2.0-preview.16-windows-x64-full.zip) a **rozbalte vše**, například do D:/FrameLab. Nespouštějte aplikaci uvnitř ZIPu.
 2. Spusťte **Start FrameLab.cmd** nebo **1 - Spustit FrameLab.cmd**. Nová instalace pustí GTA ukázku, další spuštění obnoví relaci. Python, SDK ani systémový VLC nepotřebujete; složky balíčku musí zůstat pohromadě.
 3. Začněte s **Frame gen → 2×**. **F11** zobrazí čistý výstup, Escape/F11 vrátí ovládání. Tlačítkem **EN / CZ** přepnete anglické rozhraní do češtiny.
 
@@ -73,3 +76,8 @@ V **Debug a měření** zapni malé fullscreen statistiky, případně stiskni *
 Běžné spuštění obnoví uloženou relaci včetně stavu logování. Pokud jej při příštím startu nechceš zapnout, před zavřením ho zastav. Při pádu překladače aplikace zkusí nejvýše tři obnovy po 2, 5 a 15 sekundách a znovu odešle i nezměněný OCR text. Vypnutí titulků opakování zruší. GPU model zůstává načtený, dokud jsou titulky zapnuté; vypnutím se uvolní.
 
 [Úplný tříhodinový audit](https://opicebot.cz/framelab/runs/2026-11-20-3h/?lang=cs) má posouzených všech 1 747 překladů a obsahuje původní logy i chyby. Experimentální testy promptů samy nemění prompt aplikace.
+
+
+## Volitelný úsporný enhancer Eco
+
+V **AI / NR** zapni **Úsporně: enhancer před frame genem (experiment)**. NR pak počítá zdrojové obrazy před interpolací, takže se zapnutým FG může provádět méně výpočtů. Zachová rozlišení a sílu efektu, ale může přidat latenci, VRAM a jiné artefakty. Výchozí stav je vypnutý. Nižší AI limit a méně průchodů šetří výkon v obou režimech; nižší síla sama výpočet nešetří. [Naměřené výsledky a omezení](docs/NR_ECO.md).

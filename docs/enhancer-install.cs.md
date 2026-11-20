@@ -6,7 +6,7 @@
 
 ## 1. Stáhni a rozbal FrameLab
 
-1. **[Stáhnout FrameLab preview.15 pro Windows x64](https://github.com/tomik520i/FrameLab/releases/download/v0.2.0-preview.15/FrameLab-0.2.0-preview.15-windows-x64-full.zip)**. Přesná velikost je na [stránce stahování](https://opicebot.cz/framelab/#download).
+1. **[Stáhnout FrameLab preview.16 pro Windows x64](https://github.com/tomik520i/FrameLab/releases/download/v0.2.0-preview.16/FrameLab-0.2.0-preview.16-windows-x64-full.zip)**. Přesná velikost je na [stránce stahování](https://opicebot.cz/framelab/#download).
 2. Pravé tlačítko na ZIP → **Extrahovat vše** → nová složka například na Ploše. Nepracuj uvnitř ZIPu. Počítej přibližně se 4 GB volného místa pro oba stažené archivy, rozbalení a import.
 3. Otevři **1 - Spustit FrameLab.cmd**. V kartě **Vstup** vyzkoušej CS:GO nebo Spider-Mana. Frame generation i titulky lze používat hned, NR ještě čeká na externí soubory. Pro OCR může Windows vyžadovat doinstalování anglického rozpoznávání textu; postup je v [základním návodu](https://opicebot.cz/framelab/guide/).
 
@@ -28,14 +28,14 @@
 
 - Začni limitem **720p**, silou **65 %** a **Děleným porovnáním**. Dělicí čáru posouvej posuvníkem. **F8** zmrazí stejný snímek, **F7** přepíná původní / upravený / dělený obraz, **F6** efekt vypne.
 - V **Runtime / diagnostika** je výchozí **ShortFuse NR 310.9.16**, komunitní varianta ověřená zde na RTX 4050 Laptop a RTX 5070 Ti. **NVIDIA NR 310.8 original** byla na RTX 5070 Ti ověřena i se dvěma navazujícími průchody. Ostatní karty tím nejsou potvrzené.
-- Při zapnutém frame genu platí **vstup → frame gen → enhancer → české titulky → monitor**. Původní obraz v NR porovnání znamená snímek před enhancerem, tedy případně už generovaný. Pomalé AI může snížit počet zobrazených snímků a zvýšit latenci.
+- Ve standardním režimu při zapnutém frame genu platí **vstup → frame gen → enhancer → české titulky → monitor**. Původní obraz v NR porovnání znamená snímek před enhancerem, tedy případně už generovaný. Pomalé AI může snížit počet zobrazených snímků a zvýšit latenci.
 - **[Skutečné porovnání před / po s posuvnou lištou](https://opicebot.cz/framelab/#enhancer)**. Změna pixelů není automaticky lepší obraz; kontroluj obličeje, HUD a rychlý pohyb.
 
 ## Když se něco nepovede
 
 | Problém | Co udělat |
 | --- | --- |
-| Nemám kartu AI / NR | Máš preview.10 nebo starší build bez podpory NR. Stáhni celý preview.15; samotné přidání DLL do preview.10 nestačí. |
+| Nemám kartu AI / NR | Máš preview.10 nebo starší build bez podpory NR. Stáhni celý preview.16; samotné přidání DLL do preview.10 nestačí. |
 | Kontrolní součet nesouhlasí | Stáhni přesný NVIDIA ZIP 2.1.9 bez dodatku. Zkontroluj dokončené stahování. Průvodce úmyslně nepřijímá neznámé verze. |
 | Soubor se používá / přístup odepřen | Ukonči všechny své instance FrameLabu a zkus import znovu. Celá složka musí být zapisovatelná. |
 | Průvodce je zablokovaný správcem | Neměň zásady počítače. Se souhlasem správce rozbal přesný externí ZIP a použij ruční cesty níže. |
@@ -55,3 +55,8 @@ V **AI / NR → Počet průchodů NR** vyber **1, 2, 3 nebo 4**. Výchozí je je
 Každý průchod dostává plný výsledek předchozího a má vlastní historii obrazu. **Síla efektu** se přimíchá až na konečný výsledek. F7/F8 umožní porovnat stejný vstupní snímek. Údaj **celkem … ms** měří všechny průchody posledního dokončeného snímku včetně čekání na GPU. Není to čas jednoho průchodu ani celková latence.
 
 Více průchodů potřebuje více výkonu i VRAM a může zesílit artefakty. Zkus dva při stejném limitu 720p a stejné síle. Při propadu výstupních FPS vrať jeden nebo sniž výpočetní rozlišení. Původní a ShortFuse profil se mohou lišit. Starší NR porovnání na webu používají **jeden průchod**, nejsou tedy důkazem kvality více průchodů.
+
+
+## Volitelné Eco (preview.16)
+
+V **AI / NR** zapni **Úsporně: enhancer před frame genem (experiment)**. NR běží na zdrojových snímcích před interpolací a při aktivním FG může počítat méně obrazů. Samostatná neupravená reference spotřebuje další VRAM; může přibýt latence a jiné artefakty. Standard zůstává výchozí. Další úsporu přinese nižší AI limit nebo méně průchodů, síla jen mění prolnutí. [Aktuální screenshot a postup](https://opicebot.cz/framelab/guide/visual.html#nr) · [Měření a omezení](NR_ECO.md).

@@ -1,0 +1,233 @@
+{
+  "extract": [
+    "02-extract-menu.png",
+    [
+      922,
+      674
+    ],
+    [
+      165,
+      90,
+      600,
+      550
+    ],
+    [
+      [
+        [
+          "Pravé tlačítko na ZIP",
+          "Right-click the ZIP"
+        ],
+        235,
+        270,
+        176,
+        168,
+        150,
+        28
+      ],
+      [
+        [
+          "Extrahovat vše",
+          "Extract all"
+        ],
+        235,
+        358,
+        335,
+        343,
+        313,
+        32
+      ]
+    ],
+    [
+      "Skutečná nabídka Průzkumníka Windows 11. Rozbaluj FrameLab, ne ZIP Veyry.",
+      "Actual Windows 11 Explorer menu. Extract FrameLab, not the Veyra ZIP."
+    ]
+  ],
+  "destination": [
+    "03-extract-confirm.png",
+    [
+      566,
+      474
+    ],
+    null,
+    [
+      [
+        [
+          "Krátká cílová cesta",
+          "Short destination path"
+        ],
+        70,
+        280,
+        38,
+        146,
+        400,
+        29
+      ],
+      [
+        [
+          "Potvrdit rozbalení",
+          "Confirm extraction"
+        ],
+        430,
+        360,
+        387,
+        440,
+        92,
+        25
+      ]
+    ],
+    [
+      "Použij vlastní novou složku na Ploše. Jméno uživatele v cestě bude jiné.",
+      "Use your own new Desktop folder. Your Windows username will differ."
+    ]
+  ],
+  "launch": [
+    "04-launchers.png",
+    [
+      922,
+      674
+    ],
+    [
+      165,
+      90,
+      750,
+      560
+    ],
+    [
+      [
+        [
+          "První spuštění",
+          "First launch"
+        ],
+        800,
+        352,
+        177,
+        345,
+        260,
+        28
+      ],
+      [
+        [
+          "Průvodce enhancerem",
+          "Enhancer setup wizard"
+        ],
+        800,
+        446,
+        177,
+        432,
+        260,
+        29
+      ]
+    ],
+    [
+      "Soubory po dokončeném rozbalení. Složky app, deps, tools a licenses musí zůstat pohromadě.",
+      "Files after complete extraction. Keep app, deps, tools and licenses together."
+    ]
+  ],
+  "wizard": [
+    "08-enhancer-wizard.png",
+    [
+      920,
+      747
+    ],
+    null,
+    [
+      [
+        [
+          "Přesný externí download",
+          "Exact external download"
+        ],
+        830,
+        349,
+        30,
+        384,
+        859,
+        54
+      ],
+      [
+        [
+          "Vybrat stažený ZIP",
+          "Select the downloaded ZIP"
+        ],
+        830,
+        698,
+        30,
+        517,
+        859,
+        54
+      ]
+    ],
+    [
+      "Průvodce je přibalený. Nejprve ukonči FrameLab. Podmínky externího balíku zůstávají samostatné.",
+      "The wizard is bundled. Close FrameLab first. The external package retains its separate terms."
+    ]
+  ],
+  "select": [
+    "09-select-zip.png",
+    [
+      942,
+      591
+    ],
+    [
+      194,
+      0,
+      748,
+      591
+    ],
+    [
+      [
+        [
+          "Přesný název archivu",
+          "Exact archive name"
+        ],
+        640,
+        330,
+        218,
+        220,
+        700,
+        30
+      ],
+      [
+        [
+          "Otevřít spustí import",
+          "Open starts the import"
+        ],
+        730,
+        450,
+        683,
+        535,
+        110,
+        34
+      ]
+    ],
+    [
+      "Veyra-2.1.9-NVIDIA-win64-portable.zip — nerozbalovat; ne AMD, Source code ani Virtual Camera.",
+      "Veyra-2.1.9-NVIDIA-win64-portable.zip — keep zipped; not AMD, Source code or Virtual Camera."
+    ]
+  ],
+  "ready": [
+    "10-import-ready.png",
+    [
+      920,
+      747
+    ],
+    null,
+    [
+      [
+        [
+          "Import dokončen",
+          "Import complete"
+        ],
+        830,
+        694,
+        25,
+        595,
+        869,
+        64
+      ]
+    ],
+    [
+      "Toto potvrzení bylo zachyceno po skutečném importu přes grafický průvodce do čerstvě rozbalené aplikace.",
+      "This confirmation was captured after a real graphical-wizard import into a freshly extracted application."
+    ]
+  ]
+}

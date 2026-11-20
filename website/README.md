@@ -17,3 +17,8 @@ Publish the completed directory as `/var/www/html/framelab` on the existing auth
 Test keyboard tabs, EN/CZ persistence, video source switching, GIF disclosure panels, image dialogs, downloads, reduced-motion behavior and narrow/desktop layouts. Headless browser screenshots should capture this site only; do not capture the user's desktop.
 
 The full prompt study is `runs/2026-11-20-3h/prompt-test.html`, covering all 3,768 test responses. Also retain `release-assets/debug-run-1795196244267574/prompt-test-evidence.zip`; its hash is in the report data `prompt-evidence-sha256.txt`. The candidate did not generalize and is not the production prompt. Prepared preview.16 guides do not mean the public executable has already been updated.
+
+
+## Current guide generation (preview.16)
+
+Run `python tools/render_current_guides.py` before packaging. This also renders the separate illustrated walkthrough using `tools/visual_guide_preview16.py`. Historical entry points delegate to this generator and cannot replace the walkthrough with the old text template. Home Guide links resolve to `guide/visual-en.html` or `guide/visual.html`; the detailed text pages remain available. Real capture provenance: `docs/visual-guide-preview16-provenance.json`. Offline HTML uses the same generated pages and assets.

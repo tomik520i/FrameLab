@@ -2,11 +2,13 @@
 
 Capture card or video → NVIDIA GPU → your display. An experimental Windows app for frame generation, optional neural enhancement and local English-to-Czech subtitles.
 
-**[Download preview.15](https://github.com/tomik520i/FrameLab/releases/download/v0.2.0-preview.15/FrameLab-0.2.0-preview.15-windows-x64-full.zip) · [Website & comparisons](https://opicebot.cz/framelab/) · [Česky](docs/README.cs.md)**
+**[Download preview.16](https://github.com/tomik520i/FrameLab/releases/download/v0.2.0-preview.16/FrameLab-0.2.0-preview.16-windows-x64-full.zip) · [Website & comparisons](https://opicebot.cz/framelab/) · [Česky](docs/README.cs.md)**
 
-[Prepared preview.16 changes](docs/release-preview16.md) · [Complete 1,747-translation audit](https://opicebot.cz/framelab/runs/2026-11-20-3h/)
+[Illustrated setup guide — real screenshots, step by step](https://opicebot.cz/framelab/guide/visual-en.html)
 
-![FrameLab preview.15](docs/images/preview15/app.png)
+[Preview.16 changes](docs/release-preview16.md) · [Complete 1,747-translation audit](https://opicebot.cz/framelab/runs/2026-11-20-3h/)
+
+![FrameLab preview.16](docs/images/preview16/01-overview.png)
 
 ![Original versus recorded 2× FG, four times slower](docs/images/preview15/gta-2x-slow.gif)
 
@@ -15,7 +17,7 @@ Three seconds of the same GTA camera movement, played over twelve seconds. The r
 ## What it does
 
 - **Frame generation:** NVIDIA VFG or a separate Optical Flow backend, 2× / 3× / 4×. Start at 2×; higher multipliers can produce severe artifacts. This is video interpolation without game motion vectors, not in-engine DLSS.
-- **Optional NR enhancement:** same-frame original/enhanced comparison, strength, processing limit and 1–4 sequential passes. [External runtime setup](docs/enhancer-install.en.md).
+- **Optional NR enhancement:** same-frame original/enhanced comparison, strength, processing limit and 1–4 sequential passes. Optional [Eco mode](docs/NR_ECO.md) enhances before FG to reduce AI evaluations. [External runtime setup](docs/enhancer-install.en.md).
 - **Local Czech captions:** bundled neural OCR and CPU translation; optional CUNI Q3/Q5/Q8 downloads. Select one subtitle word to learn color/size, mark the reading area and save named profiles.
 - **Capture or your own movie:** separate resolution/FPS controls; MP4/MKV playback with audio and subtitle track selection through bundled LibVLC.
 - **Full pipeline recording:** input, generated images, before/after enhancement and final image with captions, linked by IDs. Playable clips, SRT and settings JSON; incomplete takes are labeled.
@@ -27,7 +29,7 @@ Three seconds of the same GTA camera movement, played over twelve seconds. The r
 2. Run **Start FrameLab.cmd**. A clean installation opens the GTA demo; later launches restore the saved session. No compiler, Python or SDK installation is needed.
 3. Open **Capture** for your card or **Open video…** for a file. Begin with **2×** in Frame gen. **F11** opens fullscreen.
 
-**[English step-by-step guide](START_HERE.md) · [Česká instalace](INSTALL.cs.md) · [Illustrated guide](https://opicebot.cz/framelab/guide/en.html)**
+**[English step-by-step guide](START_HERE.md) · [Česká instalace](INSTALL.cs.md) · [Illustrated guide](https://opicebot.cz/framelab/guide/visual-en.html)**
 
 VFG, neural OCR, CPU translation, media codecs and export tools are bundled. GPU translation models download inside the app. External NR DLLs are **not bundled or mirrored** because redistribution permission has not been established. The [import wizard and exact links](docs/enhancer-install.en.md) are included.
 

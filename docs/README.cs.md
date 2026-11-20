@@ -2,11 +2,13 @@
 
 Obraz ze střihovky nebo videa → NVIDIA GPU → monitor. Generování snímků, volitelný enhancer a lokální české titulky z anglického obrazu.
 
-**[Stáhnout preview.15](https://github.com/tomik520i/FrameLab/releases/download/v0.2.0-preview.15/FrameLab-0.2.0-preview.15-windows-x64-full.zip) · [Web a ukázky](https://opicebot.cz/framelab/?lang=cs) · [English](../README.md)**
+**[Stáhnout preview.16](https://github.com/tomik520i/FrameLab/releases/download/v0.2.0-preview.16/FrameLab-0.2.0-preview.16-windows-x64-full.zip) · [Web a ukázky](https://opicebot.cz/framelab/?lang=cs) · [English](../README.md)**
 
-[Připravené změny preview.16 (EN)](release-preview16.md) · [Úplné hodnocení 1 747 překladů](https://opicebot.cz/framelab/runs/2026-11-20-3h/?lang=cs)
+[Obrazový návod — skutečné screenshoty krok za krokem](https://opicebot.cz/framelab/guide/visual.html)
 
-![Aktuální aplikace](images/preview15/app.png)
+[Změny preview.16 (EN)](release-preview16.md) · [Úplné hodnocení 1 747 překladů](https://opicebot.cz/framelab/runs/2026-11-20-3h/?lang=cs)
+
+![Aktuální aplikace](images/preview16/01-overview.png)
 
 ![Originál a 2× FG, čtyřikrát zpomaleně](images/preview15/gta-2x-slow.gif)
 
