@@ -1,0 +1,51 @@
+from pathlib import Path
+import json,sys,time,subprocess,platform,hashlib,datetime
+BASE=Path(__file__).resolve().parent.parent;REPO=BASE/'work/FrameLab';OUT=BASE/'outputs/website-refresh/multilang';OUT.mkdir(parents=True,exist_ok=True)
+sys.path.insert(0,str(REPO/'tools'))
+from subtitle_gpu import GpuTranslator
+LANGS=['en','cs','ja','de','es','fr']
+TEXT='''Do not open the red door. We have five minutes.|Neotvírej červené dveře. Máme pět minut.|赤いドアを開けないで。あと5分ある。|Öffne nicht die rote Tür. Wir haben fünf Minuten.|No abras la puerta roja. Tenemos cinco minutos.|N’ouvre pas la porte rouge. Nous avons cinq minutes.
+I did not say that Anna stole the key.|Neřekl jsem, že Anna ukradla klíč.|アンナが鍵を盗んだとは言っていない。|Ich habe nicht gesagt, dass Anna den Schlüssel gestohlen hat.|No dije que Anna robara la llave.|Je n’ai pas dit qu’Anna avait volé la clé.
+Wait here. I will come back for you.|Počkej tady. Vrátím se pro tebe.|ここで待っていて。迎えに戻ってくる。|Warte hier. Ich komme zurück, um dich abzuholen.|Espera aquí. Volveré a buscarte.|Attends ici. Je reviendrai te chercher.
+The bridge has collapsed. Find another way across the river.|Most se zřítil. Najdi jinou cestu přes řeku.|橋が崩れた。川を渡る別の道を探して。|Die Brücke ist eingestürzt. Finde einen anderen Weg über den Fluss.|El puente se ha derrumbado. Busca otra forma de cruzar el río.|Le pont s’est effondré. Trouve un autre moyen de traverser la rivière.
+Hold the button for three seconds, then release it.|Drž tlačítko tři sekundy a pak ho pusť.|ボタンを3秒間押し続けてから離して。|Halte die Taste drei Sekunden lang gedrückt und lasse sie dann los.|Mantén pulsado el botón durante tres segundos y luego suéltalo.|Maintiens le bouton enfoncé pendant trois secondes, puis relâche-le.
+There are only two arrows left. Do not waste them.|Zbývají jen dva šípy. Neplýtvej jimi.|矢はあと2本しかない。無駄にしないで。|Es sind nur noch zwei Pfeile übrig. Verschwende sie nicht.|Solo quedan dos flechas. No las desperdicies.|Il ne reste que deux flèches. Ne les gaspille pas.
+Unless the alarm goes off, stay in the car.|Pokud se nespustí alarm, zůstaň v autě.|警報が鳴らない限り、車の中にいて。|Bleib im Auto, solange der Alarm nicht losgeht.|Quédate en el coche a menos que suene la alarma.|Reste dans la voiture, sauf si l’alarme se déclenche.
+Give the blue potion to Mara, not to Viktor.|Dej modrý lektvar Maře, ne Viktorovi.|青い薬はヴィクトルではなく、マラに渡して。|Gib den blauen Trank Mara, nicht Viktor.|Dale la poción azul a Mara, no a Viktor.|Donne la potion bleue à Mara, pas à Viktor.
+The guard used to be our enemy. Now he is helping us.|Strážný býval naším nepřítelem. Teď nám pomáhá.|あの衛兵は以前は敵だった。今は私たちを助けてくれている。|Der Wächter war früher unser Feind. Jetzt hilft er uns.|El guardia antes era nuestro enemigo. Ahora nos está ayudando.|Le garde était autrefois notre ennemi. Maintenant, il nous aide.
+Meet me at platform seven at 18:45.|Sejdeme se v 18:45 na sedmém nástupišti.|18時45分に7番ホームで会おう。|Triff mich um 18:45 Uhr an Bahnsteig sieben.|Nos vemos a las 18:45 en el andén siete.|Retrouve-moi à 18 h 45 sur le quai sept.
+Keep an eye on the door while I repair the engine.|Hlídej dveře, zatímco opravuji motor.|エンジンを修理している間、ドアを見張っていて。|Behalte die Tür im Auge, während ich den Motor repariere.|Vigila la puerta mientras reparo el motor.|Surveille la porte pendant que je répare le moteur.
+That was close! We nearly fell into the trap.|To bylo o fous! Málem jsme spadli do pasti.|危なかった！もう少しで罠にかかるところだった。|Das war knapp! Wir wären beinahe in die Falle getappt.|¡Por poco! Casi caemos en la trampa.|C’était moins une ! Nous avons failli tomber dans le piège.'''
+FEATURES=['negation and time','negated reported speech','return for someone','collapsed bridge and crossing','ordered instructions','quantity and warning','unless condition','names and recipient contrast','past versus present allegiance','time and location','idiom and simultaneous action','near miss idiom']
+rows=[dict(id=f's{i+1:02}',feature=FEATURES[i],texts=dict(zip(LANGS,line.split('|')))) for i,line in enumerate(TEXT.splitlines())]
+assert all(len(r['texts'])==6 for r in rows)
+(OUT/'dataset.json').write_text(json.dumps(dict(license='CC0-1.0',origin='Authored diagnostic sentences and reference translations, prepared by Codex; not external game dialogue or native-speaker validation.',sentences=rows),ensure_ascii=False,indent=2),encoding='utf-8')
+PAIRS=[('en','cs'),('cs','en'),('en','ja'),('ja','en'),('cs','ja'),('ja','cs'),('en','de'),('de','cs'),('en','es'),('fr','en')]
+root=BASE/'outputs/FrameLab-PC-2026-11-23/app/translation'
+meta=dict(date=datetime.datetime.now(datetime.timezone.utc).isoformat(),app_source_commit=subprocess.check_output(['git','rev-parse','HEAD'],cwd=REPO,text=True).strip(),hardware=dict(os=platform.platform(),gpu=subprocess.check_output(['nvidia-smi','--query-gpu=name,memory.total,driver_version','--format=csv,noheader'],text=True).strip()),scope='Text-only sequential inference. OCR, frame generation and NR disabled; no translation cache; no paid API.',models=[],directions=PAIRS)
+dest=OUT/'outputs.jsonl'
+existing=[json.loads(l) for l in dest.read_text(encoding='utf-8').splitlines()] if dest.exists() else []
+done=len(existing);completed={r['model'] for r in existing if sum(x['model']==r['model'] for x in existing)==(120 if r['model'].startswith('translategemma') else 12)}
+if (OUT/'metadata.json').exists():meta=json.loads((OUT/'metadata.json').read_text(encoding='utf-8'))
+for model,pairs in [('translategemma-4b-q4km',PAIRS),('cuni-q3km',[('en','cs')])]:
+ if model in completed:continue
+ engine=None
+ try:
+  start=time.perf_counter();engine=GpuTranslator(root,model,source='en',target='cs',compute='cuda');load_ms=(time.perf_counter()-start)*1000
+  meta['models'].append(dict(id=model,load_ms=load_ms,device=engine.device,runtime=engine.runtime_description,options=engine.options(),asset=engine.asset,loaded=engine.api('/api/ps')))
+  for source,target in pairs:
+   engine.source=source;engine.target=target
+   engine.translate(rows[0]['texts'][source],timeout=90) # separate, recorded policy; not scored
+   for row in rows:
+    start=time.perf_counter();error=None
+    try:translation=engine.translate(row['texts'][source],timeout=90)
+    except Exception as ex:translation='';error=str(ex)
+    ms=(time.perf_counter()-start)*1000
+    record=dict(id=f'{model}-{source}-{target}-{row["id"]}',sentence_id=row['id'],feature=row['feature'],model=model,source_language=source,target_language=target,source=row['texts'][source],reference=row['texts'][target],translation=translation,ms=ms,error=error,metrics=engine.last_metrics)
+    with dest.open('a',encoding='utf-8') as f:f.write(json.dumps(record,ensure_ascii=False)+'\n')
+    done+=1;(OUT/'progress.json').write_text(json.dumps(dict(done=done,total=132,model=model,pair=source+' → '+target,paid_api_requests=0),ensure_ascii=False),encoding='utf-8')
+   print(model,source,target,'done',done,flush=True)
+ finally:
+  if engine:engine.close()
+ (OUT/'metadata.json').write_text(json.dumps(meta,ensure_ascii=False,indent=2),encoding='utf-8')
+print('COMPLETE',done,flush=True)

@@ -6,6 +6,7 @@
 *.cmd text eol=crlf
 # Published measurement/source bytes have their own SHA-256 manifests.
 website/translation/** -text whitespace=cr-at-eol,-blank-at-eof
+website/runs/2026-11-24-language-lab/data/** -text whitespace=cr-at-eol,-blank-at-eof
 examples/2026-11-20/** -text whitespace=cr-at-eol,-blank-at-eof
 # Preserve publisher license text, including original whitespace.
 docs/licenses/** -text whitespace=-blank-at-eol

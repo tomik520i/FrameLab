@@ -55,10 +55,12 @@ def main():
         for script in soup.select('script[src]'):
             source=script['src'].split('?')[0]
             if source.rsplit('/',1)[-1] in ('release.js','report.js','prompt-test.js','review.js'):
-                script['src']=source+'?v=20261123b'
-        for name,kind in [('site-i18n.css','css'),('site-i18n.js','js')]:
-            if soup.find('script',src=lambda x:x and x.split('?')[0].endswith(name)) or soup.find('link',href=lambda x:x and x.split('?')[0].endswith(name)):continue
-            href=(prefix+'/' if prefix!='.' else '')+name+'?v=20261123b'
+                script['src']=source+'?v=20261124'
+        for name,kind in [('site-i18n.css','css'),('site-i18n.js','js'),('site-navigation.css','css'),('site-navigation.js','js'),('site-images.css','css'),('site-images.js','js')]:
+            existing=soup.find('script',src=lambda x:x and x.split('?')[0].endswith(name)) or soup.find('link',href=lambda x:x and x.split('?')[0].endswith(name))
+            if existing:
+                attr='src' if existing.name=='script' else 'href';existing[attr]=existing[attr].split('?')[0]+'?v=20261124';continue
+            href=(prefix+'/' if prefix!='.' else '')+name+'?v=20261124'
             if kind=='css':tag=soup.new_tag('link',rel='stylesheet',href=href)
             else:tag=soup.new_tag('script',src=href);tag['defer']=''
             soup.head.append(tag)

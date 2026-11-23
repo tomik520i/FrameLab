@@ -1,5 +1,6 @@
 'use strict';
 (() => {
+  const assetRoot=new URL('./',document.currentScript.src),asset=p=>new URL(p,assetRoot).href;
   const root = document.querySelector('#enhancer');
   if (!root) return;
   const stage = root.querySelector('.nr-stage');
@@ -34,7 +35,7 @@
     const token = ++generation, key = sample, index = frame.value;
     status.textContent = document.documentElement.lang.startsWith('cs') ? 'Načítání stejného páru…' : 'Loading matching frame pair…';
     try {
-      const paths = ['original','nr100'].map(mode => `enhancer/snimky/${key}-${index}-${mode}.png`);
+      const paths = ['original','nr100'].map(mode => asset(`enhancer/snimky/${key}-${index}-${mode}.png`));
       const images = await Promise.all(paths.map(src => new Promise((resolve,reject) => {const img=new Image();img.onload=()=>resolve(img);img.onerror=reject;img.src=src;})));
       if(token!==generation)return;
       if(images[0].naturalWidth!==images[1].naturalWidth || images[0].naturalHeight!==images[1].naturalHeight)throw new Error('Size mismatch');

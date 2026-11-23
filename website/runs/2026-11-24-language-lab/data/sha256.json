@@ -1,0 +1,32 @@
+[
+  {
+    "file": "dataset.json",
+    "sha256": "7c8707864681bc7272b950ca4a085983f536044d3032831d6326e7f73e5530e1",
+    "bytes": 6479
+  },
+  {
+    "file": "metadata.json",
+    "sha256": "ebc8ac8e0e674ad3032655ff57a8fbc725e7288e10c1d3b8f71316f9b4a1c52d",
+    "bytes": 6398
+  },
+  {
+    "file": "outputs.jsonl",
+    "sha256": "ec50053f96772beee2fc08306f843fe33ac12cb4c83c98a7fea8b5868afde645",
+    "bytes": 82714
+  },
+  {
+    "file": "report.json",
+    "sha256": "7fa42a392b898d093e514e844ba604363488808cb23e4f2179fbe8f54cfee980",
+    "bytes": 148912
+  },
+  {
+    "file": "runner-used.py.txt",
+    "sha256": "2b17adfc18813b5cd5cf5ce0aa81a26b582ab094c78e8092d7aaecd1b773c2d2",
+    "bytes": 7559
+  },
+  {
+    "file": "translations.csv",
+    "sha256": "9791b1f6b6c24e7bc4e8ac668f87153d5075ce2fc9a9dbd1e7974b3230d180cf",
+    "bytes": 53344
+  }
+]

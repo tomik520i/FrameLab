@@ -1,0 +1,3985 @@
+{
+  "scope": "132 authored diagnostic translations: 120 TranslateGemma across ten directions and 12 CUNI EN-CS controls. Text only; no OCR, FG or NR. Single unblinded Codex review, not native-speaker validation, not a representative language ranking.",
+  "rubric": {
+    "meaning": {
+      "4": "Meaning preserved; ambiguity allowed",
+      "3": "Minor omission/addition or shift",
+      "2": "Important distortion; some meaning retained",
+      "1": "Main instruction/meaning largely lost",
+      "0": "Missing or unrelated"
+    },
+    "fluency": {
+      "4": "Natural",
+      "3": "Minor awkwardness",
+      "2": "Clear grammar problems",
+      "1": "Severely malformed",
+      "0": "Unreadable"
+    },
+    "score": "12.5 * (meaning + fluency)"
+  },
+  "groups": [
+    {
+      "model": "translategemma-4b-q4km",
+      "source": "en",
+      "target": "cs",
+      "n": 12,
+      "score": 77.08333333333333,
+      "meaning": 3.1666666666666665,
+      "fluency": 3,
+      "median_ms": 447.15840002754703,
+      "p95_ms": 528.1396999489516,
+      "major_meaning_errors": 3
+    },
+    {
+      "model": "translategemma-4b-q4km",
+      "source": "cs",
+      "target": "en",
+      "n": 12,
+      "score": 92.70833333333333,
+      "meaning": 3.5,
+      "fluency": 3.9166666666666665,
+      "median_ms": 360.09400006150827,
+      "p95_ms": 441.0787000088021,
+      "major_meaning_errors": 2
+    },
+    {
+      "model": "translategemma-4b-q4km",
+      "source": "en",
+      "target": "ja",
+      "n": 12,
+      "score": 94.79166666666667,
+      "meaning": 3.5833333333333335,
+      "fluency": 4,
+      "median_ms": 370.8013500436209,
+      "p95_ms": 447.8653999976814,
+      "major_meaning_errors": 0
+    },
+    {
+      "model": "translategemma-4b-q4km",
+      "source": "ja",
+      "target": "en",
+      "n": 12,
+      "score": 96.875,
+      "meaning": 3.75,
+      "fluency": 4,
+      "median_ms": 370.67180004669353,
+      "p95_ms": 515.3133999556303,
+      "major_meaning_errors": 1
+    },
+    {
+      "model": "translategemma-4b-q4km",
+      "source": "cs",
+      "target": "ja",
+      "n": 12,
+      "score": 84.375,
+      "meaning": 3.0833333333333335,
+      "fluency": 3.6666666666666665,
+      "median_ms": 408.5856499732472,
+      "p95_ms": 516.3475000299513,
+      "major_meaning_errors": 3
+    },
+    {
+      "model": "translategemma-4b-q4km",
+      "source": "ja",
+      "target": "cs",
+      "n": 12,
+      "score": 79.16666666666667,
+      "meaning": 3.3333333333333335,
+      "fluency": 3,
+      "median_ms": 448.81054997676983,
+      "p95_ms": 570.6419000634924,
+      "major_meaning_errors": 3
+    },
+    {
+      "model": "translategemma-4b-q4km",
+      "source": "en",
+      "target": "de",
+      "n": 12,
+      "score": 91.66666666666667,
+      "meaning": 3.75,
+      "fluency": 3.5833333333333335,
+      "median_ms": 374.1869999212213,
+      "p95_ms": 526.9157000584528,
+      "major_meaning_errors": 0
+    },
+    {
+      "model": "translategemma-4b-q4km",
+      "source": "de",
+      "target": "cs",
+      "n": 12,
+      "score": 82.29166666666667,
+      "meaning": 3.4166666666666665,
+      "fluency": 3.1666666666666665,
+      "median_ms": 395.1807500561699,
+      "p95_ms": 522.0379999373108,
+      "major_meaning_errors": 2
+    },
+    {
+      "model": "translategemma-4b-q4km",
+      "source": "en",
+      "target": "es",
+      "n": 12,
+      "score": 95.83333333333333,
+      "meaning": 3.75,
+      "fluency": 3.9166666666666665,
+      "median_ms": 371.48054997669533,
+      "p95_ms": 437.15739995241165,
+      "major_meaning_errors": 1
+    },
+    {
+      "model": "translategemma-4b-q4km",
+      "source": "fr",
+      "target": "en",
+      "n": 12,
+      "score": 98.95833333333333,
+      "meaning": 3.9166666666666665,
+      "fluency": 4,
+      "median_ms": 366.2588999723084,
+      "p95_ms": 457.41849998012185,
+      "major_meaning_errors": 0
+    },
+    {
+      "model": "cuni-q3km",
+      "source": "en",
+      "target": "cs",
+      "n": 12,
+      "score": 95.83333333333333,
+      "meaning": 3.9166666666666665,
+      "fluency": 3.75,
+      "median_ms": 529.9245499772951,
+      "p95_ms": 648.6450999509543,
+      "major_meaning_errors": 0
+    }
+  ],
+  "rows": [
+    {
+      "id": "translategemma-4b-q4km-en-cs-s01",
+      "sentence_id": "s01",
+      "feature": "negation and time",
+      "model": "translategemma-4b-q4km",
+      "source_language": "en",
+      "target_language": "cs",
+      "source": "Do not open the red door. We have five minutes.",
+      "reference": "Neotvírej červené dveře. Máme pět minut.",
+      "translation": "Nevyotevívejte červenou dveř. Máme jen pět minut.",
+      "ms": 465.0637999875471,
+      "error": null,
+      "metrics": {
+        "total_duration": 430254100,
+        "load_duration": 21601700,
+        "prompt_eval_count": 87,
+        "prompt_eval_duration": 47680000,
+        "eval_count": 20,
+        "eval_duration": 322494000,
+        "done_reason": "stop"
+      },
+      "review": {
+        "meaning": 3,
+        "fluency": 1,
+        "score": 50.0,
+        "note_cs": "Zkomolené „Nevyotevívejte“ a nesprávné „červenou dveř“; navíc přidané „jen“.",
+        "note_en": "Malformed “Nevyotevívejte” and incorrect “červenou dveř”; also adds “only”."
+      }
+    },
+    {
+      "id": "translategemma-4b-q4km-en-cs-s02",
+      "sentence_id": "s02",
+      "feature": "negated reported speech",
+      "model": "translategemma-4b-q4km",
+      "source_language": "en",
+      "target_language": "cs",
+      "source": "I did not say that Anna stole the key.",
+      "reference": "Neřekl jsem, že Anna ukradla klíč.",
+      "translation": "Neříkal jsem, že Anna ukradla klíč.",
+      "ms": 437.2863000025973,
+      "error": null,
+      "metrics": {
+        "total_duration": 379201400,
+        "load_duration": 40217400,
+        "prompt_eval_count": 85,
+        "prompt_eval_duration": 67114000,
+        "eval_count": 14,
+        "eval_duration": 230164000,
+        "done_reason": "stop"
+      },
+      "review": {
+        "meaning": 4,
+        "fluency": 4,
+        "score": 100.0,
+        "note_cs": "Význam je zachován a formulace je pro tento krátký vstup přirozená.",
+        "note_en": "Meaning is preserved and the wording is natural for this short input."
+      }
+    },
+    {
+      "id": "translategemma-4b-q4km-en-cs-s03",
+      "sentence_id": "s03",
+      "feature": "return for someone",
+      "model": "translategemma-4b-q4km",
+      "source_language": "en",
+      "target_language": "cs",
+      "source": "Wait here. I will come back for you.",
+      "reference": "Počkej tady. Vrátím se pro tebe.",
+      "translation": "Počkejte tady. Vrátím se.",
+      "ms": 361.1748000839725,
+      "error": null,
+      "metrics": {
+        "total_duration": 340570600,
+        "load_duration": 28460900,
+        "prompt_eval_count": 85,
+        "prompt_eval_duration": 81459000,
+        "eval_count": 11,
+        "eval_duration": 177997000,
+        "done_reason": "stop"
+      },
+      "review": {
+        "meaning": 3,
+        "fluency": 4,
+        "score": 87.5,
+        "note_cs": "Vynechává, že se mluvčí vrátí pro adresáta.",
+        "note_en": "Omits that the speaker will return to collect the addressee."
+      }
+    },
+    {
+      "id": "translategemma-4b-q4km-en-cs-s04",
+      "sentence_id": "s04",
+      "feature": "collapsed bridge and crossing",
+      "model": "translategemma-4b-q4km",
+      "source_language": "en",
+      "target_language": "cs",
+      "source": "The bridge has collapsed. Find another way across the river.",
+      "reference": "Most se zřítil. Najdi jinou cestu přes řeku.",
+      "translation": "Most se zřítil. Najděte jinou cestu přes řeku.",
+      "ms": 457.8578999498859,
+      "error": null,
+      "metrics": {
+        "total_duration": 435971200,
+        "load_duration": 18197500,
+        "prompt_eval_count": 87,
+        "prompt_eval_duration": 71377000,
+        "eval_count": 19,
+        "eval_duration": 308880000,
+        "done_reason": "stop"
+      },
+      "review": {
+        "meaning": 4,
+        "fluency": 4,
+        "score": 100.0,
+        "note_cs": "Význam je zachován a formulace je pro tento krátký vstup přirozená.",
+        "note_en": "Meaning is preserved and the wording is natural for this short input."
+      }
+    },
+    {
+      "id": "translategemma-4b-q4km-en-cs-s05",
+      "sentence_id": "s05",
+      "feature": "ordered instructions",
+      "model": "translategemma-4b-q4km",
+      "source_language": "en",
+      "target_language": "cs",
+      "source": "Hold the button for three seconds, then release it.",
+      "reference": "Drž tlačítko tři sekundy a pak ho pusť.",
+      "translation": "Držte tlačítko po dobu tří sekund a poté jej uvolněte.",
+      "ms": 457.0305000524968,
+      "error": null,
+      "metrics": {
+        "total_duration": 434128200,
+        "load_duration": 24676800,
+        "prompt_eval_count": 86,
+        "prompt_eval_duration": 69657000,
+        "eval_count": 19,
+        "eval_duration": 300428000,
+        "done_reason": "stop"
+      },
+      "review": {
+        "meaning": 4,
+        "fluency": 4,
+        "score": 100.0,
+        "note_cs": "Význam je zachován a formulace je pro tento krátký vstup přirozená.",
+        "note_en": "Meaning is preserved and the wording is natural for this short input."
+      }
+    },
+    {
+      "id": "translategemma-4b-q4km-en-cs-s06",
+      "sentence_id": "s06",
+      "feature": "quantity and warning",
+      "model": "translategemma-4b-q4km",
+      "source_language": "en",
+      "target_language": "cs",
+      "source": "There are only two arrows left. Do not waste them.",
+      "reference": "Zbývají jen dva šípy. Neplýtvej jimi.",
+      "translation": "Zbývají pouze dvě šípy. Nevynechejte je.",
+      "ms": 373.8938000751659,
+      "error": null,
+      "metrics": {
+        "total_duration": 355769600,
+        "load_duration": 19355000,
+        "prompt_eval_count": 87,
+        "prompt_eval_duration": 57475000,
+        "eval_count": 16,
+        "eval_duration": 251378000,
+        "done_reason": "stop"
+      },
+      "review": {
+        "meaning": 2,
+        "fluency": 2,
+        "score": 50.0,
+        "note_cs": "Špatná shoda „dvě šípy“ a záměna zákazu plýtvání za „Nevynechejte je“.",
+        "note_en": "Incorrect agreement in “dvě šípy”; changes “do not waste them” to “do not skip them”."
+      }
+    },
+    {
+      "id": "translategemma-4b-q4km-en-cs-s07",
+      "sentence_id": "s07",
+      "feature": "unless condition",
+      "model": "translategemma-4b-q4km",
+      "source_language": "en",
+      "target_language": "cs",
+      "source": "Unless the alarm goes off, stay in the car.",
+      "reference": "Pokud se nespustí alarm, zůstaň v autě.",
+      "translation": "Pokud se poplaš nezavolá, zůstaňte ve vozidle.",
+      "ms": 397.91049994528294,
+      "error": null,
+      "metrics": {
+        "total_duration": 384942600,
+        "load_duration": 11266200,
+        "prompt_eval_count": 86,
+        "prompt_eval_duration": 59624000,
+        "eval_count": 18,
+        "eval_duration": 292396000,
+        "done_reason": "stop"
+      },
+      "review": {
+        "meaning": 2,
+        "fluency": 1,
+        "score": 37.5,
+        "note_cs": "„Poplaš nezavolá“ je zkomolené a oslabuje jasnou podmínku spuštění alarmu.",
+        "note_en": "“Poplaš nezavolá” is malformed and obscures the alarm condition."
+      }
+    },
+    {
+      "id": "translategemma-4b-q4km-en-cs-s08",
+      "sentence_id": "s08",
+      "feature": "names and recipient contrast",
+      "model": "translategemma-4b-q4km",
+      "source_language": "en",
+      "target_language": "cs",
+      "source": "Give the blue potion to Mara, not to Viktor.",
+      "reference": "Dej modrý lektvar Maře, ne Viktorovi.",
+      "translation": "Podávejte modrou tekutinu Marě, ne Viktorovi.",
+      "ms": 416.1204000702128,
+      "error": null,
+      "metrics": {
+        "total_duration": 399477300,
+        "load_duration": 21820200,
+        "prompt_eval_count": 86,
+        "prompt_eval_duration": 67560000,
+        "eval_count": 17,
+        "eval_duration": 270755000,
+        "done_reason": "stop"
+      },
+      "review": {
+        "meaning": 3,
+        "fluency": 2,
+        "score": 62.5,
+        "note_cs": "Lektvar zobecňuje na tekutinu; chybný tvar „Marě“ a neobratné „Podávejte“.",
+        "note_en": "Generalizes potion to liquid; incorrect inflection “Marě” and awkward “Podávejte”."
+      }
+    },
+    {
+      "id": "translategemma-4b-q4km-en-cs-s09",
+      "sentence_id": "s09",
+      "feature": "past versus present allegiance",
+      "model": "translategemma-4b-q4km",
+      "source_language": "en",
+      "target_language": "cs",
+      "source": "The guard used to be our enemy. Now he is helping us.",
+      "reference": "Strážný býval naším nepřítelem. Teď nám pomáhá.",
+      "translation": "Strážný byl dříve naším nepřítelem. Nyní nám pomáhá.",
+      "ms": 466.4868999971077,
+      "error": null,
+      "metrics": {
+        "total_duration": 441937700,
+        "load_duration": 16341400,
+        "prompt_eval_count": 89,
+        "prompt_eval_duration": 58184000,
+        "eval_count": 21,
+        "eval_duration": 346493000,
+        "done_reason": "stop"
+      },
+      "review": {
+        "meaning": 4,
+        "fluency": 4,
+        "score": 100.0,
+        "note_cs": "Význam je zachován a formulace je pro tento krátký vstup přirozená.",
+        "note_en": "Meaning is preserved and the wording is natural for this short input."
+      }
+    },
+    {
+      "id": "translategemma-4b-q4km-en-cs-s10",
+      "sentence_id": "s10",
+      "feature": "time and location",
+      "model": "translategemma-4b-q4km",
+      "source_language": "en",
+      "target_language": "cs",
+      "source": "Meet me at platform seven at 18:45.",
+      "reference": "Sejdeme se v 18:45 na sedmém nástupišti.",
+      "translation": "Setkáme se na nástupišti číslo 7 ve 18:45.",
+      "ms": 527.61859993916,
+      "error": null,
+      "metrics": {
+        "total_duration": 498434500,
+        "load_duration": 46362900,
+        "prompt_eval_count": 88,
+        "prompt_eval_duration": 82658000,
+        "eval_count": 20,
+        "eval_duration": 324222000,
+        "done_reason": "stop"
+      },
+      "review": {
+        "meaning": 4,
+        "fluency": 4,
+        "score": 100.0,
+        "note_cs": "Význam je zachován a formulace je pro tento krátký vstup přirozená.",
+        "note_en": "Meaning is preserved and the wording is natural for this short input."
+      }
+    },
+    {
+      "id": "translategemma-4b-q4km-en-cs-s11",
+      "sentence_id": "s11",
+      "feature": "idiom and simultaneous action",
+      "model": "translategemma-4b-q4km",
+      "source_language": "en",
+      "target_language": "cs",
+      "source": "Keep an eye on the door while I repair the engine.",
+      "reference": "Hlídej dveře, zatímco opravuji motor.",
+      "translation": "Sledujte dveře, zatímco opravuji motor.",
+      "ms": 377.9289999511093,
+      "error": null,
+      "metrics": {
+        "total_duration": 349162700,
+        "load_duration": 29874600,
+        "prompt_eval_count": 87,
+        "prompt_eval_duration": 71167000,
+        "eval_count": 13,
+        "eval_duration": 202254000,
+        "done_reason": "stop"
+      },
+      "review": {
+        "meaning": 4,
+        "fluency": 4,
+        "score": 100.0,
+        "note_cs": "Význam je zachován a formulace je pro tento krátký vstup přirozená.",
+        "note_en": "Meaning is preserved and the wording is natural for this short input."
+      }
+    },
+    {
+      "id": "translategemma-4b-q4km-en-cs-s12",
+      "sentence_id": "s12",
+      "feature": "near miss idiom",
+      "model": "translategemma-4b-q4km",
+      "source_language": "en",
+      "target_language": "cs",
+      "source": "That was close! We nearly fell into the trap.",
+      "reference": "To bylo o fous! Málem jsme spadli do pasti.",
+      "translation": "To bylo těsně! Hrozilo, že bychom se nechali unést.",
+      "ms": 528.1396999489516,
+      "error": null,
+      "metrics": {
+        "total_duration": 496505400,
+        "load_duration": 50084100,
+        "prompt_eval_count": 86,
+        "prompt_eval_duration": 70527000,
+        "eval_count": 20,
+        "eval_duration": 321548000,
+        "done_reason": "stop"
+      },
+      "review": {
+        "meaning": 1,
+        "fluency": 2,
+        "score": 37.5,
+        "note_cs": "Ztrácí past a místo téměř chycení uvádí „nechali unést“. Úvod je nepřirozený.",
+        "note_en": "Loses the trap and replaces almost falling into it with “nechali unést”; the opening is unnatural."
+      }
+    },
+    {
+      "id": "translategemma-4b-q4km-cs-en-s01",
+      "sentence_id": "s01",
+      "feature": "negation and time",
+      "model": "translategemma-4b-q4km",
+      "source_language": "cs",
+      "target_language": "en",
+      "source": "Neotvírej červené dveře. Máme pět minut.",
+      "reference": "Do not open the red door. We have five minutes.",
+      "translation": "Don't open the red door. We have five minutes.",
+      "ms": 327.5837000692263,
+      "error": null,
+      "metrics": {
+        "total_duration": 312115200,
+        "load_duration": 19923300,
+        "prompt_eval_count": 90,
+        "prompt_eval_duration": 46666000,
+        "eval_count": 14,
+        "eval_duration": 225532000,
+        "done_reason": "stop"
+      },
+      "review": {
+        "meaning": 4,
+        "fluency": 4,
+        "score": 100.0,
+        "note_cs": "Význam je zachován a formulace je pro tento krátký vstup přirozená.",
+        "note_en": "Meaning is preserved and the wording is natural for this short input."
+      }
+    },
+    {
+      "id": "translategemma-4b-q4km-cs-en-s02",
+      "sentence_id": "s02",
+      "feature": "negated reported speech",
+      "model": "translategemma-4b-q4km",
+      "source_language": "cs",
+      "target_language": "en",
+      "source": "Neřekl jsem, že Anna ukradla klíč.",
+      "reference": "I did not say that Anna stole the key.",
+      "translation": "I didn't say that Anna stole the key.",
+      "ms": 388.399500050582,
+      "error": null,
+      "metrics": {
+        "total_duration": 365694300,
+        "load_duration": 47070800,
+        "prompt_eval_count": 89,
+        "prompt_eval_duration": 82655000,
+        "eval_count": 12,
+        "eval_duration": 193741000,
+        "done_reason": "stop"
+      },
+      "review": {
+        "meaning": 4,
+        "fluency": 4,
+        "score": 100.0,
+        "note_cs": "Význam je zachován a formulace je pro tento krátký vstup přirozená.",
+        "note_en": "Meaning is preserved and the wording is natural for this short input."
+      }
+    },
+    {
+      "id": "translategemma-4b-q4km-cs-en-s03",
+      "sentence_id": "s03",
+      "feature": "return for someone",
+      "model": "translategemma-4b-q4km",
+      "source_language": "cs",
+      "target_language": "en",
+      "source": "Počkej tady. Vrátím se pro tebe.",
+      "reference": "Wait here. I will come back for you.",
+      "translation": "Wait here. I'll be back for you.",
+      "ms": 363.4535000892356,
+      "error": null,
+      "metrics": {
+        "total_duration": 342937800,
+        "load_duration": 45759100,
+        "prompt_eval_count": 88,
+        "prompt_eval_duration": 71091000,
+        "eval_count": 12,
+        "eval_duration": 189506000,
+        "done_reason": "stop"
+      },
+      "review": {
+        "meaning": 4,
+        "fluency": 4,
+        "score": 100.0,
+        "note_cs": "Význam je zachován a formulace je pro tento krátký vstup přirozená.",
+        "note_en": "Meaning is preserved and the wording is natural for this short input."
+      }
+    },
+    {
+      "id": "translategemma-4b-q4km-cs-en-s04",
+      "sentence_id": "s04",
+      "feature": "collapsed bridge and crossing",
+      "model": "translategemma-4b-q4km",
+      "source_language": "cs",
+      "target_language": "en",
+      "source": "Most se zřítil. Najdi jinou cestu přes řeku.",
+      "reference": "The bridge has collapsed. Find another way across the river.",
+      "translation": "The bridge has collapsed. Find another way to cross the river.",
+      "ms": 376.4873000327498,
+      "error": null,
+      "metrics": {
+        "total_duration": 335101600,
+        "load_duration": 20541200,
+        "prompt_eval_count": 92,
+        "prompt_eval_duration": 57942000,
+        "eval_count": 14,
+        "eval_duration": 226613000,
+        "done_reason": "stop"
+      },
+      "review": {
+        "meaning": 4,
+        "fluency": 4,
+        "score": 100.0,
+        "note_cs": "Význam je zachován a formulace je pro tento krátký vstup přirozená.",
+        "note_en": "Meaning is preserved and the wording is natural for this short input."
+      }
+    },
+    {
+      "id": "translategemma-4b-q4km-cs-en-s05",
+      "sentence_id": "s05",
+      "feature": "ordered instructions",
+      "model": "translategemma-4b-q4km",
+      "source_language": "cs",
+      "target_language": "en",
+      "source": "Drž tlačítko tři sekundy a pak ho pusť.",
+      "reference": "Hold the button for three seconds, then release it.",
+      "translation": "Press and hold the button for three seconds, then release it.",
+      "ms": 347.2009999677539,
+      "error": null,
+      "metrics": {
+        "total_duration": 325707700,
+        "load_duration": 22797300,
+        "prompt_eval_count": 89,
+        "prompt_eval_duration": 54835000,
+        "eval_count": 14,
+        "eval_duration": 217803000,
+        "done_reason": "stop"
+      },
+      "review": {
+        "meaning": 4,
+        "fluency": 4,
+        "score": 100.0,
+        "note_cs": "Význam je zachován a formulace je pro tento krátký vstup přirozená.",
+        "note_en": "Meaning is preserved and the wording is natural for this short input."
+      }
+    },
+    {
+      "id": "translategemma-4b-q4km-cs-en-s06",
+      "sentence_id": "s06",
+      "feature": "quantity and warning",
+      "model": "translategemma-4b-q4km",
+      "source_language": "cs",
+      "target_language": "en",
+      "source": "Zbývají jen dva šípy. Neplýtvej jimi.",
+      "reference": "There are only two arrows left. Do not waste them.",
+      "translation": "There are only two stalks left. Don't waste them.",
+      "ms": 347.9325999505818,
+      "error": null,
+      "metrics": {
+        "total_duration": 333155000,
+        "load_duration": 15642900,
+        "prompt_eval_count": 91,
+        "prompt_eval_duration": 68654000,
+        "eval_count": 14,
+        "eval_duration": 223259000,
+        "done_reason": "stop"
+      },
+      "review": {
+        "meaning": 2,
+        "fluency": 4,
+        "score": 75.0,
+        "note_cs": "„Šípy“ chybně mění na stonky. Počet i zákaz plýtvání zachovává.",
+        "note_en": "Mistranslates arrows as stalks. Retains the number and the warning not to waste them."
+      }
+    },
+    {
+      "id": "translategemma-4b-q4km-cs-en-s07",
+      "sentence_id": "s07",
+      "feature": "unless condition",
+      "model": "translategemma-4b-q4km",
+      "source_language": "cs",
+      "target_language": "en",
+      "source": "Pokud se nespustí alarm, zůstaň v autě.",
+      "reference": "Unless the alarm goes off, stay in the car.",
+      "translation": "If the alarm does not sound, remain in the car.",
+      "ms": 356.73450003378093,
+      "error": null,
+      "metrics": {
+        "total_duration": 327074900,
+        "load_duration": 21308200,
+        "prompt_eval_count": 90,
+        "prompt_eval_duration": 64376000,
+        "eval_count": 13,
+        "eval_duration": 205202000,
+        "done_reason": "stop"
+      },
+      "review": {
+        "meaning": 4,
+        "fluency": 4,
+        "score": 100.0,
+        "note_cs": "Význam je zachován a formulace je pro tento krátký vstup přirozená.",
+        "note_en": "Meaning is preserved and the wording is natural for this short input."
+      }
+    },
+    {
+      "id": "translategemma-4b-q4km-cs-en-s08",
+      "sentence_id": "s08",
+      "feature": "names and recipient contrast",
+      "model": "translategemma-4b-q4km",
+      "source_language": "cs",
+      "target_language": "en",
+      "source": "Dej modrý lektvar Maře, ne Viktorovi.",
+      "reference": "Give the blue potion to Mara, not to Viktor.",
+      "translation": "Give the blue scarf to Marie, not Viktor.",
+      "ms": 329.8242000164464,
+      "error": null,
+      "metrics": {
+        "total_duration": 310543100,
+        "load_duration": 21203900,
+        "prompt_eval_count": 90,
+        "prompt_eval_duration": 75489000,
+        "eval_count": 11,
+        "eval_duration": 184033000,
+        "done_reason": "stop"
+      },
+      "review": {
+        "meaning": 1,
+        "fluency": 4,
+        "score": 62.5,
+        "note_cs": "Z lektvaru dělá šálu a z Mary Marii. Záporný kontrast s Viktorem zůstává.",
+        "note_en": "Turns the potion into a scarf and Mara into Marie. Retains the contrast with Viktor."
+      }
+    },
+    {
+      "id": "translategemma-4b-q4km-cs-en-s09",
+      "sentence_id": "s09",
+      "feature": "past versus present allegiance",
+      "model": "translategemma-4b-q4km",
+      "source_language": "cs",
+      "target_language": "en",
+      "source": "Strážný býval naším nepřítelem. Teď nám pomáhá.",
+      "reference": "The guard used to be our enemy. Now he is helping us.",
+      "translation": "The former guard was our enemy. Now, he is helping us.",
+      "ms": 370.17350003588945,
+      "error": null,
+      "metrics": {
+        "total_duration": 336348800,
+        "load_duration": 23520200,
+        "prompt_eval_count": 93,
+        "prompt_eval_duration": 56218000,
+        "eval_count": 15,
+        "eval_duration": 237156000,
+        "done_reason": "stop"
+      },
+      "review": {
+        "meaning": 3,
+        "fluency": 4,
+        "score": 87.5,
+        "note_cs": "Přidává, že už nejde o strážného; originál mění pouze vztah nepřítele.",
+        "note_en": "Adds that he is a former guard; the source changes only his former enemy status."
+      }
+    },
+    {
+      "id": "translategemma-4b-q4km-cs-en-s10",
+      "sentence_id": "s10",
+      "feature": "time and location",
+      "model": "translategemma-4b-q4km",
+      "source_language": "cs",
+      "target_language": "en",
+      "source": "Sejdeme se v 18:45 na sedmém nástupišti.",
+      "reference": "Meet me at platform seven at 18:45.",
+      "translation": "We will meet at 6:45 PM at platform number 7.",
+      "ms": 435.6051000067964,
+      "error": null,
+      "metrics": {
+        "total_duration": 406869000,
+        "load_duration": 34633100,
+        "prompt_eval_count": 95,
+        "prompt_eval_duration": 62169000,
+        "eval_count": 17,
+        "eval_duration": 268960000,
+        "done_reason": "stop"
+      },
+      "review": {
+        "meaning": 4,
+        "fluency": 4,
+        "score": 100.0,
+        "note_cs": "Význam je zachován a formulace je pro tento krátký vstup přirozená.",
+        "note_en": "Meaning is preserved and the wording is natural for this short input."
+      }
+    },
+    {
+      "id": "translategemma-4b-q4km-cs-en-s11",
+      "sentence_id": "s11",
+      "feature": "idiom and simultaneous action",
+      "model": "translategemma-4b-q4km",
+      "source_language": "cs",
+      "target_language": "en",
+      "source": "Hlídej dveře, zatímco opravuji motor.",
+      "reference": "Keep an eye on the door while I repair the engine.",
+      "translation": "Please watch the door while I'm repairing the engine.",
+      "ms": 330.1525000715628,
+      "error": null,
+      "metrics": {
+        "total_duration": 308137800,
+        "load_duration": 18527800,
+        "prompt_eval_count": 87,
+        "prompt_eval_duration": 66629000,
+        "eval_count": 13,
+        "eval_duration": 200922000,
+        "done_reason": "stop"
+      },
+      "review": {
+        "meaning": 4,
+        "fluency": 4,
+        "score": 100.0,
+        "note_cs": "Význam je zachován a formulace je pro tento krátký vstup přirozená.",
+        "note_en": "Meaning is preserved and the wording is natural for this short input."
+      }
+    },
+    {
+      "id": "translategemma-4b-q4km-cs-en-s12",
+      "sentence_id": "s12",
+      "feature": "near miss idiom",
+      "model": "translategemma-4b-q4km",
+      "source_language": "cs",
+      "target_language": "en",
+      "source": "To bylo o fous! Málem jsme spadli do pasti.",
+      "reference": "That was close! We nearly fell into the trap.",
+      "translation": "It was by a hair's breadth! We almost fell into the trap.",
+      "ms": 441.0787000088021,
+      "error": null,
+      "metrics": {
+        "total_duration": 410053600,
+        "load_duration": 16652300,
+        "prompt_eval_count": 88,
+        "prompt_eval_duration": 64163000,
+        "eval_count": 17,
+        "eval_duration": 279914000,
+        "done_reason": "stop"
+      },
+      "review": {
+        "meaning": 4,
+        "fluency": 3,
+        "score": 87.5,
+        "note_cs": "Význam těsného úniku zůstává, ale úvod „It was by a hair’s breadth“ je strojený.",
+        "note_en": "Preserves the narrow escape, but “It was by a hair’s breadth” sounds stilted."
+      }
+    },
+    {
+      "id": "translategemma-4b-q4km-en-ja-s01",
+      "sentence_id": "s01",
+      "feature": "negation and time",
+      "model": "translategemma-4b-q4km",
+      "source_language": "en",
+      "target_language": "ja",
+      "source": "Do not open the red door. We have five minutes.",
+      "reference": "赤いドアを開けないで。あと5分ある。",
+      "translation": "赤いドアを開けないでください。残り5分です。",
+      "ms": 340.76179994735867,
+      "error": null,
+      "metrics": {
+        "total_duration": 320964600,
+        "load_duration": 28831800,
+        "prompt_eval_count": 87,
+        "prompt_eval_duration": 56937000,
+        "eval_count": 13,
+        "eval_duration": 201397000,
+        "done_reason": "stop"
+      },
+      "review": {
+        "meaning": 4,
+        "fluency": 4,
+        "score": 100.0,
+        "note_cs": "Význam je zachován a formulace je pro tento krátký vstup přirozená.",
+        "note_en": "Meaning is preserved and the wording is natural for this short input."
+      }
+    },
+    {
+      "id": "translategemma-4b-q4km-en-ja-s02",
+      "sentence_id": "s02",
+      "feature": "negated reported speech",
+      "model": "translategemma-4b-q4km",
+      "source_language": "en",
+      "target_language": "ja",
+      "source": "I did not say that Anna stole the key.",
+      "reference": "アンナが鍵を盗んだとは言っていない。",
+      "translation": "私はアンナが鍵を盗んだと主張したわけではありません。",
+      "ms": 349.2405000142753,
+      "error": null,
+      "metrics": {
+        "total_duration": 332302200,
+        "load_duration": 12540900,
+        "prompt_eval_count": 85,
+        "prompt_eval_duration": 57513000,
+        "eval_count": 15,
+        "eval_duration": 237071000,
+        "done_reason": "stop"
+      },
+      "review": {
+        "meaning": 3,
+        "fluency": 4,
+        "score": 87.5,
+        "note_cs": "„Říct“ posouvá k silnějšímu „tvrdit“. Zápor a událost zůstávají.",
+        "note_en": "Shifts “say” to the stronger “claim”. Preserves the negation and event."
+      }
+    },
+    {
+      "id": "translategemma-4b-q4km-en-ja-s03",
+      "sentence_id": "s03",
+      "feature": "return for someone",
+      "model": "translategemma-4b-q4km",
+      "source_language": "en",
+      "target_language": "ja",
+      "source": "Wait here. I will come back for you.",
+      "reference": "ここで待っていて。迎えに戻ってくる。",
+      "translation": "ここで待っていてください。私が戻ってきます。",
+      "ms": 280.6063999887556,
+      "error": null,
+      "metrics": {
+        "total_duration": 263500800,
+        "load_duration": 18659200,
+        "prompt_eval_count": 85,
+        "prompt_eval_duration": 57657000,
+        "eval_count": 11,
+        "eval_duration": 169325000,
+        "done_reason": "stop"
+      },
+      "review": {
+        "meaning": 3,
+        "fluency": 4,
+        "score": 87.5,
+        "note_cs": "Chybí návrat pro adresáta; zůstává jen návrat mluvčího.",
+        "note_en": "Omits returning to collect the addressee; retains only the speaker’s return."
+      }
+    },
+    {
+      "id": "translategemma-4b-q4km-en-ja-s04",
+      "sentence_id": "s04",
+      "feature": "collapsed bridge and crossing",
+      "model": "translategemma-4b-q4km",
+      "source_language": "en",
+      "target_language": "ja",
+      "source": "The bridge has collapsed. Find another way across the river.",
+      "reference": "橋が崩れた。川を渡る別の道を探して。",
+      "translation": "橋は崩れてしまいました。別の方法で川を渡ってください。",
+      "ms": 361.8854000233114,
+      "error": null,
+      "metrics": {
+        "total_duration": 349008300,
+        "load_duration": 14815800,
+        "prompt_eval_count": 87,
+        "prompt_eval_duration": 58496000,
+        "eval_count": 15,
+        "eval_duration": 242418000,
+        "done_reason": "stop"
+      },
+      "review": {
+        "meaning": 3,
+        "fluency": 4,
+        "score": 87.5,
+        "note_cs": "Pobídku hledat jinou cestu mění přímo na pokyn překročit řeku jinak.",
+        "note_en": "Changes the instruction to find another route into an instruction to cross another way."
+      }
+    },
+    {
+      "id": "translategemma-4b-q4km-en-ja-s05",
+      "sentence_id": "s05",
+      "feature": "ordered instructions",
+      "model": "translategemma-4b-q4km",
+      "source_language": "en",
+      "target_language": "ja",
+      "source": "Hold the button for three seconds, then release it.",
+      "reference": "ボタンを3秒間押し続けてから離して。",
+      "translation": "ボタンを3秒間押し、その後、ボタンを離してください。",
+      "ms": 381.2155000632629,
+      "error": null,
+      "metrics": {
+        "total_duration": 365462500,
+        "load_duration": 15375200,
+        "prompt_eval_count": 86,
+        "prompt_eval_duration": 70238000,
+        "eval_count": 15,
+        "eval_duration": 240307000,
+        "done_reason": "stop"
+      },
+      "review": {
+        "meaning": 4,
+        "fluency": 4,
+        "score": 100.0,
+        "note_cs": "Význam je zachován a formulace je pro tento krátký vstup přirozená.",
+        "note_en": "Meaning is preserved and the wording is natural for this short input."
+      }
+    },
+    {
+      "id": "translategemma-4b-q4km-en-ja-s06",
+      "sentence_id": "s06",
+      "feature": "quantity and warning",
+      "model": "translategemma-4b-q4km",
+      "source_language": "en",
+      "target_language": "ja",
+      "source": "There are only two arrows left. Do not waste them.",
+      "reference": "矢はあと2本しかない。無駄にしないで。",
+      "translation": "残りの矢は2本だけです。無駄にしないでください。",
+      "ms": 378.20309994276613,
+      "error": null,
+      "metrics": {
+        "total_duration": 354314000,
+        "load_duration": 14153800,
+        "prompt_eval_count": 87,
+        "prompt_eval_duration": 63207000,
+        "eval_count": 16,
+        "eval_duration": 253351000,
+        "done_reason": "stop"
+      },
+      "review": {
+        "meaning": 4,
+        "fluency": 4,
+        "score": 100.0,
+        "note_cs": "Význam je zachován a formulace je pro tento krátký vstup přirozená.",
+        "note_en": "Meaning is preserved and the wording is natural for this short input."
+      }
+    },
+    {
+      "id": "translategemma-4b-q4km-en-ja-s07",
+      "sentence_id": "s07",
+      "feature": "unless condition",
+      "model": "translategemma-4b-q4km",
+      "source_language": "en",
+      "target_language": "ja",
+      "source": "Unless the alarm goes off, stay in the car.",
+      "reference": "警報が鳴らない限り、車の中にいて。",
+      "translation": "アラームが鳴るまで、車内に留まってください。",
+      "ms": 368.0162000237033,
+      "error": null,
+      "metrics": {
+        "total_duration": 334548600,
+        "load_duration": 14658500,
+        "prompt_eval_count": 86,
+        "prompt_eval_duration": 61706000,
+        "eval_count": 14,
+        "eval_duration": 224760000,
+        "done_reason": "stop"
+      },
+      "review": {
+        "meaning": 4,
+        "fluency": 4,
+        "score": 100.0,
+        "note_cs": "Význam je zachován a formulace je pro tento krátký vstup přirozená.",
+        "note_en": "Meaning is preserved and the wording is natural for this short input."
+      }
+    },
+    {
+      "id": "translategemma-4b-q4km-en-ja-s08",
+      "sentence_id": "s08",
+      "feature": "names and recipient contrast",
+      "model": "translategemma-4b-q4km",
+      "source_language": "en",
+      "target_language": "ja",
+      "source": "Give the blue potion to Mara, not to Viktor.",
+      "reference": "青い薬はヴィクトルではなく、マラに渡して。",
+      "translation": "ブルーのポーションは、ヴィクトルではなく、マラに与えてください。",
+      "ms": 428.13379992730916,
+      "error": null,
+      "metrics": {
+        "total_duration": 402982900,
+        "load_duration": 22577900,
+        "prompt_eval_count": 86,
+        "prompt_eval_duration": 62317000,
+        "eval_count": 17,
+        "eval_duration": 277540000,
+        "done_reason": "stop"
+      },
+      "review": {
+        "meaning": 4,
+        "fluency": 4,
+        "score": 100.0,
+        "note_cs": "Význam je zachován a formulace je pro tento krátký vstup přirozená.",
+        "note_en": "Meaning is preserved and the wording is natural for this short input."
+      }
+    },
+    {
+      "id": "translategemma-4b-q4km-en-ja-s09",
+      "sentence_id": "s09",
+      "feature": "past versus present allegiance",
+      "model": "translategemma-4b-q4km",
+      "source_language": "en",
+      "target_language": "ja",
+      "source": "The guard used to be our enemy. Now he is helping us.",
+      "reference": "あの衛兵は以前は敵だった。今は私たちを助けてくれている。",
+      "translation": "以前は彼が私たちの敵でしたが、今は私たちを助けてくれています。",
+      "ms": 383.2666000816971,
+      "error": null,
+      "metrics": {
+        "total_duration": 369900100,
+        "load_duration": 14367900,
+        "prompt_eval_count": 89,
+        "prompt_eval_duration": 58410000,
+        "eval_count": 17,
+        "eval_duration": 280389000,
+        "done_reason": "stop"
+      },
+      "review": {
+        "meaning": 3,
+        "fluency": 4,
+        "score": 87.5,
+        "note_cs": "Zachovává změnu nepřítele na pomocníka, ale vypouští označení strážného.",
+        "note_en": "Preserves the change from enemy to helper, but omits the guard’s identity."
+      }
+    },
+    {
+      "id": "translategemma-4b-q4km-en-ja-s10",
+      "sentence_id": "s10",
+      "feature": "time and location",
+      "model": "translategemma-4b-q4km",
+      "source_language": "en",
+      "target_language": "ja",
+      "source": "Meet me at platform seven at 18:45.",
+      "reference": "18時45分に7番ホームで会おう。",
+      "translation": "プラットフォーム7で、18時45分にお待ちください。",
+      "ms": 447.8653999976814,
+      "error": null,
+      "metrics": {
+        "total_duration": 416677800,
+        "load_duration": 36817300,
+        "prompt_eval_count": 88,
+        "prompt_eval_duration": 67550000,
+        "eval_count": 16,
+        "eval_duration": 269706000,
+        "done_reason": "stop"
+      },
+      "review": {
+        "meaning": 3,
+        "fluency": 4,
+        "score": 87.5,
+        "note_cs": "Místo a čas zůstávají; „setkej se se mnou“ se mění na „čekejte“.",
+        "note_en": "Retains the place and time; changes “meet me” to “please wait”."
+      }
+    },
+    {
+      "id": "translategemma-4b-q4km-en-ja-s11",
+      "sentence_id": "s11",
+      "feature": "idiom and simultaneous action",
+      "model": "translategemma-4b-q4km",
+      "source_language": "en",
+      "target_language": "ja",
+      "source": "Keep an eye on the door while I repair the engine.",
+      "reference": "エンジンを修理している間、ドアを見張っていて。",
+      "translation": "エンジンを修理している間、ドアの状況に注意してください。",
+      "ms": 372.1155000384897,
+      "error": null,
+      "metrics": {
+        "total_duration": 348502200,
+        "load_duration": 26152600,
+        "prompt_eval_count": 87,
+        "prompt_eval_duration": 55516000,
+        "eval_count": 14,
+        "eval_duration": 228883000,
+        "done_reason": "stop"
+      },
+      "review": {
+        "meaning": 4,
+        "fluency": 4,
+        "score": 100.0,
+        "note_cs": "Význam je zachován a formulace je pro tento krátký vstup přirozená.",
+        "note_en": "Meaning is preserved and the wording is natural for this short input."
+      }
+    },
+    {
+      "id": "translategemma-4b-q4km-en-ja-s12",
+      "sentence_id": "s12",
+      "feature": "near miss idiom",
+      "model": "translategemma-4b-q4km",
+      "source_language": "en",
+      "target_language": "ja",
+      "source": "That was close! We nearly fell into the trap.",
+      "reference": "危なかった！もう少しで罠にかかるところだった。",
+      "translation": "本当にギリギリでした！私たちは罠にかかってしまうところでした。",
+      "ms": 369.48720004875213,
+      "error": null,
+      "metrics": {
+        "total_duration": 352435700,
+        "load_duration": 17937100,
+        "prompt_eval_count": 86,
+        "prompt_eval_duration": 60271000,
+        "eval_count": 14,
+        "eval_duration": 237432000,
+        "done_reason": "stop"
+      },
+      "review": {
+        "meaning": 4,
+        "fluency": 4,
+        "score": 100.0,
+        "note_cs": "Význam je zachován a formulace je pro tento krátký vstup přirozená.",
+        "note_en": "Meaning is preserved and the wording is natural for this short input."
+      }
+    },
+    {
+      "id": "translategemma-4b-q4km-ja-en-s01",
+      "sentence_id": "s01",
+      "feature": "negation and time",
+      "model": "translategemma-4b-q4km",
+      "source_language": "ja",
+      "target_language": "en",
+      "source": "赤いドアを開けないで。あと5分ある。",
+      "reference": "Do not open the red door. We have five minutes.",
+      "translation": "Please do not open the red door. There are still 5 minutes left.",
+      "ms": 483.8236999930814,
+      "error": null,
+      "metrics": {
+        "total_duration": 447444700,
+        "load_duration": 29519300,
+        "prompt_eval_count": 86,
+        "prompt_eval_duration": 72333000,
+        "eval_count": 17,
+        "eval_duration": 287335000,
+        "done_reason": "stop"
+      },
+      "review": {
+        "meaning": 4,
+        "fluency": 4,
+        "score": 100.0,
+        "note_cs": "Význam je zachován a formulace je pro tento krátký vstup přirozená.",
+        "note_en": "Meaning is preserved and the wording is natural for this short input."
+      }
+    },
+    {
+      "id": "translategemma-4b-q4km-ja-en-s02",
+      "sentence_id": "s02",
+      "feature": "negated reported speech",
+      "model": "translategemma-4b-q4km",
+      "source_language": "ja",
+      "target_language": "en",
+      "source": "アンナが鍵を盗んだとは言っていない。",
+      "reference": "I did not say that Anna stole the key.",
+      "translation": "I am not saying that Anna stole the key.",
+      "ms": 335.5564000084996,
+      "error": null,
+      "metrics": {
+        "total_duration": 296738800,
+        "load_duration": 29423700,
+        "prompt_eval_count": 86,
+        "prompt_eval_duration": 57443000,
+        "eval_count": 11,
+        "eval_duration": 176574000,
+        "done_reason": "stop"
+      },
+      "review": {
+        "meaning": 4,
+        "fluency": 4,
+        "score": 100.0,
+        "note_cs": "Japonské vyjádření připouští „I am not saying“. Bez dalšího kontextu nepenalizuji čas.",
+        "note_en": "The Japanese wording permits “I am not saying”; no tense penalty without further context."
+      }
+    },
+    {
+      "id": "translategemma-4b-q4km-ja-en-s03",
+      "sentence_id": "s03",
+      "feature": "return for someone",
+      "model": "translategemma-4b-q4km",
+      "source_language": "ja",
+      "target_language": "en",
+      "source": "ここで待っていて。迎えに戻ってくる。",
+      "reference": "Wait here. I will come back for you.",
+      "translation": "Please wait here. I will return shortly.",
+      "ms": 273.0431000236422,
+      "error": null,
+      "metrics": {
+        "total_duration": 253755800,
+        "load_duration": 15432700,
+        "prompt_eval_count": 83,
+        "prompt_eval_duration": 55422000,
+        "eval_count": 10,
+        "eval_duration": 156817000,
+        "done_reason": "stop"
+      },
+      "review": {
+        "meaning": 3,
+        "fluency": 4,
+        "score": 87.5,
+        "note_cs": "Vynechává vyzvednutí adresáta a přidává „shortly“.",
+        "note_en": "Omits collecting the addressee and adds “shortly”."
+      }
+    },
+    {
+      "id": "translategemma-4b-q4km-ja-en-s04",
+      "sentence_id": "s04",
+      "feature": "collapsed bridge and crossing",
+      "model": "translategemma-4b-q4km",
+      "source_language": "ja",
+      "target_language": "en",
+      "source": "橋が崩れた。川を渡る別の道を探して。",
+      "reference": "The bridge has collapsed. Find another way across the river.",
+      "translation": "The bridge has collapsed. Look for another way to cross the river.",
+      "ms": 416.5324999485165,
+      "error": null,
+      "metrics": {
+        "total_duration": 383305100,
+        "load_duration": 38915800,
+        "prompt_eval_count": 89,
+        "prompt_eval_duration": 58153000,
+        "eval_count": 15,
+        "eval_duration": 240523000,
+        "done_reason": "stop"
+      },
+      "review": {
+        "meaning": 4,
+        "fluency": 4,
+        "score": 100.0,
+        "note_cs": "Význam je zachován a formulace je pro tento krátký vstup přirozená.",
+        "note_en": "Meaning is preserved and the wording is natural for this short input."
+      }
+    },
+    {
+      "id": "translategemma-4b-q4km-ja-en-s05",
+      "sentence_id": "s05",
+      "feature": "ordered instructions",
+      "model": "translategemma-4b-q4km",
+      "source_language": "ja",
+      "target_language": "en",
+      "source": "ボタンを3秒間押し続けてから離して。",
+      "reference": "Hold the button for three seconds, then release it.",
+      "translation": "Press and hold the button for 3 seconds, then release it.",
+      "ms": 392.12430000770837,
+      "error": null,
+      "metrics": {
+        "total_duration": 358516400,
+        "load_duration": 18071500,
+        "prompt_eval_count": 86,
+        "prompt_eval_duration": 70483000,
+        "eval_count": 15,
+        "eval_duration": 237234000,
+        "done_reason": "stop"
+      },
+      "review": {
+        "meaning": 4,
+        "fluency": 4,
+        "score": 100.0,
+        "note_cs": "Význam je zachován a formulace je pro tento krátký vstup přirozená.",
+        "note_en": "Meaning is preserved and the wording is natural for this short input."
+      }
+    },
+    {
+      "id": "translategemma-4b-q4km-ja-en-s06",
+      "sentence_id": "s06",
+      "feature": "quantity and warning",
+      "model": "translategemma-4b-q4km",
+      "source_language": "ja",
+      "target_language": "en",
+      "source": "矢はあと2本しかない。無駄にしないで。",
+      "reference": "There are only two arrows left. Do not waste them.",
+      "translation": "We only have two arrows left. Please don't waste them.",
+      "ms": 357.4367000255734,
+      "error": null,
+      "metrics": {
+        "total_duration": 341470100,
+        "load_duration": 14413600,
+        "prompt_eval_count": 87,
+        "prompt_eval_duration": 59015000,
+        "eval_count": 15,
+        "eval_duration": 240814000,
+        "done_reason": "stop"
+      },
+      "review": {
+        "meaning": 4,
+        "fluency": 4,
+        "score": 100.0,
+        "note_cs": "Význam je zachován a formulace je pro tento krátký vstup přirozená.",
+        "note_en": "Meaning is preserved and the wording is natural for this short input."
+      }
+    },
+    {
+      "id": "translategemma-4b-q4km-ja-en-s07",
+      "sentence_id": "s07",
+      "feature": "unless condition",
+      "model": "translategemma-4b-q4km",
+      "source_language": "ja",
+      "target_language": "en",
+      "source": "警報が鳴らない限り、車の中にいて。",
+      "reference": "Unless the alarm goes off, stay in the car.",
+      "translation": "Stay inside the vehicle until the alarm sounds.",
+      "ms": 274.2701000533998,
+      "error": null,
+      "metrics": {
+        "total_duration": 256518100,
+        "load_duration": 24883300,
+        "prompt_eval_count": 86,
+        "prompt_eval_duration": 59595000,
+        "eval_count": 10,
+        "eval_duration": 151730000,
+        "done_reason": "stop"
+      },
+      "review": {
+        "meaning": 4,
+        "fluency": 4,
+        "score": 100.0,
+        "note_cs": "Význam je zachován a formulace je pro tento krátký vstup přirozená.",
+        "note_en": "Meaning is preserved and the wording is natural for this short input."
+      }
+    },
+    {
+      "id": "translategemma-4b-q4km-ja-en-s08",
+      "sentence_id": "s08",
+      "feature": "names and recipient contrast",
+      "model": "translategemma-4b-q4km",
+      "source_language": "ja",
+      "target_language": "en",
+      "source": "青い薬はヴィクトルではなく、マラに渡して。",
+      "reference": "Give the blue potion to Mara, not to Viktor.",
+      "translation": "Give the blue medicine to Mala, not Viktor.",
+      "ms": 258.293200051412,
+      "error": null,
+      "metrics": {
+        "total_duration": 248624700,
+        "load_duration": 14735400,
+        "prompt_eval_count": 88,
+        "prompt_eval_duration": 53147000,
+        "eval_count": 11,
+        "eval_duration": 165702000,
+        "done_reason": "stop"
+      },
+      "review": {
+        "meaning": 4,
+        "fluency": 4,
+        "score": 100.0,
+        "note_cs": "„薬“ lze přeložit jako medicine. Přepis マラ jako Mala je bez slovníku přípustný.",
+        "note_en": "“薬” permits medicine. Rendering マラ as Mala is acceptable without a supplied name glossary."
+      }
+    },
+    {
+      "id": "translategemma-4b-q4km-ja-en-s09",
+      "sentence_id": "s09",
+      "feature": "past versus present allegiance",
+      "model": "translategemma-4b-q4km",
+      "source_language": "ja",
+      "target_language": "en",
+      "source": "あの衛兵は以前は敵だった。今は私たちを助けてくれている。",
+      "reference": "The guard used to be our enemy. Now he is helping us.",
+      "translation": "That guard was an enemy in the past, but now he is helping us.",
+      "ms": 383.9069000678137,
+      "error": null,
+      "metrics": {
+        "total_duration": 369019000,
+        "load_duration": 12376200,
+        "prompt_eval_count": 92,
+        "prompt_eval_duration": 59427000,
+        "eval_count": 17,
+        "eval_duration": 275799000,
+        "done_reason": "stop"
+      },
+      "review": {
+        "meaning": 4,
+        "fluency": 4,
+        "score": 100.0,
+        "note_cs": "Význam je zachován a formulace je pro tento krátký vstup přirozená.",
+        "note_en": "Meaning is preserved and the wording is natural for this short input."
+      }
+    },
+    {
+      "id": "translategemma-4b-q4km-ja-en-s10",
+      "sentence_id": "s10",
+      "feature": "time and location",
+      "model": "translategemma-4b-q4km",
+      "source_language": "ja",
+      "target_language": "en",
+      "source": "18時45分に7番ホームで会おう。",
+      "reference": "Meet me at platform seven at 18:45.",
+      "translation": "Let's meet at platform 7 at 6:45 PM.",
+      "ms": 431.2431000871584,
+      "error": null,
+      "metrics": {
+        "total_duration": 399529700,
+        "load_duration": 16425600,
+        "prompt_eval_count": 89,
+        "prompt_eval_duration": 58891000,
+        "eval_count": 17,
+        "eval_duration": 281823000,
+        "done_reason": "stop"
+      },
+      "review": {
+        "meaning": 4,
+        "fluency": 4,
+        "score": 100.0,
+        "note_cs": "Význam je zachován a formulace je pro tento krátký vstup přirozená.",
+        "note_en": "Meaning is preserved and the wording is natural for this short input."
+      }
+    },
+    {
+      "id": "translategemma-4b-q4km-ja-en-s11",
+      "sentence_id": "s11",
+      "feature": "idiom and simultaneous action",
+      "model": "translategemma-4b-q4km",
+      "source_language": "ja",
+      "target_language": "en",
+      "source": "エンジンを修理している間、ドアを見張っていて。",
+      "reference": "Keep an eye on the door while I repair the engine.",
+      "translation": "While the engine is being repaired, I'm keeping an eye on the doors.",
+      "ms": 515.3133999556303,
+      "error": null,
+      "metrics": {
+        "total_duration": 483542500,
+        "load_duration": 29076700,
+        "prompt_eval_count": 86,
+        "prompt_eval_duration": 110226000,
+        "eval_count": 18,
+        "eval_duration": 291662000,
+        "done_reason": "stop"
+      },
+      "review": {
+        "meaning": 2,
+        "fluency": 4,
+        "score": 75.0,
+        "note_cs": "Pokyn adresátovi mění na tvrzení mluvčího, že dveře hlídá on. Oprava je navíc v trpném rodě.",
+        "note_en": "Changes an instruction to the addressee into a claim that the speaker is watching the doors; also makes the repair passive."
+      }
+    },
+    {
+      "id": "translategemma-4b-q4km-ja-en-s12",
+      "sentence_id": "s12",
+      "feature": "near miss idiom",
+      "model": "translategemma-4b-q4km",
+      "source_language": "ja",
+      "target_language": "en",
+      "source": "危なかった！もう少しで罠にかかるところだった。",
+      "reference": "That was close! We nearly fell into the trap.",
+      "translation": "That was close! We almost fell into the trap.",
+      "ms": 332.7830000780523,
+      "error": null,
+      "metrics": {
+        "total_duration": 317638300,
+        "load_duration": 28974600,
+        "prompt_eval_count": 87,
+        "prompt_eval_duration": 62119000,
+        "eval_count": 12,
+        "eval_duration": 190648000,
+        "done_reason": "stop"
+      },
+      "review": {
+        "meaning": 4,
+        "fluency": 4,
+        "score": 100.0,
+        "note_cs": "Význam je zachován a formulace je pro tento krátký vstup přirozená.",
+        "note_en": "Meaning is preserved and the wording is natural for this short input."
+      }
+    },
+    {
+      "id": "translategemma-4b-q4km-cs-ja-s01",
+      "sentence_id": "s01",
+      "feature": "negation and time",
+      "model": "translategemma-4b-q4km",
+      "source_language": "cs",
+      "target_language": "ja",
+      "source": "Neotvírej červené dveře. Máme pět minut.",
+      "reference": "赤いドアを開けないで。あと5分ある。",
+      "translation": "赤いドアは開けないでください。残り時間が5分です。",
+      "ms": 418.2188000995666,
+      "error": null,
+      "metrics": {
+        "total_duration": 377143400,
+        "load_duration": 22508200,
+        "prompt_eval_count": 90,
+        "prompt_eval_duration": 75101000,
+        "eval_count": 15,
+        "eval_duration": 245706000,
+        "done_reason": "stop"
+      },
+      "review": {
+        "meaning": 4,
+        "fluency": 4,
+        "score": 100.0,
+        "note_cs": "Význam je zachován a formulace je pro tento krátký vstup přirozená.",
+        "note_en": "Meaning is preserved and the wording is natural for this short input."
+      }
+    },
+    {
+      "id": "translategemma-4b-q4km-cs-ja-s02",
+      "sentence_id": "s02",
+      "feature": "negated reported speech",
+      "model": "translategemma-4b-q4km",
+      "source_language": "cs",
+      "target_language": "ja",
+      "source": "Neřekl jsem, že Anna ukradla klíč.",
+      "reference": "アンナが鍵を盗んだとは言っていない。",
+      "translation": "私は、アンナが鍵を盗んだと主張したわけではありません。",
+      "ms": 516.3475000299513,
+      "error": null,
+      "metrics": {
+        "total_duration": 461983100,
+        "load_duration": 74490700,
+        "prompt_eval_count": 89,
+        "prompt_eval_duration": 66825999,
+        "eval_count": 16,
+        "eval_duration": 258053000,
+        "done_reason": "stop"
+      },
+      "review": {
+        "meaning": 3,
+        "fluency": 4,
+        "score": 87.5,
+        "note_cs": "Negaci zachovává, ale „neřekl“ mění na silnější popření tvrzení.",
+        "note_en": "Preserves negation but shifts “did not say” toward the stronger denial of a claim."
+      }
+    },
+    {
+      "id": "translategemma-4b-q4km-cs-ja-s03",
+      "sentence_id": "s03",
+      "feature": "return for someone",
+      "model": "translategemma-4b-q4km",
+      "source_language": "cs",
+      "target_language": "ja",
+      "source": "Počkej tady. Vrátím se pro tebe.",
+      "reference": "ここで待っていて。迎えに戻ってくる。",
+      "translation": "ここに待っていてください。後で戻ってきます。",
+      "ms": 340.3501999564469,
+      "error": null,
+      "metrics": {
+        "total_duration": 312052300,
+        "load_duration": 24828400,
+        "prompt_eval_count": 88,
+        "prompt_eval_duration": 55694000,
+        "eval_count": 12,
+        "eval_duration": 192681000,
+        "done_reason": "stop"
+      },
+      "review": {
+        "meaning": 3,
+        "fluency": 3,
+        "score": 75.0,
+        "note_cs": "Vynechává „pro tebe“; „ここに待って“ je méně přirozené než ここで待って.",
+        "note_en": "Omits “for you”; “ここに待って” is less natural than ここで待って."
+      }
+    },
+    {
+      "id": "translategemma-4b-q4km-cs-ja-s04",
+      "sentence_id": "s04",
+      "feature": "collapsed bridge and crossing",
+      "model": "translategemma-4b-q4km",
+      "source_language": "cs",
+      "target_language": "ja",
+      "source": "Most se zřítil. Najdi jinou cestu přes řeku.",
+      "reference": "橋が崩れた。川を渡る別の道を探して。",
+      "translation": "橋が崩れてしまいました。別の川を渡る方法を探してください。",
+      "ms": 404.6449000015855,
+      "error": null,
+      "metrics": {
+        "total_duration": 381368300,
+        "load_duration": 20748100,
+        "prompt_eval_count": 92,
+        "prompt_eval_duration": 58217000,
+        "eval_count": 16,
+        "eval_duration": 252725000,
+        "done_reason": "stop"
+      },
+      "review": {
+        "meaning": 3,
+        "fluency": 3,
+        "score": 75.0,
+        "note_cs": "„別の川を渡る方法“ může znamenat přechod jiné řeky. Umístění „別の“ znejasňuje jinou cestu.",
+        "note_en": "“別の川を渡る方法” can imply crossing another river. Placement of “別の” makes the alternate route ambiguous."
+      }
+    },
+    {
+      "id": "translategemma-4b-q4km-cs-ja-s05",
+      "sentence_id": "s05",
+      "feature": "ordered instructions",
+      "model": "translategemma-4b-q4km",
+      "source_language": "cs",
+      "target_language": "ja",
+      "source": "Drž tlačítko tři sekundy a pak ho pusť.",
+      "reference": "ボタンを3秒間押し続けてから離して。",
+      "translation": "ボタンを3秒間長押しし、その後ボタンを離してください。",
+      "ms": 385.04889991600066,
+      "error": null,
+      "metrics": {
+        "total_duration": 365884900,
+        "load_duration": 15557500,
+        "prompt_eval_count": 89,
+        "prompt_eval_duration": 55562000,
+        "eval_count": 16,
+        "eval_duration": 253990000,
+        "done_reason": "stop"
+      },
+      "review": {
+        "meaning": 4,
+        "fluency": 4,
+        "score": 100.0,
+        "note_cs": "Význam je zachován a formulace je pro tento krátký vstup přirozená.",
+        "note_en": "Meaning is preserved and the wording is natural for this short input."
+      }
+    },
+    {
+      "id": "translategemma-4b-q4km-cs-ja-s06",
+      "sentence_id": "s06",
+      "feature": "quantity and warning",
+      "model": "translategemma-4b-q4km",
+      "source_language": "cs",
+      "target_language": "ja",
+      "source": "Zbývají jen dva šípy. Neplýtvej jimi.",
+      "reference": "矢はあと2本しかない。無駄にしないで。",
+      "translation": "残っているのは2本の茎だけです。大切に使ってください。",
+      "ms": 349.53959996346384,
+      "error": null,
+      "metrics": {
+        "total_duration": 306748500,
+        "load_duration": 17928600,
+        "prompt_eval_count": 91,
+        "prompt_eval_duration": 53833000,
+        "eval_count": 14,
+        "eval_duration": 215329000,
+        "done_reason": "stop"
+      },
+      "review": {
+        "meaning": 2,
+        "fluency": 4,
+        "score": 75.0,
+        "note_cs": "Šípy nahrazuje stonky. Počet dvě a šetrné použití zůstávají.",
+        "note_en": "Replaces arrows with stems. Retains the count of two and careful use."
+      }
+    },
+    {
+      "id": "translategemma-4b-q4km-cs-ja-s07",
+      "sentence_id": "s07",
+      "feature": "unless condition",
+      "model": "translategemma-4b-q4km",
+      "source_language": "cs",
+      "target_language": "ja",
+      "source": "Pokud se nespustí alarm, zůstaň v autě.",
+      "reference": "警報が鳴らない限り、車の中にいて。",
+      "translation": "警報が作動しない場合は、車内に留まってください。",
+      "ms": 345.97499994561076,
+      "error": null,
+      "metrics": {
+        "total_duration": 327454600,
+        "load_duration": 13860100,
+        "prompt_eval_count": 90,
+        "prompt_eval_duration": 54676000,
+        "eval_count": 15,
+        "eval_duration": 237796000,
+        "done_reason": "stop"
+      },
+      "review": {
+        "meaning": 4,
+        "fluency": 4,
+        "score": 100.0,
+        "note_cs": "Význam je zachován a formulace je pro tento krátký vstup přirozená.",
+        "note_en": "Meaning is preserved and the wording is natural for this short input."
+      }
+    },
+    {
+      "id": "translategemma-4b-q4km-cs-ja-s08",
+      "sentence_id": "s08",
+      "feature": "names and recipient contrast",
+      "model": "translategemma-4b-q4km",
+      "source_language": "cs",
+      "target_language": "ja",
+      "source": "Dej modrý lektvar Maře, ne Viktorovi.",
+      "reference": "青い薬はヴィクトルではなく、マラに渡して。",
+      "translation": "マリーに青いペンを渡してください。ヴィクトルには渡さないで。",
+      "ms": 432.5841999379918,
+      "error": null,
+      "metrics": {
+        "total_duration": 410372300,
+        "load_duration": 20717700,
+        "prompt_eval_count": 90,
+        "prompt_eval_duration": 59655000,
+        "eval_count": 18,
+        "eval_duration": 287798000,
+        "done_reason": "stop"
+      },
+      "review": {
+        "meaning": 1,
+        "fluency": 4,
+        "score": 62.5,
+        "note_cs": "Lektvar mění na pero a Maru na Marii. Zachová modrou barvu a vyloučení Viktora.",
+        "note_en": "Changes the potion into a pen and Mara into Marie. Retains blue and the exclusion of Viktor."
+      }
+    },
+    {
+      "id": "translategemma-4b-q4km-cs-ja-s09",
+      "sentence_id": "s09",
+      "feature": "past versus present allegiance",
+      "model": "translategemma-4b-q4km",
+      "source_language": "cs",
+      "target_language": "ja",
+      "source": "Strážný býval naším nepřítelem. Teď nám pomáhá.",
+      "reference": "あの衛兵は以前は敵だった。今は私たちを助けてくれている。",
+      "translation": "かつては私たちにとって敵だった警備員ですが、今は私たちを助けてくれています。",
+      "ms": 451.4847999671474,
+      "error": null,
+      "metrics": {
+        "total_duration": 438607700,
+        "load_duration": 13903800,
+        "prompt_eval_count": 93,
+        "prompt_eval_duration": 66483999,
+        "eval_count": 21,
+        "eval_duration": 335842000,
+        "done_reason": "stop"
+      },
+      "review": {
+        "meaning": 4,
+        "fluency": 4,
+        "score": 100.0,
+        "note_cs": "Význam je zachován a formulace je pro tento krátký vstup přirozená.",
+        "note_en": "Meaning is preserved and the wording is natural for this short input."
+      }
+    },
+    {
+      "id": "translategemma-4b-q4km-cs-ja-s10",
+      "sentence_id": "s10",
+      "feature": "time and location",
+      "model": "translategemma-4b-q4km",
+      "source_language": "cs",
+      "target_language": "ja",
+      "source": "Sejdeme se v 18:45 na sedmém nástupišti.",
+      "reference": "18時45分に7番ホームで会おう。",
+      "translation": "18時45分に、7番のプラットフォームで待ち合わせます。",
+      "ms": 401.84589999262244,
+      "error": null,
+      "metrics": {
+        "total_duration": 388451000,
+        "load_duration": 11529700,
+        "prompt_eval_count": 95,
+        "prompt_eval_duration": 52711000,
+        "eval_count": 19,
+        "eval_duration": 301127000,
+        "done_reason": "stop"
+      },
+      "review": {
+        "meaning": 4,
+        "fluency": 4,
+        "score": 100.0,
+        "note_cs": "Význam je zachován a formulace je pro tento krátký vstup přirozená.",
+        "note_en": "Meaning is preserved and the wording is natural for this short input."
+      }
+    },
+    {
+      "id": "translategemma-4b-q4km-cs-ja-s11",
+      "sentence_id": "s11",
+      "feature": "idiom and simultaneous action",
+      "model": "translategemma-4b-q4km",
+      "source_language": "cs",
+      "target_language": "ja",
+      "source": "Hlídej dveře, zatímco opravuji motor.",
+      "reference": "エンジンを修理している間、ドアを見張っていて。",
+      "translation": "エンジンを修理している間、ドアの鍵を握っていて、何かあった場合に備えてください。",
+      "ms": 438.69619991164654,
+      "error": null,
+      "metrics": {
+        "total_duration": 423608300,
+        "load_duration": 15513100,
+        "prompt_eval_count": 87,
+        "prompt_eval_duration": 54540000,
+        "eval_count": 21,
+        "eval_duration": 331465000,
+        "done_reason": "stop"
+      },
+      "review": {
+        "meaning": 1,
+        "fluency": 3,
+        "score": 50.0,
+        "note_cs": "Vymýšlí držení klíče od dveří a přípravu na případnou událost; původní hlídání dveří mizí.",
+        "note_en": "Invents holding a door key and preparing for an event; loses the original instruction to watch the door."
+      }
+    },
+    {
+      "id": "translategemma-4b-q4km-cs-ja-s12",
+      "sentence_id": "s12",
+      "feature": "near miss idiom",
+      "model": "translategemma-4b-q4km",
+      "source_language": "cs",
+      "target_language": "ja",
+      "source": "To bylo o fous! Málem jsme spadli do pasti.",
+      "reference": "危なかった！もう少しで罠にかかるところだった。",
+      "translation": "ほんのわずかな差だった！私たちはまさに罠に陥る寸前だった。",
+      "ms": 412.5263999449089,
+      "error": null,
+      "metrics": {
+        "total_duration": 384854800,
+        "load_duration": 13004300,
+        "prompt_eval_count": 88,
+        "prompt_eval_duration": 53970000,
+        "eval_count": 18,
+        "eval_duration": 283751000,
+        "done_reason": "stop"
+      },
+      "review": {
+        "meaning": 4,
+        "fluency": 3,
+        "score": 87.5,
+        "note_cs": "Význam těsného úniku je zachován; první zvolání působí doslovně a strojeně.",
+        "note_en": "Preserves the narrow escape; the first exclamation is literal and stilted."
+      }
+    },
+    {
+      "id": "translategemma-4b-q4km-ja-cs-s01",
+      "sentence_id": "s01",
+      "feature": "negation and time",
+      "model": "translategemma-4b-q4km",
+      "source_language": "ja",
+      "target_language": "cs",
+      "source": "赤いドアを開けないで。あと5分ある。",
+      "reference": "Neotvírej červené dveře. Máme pět minut.",
+      "translation": "Neotvírejte červenou dveř. Zbývá ještě 5 minut.",
+      "ms": 391.76019991282374,
+      "error": null,
+      "metrics": {
+        "total_duration": 378153800,
+        "load_duration": 16284600,
+        "prompt_eval_count": 86,
+        "prompt_eval_duration": 49267000,
+        "eval_count": 19,
+        "eval_duration": 294623000,
+        "done_reason": "stop"
+      },
+      "review": {
+        "meaning": 4,
+        "fluency": 2,
+        "score": 75.0,
+        "note_cs": "„Červenou dveř“ je chybný český tvar. Zákaz a zbývající čas jsou zachovány.",
+        "note_en": "“Červenou dveř” is incorrect Czech. Preserves the prohibition and remaining time."
+      }
+    },
+    {
+      "id": "translategemma-4b-q4km-ja-cs-s02",
+      "sentence_id": "s02",
+      "feature": "negated reported speech",
+      "model": "translategemma-4b-q4km",
+      "source_language": "ja",
+      "target_language": "cs",
+      "source": "アンナが鍵を盗んだとは言っていない。",
+      "reference": "Neřekl jsem, že Anna ukradla klíč.",
+      "translation": "Neříkám, že Anna ukradla klíče.",
+      "ms": 357.7551000053063,
+      "error": null,
+      "metrics": {
+        "total_duration": 330490600,
+        "load_duration": 16227400,
+        "prompt_eval_count": 86,
+        "prompt_eval_duration": 54460000,
+        "eval_count": 15,
+        "eval_duration": 239047000,
+        "done_reason": "stop"
+      },
+      "review": {
+        "meaning": 4,
+        "fluency": 4,
+        "score": 100.0,
+        "note_cs": "Japonština neurčuje počet klíčů jednoznačně; čas a množné číslo bez kontextu nepenalizuji.",
+        "note_en": "Japanese does not unambiguously specify the number of keys; tense and plural are not penalized without context."
+      }
+    },
+    {
+      "id": "translategemma-4b-q4km-ja-cs-s03",
+      "sentence_id": "s03",
+      "feature": "return for someone",
+      "model": "translategemma-4b-q4km",
+      "source_language": "ja",
+      "target_language": "cs",
+      "source": "ここで待っていて。迎えに戻ってくる。",
+      "reference": "Počkej tady. Vrátím se pro tebe.",
+      "translation": "Zde počkejte. Já se vrátím.",
+      "ms": 325.7148000411689,
+      "error": null,
+      "metrics": {
+        "total_duration": 302100400,
+        "load_duration": 16876900,
+        "prompt_eval_count": 83,
+        "prompt_eval_duration": 62511000,
+        "eval_count": 12,
+        "eval_duration": 188736000,
+        "done_reason": "stop"
+      },
+      "review": {
+        "meaning": 3,
+        "fluency": 4,
+        "score": 87.5,
+        "note_cs": "Chybí, že se mluvčí vrací adresáta vyzvednout.",
+        "note_en": "Omits that the speaker is returning to collect the addressee."
+      }
+    },
+    {
+      "id": "translategemma-4b-q4km-ja-cs-s04",
+      "sentence_id": "s04",
+      "feature": "collapsed bridge and crossing",
+      "model": "translategemma-4b-q4km",
+      "source_language": "ja",
+      "target_language": "cs",
+      "source": "橋が崩れた。川を渡る別の道を探して。",
+      "reference": "Most se zřítil. Najdi jinou cestu přes řeku.",
+      "translation": "Most se zřítil. Hledejte jinou cestu přes řeku.",
+      "ms": 499.37850004062057,
+      "error": null,
+      "metrics": {
+        "total_duration": 458247700,
+        "load_duration": 17576400,
+        "prompt_eval_count": 89,
+        "prompt_eval_duration": 58945000,
+        "eval_count": 20,
+        "eval_duration": 326587000,
+        "done_reason": "stop"
+      },
+      "review": {
+        "meaning": 4,
+        "fluency": 4,
+        "score": 100.0,
+        "note_cs": "Význam je zachován a formulace je pro tento krátký vstup přirozená.",
+        "note_en": "Meaning is preserved and the wording is natural for this short input."
+      }
+    },
+    {
+      "id": "translategemma-4b-q4km-ja-cs-s05",
+      "sentence_id": "s05",
+      "feature": "ordered instructions",
+      "model": "translategemma-4b-q4km",
+      "source_language": "ja",
+      "target_language": "cs",
+      "source": "ボタンを3秒間押し続けてから離して。",
+      "reference": "Drž tlačítko tři sekundy a pak ho pusť.",
+      "translation": "Stiskněte tlačítko a držte ho po dobu 3 sekund, poté jej uvolněte.",
+      "ms": 570.6419000634924,
+      "error": null,
+      "metrics": {
+        "total_duration": 550913000,
+        "load_duration": 39341800,
+        "prompt_eval_count": 86,
+        "prompt_eval_duration": 55731000,
+        "eval_count": 26,
+        "eval_duration": 415024000,
+        "done_reason": "stop"
+      },
+      "review": {
+        "meaning": 4,
+        "fluency": 4,
+        "score": 100.0,
+        "note_cs": "Význam je zachován a formulace je pro tento krátký vstup přirozená.",
+        "note_en": "Meaning is preserved and the wording is natural for this short input."
+      }
+    },
+    {
+      "id": "translategemma-4b-q4km-ja-cs-s06",
+      "sentence_id": "s06",
+      "feature": "quantity and warning",
+      "model": "translategemma-4b-q4km",
+      "source_language": "ja",
+      "target_language": "cs",
+      "source": "矢はあと2本しかない。無駄にしないで。",
+      "reference": "Zbývají jen dva šípy. Neplýtvej jimi.",
+      "translation": "Zbývají nám pouze dvě šípy. Nepoužívejte je zbytečně.",
+      "ms": 465.06269997917116,
+      "error": null,
+      "metrics": {
+        "total_duration": 428393800,
+        "load_duration": 10830600,
+        "prompt_eval_count": 87,
+        "prompt_eval_duration": 53399000,
+        "eval_count": 21,
+        "eval_duration": 330569000,
+        "done_reason": "stop"
+      },
+      "review": {
+        "meaning": 4,
+        "fluency": 2,
+        "score": 75.0,
+        "note_cs": "Význam a počet zachovány; „dvě šípy“ má chybnou shodu.",
+        "note_en": "Preserves meaning and number; “dvě šípy” has incorrect agreement."
+      }
+    },
+    {
+      "id": "translategemma-4b-q4km-ja-cs-s07",
+      "sentence_id": "s07",
+      "feature": "unless condition",
+      "model": "translategemma-4b-q4km",
+      "source_language": "ja",
+      "target_language": "cs",
+      "source": "警報が鳴らない限り、車の中にいて。",
+      "reference": "Pokud se nespustí alarm, zůstaň v autě.",
+      "translation": "Zůstaňte uvnitř vozidla, dokud nezní varovný signál.",
+      "ms": 482.04559995792806,
+      "error": null,
+      "metrics": {
+        "total_duration": 453317700,
+        "load_duration": 35429500,
+        "prompt_eval_count": 86,
+        "prompt_eval_duration": 54830000,
+        "eval_count": 21,
+        "eval_duration": 334467000,
+        "done_reason": "stop"
+      },
+      "review": {
+        "meaning": 2,
+        "fluency": 2,
+        "score": 50.0,
+        "note_cs": "„Dokud nezní“ znejasňuje podmínku, že v autě mají zůstat, dokud alarm nezazní.",
+        "note_en": "“Dokud nezní” obscures the condition to remain in the car until the alarm sounds."
+      }
+    },
+    {
+      "id": "translategemma-4b-q4km-ja-cs-s08",
+      "sentence_id": "s08",
+      "feature": "names and recipient contrast",
+      "model": "translategemma-4b-q4km",
+      "source_language": "ja",
+      "target_language": "cs",
+      "source": "青い薬はヴィクトルではなく、マラに渡して。",
+      "reference": "Dej modrý lektvar Maře, ne Viktorovi.",
+      "translation": "Modré léky dej Maru, ne Viktoru.",
+      "ms": 334.90559994243085,
+      "error": null,
+      "metrics": {
+        "total_duration": 319166900,
+        "load_duration": 17805000,
+        "prompt_eval_count": 88,
+        "prompt_eval_duration": 65500000,
+        "eval_count": 13,
+        "eval_duration": 200267000,
+        "done_reason": "stop"
+      },
+      "review": {
+        "meaning": 4,
+        "fluency": 2,
+        "score": 75.0,
+        "note_cs": "„Léky“ odpovídají 薬, ale oslovení příjemců má chybné pády: „Maru“, „Viktoru“.",
+        "note_en": "“Léky” fits 薬, but the recipients’ names have incorrect case forms: “Maru”, “Viktoru”."
+      }
+    },
+    {
+      "id": "translategemma-4b-q4km-ja-cs-s09",
+      "sentence_id": "s09",
+      "feature": "past versus present allegiance",
+      "model": "translategemma-4b-q4km",
+      "source_language": "ja",
+      "target_language": "cs",
+      "source": "あの衛兵は以前は敵だった。今は私たちを助けてくれている。",
+      "reference": "Strážný býval naším nepřítelem. Teď nám pomáhá.",
+      "translation": "Ti strážci, kteří byli dříve nepřátelé, nám nyní pomáhají.",
+      "ms": 453.2751999795437,
+      "error": null,
+      "metrics": {
+        "total_duration": 426939200,
+        "load_duration": 21860200,
+        "prompt_eval_count": 92,
+        "prompt_eval_duration": 54809000,
+        "eval_count": 20,
+        "eval_duration": 316550000,
+        "done_reason": "stop"
+      },
+      "review": {
+        "meaning": 3,
+        "fluency": 4,
+        "score": 87.5,
+        "note_cs": "Jednoho strážného mění na více strážců. Změna vztahu k nim je zachována.",
+        "note_en": "Changes one guard into multiple guards. Preserves the change in allegiance."
+      }
+    },
+    {
+      "id": "translategemma-4b-q4km-ja-cs-s10",
+      "sentence_id": "s10",
+      "feature": "time and location",
+      "model": "translategemma-4b-q4km",
+      "source_language": "ja",
+      "target_language": "cs",
+      "source": "18時45分に7番ホームで会おう。",
+      "reference": "Sejdeme se v 18:45 na sedmém nástupišti.",
+      "translation": "Setkáváme se v 18:45 na 7. nástupi.",
+      "ms": 444.345899973996,
+      "error": null,
+      "metrics": {
+        "total_duration": 420593800,
+        "load_duration": 14326700,
+        "prompt_eval_count": 89,
+        "prompt_eval_duration": 68835000,
+        "eval_count": 20,
+        "eval_duration": 318300000,
+        "done_reason": "stop"
+      },
+      "review": {
+        "meaning": 4,
+        "fluency": 2,
+        "score": 75.0,
+        "note_cs": "Čas i číslo nástupiště správně, ale „na 7. nástupi“ je zkomolené.",
+        "note_en": "Time and platform number are correct, but “na 7. nástupi” is malformed."
+      }
+    },
+    {
+      "id": "translategemma-4b-q4km-ja-cs-s11",
+      "sentence_id": "s11",
+      "feature": "idiom and simultaneous action",
+      "model": "translategemma-4b-q4km",
+      "source_language": "ja",
+      "target_language": "cs",
+      "source": "エンジンを修理している間、ドアを見張っていて。",
+      "reference": "Hlídej dveře, zatímco opravuji motor.",
+      "translation": "Během oprav motoru jsem dohlížel na dveře.",
+      "ms": 346.3578999508172,
+      "error": null,
+      "metrics": {
+        "total_duration": 335387200,
+        "load_duration": 11757300,
+        "prompt_eval_count": 86,
+        "prompt_eval_duration": 52559000,
+        "eval_count": 16,
+        "eval_duration": 252594000,
+        "done_reason": "stop"
+      },
+      "review": {
+        "meaning": 2,
+        "fluency": 4,
+        "score": 75.0,
+        "note_cs": "Z výzvy k hlídání při opravě dělá minulý popis činnosti mluvčího.",
+        "note_en": "Turns an instruction to watch during the repair into a past account of the speaker’s actions."
+      }
+    },
+    {
+      "id": "translategemma-4b-q4km-ja-cs-s12",
+      "sentence_id": "s12",
+      "feature": "near miss idiom",
+      "model": "translategemma-4b-q4km",
+      "source_language": "ja",
+      "target_language": "cs",
+      "source": "危なかった！もう少しで罠にかかるところだった。",
+      "reference": "To bylo o fous! Málem jsme spadli do pasti.",
+      "translation": "Byl jsem v nebezpečí! Byla jsem o krok od toho, abych se dostala do pasti.",
+      "ms": 531.3424000050873,
+      "error": null,
+      "metrics": {
+        "total_duration": 510640800,
+        "load_duration": 10835200,
+        "prompt_eval_count": 87,
+        "prompt_eval_duration": 56180000,
+        "eval_count": 26,
+        "eval_duration": 422038000,
+        "done_reason": "stop"
+      },
+      "review": {
+        "meaning": 2,
+        "fluency": 2,
+        "score": 50.0,
+        "note_cs": "Mění skupinu na jednu osobu a přeskakuje mezi mužským a ženským rodem.",
+        "note_en": "Changes the group into one person and switches between masculine and feminine gender."
+      }
+    },
+    {
+      "id": "translategemma-4b-q4km-en-de-s01",
+      "sentence_id": "s01",
+      "feature": "negation and time",
+      "model": "translategemma-4b-q4km",
+      "source_language": "en",
+      "target_language": "de",
+      "source": "Do not open the red door. We have five minutes.",
+      "reference": "Öffne nicht die rote Tür. Wir haben fünf Minuten.",
+      "translation": "Bitte öffnen Sie nicht die rote Tür. Wir haben nur fünf Minuten.",
+      "ms": 351.095600053668,
+      "error": null,
+      "metrics": {
+        "total_duration": 333257500,
+        "load_duration": 10889700,
+        "prompt_eval_count": 87,
+        "prompt_eval_duration": 50115000,
+        "eval_count": 15,
+        "eval_duration": 241304000,
+        "done_reason": "stop"
+      },
+      "review": {
+        "meaning": 3,
+        "fluency": 4,
+        "score": 87.5,
+        "note_cs": "Přidává „nur“ (jen), které není v anglickém vstupu.",
+        "note_en": "Adds “nur” (only), which is not in the English input."
+      }
+    },
+    {
+      "id": "translategemma-4b-q4km-en-de-s02",
+      "sentence_id": "s02",
+      "feature": "negated reported speech",
+      "model": "translategemma-4b-q4km",
+      "source_language": "en",
+      "target_language": "de",
+      "source": "I did not say that Anna stole the key.",
+      "reference": "Ich habe nicht gesagt, dass Anna den Schlüssel gestohlen hat.",
+      "translation": "Ich habe nicht gesagt, dass Anna den Schlüssel gestohlen hat.",
+      "ms": 386.79270003922284,
+      "error": null,
+      "metrics": {
+        "total_duration": 346211500,
+        "load_duration": 27891600,
+        "prompt_eval_count": 85,
+        "prompt_eval_duration": 61703000,
+        "eval_count": 15,
+        "eval_duration": 233966000,
+        "done_reason": "stop"
+      },
+      "review": {
+        "meaning": 4,
+        "fluency": 4,
+        "score": 100.0,
+        "note_cs": "Význam je zachován a formulace je pro tento krátký vstup přirozená.",
+        "note_en": "Meaning is preserved and the wording is natural for this short input."
+      }
+    },
+    {
+      "id": "translategemma-4b-q4km-en-de-s03",
+      "sentence_id": "s03",
+      "feature": "return for someone",
+      "model": "translategemma-4b-q4km",
+      "source_language": "en",
+      "target_language": "de",
+      "source": "Wait here. I will come back for you.",
+      "reference": "Warte hier. Ich komme zurück, um dich abzuholen.",
+      "translation": "Warten Sie hier. Ich komme bald wieder.",
+      "ms": 272.4804999306798,
+      "error": null,
+      "metrics": {
+        "total_duration": 254302400,
+        "load_duration": 9690500,
+        "prompt_eval_count": 85,
+        "prompt_eval_duration": 53003000,
+        "eval_count": 11,
+        "eval_duration": 167967000,
+        "done_reason": "stop"
+      },
+      "review": {
+        "meaning": 3,
+        "fluency": 4,
+        "score": 87.5,
+        "note_cs": "Vynechává návrat pro adresáta a přidává „bald“ (brzy).",
+        "note_en": "Omits returning for the addressee and adds “bald” (soon)."
+      }
+    },
+    {
+      "id": "translategemma-4b-q4km-en-de-s04",
+      "sentence_id": "s04",
+      "feature": "collapsed bridge and crossing",
+      "model": "translategemma-4b-q4km",
+      "source_language": "en",
+      "target_language": "de",
+      "source": "The bridge has collapsed. Find another way across the river.",
+      "reference": "Die Brücke ist eingestürzt. Finde einen anderen Weg über den Fluss.",
+      "translation": "Die Brücke ist eingestürzt. Suchen Sie einen anderen Weg, um den Fluss zu überqueren.",
+      "ms": 526.9157000584528,
+      "error": null,
+      "metrics": {
+        "total_duration": 511657500,
+        "load_duration": 35811700,
+        "prompt_eval_count": 87,
+        "prompt_eval_duration": 58275000,
+        "eval_count": 24,
+        "eval_duration": 385728000,
+        "done_reason": "stop"
+      },
+      "review": {
+        "meaning": 4,
+        "fluency": 4,
+        "score": 100.0,
+        "note_cs": "Význam je zachován a formulace je pro tento krátký vstup přirozená.",
+        "note_en": "Meaning is preserved and the wording is natural for this short input."
+      }
+    },
+    {
+      "id": "translategemma-4b-q4km-en-de-s05",
+      "sentence_id": "s05",
+      "feature": "ordered instructions",
+      "model": "translategemma-4b-q4km",
+      "source_language": "en",
+      "target_language": "de",
+      "source": "Hold the button for three seconds, then release it.",
+      "reference": "Halte die Taste drei Sekunden lang gedrückt und lasse sie dann los.",
+      "translation": "Drücken Sie die Taste für drei Sekunden, und lassen Sie sie dann los.",
+      "ms": 385.3871999308467,
+      "error": null,
+      "metrics": {
+        "total_duration": 369878500,
+        "load_duration": 16011200,
+        "prompt_eval_count": 86,
+        "prompt_eval_duration": 63216000,
+        "eval_count": 17,
+        "eval_duration": 262404999,
+        "done_reason": "stop"
+      },
+      "review": {
+        "meaning": 4,
+        "fluency": 4,
+        "score": 100.0,
+        "note_cs": "Význam je zachován a formulace je pro tento krátký vstup přirozená.",
+        "note_en": "Meaning is preserved and the wording is natural for this short input."
+      }
+    },
+    {
+      "id": "translategemma-4b-q4km-en-de-s06",
+      "sentence_id": "s06",
+      "feature": "quantity and warning",
+      "model": "translategemma-4b-q4km",
+      "source_language": "en",
+      "target_language": "de",
+      "source": "There are only two arrows left. Do not waste them.",
+      "reference": "Es sind nur noch zwei Pfeile übrig. Verschwende sie nicht.",
+      "translation": "Es gibt nur noch zwei Pfeile übrig. Verschwenden Sie diese nicht.",
+      "ms": 362.9867999115959,
+      "error": null,
+      "metrics": {
+        "total_duration": 340139800,
+        "load_duration": 12961400,
+        "prompt_eval_count": 87,
+        "prompt_eval_duration": 53783000,
+        "eval_count": 16,
+        "eval_duration": 252683000,
+        "done_reason": "stop"
+      },
+      "review": {
+        "meaning": 4,
+        "fluency": 3,
+        "score": 87.5,
+        "note_cs": "Význam zůstává, ale „Es gibt ... übrig“ je neobratná vazba.",
+        "note_en": "Meaning is retained, but “Es gibt ... übrig” is awkward."
+      }
+    },
+    {
+      "id": "translategemma-4b-q4km-en-de-s07",
+      "sentence_id": "s07",
+      "feature": "unless condition",
+      "model": "translategemma-4b-q4km",
+      "source_language": "en",
+      "target_language": "de",
+      "source": "Unless the alarm goes off, stay in the car.",
+      "reference": "Bleib im Auto, solange der Alarm nicht losgeht.",
+      "translation": "Solange der Alarm nicht ausgelöst wird, bleiben Sie im Auto.",
+      "ms": 389.1875999979675,
+      "error": null,
+      "metrics": {
+        "total_duration": 350937600,
+        "load_duration": 15169400,
+        "prompt_eval_count": 86,
+        "prompt_eval_duration": 69656000,
+        "eval_count": 15,
+        "eval_duration": 243102000,
+        "done_reason": "stop"
+      },
+      "review": {
+        "meaning": 4,
+        "fluency": 4,
+        "score": 100.0,
+        "note_cs": "Význam je zachován a formulace je pro tento krátký vstup přirozená.",
+        "note_en": "Meaning is preserved and the wording is natural for this short input."
+      }
+    },
+    {
+      "id": "translategemma-4b-q4km-en-de-s08",
+      "sentence_id": "s08",
+      "feature": "names and recipient contrast",
+      "model": "translategemma-4b-q4km",
+      "source_language": "en",
+      "target_language": "de",
+      "source": "Give the blue potion to Mara, not to Viktor.",
+      "reference": "Gib den blauen Trank Mara, nicht Viktor.",
+      "translation": "Gib die blaue Potion Mara, nicht Viktor.",
+      "ms": 299.76000008173287,
+      "error": null,
+      "metrics": {
+        "total_duration": 268213100,
+        "load_duration": 12138800,
+        "prompt_eval_count": 86,
+        "prompt_eval_duration": 54892000,
+        "eval_count": 12,
+        "eval_duration": 182781000,
+        "done_reason": "stop"
+      },
+      "review": {
+        "meaning": 4,
+        "fluency": 2,
+        "score": 75.0,
+        "note_cs": "Význam lektvaru lze odvodit, ale „Potion“ a vazba příjemce jsou neidiomatické.",
+        "note_en": "Potion is understandable, but “Potion” and the recipient construction are unidiomatic German."
+      }
+    },
+    {
+      "id": "translategemma-4b-q4km-en-de-s09",
+      "sentence_id": "s09",
+      "feature": "past versus present allegiance",
+      "model": "translategemma-4b-q4km",
+      "source_language": "en",
+      "target_language": "de",
+      "source": "The guard used to be our enemy. Now he is helping us.",
+      "reference": "Der Wächter war früher unser Feind. Jetzt hilft er uns.",
+      "translation": "Der Wächter war früher unser Feind. Jetzt hilft er uns.",
+      "ms": 362.5371999805793,
+      "error": null,
+      "metrics": {
+        "total_duration": 346220200,
+        "load_duration": 13603700,
+        "prompt_eval_count": 89,
+        "prompt_eval_duration": 60689000,
+        "eval_count": 16,
+        "eval_duration": 255501000,
+        "done_reason": "stop"
+      },
+      "review": {
+        "meaning": 4,
+        "fluency": 4,
+        "score": 100.0,
+        "note_cs": "Význam je zachován a formulace je pro tento krátký vstup přirozená.",
+        "note_en": "Meaning is preserved and the wording is natural for this short input."
+      }
+    },
+    {
+      "id": "translategemma-4b-q4km-en-de-s10",
+      "sentence_id": "s10",
+      "feature": "time and location",
+      "model": "translategemma-4b-q4km",
+      "source_language": "en",
+      "target_language": "de",
+      "source": "Meet me at platform seven at 18:45.",
+      "reference": "Triff mich um 18:45 Uhr an Bahnsteig sieben.",
+      "translation": "Treffen Sie mich am Bahnsteig Nummer sieben um 18:45 Uhr.",
+      "ms": 417.05560008995235,
+      "error": null,
+      "metrics": {
+        "total_duration": 401983200,
+        "load_duration": 13153100,
+        "prompt_eval_count": 88,
+        "prompt_eval_duration": 54312000,
+        "eval_count": 20,
+        "eval_duration": 309576000,
+        "done_reason": "stop"
+      },
+      "review": {
+        "meaning": 4,
+        "fluency": 4,
+        "score": 100.0,
+        "note_cs": "Význam je zachován a formulace je pro tento krátký vstup přirozená.",
+        "note_en": "Meaning is preserved and the wording is natural for this short input."
+      }
+    },
+    {
+      "id": "translategemma-4b-q4km-en-de-s11",
+      "sentence_id": "s11",
+      "feature": "idiom and simultaneous action",
+      "model": "translategemma-4b-q4km",
+      "source_language": "en",
+      "target_language": "de",
+      "source": "Keep an eye on the door while I repair the engine.",
+      "reference": "Behalte die Tür im Auge, während ich den Motor repariere.",
+      "translation": "Bitte behalte die Tür im Auge, während ich den Motor repariere.",
+      "ms": 407.7703000511974,
+      "error": null,
+      "metrics": {
+        "total_duration": 380060300,
+        "load_duration": 9870900,
+        "prompt_eval_count": 87,
+        "prompt_eval_duration": 52746000,
+        "eval_count": 17,
+        "eval_duration": 264440000,
+        "done_reason": "stop"
+      },
+      "review": {
+        "meaning": 4,
+        "fluency": 4,
+        "score": 100.0,
+        "note_cs": "Význam je zachován a formulace je pro tento krátký vstup přirozená.",
+        "note_en": "Meaning is preserved and the wording is natural for this short input."
+      }
+    },
+    {
+      "id": "translategemma-4b-q4km-en-de-s12",
+      "sentence_id": "s12",
+      "feature": "near miss idiom",
+      "model": "translategemma-4b-q4km",
+      "source_language": "en",
+      "target_language": "de",
+      "source": "That was close! We nearly fell into the trap.",
+      "reference": "Das war knapp! Wir wären beinahe in die Falle getappt.",
+      "translation": "Das war knapp! Wir waren fast darauf getappt.",
+      "ms": 314.6995999850333,
+      "error": null,
+      "metrics": {
+        "total_duration": 292091300,
+        "load_duration": 20145200,
+        "prompt_eval_count": 86,
+        "prompt_eval_duration": 66316000,
+        "eval_count": 12,
+        "eval_duration": 188471000,
+        "done_reason": "stop"
+      },
+      "review": {
+        "meaning": 3,
+        "fluency": 2,
+        "score": 62.5,
+        "note_cs": "Těsný únik je naznačen, ale past se mění na neurčité „darauf“ a závěr je neobratný.",
+        "note_en": "Suggests a narrow escape, but replaces the trap with vague “darauf”; the ending is awkward."
+      }
+    },
+    {
+      "id": "translategemma-4b-q4km-de-cs-s01",
+      "sentence_id": "s01",
+      "feature": "negation and time",
+      "model": "translategemma-4b-q4km",
+      "source_language": "de",
+      "target_language": "cs",
+      "source": "Öffne nicht die rote Tür. Wir haben fünf Minuten.",
+      "reference": "Neotvírej červené dveře. Máme pět minut.",
+      "translation": "Neotvírejte červenou dveř. Máme jen pět minut.",
+      "ms": 405.3942000027746,
+      "error": null,
+      "metrics": {
+        "total_duration": 388668800,
+        "load_duration": 12809400,
+        "prompt_eval_count": 88,
+        "prompt_eval_duration": 55484000,
+        "eval_count": 19,
+        "eval_duration": 300623000,
+        "done_reason": "stop"
+      },
+      "review": {
+        "meaning": 3,
+        "fluency": 2,
+        "score": 62.5,
+        "note_cs": "Chybný tvar „červenou dveř“ a přidané „jen“.",
+        "note_en": "Incorrect “červenou dveř” and added “only”."
+      }
+    },
+    {
+      "id": "translategemma-4b-q4km-de-cs-s02",
+      "sentence_id": "s02",
+      "feature": "negated reported speech",
+      "model": "translategemma-4b-q4km",
+      "source_language": "de",
+      "target_language": "cs",
+      "source": "Ich habe nicht gesagt, dass Anna den Schlüssel gestohlen hat.",
+      "reference": "Neřekl jsem, že Anna ukradla klíč.",
+      "translation": "Neříkal jsem, že Anna ukradla klíč.",
+      "ms": 362.8364000469446,
+      "error": null,
+      "metrics": {
+        "total_duration": 324433100,
+        "load_duration": 24424500,
+        "prompt_eval_count": 89,
+        "prompt_eval_duration": 56312000,
+        "eval_count": 14,
+        "eval_duration": 213578000,
+        "done_reason": "stop"
+      },
+      "review": {
+        "meaning": 4,
+        "fluency": 4,
+        "score": 100.0,
+        "note_cs": "Význam je zachován a formulace je pro tento krátký vstup přirozená.",
+        "note_en": "Meaning is preserved and the wording is natural for this short input."
+      }
+    },
+    {
+      "id": "translategemma-4b-q4km-de-cs-s03",
+      "sentence_id": "s03",
+      "feature": "return for someone",
+      "model": "translategemma-4b-q4km",
+      "source_language": "de",
+      "target_language": "cs",
+      "source": "Warte hier. Ich komme zurück, um dich abzuholen.",
+      "reference": "Počkej tady. Vrátím se pro tebe.",
+      "translation": "Čekejte tady. Vrátím se, abych vás vyzvedl.",
+      "ms": 460.3366000810638,
+      "error": null,
+      "metrics": {
+        "total_duration": 439514200,
+        "load_duration": 25565500,
+        "prompt_eval_count": 89,
+        "prompt_eval_duration": 59532000,
+        "eval_count": 19,
+        "eval_duration": 307255000,
+        "done_reason": "stop"
+      },
+      "review": {
+        "meaning": 4,
+        "fluency": 4,
+        "score": 100.0,
+        "note_cs": "Význam je zachován a formulace je pro tento krátký vstup přirozená.",
+        "note_en": "Meaning is preserved and the wording is natural for this short input."
+      }
+    },
+    {
+      "id": "translategemma-4b-q4km-de-cs-s04",
+      "sentence_id": "s04",
+      "feature": "collapsed bridge and crossing",
+      "model": "translategemma-4b-q4km",
+      "source_language": "de",
+      "target_language": "cs",
+      "source": "Die Brücke ist eingestürzt. Finde einen anderen Weg über den Fluss.",
+      "reference": "Most se zřítil. Najdi jinou cestu přes řeku.",
+      "translation": "Most se zřítil. Najděte jinou cestu přes řeku.",
+      "ms": 414.7058998933062,
+      "error": null,
+      "metrics": {
+        "total_duration": 402186700,
+        "load_duration": 11373900,
+        "prompt_eval_count": 92,
+        "prompt_eval_duration": 58880000,
+        "eval_count": 19,
+        "eval_duration": 307000000,
+        "done_reason": "stop"
+      },
+      "review": {
+        "meaning": 4,
+        "fluency": 4,
+        "score": 100.0,
+        "note_cs": "Význam je zachován a formulace je pro tento krátký vstup přirozená.",
+        "note_en": "Meaning is preserved and the wording is natural for this short input."
+      }
+    },
+    {
+      "id": "translategemma-4b-q4km-de-cs-s05",
+      "sentence_id": "s05",
+      "feature": "ordered instructions",
+      "model": "translategemma-4b-q4km",
+      "source_language": "de",
+      "target_language": "cs",
+      "source": "Halte die Taste drei Sekunden lang gedrückt und lasse sie dann los.",
+      "reference": "Drž tlačítko tři sekundy a pak ho pusť.",
+      "translation": "Držte tlačítko tři sekundy a poté jej uvolněte.",
+      "ms": 381.62249990273267,
+      "error": null,
+      "metrics": {
+        "total_duration": 370938900,
+        "load_duration": 10989400,
+        "prompt_eval_count": 92,
+        "prompt_eval_duration": 55573000,
+        "eval_count": 18,
+        "eval_duration": 280972000,
+        "done_reason": "stop"
+      },
+      "review": {
+        "meaning": 4,
+        "fluency": 4,
+        "score": 100.0,
+        "note_cs": "Význam je zachován a formulace je pro tento krátký vstup přirozená.",
+        "note_en": "Meaning is preserved and the wording is natural for this short input."
+      }
+    },
+    {
+      "id": "translategemma-4b-q4km-de-cs-s06",
+      "sentence_id": "s06",
+      "feature": "quantity and warning",
+      "model": "translategemma-4b-q4km",
+      "source_language": "de",
+      "target_language": "cs",
+      "source": "Es sind nur noch zwei Pfeile übrig. Verschwende sie nicht.",
+      "reference": "Zbývají jen dva šípy. Neplýtvej jimi.",
+      "translation": "Zbývají pouze dvě šípy. Nevynechejte je.",
+      "ms": 389.28810006473213,
+      "error": null,
+      "metrics": {
+        "total_duration": 351743800,
+        "load_duration": 19733000,
+        "prompt_eval_count": 90,
+        "prompt_eval_duration": 56179000,
+        "eval_count": 16,
+        "eval_duration": 252149000,
+        "done_reason": "stop"
+      },
+      "review": {
+        "meaning": 2,
+        "fluency": 2,
+        "score": 50.0,
+        "note_cs": "Chybná shoda „dvě šípy“ a zákaz plýtvání změněný na „Nevynechejte je“.",
+        "note_en": "Incorrect agreement “dvě šípy”; changes “do not waste them” to “do not skip them”."
+      }
+    },
+    {
+      "id": "translategemma-4b-q4km-de-cs-s07",
+      "sentence_id": "s07",
+      "feature": "unless condition",
+      "model": "translategemma-4b-q4km",
+      "source_language": "de",
+      "target_language": "cs",
+      "source": "Bleib im Auto, solange der Alarm nicht losgeht.",
+      "reference": "Pokud se nespustí alarm, zůstaň v autě.",
+      "translation": "Zůstaňte v autě, dokud se alarm nezapne.",
+      "ms": 392.5902000628412,
+      "error": null,
+      "metrics": {
+        "total_duration": 383149700,
+        "load_duration": 21588700,
+        "prompt_eval_count": 88,
+        "prompt_eval_duration": 56635000,
+        "eval_count": 18,
+        "eval_duration": 276629000,
+        "done_reason": "stop"
+      },
+      "review": {
+        "meaning": 4,
+        "fluency": 4,
+        "score": 100.0,
+        "note_cs": "Význam je zachován a formulace je pro tento krátký vstup přirozená.",
+        "note_en": "Meaning is preserved and the wording is natural for this short input."
+      }
+    },
+    {
+      "id": "translategemma-4b-q4km-de-cs-s08",
+      "sentence_id": "s08",
+      "feature": "names and recipient contrast",
+      "model": "translategemma-4b-q4km",
+      "source_language": "de",
+      "target_language": "cs",
+      "source": "Gib den blauen Trank Mara, nicht Viktor.",
+      "reference": "Dej modrý lektvar Maře, ne Viktorovi.",
+      "translation": "Dejte modrý nápoj Marě, ne Viktorovi.",
+      "ms": 326.91760000307113,
+      "error": null,
+      "metrics": {
+        "total_duration": 316071300,
+        "load_duration": 12640800,
+        "prompt_eval_count": 86,
+        "prompt_eval_duration": 52678000,
+        "eval_count": 15,
+        "eval_duration": 230848000,
+        "done_reason": "stop"
+      },
+      "review": {
+        "meaning": 3,
+        "fluency": 2,
+        "score": 62.5,
+        "note_cs": "Lektvar zobecňuje na nápoj; „Marě“ je chybný pád jména.",
+        "note_en": "Generalizes potion to drink; “Marě” is an incorrect name inflection."
+      }
+    },
+    {
+      "id": "translategemma-4b-q4km-de-cs-s09",
+      "sentence_id": "s09",
+      "feature": "past versus present allegiance",
+      "model": "translategemma-4b-q4km",
+      "source_language": "de",
+      "target_language": "cs",
+      "source": "Der Wächter war früher unser Feind. Jetzt hilft er uns.",
+      "reference": "Strážný býval naším nepřítelem. Teď nám pomáhá.",
+      "translation": "Strážce byl dříve naším nepřítelem. Nyní nám pomáhá.",
+      "ms": 522.0379999373108,
+      "error": null,
+      "metrics": {
+        "total_duration": 497653800,
+        "load_duration": 24872700,
+        "prompt_eval_count": 90,
+        "prompt_eval_duration": 101130000,
+        "eval_count": 21,
+        "eval_duration": 336102000,
+        "done_reason": "stop"
+      },
+      "review": {
+        "meaning": 4,
+        "fluency": 4,
+        "score": 100.0,
+        "note_cs": "Význam je zachován a formulace je pro tento krátký vstup přirozená.",
+        "note_en": "Meaning is preserved and the wording is natural for this short input."
+      }
+    },
+    {
+      "id": "translategemma-4b-q4km-de-cs-s10",
+      "sentence_id": "s10",
+      "feature": "time and location",
+      "model": "translategemma-4b-q4km",
+      "source_language": "de",
+      "target_language": "cs",
+      "source": "Triff mich um 18:45 Uhr an Bahnsteig sieben.",
+      "reference": "Sejdeme se v 18:45 na sedmém nástupišti.",
+      "translation": "Setkáme se v 18:45 na nástupi číslo 7.",
+      "ms": 397.7713000494987,
+      "error": null,
+      "metrics": {
+        "total_duration": 381106700,
+        "load_duration": 10757900,
+        "prompt_eval_count": 92,
+        "prompt_eval_duration": 54254000,
+        "eval_count": 19,
+        "eval_duration": 298392000,
+        "done_reason": "stop"
+      },
+      "review": {
+        "meaning": 4,
+        "fluency": 2,
+        "score": 75.0,
+        "note_cs": "Význam času a nástupiště zachován; „na nástupi“ je zkomolené.",
+        "note_en": "Retains the time and platform; “na nástupi” is malformed."
+      }
+    },
+    {
+      "id": "translategemma-4b-q4km-de-cs-s11",
+      "sentence_id": "s11",
+      "feature": "idiom and simultaneous action",
+      "model": "translategemma-4b-q4km",
+      "source_language": "de",
+      "target_language": "cs",
+      "source": "Behalte die Tür im Auge, während ich den Motor repariere.",
+      "reference": "Hlídej dveře, zatímco opravuji motor.",
+      "translation": "Sledujte dveře, zatímco opravuji motor.",
+      "ms": 311.8824000703171,
+      "error": null,
+      "metrics": {
+        "total_duration": 300030300,
+        "load_duration": 9022700,
+        "prompt_eval_count": 90,
+        "prompt_eval_duration": 58885000,
+        "eval_count": 13,
+        "eval_duration": 209120000,
+        "done_reason": "stop"
+      },
+      "review": {
+        "meaning": 4,
+        "fluency": 4,
+        "score": 100.0,
+        "note_cs": "Význam je zachován a formulace je pro tento krátký vstup přirozená.",
+        "note_en": "Meaning is preserved and the wording is natural for this short input."
+      }
+    },
+    {
+      "id": "translategemma-4b-q4km-de-cs-s12",
+      "sentence_id": "s12",
+      "feature": "near miss idiom",
+      "model": "translategemma-4b-q4km",
+      "source_language": "de",
+      "target_language": "cs",
+      "source": "Das war knapp! Wir wären beinahe in die Falle getappt.",
+      "reference": "To bylo o fous! Málem jsme spadli do pasti.",
+      "translation": "To bylo jen tak těsně! Hrozilo, že bychom se nechali oklamat.",
+      "ms": 514.6347000263631,
+      "error": null,
+      "metrics": {
+        "total_duration": 499894000,
+        "load_duration": 17199400,
+        "prompt_eval_count": 90,
+        "prompt_eval_duration": 73723000,
+        "eval_count": 23,
+        "eval_duration": 381960000,
+        "done_reason": "stop"
+      },
+      "review": {
+        "meaning": 1,
+        "fluency": 2,
+        "score": 37.5,
+        "note_cs": "Ztrácí konkrétní past a téměř pád do ní mění na riziko oklamání.",
+        "note_en": "Loses the actual trap and changes nearly falling into it into a risk of being deceived."
+      }
+    },
+    {
+      "id": "translategemma-4b-q4km-en-es-s01",
+      "sentence_id": "s01",
+      "feature": "negation and time",
+      "model": "translategemma-4b-q4km",
+      "source_language": "en",
+      "target_language": "es",
+      "source": "Do not open the red door. We have five minutes.",
+      "reference": "No abras la puerta roja. Tenemos cinco minutos.",
+      "translation": "No abras la puerta roja. Solo tenemos cinco minutos.",
+      "ms": 365.37050001788884,
+      "error": null,
+      "metrics": {
+        "total_duration": 347229000,
+        "load_duration": 27243200,
+        "prompt_eval_count": 87,
+        "prompt_eval_duration": 75797000,
+        "eval_count": 12,
+        "eval_duration": 196967000,
+        "done_reason": "stop"
+      },
+      "review": {
+        "meaning": 3,
+        "fluency": 4,
+        "score": 87.5,
+        "note_cs": "Přidává „solo“ (jen); jinak význam zachovává.",
+        "note_en": "Adds “solo” (only); otherwise preserves the meaning."
+      }
+    },
+    {
+      "id": "translategemma-4b-q4km-en-es-s02",
+      "sentence_id": "s02",
+      "feature": "negated reported speech",
+      "model": "translategemma-4b-q4km",
+      "source_language": "en",
+      "target_language": "es",
+      "source": "I did not say that Anna stole the key.",
+      "reference": "No dije que Anna robara la llave.",
+      "translation": "No dije que Anna había robado la llave.",
+      "ms": 313.7757000513375,
+      "error": null,
+      "metrics": {
+        "total_duration": 272737400,
+        "load_duration": 12791800,
+        "prompt_eval_count": 85,
+        "prompt_eval_duration": 55375000,
+        "eval_count": 11,
+        "eval_duration": 171559000,
+        "done_reason": "stop"
+      },
+      "review": {
+        "meaning": 4,
+        "fluency": 4,
+        "score": 100.0,
+        "note_cs": "Význam je zachován a formulace je pro tento krátký vstup přirozená.",
+        "note_en": "Meaning is preserved and the wording is natural for this short input."
+      }
+    },
+    {
+      "id": "translategemma-4b-q4km-en-es-s03",
+      "sentence_id": "s03",
+      "feature": "return for someone",
+      "model": "translategemma-4b-q4km",
+      "source_language": "en",
+      "target_language": "es",
+      "source": "Wait here. I will come back for you.",
+      "reference": "Espera aquí. Volveré a buscarte.",
+      "translation": "Espera aquí. Regresaré por ti.",
+      "ms": 360.28819996863604,
+      "error": null,
+      "metrics": {
+        "total_duration": 326677300,
+        "load_duration": 55668800,
+        "prompt_eval_count": 85,
+        "prompt_eval_duration": 63267000,
+        "eval_count": 11,
+        "eval_duration": 168725000,
+        "done_reason": "stop"
+      },
+      "review": {
+        "meaning": 4,
+        "fluency": 4,
+        "score": 100.0,
+        "note_cs": "Význam je zachován a formulace je pro tento krátký vstup přirozená.",
+        "note_en": "Meaning is preserved and the wording is natural for this short input."
+      }
+    },
+    {
+      "id": "translategemma-4b-q4km-en-es-s04",
+      "sentence_id": "s04",
+      "feature": "collapsed bridge and crossing",
+      "model": "translategemma-4b-q4km",
+      "source_language": "en",
+      "target_language": "es",
+      "source": "The bridge has collapsed. Find another way across the river.",
+      "reference": "El puente se ha derrumbado. Busca otra forma de cruzar el río.",
+      "translation": "El puente se ha derrumbado. Busque otra forma de cruzar el río.",
+      "ms": 437.15739995241165,
+      "error": null,
+      "metrics": {
+        "total_duration": 414833100,
+        "load_duration": 19096700,
+        "prompt_eval_count": 87,
+        "prompt_eval_duration": 56340000,
+        "eval_count": 19,
+        "eval_duration": 302154000,
+        "done_reason": "stop"
+      },
+      "review": {
+        "meaning": 4,
+        "fluency": 4,
+        "score": 100.0,
+        "note_cs": "Význam je zachován a formulace je pro tento krátký vstup přirozená.",
+        "note_en": "Meaning is preserved and the wording is natural for this short input."
+      }
+    },
+    {
+      "id": "translategemma-4b-q4km-en-es-s05",
+      "sentence_id": "s05",
+      "feature": "ordered instructions",
+      "model": "translategemma-4b-q4km",
+      "source_language": "en",
+      "target_language": "es",
+      "source": "Hold the button for three seconds, then release it.",
+      "reference": "Mantén pulsado el botón durante tres segundos y luego suéltalo.",
+      "translation": "Mantenga el botón pulsado durante tres segundos, luego suéltelo.",
+      "ms": 369.4314999738708,
+      "error": null,
+      "metrics": {
+        "total_duration": 352778700,
+        "load_duration": 13577500,
+        "prompt_eval_count": 86,
+        "prompt_eval_duration": 55274000,
+        "eval_count": 17,
+        "eval_duration": 265185000,
+        "done_reason": "stop"
+      },
+      "review": {
+        "meaning": 4,
+        "fluency": 4,
+        "score": 100.0,
+        "note_cs": "Význam je zachován a formulace je pro tento krátký vstup přirozená.",
+        "note_en": "Meaning is preserved and the wording is natural for this short input."
+      }
+    },
+    {
+      "id": "translategemma-4b-q4km-en-es-s06",
+      "sentence_id": "s06",
+      "feature": "quantity and warning",
+      "model": "translategemma-4b-q4km",
+      "source_language": "en",
+      "target_language": "es",
+      "source": "There are only two arrows left. Do not waste them.",
+      "reference": "Solo quedan dos flechas. No las desperdicies.",
+      "translation": "Solo quedan dos flechas. No las desperdicies.",
+      "ms": 371.8308999668807,
+      "error": null,
+      "metrics": {
+        "total_duration": 329033000,
+        "load_duration": 22132700,
+        "prompt_eval_count": 87,
+        "prompt_eval_duration": 59113000,
+        "eval_count": 13,
+        "eval_duration": 206601000,
+        "done_reason": "stop"
+      },
+      "review": {
+        "meaning": 4,
+        "fluency": 4,
+        "score": 100.0,
+        "note_cs": "Význam je zachován a formulace je pro tento krátký vstup přirozená.",
+        "note_en": "Meaning is preserved and the wording is natural for this short input."
+      }
+    },
+    {
+      "id": "translategemma-4b-q4km-en-es-s07",
+      "sentence_id": "s07",
+      "feature": "unless condition",
+      "model": "translategemma-4b-q4km",
+      "source_language": "en",
+      "target_language": "es",
+      "source": "Unless the alarm goes off, stay in the car.",
+      "reference": "Quédate en el coche a menos que suene la alarma.",
+      "translation": "A menos que se active la alarma, permanezca dentro del coche.",
+      "ms": 395.48770000692457,
+      "error": null,
+      "metrics": {
+        "total_duration": 371170500,
+        "load_duration": 20151900,
+        "prompt_eval_count": 86,
+        "prompt_eval_duration": 76854000,
+        "eval_count": 16,
+        "eval_duration": 254214000,
+        "done_reason": "stop"
+      },
+      "review": {
+        "meaning": 4,
+        "fluency": 4,
+        "score": 100.0,
+        "note_cs": "Význam je zachován a formulace je pro tento krátký vstup přirozená.",
+        "note_en": "Meaning is preserved and the wording is natural for this short input."
+      }
+    },
+    {
+      "id": "translategemma-4b-q4km-en-es-s08",
+      "sentence_id": "s08",
+      "feature": "names and recipient contrast",
+      "model": "translategemma-4b-q4km",
+      "source_language": "en",
+      "target_language": "es",
+      "source": "Give the blue potion to Mara, not to Viktor.",
+      "reference": "Dale la poción azul a Mara, no a Viktor.",
+      "translation": "Entregue la poción azul a Mara, no a Viktor.",
+      "ms": 371.13019998651,
+      "error": null,
+      "metrics": {
+        "total_duration": 350366400,
+        "load_duration": 19956800,
+        "prompt_eval_count": 86,
+        "prompt_eval_duration": 66705000,
+        "eval_count": 15,
+        "eval_duration": 235638000,
+        "done_reason": "stop"
+      },
+      "review": {
+        "meaning": 4,
+        "fluency": 4,
+        "score": 100.0,
+        "note_cs": "Význam je zachován a formulace je pro tento krátký vstup přirozená.",
+        "note_en": "Meaning is preserved and the wording is natural for this short input."
+      }
+    },
+    {
+      "id": "translategemma-4b-q4km-en-es-s09",
+      "sentence_id": "s09",
+      "feature": "past versus present allegiance",
+      "model": "translategemma-4b-q4km",
+      "source_language": "en",
+      "target_language": "es",
+      "source": "The guard used to be our enemy. Now he is helping us.",
+      "reference": "El guardia antes era nuestro enemigo. Ahora nos está ayudando.",
+      "translation": "Antes, ese guardia era nuestro enemigo. Ahora, nos está ayudando.",
+      "ms": 392.27609999943525,
+      "error": null,
+      "metrics": {
+        "total_duration": 355660200,
+        "load_duration": 9583900,
+        "prompt_eval_count": 89,
+        "prompt_eval_duration": 73151000,
+        "eval_count": 16,
+        "eval_duration": 249449000,
+        "done_reason": "stop"
+      },
+      "review": {
+        "meaning": 4,
+        "fluency": 4,
+        "score": 100.0,
+        "note_cs": "Význam je zachován a formulace je pro tento krátký vstup přirozená.",
+        "note_en": "Meaning is preserved and the wording is natural for this short input."
+      }
+    },
+    {
+      "id": "translategemma-4b-q4km-en-es-s10",
+      "sentence_id": "s10",
+      "feature": "time and location",
+      "model": "translategemma-4b-q4km",
+      "source_language": "en",
+      "target_language": "es",
+      "source": "Meet me at platform seven at 18:45.",
+      "reference": "Nos vemos a las 18:45 en el andén siete.",
+      "translation": "Nos vemos en la plataforma número siete a las 18:45.",
+      "ms": 401.4248000457883,
+      "error": null,
+      "metrics": {
+        "total_duration": 380316800,
+        "load_duration": 15396900,
+        "prompt_eval_count": 88,
+        "prompt_eval_duration": 67607000,
+        "eval_count": 17,
+        "eval_duration": 264543999,
+        "done_reason": "stop"
+      },
+      "review": {
+        "meaning": 4,
+        "fluency": 3,
+        "score": 87.5,
+        "note_cs": "Čas a místo zachovány; „plataforma“ je pro vlakové nástupiště méně přirozené než andén.",
+        "note_en": "Time and place are preserved; “plataforma” is less natural than andén for a railway platform."
+      }
+    },
+    {
+      "id": "translategemma-4b-q4km-en-es-s11",
+      "sentence_id": "s11",
+      "feature": "idiom and simultaneous action",
+      "model": "translategemma-4b-q4km",
+      "source_language": "en",
+      "target_language": "es",
+      "source": "Keep an eye on the door while I repair the engine.",
+      "reference": "Vigila la puerta mientras reparo el motor.",
+      "translation": "Vigile la puerta mientras reparo el motor.",
+      "ms": 367.5677999854088,
+      "error": null,
+      "metrics": {
+        "total_duration": 327639900,
+        "load_duration": 22215000,
+        "prompt_eval_count": 87,
+        "prompt_eval_duration": 60992000,
+        "eval_count": 12,
+        "eval_duration": 183855000,
+        "done_reason": "stop"
+      },
+      "review": {
+        "meaning": 4,
+        "fluency": 4,
+        "score": 100.0,
+        "note_cs": "Význam je zachován a formulace je pro tento krátký vstup přirozená.",
+        "note_en": "Meaning is preserved and the wording is natural for this short input."
+      }
+    },
+    {
+      "id": "translategemma-4b-q4km-en-es-s12",
+      "sentence_id": "s12",
+      "feature": "near miss idiom",
+      "model": "translategemma-4b-q4km",
+      "source_language": "en",
+      "target_language": "es",
+      "source": "That was close! We nearly fell into the trap.",
+      "reference": "¡Por poco! Casi caemos en la trampa.",
+      "translation": "¡Casi lo logramos! Estábamos a punto de caer en la trampa.",
+      "ms": 426.9070998998359,
+      "error": null,
+      "metrics": {
+        "total_duration": 404942500,
+        "load_duration": 21289600,
+        "prompt_eval_count": 86,
+        "prompt_eval_duration": 62760000,
+        "eval_count": 19,
+        "eval_duration": 296609000,
+        "done_reason": "stop"
+      },
+      "review": {
+        "meaning": 2,
+        "fluency": 4,
+        "score": 75.0,
+        "note_cs": "„Casi lo logramos“ znamená téměř úspěch, ne úlevu z těsného úniku. Druhá věta past zachovává.",
+        "note_en": "“Casi lo logramos” expresses almost succeeding, not relief at a narrow escape. The second sentence retains the trap."
+      }
+    },
+    {
+      "id": "translategemma-4b-q4km-fr-en-s01",
+      "sentence_id": "s01",
+      "feature": "negation and time",
+      "model": "translategemma-4b-q4km",
+      "source_language": "fr",
+      "target_language": "en",
+      "source": "N’ouvre pas la porte rouge. Nous avons cinq minutes.",
+      "reference": "Do not open the red door. We have five minutes.",
+      "translation": "Don't open the red door. We only have five minutes.",
+      "ms": 457.41849998012185,
+      "error": null,
+      "metrics": {
+        "total_duration": 434883800,
+        "load_duration": 58004800,
+        "prompt_eval_count": 89,
+        "prompt_eval_duration": 65700999,
+        "eval_count": 15,
+        "eval_duration": 241594000,
+        "done_reason": "stop"
+      },
+      "review": {
+        "meaning": 3,
+        "fluency": 4,
+        "score": 87.5,
+        "note_cs": "Přidává „only“, které ve francouzském vstupu není.",
+        "note_en": "Adds “only”, which is absent from the French input."
+      }
+    },
+    {
+      "id": "translategemma-4b-q4km-fr-en-s02",
+      "sentence_id": "s02",
+      "feature": "negated reported speech",
+      "model": "translategemma-4b-q4km",
+      "source_language": "fr",
+      "target_language": "en",
+      "source": "Je n’ai pas dit qu’Anna avait volé la clé.",
+      "reference": "I did not say that Anna stole the key.",
+      "translation": "I didn't say that Anna had stolen the key.",
+      "ms": 385.0261000916362,
+      "error": null,
+      "metrics": {
+        "total_duration": 349222200,
+        "load_duration": 20525200,
+        "prompt_eval_count": 90,
+        "prompt_eval_duration": 79933000,
+        "eval_count": 13,
+        "eval_duration": 209278000,
+        "done_reason": "stop"
+      },
+      "review": {
+        "meaning": 4,
+        "fluency": 4,
+        "score": 100.0,
+        "note_cs": "Význam je zachován a formulace je pro tento krátký vstup přirozená.",
+        "note_en": "Meaning is preserved and the wording is natural for this short input."
+      }
+    },
+    {
+      "id": "translategemma-4b-q4km-fr-en-s03",
+      "sentence_id": "s03",
+      "feature": "return for someone",
+      "model": "translategemma-4b-q4km",
+      "source_language": "fr",
+      "target_language": "en",
+      "source": "Attends ici. Je reviendrai te chercher.",
+      "reference": "Wait here. I will come back for you.",
+      "translation": "Please wait here. I'll come back to get you.",
+      "ms": 376.1876999633387,
+      "error": null,
+      "metrics": {
+        "total_duration": 335550400,
+        "load_duration": 23340300,
+        "prompt_eval_count": 86,
+        "prompt_eval_duration": 61510000,
+        "eval_count": 14,
+        "eval_duration": 220854000,
+        "done_reason": "stop"
+      },
+      "review": {
+        "meaning": 4,
+        "fluency": 4,
+        "score": 100.0,
+        "note_cs": "Význam je zachován a formulace je pro tento krátký vstup přirozená.",
+        "note_en": "Meaning is preserved and the wording is natural for this short input."
+      }
+    },
+    {
+      "id": "translategemma-4b-q4km-fr-en-s04",
+      "sentence_id": "s04",
+      "feature": "collapsed bridge and crossing",
+      "model": "translategemma-4b-q4km",
+      "source_language": "fr",
+      "target_language": "en",
+      "source": "Le pont s’est effondré. Trouve un autre moyen de traverser la rivière.",
+      "reference": "The bridge has collapsed. Find another way across the river.",
+      "translation": "The bridge has collapsed. Find another way to cross the river.",
+      "ms": 356.21520003769547,
+      "error": null,
+      "metrics": {
+        "total_duration": 328287000,
+        "load_duration": 13107900,
+        "prompt_eval_count": 95,
+        "prompt_eval_duration": 64331999,
+        "eval_count": 14,
+        "eval_duration": 231662000,
+        "done_reason": "stop"
+      },
+      "review": {
+        "meaning": 4,
+        "fluency": 4,
+        "score": 100.0,
+        "note_cs": "Význam je zachován a formulace je pro tento krátký vstup přirozená.",
+        "note_en": "Meaning is preserved and the wording is natural for this short input."
+      }
+    },
+    {
+      "id": "translategemma-4b-q4km-fr-en-s05",
+      "sentence_id": "s05",
+      "feature": "ordered instructions",
+      "model": "translategemma-4b-q4km",
+      "source_language": "fr",
+      "target_language": "en",
+      "source": "Maintiens le bouton enfoncé pendant trois secondes, puis relâche-le.",
+      "reference": "Hold the button for three seconds, then release it.",
+      "translation": "Press and hold the button for three seconds, then release it.",
+      "ms": 307.8337999759242,
+      "error": null,
+      "metrics": {
+        "total_duration": 295640100,
+        "load_duration": 12369000,
+        "prompt_eval_count": 91,
+        "prompt_eval_duration": 56061000,
+        "eval_count": 14,
+        "eval_duration": 209763000,
+        "done_reason": "stop"
+      },
+      "review": {
+        "meaning": 4,
+        "fluency": 4,
+        "score": 100.0,
+        "note_cs": "Význam je zachován a formulace je pro tento krátký vstup přirozená.",
+        "note_en": "Meaning is preserved and the wording is natural for this short input."
+      }
+    },
+    {
+      "id": "translategemma-4b-q4km-fr-en-s06",
+      "sentence_id": "s06",
+      "feature": "quantity and warning",
+      "model": "translategemma-4b-q4km",
+      "source_language": "fr",
+      "target_language": "en",
+      "source": "Il ne reste que deux flèches. Ne les gaspille pas.",
+      "reference": "There are only two arrows left. Do not waste them.",
+      "translation": "There are only two arrows left. Don't waste them.",
+      "ms": 299.565099994652,
+      "error": null,
+      "metrics": {
+        "total_duration": 289093000,
+        "load_duration": 8411400,
+        "prompt_eval_count": 90,
+        "prompt_eval_duration": 53444000,
+        "eval_count": 14,
+        "eval_duration": 212447000,
+        "done_reason": "stop"
+      },
+      "review": {
+        "meaning": 4,
+        "fluency": 4,
+        "score": 100.0,
+        "note_cs": "Význam je zachován a formulace je pro tento krátký vstup přirozená.",
+        "note_en": "Meaning is preserved and the wording is natural for this short input."
+      }
+    },
+    {
+      "id": "translategemma-4b-q4km-fr-en-s07",
+      "sentence_id": "s07",
+      "feature": "unless condition",
+      "model": "translategemma-4b-q4km",
+      "source_language": "fr",
+      "target_language": "en",
+      "source": "Reste dans la voiture, sauf si l’alarme se déclenche.",
+      "reference": "Unless the alarm goes off, stay in the car.",
+      "translation": "Stay in the car unless the alarm goes off.",
+      "ms": 310.4619000805542,
+      "error": null,
+      "metrics": {
+        "total_duration": 270107900,
+        "load_duration": 12143100,
+        "prompt_eval_count": 91,
+        "prompt_eval_duration": 59219000,
+        "eval_count": 11,
+        "eval_duration": 168389000,
+        "done_reason": "stop"
+      },
+      "review": {
+        "meaning": 4,
+        "fluency": 4,
+        "score": 100.0,
+        "note_cs": "Význam je zachován a formulace je pro tento krátký vstup přirozená.",
+        "note_en": "Meaning is preserved and the wording is natural for this short input."
+      }
+    },
+    {
+      "id": "translategemma-4b-q4km-fr-en-s08",
+      "sentence_id": "s08",
+      "feature": "names and recipient contrast",
+      "model": "translategemma-4b-q4km",
+      "source_language": "fr",
+      "target_language": "en",
+      "source": "Donne la potion bleue à Mara, pas à Viktor.",
+      "reference": "Give the blue potion to Mara, not to Viktor.",
+      "translation": "Give the blue potion to Mara, not to Viktor.",
+      "ms": 314.37530007679015,
+      "error": null,
+      "metrics": {
+        "total_duration": 279662800,
+        "load_duration": 18213900,
+        "prompt_eval_count": 87,
+        "prompt_eval_duration": 59030000,
+        "eval_count": 12,
+        "eval_duration": 180504000,
+        "done_reason": "stop"
+      },
+      "review": {
+        "meaning": 4,
+        "fluency": 4,
+        "score": 100.0,
+        "note_cs": "Význam je zachován a formulace je pro tento krátký vstup přirozená.",
+        "note_en": "Meaning is preserved and the wording is natural for this short input."
+      }
+    },
+    {
+      "id": "translategemma-4b-q4km-fr-en-s09",
+      "sentence_id": "s09",
+      "feature": "past versus present allegiance",
+      "model": "translategemma-4b-q4km",
+      "source_language": "fr",
+      "target_language": "en",
+      "source": "Le garde était autrefois notre ennemi. Maintenant, il nous aide.",
+      "reference": "The guard used to be our enemy. Now he is helping us.",
+      "translation": "The guard was once our enemy. Now, he helps us.",
+      "ms": 383.4768000524491,
+      "error": null,
+      "metrics": {
+        "total_duration": 354679300,
+        "load_duration": 16864600,
+        "prompt_eval_count": 89,
+        "prompt_eval_duration": 65107000,
+        "eval_count": 14,
+        "eval_duration": 229346000,
+        "done_reason": "stop"
+      },
+      "review": {
+        "meaning": 4,
+        "fluency": 4,
+        "score": 100.0,
+        "note_cs": "Význam je zachován a formulace je pro tento krátký vstup přirozená.",
+        "note_en": "Meaning is preserved and the wording is natural for this short input."
+      }
+    },
+    {
+      "id": "translategemma-4b-q4km-fr-en-s10",
+      "sentence_id": "s10",
+      "feature": "time and location",
+      "model": "translategemma-4b-q4km",
+      "source_language": "fr",
+      "target_language": "en",
+      "source": "Retrouve-moi à 18 h 45 sur le quai sept.",
+      "reference": "Meet me at platform seven at 18:45.",
+      "translation": "Meet me at 6:45 PM at the seventh pier.",
+      "ms": 396.91360003780574,
+      "error": null,
+      "metrics": {
+        "total_duration": 370065500,
+        "load_duration": 22576300,
+        "prompt_eval_count": 94,
+        "prompt_eval_duration": 78359000,
+        "eval_count": 15,
+        "eval_duration": 233531000,
+        "done_reason": "stop"
+      },
+      "review": {
+        "meaning": 4,
+        "fluency": 4,
+        "score": 100.0,
+        "note_cs": "Francouzské „quai“ může být nástupiště i přístavní molo. Bez dalšího kontextu je „pier“ přípustné; referenční věta není jediná správná možnost.",
+        "note_en": "French “quai” can mean a platform or a pier. Without context, “pier” is acceptable; the reference is not the only valid rendering."
+      }
+    },
+    {
+      "id": "translategemma-4b-q4km-fr-en-s11",
+      "sentence_id": "s11",
+      "feature": "idiom and simultaneous action",
+      "model": "translategemma-4b-q4km",
+      "source_language": "fr",
+      "target_language": "en",
+      "source": "Surveille la porte pendant que je répare le moteur.",
+      "reference": "Keep an eye on the door while I repair the engine.",
+      "translation": "Please keep an eye on the door while I fix the engine.",
+      "ms": 356.3300999812782,
+      "error": null,
+      "metrics": {
+        "total_duration": 335518900,
+        "load_duration": 23209500,
+        "prompt_eval_count": 87,
+        "prompt_eval_duration": 56943000,
+        "eval_count": 14,
+        "eval_duration": 219389000,
+        "done_reason": "stop"
+      },
+      "review": {
+        "meaning": 4,
+        "fluency": 4,
+        "score": 100.0,
+        "note_cs": "Význam je zachován a formulace je pro tento krátký vstup přirozená.",
+        "note_en": "Meaning is preserved and the wording is natural for this short input."
+      }
+    },
+    {
+      "id": "translategemma-4b-q4km-fr-en-s12",
+      "sentence_id": "s12",
+      "feature": "near miss idiom",
+      "model": "translategemma-4b-q4km",
+      "source_language": "fr",
+      "target_language": "en",
+      "source": "C’était moins une ! Nous avons failli tomber dans le piège.",
+      "reference": "That was close! We nearly fell into the trap.",
+      "translation": "It was almost a disaster! We almost fell into the trap.",
+      "ms": 397.01159996911883,
+      "error": null,
+      "metrics": {
+        "total_duration": 356307600,
+        "load_duration": 25888800,
+        "prompt_eval_count": 91,
+        "prompt_eval_duration": 62661000,
+        "eval_count": 14,
+        "eval_duration": 222323000,
+        "done_reason": "stop"
+      },
+      "review": {
+        "meaning": 4,
+        "fluency": 4,
+        "score": 100.0,
+        "note_cs": "Význam je zachován a formulace je pro tento krátký vstup přirozená.",
+        "note_en": "Meaning is preserved and the wording is natural for this short input."
+      }
+    },
+    {
+      "id": "cuni-q3km-en-cs-s01",
+      "sentence_id": "s01",
+      "feature": "negation and time",
+      "model": "cuni-q3km",
+      "source_language": "en",
+      "target_language": "cs",
+      "source": "Do not open the red door. We have five minutes.",
+      "reference": "Neotvírej červené dveře. Máme pět minut.",
+      "translation": "Neotvírejte červené dveře. Máme pět minut.",
+      "ms": 509.5025000628084,
+      "error": null,
+      "metrics": {
+        "total_duration": 491967400,
+        "load_duration": 12943000,
+        "prompt_eval_count": 49,
+        "prompt_eval_duration": 20052000,
+        "eval_count": 22,
+        "eval_duration": 423188000,
+        "done_reason": "stop"
+      },
+      "review": {
+        "meaning": 4,
+        "fluency": 4,
+        "score": 100.0,
+        "note_cs": "Význam je zachován a formulace je pro tento krátký vstup přirozená.",
+        "note_en": "Meaning is preserved and the wording is natural for this short input."
+      }
+    },
+    {
+      "id": "cuni-q3km-en-cs-s02",
+      "sentence_id": "s02",
+      "feature": "negated reported speech",
+      "model": "cuni-q3km",
+      "source_language": "en",
+      "target_language": "cs",
+      "source": "I did not say that Anna stole the key.",
+      "reference": "Neřekl jsem, že Anna ukradla klíč.",
+      "translation": "Neřekla jsem, že Anna ukradla klíč.",
+      "ms": 413.62599993590266,
+      "error": null,
+      "metrics": {
+        "total_duration": 402153400,
+        "load_duration": 11440000,
+        "prompt_eval_count": 47,
+        "prompt_eval_duration": 35636000,
+        "eval_count": 17,
+        "eval_duration": 327782000,
+        "done_reason": "stop"
+      },
+      "review": {
+        "meaning": 4,
+        "fluency": 4,
+        "score": 100.0,
+        "note_cs": "Anglický vstup neurčuje rod mluvčího. Ženský rod je přípustný.",
+        "note_en": "English does not specify the speaker’s gender. Feminine gender is acceptable."
+      }
+    },
+    {
+      "id": "cuni-q3km-en-cs-s03",
+      "sentence_id": "s03",
+      "feature": "return for someone",
+      "model": "cuni-q3km",
+      "source_language": "en",
+      "target_language": "cs",
+      "source": "Wait here. I will come back for you.",
+      "reference": "Počkej tady. Vrátím se pro tebe.",
+      "translation": "Počkej tady. Vrátím se pro tebe.",
+      "ms": 409.61069997865707,
+      "error": null,
+      "metrics": {
+        "total_duration": 397422300,
+        "load_duration": 11348400,
+        "prompt_eval_count": 47,
+        "prompt_eval_duration": 30484000,
+        "eval_count": 17,
+        "eval_duration": 330182000,
+        "done_reason": "stop"
+      },
+      "review": {
+        "meaning": 4,
+        "fluency": 4,
+        "score": 100.0,
+        "note_cs": "Význam je zachován a formulace je pro tento krátký vstup přirozená.",
+        "note_en": "Meaning is preserved and the wording is natural for this short input."
+      }
+    },
+    {
+      "id": "cuni-q3km-en-cs-s04",
+      "sentence_id": "s04",
+      "feature": "collapsed bridge and crossing",
+      "model": "cuni-q3km",
+      "source_language": "en",
+      "target_language": "cs",
+      "source": "The bridge has collapsed. Find another way across the river.",
+      "reference": "Most se zřítil. Najdi jinou cestu přes řeku.",
+      "translation": "Most se zřítil. Najděte jinou cestu přes řeku.",
+      "ms": 541.5497999638319,
+      "error": null,
+      "metrics": {
+        "total_duration": 530595700,
+        "load_duration": 20687100,
+        "prompt_eval_count": 49,
+        "prompt_eval_duration": 31005000,
+        "eval_count": 24,
+        "eval_duration": 457848000,
+        "done_reason": "stop"
+      },
+      "review": {
+        "meaning": 4,
+        "fluency": 4,
+        "score": 100.0,
+        "note_cs": "Význam je zachován a formulace je pro tento krátký vstup přirozená.",
+        "note_en": "Meaning is preserved and the wording is natural for this short input."
+      }
+    },
+    {
+      "id": "cuni-q3km-en-cs-s05",
+      "sentence_id": "s05",
+      "feature": "ordered instructions",
+      "model": "cuni-q3km",
+      "source_language": "en",
+      "target_language": "cs",
+      "source": "Hold the button for three seconds, then release it.",
+      "reference": "Drž tlačítko tři sekundy a pak ho pusť.",
+      "translation": "Tlačítko podržte tři sekundy a potom ho uvolněte.",
+      "ms": 581.1644000932574,
+      "error": null,
+      "metrics": {
+        "total_duration": 561093200,
+        "load_duration": 10548500,
+        "prompt_eval_count": 49,
+        "prompt_eval_duration": 29603000,
+        "eval_count": 25,
+        "eval_duration": 490124000,
+        "done_reason": "stop"
+      },
+      "review": {
+        "meaning": 4,
+        "fluency": 4,
+        "score": 100.0,
+        "note_cs": "Význam je zachován a formulace je pro tento krátký vstup přirozená.",
+        "note_en": "Meaning is preserved and the wording is natural for this short input."
+      }
+    },
+    {
+      "id": "cuni-q3km-en-cs-s06",
+      "sentence_id": "s06",
+      "feature": "quantity and warning",
+      "model": "cuni-q3km",
+      "source_language": "en",
+      "target_language": "cs",
+      "source": "There are only two arrows left. Do not waste them.",
+      "reference": "Zbývají jen dva šípy. Neplýtvej jimi.",
+      "translation": "Zbývají už jen dva šípy. Neplýtvejte jimi.",
+      "ms": 648.6450999509543,
+      "error": null,
+      "metrics": {
+        "total_duration": 628033900,
+        "load_duration": 31387600,
+        "prompt_eval_count": 50,
+        "prompt_eval_duration": 29796000,
+        "eval_count": 27,
+        "eval_duration": 530504000,
+        "done_reason": "stop"
+      },
+      "review": {
+        "meaning": 4,
+        "fluency": 4,
+        "score": 100.0,
+        "note_cs": "Význam je zachován a formulace je pro tento krátký vstup přirozená.",
+        "note_en": "Meaning is preserved and the wording is natural for this short input."
+      }
+    },
+    {
+      "id": "cuni-q3km-en-cs-s07",
+      "sentence_id": "s07",
+      "feature": "unless condition",
+      "model": "cuni-q3km",
+      "source_language": "en",
+      "target_language": "cs",
+      "source": "Unless the alarm goes off, stay in the car.",
+      "reference": "Pokud se nespustí alarm, zůstaň v autě.",
+      "translation": "Pokud se neozve alarm, zůstaňte v autě.",
+      "ms": 499.7950999531895,
+      "error": null,
+      "metrics": {
+        "total_duration": 478089200,
+        "load_duration": 33157100,
+        "prompt_eval_count": 49,
+        "prompt_eval_duration": 30276000,
+        "eval_count": 19,
+        "eval_duration": 366687000,
+        "done_reason": "stop"
+      },
+      "review": {
+        "meaning": 4,
+        "fluency": 4,
+        "score": 100.0,
+        "note_cs": "Význam je zachován a formulace je pro tento krátký vstup přirozená.",
+        "note_en": "Meaning is preserved and the wording is natural for this short input."
+      }
+    },
+    {
+      "id": "cuni-q3km-en-cs-s08",
+      "sentence_id": "s08",
+      "feature": "names and recipient contrast",
+      "model": "cuni-q3km",
+      "source_language": "en",
+      "target_language": "cs",
+      "source": "Give the blue potion to Mara, not to Viktor.",
+      "reference": "Dej modrý lektvar Maře, ne Viktorovi.",
+      "translation": "Dej modrý lektvar Marě, ne Viktorovi.",
+      "ms": 509.7326999530196,
+      "error": null,
+      "metrics": {
+        "total_duration": 456220600,
+        "load_duration": 58335900,
+        "prompt_eval_count": 52,
+        "prompt_eval_duration": 30710000,
+        "eval_count": 17,
+        "eval_duration": 323926000,
+        "done_reason": "stop"
+      },
+      "review": {
+        "meaning": 4,
+        "fluency": 3,
+        "score": 87.5,
+        "note_cs": "Význam zachován; správný český tvar jména je „Maře“, nikoli „Marě“.",
+        "note_en": "Meaning is preserved; the correct Czech inflection is “Maře”, not “Marě”."
+      }
+    },
+    {
+      "id": "cuni-q3km-en-cs-s09",
+      "sentence_id": "s09",
+      "feature": "past versus present allegiance",
+      "model": "cuni-q3km",
+      "source_language": "en",
+      "target_language": "cs",
+      "source": "The guard used to be our enemy. Now he is helping us.",
+      "reference": "Strážný býval naším nepřítelem. Teď nám pomáhá.",
+      "translation": "Strážník býval naším nepřítelem. Teď nám pomáhá.",
+      "ms": 603.4843999659643,
+      "error": null,
+      "metrics": {
+        "total_duration": 584528400,
+        "load_duration": 19197700,
+        "prompt_eval_count": 51,
+        "prompt_eval_duration": 29705000,
+        "eval_count": 26,
+        "eval_duration": 505258000,
+        "done_reason": "stop"
+      },
+      "review": {
+        "meaning": 3,
+        "fluency": 4,
+        "score": 87.5,
+        "note_cs": "„Strážník“ je užší policejní označení než obecný guard. Změna vztahu zůstává.",
+        "note_en": "“Strážník” is a narrower police-related term than general guard. Preserves the allegiance change."
+      }
+    },
+    {
+      "id": "cuni-q3km-en-cs-s10",
+      "sentence_id": "s10",
+      "feature": "time and location",
+      "model": "cuni-q3km",
+      "source_language": "en",
+      "target_language": "cs",
+      "source": "Meet me at platform seven at 18:45.",
+      "reference": "Sejdeme se v 18:45 na sedmém nástupišti.",
+      "translation": "Sejdeme se na nástupišti číslo 7 v 18:45.",
+      "ms": 589.6857000188902,
+      "error": null,
+      "metrics": {
+        "total_duration": 571896400,
+        "load_duration": 13118100,
+        "prompt_eval_count": 51,
+        "prompt_eval_duration": 32659999,
+        "eval_count": 25,
+        "eval_duration": 488253000,
+        "done_reason": "stop"
+      },
+      "review": {
+        "meaning": 4,
+        "fluency": 4,
+        "score": 100.0,
+        "note_cs": "Význam je zachován a formulace je pro tento krátký vstup přirozená.",
+        "note_en": "Meaning is preserved and the wording is natural for this short input."
+      }
+    },
+    {
+      "id": "cuni-q3km-en-cs-s11",
+      "sentence_id": "s11",
+      "feature": "idiom and simultaneous action",
+      "model": "cuni-q3km",
+      "source_language": "en",
+      "target_language": "cs",
+      "source": "Keep an eye on the door while I repair the engine.",
+      "reference": "Hlídej dveře, zatímco opravuji motor.",
+      "translation": "Dávej pozor na dveře, zatímco opravím motor.",
+      "ms": 545.4470999538898,
+      "error": null,
+      "metrics": {
+        "total_duration": 518184000,
+        "load_duration": 26671300,
+        "prompt_eval_count": 49,
+        "prompt_eval_duration": 29817000,
+        "eval_count": 22,
+        "eval_duration": 421512000,
+        "done_reason": "stop"
+      },
+      "review": {
+        "meaning": 4,
+        "fluency": 3,
+        "score": 87.5,
+        "note_cs": "„Zatímco opravím“ působí neobratně oproti probíhajícímu „zatímco opravuji“.",
+        "note_en": "“Zatímco opravím” is awkward compared with the ongoing “zatímco opravuji”."
+      }
+    },
+    {
+      "id": "cuni-q3km-en-cs-s12",
+      "sentence_id": "s12",
+      "feature": "near miss idiom",
+      "model": "cuni-q3km",
+      "source_language": "en",
+      "target_language": "cs",
+      "source": "That was close! We nearly fell into the trap.",
+      "reference": "To bylo o fous! Málem jsme spadli do pasti.",
+      "translation": "To bylo těsně! Málem jsme spadli do pasti.",
+      "ms": 518.2992999907583,
+      "error": null,
+      "metrics": {
+        "total_duration": 485720300,
+        "load_duration": 16797600,
+        "prompt_eval_count": 48,
+        "prompt_eval_duration": 30509000,
+        "eval_count": 21,
+        "eval_duration": 402124000,
+        "done_reason": "stop"
+      },
+      "review": {
+        "meaning": 4,
+        "fluency": 3,
+        "score": 87.5,
+        "note_cs": "„To bylo těsně“ je doslovné; přirozenější je „To bylo o fous“. Význam pasti zůstává.",
+        "note_en": "“To bylo těsně” is literal; “To bylo o fous” is more natural. The trap meaning is retained."
+      }
+    }
+  ],
+  "paid_api_requests": 0
+}

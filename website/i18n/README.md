@@ -2,7 +2,7 @@
 
 ## Česky
 
-Všech 32 HTML stránek má českou a anglickou variantu. Návody mají samostatné párové soubory; úvodní stránka, licence, galerie a analýzy se přepínají na stejné adrese pomocí `?lang=cs` / `?lang=en`. Volba se ukládá v prohlížeči a přenáší do interních odkazů. Přepnutí v reportech zachovává vyhledávání, filtry a stránku výsledků.
+Všech 36 HTML stránek má českou a anglickou variantu. Návody mají samostatné párové soubory; úvodní stránka, licence, galerie a analýzy se přepínají na stejné adrese pomocí `?lang=cs` / `?lang=en`. Volba se ukládá v prohlížeči a přenáší do interních odkazů. Přepnutí v reportech zachovává vyhledávání, filtry a stránku výsledků.
 
 Přeloženy jsou nadpisy, vysvětlení, metodika, ovládací prvky, popisky, přístupnost i zobrazované hodnoticí poznámky. Skutečné vstupy OCR, překlady modelů, referenční věty, citované chybné výrazy, identifikátory modelů a původní screenshoty zůstávají beze změn. Jinak by porovnání přestalo ukazovat skutečný výsledek. Původní JSON, CSV, logy a archivované zdrojové balíky zůstávají původními důkazy, nikoli novým překladem dat.
 
@@ -12,7 +12,7 @@ Texty rozhraní jsou ručně připravené. Pracovní návrhy překladů poznáme
 
 ## English
 
-All 32 HTML pages have Czech and English versions. Guides use paired files; the homepage, licenses, galleries and analyses switch at the same address with `?lang=cs` / `?lang=en`. The browser remembers the selection and carries it through internal links. Switching reports preserves searches, filters and pagination.
+All 36 HTML pages have Czech and English versions. Guides use paired files; the homepage, licenses, galleries and analyses switch at the same address with `?lang=cs` / `?lang=en`. The browser remembers the selection and carries it through internal links. Switching reports preserves searches, filters and pagination.
 
 Headings, explanations, methodology, controls, captions, accessibility labels and displayed review notes are translated. Actual OCR inputs, model translations, reference sentences, quoted faulty wording, model identifiers and original screenshots remain unchanged so comparisons still show the recorded results. Original JSON, CSV, logs and archived source bundles remain evidence, rather than translated datasets.
 

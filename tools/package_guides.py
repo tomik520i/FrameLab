@@ -22,8 +22,8 @@ def copy_guides(stage):
         markup = (ROOT / 'website/guide' / source).read_text(encoding='utf-8')
         # Paired static guides work through file:// without a web server. Shared
         # website controls use fetch and online routes, so keep native links here.
-        markup = re.sub(r'<script\b[^>]*src="[^"]*site-i18n\.js[^\"]*"[^>]*>\s*</script>', '', markup)
-        markup = re.sub(r'<link\b[^>]*href="[^"]*site-i18n\.css[^\"]*"[^>]*>', '', markup)
+        markup = re.sub(r'<script\b[^>]*src="[^"]*site-(?:i18n|navigation|images)\.js[^\"]*"[^>]*>\s*</script>', '', markup)
+        markup = re.sub(r'<link\b[^>]*href="[^"]*site-(?:i18n|navigation|images)\.css[^\"]*"[^>]*>', '', markup)
         markup = re.sub(r' data-locale-switch="(?:cs|en)"', '', markup)
         markup = markup.replace('<link rel="stylesheet" href="../styles.css">', '')
         markup = markup.replace('href="../#download"', 'href="https://opicebot.cz/framelab/#download"')

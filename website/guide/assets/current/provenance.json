@@ -1,0 +1,41 @@
+{
+  "captured_local_date": "2026-11-24",
+  "app": "FrameLab 0.2.0-preview.18",
+  "hardware": "RTX 4050 Laptop 6 GB / Windows 11",
+  "capture": "Native Windows Alt+PrintScreen window copy, pasted into Paint, saved directly as PNG. No resizing, generative enhancement, UI replacement or image sharpening. Browser annotations are separate SVG vectors.",
+  "scene": "Bundled GTA 1280x720 sample, NVIDIA VFG 2x, NR off. Subtitle settings captures show English to Japanese with local TranslateGemma selected but not downloaded in this clean application copy; translation off. These are UI illustrations, not benchmark evidence. Language captures show different video instants.",
+  "files": [
+    {
+      "file": "preview18-framegen-cs-native.png",
+      "width": 1920,
+      "height": 1020,
+      "format": "PNG",
+      "bytes": 1534112,
+      "sha256": "668c23257df6be462ed2306dce59765da509e12281c51634333eefda99e8e69a"
+    },
+    {
+      "file": "preview18-framegen-en-native.png",
+      "width": 1920,
+      "height": 1020,
+      "format": "PNG",
+      "bytes": 1589046,
+      "sha256": "f34523232b5021c0c065bd1cacee82286ce1addc48511190d32e85ab8527a52d"
+    },
+    {
+      "file": "preview18-subtitles-cs-native.png",
+      "width": 1920,
+      "height": 1020,
+      "format": "PNG",
+      "bytes": 1731905,
+      "sha256": "8fa1331e362ac790b0b11661b7f92991d86d2bb60877ad82bdf0efc3f06e450e"
+    },
+    {
+      "file": "preview18-subtitles-en-native.png",
+      "width": 1920,
+      "height": 1020,
+      "format": "PNG",
+      "bytes": 1462507,
+      "sha256": "5e70d3a8e1c9d8ae9469d702474697d9d0e3abc7ea3907a7fa5b258d540447b7"
+    }
+  ]
+}

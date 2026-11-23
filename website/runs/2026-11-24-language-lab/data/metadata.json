@@ -1,0 +1,213 @@
+{
+  "date": "2026-11-23T22:46:48.342064+00:00",
+  "app_source_commit": "cd2b0954aaed17e5ffa40b1e9120178367b3cc63",
+  "hardware": {
+    "os": "Windows-10-10.0.26200-SP0",
+    "gpu": "NVIDIA GeForce RTX 4050 Laptop GPU, 6141 MiB, 610.62"
+  },
+  "scope": "Text-only sequential inference. OCR, frame generation and NR disabled; no translation cache; no paid API.",
+  "models": [
+    {
+      "id": "translategemma-4b-q4km",
+      "load_ms": 11692.442100029439,
+      "device": {
+        "backend": "cuda",
+        "index": 0,
+        "name": "NVIDIA GeForce RTX 4050 Laptop GPU",
+        "integrated": false,
+        "total": 6439305216,
+        "free": 6207569920
+      },
+      "runtime": "CUDA / NVIDIA GeForce RTX 4050 Laptop GPU / full GPU",
+      "asset": {
+        "id": "translategemma-4b-q4km",
+        "name": "TranslateGemma 4B Q4_K_M",
+        "file": "translategemma-4b-it.Q4_K_M.gguf",
+        "bytes": 2489909760,
+        "sha256": "81200d03e843d2ec1ece6eeafe7d13cb6e5211e1fcd336ade55790b683a08330",
+        "estimated_vram_gib": 3.6,
+        "url": "https://huggingface.co/mradermacher/translategemma-4b-it-GGUF/resolve/d37868f759d2f817a43d28dd80cf9f982ffa62fd/translategemma-4b-it.Q4_K_M.gguf",
+        "family": "translategemma",
+        "license": "Gemma Terms of Use",
+        "license_url": "https://ai.google.dev/gemma/terms",
+        "original": "https://huggingface.co/google/translategemma-4b-it",
+        "revision": "d37868f759d2f817a43d28dd80cf9f982ffa62fd"
+      },
+      "loaded": {
+        "models": [
+          {
+            "name": "framelab-translategemma-4b-q4km:latest",
+            "model": "framelab-translategemma-4b-q4km:latest",
+            "size": 2753382317,
+            "digest": "8c54087ce5309e058434d8953b4cf8d76558930fbddda5130301d9d35471258f",
+            "details": {
+              "parent_model": "",
+              "format": "gguf",
+              "family": "gemma3",
+              "families": [
+                "gemma3"
+              ],
+              "parameter_size": "3.9B",
+              "quantization_level": "Q4_K_M"
+            },
+            "size_vram": 2753382317,
+            "context_length": 2048,
+            "runner": "llamacpp"
+          }
+        ]
+      },
+      "base_options": {
+        "temperature": 0,
+        "num_ctx": 2048,
+        "num_predict": 256,
+        "num_gpu": 99,
+        "num_thread": 4,
+        "repeat_penalty": 1.0,
+        "seed": 20261119,
+        "top_k": 20,
+        "top_p": 0.6,
+        "stop": [
+          "\n"
+        ]
+      },
+      "effective_options": {
+        "temperature": 0,
+        "num_ctx": 2048,
+        "num_predict": 384,
+        "num_gpu": 99,
+        "num_thread": 4,
+        "repeat_penalty": 1.0,
+        "seed": 20261119,
+        "top_k": 1,
+        "top_p": 1.0,
+        "stop": [
+          "<end_of_turn>",
+          "<eos>"
+        ]
+      }
+    },
+    {
+      "id": "cuni-q3km",
+      "load_ms": 12468.711899942718,
+      "device": {
+        "backend": "cuda",
+        "index": 0,
+        "name": "NVIDIA GeForce RTX 4050 Laptop GPU",
+        "integrated": false,
+        "total": 6439305216,
+        "free": 6207569920
+      },
+      "runtime": "CUDA / NVIDIA GeForce RTX 4050 Laptop GPU / full GPU",
+      "asset": {
+        "id": "cuni-q3km",
+        "name": "CUNI-MH 7B Q3_K_M",
+        "file": "CUNI-MH.Q3_K_M.gguf",
+        "bytes": 3518986560,
+        "sha256": "4e2c3440516a5340e261f96b664994f79be8835523fd496c1821b31d3a02893f",
+        "estimated_vram_gib": 4.4,
+        "url": "https://huggingface.co/RichardErkhov/wmt24-cuni_-_CUNI-MH-gguf/resolve/ebc7f2c321087d423cbed4079b80e63d89e4ac8c/CUNI-MH.Q3_K_M.gguf"
+      },
+      "loaded": {
+        "models": [
+          {
+            "name": "framelab-cuni-q3km:latest",
+            "model": "framelab-cuni-q3km:latest",
+            "size": 3854104001,
+            "digest": "14d34e333bc5b0cc6158372c11590a58b1457a19cbcdf50466e8c2fd8298f1aa",
+            "details": {
+              "parent_model": "",
+              "format": "gguf",
+              "family": "llama",
+              "families": [
+                "llama"
+              ],
+              "parameter_size": "7.2B",
+              "quantization_level": "Q3_K_M"
+            },
+            "size_vram": 3854104001,
+            "context_length": 2048,
+            "runner": "llamacpp"
+          }
+        ]
+      },
+      "base_options": {
+        "temperature": 0,
+        "num_ctx": 2048,
+        "num_predict": 256,
+        "num_gpu": 99,
+        "num_thread": 4,
+        "repeat_penalty": 1.0,
+        "seed": 20261119,
+        "top_k": 20,
+        "top_p": 0.6,
+        "stop": [
+          "\n"
+        ]
+      },
+      "effective_options": {
+        "temperature": 0,
+        "num_ctx": 2048,
+        "num_predict": 256,
+        "num_gpu": 99,
+        "num_thread": 4,
+        "repeat_penalty": 1.0,
+        "seed": 20261119,
+        "top_k": 20,
+        "top_p": 0.6,
+        "stop": [
+          "\n"
+        ]
+      }
+    }
+  ],
+  "directions": [
+    [
+      "en",
+      "cs"
+    ],
+    [
+      "cs",
+      "en"
+    ],
+    [
+      "en",
+      "ja"
+    ],
+    [
+      "ja",
+      "en"
+    ],
+    [
+      "cs",
+      "ja"
+    ],
+    [
+      "ja",
+      "cs"
+    ],
+    [
+      "en",
+      "de"
+    ],
+    [
+      "de",
+      "cs"
+    ],
+    [
+      "en",
+      "es"
+    ],
+    [
+      "fr",
+      "en"
+    ]
+  ],
+  "warmup_policy": "GpuTranslator constructor includes one initial EN-CS inference. Each direction then runs its first input once before the scored pass. First scored input repeats that warm-up prompt.",
+  "startup_policy": "Constructor wall-clock, including model verification/import and initial inference; not pure cold disk-loading time.",
+  "public_metadata_note": "GPU UUID and model expiry timestamps omitted. Base options were recorded by runner; effective options include the overrides in GpuTranslator.translate.",
+  "source_files": {
+    "tools/subtitle_gpu.py": "0c747e8c00ef6f268bf306ea73e39a7be0d8d0b68451cd81beae65c5902458c3",
+    "tools/subtitle_languages.py": "202d388157237abe3de308bf3925007c9d5c70a22021a7e2375958fc9ade68d3"
+  },
+  "runner_sha256": "2b17adfc18813b5cd5cf5ce0aa81a26b582ab094c78e8092d7aaecd1b773c2d2"
+}

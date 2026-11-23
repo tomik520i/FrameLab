@@ -1,0 +1,150 @@
+{
+  "license": "CC0-1.0",
+  "origin": "Authored diagnostic sentences and reference translations, prepared by Codex; not external game dialogue or native-speaker validation.",
+  "sentences": [
+    {
+      "id": "s01",
+      "feature": "negation and time",
+      "texts": {
+        "en": "Do not open the red door. We have five minutes.",
+        "cs": "Neotvírej červené dveře. Máme pět minut.",
+        "ja": "赤いドアを開けないで。あと5分ある。",
+        "de": "Öffne nicht die rote Tür. Wir haben fünf Minuten.",
+        "es": "No abras la puerta roja. Tenemos cinco minutos.",
+        "fr": "N’ouvre pas la porte rouge. Nous avons cinq minutes."
+      }
+    },
+    {
+      "id": "s02",
+      "feature": "negated reported speech",
+      "texts": {
+        "en": "I did not say that Anna stole the key.",
+        "cs": "Neřekl jsem, že Anna ukradla klíč.",
+        "ja": "アンナが鍵を盗んだとは言っていない。",
+        "de": "Ich habe nicht gesagt, dass Anna den Schlüssel gestohlen hat.",
+        "es": "No dije que Anna robara la llave.",
+        "fr": "Je n’ai pas dit qu’Anna avait volé la clé."
+      }
+    },
+    {
+      "id": "s03",
+      "feature": "return for someone",
+      "texts": {
+        "en": "Wait here. I will come back for you.",
+        "cs": "Počkej tady. Vrátím se pro tebe.",
+        "ja": "ここで待っていて。迎えに戻ってくる。",
+        "de": "Warte hier. Ich komme zurück, um dich abzuholen.",
+        "es": "Espera aquí. Volveré a buscarte.",
+        "fr": "Attends ici. Je reviendrai te chercher."
+      }
+    },
+    {
+      "id": "s04",
+      "feature": "collapsed bridge and crossing",
+      "texts": {
+        "en": "The bridge has collapsed. Find another way across the river.",
+        "cs": "Most se zřítil. Najdi jinou cestu přes řeku.",
+        "ja": "橋が崩れた。川を渡る別の道を探して。",
+        "de": "Die Brücke ist eingestürzt. Finde einen anderen Weg über den Fluss.",
+        "es": "El puente se ha derrumbado. Busca otra forma de cruzar el río.",
+        "fr": "Le pont s’est effondré. Trouve un autre moyen de traverser la rivière."
+      }
+    },
+    {
+      "id": "s05",
+      "feature": "ordered instructions",
+      "texts": {
+        "en": "Hold the button for three seconds, then release it.",
+        "cs": "Drž tlačítko tři sekundy a pak ho pusť.",
+        "ja": "ボタンを3秒間押し続けてから離して。",
+        "de": "Halte die Taste drei Sekunden lang gedrückt und lasse sie dann los.",
+        "es": "Mantén pulsado el botón durante tres segundos y luego suéltalo.",
+        "fr": "Maintiens le bouton enfoncé pendant trois secondes, puis relâche-le."
+      }
+    },
+    {
+      "id": "s06",
+      "feature": "quantity and warning",
+      "texts": {
+        "en": "There are only two arrows left. Do not waste them.",
+        "cs": "Zbývají jen dva šípy. Neplýtvej jimi.",
+        "ja": "矢はあと2本しかない。無駄にしないで。",
+        "de": "Es sind nur noch zwei Pfeile übrig. Verschwende sie nicht.",
+        "es": "Solo quedan dos flechas. No las desperdicies.",
+        "fr": "Il ne reste que deux flèches. Ne les gaspille pas."
+      }
+    },
+    {
+      "id": "s07",
+      "feature": "unless condition",
+      "texts": {
+        "en": "Unless the alarm goes off, stay in the car.",
+        "cs": "Pokud se nespustí alarm, zůstaň v autě.",
+        "ja": "警報が鳴らない限り、車の中にいて。",
+        "de": "Bleib im Auto, solange der Alarm nicht losgeht.",
+        "es": "Quédate en el coche a menos que suene la alarma.",
+        "fr": "Reste dans la voiture, sauf si l’alarme se déclenche."
+      }
+    },
+    {
+      "id": "s08",
+      "feature": "names and recipient contrast",
+      "texts": {
+        "en": "Give the blue potion to Mara, not to Viktor.",
+        "cs": "Dej modrý lektvar Maře, ne Viktorovi.",
+        "ja": "青い薬はヴィクトルではなく、マラに渡して。",
+        "de": "Gib den blauen Trank Mara, nicht Viktor.",
+        "es": "Dale la poción azul a Mara, no a Viktor.",
+        "fr": "Donne la potion bleue à Mara, pas à Viktor."
+      }
+    },
+    {
+      "id": "s09",
+      "feature": "past versus present allegiance",
+      "texts": {
+        "en": "The guard used to be our enemy. Now he is helping us.",
+        "cs": "Strážný býval naším nepřítelem. Teď nám pomáhá.",
+        "ja": "あの衛兵は以前は敵だった。今は私たちを助けてくれている。",
+        "de": "Der Wächter war früher unser Feind. Jetzt hilft er uns.",
+        "es": "El guardia antes era nuestro enemigo. Ahora nos está ayudando.",
+        "fr": "Le garde était autrefois notre ennemi. Maintenant, il nous aide."
+      }
+    },
+    {
+      "id": "s10",
+      "feature": "time and location",
+      "texts": {
+        "en": "Meet me at platform seven at 18:45.",
+        "cs": "Sejdeme se v 18:45 na sedmém nástupišti.",
+        "ja": "18時45分に7番ホームで会おう。",
+        "de": "Triff mich um 18:45 Uhr an Bahnsteig sieben.",
+        "es": "Nos vemos a las 18:45 en el andén siete.",
+        "fr": "Retrouve-moi à 18 h 45 sur le quai sept."
+      }
+    },
+    {
+      "id": "s11",
+      "feature": "idiom and simultaneous action",
+      "texts": {
+        "en": "Keep an eye on the door while I repair the engine.",
+        "cs": "Hlídej dveře, zatímco opravuji motor.",
+        "ja": "エンジンを修理している間、ドアを見張っていて。",
+        "de": "Behalte die Tür im Auge, während ich den Motor repariere.",
+        "es": "Vigila la puerta mientras reparo el motor.",
+        "fr": "Surveille la porte pendant que je répare le moteur."
+      }
+    },
+    {
+      "id": "s12",
+      "feature": "near miss idiom",
+      "texts": {
+        "en": "That was close! We nearly fell into the trap.",
+        "cs": "To bylo o fous! Málem jsme spadli do pasti.",
+        "ja": "危なかった！もう少しで罠にかかるところだった。",
+        "de": "Das war knapp! Wir wären beinahe in die Falle getappt.",
+        "es": "¡Por poco! Casi caemos en la trampa.",
+        "fr": "C’était moins une ! Nous avons failli tomber dans le piège."
+      }
+    }
+  ]
+}
