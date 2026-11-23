@@ -31,8 +31,9 @@ struct SubtitleSettings {
  bool editOverlay=false; // preview controls only, never persisted or shown in fullscreen
  bool inspectOcr=false; // temporary diagnostics; does not change filtering
  int intervalMs=300;
- int model=0; // 0: bundled CPU, 1: CUNI Q3_K_M, 2: CUNI Q8_0, 3: CUNI Q5_K_M (preserves old saved IDs)
- int ocrEngine=0; // 0: bundled RapidOCR / PP-OCRv5 English; 1: Windows English OCR
+ int model=0; // 0: CPU, 1/2/3: CUNI Q3/Q8/Q5; 4/5/6: Gemma 4B Q4/4B Q8/12B Q4; stable IDs
+ int ocrEngine=0; // 0: bundled RapidOCR / PP-OCRv5; 1: Windows OCR for sourceLanguage
+ std::string sourceLanguage="en",targetLanguage="cs";
  float holdSeconds=1.2f,lingerSeconds=3.f;
  bool joinFragments=true;
  SubtitleStyleProfile style;
@@ -60,7 +61,7 @@ public:
  uint64_t requestStyleSample(const unsigned char* bgra,unsigned w,unsigned h,std::array<float,4> word,std::array<float,4> area);
  SubtitleStyleSample styleSample()const;
  void cancelStyleSample();
- static bool rapidOcrAvailable(const std::filesystem::path& app);
+ static bool rapidOcrAvailable(const std::filesystem::path& app,const std::string& language="en");
 private:
  struct Impl;std::unique_ptr<Impl> impl;
 };

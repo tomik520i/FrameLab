@@ -17,3 +17,6 @@ if (-not $BuildOnly) {
     python -m pip install --target deps/python -r tools/requirements.txt
     if ($LASTEXITCODE) { throw 'Diagnostic dependency installation failed' }
 }
+if (-not (Test-Path 'deps/onnxruntime/include/onnxruntime_cxx_api.h') -or -not (Test-Path 'deps/directml/include/DirectML.h')) {
+    & (Join-Path $PSScriptRoot 'setup_rife_directml.ps1')
+}

@@ -1,13 +1,21 @@
-# FrameLab preview.16 — česká instalace
+# FrameLab preview.17 — česká instalace
 
 [English](START_HERE.md) · [Web a ukázky](https://opicebot.cz/framelab/?lang=cs)
 
 
 [Obrazový návod: aktuální screenshoty, očíslované kroky a zvětšování](https://opicebot.cz/framelab/guide/visual.html). Stejný návod je v ZIPu jako **OBRAZOVY NAVOD.html**.
 
+## Nové v preview.17: jiná GPU a další jazyky
+
+V **Frame gen** zvol **RIFE 4.22 lite / DirectML** nebo **D3D11 Optical Flow**. Tyto cesty nejsou omezené na RTX 40/50. RIFE vyžaduje vhodnou hardwarovou DirectX 12 GPU a ovladač. Na tomto Intel UHD je při 720p RIFE příliš pomalé; Optical Flow dosáhl přibližně 59 potvrzených prezentací/s. AMD a starší GeForce zatím nejsou fyzicky otestované. NVIDIA VFG a NR mají vlastní užší omezení. [Tabulka GPU](docs/GPU-BACKENDS.md).
+
+V **Titulky** vyber jazyk obrazu a cíl. Všech 12 OCR sad je v ZIPu. **OPUS-MT / CPU** funguje hned pro EN → CS. Pro jiný pár zvol **TranslateGemma 4B Q4_K_M**, klikni **Stáhnout / pokračovat a ověřit**, počkej na dokončení a zapni **Překládat titulky**. Model má 2,49 GB, první GPU runtime dalších 1,62 GB; po stažení se nic nepřekládá v cloudu. Q8 a 12B jsou volitelné větší varianty. Nejde o přepis zvuku. [Podrobný návod](docs/MULTILINGUAL.md).
+
+Celý veřejný ZIP přibaluje RIFE modely a runtime, VFG runtime, 12 OCR sad, CPU překladač, dva herní klipy a syntetickou titulkovou ukázku. Velké GPU překladové modely a runtime stáhne tlačítko; externí NR DLL nejsou v ZIPu ani na zrcadle. Staré screenshoty nezměněných kroků jsou označené, nové jazyky ukazuje doplněný obrazový návod.
+
 ## Stáhnout a spustit
 
-1. [Stáhněte celý ZIP pro Windows x64](https://github.com/tomik520i/FrameLab/releases/download/v0.2.0-preview.16/FrameLab-0.2.0-preview.16-windows-x64-full.zip) a **rozbalte vše**, například do D:/FrameLab. Nespouštějte aplikaci uvnitř ZIPu.
+1. [Stáhněte celý ZIP pro Windows x64](https://github.com/tomik520i/FrameLab/releases/download/v0.2.0-preview.17/FrameLab-0.2.0-preview.17-windows-x64-full.zip) a **rozbalte vše**, například do D:/FrameLab. Nespouštějte aplikaci uvnitř ZIPu.
 2. Spusťte **Start FrameLab.cmd** nebo **1 - Spustit FrameLab.cmd**. Nová instalace pustí GTA ukázku, další spuštění obnoví relaci. Python, SDK ani systémový VLC nepotřebujete; složky balíčku musí zůstat pohromadě.
 3. Začněte s **Frame gen → 2×**. **F11** zobrazí čistý výstup, Escape/F11 vrátí ovládání. Tlačítkem **EN / CZ** přepnete anglické rozhraní do češtiny.
 

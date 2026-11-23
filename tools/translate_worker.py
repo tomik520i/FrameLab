@@ -1,4 +1,4 @@
-"""Local EN -> CS translation. Length-prefixed UTF-8; GPU uses owned loopback API."""
+"""Local subtitle translation. Length-prefixed UTF-8; owned loopback GPU API."""
 from pathlib import Path
 import argparse
 import json
@@ -12,7 +12,9 @@ sys.path.insert(0, str(Path(__file__).resolve().parent))
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument('--model', type=Path, required=True)
-    parser.add_argument('--backend', choices=['cpu', 'cuni-q3km', 'cuni-q8', 'cuni-q5km'], default='cpu')
+    parser.add_argument('--backend', choices=['cpu', 'cuni-q3km', 'cuni-q8', 'cuni-q5km', 'translategemma-4b-q4km', 'translategemma-4b-q8', 'translategemma-12b-q4km'], default='cpu')
+    parser.add_argument('--source', default='en')
+    parser.add_argument('--target', default='cs')
     args = parser.parse_args()
     # Search only the sibling, bundled redistributable directory on Windows.
     runtime = Path(__file__).resolve().parents[1] / 'runtime'
@@ -34,6 +36,8 @@ def main():
 
     gpu = None
     try:
+        from subtitle_languages import validate_pair
+        validate_pair(args.backend,args.source,args.target)
         if args.backend == 'cpu':
             import ctranslate2
             import sentencepiece
@@ -45,7 +49,7 @@ def main():
             model = ctranslate2.Translator(str(args.model), device='cpu', compute_type='int8', inter_threads=1, intra_threads=2)
         else:
             from subtitle_gpu import GpuTranslator
-            gpu = GpuTranslator(args.model.parent, args.backend)
+            gpu = GpuTranslator(args.model.parent, args.backend, args.source, args.target)
     except Exception as exc:
         send('ERROR: ' + str(exc))
         return

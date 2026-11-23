@@ -44,3 +44,8 @@ Preview.13 includes the GPL FrameLab NR adapter and the hash-checking PowerShell
 ## Preview.14 optional Q5
 
 CUNI-MH Q5_K_M (5,131,409,728 bytes) is a publisher download pinned in subtitle-models.json. Download and SHA-256 verification passed locally. The owner subsequently activated Q5 and GPU loading was confirmed; no controlled quality or speed benchmark was run. No GGUF model or GPU runtime cache is included in the full ZIP.
+
+
+## Preview.17 additions
+
+RIFE 4.22 lite models (MIT) and ONNX Runtime DirectML (MIT) are bundled with their notices. Microsoft DirectML has its own accompanying redistribution terms. All three RIFE exports, source checkpoint hash and runtime notices are included. Multilingual OCR expands to 12 pinned recognizers (Apache-2.0). TranslateGemma weights and Ollama GPU runtime remain optional in-app downloads, with Gemma terms and notices supplied. No external NR DLL or private cache is included.

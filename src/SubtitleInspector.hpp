@@ -8,7 +8,7 @@ inline void subtitleProfileDescription(const SubtitleStyleProfile& p,unsigned so
  if(sourceHeight)ImGui::Text(subText("Letter height: ~%.1f px at %u px source height","Výška písmen: ~%.1f px při výšce zdroje %u px"),p.height*sourceHeight,sourceHeight);
  ImGui::Text(subText("Height: %.2f%% of image | tolerance +/- %.0f%%","Výška: %.2f %% obrazu | tolerance +/- %.0f %%"),p.height*100,p.heightTolerance*100);
  ImGui::Text(subText("Colour tolerance: %.0f (OpenCV Lab distance)","Tolerance barvy: %.0f (vzdálenost v OpenCV Lab)"),p.colorTolerance);
- if(!p.sampleText.empty())ImGui::TextWrapped(subText("Sample OCR: %s","OCR vzoru: %s"),p.sampleText.c_str());
+ if(!p.sampleText.empty()){ImGui::TextUnformatted(subText("Sample OCR","OCR vzoru"));subtitleUnicodeLabel(p.sampleText);}
  else ImGui::TextWrapped("%s",subText("No saved sample text. Older profiles keep their colour/size; select a word again to add evidence.","Chybí uložený text vzoru. Starší profily mají barvu a velikost; pro doplnění vzorku znovu označ slovo."));
  ImGui::TextWrapped("%s",subText("The word illustrates the style, not a required phrase. Font family and point size are not detected.","Slovo slouží jako vzor vzhledu, ne jako povinná fráze. Název fontu ani typografickou velikost nezjišťujeme."));
 }
@@ -16,7 +16,7 @@ inline void subtitleProfileDescription(const SubtitleStyleProfile& p,unsigned so
 inline void subtitleOcrRows(const std::vector<SubtitleOcrLine>& lines,unsigned sourceHeight){
  const char* en[]={"ACCEPTED","OUTSIDE AREA","WRONG SIZE","WRONG COLOUR"};const char* cs[]={"PŘIJATO","MIMO OBLAST","JINÁ VELIKOST","JINÁ BARVA"};
  int index=0;for(const auto& row:lines){ImGui::PushID(index++);ImGui::Separator();
-  ImGui::TextColored(row.reason?ui::orange:ui::accent,"%s",(czech?cs:en)[std::clamp(row.reason,0,3)]);ImGui::SameLine();ImGui::Text("OCR %.2f",row.confidence);ImGui::TextWrapped("%s",row.text.c_str());
+  ImGui::TextColored(row.reason?ui::orange:ui::accent,"%s",(czech?cs:en)[std::clamp(row.reason,0,3)]);ImGui::SameLine();ImGui::Text("OCR %.2f",row.confidence);subtitleUnicodeLabel(row.text);
   if(row.measured){ImGui::ColorButton("##observed-colour",{row.rgb[0]/255,row.rgb[1]/255,row.rgb[2]/255,1},ImGuiColorEditFlags_NoTooltip,{18,18});ImGui::SameLine();ImGui::Text("RGB %.0f / %.0f / %.0f",row.rgb[0],row.rgb[1],row.rgb[2]);
    if(sourceHeight)ImGui::Text(subText("Letters ~%.1f px | OCR box %.1f px high","Písmena ~%.1f px | výška OCR rámečku %.1f px"),row.height*sourceHeight,row.boxHeight*sourceHeight);
   }else ImGui::TextWrapped("%s",subText("Colour / letter height unavailable for this row.","Barvu / výšku písmen se u tohoto řádku nepodařilo určit."));

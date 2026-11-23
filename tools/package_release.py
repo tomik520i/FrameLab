@@ -28,8 +28,9 @@ def main():
     p.add_argument('--setup',type=Path,required=True)
     p.add_argument('--ocr',type=Path,required=True,help='Verified output of prepare_ocr.py')
     p.add_argument('--media',type=Path,required=True,help='Verified output of prepare_media.py')
+    p.add_argument('--rife',type=Path,required=True,help='Verified runtime/rife folder, including all three ONNX models and licenses')
     p.add_argument('--output',type=Path,required=True)
-    p.add_argument('--version',default='0.2.0-preview.15')
+    p.add_argument('--version',default='0.2.0-preview.17')
     p.add_argument('--commit',required=True)
     p.add_argument('--gta-sample',type=Path,required=True)
     a=p.parse_args()
@@ -69,6 +70,12 @@ def main():
     assert json.loads((a.media/'provenance.json').read_text(encoding='utf-8'))==media_pin,'Media runtime provenance mismatch'
     assert (a.media/'libvlc.dll').is_file() and (a.media/'libvlccore.dll').is_file() and (a.media/'plugins/demux/libmkv_plugin.dll').is_file(),'Incomplete media runtime'
     shutil.copytree(a.media,stage/'app/media/vlc',dirs_exist_ok=True)
+    rife_manifest=json.loads((a.rife/'model-provenance.json').read_text(encoding='utf-8'))
+    for model in rife_manifest['outputs']:
+        assert digest(a.rife/model['file'])==model['sha256'],model['file']
+    for required in ['onnxruntime.dll','onnxruntime_providers_shared.dll','DirectML.dll','licenses/DirectML-LICENSE.txt','licenses/RIFE-LICENSE','licenses/SmoovPlay-LICENSE']:
+        assert (a.rife/required).is_file(),required
+    shutil.copytree(a.rife,stage/'app/runtime/rife',dirs_exist_ok=True)
     (stage/'app/language.txt').write_text('0\n',encoding='ascii')
     (stage/'app/nr-host').mkdir(exist_ok=True)
     shutil.copy2(a.nr_host,stage/'app/nr-host/nvngx.dll')
@@ -82,11 +89,16 @@ def main():
     for source in ROOT.glob('*.cmd'):
         if source.name.startswith(('Start FrameLab','1 - ','2 - ','3 - ','4 - ','Ukazka - ')) and source.name!='Ukazka - Spider-Man.cmd':
             shutil.copy2(source,stage/source.name)
-    for file in ['prepare_translation.py','prepare_ocr.py','prepare_media.py','ocr_worker.py','ocr_style.py','translate_worker.py','subtitle_models.py','subtitle_model_manager.py','subtitle_gpu.py','package_release.py','package_guides.py','Install-Enhancer.ps1']:
+    for file in ['prepare_translation.py','prepare_ocr.py','prepare_media.py','ocr_worker.py','ocr_style.py','translate_worker.py','subtitle_models.py','subtitle_model_manager.py','subtitle_gpu.py','subtitle_languages.py','package_release.py','package_guides.py','Install-Enhancer.ps1']:
         shutil.copy2(ROOT/'tools'/file,stage/'tools'/file)
-    for file in ['translate_worker.py','subtitle_models.py','subtitle_model_manager.py','subtitle_gpu.py']:
+    for file in ['translate_worker.py','subtitle_models.py','subtitle_model_manager.py','subtitle_gpu.py','subtitle_languages.py']:
         shutil.copy2(ROOT/'tools'/file,stage/'app/translation'/file)
     shutil.copy2(ROOT/'docs/subtitle-models.json',stage/'app/translation/subtitle-models.json')
+    for folder in ['translation','ocr']:
+        shutil.copy2(ROOT/'docs/subtitle-languages.json',stage/'app'/folder/'subtitle-languages.json')
+        shutil.copy2(ROOT/'tools/subtitle_languages.py',stage/'app'/folder/'subtitle_languages.py')
+    for notice in ['Gemma-LICENSE.txt','Gemma-Notice.txt']:
+        shutil.copy2(ROOT/'docs/licenses'/notice,stage/'app/translation'/notice)
     shutil.copy2(ROOT/'docs/runtime-distribution.md',stage/'licenses/README.md')
     shutil.copy2(a.gta_sample,stage/'app/samples/gta.mp4')
     shutil.copy2(ROOT/'docs/sample-gta-source.json',stage/'app/samples/gta.source.json')
@@ -115,7 +127,7 @@ def main():
     (stage/'ZACNI TADY.txt').write_text(guide,encoding='utf-8-sig')
     copy_guides(stage)
     (stage/'README-v3.txt').write_text('This is the public '+a.version+' full package. Start with ZACNI TADY.html, INSTALL.cs.md or START_HERE.md. NR adapter and import wizard included; external NR model DLLs are not bundled.\n',encoding='utf-8')
-    metadata={'version':a.version,'source_commit':commit,'FRAMELAB_EXPERIMENTAL_NR':True,'setup_sha256':digest(stage/'app/FrameLab-Setup.exe'),'nr_host_sha256':digest(stage/'app/nr-host/nvngx.dll'),'nr_host_sdk_static_library':False,'application_sha256':digest(stage/'app/FrameLab.exe'),'bundled_translation':True,'bundled_ocr':True,'bundled_game_samples':2,'nr_runtime_included':False}
+    metadata={'version':a.version,'source_commit':commit,'FRAMELAB_EXPERIMENTAL_NR':True,'setup_sha256':digest(stage/'app/FrameLab-Setup.exe'),'nr_host_sha256':digest(stage/'app/nr-host/nvngx.dll'),'nr_host_sdk_static_library':False,'application_sha256':digest(stage/'app/FrameLab.exe'),'bundled_translation':True,'bundled_ocr':True,'bundled_game_samples':2,'nr_runtime_included':False,'bundled_rife':'4.22 lite / DirectML','ocr_recognizers':12,'language_choices':40,'gpu_translation_models_included':False}
     (stage/'build-variant.json').write_text(json.dumps(metadata,indent=2),encoding='utf-8')
     files=sorted(x for x in stage.rglob('*') if publishable(x,stage))
     (stage/'SHA256SUMS.txt').write_text(''.join(digest(x)+'  '+x.relative_to(stage).as_posix()+'\n' for x in files),encoding='utf-8')

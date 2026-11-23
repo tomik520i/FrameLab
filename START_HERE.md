@@ -1,12 +1,20 @@
-# FrameLab preview.16 — start here
+# FrameLab preview.17 — start here
 
 [Česky](INSTALL.cs.md) · [Web comparisons](https://opicebot.cz/framelab/)
 
 [Illustrated walkthrough: current screenshots, numbered steps and zoom](https://opicebot.cz/framelab/guide/visual-en.html). The same guide is included offline as **VISUAL GUIDE.html**.
 
+## New in preview.17: more GPUs and languages
+
+In **Frame gen**, select **RIFE 4.22 lite / DirectML** or **D3D11 Optical Flow**. These paths are not restricted to RTX 40/50. RIFE needs a suitable hardware DirectX 12 GPU and driver. This laptop's Intel UHD is too slow for RIFE at 720p; Optical Flow reached about 59 Windows-confirmed presentations/s. AMD and older GeForce cards have not been physically tested. NVIDIA VFG and NR retain their separate narrower requirements. [GPU matrix](docs/GPU-BACKENDS.md).
+
+In **Subtitles**, choose the language in the picture and the target. All 12 OCR packs are included. **OPUS-MT / CPU** works immediately for EN → CS. For another pair, select **TranslateGemma 4B Q4_K_M**, click **Download / resume and verify**, wait for completion, then enable **Translate subtitles**. The model is 2.49 GB; the first GPU runtime adds 1.62 GB. Inference is local after setup. Q8 and 12B are optional larger variants. This is not speech transcription. [Full guide](docs/MULTILINGUAL.en.md).
+
+The public full ZIP includes RIFE models/runtime, VFG runtime, 12 OCR packs, CPU translation, two game clips and a synthetic subtitle demo. The app downloads large GPU translation weights/runtime separately; external NR DLLs are neither bundled nor mirrored. Historical screenshots of unchanged steps are labelled; the illustrated guide adds the new language controls.
+
 ## Download and launch
 
-1. [Download the full Windows x64 ZIP](https://github.com/tomik520i/FrameLab/releases/download/v0.2.0-preview.16/FrameLab-0.2.0-preview.16-windows-x64-full.zip) and **extract all** to a short writable folder, for example D:/FrameLab.
+1. [Download the full Windows x64 ZIP](https://github.com/tomik520i/FrameLab/releases/download/v0.2.0-preview.17/FrameLab-0.2.0-preview.17-windows-x64-full.zip) and **extract all** to a short writable folder, for example D:/FrameLab.
 2. Run **Start FrameLab.cmd**. A new installation opens the GTA demo; subsequent launches restore the saved session. No compiler, Python, SDK or system VLC installation is needed. Keep the entire folder together.
 3. Begin with **Frame gen → 2×**. **F11** opens fullscreen; Escape/F11 returns. **EN / CZ** changes language; English is the clean-install default.
 
@@ -30,11 +38,11 @@ Embedded subtitles enter the image before FG/NR. OCR translates visible text; it
 
 Start with **2× / Medium**. Inspect edges, HUD and fast motion: 3×/4× can produce severe artifacts. The multiplier does not guarantee corresponding physical display FPS.
 
-For **AI / NR**, follow the [exact import guide](docs/enhancer-install.en.md). Start at **720p, one pass**. Lower the processing limit/passes or disable motion estimation if FPS drops. Lower strength only changes the blend, not inference cost. F6 toggles NR; F7 changes comparison; F8 freezes a pair. NR Original can already contain FG. Order: input → FG → NR → Czech overlay → display.
+For **AI / NR**, follow the [exact import guide](docs/enhancer-install.en.md). Start at **720p, one pass**. Lower the processing limit/passes or disable motion estimation if FPS drops. Lower strength only changes the blend, not inference cost. F6 toggles NR; F7 changes comparison; F8 freezes a pair. NR Original can already contain FG. Order: input → FG → NR → translated overlay → display.
 
 **Optional Eco:** in AI / NR, enable **Eco: enhance before frame gen (experimental)**. It enhances source frames before interpolation, reducing NR evaluations when FG is active. It can add latency, extra VRAM use and different artifacts. Default is off; resolution and strength are preserved. [Measured results and limits](docs/NR_ECO.md).
 
-## Czech subtitles and saved profiles
+## English → Czech subtitles and saved profiles
 
 Open **Subtitles**, choose bundled **RapidOCR**, **OPUS-MT / CPU**, then enable translation. RapidOCR needs no Windows OCR language download. The artificial EN → Czech sample under Capture helps check setup.
 
@@ -50,7 +58,7 @@ Czech lines are centered; drag their position independently from OCR. Multiline 
 
 ## Display and audio
 
-**Display** chooses monitor and Fit/Fill/1:1. Fit preserves the whole picture with bars; Fill and oversized 1:1 can crop. F11 hides controls/comparisons/OCR outlines, while retaining the Czech overlay.
+**Display** chooses monitor and Fit/Fill/1:1. Fit preserves the whole picture with bars; Fill and oversized 1:1 can crop. F11 hides controls/comparisons/OCR outlines, while retaining the selected translated overlay.
 
 **Audio** selects output, volume and mute. Capture and local-file audio have their respective controls. Analysis clips have no audio. Submitted/DXGI FPS does not measure physical panel scanout or controller-to-photon latency.
 

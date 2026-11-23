@@ -1,14 +1,16 @@
 # FrameLab
 
-Capture card or video → NVIDIA GPU → your display. An experimental Windows app for frame generation, optional neural enhancement and local English-to-Czech subtitles.
+**Preview.17:** RIFE / DirectML for suitable non-NVIDIA GPUs, repaired Optical Flow, 40 language choices and TranslateGemma downloads. [Hardware and setup](docs/GPU-BACKENDS.md) · [Multilingual guide](docs/MULTILINGUAL.en.md) · [Measured results](docs/release-preview17.md).
 
-**[Download preview.16](https://github.com/tomik520i/FrameLab/releases/download/v0.2.0-preview.16/FrameLab-0.2.0-preview.16-windows-x64-full.zip) · [Website & comparisons](https://opicebot.cz/framelab/) · [Česky](docs/README.cs.md)**
+Capture card or video → GPU → your display. An experimental Windows app for frame generation, optional neural enhancement and local multilingual subtitles.
+
+**[Download preview.17](https://github.com/tomik520i/FrameLab/releases/download/v0.2.0-preview.17/FrameLab-0.2.0-preview.17-windows-x64-full.zip) · [Website & comparisons](https://opicebot.cz/framelab/) · [Česky](docs/README.cs.md)**
 
 [Illustrated setup guide — real screenshots, step by step](https://opicebot.cz/framelab/guide/visual-en.html)
 
 [Preview.16 changes](docs/release-preview16.md) · [Complete 1,747-translation audit](https://opicebot.cz/framelab/runs/2026-11-20-3h/)
 
-![FrameLab preview.16](docs/images/preview16/01-overview.png)
+![FrameLab preview.16 — historical overview](docs/images/preview16/01-overview.png)
 
 ![Original versus recorded 2× FG, four times slower](docs/images/preview15/gta-2x-slow.gif)
 
@@ -16,9 +18,9 @@ Three seconds of the same GTA camera movement, played over twelve seconds. The r
 
 ## What it does
 
-- **Frame generation:** NVIDIA VFG or a separate Optical Flow backend, 2× / 3× / 4×. Start at 2×; higher multipliers can produce severe artifacts. This is video interpolation without game motion vectors, not in-engine DLSS.
+- **Frame generation:** NVIDIA VFG, D3D11 Optical Flow or RIFE 4.22 lite via DirectML, 2× / 3× / 4×. Start at 2×; higher multipliers can produce severe artifacts and latency. RIFE and Optical Flow can use AMD / Intel / NVIDIA; hardware performance still matters. This is video interpolation without game motion vectors, not in-engine DLSS.
 - **Optional NR enhancement:** same-frame original/enhanced comparison, strength, processing limit and 1–4 sequential passes. Optional [Eco mode](docs/NR_ECO.md) enhances before FG to reduce AI evaluations. [External runtime setup](docs/enhancer-install.en.md).
-- **Local Czech captions:** bundled neural OCR and CPU translation; optional CUNI Q3/Q5/Q8 downloads. Select one subtitle word to learn color/size, mark the reading area and save named profiles.
+- **Local multilingual captions:** 40 language choices and 12 bundled OCR families; TranslateGemma 4B Q4/Q8 or 12B Q4 downloads. CPU OPUS and CUNI Q3/Q5/Q8 remain EN → CS only. Select one subtitle word to learn color/size, mark the reading area and save named profiles.
 - **Capture or your own movie:** separate resolution/FPS controls; MP4/MKV playback with audio and subtitle track selection through bundled LibVLC.
 - **Full pipeline recording:** input, generated images, before/after enhancement and final image with captions, linked by IDs. Playable clips, SRT and settings JSON; incomplete takes are labeled.
 - **Debug & measurement:** timestamped FPS, CPU/GPU load, queues, timings, OCR, translations and settings until logging is stopped. Fullscreen, audio routing, monitor controls and English/Czech UI.
@@ -63,7 +65,7 @@ A controlled replay with FG 2× + NR gave **53.81 submitted FPS foreground, 52.9
 
 ## Documentation
 
-- [Release notes](docs/release-notes-preview15.md), [build/package](docs/build-preview15.md)
+- [Release notes](docs/release-preview17.md), [build/package](docs/build-preview17.md)
 - [OCR profiles](docs/subtitle-ocr.md), [subtitle models](docs/subtitle-model-guide.md), [movies and tracks](docs/local-video.md)
 - [Recording](docs/pipeline-recording.md), [debug](docs/debug-measurement.md), [translation experiments](https://opicebot.cz/framelab/translation/)
 - [Third-party notices](THIRD_PARTY_NOTICES.md), [runtime distribution](docs/runtime-distribution.md), [sample provenance](docs/sample-provenance.md), [TODO](docs/TODO.md)

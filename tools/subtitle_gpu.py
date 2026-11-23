@@ -1,4 +1,4 @@
-"""FrameLab-owned, loopback-only CUNI inference with explicit full GPU offload."""
+"""FrameLab-owned, loopback-only CUNI / TranslateGemma with full GPU offload."""
 from pathlib import Path
 import json
 import os
@@ -10,6 +10,7 @@ import urllib.request
 import ctypes
 from subtitle_models import catalog, verified, verify
 from subtitle_model_manager import runtime_ready
+from subtitle_languages import gemma_prompt, validate_pair
 
 PROMPT = '### Instruction:\nTranslate Input from English to Czech\n### Glossary:\n\n### Previous text:\n\n### Input:\n{text}\n### Response:\n'
 OPTIONS = dict(temperature=0, num_ctx=2048, num_predict=256, num_gpu=99, num_thread=4,
@@ -42,7 +43,12 @@ def available_vram():
 
 
 class GpuTranslator:
-    def __init__(self, root, model_id):
+    def __init__(self, root, model_id, source='en', target='cs'):
+        # Ollama requires an absolute model store, including from CLI evaluators.
+        root = Path(root).resolve()
+        validate_pair(model_id, source, target)
+        self.source, self.target = source, target
+        self.gemma = model_id.startswith('translategemma-')
         self.process = None
         self.log = None
         self.opener = urllib.request.build_opener(urllib.request.ProxyHandler({}))
@@ -52,7 +58,7 @@ class GpuTranslator:
         if not verified(root / 'models' / self.asset['file'], self.asset) or not runtime_ready(root, self.data):
             raise RuntimeError('Download and verify this model and runtime in Subtitles first.')
         free = available_vram()
-        minimum = self.asset['bytes'] + int(.8 * 1024 ** 3)  # 2048-token KV, compute buffers and safety margin
+        minimum = int(self.asset.get('estimated_vram_gib', self.asset['bytes']/1024**3+.8) * 1024 ** 3)
         if free is not None and free < minimum:
             raise RuntimeError(f'Only {free/1024**3:.2f} GiB GPU memory is free; this model needs about {minimum/1024**3:.2f} GiB free. Choose Q3/CPU or reduce FG/enhancer resolution.')
         with socket.socket() as probe:
@@ -63,15 +69,6 @@ class GpuTranslator:
         blobs = models / 'blobs'
         blobs.mkdir(parents=True, exist_ok=True)
         blob = blobs / ('sha256-' + self.asset['sha256'])
-        if not blob.exists():
-            try:
-                os.link(root / 'models' / self.asset['file'], blob)
-            except OSError:
-                if shutil.disk_usage(blobs).free < self.asset['bytes'] + 256 * 1024 ** 2:
-                    raise RuntimeError('This drive needs extra space for the inference model copy. NTFS avoids it.')
-                temporary = blob.with_suffix('.copying')
-                shutil.copyfile(root / 'models' / self.asset['file'], temporary)
-                os.replace(temporary, blob)
         env = os.environ.copy()
         env.update(OLLAMA_HOST=f'127.0.0.1:{port}', OLLAMA_MODELS=str(models), OLLAMA_NUM_PARALLEL='1',
                    OLLAMA_MAX_LOADED_MODELS='1', OLLAMA_FLASH_ATTENTION='1', OLLAMA_CONTEXT_LENGTH='2048',
@@ -97,10 +94,21 @@ class GpuTranslator:
             else:
                 raise RuntimeError('Local GPU runtime did not start within 30 seconds')
             source = root / 'models' / self.asset['file']
+            # Startup cleanup removes blobs not yet referenced by a manifest.
+            # Stage our verified model only after that cleanup and server startup.
+            if not blob.exists():
+                try:
+                    os.link(source, blob)
+                except OSError:
+                    if shutil.disk_usage(blobs).free < self.asset['bytes'] + 256 * 1024 ** 2:
+                        raise RuntimeError('This drive needs extra space for the inference model copy. NTFS avoids it.')
+                    temporary = blob.with_suffix('.copying')
+                    shutil.copyfile(source, temporary)
+                    os.replace(temporary, blob)
             stamp = source.stat()
             try:
                 self.api('/api/create', dict(model=self.name, files={self.asset['file']: 'sha256:' + self.asset['sha256']},
-                         template='{{ .Prompt }}{{ .Response }}', parameters={'stop': ['\n']}, stream=False))
+                         template='{{ .Prompt }}{{ .Response }}', parameters={'stop': ['<end_of_turn>', '<eos>'] if self.gemma else ['\n']}, stream=False))
             finally:
                 # Ollama touches blob mtime during import. With an NTFS hardlink
                 # that also touches our verified download; preserve its metadata.
@@ -120,8 +128,13 @@ class GpuTranslator:
             return json.load(response)
 
     def translate(self, text, timeout=25):
-        result = self.api('/api/generate', dict(model=self.name, prompt=PROMPT.replace('{text}', text),
-                         raw=True, stream=False, keep_alive=-1, options=OPTIONS), timeout=timeout)
+        gemma = getattr(self, 'gemma', False)
+        options = dict(OPTIONS)
+        if gemma:
+            options.update(stop=['<end_of_turn>', '<eos>'], num_predict=384, top_k=1, top_p=1.0)
+        prompt = gemma_prompt(text,self.source,self.target) if gemma else PROMPT.replace('{text}', text)
+        result = self.api('/api/generate', dict(model=self.name, prompt=prompt,
+                         raw=True, stream=False, keep_alive=-1, options=options), timeout=timeout)
         if result.get('done_reason') == 'length':
             raise RuntimeError('Translation exceeded the token limit; shorten the OCR region.')
         return result.get('response', '').strip()

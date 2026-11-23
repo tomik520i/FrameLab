@@ -18,8 +18,11 @@ struct Graphics {
  ComPtr<IDXGISwapChain2> swap;
  ComPtr<ID3D11RenderTargetView> target;
  HANDLE waitable=nullptr; bool tearing=false;
- void initDevice();
- void init(HWND window);
+ unsigned adapterVendor=0,adapterIndex=0;
+ std::string adapterName;
+ D3D_FEATURE_LEVEL featureLevel=D3D_FEATURE_LEVEL_11_0;
+ void initDevice(int requestedAdapter=-1);
+ void init(HWND window,int requestedAdapter=-1);
  void resize(unsigned w,unsigned h);
  void begin();
  HRESULT present(bool vsync);

@@ -73,9 +73,12 @@ def main():
     ).convert(str(model), quantization='int8', force=True)
     for name in ['source.spm', 'target.spm', 'LICENSE', 'README.md']:
         shutil.copy2(original / name, model / name)
-    for file in ['translate_worker.py', 'subtitle_models.py', 'subtitle_model_manager.py', 'subtitle_gpu.py']:
+    for file in ['translate_worker.py', 'subtitle_models.py', 'subtitle_model_manager.py', 'subtitle_gpu.py', 'subtitle_languages.py']:
         shutil.copy2(ROOT / 'tools' / file, out / file)
     shutil.copy2(ROOT / 'docs/subtitle-models.json', out / 'subtitle-models.json')
+    shutil.copy2(ROOT / 'docs/subtitle-languages.json', out / 'subtitle-languages.json')
+    for name in ['Gemma-LICENSE.txt','Gemma-Notice.txt']:
+        shutil.copy2(ROOT/'docs/licenses'/name,out/name)
     pins['model']['files'] = {p.name: digest(p) for p in model.iterdir() if p.is_file()}
     (out / 'provenance.json').write_text(json.dumps(pins, indent=2), encoding='utf-8')
     (out / 'README-LICENSES.txt').write_text(

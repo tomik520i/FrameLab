@@ -67,4 +67,5 @@ def main():
 <section id="support" class="wrap support"><div><span class="eyebrow">KEEP THE EXPERIMENT GOING</span>{t('Like the idea?','Líbí se ti ten nápad?','h2')}{t('Support development through my Opicebot portal. PayPal, donations in CZK. The donation page is Czech-only.','Vývoj můžeš podpořit přes můj portál Opicebot. PayPal, příspěvky v CZK. Donate stránka je jen v češtině.','p')}</div><a class="button" href="https://opicebot.cz/?public=prdelniopice&amp;donation2=prdelniopice">{t('Support FrameLab','Podpořit FrameLab')} ↗</a></section>
 </main><footer class="wrap footer"><a class="brand" href="#">FRAME<span>/</span>LAB</a><span class="micro">EXPERIMENTAL / GPL-3.0 / PREVIEW.15</span><a href="https://github.com/tomik520i/FrameLab">GitHub ↗</a></footer></body></html>'''
  (ROOT/'website/index.html').write_text(html,encoding='utf8')
-if __name__=='__main__':main()
+if __name__=='__main__':
+ raise SystemExit('Historical preview.15 generator: current website/index.html is maintained directly. Use tools/build_website.py; this command cannot overwrite the current site.')

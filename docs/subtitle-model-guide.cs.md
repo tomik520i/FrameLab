@@ -1,12 +1,18 @@
 # Modely titulků, doba čtení a umístění
 
+## Preview.17: další jazyky
+
+V Titulky zvol **Jazyk v obraze / OCR** a **Přeložit do jazyka**. K dispozici je 40 voleb a 12 přibalených OCR sad. OPUS-MT a CUNI nadále umějí jen EN → CS. Pro ostatní páry vyber TranslateGemma; váhy stáhne tlačítko v aplikaci.
+
+[Úplný vícejazyčný návod, velikosti modelů a GPU](MULTILINGUAL.md). 4B Q4: 2,49 GB; 4B Q8: 4,13 GB; 12B Q4: 7,30 GB. První GPU runtime navíc 1,62 GB. Q4 byla testovaná na RTX 4050, Q8/12B zatím ne. Malá Gemma má chyby v češtině; není prokázanou náhradou CUNI. Pro Gemmu se anglické spojování rozdělených vět nepoužívá.
+
 [English guide](subtitle-model-guide.md)
 
 FrameLab čte anglické titulky viditelné v obrazu střihovky nebo místního videa, překládá je lokálně a vykresluje češtinu po FG a NR. Nepřepisuje zvuk. Místní přehrávač umí přes LibVLC vykreslit vložené titulkové stopy do vstupu; OCR pak čte tento obraz.
 
 ## Začni přibaleným OCR
 
-1. Otevři **Titulky** a vyber **RapidOCR / PP-OCRv5 English**. Kompletní ZIP obsahuje runtime, detektor i rozpoznávací model. Není potřeba jazykový doplněk Windows, správce ani další stažení.
+1. Otevři **Titulky** a vyber **RapidOCR / PP-OCRv5 multilingual**. Kompletní ZIP obsahuje runtime, detektor i rozpoznávací model. Není potřeba jazykový doplněk Windows, správce ani další stažení.
 2. Vyber přibalený **OPUS-MT / CPU**, zapni překlad a **Zobrazit oblast čtení**. Vymez jen pruh anglických titulků bez HUDu a chatu. Nastavení zkontroluj na umělém testu titulků v kartě Vstup.
 3. Český překryv umísti samostatně. F11 ukáže výsledný obraz bez úchytů. Místní video počká na načtení modelu; Přehrát tuto pauzu zruší. Externí vstup zastavit nelze.
 

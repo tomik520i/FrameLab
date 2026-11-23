@@ -35,6 +35,8 @@ def main():
         shutil.copy2(original, target)
     shutil.copy2(ROOT / 'tools/ocr_worker.py', out / 'ocr_worker.py')
     shutil.copy2(ROOT / 'tools/ocr_style.py', out / 'ocr_style.py')
+    shutil.copy2(ROOT / 'tools/subtitle_languages.py', out / 'subtitle_languages.py')
+    shutil.copy2(ROOT / 'docs/subtitle-languages.json', out / 'subtitle-languages.json')
     for name in ['RapidOCR-LICENSE.txt','PaddleOCR-LICENSE.txt']:
         shutil.copy2(ROOT / 'docs' / name, out / name)
     (out / 'provenance.json').write_text(json.dumps(pins, indent=2)+'\n', encoding='utf-8')

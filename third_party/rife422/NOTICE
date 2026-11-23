@@ -1,0 +1,17 @@
+RIFE model definitions and trained weights: HolyWu/vs-rife (MIT).
+https://github.com/HolyWu/vs-rife
+Definition source commit: 3488617283db7c428a83ba4a19382285da698b6a
+Based on hzwer/Practical-RIFE.
+Model definitions IFNet_HDv3_v4_22_lite.py and warplayer.py are unmodified.
+The pinned weight file and all export hashes are recorded in model-provenance.json.
+
+The optimized export graph in tools/export_rife_directml.py adapts the
+streaming organization (combined image/feature warps, resizing before
+concatenation, FP16 convolutions and FP32 sampling) from:
+https://github.com/smoovplay/smoovplay/blob/main/framegen/fastrife.py
+Reference source commit: c7d505a78eb4bf6d5c806389f2f37aa142ef47ad
+Copyright (c) 2026 the SmoovPlay authors. MIT license; see LICENSE-SmoovPlay.
+
+FrameLab uses its own C++ ONNX Runtime / DirectML worker and presentation path.
+No SmoovPlay executable, CUDA/TensorRT runtime, or Python runtime is needed
+to run the resulting FrameLab application.

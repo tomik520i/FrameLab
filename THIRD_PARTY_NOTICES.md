@@ -61,3 +61,25 @@ runtime are **not included** in the FrameLab release ZIP. Exact URLs, sizes and
 SHA-256 values are in [the catalog](docs/subtitle-models.json). The
 [desktop study](https://opicebot.cz/framelab/translation/) retains source cards and
 provenance. GPU inference is local and does not use a hosted translation service.
+RIFE DirectML backend (2026-11-22): RIFE 4.22 lite inference definitions
+and pretrained checkpoint from HolyWu/vs-rife, MIT, with source notices in
+third_party/rife422. Export graph optimizations adapted from SmoovPlay, MIT;
+full attribution and both licenses accompany the application. The export uses
+FP16 CNN operations and FP32 warps, without retraining. Checkpoint digest and
+export hashes are in runtime/rife/model-provenance.json. ONNX Runtime DirectML
+1.24.4 is MIT; its native distribution includes third-party notices. DirectML
+1.15.4 uses the accompanying Microsoft DirectML license, not the ONNX Runtime
+MIT license. Full runtime notices are in runtime/rife/licenses. The source
+setup script downloads pinned official NuGet archives and checks SHA-256.
+These RIFE/runtime terms do not authorize redistribution of separate NR DLLs.
+# Multilingual extension (2026-11-23)
+
+TranslateGemma weights are governed by the **Gemma Terms of Use**, not this
+project's software license. See [full terms](docs/licenses/Gemma-LICENSE.txt)
+and [required notice](docs/licenses/Gemma-Notice.txt). Upstream Google models
+and community GGUF quantizers are pinned in `docs/subtitle-models.json`.
+The supplied GGUF files are not modified by FrameLab. The multilingual PP-OCRv5
+ONNX models from RapidAI / PaddleOCR remain Apache-2.0; hashes and sources are
+in `docs/ocr-components.json`. Arabic decoding and horizontal reading-order
+handling are adapted in FrameLab; PaddleOCR's Apache-2.0 notice is retained.
+DirectWrite, Direct2D and system font fallback are Windows components.

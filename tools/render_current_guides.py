@@ -4,7 +4,8 @@ import html,re,shutil,sys
 from render_visual_guide import figure as draw_figure, lightbox, guide_banner, main as render_visual
 ROOT=Path(__file__).resolve().parents[1]
 PAGES=[('START_HERE.md','en.html','en','capture'),('INSTALL.cs.md','index.html','cs','capture'),('docs/subtitle-model-guide.md','subtitles-en.html','en','models'),('docs/subtitle-model-guide.cs.md','subtitles.html','cs','models'),('docs/enhancer-install.en.md','enhancer-en.html','en','nr'),('docs/enhancer-install.cs.md','enhancer.html','cs','nr'),('docs/pipeline-recording.md','recording-en.html','en','recording'),('INSTALL.cs.md','recording.html','cs','recording'),('START_HERE.md','fullscreen-en.html','en','display'),('INSTALL.cs.md','fullscreen.html','cs','display')]
-LINKS={source:name for source,name,*_ in PAGES[:8] if name!='recording.html'}
+PAGES += [('docs/MULTILINGUAL.md','multilingual.html','cs','models'),('docs/MULTILINGUAL.en.md','multilingual-en.html','en','models'),('docs/GPU-BACKENDS.md','gpu.html','cs','fg'),('docs/GPU-BACKENDS.md','gpu-en.html','en','fg')]
+LINKS={source:name for source,name,*_ in PAGES if name!='recording.html'}
 def inline(text):
     tokens=[]
     def protect(m):
@@ -18,7 +19,7 @@ def inline(text):
             elif 'docs/'+key in LINKS:url=LINKS['docs/'+key]+(sep+anchor if sep else '')
             else:
                 if '/' not in key and key not in ('README.md','LICENSE','START_HERE.md','INSTALL.cs.md','THIRD_PARTY_NOTICES.md'):key='docs/'+key
-                url='https://github.com/tomik520i/FrameLab/blob/v0.2.0-preview.16/'+key+(sep+anchor if sep else '')
+                url='https://github.com/tomik520i/FrameLab/blob/v0.2.0-preview.17/'+key+(sep+anchor if sep else '')
         tokens.append('<a href="'+html.escape(url,quote=True)+'">'+html.escape(label)+'</a>');return f'ZZCODE{len(tokens)-1}ZZ'
     text=re.sub(r'\[([^\]]+)\]\(([^)]+)\)',link,text);text=html.escape(text)
     text=re.sub(r'\*\*([^*]+)\*\*',r'<strong>\1</strong>',text)
@@ -61,13 +62,13 @@ def main():
     render_visual()  # Visual walkthrough has its own layout; never replace it with Markdown.
     for source,name,lang,shot in PAGES:
         text=(ROOT/source).read_text(encoding='utf8');title=text.splitlines()[0].lstrip('# ');cs=lang=='cs'
-        if name=='recording.html':text='# Nahrávání a debug — preview.16\n\n'+text[text.index('## Nahrávání'):text.index('## Aktualizace')]
+        if name=='recording.html':text='# Nahrávání a debug — preview.17\n\n'+text[text.index('## Nahrávání'):text.index('## Aktualizace')]
         if name.startswith('fullscreen'):text=('# Zobrazení, fullscreen a zvuk\n\n' if cs else '# Display, fullscreen and audio\n\n')+text[text.index('## Displej a zvuk' if cs else '## Display and audio'):text.index('## Nahrávání' if cs else '## Recording')]
         other={'en.html':'index.html','index.html':'en.html'}
         counterpart=other.get(name,name.replace('-en.html','.html') if not cs else name.replace('.html','-en.html'))
         figure=draw_figure(shot,lang,'-detail')
         nav=f'<nav><a href="../#download">FrameLab</a><a href="{counterpart}">{"English" if cs else "Česky"}</a><a href="{"index.html" if cs else "en.html"}">{"Instalace" if cs else "Start here"}</a><a href="{"subtitles.html" if cs else "subtitles-en.html"}">{"Titulky" if cs else "Subtitles"}</a><a href="{"recording.html" if cs else "recording-en.html"}">{"Nahrávání" if cs else "Recording"}</a></nav>'
         content=render(text);cut=content.find('</h1>')+5;content=content[:cut]+guide_banner(lang)+figure+content[cut:]
-        (out/name).write_text(f'<!doctype html><html lang="{lang}"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>{html.escape(title)}</title><link rel="stylesheet" href="assets/visual.css"><style>{CSS}</style></head><body><main>{nav}<div class="version">FRAMELAB / PREVIEW.16</div>{content}</main>{lightbox(lang)}</body></html>',encoding='utf8')
+        (out/name).write_text(f'<!doctype html><html lang="{lang}"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>{html.escape(title)}</title><link rel="stylesheet" href="assets/visual.css"><style>{CSS}</style></head><body><main>{nav}<div class="version">FRAMELAB / PREVIEW.17</div>{content}</main>{lightbox(lang)}</body></html>',encoding='utf8')
     print('Rendered',len(PAGES),'current guides')
 if __name__=='__main__':main()

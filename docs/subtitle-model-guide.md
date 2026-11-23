@@ -1,16 +1,22 @@
 # Subtitle models, reading time and placement
 
+## Preview.17: more languages
+
+Choose **Language in the picture / OCR** and **Translate into** in Subtitles. There are 40 choices and 12 bundled OCR packs. OPUS-MT and CUNI still support EN → CS only. Other pairs use optional TranslateGemma downloads.
+
+[Full multilingual setup, model sizes and GPU requirements](MULTILINGUAL.en.md). 4B Q4: 2.49 GB; 4B Q8: 4.13 GB; 12B Q4: 7.30 GB. First GPU runtime adds 1.62 GB. Only Q4 was tested on RTX 4050. Small Gemma makes Czech mistakes and is not proven better than CUNI. English fragment joining is bypassed for Gemma.
+
 [Český návod](subtitle-model-guide.cs.md)
 
-FrameLab reads English subtitles already visible in a capture or local video, translates them locally and draws Czech after FG and NR. It does not transcribe audio. The local player can render embedded subtitle tracks into the source image through LibVLC; OCR then reads that image.
+FrameLab reads subtitles in the selected source language from a capture or local video, translates locally and draws the selected target language after FG and NR. It does not transcribe audio. The local player can render embedded subtitle tracks into the source image through LibVLC; OCR then reads that image.
 
 ## Start with bundled OCR
 
-1. Open **Subtitles** and select **RapidOCR / PP-OCRv5 English**. The complete ZIP contains the OCR runtime, detector and recognizer. No Windows language pack, administrator approval or extra download is required.
+1. Open **Subtitles** and select **RapidOCR / PP-OCRv5 multilingual**. The complete ZIP contains the OCR runtime, detector and recognizer. No Windows language pack, administrator approval or extra download is required.
 2. Select **OPUS-MT / CPU** (included), enable translation and **Show reading area**. Crop tightly around the English subtitle band, excluding chat and HUD. Use the artificial subtitle demo under Capture to check setup.
 3. Choose the independent Czech text position. F11 shows the final image without editing controls. A local video waits for model warmup; pressing Play overrides that pause. External capture cannot be paused.
 
-RapidOCR uses two CPU threads, a PP-OCRv4 detector and PP-OCRv5 English recognizer. **Windows OCR** remains selectable as a lighter fallback. Only that option needs the English Windows OCR capability; if absent, **Install English OCR** offers the Microsoft download with UAC approval. It does not change the Windows display language.
+RapidOCR uses two CPU threads, a PP-OCRv4 detector and PP-OCRv5 multilingual recognizer. **Windows OCR** remains selectable as a lighter fallback. Only that option needs the English Windows OCR capability; if absent, **Install English OCR** offers the Microsoft download with UAC approval. It does not change the Windows display language.
 
 ## Save a subtitle appearance profile
 
@@ -35,7 +41,7 @@ The existing 300-sentence **preview.12 baseline** measured Q3 median 212 ms vers
 
 ## Place the Czech text
 
-- **Custom position:** set anchors or enable **Drag Czech overlay in preview**. Text and its background move together, independently of the OCR area.
+- **Custom position:** set anchors or enable **Drag translated overlay in preview**. Text and its background move together, independently of the OCR area.
 - **Above original / Below original:** anchor to the OCR rectangle plus your chosen gap.
 - **When space runs out:** switch to the opposite side or clamp inside the visible image. This can overlap the original; very tall text shrinks to fit.
 

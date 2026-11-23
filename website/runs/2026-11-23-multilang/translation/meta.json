@@ -1,0 +1,30 @@
+{
+  "model": "translategemma-4b-q4km",
+  "load_seconds": 16.3179436000064,
+  "residency": {
+    "models": [
+      {
+        "name": "framelab-translategemma-4b-q4km:latest",
+        "model": "framelab-translategemma-4b-q4km:latest",
+        "size": 2753382317,
+        "digest": "8c54087ce5309e058434d8953b4cf8d76558930fbddda5130301d9d35471258f",
+        "details": {
+          "parent_model": "",
+          "format": "gguf",
+          "family": "gemma3",
+          "families": [
+            "gemma3"
+          ],
+          "parameter_size": "3.9B",
+          "quantization_level": "Q4_K_M"
+        },
+        "expires_at": "2319-03-05T03:14:04.681612107+01:00",
+        "size_vram": 2753382317,
+        "context_length": 2048,
+        "runner": "llamacpp"
+      }
+    ]
+  },
+  "case_count": 56,
+  "note": "Integration smoke cases; no human/native-speaker quality score. Times exclude model load and include loopback API overhead."
+}

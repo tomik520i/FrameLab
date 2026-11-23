@@ -1,4 +1,5 @@
 #include "SubtitleTranslator.hpp"
+#include "SubtitleLanguages.hpp"
 #include <algorithm>
 #include <cmath>
 #include <fstream>
@@ -13,7 +14,10 @@ void SubtitleSettings::sanitize(){
  horizontal=std::clamp(finite(horizontal,.5f),0.f,1.f);gapPercent=std::clamp(finite(gapPercent,1.f),0.f,10.f);
  placement=std::clamp(placement,0,2);horizontalAlign=std::clamp(horizontalAlign,0,2);verticalAlign=std::clamp(verticalAlign,0,2);edgeFallback=std::clamp(edgeFallback,0,1);
  intervalMs=std::clamp(intervalMs,200,1500);
- model=std::clamp(model,0,3);
+ model=std::clamp(model,0,6);
+ if(!subtitleLanguage(sourceLanguage))sourceLanguage="en";
+ if(!subtitleLanguage(targetLanguage))targetLanguage="cs";
+ if(!subtitlePairSupported(model,sourceLanguage,targetLanguage))enabled=false;
  ocrEngine=std::clamp(ocrEngine,0,1);
  holdSeconds=std::clamp(finite(holdSeconds,1.2f),.5f,4.f);
  lingerSeconds=std::clamp(finite(lingerSeconds,3.f),holdSeconds,8.f);
@@ -27,7 +31,7 @@ void SubtitleSettings::sanitize(){
 }
 void SubtitleSettings::load(const std::filesystem::path& p){
  int version=0;std::ifstream f(p);
- if(f>>version&&version>=1&&version<=8){
+ if(f>>version&&version>=1&&version<=9){
   f>>left>>top>>right>>bottom>>fontPercent>>position>>background>>intervalMs>>showOriginal;
   if(version>=2)f>>coverSource;
   if(version>=3)f>>horizontal>>gapPercent>>placement>>horizontalAlign>>verticalAlign>>edgeFallback;
@@ -36,9 +40,10 @@ void SubtitleSettings::load(const std::filesystem::path& p){
   if(version>=6)f>>joinFragments;
   if(version>=7){SubtitleStyleProfile candidate;if(f>>candidate.enabled>>candidate.height>>candidate.rgb[0]>>candidate.rgb[1]>>candidate.rgb[2]>>candidate.heightTolerance>>candidate.colorTolerance)style=candidate;}
   if(version>=8)f>>std::quoted(style.sampleText)>>style.sampleFrameHeight>>style.sampleId;
+  if(version>=9)f>>std::quoted(sourceLanguage)>>std::quoted(targetLanguage);
  }
  sanitize();enabled=false;showRegion=false;editOverlay=false;inspectOcr=false;
 }
 void SubtitleSettings::save(const std::filesystem::path& p)const{
- std::ofstream(p)<<std::setprecision(std::numeric_limits<float>::max_digits10)<<8<<' '<<left<<' '<<top<<' '<<right<<' '<<bottom<<' '<<fontPercent<<' '<<position<<' '<<background<<' '<<intervalMs<<' '<<showOriginal<<' '<<coverSource<<' '<<horizontal<<' '<<gapPercent<<' '<<placement<<' '<<horizontalAlign<<' '<<verticalAlign<<' '<<edgeFallback<<' '<<model<<' '<<ocrEngine<<' '<<holdSeconds<<' '<<lingerSeconds<<' '<<joinFragments<<' '<<style.enabled<<' '<<style.height<<' '<<style.rgb[0]<<' '<<style.rgb[1]<<' '<<style.rgb[2]<<' '<<style.heightTolerance<<' '<<style.colorTolerance<<' '<<std::quoted(style.sampleText)<<' '<<style.sampleFrameHeight<<' '<<style.sampleId<<'\n';
+ std::ofstream(p)<<std::setprecision(std::numeric_limits<float>::max_digits10)<<9<<' '<<left<<' '<<top<<' '<<right<<' '<<bottom<<' '<<fontPercent<<' '<<position<<' '<<background<<' '<<intervalMs<<' '<<showOriginal<<' '<<coverSource<<' '<<horizontal<<' '<<gapPercent<<' '<<placement<<' '<<horizontalAlign<<' '<<verticalAlign<<' '<<edgeFallback<<' '<<model<<' '<<ocrEngine<<' '<<holdSeconds<<' '<<lingerSeconds<<' '<<joinFragments<<' '<<style.enabled<<' '<<style.height<<' '<<style.rgb[0]<<' '<<style.rgb[1]<<' '<<style.rgb[2]<<' '<<style.heightTolerance<<' '<<style.colorTolerance<<' '<<std::quoted(style.sampleText)<<' '<<style.sampleFrameHeight<<' '<<style.sampleId<<' '<<std::quoted(sourceLanguage)<<' '<<std::quoted(targetLanguage)<<'\n';
 }

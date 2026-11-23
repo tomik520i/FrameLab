@@ -11,8 +11,10 @@ class SubtitleTrace {
  }
 public:
  void open(const std::filesystem::path& path){file.open(path);if(!file)throw std::runtime_error("Cannot open subtitle trace");}
- void write(double time,const SubtitleSnapshot& s){
+ void write(double time,const SubtitleSnapshot& s,const std::string& source="en",const std::string& target="cs"){
   if(!file.is_open()||(lastObserved==s.observedAt&&lastDisplayed==s.translated))return;
-  file<<std::fixed<<std::setprecision(4)<<"{\"time\":"<<time<<",\"source\":"<<quoted(s.source)<<",\"display_source\":"<<quoted(s.displaySource)<<",\"cs\":"<<quoted(s.translated)<<",\"ocr_ms\":"<<s.ocrMilliseconds<<",\"ocr_mt_ms\":"<<s.milliseconds<<",\"score\":"<<s.confidence<<",\"queue\":"<<s.pending<<"}\n";file.flush();lastObserved=s.observedAt;lastDisplayed=s.translated;
+  file<<std::fixed<<std::setprecision(4)<<"{\"time\":"<<time<<",\"source\":"<<quoted(s.source)<<",\"display_source\":"<<quoted(s.displaySource)<<",\"source_language\":"<<quoted(source)<<",\"target_language\":"<<quoted(target)<<",\"translated\":"<<quoted(s.translated);
+  if(target=="cs")file<<",\"cs\":"<<quoted(s.translated); // older Czech report readers
+  file<<",\"ocr_ms\":"<<s.ocrMilliseconds<<",\"ocr_mt_ms\":"<<s.milliseconds<<",\"score\":"<<s.confidence<<",\"queue\":"<<s.pending<<"}\n";file.flush();lastObserved=s.observedAt;lastDisplayed=s.translated;
  }
 };

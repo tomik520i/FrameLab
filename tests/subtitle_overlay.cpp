@@ -13,6 +13,7 @@ int main(){try{
  ComPtr<ID3D11Texture2D> staging;check(g.device->CreateTexture2D(&desc,nullptr,&staging),"Subtitle staging");
  ImGui::CreateContext();auto& io=ImGui::GetIO();io.IniFilename=nullptr;io.DisplaySize={float(w),float(h)};io.DeltaTime=1.f/60;ui::initialize();
  ImGui_ImplDX11_Init(g.device.Get(),g.context.Get());
+ subtitleRaster.device=g.device;
  SubtitleSettings s;s.enabled=true;s.showRegion=true;s.editOverlay=true;
  SubtitleSnapshot caption;caption.source="The door is locked.";caption.translated="Dveře jsou zamčené.";caption.observedAt=10;
  unsigned outsideCaptionPixels=0,minWhiteY=h,maxWhiteY=0,whiteBands=0;

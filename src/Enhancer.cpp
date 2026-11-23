@@ -1,5 +1,7 @@
 #include "Enhancer.hpp"
 #include "NrResolution.hpp"
+#include "NrHardware.hpp"
+#include "Vfg.hpp"
 #include <algorithm>
 
 namespace {
@@ -14,6 +16,9 @@ void createTexture(ID3D11Device* device,Texture& texture,unsigned w,unsigned h,D
 }
 Enhancer::Enhancer(Graphics& graphics,unsigned width,unsigned height,unsigned maxHeight,const std::filesystem::path& app,const std::filesystem::path& runtime,unsigned passes):g(graphics),w(width),h(height),passCount(passes),runtimePath(std::filesystem::absolute(runtime)),cachePath(std::filesystem::absolute(app/L"nr-cache")){
  try{
+  const auto hardware=NrHardware::query(g.device.Get(),Vfg::cudaArchitecture(g.device.Get()));
+  const int profile=runtimePath.filename()==L"nr-original"?1:0;
+  if(!hardware.supports(profile))throw std::runtime_error(hardware.reason(profile,false));
   if(passes<1||passes>4)throw std::runtime_error("NR passes must be between 1 and 4");
   if(!std::filesystem::is_regular_file(runtimePath/L"nvngx_dlssnr.dll"))throw std::runtime_error("NR runtime missing: "+(runtimePath/L"nvngx_dlssnr.dll").string());
   const auto dimensions=nrDimensions(w,h,maxHeight);iw=dimensions.first;ih=dimensions.second;

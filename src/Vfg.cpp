@@ -41,6 +41,17 @@ struct Vfg::Impl {
  }
 };
 Vfg::Vfg()=default;Vfg::~Vfg()=default;void Vfg::reset(){p.reset();}
+int Vfg::cudaArchitecture(ID3D11Device* device){
+ ComPtr<IDXGIDevice> gd;ComPtr<IDXGIAdapter> adapter;DXGI_ADAPTER_DESC desc{};
+ if(FAILED(device->QueryInterface(IID_PPV_ARGS(&gd)))||FAILED(gd->GetAdapter(&adapter))||FAILED(adapter->GetDesc(&desc))||desc.VendorId!=0x10de)return false;
+ HMODULE driver=LoadLibraryExW(L"nvcuda.dll",nullptr,LOAD_LIBRARY_SEARCH_SYSTEM32);if(!driver)return false;
+ auto init=reinterpret_cast<CUresult(CUDAAPI*)(unsigned)>(GetProcAddress(driver,"cuInit"));
+ auto get=reinterpret_cast<CUresult(CUDAAPI*)(CUdevice*,IDXGIAdapter*)>(GetProcAddress(driver,"cuD3D11GetDevice"));
+ auto attribute=reinterpret_cast<CUresult(CUDAAPI*)(int*,CUdevice_attribute,CUdevice)>(GetProcAddress(driver,"cuDeviceGetAttribute"));
+ CUdevice gpu=0;int major=0,minor=0;bool known=init&&get&&attribute&&init(0)==CUDA_SUCCESS&&get(&gpu,adapter.Get())==CUDA_SUCCESS&&attribute(&major,CU_DEVICE_ATTRIBUTE_COMPUTE_CAPABILITY_MAJOR,gpu)==CUDA_SUCCESS&&attribute(&minor,CU_DEVICE_ATTRIBUTE_COMPUTE_CAPABILITY_MINOR,gpu)==CUDA_SUCCESS;
+ FreeLibrary(driver);return known?major*10+minor:0;
+}
+bool Vfg::supportedAdapter(ID3D11Device* device){auto sm=cudaArchitecture(device);return sm==89||sm/10==12;}
 void Vfg::initialize(ID3D11Device* device,ID3D11Texture2D* texture,unsigned w,unsigned h,unsigned mode,const std::filesystem::path& runtime,bool automaticCuts){
  reset();auto q=std::make_unique<Impl>();auto& a=*q;a.w=w;a.h=h;
  a.driver=LoadLibraryExW(L"nvcuda.dll",nullptr,LOAD_LIBRARY_SEARCH_SYSTEM32);if(!a.driver)throw std::runtime_error("CUDA driver DLL missing");

@@ -6,6 +6,8 @@ class Vfg {
  struct Impl;std::unique_ptr<Impl> p;
 public:
  Vfg();~Vfg();
+ static bool supportedAdapter(ID3D11Device* device);
+ static int cudaArchitecture(ID3D11Device* device);
  void initialize(ID3D11Device* device,ID3D11Texture2D* output,unsigned width,unsigned height,unsigned mode,const std::filesystem::path& runtime,bool automaticCuts=true);
  void upload(const unsigned char* pixels,unsigned parity);
  void upload(ID3D11Texture2D* texture,unsigned parity);

@@ -22,3 +22,4 @@
 __pycache__/
 *.pyc
 /website/country-data/runtime-config.json
+/website/runs/2026-11-22-rife/comparison-assets/*.png

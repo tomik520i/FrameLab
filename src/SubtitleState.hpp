@@ -2,6 +2,7 @@
 #include <algorithm>
 #include <string>
 #include <cctype>
+#include "SubtitleUnicode.hpp"
 
 // A confident neural reading can start translation immediately. Otherwise two
 // equivalent readings are required. Ignore typography, never changed letters,
@@ -25,7 +26,7 @@ struct SubtitleState {
   std::string out;bool space=false;unsigned letters=0;
   for(unsigned char c:input){if(std::isspace(c)){space=!out.empty();continue;}if(space)out+=' ';space=false;out+=char(c);if(std::isalpha(c))++letters;}
   // Keep short commands/negations such as "No!", "Go!" and "OK".
-  if(letters<2||out.size()>1500)return {};return out;
+  if(out.size()>1500||!subtitleHasLetters(out))return {};return out;
  }
  bool observe(const std::string& text,float confidence=0){
   if(text.empty()){clear();return false;}

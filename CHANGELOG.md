@@ -1,3 +1,7 @@
+# 0.2.0-preview.17 — 2026-11-23
+
+RIFE / DirectML, repaired portable Optical Flow, NR hardware gating, TranslateGemma, 40 language choices and 12 OCR packs. [Changes, measurements and limits](docs/release-preview17.md).
+
 # 0.2.0-preview.8 — complete portable bundle and website
 
 - Add the English/Czech website at https://opicebot.cz/framelab/ with downloadable examples, videos, GIFs, settings, source and support links.

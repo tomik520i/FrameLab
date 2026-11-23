@@ -18,7 +18,7 @@ struct SubtitleSentence {
  static bool complete(std::string text){
   while(!text.empty()&&(std::isspace(static_cast<unsigned char>(text.back()))||text.back()=='"'||text.back()=='\''||text.back()==')'||text.back()==']'))text.pop_back();
   if(text.empty()||text.ends_with("...")||text.ends_with("…"))return false;
-  return text.back()=='.'||text.back()=='?'||text.back()=='!';
+  return text.back()=='.'||text.back()=='?'||text.back()=='!'||text.ends_with("。")||text.ends_with("！")||text.ends_with("？")||text.ends_with("؟")||text.ends_with("।");
  }
  Prepared prepare(const std::string& raw,double time,uint64_t generation,bool allowJoin=true){
   auto source=clean(raw);const bool lower=!source.empty()&&std::islower(static_cast<unsigned char>(source.front()));

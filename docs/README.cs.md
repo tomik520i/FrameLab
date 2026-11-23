@@ -1,22 +1,24 @@
 # FrameLab — česky
 
-Obraz ze střihovky nebo videa → NVIDIA GPU → monitor. Generování snímků, volitelný enhancer a lokální české titulky z anglického obrazu.
+**Preview.17:** RIFE / DirectML i pro vhodné GPU jiných výrobců, opravený Optical Flow, 40 jazykových voleb a stažení TranslateGemma v aplikaci. [GPU a nastavení](GPU-BACKENDS.md) · [Vícejazyčné titulky](MULTILINGUAL.md) · [Výsledky](release-preview17.md).
 
-**[Stáhnout preview.16](https://github.com/tomik520i/FrameLab/releases/download/v0.2.0-preview.16/FrameLab-0.2.0-preview.16-windows-x64-full.zip) · [Web a ukázky](https://opicebot.cz/framelab/?lang=cs) · [English](../README.md)**
+Obraz ze střihovky nebo videa → GPU → monitor. Generování snímků, volitelný enhancer a lokální vícejazyčné titulky.
+
+**[Stáhnout preview.17](https://github.com/tomik520i/FrameLab/releases/download/v0.2.0-preview.17/FrameLab-0.2.0-preview.17-windows-x64-full.zip) · [Web a ukázky](https://opicebot.cz/framelab/?lang=cs) · [English](../README.md)**
 
 [Obrazový návod — skutečné screenshoty krok za krokem](https://opicebot.cz/framelab/guide/visual.html)
 
-[Změny preview.16 (EN)](release-preview16.md) · [Úplné hodnocení 1 747 překladů](https://opicebot.cz/framelab/runs/2026-11-20-3h/?lang=cs)
+[Změny preview.17 (EN)](release-preview17.md) · [Úplné hodnocení 1 747 překladů](https://opicebot.cz/framelab/runs/2026-11-20-3h/?lang=cs)
 
-![Aktuální aplikace](images/preview16/01-overview.png)
+![Původní přehled aplikace preview.16](images/preview16/01-overview.png)
 
 ![Originál a 2× FG, čtyřikrát zpomaleně](images/preview15/gta-2x-slow.gif)
 
 ## Co umí
 
-- FG 2× / 3× / 4× přes NVIDIA VFG nebo samostatný Optical Flow. Začněte na 2×; vyšší násobiče mohou dělat výrazné artefakty.
+- FG 2× / 3× / 4× přes NVIDIA VFG, RIFE 4.22 lite / DirectML nebo samostatný Optical Flow. Začněte na 2×; vyšší násobiče mohou dělat výrazné artefakty.
 - Volitelný NR enhancer: porovnání stejného snímku před/po, síla, limit rozlišení a 1–4 průchody.
-- České titulky: neuronové OCR, CPU překlad a volitelné CUNI Q3/Q5/Q8. Označte slovo, oblast čtení a uložte pojmenovaný profil.
+- Vícejazyčné titulky: 40 jazykových voleb, 12 přibalených OCR sad a volitelná TranslateGemma. CPU OPUS a CUNI Q3/Q5/Q8 zůstávají pro EN → CS. Označte slovo, oblast čtení a uložte pojmenovaný profil.
 - Vlastní MP4/MKV, výběr zvuku a titulkové stopy, samostatné FPS a rozlišení střihovky.
 - Nahrávání vstupu, FG, před/po enhancu a výsledku s titulky; klipy, SRT, ID a nastavení JSON.
 - Debug až do vypnutí: FPS, CPU/GPU, fronty, OCR, překlad a změny nastavení. Fullscreen, audio výstupy a EN/CZ.
@@ -27,7 +29,7 @@ Rozbalte celý ZIP a spusťte **Start FrameLab.cmd** nebo **1 - Spustit FrameLab
 
 **[Kompletní český návod](../INSTALL.cs.md) · [Obrázkový návod](https://opicebot.cz/framelab/guide/)**
 
-V balíčku jsou VFG runtime, OCR, CPU překladač, kodeky a export; není nutný Python ani SDK. GPU model se stáhne přímo v aplikaci. Externí NR DLL nejsou přibalené ani zrcadlené, protože oprávnění k jejich distribuci nebylo doloženo. [Průvodce importem a odkazy](enhancer-install.cs.md).
+V balíčku jsou VFG i RIFE runtime a modely, OCR, CPU překladač, kodeky a export; není nutný Python ani SDK. GPU model se stáhne přímo v aplikaci. Externí NR DLL nejsou přibalené ani zrcadlené, protože oprávnění k jejich distribuci nebylo doloženo. [Průvodce importem a odkazy](enhancer-install.cs.md).
 
 ## Výsledky bez přikrášlení
 

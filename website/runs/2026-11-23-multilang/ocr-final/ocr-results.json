@@ -1,0 +1,442 @@
+[
+  {
+    "language": "en",
+    "size": 36,
+    "expected": "Do not open the red door. We have 5 minutes.",
+    "ocr": "Do not open the red door. We have 5 minutes.",
+    "confidence": 0.9931066930294037,
+    "ms": 901.3605999061838,
+    "cer": 0.0,
+    "missing_glyphs": 0
+  },
+  {
+    "language": "en",
+    "size": 60,
+    "expected": "Do not open the red door. We have 5 minutes.",
+    "ocr": "Do not open the red door. We have 5 minutes.",
+    "confidence": 0.9832265513283865,
+    "ms": 2327.046799939126,
+    "cer": 0.0,
+    "missing_glyphs": 0
+  },
+  {
+    "language": "cs",
+    "size": 36,
+    "expected": "Neotvírej červené dveře. Máme 5 minut.",
+    "ocr": "Neotvírej červené dveře. Máme 5 minut.",
+    "confidence": 0.9767270605815085,
+    "ms": 2945.6243000458926,
+    "cer": 0.0,
+    "missing_glyphs": 0
+  },
+  {
+    "language": "cs",
+    "size": 60,
+    "expected": "Neotvírej červené dveře. Máme 5 minut.",
+    "ocr": "Neotvírej červené dveře. Máme 5 minut.",
+    "confidence": 0.9862000622919628,
+    "ms": 1629.2552000377327,
+    "cer": 0.0,
+    "missing_glyphs": 0
+  },
+  {
+    "language": "sk",
+    "size": 36,
+    "expected": "Neotváraj červené dvere. Máme 5 minút.",
+    "ocr": "Neotváraj červené dvere. Máme 5 minút.",
+    "confidence": 0.9951074170438867,
+    "ms": 1517.0629000058398,
+    "cer": 0.0,
+    "missing_glyphs": 0
+  },
+  {
+    "language": "sk",
+    "size": 60,
+    "expected": "Neotváraj červené dvere. Máme 5 minút.",
+    "ocr": "Neotváraj červené dvere. Máme 5 minút.",
+    "confidence": 0.9913030188334616,
+    "ms": 1095.8071999484673,
+    "cer": 0.0,
+    "missing_glyphs": 0
+  },
+  {
+    "language": "de",
+    "size": 36,
+    "expected": "Öffne nicht die rote Tür. Wir haben 5 Minuten.",
+    "ocr": "Öffne nicht die rote Tür. Wir haben 5 Minuten.",
+    "confidence": 0.9922789335250854,
+    "ms": 1575.4602000815794,
+    "cer": 0.0,
+    "missing_glyphs": 0
+  },
+  {
+    "language": "de",
+    "size": 60,
+    "expected": "Öffne nicht die rote Tür. Wir haben 5 Minuten.",
+    "ocr": "Öffne nicht die rote Tür. Wir haben 5 Minuten.",
+    "confidence": 0.9989850601634463,
+    "ms": 1277.6351000647992,
+    "cer": 0.0,
+    "missing_glyphs": 0
+  },
+  {
+    "language": "fr",
+    "size": 36,
+    "expected": "N'ouvre pas la porte rouge. Il reste 5 minutes.",
+    "ocr": "N'ouvre pas la porte rouge. Il reste 5 minutes.",
+    "confidence": 0.9932344974355495,
+    "ms": 1493.3324999874458,
+    "cer": 0.0,
+    "missing_glyphs": 0
+  },
+  {
+    "language": "fr",
+    "size": 60,
+    "expected": "N'ouvre pas la porte rouge. Il reste 5 minutes.",
+    "ocr": "N'ouvre pas la porte rouge. Il reste 5 minutes.",
+    "confidence": 0.9910080671310425,
+    "ms": 1257.446000003256,
+    "cer": 0.0,
+    "missing_glyphs": 0
+  },
+  {
+    "language": "es",
+    "size": 36,
+    "expected": "No abras la puerta roja. Tenemos 5 minutos.",
+    "ocr": "No abras la puerta roja. Tenemos 5 minutos.",
+    "confidence": 0.9888230298840722,
+    "ms": 1461.748700006865,
+    "cer": 0.0,
+    "missing_glyphs": 0
+  },
+  {
+    "language": "es",
+    "size": 60,
+    "expected": "No abras la puerta roja. Tenemos 5 minutos.",
+    "ocr": "No abras la puerta roja. Tenemos 5 minutos.",
+    "confidence": 0.9901394353193396,
+    "ms": 1077.5469000218436,
+    "cer": 0.0,
+    "missing_glyphs": 0
+  },
+  {
+    "language": "pl",
+    "size": 36,
+    "expected": "Nie otwieraj czerwonych drzwi. Mamy 5 minut.",
+    "ocr": "Nie otwieraj czerwonych drzwi. Mamy 5 minut.",
+    "confidence": 0.9854810197244991,
+    "ms": 1888.191599980928,
+    "cer": 0.0,
+    "missing_glyphs": 0
+  },
+  {
+    "language": "pl",
+    "size": 60,
+    "expected": "Nie otwieraj czerwonych drzwi. Mamy 5 minut.",
+    "ocr": "Nie otwieraj czerwonych drzwi. Mamy 5 minut.",
+    "confidence": 0.998057447373867,
+    "ms": 1253.8578000385314,
+    "cer": 0.0,
+    "missing_glyphs": 0
+  },
+  {
+    "language": "uk",
+    "size": 36,
+    "expected": "Не відчиняй червоні двері. У нас є 5 хвилин.",
+    "ocr": "Не відчиняй червоні двері. У нас є 5 хвилин.",
+    "confidence": 0.983520735393871,
+    "ms": 1522.1855000127107,
+    "cer": 0.0,
+    "missing_glyphs": 0
+  },
+  {
+    "language": "uk",
+    "size": 60,
+    "expected": "Не відчиняй червоні двері. У нас є 5 хвилин.",
+    "ocr": "Не відчиняй червоні двері. У ХВИЛИН.",
+    "confidence": 0.7091818537030902,
+    "ms": 1154.2179000098258,
+    "cer": 0.18181818181818182,
+    "missing_glyphs": 0
+  },
+  {
+    "language": "ru",
+    "size": 36,
+    "expected": "Не открывай красную дверь. У нас есть 5 минут.",
+    "ocr": "Не открывай красную дверь. У нас есть 5 минут.",
+    "confidence": 0.9722602419231249,
+    "ms": 1444.379199994728,
+    "cer": 0.0,
+    "missing_glyphs": 0
+  },
+  {
+    "language": "ru",
+    "size": 60,
+    "expected": "Не открывай красную дверь. У нас есть 5 минут.",
+    "ocr": "Не открывай красную дверь. У нас есть 5",
+    "confidence": 0.9369228102944114,
+    "ms": 1530.0070000812411,
+    "cer": 0.15217391304347827,
+    "missing_glyphs": 0
+  },
+  {
+    "language": "ja",
+    "size": 36,
+    "expected": "赤いドアを開けないでください。残り5分です。",
+    "ocr": "赤いドアを開けないでください。残り５分です。",
+    "confidence": 0.9897616776553068,
+    "ms": 1550.936600076966,
+    "cer": 0.0,
+    "missing_glyphs": 0
+  },
+  {
+    "language": "ja",
+    "size": 60,
+    "expected": "赤いドアを開けないでください。残り5分です。",
+    "ocr": "赤いドアを開けないでください。残り５分です。",
+    "confidence": 0.9852542524988,
+    "ms": 1047.0361000625417,
+    "cer": 0.0,
+    "missing_glyphs": 0
+  },
+  {
+    "language": "ko",
+    "size": 36,
+    "expected": "빨간 문을 열지 마세요. 5분 남았습니다.",
+    "ocr": "빨간 문을 열지 마세요.5분 남았습니다.",
+    "confidence": 0.9756177745082162,
+    "ms": 1598.9661000203341,
+    "cer": 0.043478260869565216,
+    "missing_glyphs": 0
+  },
+  {
+    "language": "ko",
+    "size": 60,
+    "expected": "빨간 문을 열지 마세요. 5분 남았습니다.",
+    "ocr": "빨간 문을 열지 마세요.5분 남았습니다.",
+    "confidence": 0.9958982928232714,
+    "ms": 1076.848200056702,
+    "cer": 0.043478260869565216,
+    "missing_glyphs": 0
+  },
+  {
+    "language": "zh-CN",
+    "size": 36,
+    "expected": "不要打开红色的门。我们还有5分钟。",
+    "ocr": "不要打开红色的门。我们还有5分钟。",
+    "confidence": 0.9954642618403715,
+    "ms": 1707.4772999621928,
+    "cer": 0.0,
+    "missing_glyphs": 0
+  },
+  {
+    "language": "zh-CN",
+    "size": 60,
+    "expected": "不要打开红色的门。我们还有5分钟。",
+    "ocr": "不要打开红色的门。手 我们还有5分钟。",
+    "confidence": 0.9725751340389251,
+    "ms": 899.9094000319019,
+    "cer": 0.11764705882352941,
+    "missing_glyphs": 0
+  },
+  {
+    "language": "zh-TW",
+    "size": 36,
+    "expected": "不要打開紅色的門。我們還有5分鐘。",
+    "ocr": "不要打開紅色的門。我們還有5分鐘。",
+    "confidence": 0.9768219274633071,
+    "ms": 1567.417599959299,
+    "cer": 0.0,
+    "missing_glyphs": 0
+  },
+  {
+    "language": "zh-TW",
+    "size": 60,
+    "expected": "不要打開紅色的門。我們還有5分鐘。",
+    "ocr": "不要打開紅色的門・我們還有5分鐘",
+    "confidence": 0.9873475283384323,
+    "ms": 1175.1816000323743,
+    "cer": 0.11764705882352941,
+    "missing_glyphs": 0
+  },
+  {
+    "language": "ar",
+    "size": 36,
+    "expected": "لا تفتح الباب الأحمر. لدينا 5 دقائق.",
+    "ocr": "لا تفتح الباب الأحمر لدينا  دقائق",
+    "confidence": 0.9324387221625356,
+    "ms": 1885.936800041236,
+    "cer": 0.1111111111111111,
+    "missing_glyphs": 0
+  },
+  {
+    "language": "ar",
+    "size": 60,
+    "expected": "لا تفتح الباب الأحمر. لدينا 5 دقائق.",
+    "ocr": "لا تفتح حالباب الأحمر لدينا  دقائق",
+    "confidence": 0.8623019201414925,
+    "ms": 1161.8951000273228,
+    "cer": 0.1388888888888889,
+    "missing_glyphs": 0
+  },
+  {
+    "language": "el",
+    "size": 36,
+    "expected": "Μην ανοίξεις την κόκκινη πόρτα. Έχουμε 5 λεπτά.",
+    "ocr": "Μην ανοίξεις την κόκκινη πόρτα. Έχουμε 5 λεπτά.",
+    "confidence": 0.9787156391651073,
+    "ms": 1846.0292000090703,
+    "cer": 0.0,
+    "missing_glyphs": 0
+  },
+  {
+    "language": "el",
+    "size": 60,
+    "expected": "Μην ανοίξεις την κόκκινη πόρτα. Έχουμε 5 λεπτά.",
+    "ocr": "Μην ανοίξεις την κόκκινη πόρτα. Έχουμε 5 λεπτά.",
+    "confidence": 0.9987059384584427,
+    "ms": 1965.608200058341,
+    "cer": 0.0,
+    "missing_glyphs": 0
+  },
+  {
+    "language": "hi",
+    "size": 36,
+    "expected": "लाल दरवाज़ा मत खोलो। हमारे पास 5 मिनट हैं।",
+    "ocr": "लाल दरवाज़ा मत खोलो। हमारे पास ५ मिनट हैं।",
+    "confidence": 0.9366921221926099,
+    "ms": 1820.3300000168383,
+    "cer": 0.023809523809523808,
+    "missing_glyphs": 0
+  },
+  {
+    "language": "hi",
+    "size": 60,
+    "expected": "लाल दरवाज़ा मत खोलो। हमारे पास 5 मिनट हैं।",
+    "ocr": "लाल दरवाज़ा मत खोलो। हमारे पास ५ मिनट हैं",
+    "confidence": 0.9480707248051962,
+    "ms": 1349.436099990271,
+    "cer": 0.047619047619047616,
+    "missing_glyphs": 0
+  },
+  {
+    "language": "tr",
+    "size": 36,
+    "expected": "Kırmızı kapıyı açma. 5 dakikamız var.",
+    "ocr": "Kirmizi kapiyı açma. 5 dakikamiz var.",
+    "confidence": 0.9807887850580989,
+    "ms": 1950.231899973005,
+    "cer": 0.13513513513513514,
+    "missing_glyphs": 0
+  },
+  {
+    "language": "tr",
+    "size": 60,
+    "expected": "Kırmızı kapıyı açma. 5 dakikamız var.",
+    "ocr": "Kirmizi kapiyi açma. 5 dakikamiz var.",
+    "confidence": 0.9259158628327506,
+    "ms": 1174.1907999385148,
+    "cer": 0.16216216216216217,
+    "missing_glyphs": 0
+  },
+  {
+    "language": "vi",
+    "size": 36,
+    "expected": "Đừng mở cửa màu đỏ. Chúng ta có 5 phút.",
+    "ocr": "Dùng mò cúa màu dò. Chúng ta có 5 phút.",
+    "confidence": 0.9417860301641318,
+    "ms": 3509.022400015965,
+    "cer": 0.15384615384615385,
+    "missing_glyphs": 0
+  },
+  {
+    "language": "vi",
+    "size": 60,
+    "expected": "Đừng mở cửa màu đỏ. Chúng ta có 5 phút.",
+    "ocr": "Dùng r mò cúa màu dó. Chúng ta có 5 phút.",
+    "confidence": 0.9700679340783287,
+    "ms": 2665.412300033495,
+    "cer": 0.20512820512820512,
+    "missing_glyphs": 0
+  },
+  {
+    "language": "th",
+    "size": 36,
+    "expected": "อย่าเปิดประตูสีแดง เรามีเวลา 5 นาที",
+    "ocr": "อย่าเปิดประตูสีแดง เรามีเวลา 5 นาที",
+    "confidence": 0.9658423338617598,
+    "ms": 2877.0858000498265,
+    "cer": 0.0,
+    "missing_glyphs": 0
+  },
+  {
+    "language": "th",
+    "size": 60,
+    "expected": "อย่าเปิดประตูสีแดง เรามีเวลา 5 นาที",
+    "ocr": "อย่าเปิดประตูสีแดงเรามีเวลา 5 นาที",
+    "confidence": 0.9650278740069446,
+    "ms": 1995.3759000636637,
+    "cer": 0.02857142857142857,
+    "missing_glyphs": 0
+  },
+  {
+    "language": "fa",
+    "size": 36,
+    "expected": "در قرمز را باز نکن. ما 5 دقیقه وقت داریم.",
+    "ocr": "در قرمز را باز نکن ما 5 دقیقه وقت داريم.",
+    "confidence": 0.8750418126583099,
+    "ms": 3906.3701000995934,
+    "cer": 0.04878048780487805,
+    "missing_glyphs": 0
+  },
+  {
+    "language": "fa",
+    "size": 60,
+    "expected": "در قرمز را باز نکن. ما 5 دقیقه وقت داریم.",
+    "ocr": "در قرمز را باز نکن ما 5 دقیقه وقت داريم",
+    "confidence": 0.9306290971821752,
+    "ms": 3270.7043000264093,
+    "cer": 0.07317073170731707,
+    "missing_glyphs": 0
+  },
+  {
+    "language": "ta",
+    "size": 36,
+    "expected": "சிவப்பு கதவைத் திறக்காதே. நமக்கு 5 நிமிடங்கள் உள்ளன.",
+    "ocr": "சிவப்பு கதவத் திறக்காதே. நமக்கு 5 நிமிடங்கள் உள்ளன.",
+    "confidence": 0.9711133510458703,
+    "ms": 3819.5960999000818,
+    "cer": 0.019230769230769232,
+    "missing_glyphs": 0
+  },
+  {
+    "language": "ta",
+    "size": 60,
+    "expected": "சிவப்பு கதவைத் திறக்காதே. நமக்கு 5 நிமிடங்கள் உள்ளன.",
+    "ocr": "சிவப்பு கதைவத் திறக்காதே. நமக்கு 5 ! நிமிடங்கள் உள்ளன.",
+    "confidence": 0.896367643560682,
+    "ms": 2704.7408999642357,
+    "cer": 0.07692307692307693,
+    "missing_glyphs": 0
+  },
+  {
+    "language": "te",
+    "size": 36,
+    "expected": "ఎర్ర తలుపు తెరవవద్దు. మనకు 5 నిమిషాలు ఉన్నాయి.",
+    "ocr": "ఎర తలుపు తెరవవద్దు. మనకు 5 నిమిషాలు ఉన్నాయి.",
+    "confidence": 0.9682087871161374,
+    "ms": 3263.1447999738157,
+    "cer": 0.043478260869565216,
+    "missing_glyphs": 0
+  },
+  {
+    "language": "te",
+    "size": 60,
+    "expected": "ఎర్ర తలుపు తెరవవద్దు. మనకు 5 నిమిషాలు ఉన్నాయి.",
+    "ocr": "ఎLర తలుపు తెరవవద్దు. మనకు 5 నిమిషాలు ఉన్నాయి.",
+    "confidence": 0.913961187005043,
+    "ms": 2146.891099982895,
+    "cer": 0.043478260869565216,
+    "missing_glyphs": 0
+  }
+]

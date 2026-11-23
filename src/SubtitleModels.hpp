@@ -12,11 +12,14 @@
 struct SubtitleModelInfo {
  const char* id;const char* name;double downloadGB,requiredGiB;
 };
-inline constexpr std::array<SubtitleModelInfo,4> subtitleModelCatalog{{
+inline constexpr std::array<SubtitleModelInfo,7> subtitleModelCatalog{{
  {"cpu","OPUS-MT / CPU",0,0},
  {"cuni-q3km","CUNI-MH 7B / Q3_K_M",3.52,4.4},
  {"cuni-q8","CUNI-MH 7B / Q8_0",7.70,8.5},
- {"cuni-q5km","CUNI-MH 7B / Q5_K_M",5.13,6.0}
+ {"cuni-q5km","CUNI-MH 7B / Q5_K_M",5.13,6.0},
+ {"translategemma-4b-q4km","TranslateGemma 4B / Q4_K_M",2.49,3.6},
+ {"translategemma-4b-q8","TranslateGemma 4B / Q8_0",4.13,5.2},
+ {"translategemma-12b-q4km","TranslateGemma 12B / Q4_K_M",7.30,9.0}
 }};
 struct SubtitleModelDownload {std::string phase="starting",detail;uint64_t done=0,total=0;};
 // Filesystem and helper lifecycle live on a background thread, never in render().
