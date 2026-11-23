@@ -4,7 +4,7 @@
 
 Obraz ze střihovky nebo videa → GPU → monitor. Generování snímků, volitelný enhancer a lokální vícejazyčné titulky.
 
-**[Stáhnout preview.17](https://github.com/tomik520i/FrameLab/releases/download/v0.2.0-preview.17/FrameLab-0.2.0-preview.17-windows-x64-full.zip) · [Web a ukázky](https://opicebot.cz/framelab/?lang=cs) · [English](../README.md)**
+**[Stáhnout preview.18](https://github.com/tomik520i/FrameLab/releases/download/v0.2.0-preview.18/FrameLab-0.2.0-preview.18-windows-x64-full.zip) · [Web a ukázky](https://opicebot.cz/framelab/?lang=cs) · [English](../README.md)**
 
 [Obrazový návod — skutečné screenshoty krok za krokem](https://opicebot.cz/framelab/guide/visual.html)
 
@@ -50,3 +50,13 @@ Při stejném opakovaném vstupu s FG 2× + NR vyšlo **53,81 FPS v popředí, 5
 **[Podpořit přes Opicebot](https://opicebot.cz/?public=prdelniopice&donation2=prdelniopice)** — pouze česká stránka, PayPal v CZK.
 
 Zdrojový kód GPL-3.0; knihovny a herní záběry mají vlastní podmínky. Komunitní projekt bez spojení s NVIDIA a vydavateli her.
+
+## Nové v preview.18: okno hry, samostatné titulky a Vulkan
+
+- **Vstup → Okno aplikace:** obnov seznam, vyber běžící hru nebo Remote Play a spusť zachytávání. Hra musí zůstat otevřená; začni režimem okna nebo bezrámečkového okna. Chráněný obraz a některé hry zachytit nejdou. Obrazovou GPU vybereš samostatně; při změně se aplikace restartuje.
+- **Zobrazení → Jen titulky přes zdrojové okno:** průhledný překryv sleduje vybrané okno, kliknutí propouští do hry. OCR oblast nastav předem a polohu českého textu posuň nezávisle. Tento režim nepřidává FG ani NR do samotné hry. [Obrazový postup Remote Play, překryvu a API](docs/remote-subtitles-api.cs.md).
+- **Titulky → Výpočet překladu:** Automaticky, CUDA, Vulkan nebo CPU; vyber i konkrétní GPU. CUNI a Gemma používají stejné modely. Pro nedostatek VRAM lze povolit GPU + RAM. Na tomto notebooku je nejlepší CUDA; Intel UHD / Vulkan funguje, ale je pomalý. AMD nebylo fyzicky otestováno. [Návod a časy](docs/local-translation-compute.cs.md).
+- **Volitelné OpenAI API:** zvol online způsob překladu, vlož vlastní klíč a načti modely. Klíč ukládá Windows Credential Manager; do API odchází text OCR. Výchozí nabídka míří na levné rychlé modely, podporované parametry řídí profily. Bez klíče fungují místní překladače. Placené hodnocení kvality se v aplikaci nespouští.
+- Přibalený místní filtr omezuje jména, SPZ a nápisy; nejednoznačnou větu neumí vždy odlišit od titulku. Zúžení OCR oblasti zůstává důležité. Aktivní přehrávání/zachytávání brání uspání displeje; nejde o trvalou změnu nastavení Windows.
+
+[Vlastní hodnocení všech 2 000 překladů, pořadí modelů a konkrétní chyby](https://opicebot.cz/framelab/runs/2026-11-23-direct-review/). Sada 500 replik měřila textový překlad bez FG, enhanceru a OCR; není to měření herních FPS.

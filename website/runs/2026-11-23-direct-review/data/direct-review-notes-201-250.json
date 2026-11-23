@@ -1,0 +1,12 @@
+{
+ "w500-203":{"B":"Ohnivé žezlo nahrazuje Královskou holí; vynechává jeho určující označení Ohně.","C":"Ohnivé žezlo nahrazuje mečem.","D":"Zůstává jen obvinění královny. Chybí držení žezla a požadavek na vpuštění."},
+ "w500-215":{"A":"‚Nechci tě zabít‘ mění na ‚opravdu chci zabít‘. Přes zbytek plynulé věty jde o zásadní obrácení významu."},
+ "w500-218":{"A":"Party zde znamená družinu, nikoli stranu. Překlad zachová gramatiku, ale mine herní význam slova."},
+ "w500-226":{"C":"Z vojáků lorda Relgorna dělá samotného lorda jako vojáka; rozpadá se i větná stavba."},
+ "w500-229":{"B":"Vymýšlí ‚Queen Meranti‘, ponechává anglické útržky a doslovně převádí idiomy. Výstup není použitelný jako plynulý titulek.","D":"Výstižně rozepisuje vice-versa: královniny jednotky jdou ke skřetům a skřeti k nim. Zachovává i agresivní tón."},
+ "w500-237":{"B":"Základna nemrtvých se změnila na opuštěný zničený hrad. Informace o nepříteli mizí a přibývá neexistující popis."},
+ "w500-239":{"C":"‚Late King‘ je zesnulý král, ne ‚pozdní král‘. Překlad ztrácí informaci o smrti."},
+ "w500-245":{"C":"‚We have won‘ mění na ‚to zvládli‘, tedy mění účastníka vítězství."},
+ "w500-246":{"A":"Opět překládá vodní lid jako podvodníky. V herním úkolu jde o špatnou skupinu zachraňovaných postav."},
+ "w500-248":{"B":"Podmínku ‚pokud tě ovšem nebaví tábořit‘ mění na ‚pokud vám nevadí stanovat‘. Pobídka k odchodu pak dostává opačnou podmínku."}
+}

@@ -1,0 +1,778 @@
+{
+  "date": "2026-11-23",
+  "scope": "32 measured translations, four identical short EN→CS entries per configuration; diagnostic compatibility/timing smoke test, not a new quality benchmark",
+  "conditions": "No OCR, FG or NR in timing samples. Serial models and requests, ordinary non-isolated desktop. CUDA flash attention on, Vulkan/CPU off; 2048-token context, same verified GGUF files and prompts, Ollama 0.40.16. Initialization/warm-up separately recorded.",
+  "amd": "No physical AMD GPU available; Vulkan route implemented, not measured on AMD.",
+  "rows": [
+    {
+      "file": "cuni-q3km-cuda-NVIDIA.json",
+      "model": "cuni-q3km",
+      "backend": "cuda",
+      "gpu": "NVIDIA",
+      "median_ms": 741.7945499764755,
+      "min_ms": 585.7518999837339,
+      "max_ms": 889.8828000528738,
+      "init_ms": 14209.960600011982,
+      "runtime_size_bytes": 3854104001,
+      "runtime_gpu_bytes": 3854104001,
+      "results": [
+        {
+          "id": "w500-005",
+          "en": "Don’t die, Delfador! Please, you have to stay alive!",
+          "reference_cs": "Neumírej, Delfadore! Prosím, zůstaň!",
+          "translation": "Neumírej, Delfadore! Prosím, musíš zůstat naživu!",
+          "ms": 761.4167999709025,
+          "metrics": {
+            "total_duration": 722706000,
+            "load_duration": 98672000,
+            "prompt_eval_count": 54,
+            "prompt_eval_duration": 39660000,
+            "eval_count": 27,
+            "eval_duration": 538087000,
+            "done_reason": "stop"
+          }
+        },
+        {
+          "id": "w500-006",
+          "en": "I am Delfador the Great! Tremble before my wrath!",
+          "reference_cs": "Já jsem Delfador Veliký! Třes se před mým hněvem!",
+          "translation": "Jsem Delfador Veliký! Třeste se před mým hněvem!",
+          "ms": 585.7518999837339,
+          "metrics": {
+            "total_duration": 552023800,
+            "load_duration": 43307800,
+            "prompt_eval_count": 53,
+            "prompt_eval_duration": 31730000,
+            "eval_count": 22,
+            "eval_duration": 432679000,
+            "done_reason": "stop"
+          }
+        },
+        {
+          "id": "w500-008",
+          "en": "Did you think I was just playing around? I need to take my inheritance!",
+          "reference_cs": "Myslel sis snad, že jsem si jen tak hrála? Potřebuji získat svoje dědictví!",
+          "translation": "Myslíš, že jsem si jen tak hrál? Potřebuju své dědictví!",
+          "ms": 722.1722999820486,
+          "metrics": {
+            "total_duration": 693523100,
+            "load_duration": 45111600,
+            "prompt_eval_count": 54,
+            "prompt_eval_duration": 31736000,
+            "eval_count": 29,
+            "eval_duration": 572630000,
+            "done_reason": "stop"
+          }
+        },
+        {
+          "id": "w500-009",
+          "en": "But they will not neglect to notice our presence in their midst! We are walking into slaughter!",
+          "reference_cs": "Přece si nás nemohou nevšimnout, když budeme procházet uprostřed mezi nimi! To bude jistá smrt!",
+          "translation": "Ale nezapomenou si všimnout naší přítomnosti v jejich středu! Vcházíme do jatka!",
+          "ms": 889.8828000528738,
+          "metrics": {
+            "total_duration": 869721600,
+            "load_duration": 57775900,
+            "prompt_eval_count": 56,
+            "prompt_eval_duration": 31815000,
+            "eval_count": 37,
+            "eval_duration": 735673000,
+            "done_reason": "stop"
+          }
+        }
+      ]
+    },
+    {
+      "file": "cuni-q3km-vulkan-NVIDIA.json",
+      "model": "cuni-q3km",
+      "backend": "vulkan",
+      "gpu": "NVIDIA",
+      "median_ms": 5255.96515001962,
+      "min_ms": 708.0614999867976,
+      "max_ms": 5606.257100007497,
+      "init_ms": 27482.19439992681,
+      "runtime_size_bytes": 3906532801,
+      "runtime_gpu_bytes": 3906532801,
+      "results": [
+        {
+          "id": "w500-005",
+          "en": "Don’t die, Delfador! Please, you have to stay alive!",
+          "reference_cs": "Neumírej, Delfadore! Prosím, zůstaň!",
+          "translation": "Neumírej, Delfadore! Prosím, musíš zůstat naživu!",
+          "ms": 708.0614999867976,
+          "metrics": {
+            "total_duration": 696001400,
+            "load_duration": 29409200,
+            "prompt_eval_count": 54,
+            "prompt_eval_duration": 75537000,
+            "eval_count": 27,
+            "eval_duration": 567236000,
+            "done_reason": "stop"
+          }
+        },
+        {
+          "id": "w500-006",
+          "en": "I am Delfador the Great! Tremble before my wrath!",
+          "reference_cs": "Já jsem Delfador Veliký! Třes se před mým hněvem!",
+          "translation": "Jsem Delfador Veliký! Třeste se před mým hněvem!",
+          "ms": 5606.257100007497,
+          "metrics": {
+            "total_duration": 5595223900,
+            "load_duration": 43790500,
+            "prompt_eval_count": 53,
+            "prompt_eval_duration": 347979000,
+            "eval_count": 22,
+            "eval_duration": 517006000,
+            "done_reason": "stop"
+          }
+        },
+        {
+          "id": "w500-008",
+          "en": "Did you think I was just playing around? I need to take my inheritance!",
+          "reference_cs": "Myslel sis snad, že jsem si jen tak hrála? Potřebuji získat svoje dědictví!",
+          "translation": "Myslíš, že jsem si jen tak hrál? Potřebuju své dědictví!",
+          "ms": 4977.452100021765,
+          "metrics": {
+            "total_duration": 4960705700,
+            "load_duration": 31901500,
+            "prompt_eval_count": 54,
+            "prompt_eval_duration": 310690000,
+            "eval_count": 29,
+            "eval_duration": 682768000,
+            "done_reason": "stop"
+          }
+        },
+        {
+          "id": "w500-009",
+          "en": "But they will not neglect to notice our presence in their midst! We are walking into slaughter!",
+          "reference_cs": "Přece si nás nemohou nevšimnout, když budeme procházet uprostřed mezi nimi! To bude jistá smrt!",
+          "translation": "Ale nezapomenou si všimnout naší přítomnosti v jejich středu! Vcházíme do jatka!",
+          "ms": 5534.478200017475,
+          "metrics": {
+            "total_duration": 5512520400,
+            "load_duration": 34856500,
+            "prompt_eval_count": 56,
+            "prompt_eval_duration": 261826000,
+            "eval_count": 37,
+            "eval_duration": 821428000,
+            "done_reason": "stop"
+          }
+        }
+      ]
+    },
+    {
+      "file": "cuni-q3km-vulkan-Intel.json",
+      "model": "cuni-q3km",
+      "backend": "vulkan",
+      "gpu": "Intel",
+      "median_ms": 21503.367350029293,
+      "min_ms": 12054.762999992818,
+      "max_ms": 24235.010800068267,
+      "init_ms": 25366.51369999163,
+      "runtime_size_bytes": 3906532801,
+      "runtime_gpu_bytes": 3906532801,
+      "results": [
+        {
+          "id": "w500-005",
+          "en": "Don’t die, Delfador! Please, you have to stay alive!",
+          "reference_cs": "Neumírej, Delfadore! Prosím, zůstaň!",
+          "translation": "Neumírej, Delfadore! Prosím, musíš zůstat naživu!",
+          "ms": 12054.762999992818,
+          "metrics": {
+            "total_duration": 12036395300,
+            "load_duration": 18120400,
+            "prompt_eval_count": 54,
+            "prompt_eval_duration": 4475890000,
+            "eval_count": 27,
+            "eval_duration": 7504857000,
+            "done_reason": "stop"
+          }
+        },
+        {
+          "id": "w500-006",
+          "en": "I am Delfador the Great! Tremble before my wrath!",
+          "reference_cs": "Já jsem Delfador Veliký! Třes se před mým hněvem!",
+          "translation": "Jsem Delfador Veliký! Třeste se před mým hněvem!",
+          "ms": 19039.63290003594,
+          "metrics": {
+            "total_duration": 19013693000,
+            "load_duration": 21975000,
+            "prompt_eval_count": 53,
+            "prompt_eval_duration": 1345114000,
+            "eval_count": 22,
+            "eval_duration": 6152775000,
+            "done_reason": "stop"
+          }
+        },
+        {
+          "id": "w500-008",
+          "en": "Did you think I was just playing around? I need to take my inheritance!",
+          "reference_cs": "Myslel sis snad, že jsem si jen tak hrála? Potřebuji získat svoje dědictví!",
+          "translation": "Myslíš, že jsem si jen tak hrál? Potřebuju své dědictví!",
+          "ms": 23967.101800022647,
+          "metrics": {
+            "total_duration": 23933215300,
+            "load_duration": 52729200,
+            "prompt_eval_count": 54,
+            "prompt_eval_duration": 1582266000,
+            "eval_count": 29,
+            "eval_duration": 8094566000,
+            "done_reason": "stop"
+          }
+        },
+        {
+          "id": "w500-009",
+          "en": "But they will not neglect to notice our presence in their midst! We are walking into slaughter!",
+          "reference_cs": "Přece si nás nemohou nevšimnout, když budeme procházet uprostřed mezi nimi! To bude jistá smrt!",
+          "translation": "Ale nezapomenou si všimnout naší přítomnosti v jejich středu! Vcházíme do jatka!",
+          "ms": 24235.010800068267,
+          "metrics": {
+            "total_duration": 24189748900,
+            "load_duration": 62930600,
+            "prompt_eval_count": 56,
+            "prompt_eval_duration": 1229769000,
+            "eval_count": 37,
+            "eval_duration": 10269101000,
+            "done_reason": "stop"
+          }
+        }
+      ]
+    },
+    {
+      "file": "cuni-q3km-cpu.json",
+      "model": "cuni-q3km",
+      "backend": "cpu",
+      "gpu": "Intel Core i5-13420H",
+      "median_ms": 4282.213350001257,
+      "min_ms": 3465.7462999457493,
+      "max_ms": 5370.82199996803,
+      "init_ms": 15072.030500043184,
+      "runtime_size_bytes": 3979765349,
+      "runtime_gpu_bytes": 0,
+      "results": [
+        {
+          "id": "w500-005",
+          "en": "Don’t die, Delfador! Please, you have to stay alive!",
+          "reference_cs": "Neumírej, Delfadore! Prosím, zůstaň!",
+          "translation": "Neumírej, Delfadore! Prosím, musíš zůstat naživu!",
+          "ms": 4118.57669998426,
+          "metrics": {
+            "total_duration": 4107425500,
+            "load_duration": 12532600,
+            "prompt_eval_count": 54,
+            "prompt_eval_duration": 985082000,
+            "eval_count": 27,
+            "eval_duration": 3090542000,
+            "done_reason": "stop"
+          }
+        },
+        {
+          "id": "w500-006",
+          "en": "I am Delfador the Great! Tremble before my wrath!",
+          "reference_cs": "Já jsem Delfador Veliký! Třes se před mým hněvem!",
+          "translation": "Jsem Delfador Veliký! Třeste se před mým hněvem!",
+          "ms": 3465.7462999457493,
+          "metrics": {
+            "total_duration": 3454490800,
+            "load_duration": 15981200,
+            "prompt_eval_count": 53,
+            "prompt_eval_duration": 898165000,
+            "eval_count": 22,
+            "eval_duration": 2507682000,
+            "done_reason": "stop"
+          }
+        },
+        {
+          "id": "w500-008",
+          "en": "Did you think I was just playing around? I need to take my inheritance!",
+          "reference_cs": "Myslel sis snad, že jsem si jen tak hrála? Potřebuji získat svoje dědictví!",
+          "translation": "Myslíš, že jsem si jen tak hrál? Potřebuju své dědictví!",
+          "ms": 4445.850000018254,
+          "metrics": {
+            "total_duration": 4433211100,
+            "load_duration": 14610000,
+            "prompt_eval_count": 54,
+            "prompt_eval_duration": 986310000,
+            "eval_count": 29,
+            "eval_duration": 3400903000,
+            "done_reason": "stop"
+          }
+        },
+        {
+          "id": "w500-009",
+          "en": "But they will not neglect to notice our presence in their midst! We are walking into slaughter!",
+          "reference_cs": "Přece si nás nemohou nevšimnout, když budeme procházet uprostřed mezi nimi! To bude jistá smrt!",
+          "translation": "Ale nezapomenou si všimnout naší přítomnosti v jejich středu! Vcházíme do jatka!",
+          "ms": 5370.82199996803,
+          "metrics": {
+            "total_duration": 5354227300,
+            "load_duration": 16855200,
+            "prompt_eval_count": 56,
+            "prompt_eval_duration": 956532000,
+            "eval_count": 37,
+            "eval_duration": 4356732000,
+            "done_reason": "stop"
+          }
+        }
+      ]
+    },
+    {
+      "file": "translategemma-4b-q4km-cuda-NVIDIA.json",
+      "model": "translategemma-4b-q4km",
+      "backend": "cuda",
+      "gpu": "NVIDIA",
+      "median_ms": 487.2363999602385,
+      "min_ms": 467.1137999976054,
+      "max_ms": 543.4518000110984,
+      "init_ms": 12669.127600034699,
+      "runtime_size_bytes": 2753382317,
+      "runtime_gpu_bytes": 2753382317,
+      "results": [
+        {
+          "id": "w500-005",
+          "en": "Don’t die, Delfador! Please, you have to stay alive!",
+          "reference_cs": "Neumírej, Delfadore! Prosím, zůstaň!",
+          "translation": "Neumři, Delfadore! Prosím, musíš přežít!",
+          "ms": 467.1137999976054,
+          "metrics": {
+            "total_duration": 424600100,
+            "load_duration": 30062800,
+            "prompt_eval_count": 91,
+            "prompt_eval_duration": 74664000,
+            "eval_count": 17,
+            "eval_duration": 284330000,
+            "done_reason": "stop"
+          }
+        },
+        {
+          "id": "w500-006",
+          "en": "I am Delfador the Great! Tremble before my wrath!",
+          "reference_cs": "Já jsem Delfador Veliký! Třes se před mým hněvem!",
+          "translation": "Já jsem Delfador, největší! Dejte pozor na mou zuřivost!",
+          "ms": 487.4291999731213,
+          "metrics": {
+            "total_duration": 454210200,
+            "load_duration": 29332600,
+            "prompt_eval_count": 88,
+            "prompt_eval_duration": 63475000,
+            "eval_count": 20,
+            "eval_duration": 330204000,
+            "done_reason": "stop"
+          }
+        },
+        {
+          "id": "w500-008",
+          "en": "Did you think I was just playing around? I need to take my inheritance!",
+          "reference_cs": "Myslel sis snad, že jsem si jen tak hrála? Potřebuji získat svoje dědictví!",
+          "translation": "Myslíš, že jsem to jen tak blázní? Potřebuji získat své dědictví!",
+          "ms": 543.4518000110984,
+          "metrics": {
+            "total_duration": 520369100,
+            "load_duration": 22572100,
+            "prompt_eval_count": 91,
+            "prompt_eval_duration": 61685000,
+            "eval_count": 24,
+            "eval_duration": 402065000,
+            "done_reason": "stop"
+          }
+        },
+        {
+          "id": "w500-009",
+          "en": "But they will not neglect to notice our presence in their midst! We are walking into slaughter!",
+          "reference_cs": "Přece si nás nemohou nevšimnout, když budeme procházet uprostřed mezi nimi! To bude jistá smrt!",
+          "translation": "Ale rozhodně nezapomenou na naši přítomnost! Jsme v ohrožení!",
+          "ms": 487.0435999473557,
+          "metrics": {
+            "total_duration": 464594500,
+            "load_duration": 14986000,
+            "prompt_eval_count": 94,
+            "prompt_eval_duration": 58213000,
+            "eval_count": 22,
+            "eval_duration": 365781000,
+            "done_reason": "stop"
+          }
+        }
+      ]
+    },
+    {
+      "file": "translategemma-4b-q4km-vulkan-NVIDIA.json",
+      "model": "translategemma-4b-q4km",
+      "backend": "vulkan",
+      "gpu": "NVIDIA",
+      "median_ms": 2520.195099990815,
+      "min_ms": 2431.1847999924794,
+      "max_ms": 2533.380499924533,
+      "init_ms": 49246.12489994615,
+      "runtime_size_bytes": 2770683821,
+      "runtime_gpu_bytes": 2770683821,
+      "results": [
+        {
+          "id": "w500-005",
+          "en": "Don’t die, Delfador! Please, you have to stay alive!",
+          "reference_cs": "Neumírej, Delfadore! Prosím, zůstaň!",
+          "translation": "Neumři, Delfadore! Prosím, musíš přežít!",
+          "ms": 2515.210199984722,
+          "metrics": {
+            "total_duration": 2484030700,
+            "load_duration": 51013100,
+            "prompt_eval_count": 91,
+            "prompt_eval_duration": 2029403000,
+            "eval_count": 17,
+            "eval_duration": 343760000,
+            "done_reason": "stop"
+          }
+        },
+        {
+          "id": "w500-006",
+          "en": "I am Delfador the Great! Tremble before my wrath!",
+          "reference_cs": "Já jsem Delfador Veliký! Třes se před mým hněvem!",
+          "translation": "Já jsem Delfador, největší! Dejte pozor na mou zuřivost!",
+          "ms": 2431.1847999924794,
+          "metrics": {
+            "total_duration": 2406443100,
+            "load_duration": 29690400,
+            "prompt_eval_count": 88,
+            "prompt_eval_duration": 1967253000,
+            "eval_count": 20,
+            "eval_duration": 373661000,
+            "done_reason": "stop"
+          }
+        },
+        {
+          "id": "w500-008",
+          "en": "Did you think I was just playing around? I need to take my inheritance!",
+          "reference_cs": "Myslel sis snad, že jsem si jen tak hrála? Potřebuji získat svoje dědictví!",
+          "translation": "Myslíš, že jsem to jen tak blázní? Potřebuji získat své dědictví!",
+          "ms": 2525.179999996908,
+          "metrics": {
+            "total_duration": 2502273800,
+            "load_duration": 21958600,
+            "prompt_eval_count": 91,
+            "prompt_eval_duration": 1986425000,
+            "eval_count": 24,
+            "eval_duration": 447470000,
+            "done_reason": "stop"
+          }
+        },
+        {
+          "id": "w500-009",
+          "en": "But they will not neglect to notice our presence in their midst! We are walking into slaughter!",
+          "reference_cs": "Přece si nás nemohou nevšimnout, když budeme procházet uprostřed mezi nimi! To bude jistá smrt!",
+          "translation": "Ale rozhodně nezapomenou na naši přítomnost! Jsme v ohrožení!",
+          "ms": 2533.380499924533,
+          "metrics": {
+            "total_duration": 2498626500,
+            "load_duration": 37359600,
+            "prompt_eval_count": 94,
+            "prompt_eval_duration": 1995807000,
+            "eval_count": 22,
+            "eval_duration": 416263000,
+            "done_reason": "stop"
+          }
+        }
+      ]
+    },
+    {
+      "file": "translategemma-4b-q4km-vulkan-Intel.json",
+      "model": "translategemma-4b-q4km",
+      "backend": "vulkan",
+      "gpu": "Intel",
+      "median_ms": 11456.6283999593,
+      "min_ms": 11058.13440005295,
+      "max_ms": 12088.265500031412,
+      "init_ms": 50788.93759998027,
+      "runtime_size_bytes": 2770683821,
+      "runtime_gpu_bytes": 2770683821,
+      "results": [
+        {
+          "id": "w500-005",
+          "en": "Don’t die, Delfador! Please, you have to stay alive!",
+          "reference_cs": "Neumírej, Delfadore! Prosím, zůstaň!",
+          "translation": "Neumři, Delfadore! Prosím, musíš přežít!",
+          "ms": 11058.13440005295,
+          "metrics": {
+            "total_duration": 11023723400,
+            "load_duration": 21801700,
+            "prompt_eval_count": 91,
+            "prompt_eval_duration": 9288334000,
+            "eval_count": 17,
+            "eval_duration": 1679148000,
+            "done_reason": "stop"
+          }
+        },
+        {
+          "id": "w500-006",
+          "en": "I am Delfador the Great! Tremble before my wrath!",
+          "reference_cs": "Já jsem Delfador Veliký! Třes se před mým hněvem!",
+          "translation": "Já jsem Delfador, největší! Dejte pozor na mou zuřivost!",
+          "ms": 11070.427599945106,
+          "metrics": {
+            "total_duration": 11046624700,
+            "load_duration": 18718300,
+            "prompt_eval_count": 88,
+            "prompt_eval_duration": 8979985000,
+            "eval_count": 20,
+            "eval_duration": 2021621000,
+            "done_reason": "stop"
+          }
+        },
+        {
+          "id": "w500-008",
+          "en": "Did you think I was just playing around? I need to take my inheritance!",
+          "reference_cs": "Myslel sis snad, že jsem si jen tak hrála? Potřebuji získat svoje dědictví!",
+          "translation": "Myslíš, že jsem to jen tak blázní? Potřebuji získat své dědictví!",
+          "ms": 11842.829199973494,
+          "metrics": {
+            "total_duration": 11818952700,
+            "load_duration": 22965600,
+            "prompt_eval_count": 91,
+            "prompt_eval_duration": 9333641000,
+            "eval_count": 24,
+            "eval_duration": 2435167000,
+            "done_reason": "stop"
+          }
+        },
+        {
+          "id": "w500-009",
+          "en": "But they will not neglect to notice our presence in their midst! We are walking into slaughter!",
+          "reference_cs": "Přece si nás nemohou nevšimnout, když budeme procházet uprostřed mezi nimi! To bude jistá smrt!",
+          "translation": "Ale rozhodně nezapomenou na naši přítomnost! Jsme v ohrožení!",
+          "ms": 12088.265500031412,
+          "metrics": {
+            "total_duration": 12070151600,
+            "load_duration": 12761700,
+            "prompt_eval_count": 94,
+            "prompt_eval_duration": 9840542000,
+            "eval_count": 22,
+            "eval_duration": 2186461000,
+            "done_reason": "stop"
+          }
+        }
+      ]
+    },
+    {
+      "file": "translategemma-4b-q4km-cpu.json",
+      "model": "translategemma-4b-q4km",
+      "backend": "cpu",
+      "gpu": "Intel Core i5-13420H",
+      "median_ms": 3529.9729999969713,
+      "min_ms": 3246.0692999884486,
+      "max_ms": 3916.4903999771923,
+      "init_ms": 15067.83950002864,
+      "runtime_size_bytes": 2771732397,
+      "runtime_gpu_bytes": 0,
+      "results": [
+        {
+          "id": "w500-005",
+          "en": "Don’t die, Delfador! Please, you have to stay alive!",
+          "reference_cs": "Neumírej, Delfadore! Prosím, zůstaň!",
+          "translation": "Neumři, Delfadore! Prosím, musíš přežít!",
+          "ms": 3276.0046999901533,
+          "metrics": {
+            "total_duration": 3253240800,
+            "load_duration": 29602100,
+            "prompt_eval_count": 91,
+            "prompt_eval_duration": 1581370000,
+            "eval_count": 17,
+            "eval_duration": 1613972000,
+            "done_reason": "stop"
+          }
+        },
+        {
+          "id": "w500-006",
+          "en": "I am Delfador the Great! Tremble before my wrath!",
+          "reference_cs": "Já jsem Delfador Veliký! Třes se před mým hněvem!",
+          "translation": "Já jsem Delfador, veliký! Dejte pozor na mou zuřivost!",
+          "ms": 3246.0692999884486,
+          "metrics": {
+            "total_duration": 3230287200,
+            "load_duration": 16803200,
+            "prompt_eval_count": 88,
+            "prompt_eval_duration": 1530135000,
+            "eval_count": 19,
+            "eval_duration": 1614732000,
+            "done_reason": "stop"
+          }
+        },
+        {
+          "id": "w500-008",
+          "en": "Did you think I was just playing around? I need to take my inheritance!",
+          "reference_cs": "Myslel sis snad, že jsem si jen tak hrála? Potřebuji získat svoje dědictví!",
+          "translation": "Myslíš, že jsem to jen tak blázní? Potřebuji získat své dědictví!",
+          "ms": 3916.4903999771923,
+          "metrics": {
+            "total_duration": 3896132900,
+            "load_duration": 23224800,
+            "prompt_eval_count": 91,
+            "prompt_eval_duration": 1518905000,
+            "eval_count": 24,
+            "eval_duration": 2320201000,
+            "done_reason": "stop"
+          }
+        },
+        {
+          "id": "w500-009",
+          "en": "But they will not neglect to notice our presence in their midst! We are walking into slaughter!",
+          "reference_cs": "Přece si nás nemohou nevšimnout, když budeme procházet uprostřed mezi nimi! To bude jistá smrt!",
+          "translation": "Ale rozhodně nezanechají bez povšimnutí naši přítomnost! Jsme v ohrožení!",
+          "ms": 3783.9413000037894,
+          "metrics": {
+            "total_duration": 3762568400,
+            "load_duration": 21877100,
+            "prompt_eval_count": 94,
+            "prompt_eval_duration": 1531291000,
+            "eval_count": 26,
+            "eval_duration": 2183190000,
+            "done_reason": "stop"
+          }
+        }
+      ]
+    }
+  ],
+  "native_pipeline": [
+    {
+      "file": "native-vulkan-intel-freshness.log",
+      "cases": [
+        {
+          "case": "dialogue-name",
+          "model": 1,
+          "filtered": false,
+          "ocr": "John, wait!",
+          "translation": "Johne, počkej!",
+          "ms": 27742.6,
+          "passed": true
+        },
+        {
+          "case": "name-female",
+          "model": 1,
+          "filtered": true,
+          "ocr": "Sarah Miller",
+          "translation": "",
+          "ms": 933.599,
+          "passed": true
+        },
+        {
+          "case": "dialogue-code",
+          "model": 1,
+          "filtered": false,
+          "ocr": "The code is 1234.",
+          "translation": "Kód je 1234.",
+          "ms": 5754.05,
+          "passed": true
+        },
+        {
+          "case": "name-male",
+          "model": 1,
+          "filtered": true,
+          "ocr": "John Smith",
+          "translation": "",
+          "ms": 483.508,
+          "passed": true
+        },
+        {
+          "case": "dialogue-short",
+          "model": 1,
+          "filtered": false,
+          "ocr": "No!",
+          "translation": "Ne!",
+          "ms": 2422.38,
+          "passed": true
+        },
+        {
+          "case": "dialogue-no-punctuation",
+          "model": 1,
+          "filtered": false,
+          "ocr": "Follow the tracks",
+          "translation": "Sledujte stopy...",
+          "ms": 4842.57,
+          "passed": true
+        }
+      ]
+    },
+    {
+      "file": "native-vulkan-rtx-freshness.log",
+      "cases": [
+        {
+          "case": "dialogue-name",
+          "model": 4,
+          "filtered": false,
+          "ocr": "John, wait!",
+          "translation": "Johne, počkej!",
+          "ms": 21558.8,
+          "passed": true
+        },
+        {
+          "case": "name-female",
+          "model": 4,
+          "filtered": true,
+          "ocr": "Sarah Miller",
+          "translation": "",
+          "ms": 1493.82,
+          "passed": true
+        },
+        {
+          "case": "dialogue-code",
+          "model": 4,
+          "filtered": false,
+          "ocr": "The code is 1234.",
+          "translation": "Kód je 1234.",
+          "ms": 5131.62,
+          "passed": true
+        },
+        {
+          "case": "name-male",
+          "model": 4,
+          "filtered": true,
+          "ocr": "John Smith",
+          "translation": "",
+          "ms": 836.07,
+          "passed": true
+        },
+        {
+          "case": "dialogue-short",
+          "model": 4,
+          "filtered": false,
+          "ocr": "No!",
+          "translation": "Ne!",
+          "ms": 5333.54,
+          "passed": true
+        },
+        {
+          "case": "dialogue-no-punctuation",
+          "model": 4,
+          "filtered": false,
+          "ocr": "Follow the tracks",
+          "translation": "Sledujte stopy",
+          "ms": 4208.91,
+          "passed": true
+        }
+      ]
+    }
+  ],
+  "partial_placement": {
+    "conditions": "Test harness forces num_gpu=8; verifies partial-load acceptance and translation, not automatic memory fitting or speed.",
+    "description": "VULKAN / NVIDIA GeForce RTX 4050 Laptop GPU / GPU + RAM",
+    "loaded": {
+      "name": "framelab-cuni-q3km:latest",
+      "model": "framelab-cuni-q3km:latest",
+      "size": 4021697902,
+      "digest": "14d34e333bc5b0cc6158372c11590a58b1457a19cbcdf50466e8c2fd8298f1aa",
+      "details": {
+        "parent_model": "",
+        "format": "gguf",
+        "family": "llama",
+        "families": [
+          "llama"
+        ],
+        "parameter_size": "7.2B",
+        "quantization_level": "Q3_K_M"
+      },
+      "expires_at": "2319-03-05T21:09:50.014619907+01:00",
+      "size_vram": 1089522892,
+      "context_length": 2048,
+      "runner": "llamacpp"
+    },
+    "translation": "Měli bychom vyrazit před východem slunce.",
+    "passed": true
+  }
+}

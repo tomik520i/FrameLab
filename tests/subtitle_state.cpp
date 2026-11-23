@@ -2,6 +2,13 @@
 #include <stdexcept>
 void require(bool condition){if(!condition)throw std::runtime_error("Subtitle stability check failed");}
 int main(){
+ // Slow GPU results remain displayable only if current OCR confirms them.
+ require(SubtitleState::fresh(30,1,"No!",29.8,"No!",2));
+ require(!SubtitleState::fresh(30,1,"No!",29.8,"Go!",2));
+ require(!SubtitleState::fresh(30,1,"No!",20,"No!",2));
+ require(!SubtitleState::fresh(30,1,"No!",29.8,"",2));
+ require(!SubtitleState::fresh(30,1,"",29.8,"",2));
+ require(SubtitleState::fresh(5,1,"No!",4.8,"Go!",2));
  SubtitleState s;require(!s.observe("Follow me."));require(s.observe("Follow me."));require(!s.observe("Follow me."));
  require(!s.observe("The door"));require(s.committed.empty());require(!s.observe("The door is locked."));require(s.observe("The door is locked."));
  require(!s.observe(""));require(s.committed.empty());s.clear();require(!s.observe("Follow me."));

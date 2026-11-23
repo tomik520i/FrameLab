@@ -8,6 +8,7 @@
 #include <mutex>
 #include <string>
 #include <thread>
+#include <vector>
 
 struct SubtitleModelInfo {
  const char* id;const char* name;double downloadGB,requiredGiB;
@@ -22,10 +23,12 @@ inline constexpr std::array<SubtitleModelInfo,7> subtitleModelCatalog{{
  {"translategemma-12b-q4km","TranslateGemma 12B / Q4_K_M",7.30,9.0}
 }};
 struct SubtitleModelDownload {std::string phase="starting",detail;uint64_t done=0,total=0;};
+struct SubtitleComputeDevice {std::string backend,id,name;bool integrated=false;double freeGiB=-1;};
 // Filesystem and helper lifecycle live on a background thread, never in render().
 class SubtitleModels {
  std::filesystem::path app,session;std::mutex mutex;std::array<SubtitleModelDownload,subtitleModelCatalog.size()> states;
  std::string requested;std::atomic<bool> stop=false;std::thread worker;
+ std::vector<SubtitleComputeDevice> computeDevices;bool devicesKnown=false;
  void run(){
   HANDLE process=nullptr,job=nullptr;
   try{
@@ -52,6 +55,7 @@ class SubtitleModels {
     while(f>>std::quoted(id)>>std::quoted(phase)>>done>>total>>std::quoted(detail)){
      for(size_t i=1;i<states.size();++i)if(id==subtitleModelCatalog[i].id){std::lock_guard lock(mutex);states[i]={phase,detail,done,total};}
     }
+    std::ifstream devicesFile(session/L"devices.txt");if(devicesFile){std::vector<SubtitleComputeDevice> parsed;SubtitleComputeDevice d;while(devicesFile>>std::quoted(d.backend)>>std::quoted(d.id)>>std::quoted(d.name)>>d.integrated>>d.freeGiB)parsed.push_back(d);std::lock_guard lock(mutex);computeDevices=std::move(parsed);devicesKnown=true;}
     for(int i=0;i<5&&!stop;++i)Sleep(50);
    }
   }catch(const std::exception& e){std::lock_guard lock(mutex);for(size_t i=1;i<states.size();++i)states[i]={"error",e.what(),0,0};}
@@ -63,4 +67,7 @@ public:
  SubtitleModelDownload snapshot(int i){std::lock_guard lock(mutex);return states.at(i);}
  void download(int i){if(i<1||i>=int(states.size()))return;std::lock_guard lock(mutex);requested=std::string("download ")+subtitleModelCatalog[i].id;}
  void cancel(){std::lock_guard lock(mutex);requested="cancel";}
+ std::vector<SubtitleComputeDevice> devices(){std::lock_guard lock(mutex);return computeDevices;}
+ bool hasDeviceList(){std::lock_guard lock(mutex);return devicesKnown;}
+ void refreshDevices(){std::lock_guard lock(mutex);requested="devices";}
 };

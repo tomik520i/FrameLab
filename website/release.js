@@ -1,6 +1,6 @@
 (() => {
   const $=s=>document.querySelector(s);let language='en',manual=false;
-  const paths={gpu:['gpu-en.html','gpu.html'],multilingual:['multilingual-en.html','multilingual.html'],main:['visual-en.html','visual.html'],subtitles:['subtitles-en.html','subtitles.html'],enhancer:['enhancer-en.html','enhancer.html'],recording:['recording-en.html','recording.html']};
+  const paths={compute:['compute-en.html','compute.html'],remote:['remote-subtitles-en.html','remote-subtitles.html'],gpu:['gpu-en.html','gpu.html'],multilingual:['multilingual-en.html','multilingual.html'],main:['visual-en.html','visual.html'],subtitles:['subtitles-en.html','subtitles.html'],enhancer:['enhancer-en.html','enhancer.html'],recording:['recording-en.html','recording.html']};
   function applyLanguage(lang,save=false){
     language=lang==='cs'?'cs':'en';document.documentElement.lang=language;
     document.querySelectorAll('[data-en][data-cs]').forEach(e=>e.textContent=e.dataset[language]);

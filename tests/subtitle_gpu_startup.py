@@ -46,7 +46,7 @@ class FirstModelImport(unittest.TestCase):
                  patch.object(subtitle_gpu, 'verified', return_value=True), \
                  patch.object(subtitle_gpu, 'verify'), \
                  patch.object(subtitle_gpu, 'runtime_ready', return_value=True), \
-                 patch.object(subtitle_gpu, 'available_vram', return_value=None), \
+                 patch.object(subtitle_gpu, 'choose', return_value=dict(backend='cuda',id='GPU-fixture',name='Fixture GPU',free=None)), \
                  patch.object(subtitle_gpu.subprocess, 'Popen', side_effect=start_runtime), \
                  patch.object(subtitle_gpu.GpuTranslator, 'api', api):
                 translator = subtitle_gpu.GpuTranslator(Path(os.path.relpath(root)), 'cuni-q3km')

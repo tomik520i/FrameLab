@@ -9,17 +9,20 @@
 #include <filesystem>
 
 struct DisplayControls {
- int fit=0;
+ int fit=0,awakeMode=1; // 0 off, 1 while video runs, 2 whenever this window is visible
  struct Monitor {HMONITOR handle;MONITORINFOEXW info;std::string label;};
  std::vector<Monitor> monitors;
  void refresh(){monitors.clear();EnumDisplayMonitors(nullptr,nullptr,[](HMONITOR h,HDC,LPRECT,LPARAM p)->BOOL{
   auto self=reinterpret_cast<DisplayControls*>(p);MONITORINFOEXW m{};m.cbSize=sizeof(m);if(GetMonitorInfoW(h,&m)){DEVMODEW dm{};dm.dmSize=sizeof(dm);EnumDisplaySettingsW(m.szDevice,ENUM_CURRENT_SETTINGS,&dm);self->monitors.push_back({h,m,std::string("Monitor ")+std::to_string(self->monitors.size()+1)+" | "+std::to_string(dm.dmPelsWidth)+" x "+std::to_string(dm.dmPelsHeight)+" | "+std::to_string(dm.dmDisplayFrequency)+" Hz"});}return TRUE;},reinterpret_cast<LPARAM>(this));}
- void load(const std::filesystem::path& path){std::ifstream(path)>>fit;fit=std::clamp(fit,0,2);refresh();}
- void save(const std::filesystem::path& path)const{std::ofstream(path)<<fit;}
+ void load(const std::filesystem::path& path){std::ifstream f(path);f>>fit;if(!(f>>awakeMode))awakeMode=1;fit=std::clamp(fit,0,2);awakeMode=std::clamp(awakeMode,0,2);refresh();}
+ void save(const std::filesystem::path& path)const{std::ofstream(path)<<fit<<' '<<awakeMode<<'\n';}
  float scale(unsigned w,unsigned h,float areaW,float areaH)const{if(fit==2)return 1;return fit==1?std::max(areaW/w,areaH/h):std::min(areaW/w,areaH/h);}
  void panel(HWND window,bool fullscreen){
   const char* names[]={czech?"Přizpůsobit / zachovat celý obraz":"Fit / show whole image",czech?"Vyplnit / oříznout okraje":"Fill / crop edges",czech?"1:1 / zdrojové pixely":"1:1 / source pixels"};
   ui::title(czech?"ZOBRAZENÍ":"DISPLAY");ImGui::Combo(czech?"Měřítko obrazu":"Image fit",&fit,names,3);
+  const char* power[]={czech?"Podle Windows":"Follow Windows",czech?"Při běžícím obrazu":"While video is playing",czech?"Dokud je aplikace vidět":"While the app is visible"};
+  ImGui::Combo(czech?"Nezhasínat displej":"Keep display awake",&awakeMode,power,3);
+  ImGui::TextWrapped("%s",czech?"Platí i pro fullscreen a překryv hry. Minimalizace ochranu uvolní. Ruční uspání, zamčení a zavření víka zůstává pod kontrolou Windows.":"Includes fullscreen and game overlay. Minimizing releases the request. Manual sleep, locking and lid closing remain controlled by Windows.");
   auto current=MonitorFromWindow(window,MONITOR_DEFAULTTONEAREST);auto selected=std::find_if(monitors.begin(),monitors.end(),[&](const auto& m){return m.handle==current;});
   if(ImGui::BeginCombo(czech?"Monitor":"Monitor",selected==monitors.end()?"--":selected->label.c_str())){
    for(const auto& m:monitors)if(ImGui::Selectable(m.label.c_str(),m.handle==current)){RECT r{};GetWindowRect(window,&r);auto bounds=fullscreen?m.info.rcMonitor:m.info.rcWork;int width=fullscreen?bounds.right-bounds.left:std::min(r.right-r.left,bounds.right-bounds.left),height=fullscreen?bounds.bottom-bounds.top:std::min(r.bottom-r.top,bounds.bottom-bounds.top);SetWindowPos(window,nullptr,bounds.left+(bounds.right-bounds.left-width)/2,bounds.top+(bounds.bottom-bounds.top-height)/2,width,height,SWP_NOZORDER);}

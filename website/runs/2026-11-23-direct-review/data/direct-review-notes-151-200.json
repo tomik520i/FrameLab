@@ -1,0 +1,10 @@
+{
+ "w500-153":{"A":"Gold upkeep jsou náklady na vydržování jednotky. ‚Nevyžaduje žádnou údržbu‘ nevyjadřuje herní ekonomiku přesně.","C":"Význam herní vlastnosti zachovává, ale ‚zlaté žoldnéřské náklady‘ zní nepřirozeně."},
+ "w500-161":{"C":"Původní pokus nevrátil platný překlad, proto má 0/4 za význam i češtinu. Pozdější úspěšný diagnostický pokus tento neúspěch v měření nenahrazuje.","_case":"Chybová zpráva zde sama prozrazuje API původ kandidáta. Skrytí názvů modelů tedy není dokonale zaslepené."},
+ "w500-162":{"C":"Ztrácí zápor: ‚Necháváte nám jinou možnost‘ říká opak originálu."},
+ "w500-173":{"A":"Země mohou pohltit královnu (‚kolik dalších území ji může pohltit‘), místo aby královna zabrala další země. Obrácené role."},
+ "w500-180":{"A":"Whirlpool je vodní vír. ‚Vylézt z vířivky‘ dělá z nebezpečné přírodní situace koupel; navíc střídá třetí a druhou osobu."},
+ "w500-187":{"A":"Kopí se změnila na meče, kopyta vypadla a přibyla nepodložená rychlost.","D":"Zachovává obě konkrétní výhody jízdy: ostrá kopí i rozdupání kopyty."},
+ "w500-189":{"A":"Cave-in je zával, nikoli jeskyně. Překlad by mohl hráči dát chybnou navigační informaci."},
+ "w500-195":{"A":"Velké vojsko (host) mění na velkého vůdce.","C":"Host opět chybně převádí na hostitele; místo početné armády může čtenář chápat jednotlivce."}
+}

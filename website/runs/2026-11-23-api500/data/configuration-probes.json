@@ -1,0 +1,94 @@
+[
+  {
+    "model": "gpt-6-luna",
+    "input": "We should not speak of it now. Instead come with me, Konrad and Li’sar, to the top of Mount Elnar. To look at Weldyn. To make plans for the battle, and to talk.",
+    "temperature": null,
+    "status": "completed",
+    "usage": {
+      "input_tokens": 157,
+      "input_tokens_details": {
+        "cache_write_tokens": 0,
+        "cache_write_tokens_details": {
+          "ttl_12h_tokens": 0,
+          "ttl_30m_tokens": 0
+        },
+        "cached_tokens": 0
+      },
+      "output_tokens": 75,
+      "output_tokens_details": {
+        "reasoning_tokens": 0
+      },
+      "total_tokens": 232
+    },
+    "estimated_usd": 5.3200000000000006e-05
+  },
+  {
+    "model": "gpt-6-luna",
+    "input": "The code is 1234.",
+    "temperature": 0,
+    "status": "completed",
+    "usage": {
+      "input_tokens": 118,
+      "input_tokens_details": {
+        "cache_write_tokens": 0,
+        "cache_write_tokens_details": {
+          "ttl_12h_tokens": 0,
+          "ttl_30m_tokens": 0
+        },
+        "cached_tokens": 0
+      },
+      "output_tokens": 23,
+      "output_tokens_details": {
+        "reasoning_tokens": 0
+      },
+      "total_tokens": 141
+    },
+    "estimated_usd": 2.33e-05
+  },
+  {
+    "model": "gpt-6.1-terra",
+    "input": "The code is 1234.",
+    "temperature": 0,
+    "status": "completed",
+    "usage": {
+      "input_tokens": 118,
+      "input_tokens_details": {
+        "cache_write_tokens": 0,
+        "cache_write_tokens_details": {
+          "ttl_12h_tokens": 0,
+          "ttl_30m_tokens": 0
+        },
+        "cached_tokens": 0
+      },
+      "output_tokens": 23,
+      "output_tokens_details": {
+        "reasoning_tokens": 0
+      },
+      "total_tokens": 141
+    },
+    "estimated_usd": 0.000233
+  },
+  {
+    "model": "gpt-5.4-mini",
+    "input": "The code is 1234.",
+    "temperature": 0,
+    "status": "completed",
+    "usage": {
+      "input_tokens": 118,
+      "input_tokens_details": {
+        "cache_write_tokens": 0,
+        "cache_write_tokens_details": {
+          "ttl_12h_tokens": 0,
+          "ttl_30m_tokens": 0
+        },
+        "cached_tokens": 0
+      },
+      "output_tokens": 23,
+      "output_tokens_details": {
+        "reasoning_tokens": 0
+      },
+      "total_tokens": 141
+    },
+    "estimated_usd": 0.000192
+  }
+]

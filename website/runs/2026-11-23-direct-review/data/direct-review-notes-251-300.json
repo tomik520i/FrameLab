@@ -1,0 +1,10 @@
+{
+ "w500-256":{"A":"Herní recall znamená znovu povolat veterány. ‚Vzpomínat na jednotky‘ hráči tuto funkci nevysvětlí; navíc první příkaz není přeložen jako sloveso."},
+ "w500-263":{"B":"Z ujištění, že na návrhu přece není nic špatného, dělá pochybnost, zda návrh není špatný."},
+ "w500-270":{"C":"Žezlo se mění na ‚Štáb‘. To je úplně jiný význam předmětu, který hráč hledá."},
+ "w500-271":{"D":"Rytíř smrti se mění na kouzlo smrti; proto pak nedává smysl, že po kouzlu zůstává zbroj."},
+ "w500-281":{"D":"‚Měšec‘ dobře sedí předmětu s mincemi ve fantasy kontextu.","A":"‚Kabelka‘ je možný moderní význam purse, ale v této replice se zlatými mincemi je nepřiléhavá; navíc chybný vokativ Konrado."},
+ "w500-290":{"A":"Grunts označuje vojáky. ‚Moje zavrčí‘ chybně používá význam zvuku/slovesa. Vypadla také celá věta o zabrání země pro královnu."},
+ "w500-294":{"A":"‚Odešli jsme odtud‘ převrací na ‚sem jsme se přestěhovali‘, tedy opačný pohyb."},
+ "w500-296":{"D":"‚Not her again‘ vyjadřuje nelibost, že je tu znovu ona. ‚To zase není ona‘ naopak její přítomnost popírá."}
+}

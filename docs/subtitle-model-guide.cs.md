@@ -1,5 +1,8 @@
 # Modely titulků, doba čtení a umístění
 
+**Preview.18:** CUNI a Gemma lze spustit přes CUDA, Vulkan nebo CPU, s oddělenou volbou GPU a volitelným GPU + RAM. [Nastavení a měření](local-translation-compute.cs.md). [Vlastní hodnocení 500 replik](https://opicebot.cz/framelab/runs/2026-11-23-direct-review/). Starší měření níže zachovávají původní podmínky.
+
+
 ## Preview.17: další jazyky
 
 V Titulky zvol **Jazyk v obraze / OCR** a **Přeložit do jazyka**. K dispozici je 40 voleb a 12 přibalených OCR sad. OPUS-MT a CUNI nadále umějí jen EN → CS. Pro ostatní páry vyber TranslateGemma; váhy stáhne tlačítko v aplikaci.

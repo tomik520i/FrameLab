@@ -1,0 +1,12 @@
+{
+  "model": "cpu",
+  "init_ms": 563.408299931325,
+  "requests": 500,
+  "serial": true,
+  "filter": "off for translation-quality isolation",
+  "ocr": false,
+  "fg": false,
+  "enhancer": false,
+  "started_utc": "2026-11-23T19:00:22Z",
+  "note": "Local runtimes warm internally during initialization; API initialization does not send a request. All 500 API calls including first are retained."
+}

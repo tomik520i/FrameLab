@@ -1,0 +1,129 @@
+{
+  "model": "translategemma-4b-q4km",
+  "backend": "cpu",
+  "device": null,
+  "full_cases": [
+    {
+      "en": "Don’t die, Delfador! Please, you have to stay alive!",
+      "reference_cs": "Neumírej, Delfadore! Prosím, zůstaň!",
+      "location": "data/campaigns/Heir_To_The_Throne_Classic/scenarios/01_The_Elves_Besieged.cfg:398",
+      "id": "w500-005",
+      "source": "Battle for Wesnoth: Heir to the Throne Classic",
+      "license": "GPL-2.0-or-later"
+    },
+    {
+      "en": "I am Delfador the Great! Tremble before my wrath!",
+      "reference_cs": "Já jsem Delfador Veliký! Třes se před mým hněvem!",
+      "location": "data/campaigns/Heir_To_The_Throne_Classic/scenarios/14_Plunging_Into_the_Darkness.cfg:410",
+      "id": "w500-006",
+      "source": "Battle for Wesnoth: Heir to the Throne Classic",
+      "license": "GPL-2.0-or-later"
+    },
+    {
+      "en": "Did you think I was just playing around? I need to take my inheritance!",
+      "reference_cs": "Myslel sis snad, že jsem si jen tak hrála? Potřebuji získat svoje dědictví!",
+      "location": "data/campaigns/Heir_To_The_Throne_Classic/scenarios/18_A_Choice_Must_Be_Made.cfg:180",
+      "id": "w500-008",
+      "source": "Battle for Wesnoth: Heir to the Throne Classic",
+      "license": "GPL-2.0-or-later"
+    },
+    {
+      "en": "But they will not neglect to notice our presence in their midst! We are walking into slaughter!",
+      "reference_cs": "Přece si nás nemohou nevšimnout, když budeme procházet uprostřed mezi nimi! To bude jistá smrt!",
+      "location": "data/campaigns/Heir_To_The_Throne_Classic/scenarios/20a_North_Elves.cfg:524",
+      "id": "w500-009",
+      "source": "Battle for Wesnoth: Heir to the Throne Classic",
+      "license": "GPL-2.0-or-later"
+    }
+  ],
+  "rows": [
+    {
+      "id": "w500-005",
+      "en": "Don’t die, Delfador! Please, you have to stay alive!",
+      "reference_cs": "Neumírej, Delfadore! Prosím, zůstaň!",
+      "translation": "Neumři, Delfadore! Prosím, musíš přežít!",
+      "ms": 3276.0046999901533,
+      "metrics": {
+        "total_duration": 3253240800,
+        "load_duration": 29602100,
+        "prompt_eval_count": 91,
+        "prompt_eval_duration": 1581370000,
+        "eval_count": 17,
+        "eval_duration": 1613972000,
+        "done_reason": "stop"
+      }
+    },
+    {
+      "id": "w500-006",
+      "en": "I am Delfador the Great! Tremble before my wrath!",
+      "reference_cs": "Já jsem Delfador Veliký! Třes se před mým hněvem!",
+      "translation": "Já jsem Delfador, veliký! Dejte pozor na mou zuřivost!",
+      "ms": 3246.0692999884486,
+      "metrics": {
+        "total_duration": 3230287200,
+        "load_duration": 16803200,
+        "prompt_eval_count": 88,
+        "prompt_eval_duration": 1530135000,
+        "eval_count": 19,
+        "eval_duration": 1614732000,
+        "done_reason": "stop"
+      }
+    },
+    {
+      "id": "w500-008",
+      "en": "Did you think I was just playing around? I need to take my inheritance!",
+      "reference_cs": "Myslel sis snad, že jsem si jen tak hrála? Potřebuji získat svoje dědictví!",
+      "translation": "Myslíš, že jsem to jen tak blázní? Potřebuji získat své dědictví!",
+      "ms": 3916.4903999771923,
+      "metrics": {
+        "total_duration": 3896132900,
+        "load_duration": 23224800,
+        "prompt_eval_count": 91,
+        "prompt_eval_duration": 1518905000,
+        "eval_count": 24,
+        "eval_duration": 2320201000,
+        "done_reason": "stop"
+      }
+    },
+    {
+      "id": "w500-009",
+      "en": "But they will not neglect to notice our presence in their midst! We are walking into slaughter!",
+      "reference_cs": "Přece si nás nemohou nevšimnout, když budeme procházet uprostřed mezi nimi! To bude jistá smrt!",
+      "translation": "Ale rozhodně nezanechají bez povšimnutí naši přítomnost! Jsme v ohrožení!",
+      "ms": 3783.9413000037894,
+      "metrics": {
+        "total_duration": 3762568400,
+        "load_duration": 21877100,
+        "prompt_eval_count": 94,
+        "prompt_eval_duration": 1531291000,
+        "eval_count": 26,
+        "eval_duration": 2183190000,
+        "done_reason": "stop"
+      }
+    }
+  ],
+  "conditions": "Sequential requests; no FG/NR/OCR; same fixed short subset of earlier 500 entries",
+  "status": "complete",
+  "init_ms": 15067.83950002864,
+  "description": "CPU / CPU / system RAM",
+  "loaded": {
+    "name": "framelab-translategemma-4b-q4km:latest",
+    "model": "framelab-translategemma-4b-q4km:latest",
+    "size": 2771732397,
+    "digest": "8c54087ce5309e058434d8953b4cf8d76558930fbddda5130301d9d35471258f",
+    "details": {
+      "parent_model": "",
+      "format": "gguf",
+      "family": "gemma3",
+      "families": [
+        "gemma3"
+      ],
+      "parameter_size": "3.9B",
+      "quantization_level": "Q4_K_M"
+    },
+    "expires_at": "2319-03-05T20:50:25.217113707+01:00",
+    "size_vram": 0,
+    "context_length": 2048,
+    "runner": "llamacpp"
+  }
+}

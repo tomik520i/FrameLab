@@ -14,7 +14,7 @@ def runtime_ready(root, data):
     exe = root / 'gpu-runtime' / 'ollama.exe'
     try:
         marker = json.loads((root / 'gpu-runtime' / 'verified.json').read_text())
-        return marker['archive_sha256'] == data['runtime']['sha256'] and marker['executable'] == fingerprint(exe)
+        return marker['archive_sha256'] == data['runtime']['sha256'] and marker['executable'] == fingerprint(exe) and all((root/'gpu-runtime'/p).is_file() for p in ['lib/ollama/llama-server.exe','lib/ollama/vulkan/ggml-vulkan.dll'])
     except (OSError, KeyError, ValueError):
         return False
 
@@ -47,6 +47,14 @@ def main():
     last_command = ''
     last_refresh = 0.
 
+    def refresh_devices():
+        from subtitle_compute import discover
+        def quoted(value):return '"'+str(value).replace('\\','\\\\').replace('"','\\"').replace('\n',' ').replace('\r',' ')+'"'
+        rows=discover()
+        temporary=session/'devices.tmp'
+        temporary.write_text('\n'.join(' '.join([quoted(d['backend']),quoted(d['id']),quoted(d['name']),str(int(d['integrated'])),str(d['free']/1024**3 if d.get('free') is not None else -1)]) for d in rows),'utf-8')
+        os.replace(temporary,session/'devices.txt')
+
     def update(key, phase, done, total, detail):
         with lock:
             state[key] = dict(phase=phase, done=done, total=total, detail=detail)
@@ -73,6 +81,7 @@ def main():
         except Exception as error:
             update(key, 'error', 0, 0, str(error))
 
+    refresh_devices()
     refresh()
     while True:
         if (active is None or not active.is_alive()) and time.monotonic()-last_refresh > 2:
@@ -91,6 +100,8 @@ def main():
                     return
                 if parts[1] == 'cancel':
                     cancelled.set()
+                elif parts[1] == 'devices':
+                    refresh_devices()
                 elif parts[1] == 'download' and len(parts) == 3 and parts[2] in state and (active is None or not active.is_alive()):
                     cancelled.clear()
                     active = threading.Thread(target=fetch, args=(parts[2],), daemon=True)

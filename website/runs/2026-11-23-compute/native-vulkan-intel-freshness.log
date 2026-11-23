@@ -1,0 +1,13 @@
+COMPUTE VULKAN / Intel(R) UHD Graphics / full GPU
+{"case":"dialogue-name","model":1,"filtered":false,"ocr":"John, wait!","translation":"Johne, počkej!","ms":27742.6,"passed":true}
+COMPUTE VULKAN / Intel(R) UHD Graphics / full GPU
+{"case":"name-female","model":1,"filtered":true,"ocr":"Sarah Miller","translation":"","ms":933.599,"passed":true}
+COMPUTE VULKAN / Intel(R) UHD Graphics / full GPU
+{"case":"dialogue-code","model":1,"filtered":false,"ocr":"The code is 1234.","translation":"Kód je 1234.","ms":5754.05,"passed":true}
+COMPUTE VULKAN / Intel(R) UHD Graphics / full GPU
+{"case":"name-male","model":1,"filtered":true,"ocr":"John Smith","translation":"","ms":483.508,"passed":true}
+COMPUTE VULKAN / Intel(R) UHD Graphics / full GPU
+{"case":"dialogue-short","model":1,"filtered":false,"ocr":"No!","translation":"Ne!","ms":2422.38,"passed":true}
+COMPUTE VULKAN / Intel(R) UHD Graphics / full GPU
+{"case":"dialogue-no-punctuation","model":1,"filtered":false,"ocr":"Follow the tracks","translation":"Sledujte stopy...","ms":4842.57,"passed":true}
+PASS: real OCR + filter + translation + IPC + subtitle queue

@@ -1,0 +1,1577 @@
+[
+  {
+    "id": "w500-326",
+    "en": "So this is Alduin. It looks a little... desolate.",
+    "reference_cs": "Tak tohle je Alduin. Vypadá trochu... zpustle.",
+    "models": {
+      "cpu": {
+        "translation": "Takže tohle je Alduin, vypadá trochu... pustě.",
+        "ms": 149.3148000445217,
+        "error": "",
+        "rating": {
+          "label": "B",
+          "meaning": 4,
+          "fluency": 3,
+          "critical": false,
+          "note_cs": "Význam sedí, ale spojení vět čárkou je poněkud neobratné.",
+          "model": "cpu"
+        },
+        "chrf_pp": 61.18576608708187
+      },
+      "cuni-q3km": {
+        "translation": "Tak tohle je Alduin. Vypadá to trochu... opuštěně.",
+        "ms": 605.5881000356749,
+        "error": "",
+        "rating": {
+          "label": "A",
+          "meaning": 4,
+          "fluency": 4,
+          "critical": false,
+          "note_cs": "Význam je zachován a formulace zní přirozeně.",
+          "model": "cuni-q3km"
+        },
+        "chrf_pp": 75.34912770289912
+      },
+      "translategemma-4b-q4km": {
+        "translation": "Takže, toto je Alduin. Vypadá trochu... opuštěně.",
+        "ms": 428.77200001385063,
+        "error": "",
+        "rating": {
+          "label": "C",
+          "meaning": 4,
+          "fluency": 3,
+          "critical": false,
+          "note_cs": "Význam sedí, ale čárka po „takže“ působí nepatřičně.",
+          "model": "translategemma-4b-q4km"
+        },
+        "chrf_pp": 62.29533544118281
+      },
+      "gpt-6-luna": {
+        "translation": "Takže tohle je Alduin. Vypadá to tu trochu... pustě.",
+        "ms": 1289.769099908881,
+        "error": "",
+        "rating": {
+          "label": "D",
+          "meaning": 4,
+          "fluency": 4,
+          "critical": false,
+          "note_cs": "Přirozeně vyjadřuje, že místo působí pustě.",
+          "model": "gpt-6-luna"
+        },
+        "chrf_pp": 70.35427865849145
+      }
+    }
+  },
+  {
+    "id": "w500-327",
+    "en": "Yes... you are right, sir. It is I who am honored to be here, and I apologize for my discourtesy.",
+    "reference_cs": "Ano... máte pravdu, pane. Jsem to já, kdo je poctěn přítomností na tomto místě, a prosím za odpuštění.",
+    "models": {
+      "cpu": {
+        "translation": "Ano, máte pravdu, pane, jsem to já, kdo je poctěn, že tu mohu být a omlouvám se za svou nezdvořilost.",
+        "ms": 355.42080004233867,
+        "error": "",
+        "rating": {
+          "label": "D",
+          "meaning": 4,
+          "fluency": 3,
+          "critical": false,
+          "note_cs": "Význam je zachován, souvětí však působí interpunkčně neobratně.",
+          "model": "cpu"
+        },
+        "chrf_pp": 43.31881437729553
+      },
+      "cuni-q3km": {
+        "translation": "Ano... máte pravdu, pane. Jsem to já, kdo má tu čest být zde přítomen, a omlouvám se za svou nezdvořilost.",
+        "ms": 1115.3599000535905,
+        "error": "",
+        "rating": {
+          "label": "B",
+          "meaning": 4,
+          "fluency": 4,
+          "critical": false,
+          "note_cs": "Přesný a přirozený překlad včetně důrazu na mluvčího.",
+          "model": "cuni-q3km"
+        },
+        "chrf_pp": 51.36914826047254
+      },
+      "translategemma-4b-q4km": {
+        "translation": "Ano... máte pravdu, pane. Je mi ctí být zde, a omlouvám se za své nezdvořilé chování.",
+        "ms": 620.864300057292,
+        "error": "",
+        "rating": {
+          "label": "A",
+          "meaning": 4,
+          "fluency": 4,
+          "critical": false,
+          "note_cs": "Význam je zachován, jen důraz na mluvčího je méně výrazný.",
+          "model": "translategemma-4b-q4km"
+        },
+        "chrf_pp": 35.06809692567799
+      },
+      "gpt-6-luna": {
+        "translation": "Ano... máte pravdu, pane. To já jsem poctěn, že tu mohu být, a omlouvám se za svou nezdvořilost.",
+        "ms": 1643.7913000117987,
+        "error": "",
+        "rating": {
+          "label": "C",
+          "meaning": 4,
+          "fluency": 4,
+          "critical": false,
+          "note_cs": "Přesný a přirozený překlad.",
+          "model": "gpt-6-luna"
+        },
+        "chrf_pp": 39.15430424767445
+      }
+    }
+  },
+  {
+    "id": "w500-328",
+    "en": "Think about the story of the old king. Ask somebody who knew of him.",
+    "reference_cs": "Vzpomeň si na příběh starého krále. Zeptej se na to někoho, kdo o něm ví.",
+    "models": {
+      "cpu": {
+        "translation": "Přemýšlejte o příběhu starého krále, zeptejte se někoho, kdo o něm věděl.",
+        "ms": 248.36440000217408,
+        "error": "",
+        "rating": {
+          "label": "B",
+          "meaning": 4,
+          "fluency": 3,
+          "critical": false,
+          "note_cs": "Význam je zachován, ale spojení dvou rozkazů čárkou je poněkud kostrbaté.",
+          "model": "cpu"
+        },
+        "chrf_pp": 49.21367025532469
+      },
+      "cuni-q3km": {
+        "translation": "Vzpomeň si na příběh starého krále. Zeptej se někoho, kdo ho znal.",
+        "ms": 789.2986000515521,
+        "error": "",
+        "rating": {
+          "label": "C",
+          "meaning": 3,
+          "fluency": 4,
+          "critical": false,
+          "note_cs": "„Kdo ho znal“ může naznačovat osobní známost, zatímco originál říká jen znalost o králi.",
+          "model": "cuni-q3km"
+        },
+        "chrf_pp": 77.01055243952094
+      },
+      "translategemma-4b-q4km": {
+        "translation": "Přemýšlejte o příběhu starého krále. Zeptejte se někoho, kdo o něm věděl.",
+        "ms": 682.7244000742212,
+        "error": "",
+        "rating": {
+          "label": "D",
+          "meaning": 4,
+          "fluency": 4,
+          "critical": false,
+          "note_cs": "Význam je zachován; vykání je bez kontextu přijatelné.",
+          "model": "translategemma-4b-q4km"
+        },
+        "chrf_pp": 56.47869468685822
+      },
+      "gpt-6-luna": {
+        "translation": "Zamysli se nad příběhem starého krále. Zeptej se někoho, kdo o něm něco věděl.",
+        "ms": 1097.5673999637365,
+        "error": "",
+        "rating": {
+          "label": "A",
+          "meaning": 4,
+          "fluency": 4,
+          "critical": false,
+          "note_cs": "Význam je zachován a formulace je přirozená.",
+          "model": "gpt-6-luna"
+        },
+        "chrf_pp": 61.128718033541716
+      }
+    }
+  },
+  {
+    "id": "w500-329",
+    "en": "Very well! Explain your presence here then, human. Who are you? Why have you risked life and limb to come to Knalga, home of the dwarves?",
+    "reference_cs": "Dobře hovoříš! Kdo jsi? Vysvětli svou přítomnost zde, člověče. Kdo jsi? Proč jsi riskoval život i zdraví na cestě do Knalgy, domova trpaslíků?",
+    "models": {
+      "cpu": {
+        "translation": "Proč jsi riskoval život a končetinu, abys přišel do Knalgy, domova trpaslíků?",
+        "ms": 204.46819998323917,
+        "error": "",
+        "rating": {
+          "label": "D",
+          "meaning": 2,
+          "fluency": 2,
+          "critical": true,
+          "note_cs": "Chybí úvod i otázky na totožnost a přítomnost; „život a končetinu“ je nepřirozené.",
+          "model": "cpu"
+        },
+        "chrf_pp": 39.782436162080145
+      },
+      "cuni-q3km": {
+        "translation": "Dobrá! Vysvětli tedy svou přítomnost tady, člověče. Kdo jsi? Proč jsi riskoval život a zdraví, abys přišel do Knalgy, domova trpaslíků?",
+        "ms": 1427.1503000054508,
+        "error": "",
+        "rating": {
+          "label": "B",
+          "meaning": 4,
+          "fluency": 4,
+          "critical": false,
+          "note_cs": "Přesný a přirozený překlad.",
+          "model": "cuni-q3km"
+        },
+        "chrf_pp": 66.3936860481581
+      },
+      "translategemma-4b-q4km": {
+        "translation": "Výborně! Pak mi prosím vysvětlete, proč jste tady, človčeče. Kdo jste a proč jste riskovali svůj život, abyste dorazili do Knalgy, domova trpaslíků?",
+        "ms": 945.4784999834374,
+        "error": "",
+        "rating": {
+          "label": "A",
+          "meaning": 3,
+          "fluency": 2,
+          "critical": false,
+          "note_cs": "Překlep „človčeče“, nevhodné vykání a chybí zmínka o riziku pro zdraví.",
+          "model": "translategemma-4b-q4km"
+        },
+        "chrf_pp": 40.25440791205373
+      },
+      "gpt-6-luna": {
+        "translation": "Výborně! Tak mi vysvětli, co tu pohledáváš, člověče. Kdo jsi? Proč jsi nasazoval život a zdraví, abys přišel do Knalgy, domova trpaslíků?",
+        "ms": 1540.6288999365643,
+        "error": "",
+        "rating": {
+          "label": "C",
+          "meaning": 4,
+          "fluency": 4,
+          "critical": false,
+          "note_cs": "Význam je zachován a formulace je přirozená.",
+          "model": "gpt-6-luna"
+        },
+        "chrf_pp": 52.60204813811061
+      }
+    }
+  },
+  {
+    "id": "w500-330",
+    "en": "There you are! I am so glad you are all right! Now we may have a little rest.",
+    "reference_cs": "Tady jsi! Moc mě těší, že jsi v pořádku! Nyní bychom si snad mohli trochu odpočinout.",
+    "models": {
+      "cpu": {
+        "translation": "Jsem tak ráda, že jsi v pořádku.",
+        "ms": 150.7879999699071,
+        "error": "",
+        "rating": {
+          "label": "A",
+          "meaning": 2,
+          "fluency": 4,
+          "critical": true,
+          "note_cs": "Chybí úvodní zvolání i zmínka o odpočinku.",
+          "model": "cpu"
+        },
+        "chrf_pp": 23.4883515878524
+      },
+      "cuni-q3km": {
+        "translation": "Tady jsi! Jsem tak ráda, že jsi v pořádku! Teď si můžeme trochu odpočinout.",
+        "ms": 918.7639000592753,
+        "error": "",
+        "rating": {
+          "label": "B",
+          "meaning": 4,
+          "fluency": 4,
+          "critical": false,
+          "note_cs": "Přirozený překlad se zachovaným významem.",
+          "model": "cuni-q3km"
+        },
+        "chrf_pp": 53.03141741621032
+      },
+      "translategemma-4b-q4km": {
+        "translation": "Výborně! Jsem tak rád, že jste všichni v pořádku! Teď si můžeme trochu odpočinout.",
+        "ms": 659.923099912703,
+        "error": "",
+        "rating": {
+          "label": "D",
+          "meaning": 2,
+          "fluency": 4,
+          "critical": true,
+          "note_cs": "Překlad mění oslovení jedné osoby na více lidí a vypouští zvolání při nalezení.",
+          "model": "translategemma-4b-q4km"
+        },
+        "chrf_pp": 40.868430491448336
+      },
+      "gpt-6-luna": {
+        "translation": "Tady jsi! Jsem tak rád, že jsi v pořádku! Teď si můžeme trochu odpočinout.",
+        "ms": 1319.8120000306517,
+        "error": "",
+        "rating": {
+          "label": "C",
+          "meaning": 4,
+          "fluency": 4,
+          "critical": false,
+          "note_cs": "Přirozený překlad se zachovaným významem.",
+          "model": "gpt-6-luna"
+        },
+        "chrf_pp": 53.150073040257226
+      }
+    }
+  },
+  {
+    "id": "w500-331",
+    "en": "Now where is Delfador? I hope he’s safe!",
+    "reference_cs": "A kde je Delfador? Doufám, že je v bezpečí!",
+    "models": {
+      "cpu": {
+        "translation": "Doufám, že je v bezpečí!",
+        "ms": 111.7718000896275,
+        "error": "",
+        "rating": {
+          "label": "A",
+          "meaning": 2,
+          "fluency": 4,
+          "critical": true,
+          "note_cs": "Chybí otázka, kde je Delfador.",
+          "model": "cpu"
+        },
+        "chrf_pp": 59.85762398843424
+      },
+      "cuni-q3km": {
+        "translation": "Kde je teď Delfador? Doufám, že je v bezpečí!",
+        "ms": 532.3983000125736,
+        "error": "",
+        "rating": {
+          "label": "C",
+          "meaning": 4,
+          "fluency": 4,
+          "critical": false,
+          "note_cs": "Význam je zachován a překlad zní přirozeně.",
+          "model": "cuni-q3km"
+        },
+        "chrf_pp": 83.52411981738953
+      },
+      "translategemma-4b-q4km": {
+        "translation": "A kde je Delfador? Doufám, že je v pořádku!",
+        "ms": 411.6853999439627,
+        "error": "",
+        "rating": {
+          "label": "D",
+          "meaning": 4,
+          "fluency": 4,
+          "critical": false,
+          "note_cs": "Přirozená alternativa zachovávající význam.",
+          "model": "translategemma-4b-q4km"
+        },
+        "chrf_pp": 78.88712963191142
+      },
+      "gpt-6-luna": {
+        "translation": "Kde je teď Delfador? Doufám, že je v bezpečí!",
+        "ms": 1289.366399985738,
+        "error": "",
+        "rating": {
+          "label": "B",
+          "meaning": 4,
+          "fluency": 4,
+          "critical": false,
+          "note_cs": "Význam je zachován a překlad zní přirozeně.",
+          "model": "gpt-6-luna"
+        },
+        "chrf_pp": 83.52411981738953
+      }
+    }
+  },
+  {
+    "id": "w500-332",
+    "en": "Hello? Who is here?",
+    "reference_cs": "Haló? Kdo je tam?",
+    "models": {
+      "cpu": {
+        "translation": "Haló, kdo je tu?",
+        "ms": 92.71840006113052,
+        "error": "",
+        "rating": {
+          "label": "A",
+          "meaning": 4,
+          "fluency": 4,
+          "critical": false,
+          "note_cs": "Význam je zachován, interpunkce je přirozená.",
+          "model": "cpu"
+        },
+        "chrf_pp": 32.19385220415812
+      },
+      "cuni-q3km": {
+        "translation": "Haló? Kdo je tady?",
+        "ms": 299.9991000397131,
+        "error": "",
+        "rating": {
+          "label": "D",
+          "meaning": 4,
+          "fluency": 4,
+          "critical": false,
+          "note_cs": "Přirozený překlad se zachovaným významem.",
+          "model": "cuni-q3km"
+        },
+        "chrf_pp": 79.40036220297723
+      },
+      "translategemma-4b-q4km": {
+        "translation": "Ahoj? Kdo je tu?",
+        "ms": 307.09450005088,
+        "error": "",
+        "rating": {
+          "label": "C",
+          "meaning": 4,
+          "fluency": 3,
+          "critical": false,
+          "note_cs": "„Ahoj?“ je v tomto oslovení poněkud nezvyklé.",
+          "model": "translategemma-4b-q4km"
+        },
+        "chrf_pp": 43.04489384862218
+      },
+      "gpt-6-luna": {
+        "translation": "Haló? Kdo je tady?",
+        "ms": 1028.7676999578252,
+        "error": "",
+        "rating": {
+          "label": "B",
+          "meaning": 4,
+          "fluency": 4,
+          "critical": false,
+          "note_cs": "Přirozený překlad se zachovaným významem.",
+          "model": "gpt-6-luna"
+        },
+        "chrf_pp": 79.40036220297723
+      }
+    }
+  },
+  {
+    "id": "w500-333",
+    "en": "Our elder. Called, by some, Haralamdum.",
+    "reference_cs": "Náš stařešina. Někteří mu říkají Haralamdum.",
+    "models": {
+      "cpu": {
+        "translation": "Náš starší, kterému někdo říkal Haralamdum.",
+        "ms": 87.78780000284314,
+        "error": "",
+        "rating": {
+          "label": "A",
+          "meaning": 3,
+          "fluency": 3,
+          "critical": false,
+          "note_cs": "Minulý čas a jednotné číslo mírně mění význam; „starší“ je méně přesné než „stařešina“.",
+          "model": "cpu"
+        },
+        "chrf_pp": 38.86017846025455
+      },
+      "cuni-q3km": {
+        "translation": "Náš starší. Někteří ho nazývají Haralamdum.",
+        "ms": 518.0934000527486,
+        "error": "",
+        "rating": {
+          "label": "B",
+          "meaning": 4,
+          "fluency": 3,
+          "critical": false,
+          "note_cs": "Význam zachován, ale „náš starší“ působí bez kontextu trochu neobvykle.",
+          "model": "cuni-q3km"
+        },
+        "chrf_pp": 54.95390406241615
+      },
+      "translategemma-4b-q4km": {
+        "translation": "Naši nejstarší. Někteří ho také nazývají Haralamdum.",
+        "ms": 451.7496000044048,
+        "error": "",
+        "rating": {
+          "label": "D",
+          "meaning": 2,
+          "fluency": 2,
+          "critical": true,
+          "note_cs": "„Naši nejstarší“ označuje více osob, zatímco zdroj mluví o jednom stařešinovi; zájmeno „ho“ tomu odporuje.",
+          "model": "translategemma-4b-q4km"
+        },
+        "chrf_pp": 48.927899705014845
+      },
+      "gpt-6-luna": {
+        "translation": "Náš stařešina. Někteří mu říkají Haralamdum.",
+        "ms": 1369.4130999501795,
+        "error": "",
+        "rating": {
+          "label": "C",
+          "meaning": 4,
+          "fluency": 4,
+          "critical": false,
+          "note_cs": "Přirozený překlad, který zachovává význam.",
+          "model": "gpt-6-luna"
+        },
+        "chrf_pp": 100.0
+      }
+    }
+  },
+  {
+    "id": "w500-334",
+    "en": "Safe voyage to you then, Konrad. May the weather be fair.",
+    "reference_cs": "Přeji ti bezpečnou plavbu Konráde. Snad bude pěkné počasí.",
+    "models": {
+      "cpu": {
+        "translation": "Bezpečnou cestu k vám, Konrade, ať je počasí spravedlivé.",
+        "ms": 141.13370003178716,
+        "error": "",
+        "rating": {
+          "label": "C",
+          "meaning": 2,
+          "fluency": 2,
+          "critical": true,
+          "note_cs": "„Cestu k vám“ mění směr cesty a „spravedlivé počasí“ je nepřirozené.",
+          "model": "cpu"
+        },
+        "chrf_pp": 24.434389409877692
+      },
+      "cuni-q3km": {
+        "translation": "Tak tedy šťastnou cestu, Konrade. Ať je počasí příznivé.",
+        "ms": 663.0720000248402,
+        "error": "",
+        "rating": {
+          "label": "D",
+          "meaning": 4,
+          "fluency": 4,
+          "critical": false,
+          "note_cs": "Přirozený překlad zachovává přání bezpečné cesty i příznivého počasí.",
+          "model": "cuni-q3km"
+        },
+        "chrf_pp": 19.527166642531764
+      },
+      "translategemma-4b-q4km": {
+        "translation": "Přeji vám bezpečnou plavbu, Konrad. Ať počasí bude příznivé.",
+        "ms": 494.83380001038313,
+        "error": "",
+        "rating": {
+          "label": "A",
+          "meaning": 4,
+          "fluency": 3,
+          "critical": false,
+          "note_cs": "Význam zachován, slovosled „ať počasí bude“ je mírně nepřirozený.",
+          "model": "translategemma-4b-q4km"
+        },
+        "chrf_pp": 46.349977936056206
+      },
+      "gpt-6-luna": {
+        "translation": "Tak tedy šťastnou cestu, Konrade. Ať vám přeje počasí.",
+        "ms": 1418.9372999826446,
+        "error": "",
+        "rating": {
+          "label": "B",
+          "meaning": 4,
+          "fluency": 4,
+          "critical": false,
+          "note_cs": "Přirozené přání šťastné cesty i příznivého počasí.",
+          "model": "gpt-6-luna"
+        },
+        "chrf_pp": 22.526175729855822
+      }
+    }
+  },
+  {
+    "id": "w500-335",
+    "en": "At last, we have freed the merfolk. Go back to the ocean and live in peace.",
+    "reference_cs": "Konečně jsme osvobodili vodní lid. Běžte zpět do moře a žijte v míru.",
+    "models": {
+      "cpu": {
+        "translation": "Konečně jsme osvobodili Američany, vrátili se do oceánu a žili v míru.",
+        "ms": 183.36229992564768,
+        "error": "",
+        "rating": {
+          "label": "C",
+          "meaning": 1,
+          "fluency": 3,
+          "critical": true,
+          "note_cs": "Američané nahrazují mořský lid a rozkazy se mění v minulý děj.",
+          "model": "cpu"
+        },
+        "chrf_pp": 45.38873521235417
+      },
+      "cuni-q3km": {
+        "translation": "Konečně jsme osvobodili mořské tvory. Vraťte se do oceánu a žijte v míru.",
+        "ms": 834.6240000100806,
+        "error": "",
+        "rating": {
+          "label": "B",
+          "meaning": 3,
+          "fluency": 4,
+          "critical": false,
+          "note_cs": "„Mořští tvorové“ jsou obecnější než mořský lid.",
+          "model": "cuni-q3km"
+        },
+        "chrf_pp": 55.70241897795778
+      },
+      "translategemma-4b-q4km": {
+        "translation": "Nakonec jsme osvobodili podvodníky. Vraťte se zpět do oceánu a žijte v míru.",
+        "ms": 646.5247999876738,
+        "error": "",
+        "rating": {
+          "label": "A",
+          "meaning": 2,
+          "fluency": 3,
+          "critical": true,
+          "note_cs": "„Podvodníky“ znamená podvodní osoby, nikoli mořský lid.",
+          "model": "translategemma-4b-q4km"
+        },
+        "chrf_pp": 53.83836175993761
+      },
+      "gpt-6-luna": {
+        "translation": "Konečně jsme osvobodili mořský lid. Vraťte se do oceánu a žijte v míru.",
+        "ms": 1896.4033999945968,
+        "error": "",
+        "rating": {
+          "label": "D",
+          "meaning": 4,
+          "fluency": 4,
+          "critical": false,
+          "note_cs": "Význam je zachován a překlad zní přirozeně.",
+          "model": "gpt-6-luna"
+        },
+        "chrf_pp": 59.0689722942509
+      }
+    }
+  },
+  {
+    "id": "w500-336",
+    "en": "We have escaped.",
+    "reference_cs": "Fajn, unikli jsme.",
+    "models": {
+      "cpu": {
+        "translation": "Utekli jsme.",
+        "ms": 50.79720006324351,
+        "error": "",
+        "rating": {
+          "label": "D",
+          "meaning": 4,
+          "fluency": 4,
+          "critical": false,
+          "note_cs": "Význam je zachován a věta zní přirozeně.",
+          "model": "cpu"
+        },
+        "chrf_pp": 41.137532346596245
+      },
+      "cuni-q3km": {
+        "translation": "Utekli jsme.",
+        "ms": 236.49789998307824,
+        "error": "",
+        "rating": {
+          "label": "A",
+          "meaning": 4,
+          "fluency": 4,
+          "critical": false,
+          "note_cs": "Význam je zachován a věta zní přirozeně.",
+          "model": "cuni-q3km"
+        },
+        "chrf_pp": 41.137532346596245
+      },
+      "translategemma-4b-q4km": {
+        "translation": "Úspěšně jsme se dostali pryč.",
+        "ms": 329.9215000588447,
+        "error": "",
+        "rating": {
+          "label": "B",
+          "meaning": 4,
+          "fluency": 4,
+          "critical": false,
+          "note_cs": "Přirozená parafráze se zachovaným významem.",
+          "model": "translategemma-4b-q4km"
+        },
+        "chrf_pp": 16.585848663125702
+      },
+      "gpt-6-luna": {
+        "translation": "Utekli jsme.",
+        "ms": 1368.8582999166101,
+        "error": "",
+        "rating": {
+          "label": "C",
+          "meaning": 4,
+          "fluency": 4,
+          "critical": false,
+          "note_cs": "Význam je zachován a věta zní přirozeně.",
+          "model": "gpt-6-luna"
+        },
+        "chrf_pp": 41.137532346596245
+      }
+    }
+  },
+  {
+    "id": "w500-337",
+    "en": "I think that if we travel just a little north, we might be able to get out.",
+    "reference_cs": "Myslím, že když půjdeme ještě trochu severněji, mohli bychom se dostat ven.",
+    "models": {
+      "cpu": {
+        "translation": "Myslím, že když pojedeme trochu na sever, možná se dostaneme ven.",
+        "ms": 211.24420000705868,
+        "error": "",
+        "rating": {
+          "label": "D",
+          "meaning": 4,
+          "fluency": 4,
+          "critical": false,
+          "note_cs": "Přirozené znění zachovává směr i nejistotu výsledku.",
+          "model": "cpu"
+        },
+        "chrf_pp": 45.162926595712065
+      },
+      "cuni-q3km": {
+        "translation": "Myslím, že když pojedeme trochu na sever, mohli bychom se dostat ven.",
+        "ms": 715.9172999672592,
+        "error": "",
+        "rating": {
+          "label": "C",
+          "meaning": 4,
+          "fluency": 4,
+          "critical": false,
+          "note_cs": "Význam je zachován; jízda je možným způsobem cestování.",
+          "model": "cuni-q3km"
+        },
+        "chrf_pp": 69.18508098551304
+      },
+      "translategemma-4b-q4km": {
+        "translation": "Myslím, že pokud se vydáme o něco severněji, možná se nám podaří dostat pryč.",
+        "ms": 561.093800002709,
+        "error": "",
+        "rating": {
+          "label": "A",
+          "meaning": 4,
+          "fluency": 4,
+          "critical": false,
+          "note_cs": "Význam je zachován a formulace zní přirozeně.",
+          "model": "translategemma-4b-q4km"
+        },
+        "chrf_pp": 37.6332139901801
+      },
+      "gpt-6-luna": {
+        "translation": "Myslím, že když popojedeme trochu na sever, mohli bychom se dostat ven.",
+        "ms": 1309.9343999056146,
+        "error": "",
+        "rating": {
+          "label": "B",
+          "meaning": 4,
+          "fluency": 4,
+          "critical": false,
+          "note_cs": "Přirozený překlad; „popojedeme“ je možné čtení způsobu cestování.",
+          "model": "gpt-6-luna"
+        },
+        "chrf_pp": 68.8376907384025
+      }
+    }
+  },
+  {
+    "id": "w500-338",
+    "en": "These Death Knights appear to be minions enslaved by the Lich-Lord. This one must be particularly powerful, since Death Knights are usually strong-willed spirits on their own.",
+    "reference_cs": "Ti rytíři smrti jsou nejspíš sluhové porobení pánem lichů. Tento musí být obzvláště mocný, neboť rytíři smrti jsou obvykle duchové se samostatnou silnou vůlí.",
+    "models": {
+      "cpu": {
+        "translation": "Tito rytíři Smrti se zdají být přisluhovači zotročeni Lich-Lordem. Tenhle musí být obzvláště mocný, protože Rytíři smrti jsou obvykle silní duchové sami.",
+        "ms": 503.8575999205932,
+        "error": "",
+        "rating": {
+          "label": "B",
+          "meaning": 2,
+          "fluency": 2,
+          "critical": false,
+          "note_cs": "Ztrácí silnou vůli duchů; vazby „přisluhovači zotročeni“ a „duchové sami“ jsou neobratné.",
+          "model": "cpu"
+        },
+        "chrf_pp": 45.360568884351174
+      },
+      "cuni-q3km": {
+        "translation": "Tito Smrtelní rytíři jsou zřejmě otroky, které si podrobil Pán nesmrtelnosti. Tenhle musí být obzvláště mocný, protože Smrtelní rytíři jsou obvykle sami o sobě silně vůlí motivovaní duchové.",
+        "ms": 1836.958899977617,
+        "error": "",
+        "rating": {
+          "label": "C",
+          "meaning": 3,
+          "fluency": 2,
+          "critical": false,
+          "note_cs": "Smysl je převážně zachován, ale „silně vůlí motivovaní duchové“ zní nepřirozeně.",
+          "model": "cuni-q3km"
+        },
+        "chrf_pp": 42.571179788576245
+      },
+      "translategemma-4b-q4km": {
+        "translation": "Zdá se, že tyto rytíři smrti jsou podřízeni Lich-lordovi. Tento konkrétní rytíř musí být zvláště silný, protože samotní rytíři smrti jsou obvykle silné a nezávislé entity.",
+        "ms": 1042.9741999832913,
+        "error": "",
+        "rating": {
+          "label": "A",
+          "meaning": 3,
+          "fluency": 3,
+          "critical": false,
+          "note_cs": "Oslabuje zotročení na podřízenost a vynechává, že jde o duchy; „tyto rytíři“ je chybně.",
+          "model": "translategemma-4b-q4km"
+        },
+        "chrf_pp": 42.31134764300431
+      },
+      "gpt-6-luna": {
+        "translation": "Zdá se, že tito rytíři smrti jsou služebníci zotročení Pánem lichů. Tenhle musí být obzvlášť mocný, protože rytíři smrti bývají obvykle silnými duchy s vlastní vůlí.",
+        "ms": 1692.9956000531092,
+        "error": "",
+        "rating": {
+          "label": "D",
+          "meaning": 3,
+          "fluency": 4,
+          "critical": false,
+          "note_cs": "Překlad je přirozený, ale „silní duchové s vlastní vůlí“ nevystihuje zcela silnou vůli.",
+          "model": "gpt-6-luna"
+        },
+        "chrf_pp": 46.80070935162064
+      }
+    }
+  },
+  {
+    "id": "w500-339",
+    "en": "What in the world are you doing here?",
+    "reference_cs": "Co tu zatraceně děláte vy?",
+    "models": {
+      "cpu": {
+        "translation": "Co tady proboha děláš?",
+        "ms": 110.05040002055466,
+        "error": "",
+        "rating": {
+          "label": "C",
+          "meaning": 4,
+          "fluency": 4,
+          "critical": false,
+          "note_cs": "Přirozený překlad se zachovaným důrazem.",
+          "model": "cpu"
+        },
+        "chrf_pp": 16.99627744619267
+      },
+      "cuni-q3km": {
+        "translation": "Co tady proboha děláš?",
+        "ms": 392.6049000583589,
+        "error": "",
+        "rating": {
+          "label": "A",
+          "meaning": 4,
+          "fluency": 4,
+          "critical": false,
+          "note_cs": "Přirozený překlad se zachovaným důrazem.",
+          "model": "cuni-q3km"
+        },
+        "chrf_pp": 16.99627744619267
+      },
+      "translategemma-4b-q4km": {
+        "translation": "Co vlastně tady děláte?",
+        "ms": 312.6713000237942,
+        "error": "",
+        "rating": {
+          "label": "D",
+          "meaning": 3,
+          "fluency": 3,
+          "critical": false,
+          "note_cs": "Oslabený důraz a mírně neobvyklý slovosled.",
+          "model": "translategemma-4b-q4km"
+        },
+        "chrf_pp": 27.296644569507713
+      },
+      "gpt-6-luna": {
+        "translation": "Co tady proboha děláš?",
+        "ms": 1389.1524999635294,
+        "error": "",
+        "rating": {
+          "label": "B",
+          "meaning": 4,
+          "fluency": 4,
+          "critical": false,
+          "note_cs": "Přirozený překlad se zachovaným důrazem.",
+          "model": "gpt-6-luna"
+        },
+        "chrf_pp": 16.99627744619267
+      }
+    }
+  },
+  {
+    "id": "w500-340",
+    "en": "We must travel north, and try to make it to the Isle of Alduin. Hopefully we will find refuge there.",
+    "reference_cs": "Musíme cestovat na sever a pokusit se dojít až na ostrov Alduin. Snad tam nalezneme útočiště.",
+    "models": {
+      "cpu": {
+        "translation": "Musíme jet na sever a pokusit se dostat na ostrov Alduin. Doufejme, že tam najdeme útočiště.",
+        "ms": 239.11770002450794,
+        "error": "",
+        "rating": {
+          "label": "D",
+          "meaning": 3,
+          "fluency": 4,
+          "critical": false,
+          "note_cs": "„Jet“ oproti originálu naznačuje použití dopravního prostředku.",
+          "model": "cpu"
+        },
+        "chrf_pp": 62.32698422021398
+      },
+      "cuni-q3km": {
+        "translation": "Musíme jít na sever a pokusit se dostat na ostrov Alduin. Doufejme, že tam najdeme útočiště.",
+        "ms": 878.761800006032,
+        "error": "",
+        "rating": {
+          "label": "B",
+          "meaning": 4,
+          "fluency": 4,
+          "critical": false,
+          "note_cs": "Přirozený překlad; „jít“ je v daném kontextu možné.",
+          "model": "cuni-q3km"
+        },
+        "chrf_pp": 62.97810676423977
+      },
+      "translategemma-4b-q4km": {
+        "translation": "Musíme se vydat na sever a pokusit se dostat na ostrov Alduin. Doufejme, že tam najdeme útočiště.",
+        "ms": 731.2391001032665,
+        "error": "",
+        "rating": {
+          "label": "C",
+          "meaning": 4,
+          "fluency": 4,
+          "critical": false,
+          "note_cs": "Význam je zachován a formulace je přirozená.",
+          "model": "translategemma-4b-q4km"
+        },
+        "chrf_pp": 62.48197880832917
+      },
+      "gpt-6-luna": {
+        "translation": "Musíme cestovat na sever a pokusit se dostat na ostrov Alduin. Snad tam najdeme útočiště.",
+        "ms": 1944.336500018835,
+        "error": "",
+        "rating": {
+          "label": "A",
+          "meaning": 4,
+          "fluency": 4,
+          "critical": false,
+          "note_cs": "Význam je zachován a překlad zní přirozeně.",
+          "model": "gpt-6-luna"
+        },
+        "chrf_pp": 81.60824538951763
+      }
+    }
+  },
+  {
+    "id": "w500-341",
+    "en": "That is Moremirmu! He helped us fight the undead in the Isles of the Damned, let us hope he can help us once more!",
+    "reference_cs": "Tamto je Moremirmu! To on nám pomohl proti Muffu Malalovi, doufejme, že nám opět pomůže!",
+    "models": {
+      "cpu": {
+        "translation": "To je Moremirmu! Pomohl nám bojovat s nemrtvými na ostrovech zatracených, doufejme, že nám ještě jednou pomůže!",
+        "ms": 316.14140002056956,
+        "error": "",
+        "rating": {
+          "label": "D",
+          "meaning": 4,
+          "fluency": 4,
+          "critical": false,
+          "note_cs": "Význam je zachován, formulace je přirozená.",
+          "model": "cpu"
+        },
+        "chrf_pp": 46.60170886487686
+      },
+      "cuni-q3km": {
+        "translation": "To je Moremirmu! Pomohl nám bojovat proti nemrtvým na Ostrovech zatracených, doufejme, že nám pomůže i tentokrát!",
+        "ms": 1073.433000012301,
+        "error": "",
+        "rating": {
+          "label": "B",
+          "meaning": 4,
+          "fluency": 4,
+          "critical": false,
+          "note_cs": "Význam je zachován a překlad zní přirozeně.",
+          "model": "cuni-q3km"
+        },
+        "chrf_pp": 48.856569669535354
+      },
+      "translategemma-4b-q4km": {
+        "translation": "To je Moremirmu! Pomohl nám bojovat proti mrtvým v ostrovech prokletých, a doufáme, že nám může pomoci i tentokrát!",
+        "ms": 776.4416000572965,
+        "error": "",
+        "rating": {
+          "label": "A",
+          "meaning": 3,
+          "fluency": 2,
+          "critical": false,
+          "note_cs": "„Mrtví“ nejsou přesně „nemrtví“ a spojení „v ostrovech“ je chybné.",
+          "model": "translategemma-4b-q4km"
+        },
+        "chrf_pp": 39.14933482710629
+      },
+      "gpt-6-luna": {
+        "translation": "To je Moremirmu! Pomohl nám bojovat proti nemrtvým na Ostrovech zatracených. Doufejme, že nám pomůže i tentokrát!",
+        "ms": 1390.946300001815,
+        "error": "",
+        "rating": {
+          "label": "C",
+          "meaning": 4,
+          "fluency": 4,
+          "critical": false,
+          "note_cs": "Přesný a přirozený překlad; rozdělení do vět nevadí.",
+          "model": "gpt-6-luna"
+        },
+        "chrf_pp": 44.22809700318261
+      }
+    }
+  },
+  {
+    "id": "w500-342",
+    "en": "We have come so that an heir may claim his inheritance, that a king may claim his throne. We seek the Sceptre of Fire.",
+    "reference_cs": "Přišli jsme, aby dědic mohl obhájit svoje dědictví. Aby král uplatnil nárok na trůn. Hledáme Ohnivé žezlo.",
+    "models": {
+      "cpu": {
+        "translation": "Přišli jsme proto, aby dědic se mohl domáhat dědictví svého, aby si král nárokoval trůn svůj; a hledáme žezlo ohnivé.",
+        "ms": 281.60340001340955,
+        "error": "",
+        "rating": {
+          "label": "D",
+          "meaning": 4,
+          "fluency": 3,
+          "critical": false,
+          "note_cs": "Význam je zachován, ale slovosled působí nepřirozeně knižně.",
+          "model": "cpu"
+        },
+        "chrf_pp": 41.39398810411635
+      },
+      "cuni-q3km": {
+        "translation": "Přišli jsme, aby dědic mohl uplatnit své dědictví, aby král mohl získat svůj trůn. Hledáme Královskou hůl.",
+        "ms": 1244.827999966219,
+        "error": "",
+        "rating": {
+          "label": "C",
+          "meaning": 2,
+          "fluency": 3,
+          "critical": true,
+          "note_cs": "„Královská hůl“ mění hledaný předmět a vynechává oheň; „uplatnit dědictví“ je neobvyklé.",
+          "model": "cuni-q3km"
+        },
+        "chrf_pp": 53.30276874720701
+      },
+      "translategemma-4b-q4km": {
+        "translation": "Přišli jsme, abychom zajistili, že dědic může získat své dědictví, a král může získat svůj trůn. Hledáme Sceptr Ohně.",
+        "ms": 887.1705000055954,
+        "error": "",
+        "rating": {
+          "label": "A",
+          "meaning": 4,
+          "fluency": 3,
+          "critical": false,
+          "note_cs": "Význam je zachován, ale spojení „Sceptr Ohně“ působí v češtině nepřirozeně.",
+          "model": "translategemma-4b-q4km"
+        },
+        "chrf_pp": 41.000482211389325
+      },
+      "gpt-6-luna": {
+        "translation": "Přišli jsme, aby dědic mohl získat své dědictví a král svůj trůn. Hledáme Ohnivé žezlo.",
+        "ms": 1532.0241000736132,
+        "error": "",
+        "rating": {
+          "label": "B",
+          "meaning": 4,
+          "fluency": 4,
+          "critical": false,
+          "note_cs": "Přirozený překlad se zachovaným významem.",
+          "model": "gpt-6-luna"
+        },
+        "chrf_pp": 60.368825104511735
+      }
+    }
+  },
+  {
+    "id": "w500-343",
+    "en": "Rider, do not fool with us. You yourself say men and orcs wage war on this plain that lies ahead. Do you propose we fly to the great woods of the east?",
+    "reference_cs": "Jezdče, nehraj si s námi. Říkáš sám, že skřeti a lidé se chystají k bitvě na pláni před námi. Navrhuješ, abychom prchli do velkých lesů východu?",
+    "models": {
+      "cpu": {
+        "translation": "Jezdče, neblbni s námi. Ty sám říkáš muži a skřeti vést válku na této pláni, která leží před námi. Navrhuješ letět do velkých lesů východu?",
+        "ms": 500.69650006480515,
+        "error": "",
+        "rating": {
+          "label": "D",
+          "meaning": 4,
+          "fluency": 2,
+          "critical": false,
+          "note_cs": "Smysl je zachován, ale ve větě „říkáš muži a skřeti vést válku“ chybí správná stavba.",
+          "model": "cpu"
+        },
+        "chrf_pp": 49.84921966667882
+      },
+      "cuni-q3km": {
+        "translation": "Jezdče, nehraj si s námi. Sám říkáš, že muži a skřeti vedou válku na této pláni, která leží před námi. Navrhuješ, abychom odletěli do velkých lesů na východě?",
+        "ms": 1589.8023000918329,
+        "error": "",
+        "rating": {
+          "label": "C",
+          "meaning": 4,
+          "fluency": 4,
+          "critical": false,
+          "note_cs": "Věrný a přirozený překlad; „odletěli“ je možné čtení originálu.",
+          "model": "cuni-q3km"
+        },
+        "chrf_pp": 58.67289535592203
+      },
+      "translategemma-4b-q4km": {
+        "translation": "Jezdec, nezkoušejte nás. Vy sami říkáte, že muži a orkové vedou válku na tomto poli, které nás čeká. Navrhujete, abychom se vydali do velkých lesů na východ?",
+        "ms": 1106.4560000086203,
+        "error": "",
+        "rating": {
+          "label": "B",
+          "meaning": 3,
+          "fluency": 2,
+          "critical": false,
+          "note_cs": "Smysl je převážně zachován, ale oslovení a vazba „pole, které nás čeká“ jsou nepřirozené.",
+          "model": "translategemma-4b-q4km"
+        },
+        "chrf_pp": 34.209478979450076
+      },
+      "gpt-6-luna": {
+        "translation": "Jeźdźcze, nie rób sobie z nas żartów. Sam mówisz, że ludzie i orkowie toczą wojnę na równinie przed nami. Chcesz, żebyśmy polecieli do wielkich lasów na wschodzie?",
+        "ms": 1765.3058000141755,
+        "error": "",
+        "rating": {
+          "label": "A",
+          "meaning": 4,
+          "fluency": 0,
+          "critical": true,
+          "note_cs": "Význam odpovídá, ale text je v polštině, nikoli v češtině.",
+          "model": "gpt-6-luna"
+        },
+        "chrf_pp": 15.593441455329396
+      }
+    }
+  },
+  {
+    "id": "w500-344",
+    "en": "Ahh. My own daughter, a turncoat. So it is true. Such treason my reign must endure! But endure it will.",
+    "reference_cs": "Ach. Moje vlastni dcera, přeběhlice. Tak je to přece pravda. Jakou zradou je má vláda zkoušena! Zkouškou však projde.",
+    "models": {
+      "cpu": {
+        "translation": "Má vlastní dcera, přeběhlice, takže je to pravda, taková zrada má vláda musí vydržet!",
+        "ms": 221.43840009812266,
+        "error": "",
+        "rating": {
+          "label": "B",
+          "meaning": 2,
+          "fluency": 2,
+          "critical": true,
+          "note_cs": "Chybí závěrečné ujištění, že vláda zradu přečká; věta je navíc kostrbatá.",
+          "model": "cpu"
+        },
+        "chrf_pp": 33.12321996999968
+      },
+      "cuni-q3km": {
+        "translation": "Moje vlastní dcera, přeběhlice. Takže je to pravda. Taková zrada musí mé vládnutí přečkat! Ale přečkat to musí.",
+        "ms": 1100.8385000750422,
+        "error": "",
+        "rating": {
+          "label": "D",
+          "meaning": 1,
+          "fluency": 3,
+          "critical": true,
+          "note_cs": "Obrací vztah: zradu má přečkat vláda, nikoli zrada vládnutí.",
+          "model": "cuni-q3km"
+        },
+        "chrf_pp": 40.08168056539459
+      },
+      "translategemma-4b-q4km": {
+        "translation": "Ach. Moje vlastní dcera, která se obrátila proti mně. Takže to je pravda. Taková zrada, kterou musím snášet! Ale snášet ji budu.",
+        "ms": 864.8587999632582,
+        "error": "",
+        "rating": {
+          "label": "C",
+          "meaning": 3,
+          "fluency": 4,
+          "critical": false,
+          "note_cs": "Mluvčí snáší zradu osobně, zatímco originál mluví o jeho vládě.",
+          "model": "translategemma-4b-q4km"
+        },
+        "chrf_pp": 33.05859049335733
+      },
+      "gpt-6-luna": {
+        "translation": "Ach. Má vlastní dcera, zrádkyně. Takže je to pravda. Takovou zradu musí má vláda snášet! Ale snese ji.",
+        "ms": 1612.2973000165075,
+        "error": "",
+        "rating": {
+          "label": "A",
+          "meaning": 4,
+          "fluency": 4,
+          "critical": false,
+          "note_cs": "Význam je zachován a formulace působí přirozeně.",
+          "model": "gpt-6-luna"
+        },
+        "chrf_pp": 33.33209408278087
+      }
+    }
+  },
+  {
+    "id": "w500-345",
+    "en": "You go too far! I am Kalenz, a mighty elvish lord! How dare such as you, sniveling in his tunnel, call me a coward?",
+    "reference_cs": "Zacházíš daleko! Jsem Kalenz, mocný vládce elfů! Jak si mě někdo, kdo tu fňuká zalezlý v tunelech, dovolí nazývat zbabělcem?",
+    "models": {
+      "cpu": {
+        "translation": "Já jsem Kalenz, mocný elvish lord! Jak se opovažuješ jako ty, ufňukat v jeho tunelu, říkat mi zbabělec?",
+        "ms": 275.63090005423874,
+        "error": "",
+        "rating": {
+          "label": "D",
+          "meaning": 1,
+          "fluency": 1,
+          "critical": true,
+          "note_cs": "Chybí úvodní výčitka, zůstává anglické slovo a závěr je nesrozumitelný.",
+          "model": "cpu"
+        },
+        "chrf_pp": 29.417100149125208
+      },
+      "cuni-q3km": {
+        "translation": "Zacházíš příliš daleko! Jsem Kalenz, mocný elfí pán! Jak se opovažuješ, ty ufňukaný chudáku, zavolat mě zbabělcem?",
+        "ms": 1263.327999971807,
+        "error": "",
+        "rating": {
+          "label": "C",
+          "meaning": 2,
+          "fluency": 3,
+          "critical": true,
+          "note_cs": "Chybí zmínka o tunelu a spojení „zavolat mě zbabělcem“ působí nepřirozeně.",
+          "model": "cuni-q3km"
+        },
+        "chrf_pp": 45.129447737612644
+      },
+      "translategemma-4b-q4km": {
+        "translation": "To jsi přehnal! Já jsem Kalenz, mocný elfský lord! Jak se ti, jako jsi ty, v jeho jeskyni, odváží mě nazývat slabochem?",
+        "ms": 855.104099959135,
+        "error": "",
+        "rating": {
+          "label": "A",
+          "meaning": 2,
+          "fluency": 2,
+          "critical": true,
+          "note_cs": "Chybí fňukání, zbabělec se mění ve slabocha a závěr je gramaticky chybný.",
+          "model": "translategemma-4b-q4km"
+        },
+        "chrf_pp": 29.039069296942095
+      },
+      "gpt-6-luna": {
+        "translation": "To už je příliš! Jsem Kalenz, mocný elfí pán! Jak si někdo jako ty, kdo se krčí ve své noře, dovoluje nazvat mě zbabělcem?",
+        "ms": 1326.4863999793306,
+        "error": "",
+        "rating": {
+          "label": "B",
+          "meaning": 3,
+          "fluency": 4,
+          "critical": false,
+          "note_cs": "Přirozené znění, ale krčení v noře nevyjadřuje fňukání.",
+          "model": "gpt-6-luna"
+        },
+        "chrf_pp": 40.68094514528532
+      }
+    }
+  },
+  {
+    "id": "w500-346",
+    "en": "That I do understand, Konrad. I am no stranger to the burden of command.",
+    "reference_cs": "Tomu rozumím, Konráde. Břímě velení mi není cizí.",
+    "models": {
+      "cpu": {
+        "translation": "Tomu rozumím, Konrade.",
+        "ms": 231.38609994202852,
+        "error": "",
+        "rating": {
+          "label": "C",
+          "meaning": 2,
+          "fluency": 4,
+          "critical": true,
+          "note_cs": "Chybí celá informace o zkušenosti s břemenem velení.",
+          "model": "cpu"
+        },
+        "chrf_pp": 38.72211995611403
+      },
+      "cuni-q3km": {
+        "translation": "To chápu, Konrade. S břemenem velení nemám žádné zkušenosti.",
+        "ms": 697.4598000524566,
+        "error": "",
+        "rating": {
+          "label": "B",
+          "meaning": 1,
+          "fluency": 4,
+          "critical": true,
+          "note_cs": "Druhá věta obrací význam: mluvčí tvrdí, že nemá zkušenosti.",
+          "model": "cuni-q3km"
+        },
+        "chrf_pp": 23.090282109336407
+      },
+      "translategemma-4b-q4km": {
+        "translation": "Rozumím tomu, Konradu. Já sám jsem si dobře vědom odpovědnosti, která s tím souvisí.",
+        "ms": 560.2428999263793,
+        "error": "",
+        "rating": {
+          "label": "A",
+          "meaning": 3,
+          "fluency": 4,
+          "critical": false,
+          "note_cs": "Odpovědnost vystihuje význam, ale velení zůstává jen naznačené.",
+          "model": "translategemma-4b-q4km"
+        },
+        "chrf_pp": 19.860068893521625
+      },
+      "gpt-6-luna": {
+        "translation": "Tomu rozumím, Konrade. Břemeno velení mi není cizí.",
+        "ms": 1327.1249999525025,
+        "error": "",
+        "rating": {
+          "label": "D",
+          "meaning": 4,
+          "fluency": 4,
+          "critical": false,
+          "note_cs": "Význam je zachován a čeština je přirozená.",
+          "model": "gpt-6-luna"
+        },
+        "chrf_pp": 75.05015549193291
+      }
+    }
+  },
+  {
+    "id": "w500-347",
+    "en": "Ancient one?",
+    "reference_cs": "Prastarý?",
+    "models": {
+      "cpu": {
+        "translation": "Starobylý?",
+        "ms": 49.377999966964126,
+        "error": "",
+        "rating": {
+          "label": "C",
+          "meaning": 3,
+          "fluency": 4,
+          "critical": false,
+          "note_cs": "Vhodné pro starou věc či místo, méně pro bytost.",
+          "model": "cpu"
+        },
+        "chrf_pp": 19.3620803196714
+      },
+      "cuni-q3km": {
+        "translation": "Starodávný?",
+        "ms": 199.87040001433343,
+        "error": "",
+        "rating": {
+          "label": "D",
+          "meaning": 4,
+          "fluency": 4,
+          "critical": false,
+          "note_cs": "Přirozená alternativa pro něco velmi dávného.",
+          "model": "cuni-q3km"
+        },
+        "chrf_pp": 19.086923356069526
+      },
+      "translategemma-4b-q4km": {
+        "translation": "Starověký?",
+        "ms": 193.04429995827377,
+        "error": "",
+        "rating": {
+          "label": "B",
+          "meaning": 3,
+          "fluency": 4,
+          "critical": false,
+          "note_cs": "Spíše odkazuje ke starověku než k obecnému stáří.",
+          "model": "translategemma-4b-q4km"
+        },
+        "chrf_pp": 19.3620803196714
+      },
+      "gpt-6-luna": {
+        "translation": "Pradávný?",
+        "ms": 907.9160999972373,
+        "error": "",
+        "rating": {
+          "label": "A",
+          "meaning": 4,
+          "fluency": 4,
+          "critical": false,
+          "note_cs": "Přirozený překlad zdůrazňující velké stáří.",
+          "model": "gpt-6-luna"
+        },
+        "chrf_pp": 19.66765873015873
+      }
+    }
+  },
+  {
+    "id": "w500-348",
+    "en": "Can’t we strike back at her? How many forces does she have at the Bay of Pearls? Can we take it back from her?",
+    "reference_cs": "Nemůžeme jí to nějak oplatit? Jak velké síly má v Perlové zátoce? Dokážeme ji dobýt zpět?",
+    "models": {
+      "cpu": {
+        "translation": "Můžeme jí to vrátit?",
+        "ms": 45.861100079491735,
+        "error": "",
+        "rating": {
+          "label": "D",
+          "meaning": 1,
+          "fluency": 4,
+          "critical": true,
+          "note_cs": "Chybí otázky na její síly a znovudobytí zátoky.",
+          "model": "cpu"
+        },
+        "chrf_pp": 14.238136992454145
+      },
+      "cuni-q3km": {
+        "translation": "Nemůžeme jí udeřit zpátky? Kolik sil má v Zátoce perel? Můžeme jí ji vzít zpátky?",
+        "ms": 983.6085999850184,
+        "error": "",
+        "rating": {
+          "label": "B",
+          "meaning": 4,
+          "fluency": 2,
+          "critical": false,
+          "note_cs": "Význam je zachován, ale „jí udeřit zpátky“ je gramaticky chybné.",
+          "model": "cuni-q3km"
+        },
+        "chrf_pp": 27.580496701519557
+      },
+      "translategemma-4b-q4km": {
+        "translation": "Nemůžeme jí odpovědět? Kolik sil má v oblasti Pearl Bay? Můžeme ji z ní vyřadit?",
+        "ms": 571.3175000855699,
+        "error": "",
+        "rating": {
+          "label": "C",
+          "meaning": 2,
+          "fluency": 3,
+          "critical": true,
+          "note_cs": "Poslední otázka mluví o vyřazení ženy, nikoli o znovudobytí zátoky.",
+          "model": "translategemma-4b-q4km"
+        },
+        "chrf_pp": 27.468218063054824
+      },
+      "gpt-6-luna": {
+        "translation": "Nemůžeme jí to oplatit? Kolik má sil v Zátoce perel? Můžeme jí ji vzít zpátky?",
+        "ms": 1380.708499928005,
+        "error": "",
+        "rating": {
+          "label": "A",
+          "meaning": 4,
+          "fluency": 3,
+          "critical": false,
+          "note_cs": "Význam je zachován, spojení „jí ji“ však působí neobratně.",
+          "model": "gpt-6-luna"
+        },
+        "chrf_pp": 35.92761342980958
+      }
+    }
+  },
+  {
+    "id": "w500-349",
+    "en": "I am Delfador the Great. Prepare to die!",
+    "reference_cs": "Já jsem Delfador Veliký. Připrav se na smrt!",
+    "models": {
+      "cpu": {
+        "translation": "Jsem Delfador Veliký, připravte se zemřít!",
+        "ms": 173.01349993795156,
+        "error": "",
+        "rating": {
+          "label": "C",
+          "meaning": 4,
+          "fluency": 3,
+          "critical": false,
+          "note_cs": "Význam zachován, ale spojení „připravte se zemřít“ působí méně přirozeně.",
+          "model": "cpu"
+        },
+        "chrf_pp": 48.28851550682046
+      },
+      "cuni-q3km": {
+        "translation": "Jsem Delfador Veliký. Připrav se zemřít!",
+        "ms": 498.56920004822314,
+        "error": "",
+        "rating": {
+          "label": "D",
+          "meaning": 4,
+          "fluency": 3,
+          "critical": false,
+          "note_cs": "Význam zachován, ale „připrav se zemřít“ působí méně přirozeně.",
+          "model": "cuni-q3km"
+        },
+        "chrf_pp": 69.2275300977359
+      },
+      "translategemma-4b-q4km": {
+        "translation": "Jmenuji se Delfador, Velký. Připravte se na smrt!",
+        "ms": 434.442300000228,
+        "error": "",
+        "rating": {
+          "label": "B",
+          "meaning": 4,
+          "fluency": 3,
+          "critical": false,
+          "note_cs": "Význam zachován; čárka před přídomkem Velký je nevhodná.",
+          "model": "translategemma-4b-q4km"
+        },
+        "chrf_pp": 56.52260755768657
+      },
+      "gpt-6-luna": {
+        "translation": "Jsem Delfador Veliký. Připrav se na smrt!",
+        "ms": 1545.6307000713423,
+        "error": "",
+        "rating": {
+          "label": "A",
+          "meaning": 4,
+          "fluency": 4,
+          "critical": false,
+          "note_cs": "Přesný a přirozený překlad.",
+          "model": "gpt-6-luna"
+        },
+        "chrf_pp": 89.7625164020117
+      }
+    }
+  },
+  {
+    "id": "w500-350",
+    "en": "We were beset by many foul lizardmen. Alas, Bona-Melodia has fallen.",
+    "reference_cs": "Byli jsme obklíčení těmi hnusnými ještěráky. Běda, Bona-Melodia padla.",
+    "models": {
+      "cpu": {
+        "translation": "Bolavá, Bona-Melodie padla.",
+        "ms": 210.76399995945394,
+        "error": "",
+        "rating": {
+          "label": "D",
+          "meaning": 1,
+          "fluency": 1,
+          "critical": true,
+          "note_cs": "Chybí celé sdělení o napadení a „Bolavá“ nedává v kontextu smysl.",
+          "model": "cpu"
+        },
+        "chrf_pp": 24.79168651484539
+      },
+      "cuni-q3km": {
+        "translation": "Byli jsme obklopeni mnoha odpornými ještěry. Bohužel, Bona-Melodia padla.",
+        "ms": 841.0378999542445,
+        "error": "",
+        "rating": {
+          "label": "B",
+          "meaning": 3,
+          "fluency": 4,
+          "critical": false,
+          "note_cs": "Přirozené znění, ale „ještěři“ nevystihují jasně humanoidní ještěráky.",
+          "model": "cuni-q3km"
+        },
+        "chrf_pp": 56.70920107655129
+      },
+      "translategemma-4b-q4km": {
+        "translation": "Byli jsme obklopeni mnoha zvrácenými lizardovými bytostmi. Bohužel, Bona-Melodia padla.",
+        "ms": 675.6713000359014,
+        "error": "",
+        "rating": {
+          "label": "C",
+          "meaning": 3,
+          "fluency": 2,
+          "critical": false,
+          "note_cs": "„Lizardové bytosti“ je nepřirozené a „zvrácení“ posouvá význam slova „foul“.",
+          "model": "translategemma-4b-q4km"
+        },
+        "chrf_pp": 48.863718972534436
+      },
+      "gpt-6-luna": {
+        "translation": "Napadlo nás mnoho ohavných ještěřích lidí. Běda, Bona-Melodia padla.",
+        "ms": 1471.4052999624982,
+        "error": "",
+        "rating": {
+          "label": "A",
+          "meaning": 4,
+          "fluency": 3,
+          "critical": false,
+          "note_cs": "Význam zachován, ale „ještěří lidé“ zní poněkud nepřirozeně.",
+          "model": "gpt-6-luna"
+        },
+        "chrf_pp": 45.75003353048989
+      }
+    }
+  }
+]

@@ -1,0 +1,137 @@
+{
+  "model": "translategemma-4b-q4km",
+  "backend": "cuda",
+  "device": {
+    "backend": "cuda",
+    "id": "GPU-5005a322-913e-582e-3850-14f14c63e8c1",
+    "index": 0,
+    "name": "NVIDIA GeForce RTX 4050 Laptop GPU",
+    "integrated": false,
+    "total": 6439305216,
+    "free": 6172160000
+  },
+  "full_cases": [
+    {
+      "en": "Don’t die, Delfador! Please, you have to stay alive!",
+      "reference_cs": "Neumírej, Delfadore! Prosím, zůstaň!",
+      "location": "data/campaigns/Heir_To_The_Throne_Classic/scenarios/01_The_Elves_Besieged.cfg:398",
+      "id": "w500-005",
+      "source": "Battle for Wesnoth: Heir to the Throne Classic",
+      "license": "GPL-2.0-or-later"
+    },
+    {
+      "en": "I am Delfador the Great! Tremble before my wrath!",
+      "reference_cs": "Já jsem Delfador Veliký! Třes se před mým hněvem!",
+      "location": "data/campaigns/Heir_To_The_Throne_Classic/scenarios/14_Plunging_Into_the_Darkness.cfg:410",
+      "id": "w500-006",
+      "source": "Battle for Wesnoth: Heir to the Throne Classic",
+      "license": "GPL-2.0-or-later"
+    },
+    {
+      "en": "Did you think I was just playing around? I need to take my inheritance!",
+      "reference_cs": "Myslel sis snad, že jsem si jen tak hrála? Potřebuji získat svoje dědictví!",
+      "location": "data/campaigns/Heir_To_The_Throne_Classic/scenarios/18_A_Choice_Must_Be_Made.cfg:180",
+      "id": "w500-008",
+      "source": "Battle for Wesnoth: Heir to the Throne Classic",
+      "license": "GPL-2.0-or-later"
+    },
+    {
+      "en": "But they will not neglect to notice our presence in their midst! We are walking into slaughter!",
+      "reference_cs": "Přece si nás nemohou nevšimnout, když budeme procházet uprostřed mezi nimi! To bude jistá smrt!",
+      "location": "data/campaigns/Heir_To_The_Throne_Classic/scenarios/20a_North_Elves.cfg:524",
+      "id": "w500-009",
+      "source": "Battle for Wesnoth: Heir to the Throne Classic",
+      "license": "GPL-2.0-or-later"
+    }
+  ],
+  "rows": [
+    {
+      "id": "w500-005",
+      "en": "Don’t die, Delfador! Please, you have to stay alive!",
+      "reference_cs": "Neumírej, Delfadore! Prosím, zůstaň!",
+      "translation": "Neumři, Delfadore! Prosím, musíš přežít!",
+      "ms": 467.1137999976054,
+      "metrics": {
+        "total_duration": 424600100,
+        "load_duration": 30062800,
+        "prompt_eval_count": 91,
+        "prompt_eval_duration": 74664000,
+        "eval_count": 17,
+        "eval_duration": 284330000,
+        "done_reason": "stop"
+      }
+    },
+    {
+      "id": "w500-006",
+      "en": "I am Delfador the Great! Tremble before my wrath!",
+      "reference_cs": "Já jsem Delfador Veliký! Třes se před mým hněvem!",
+      "translation": "Já jsem Delfador, největší! Dejte pozor na mou zuřivost!",
+      "ms": 487.4291999731213,
+      "metrics": {
+        "total_duration": 454210200,
+        "load_duration": 29332600,
+        "prompt_eval_count": 88,
+        "prompt_eval_duration": 63475000,
+        "eval_count": 20,
+        "eval_duration": 330204000,
+        "done_reason": "stop"
+      }
+    },
+    {
+      "id": "w500-008",
+      "en": "Did you think I was just playing around? I need to take my inheritance!",
+      "reference_cs": "Myslel sis snad, že jsem si jen tak hrála? Potřebuji získat svoje dědictví!",
+      "translation": "Myslíš, že jsem to jen tak blázní? Potřebuji získat své dědictví!",
+      "ms": 543.4518000110984,
+      "metrics": {
+        "total_duration": 520369100,
+        "load_duration": 22572100,
+        "prompt_eval_count": 91,
+        "prompt_eval_duration": 61685000,
+        "eval_count": 24,
+        "eval_duration": 402065000,
+        "done_reason": "stop"
+      }
+    },
+    {
+      "id": "w500-009",
+      "en": "But they will not neglect to notice our presence in their midst! We are walking into slaughter!",
+      "reference_cs": "Přece si nás nemohou nevšimnout, když budeme procházet uprostřed mezi nimi! To bude jistá smrt!",
+      "translation": "Ale rozhodně nezapomenou na naši přítomnost! Jsme v ohrožení!",
+      "ms": 487.0435999473557,
+      "metrics": {
+        "total_duration": 464594500,
+        "load_duration": 14986000,
+        "prompt_eval_count": 94,
+        "prompt_eval_duration": 58213000,
+        "eval_count": 22,
+        "eval_duration": 365781000,
+        "done_reason": "stop"
+      }
+    }
+  ],
+  "conditions": "Sequential requests; no FG/NR/OCR; same fixed short subset of earlier 500 entries",
+  "status": "complete",
+  "init_ms": 12669.127600034699,
+  "description": "CUDA / NVIDIA GeForce RTX 4050 Laptop GPU / full GPU",
+  "loaded": {
+    "name": "framelab-translategemma-4b-q4km:latest",
+    "model": "framelab-translategemma-4b-q4km:latest",
+    "size": 2753382317,
+    "digest": "8c54087ce5309e058434d8953b4cf8d76558930fbddda5130301d9d35471258f",
+    "details": {
+      "parent_model": "",
+      "format": "gguf",
+      "family": "gemma3",
+      "families": [
+        "gemma3"
+      ],
+      "parameter_size": "3.9B",
+      "quantization_level": "Q4_K_M"
+    },
+    "expires_at": "2319-03-05T20:48:23.195799307+01:00",
+    "size_vram": 2753382317,
+    "context_length": 2048,
+    "runner": "llamacpp"
+  }
+}

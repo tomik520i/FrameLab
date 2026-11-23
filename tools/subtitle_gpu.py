@@ -1,4 +1,4 @@
-"""FrameLab-owned, loopback-only CUNI / TranslateGemma with full GPU offload."""
+"""FrameLab-owned CUNI / TranslateGemma on CUDA, Vulkan or CPU."""
 from pathlib import Path
 import json
 import os
@@ -7,48 +7,28 @@ import socket
 import subprocess
 import time
 import urllib.request
-import ctypes
 from subtitle_models import catalog, verified, verify
 from subtitle_model_manager import runtime_ready
 from subtitle_languages import gemma_prompt, validate_pair
+from subtitle_compute import choose, runtime_environment, label
 
 PROMPT = '### Instruction:\nTranslate Input from English to Czech\n### Glossary:\n\n### Previous text:\n\n### Input:\n{text}\n### Response:\n'
 OPTIONS = dict(temperature=0, num_ctx=2048, num_predict=256, num_gpu=99, num_thread=4,
                repeat_penalty=1.0, seed=20261119, top_k=20, top_p=.6, stop=['\n'])
 
 
-def available_vram():
-    """NVML physical free bytes on the primary NVIDIA GPU, or None if unavailable."""
-    library = None
-    initialized = False
-    try:
-        library = ctypes.WinDLL(str(Path(os.environ['SystemRoot']) / 'System32/nvml.dll'))
-        if library.nvmlInit_v2() != 0:
-            return None
-        initialized = True
-        device = ctypes.c_void_p()
-        if library.nvmlDeviceGetHandleByIndex_v2(0, ctypes.byref(device)) != 0:
-            return None
-        class Memory(ctypes.Structure):
-            _fields_ = [('total', ctypes.c_ulonglong), ('free', ctypes.c_ulonglong), ('used', ctypes.c_ulonglong)]
-        memory = Memory()
-        if library.nvmlDeviceGetMemoryInfo(device, ctypes.byref(memory)) != 0:
-            return None
-        return memory.free
-    except (OSError, AttributeError, KeyError):
-        return None
-    finally:
-        if initialized:
-            library.nvmlShutdown()
-
-
 class GpuTranslator:
-    def __init__(self, root, model_id, source='en', target='cs'):
+    def __init__(self, root, model_id, source='en', target='cs', compute='auto', device='', allow_offload=False):
         # Ollama requires an absolute model store, including from CLI evaluators.
         root = Path(root).resolve()
         validate_pair(model_id, source, target)
         self.source, self.target = source, target
         self.gemma = model_id.startswith('translategemma-')
+        self.device = choose(compute,device)
+        self.compute = self.device['backend']
+        self.allow_offload = bool(allow_offload)
+        self.runtime_description = label(self.device)
+        self.last_metrics = {}
         self.process = None
         self.log = None
         self.opener = urllib.request.build_opener(urllib.request.ProxyHandler({}))
@@ -57,7 +37,7 @@ class GpuTranslator:
         self.name = 'framelab-' + model_id
         if not verified(root / 'models' / self.asset['file'], self.asset) or not runtime_ready(root, self.data):
             raise RuntimeError('Download and verify this model and runtime in Subtitles first.')
-        free = available_vram()
+        free = self.device.get('free') if self.compute=='cuda' and not allow_offload else None
         minimum = int(self.asset.get('estimated_vram_gib', self.asset['bytes']/1024**3+.8) * 1024 ** 3)
         if free is not None and free < minimum:
             raise RuntimeError(f'Only {free/1024**3:.2f} GiB GPU memory is free; this model needs about {minimum/1024**3:.2f} GiB free. Choose Q3/CPU or reduce FG/enhancer resolution.')
@@ -69,10 +49,12 @@ class GpuTranslator:
         blobs = models / 'blobs'
         blobs.mkdir(parents=True, exist_ok=True)
         blob = blobs / ('sha256-' + self.asset['sha256'])
-        env = os.environ.copy()
+        if self.compute=='vulkan' and not (root/'gpu-runtime/lib/ollama/vulkan/ggml-vulkan.dll').is_file():
+            raise RuntimeError('Vulkan runtime files are missing. Repair the local model runtime in Subtitles.')
+        env = runtime_environment(os.environ,self.device)
         env.update(OLLAMA_HOST=f'127.0.0.1:{port}', OLLAMA_MODELS=str(models), OLLAMA_NUM_PARALLEL='1',
-                   OLLAMA_MAX_LOADED_MODELS='1', OLLAMA_FLASH_ATTENTION='1', OLLAMA_CONTEXT_LENGTH='2048',
-                   OLLAMA_NO_CLOUD='1', OLLAMA_DEBUG='0')
+                   OLLAMA_MAX_LOADED_MODELS='1', OLLAMA_FLASH_ATTENTION='1' if self.compute=='cuda' else '0', OLLAMA_CONTEXT_LENGTH='2048',
+                   OLLAMA_NO_CLOUD='1', OLLAMA_DEBUG='0', OLLAMA_LOAD_TIMEOUT='3m', OLLAMA_DEBUG_LOG_REQUESTS='0')
         log_path = root.parent / 'logs' / 'subtitle-gpu-runtime.log'
         if log_path.exists() and log_path.stat().st_size > 8 * 1024 ** 2:
             os.replace(log_path, log_path.with_suffix('.previous.log'))
@@ -114,10 +96,18 @@ class GpuTranslator:
                 # that also touches our verified download; preserve its metadata.
                 os.utime(source, ns=(stamp.st_atime_ns, stamp.st_mtime_ns))
             verify(source, self.asset)
-            self.translate('We should get moving before sunrise.', timeout=90)
+            self.translate('We should get moving before sunrise.', timeout=180)
             loaded = self.api('/api/ps')['models']
-            if len(loaded) != 1 or loaded[0]['size_vram'] < loaded[0]['size']:
-                raise RuntimeError('Model did not run fully on the GPU. Check the GPU driver/runtime and free VRAM. Choose Q3_K_M or CPU, or reduce FG/enhancer load.')
+            if len(loaded)!=1:raise RuntimeError('Unexpected local model state after loading.')
+            self.loaded_info=loaded[0]
+            gpu_bytes=loaded[0].get('size_vram',0);model_bytes=loaded[0].get('size',0)
+            if self.compute=='cpu':
+                if gpu_bytes:raise RuntimeError('CPU selection was not respected by the runtime.')
+            elif not gpu_bytes or (not allow_offload and gpu_bytes<model_bytes):
+                raise RuntimeError('Selected GPU could not load the model as requested. Choose a smaller model, allow GPU + RAM offload, or select CPU. No silent CPU fallback.')
+            if self.compute!='cpu':self.runtime_description+=' / '+('GPU + RAM' if gpu_bytes<model_bytes else 'full GPU')
+            from subtitle_models import atomic_json
+            atomic_json(root.parent/'logs'/('subtitle-compute-'+str(os.getpid())+'.json'),dict(device=self.device,requested=compute,allow_offload=allow_offload,description=self.runtime_description,loaded=loaded[0]))
         except Exception:
             self.close()
             raise
@@ -127,14 +117,22 @@ class GpuTranslator:
         with self.opener.open(request, timeout=timeout) as response:
             return json.load(response)
 
-    def translate(self, text, timeout=25):
+    def options(self):
+        options=dict(OPTIONS)
+        compute=getattr(self,'compute','cuda')
+        options['num_gpu']=0 if compute=='cpu' else -1 if getattr(self,'allow_offload',False) else 99
+        return options
+
+    def translate(self, text, timeout=None):
+        if timeout is None:timeout=25 if getattr(self,'compute','cuda')=='cuda' else 120
         gemma = getattr(self, 'gemma', False)
-        options = dict(OPTIONS)
+        options = self.options()
         if gemma:
             options.update(stop=['<end_of_turn>', '<eos>'], num_predict=384, top_k=1, top_p=1.0)
         prompt = gemma_prompt(text,self.source,self.target) if gemma else PROMPT.replace('{text}', text)
         result = self.api('/api/generate', dict(model=self.name, prompt=prompt,
                          raw=True, stream=False, keep_alive=-1, options=options), timeout=timeout)
+        self.last_metrics={k:result.get(k) for k in ('total_duration','load_duration','prompt_eval_count','prompt_eval_duration','eval_count','eval_duration','done_reason')}
         if result.get('done_reason') == 'length':
             raise RuntimeError('Translation exceeded the token limit; shorten the OCR region.')
         return result.get('response', '').strip()
@@ -154,3 +152,13 @@ class GpuTranslator:
         if self.log:
             self.log.close()
             self.log = None
+
+    def classify_content(self, text, timeout=None):
+        if timeout is None:timeout=5 if self.compute=='cuda' else 30
+        from subtitle_filter import classification_prompt
+        if not self.gemma:
+            return 'UNKNOWN'
+        options=dict(self.options(),num_predict=12,top_k=1,top_p=1.0,stop=['<end_of_turn>','<eos>','\n'])
+        result=self.api('/api/generate',dict(model=self.name,prompt=classification_prompt(text),raw=True,stream=False,keep_alive=-1,options=options),timeout=timeout)
+        value=result.get('response','').strip()
+        return value if result.get('done_reason')!='length' and value in ('KEEP','SKIP') else 'UNKNOWN'

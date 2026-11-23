@@ -1,0 +1,13 @@
+COMPUTE VULKAN / NVIDIA GeForce RTX 4050 Laptop GPU / full GPU
+{"case":"dialogue-name","model":4,"filtered":false,"ocr":"John, wait!","translation":"Johne, počkej!","ms":21558.8,"passed":true}
+COMPUTE VULKAN / NVIDIA GeForce RTX 4050 Laptop GPU / full GPU
+{"case":"name-female","model":4,"filtered":true,"ocr":"Sarah Miller","translation":"","ms":1493.82,"passed":true}
+COMPUTE VULKAN / NVIDIA GeForce RTX 4050 Laptop GPU / full GPU
+{"case":"dialogue-code","model":4,"filtered":false,"ocr":"The code is 1234.","translation":"Kód je 1234.","ms":5131.62,"passed":true}
+COMPUTE VULKAN / NVIDIA GeForce RTX 4050 Laptop GPU / full GPU
+{"case":"name-male","model":4,"filtered":true,"ocr":"John Smith","translation":"","ms":836.07,"passed":true}
+COMPUTE VULKAN / NVIDIA GeForce RTX 4050 Laptop GPU / full GPU
+{"case":"dialogue-short","model":4,"filtered":false,"ocr":"No!","translation":"Ne!","ms":5333.54,"passed":true}
+COMPUTE VULKAN / NVIDIA GeForce RTX 4050 Laptop GPU / full GPU
+{"case":"dialogue-no-punctuation","model":4,"filtered":false,"ocr":"Follow the tracks","translation":"Sledujte stopy","ms":4208.91,"passed":true}
+PASS: real OCR + filter + translation + IPC + subtitle queue

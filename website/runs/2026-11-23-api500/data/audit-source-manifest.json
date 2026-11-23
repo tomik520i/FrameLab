@@ -1,0 +1,66 @@
+{
+  "base_commit": "de194643017b3e05d8360a59108588460a790862",
+  "local_changes": true,
+  "files": [
+    {
+      "file": "tools/benchmark_subtitles_500.py",
+      "sha256": "f6bbd453be55a2e3c5b9e97e48a5eee6f8249d495d75a6c6ff01fd16c761c807"
+    },
+    {
+      "file": "tools/judge_subtitles_500.py",
+      "sha256": "229f3b105dd39c1c9d0c08c9c4bb0ee5d2f6c633bc3ebc535c1fa58d180f5b14"
+    },
+    {
+      "file": "tools/evaluate_api_filter.py",
+      "sha256": "4cc9e725ef16ca9ae1b0683af39d323749ec7ed53cbf776432dc015d42809b2d"
+    },
+    {
+      "file": "tools/render_api500_report.py",
+      "sha256": "2624d2dfdc73fdd51d24bbf4f7dafc95bf066d5425435ff3cb56683eb7124e64"
+    },
+    {
+      "file": "tools/finalize_api500_audit.py",
+      "sha256": "959224c223f4bf1a35a74d5e07192398d96bfa640c3987cdbf759f16f10f9dd0"
+    },
+    {
+      "file": "tools/api500_report.js",
+      "sha256": "bc934ee76b74dc961b5d4599b80178aea4ba8bb9b9d37df8809870fb26e32892"
+    },
+    {
+      "file": "tools/openai_translation.py",
+      "sha256": "61ef2756e2e92cdb0bb29e68b14caeaea87a711b4bbac6a61f7cb2c4467422a0"
+    },
+    {
+      "file": "tools/subtitle_gpu.py",
+      "sha256": "b05889c8990da95e92055d42b9e90defcf1db8e04f0a732edc96de188b3a796b"
+    },
+    {
+      "file": "tools/subtitle_languages.py",
+      "sha256": "202d388157237abe3de308bf3925007c9d5c70a22021a7e2375958fc9ade68d3"
+    },
+    {
+      "file": "tools/subtitle_filter.py",
+      "sha256": "065b61dc978fe66de250a35e46b1d95b96d049cc48d587c32c22127aff71bf5d"
+    },
+    {
+      "file": "tools/subtitle_entities.py",
+      "sha256": "cb2156ffa51b9b02ccdc4788acab02afe73a01c3b0275a08710f58e9bca3c1ea"
+    },
+    {
+      "file": "tools/translate_worker.py",
+      "sha256": "5bc88b101a482d4723922f4550110ecd82f5df2b066cd328bee26e0b380a46db"
+    },
+    {
+      "file": "docs/openai-model-profiles.json",
+      "sha256": "fa578218e0fa915ec4484daff082c852bfcbf92af1cdad39fa91e92f4a01f163"
+    },
+    {
+      "file": "LICENSE",
+      "sha256": "230184f60bae2feaf244f10a8bac053c8ff33a183bcc365b4d8b876d2b7f4809"
+    },
+    {
+      "file": "tests/test_openai_translation.py",
+      "sha256": "4e52b77b05efa2763c3cb496f1fb6234e2379e3ed28877f6895a0bc77b9cc125"
+    }
+  ]
+}

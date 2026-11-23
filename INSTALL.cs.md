@@ -1,9 +1,19 @@
-# FrameLab preview.17 — česká instalace
+# FrameLab preview.18 — česká instalace
 
 [English](START_HERE.md) · [Web a ukázky](https://opicebot.cz/framelab/?lang=cs)
 
 
 [Obrazový návod: aktuální screenshoty, očíslované kroky a zvětšování](https://opicebot.cz/framelab/guide/visual.html). Stejný návod je v ZIPu jako **OBRAZOVY NAVOD.html**.
+
+## Nové v preview.18: okno hry, samostatné titulky a Vulkan
+
+- **Vstup → Okno aplikace:** obnov seznam, vyber běžící hru nebo Remote Play a spusť zachytávání. Hra musí zůstat otevřená; začni režimem okna nebo bezrámečkového okna. Chráněný obraz a některé hry zachytit nejdou. Obrazovou GPU vybereš samostatně; při změně se aplikace restartuje.
+- **Zobrazení → Jen titulky přes zdrojové okno:** průhledný překryv sleduje vybrané okno, kliknutí propouští do hry. OCR oblast nastav předem a polohu českého textu posuň nezávisle. Tento režim nepřidává FG ani NR do samotné hry. [Obrazový postup Remote Play, překryvu a API](docs/remote-subtitles-api.cs.md).
+- **Titulky → Výpočet překladu:** Automaticky, CUDA, Vulkan nebo CPU; vyber i konkrétní GPU. CUNI a Gemma používají stejné modely. Pro nedostatek VRAM lze povolit GPU + RAM. Na tomto notebooku je nejlepší CUDA; Intel UHD / Vulkan funguje, ale je pomalý. AMD nebylo fyzicky otestováno. [Návod a časy](docs/local-translation-compute.cs.md).
+- **Volitelné OpenAI API:** zvol online způsob překladu, vlož vlastní klíč a načti modely. Klíč ukládá Windows Credential Manager; do API odchází text OCR. Výchozí nabídka míří na levné rychlé modely, podporované parametry řídí profily. Bez klíče fungují místní překladače. Placené hodnocení kvality se v aplikaci nespouští.
+- Přibalený místní filtr omezuje jména, SPZ a nápisy; nejednoznačnou větu neumí vždy odlišit od titulku. Zúžení OCR oblasti zůstává důležité. Aktivní přehrávání/zachytávání brání uspání displeje; nejde o trvalou změnu nastavení Windows.
+
+[Vlastní hodnocení všech 2 000 překladů, pořadí modelů a konkrétní chyby](https://opicebot.cz/framelab/runs/2026-11-23-direct-review/). Sada 500 replik měřila textový překlad bez FG, enhanceru a OCR; není to měření herních FPS.
 
 ## Nové v preview.17: jiná GPU a další jazyky
 
@@ -15,7 +25,7 @@ Celý veřejný ZIP přibaluje RIFE modely a runtime, VFG runtime, 12 OCR sad, C
 
 ## Stáhnout a spustit
 
-1. [Stáhněte celý ZIP pro Windows x64](https://github.com/tomik520i/FrameLab/releases/download/v0.2.0-preview.17/FrameLab-0.2.0-preview.17-windows-x64-full.zip) a **rozbalte vše**, například do D:/FrameLab. Nespouštějte aplikaci uvnitř ZIPu.
+1. [Stáhněte celý ZIP pro Windows x64](https://github.com/tomik520i/FrameLab/releases/download/v0.2.0-preview.18/FrameLab-0.2.0-preview.18-windows-x64-full.zip) a **rozbalte vše**, například do D:/FrameLab. Nespouštějte aplikaci uvnitř ZIPu.
 2. Spusťte **Start FrameLab.cmd** nebo **1 - Spustit FrameLab.cmd**. Nová instalace pustí GTA ukázku, další spuštění obnoví relaci. Python, SDK ani systémový VLC nepotřebujete; složky balíčku musí zůstat pohromadě.
 3. Začněte s **Frame gen → 2×**. **F11** zobrazí čistý výstup, Escape/F11 vrátí ovládání. Tlačítkem **EN / CZ** přepnete anglické rozhraní do češtiny.
 

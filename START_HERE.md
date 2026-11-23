@@ -1,8 +1,18 @@
-# FrameLab preview.17 — start here
+# FrameLab preview.18 — start here
 
 [Česky](INSTALL.cs.md) · [Web comparisons](https://opicebot.cz/framelab/)
 
 [Illustrated walkthrough: current screenshots, numbered steps and zoom](https://opicebot.cz/framelab/guide/visual-en.html). The same guide is included offline as **VISUAL GUIDE.html**.
+
+## New in preview.18: game windows, independent captions and Vulkan
+
+- **Capture → Application window:** refresh, choose the running game or Remote Play window and start capture. Keep the source open; begin with windowed/borderless mode. Protected surfaces and some games cannot be captured. Image processing has its own GPU selection, applied after restart.
+- **Display → Subtitles only over source window:** a transparent, click-through overlay follows the selected window. Set the OCR region first and position translated text independently. This mode does not inject FG or NR into the game. [Remote Play, overlay and API walkthrough](https://opicebot.cz/framelab/guide/remote-subtitles-en.html).
+- **Subtitles → Translation compute:** Auto, CUDA, Vulkan or CPU, with a separate GPU choice. CUNI and Gemma retain their model files. Optional GPU + RAM allows partial placement. CUDA is fastest on this laptop; Intel UHD Vulkan works but is slow. Physical AMD testing is still outstanding. [Measured setup guide](docs/local-translation-compute.cs.md).
+- **Optional OpenAI API:** choose online translation, save your own key and refresh available models. Windows Credential Manager stores the key; OCR text is sent to the selected API. Model profiles govern supported reasoning/temperature parameters. Local models remain usable without a key. The application does not run a paid quality judge.
+- A bundled local filter reduces names, license plates and labels; ambiguous text still requires a suitable OCR region. Active playback/capture keeps the display awake without changing the Windows power plan.
+
+[All 2,000 translations, direct assistant review, ranking and examples](https://opicebot.cz/framelab/runs/2026-11-23-direct-review/). The 500-entry benchmark measured text translation with FG, NR and OCR off, not game performance.
 
 ## New in preview.17: more GPUs and languages
 
@@ -14,7 +24,7 @@ The public full ZIP includes RIFE models/runtime, VFG runtime, 12 OCR packs, CPU
 
 ## Download and launch
 
-1. [Download the full Windows x64 ZIP](https://github.com/tomik520i/FrameLab/releases/download/v0.2.0-preview.17/FrameLab-0.2.0-preview.17-windows-x64-full.zip) and **extract all** to a short writable folder, for example D:/FrameLab.
+1. [Download the full Windows x64 ZIP](https://github.com/tomik520i/FrameLab/releases/download/v0.2.0-preview.18/FrameLab-0.2.0-preview.18-windows-x64-full.zip) and **extract all** to a short writable folder, for example D:/FrameLab.
 2. Run **Start FrameLab.cmd**. A new installation opens the GTA demo; subsequent launches restore the saved session. No compiler, Python, SDK or system VLC installation is needed. Keep the entire folder together.
 3. Begin with **Frame gen → 2×**. **F11** opens fullscreen; Escape/F11 returns. **EN / CZ** changes language; English is the clean-install default.
 

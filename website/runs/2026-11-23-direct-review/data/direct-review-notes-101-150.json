@@ -1,0 +1,10 @@
+{
+ "w500-103":{"_case":"Samotný anglický řádek neříká pohlaví oslovené postavy. Mužský rod proto zde sám o sobě nesráží skóre, i když známá herní lokalizace používá ženský."},
+ "w500-110":{"B":"Zůstávají nepřeložené gryphon a mounty, chybná shoda i neúplná vazba ‚aby si mounty‘. Informace o schopnosti unést jezdce je vážně poškozená."},
+ "w500-113":{"D":"Plynulá čeština maskuje změnu rolí: originál chce ovládat moře a vodní lid POMOCÍ nág a netopýrů. Výstup přidává nágy i netopýry mezi objekty ovládání."},
+ "w500-118":{"A":"Vypadla negace: úkol, který není příliš těžký, se stal příliš náročným. Jde o obrácení významu."},
+ "w500-128":{"C":"‚Of course not‘ se změnilo na kladné ‚Samozřejmě‘; základ odpovědi je obrácený."},
+ "w500-145":{"A":"Delfador je oslovený, nikoli jméno zabitého prince. Překlad vytváří ‚prince Delfadora‘.","C":"Chybně připojuje oslovení Delfador k zabitému princi.","D":"Chybně připojuje oslovení Delfador k zabitému princi.","B":"Správně odděluje oběť (prince) a osloveného Delfadora."},
+ "w500-148":{"B":"Staff je v této větě kouzelnická hůl, nikoli personál. Rozpadlá syntax navíc zamlžuje srovnání moudrosti a bojové síly.","D":"Přirozeně zachovává srovnání moudrých rad a síly s holí v bitvě."},
+ "w500-150":{"A":"‚Své násilné instinkty‘ vztahuje instinkty k člověku/elfovi; originál mluví o ovládání instinktů jezdeckých tvorů."}
+}

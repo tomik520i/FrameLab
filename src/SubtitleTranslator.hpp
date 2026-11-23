@@ -36,6 +36,14 @@ struct SubtitleSettings {
  std::string sourceLanguage="en",targetLanguage="cs";
  float holdSeconds=1.2f,lingerSeconds=3.f;
  bool joinFragments=true;
+ int contentFilter=2; // 0 off, 1 obvious noise/plates, 2 conservative model-assisted EN filter
+ int provider=0; // 0 local, 1 optional OpenAI BYOK; local model selection is retained
+ std::string apiModel="gpt-6-luna",apiEffort="none";
+ bool apiTemperatureEnabled=false;
+ float apiTemperature=0;
+ unsigned apiKeyRevision=0; // in-memory only; changing credentials restarts the worker
+ std::string computeBackend="auto",computeDevice; // translation-only GPU selection by stable UUID
+ bool allowCpuOffload=false; // explicit permission to split GGUF model across GPU/system RAM
  SubtitleStyleProfile style;
  bool operator==(const SubtitleSettings&)const=default;
  void sanitize();
@@ -43,11 +51,12 @@ struct SubtitleSettings {
  void save(const std::filesystem::path&)const;
 };
 struct SubtitlePerformance {
+ uint64_t filtered=0;
  uint64_t submitted=0,ocrCompleted=0,ocrSuperseded=0,ocrErrors=0,translations=0,cacheHits=0,translationDrops=0,translationErrors=0,shown=0,captionDrops=0;
  double ocrQueueMs=0,translationMs=0,translationQueueMs=0,displayLatencyMs=0,modelLoadMs=0;
  bool ocrBusy=false,translationBusy=false;
 };
-struct SubtitleSnapshot {std::string source,translated,displaySource,status;float milliseconds=0,ocrMilliseconds=0,confidence=0;double observedAt=0,displayedAt=0,expiresAt=0;uint64_t generation=0;int activeModel=-1,pending=0;bool loading=false;SubtitlePerformance performance;std::vector<SubtitleOcrLine> ocrLines;unsigned sourceHeight=0;bool inspected=false;};
+struct SubtitleSnapshot {std::string source,translated,displaySource,status,filterBackend,computeDescription;float milliseconds=0,ocrMilliseconds=0,confidence=0;double observedAt=0,displayedAt=0,expiresAt=0;uint64_t generation=0;int activeModel=-1,pending=0;bool loading=false;SubtitlePerformance performance;std::vector<SubtitleOcrLine> ocrLines;unsigned sourceHeight=0;bool inspected=false;};
 class Diagnostics;
 class SubtitleTranslator {
 public:

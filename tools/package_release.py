@@ -17,7 +17,7 @@ def digest(path):
 
 def publishable(path,base):
     rel=path.relative_to(base)
-    return path.is_file() and not set(rel.parts).intersection({'logs','recordings','__pycache__','nr-cache','.git','subtitle-style-samples'}) and path.suffix!='.pyc' and path.name not in {'recording-folder.txt','recording-folder.txt.tmp','runtime-session.txt','runtime-session.txt.tmp','nr-settings.txt','subtitle-settings.txt','subtitle-profiles.txt','subtitle-profiles.txt.tmp','display-settings.txt','audio-settings.txt','file-audio-settings.txt','imgui.ini','SHA256SUMS.txt'}
+    return path.is_file() and not set(rel.parts).intersection({'logs','recordings','__pycache__','nr-cache','.git','subtitle-style-samples'}) and path.suffix!='.pyc' and path.name not in {'recording-folder.txt','recording-folder.txt.tmp','runtime-session.txt','runtime-session.txt.tmp','nr-settings.txt','subtitle-settings.txt','subtitle-profiles.txt','subtitle-profiles.txt.tmp','display-settings.txt','gpu-settings.txt','gpu-settings.txt.tmp','openai-settings.txt','openai-settings.txt.tmp','window-overlay-settings.txt','audio-settings.txt','file-audio-settings.txt','imgui.ini','SHA256SUMS.txt'}
 
 def main():
     p=argparse.ArgumentParser(description=__doc__)
@@ -29,8 +29,9 @@ def main():
     p.add_argument('--ocr',type=Path,required=True,help='Verified output of prepare_ocr.py')
     p.add_argument('--media',type=Path,required=True,help='Verified output of prepare_media.py')
     p.add_argument('--rife',type=Path,required=True,help='Verified runtime/rife folder, including all three ONNX models and licenses')
+    p.add_argument('--entity-filter',type=Path,help='Prepared translation/filter directory, including tokenizers dependencies and licenses')
     p.add_argument('--output',type=Path,required=True)
-    p.add_argument('--version',default='0.2.0-preview.17')
+    p.add_argument('--version',default='0.2.0-preview.18')
     p.add_argument('--commit',required=True)
     p.add_argument('--gta-sample',type=Path,required=True)
     a=p.parse_args()
@@ -76,6 +77,11 @@ def main():
     for required in ['onnxruntime.dll','onnxruntime_providers_shared.dll','DirectML.dll','licenses/DirectML-LICENSE.txt','licenses/RIFE-LICENSE','licenses/SmoovPlay-LICENSE']:
         assert (a.rife/required).is_file(),required
     shutil.copytree(a.rife,stage/'app/runtime/rife',dirs_exist_ok=True)
+    if a.entity_filter:
+        pin=json.loads((a.entity_filter/'provenance.json').read_text('utf-8'))
+        for asset in pin['files']:assert digest(a.entity_filter/asset['file'])==asset['sha256'],asset['file']
+        assert (a.entity_filter/'deps/tokenizers').is_dir() and (a.entity_filter/'licenses/Apache-2.0.txt').is_file(),'Incomplete entity filter'
+        shutil.copytree(a.entity_filter,stage/'app/translation/filter',ignore=shutil.ignore_patterns('__pycache__','*.pyc'),dirs_exist_ok=True)
     (stage/'app/language.txt').write_text('0\n',encoding='ascii')
     (stage/'app/nr-host').mkdir(exist_ok=True)
     shutil.copy2(a.nr_host,stage/'app/nr-host/nvngx.dll')
@@ -89,11 +95,12 @@ def main():
     for source in ROOT.glob('*.cmd'):
         if source.name.startswith(('Start FrameLab','1 - ','2 - ','3 - ','4 - ','Ukazka - ')) and source.name!='Ukazka - Spider-Man.cmd':
             shutil.copy2(source,stage/source.name)
-    for file in ['prepare_translation.py','prepare_ocr.py','prepare_media.py','ocr_worker.py','ocr_style.py','translate_worker.py','subtitle_models.py','subtitle_model_manager.py','subtitle_gpu.py','subtitle_languages.py','package_release.py','package_guides.py','Install-Enhancer.ps1']:
+    for file in ['prepare_translation.py','prepare_ocr.py','prepare_media.py','prepare_entity_filter.py','ocr_worker.py','ocr_style.py','translate_worker.py','subtitle_models.py','subtitle_model_manager.py','subtitle_compute.py','subtitle_gpu.py','openai_translation.py','subtitle_filter.py','subtitle_entities.py','subtitle_languages.py','package_release.py','package_guides.py','Install-Enhancer.ps1']:
         shutil.copy2(ROOT/'tools'/file,stage/'tools'/file)
-    for file in ['translate_worker.py','subtitle_models.py','subtitle_model_manager.py','subtitle_gpu.py','subtitle_languages.py']:
+    for file in ['translate_worker.py','subtitle_models.py','subtitle_model_manager.py','subtitle_compute.py','subtitle_gpu.py','openai_translation.py','subtitle_filter.py','subtitle_entities.py','subtitle_languages.py']:
         shutil.copy2(ROOT/'tools'/file,stage/'app/translation'/file)
     shutil.copy2(ROOT/'docs/subtitle-models.json',stage/'app/translation/subtitle-models.json')
+    shutil.copy2(ROOT/'docs/openai-model-profiles.json',stage/'app/translation/openai-model-profiles.json')
     for folder in ['translation','ocr']:
         shutil.copy2(ROOT/'docs/subtitle-languages.json',stage/'app'/folder/'subtitle-languages.json')
         shutil.copy2(ROOT/'tools/subtitle_languages.py',stage/'app'/folder/'subtitle_languages.py')
@@ -127,7 +134,7 @@ def main():
     (stage/'ZACNI TADY.txt').write_text(guide,encoding='utf-8-sig')
     copy_guides(stage)
     (stage/'README-v3.txt').write_text('This is the public '+a.version+' full package. Start with ZACNI TADY.html, INSTALL.cs.md or START_HERE.md. NR adapter and import wizard included; external NR model DLLs are not bundled.\n',encoding='utf-8')
-    metadata={'version':a.version,'source_commit':commit,'FRAMELAB_EXPERIMENTAL_NR':True,'setup_sha256':digest(stage/'app/FrameLab-Setup.exe'),'nr_host_sha256':digest(stage/'app/nr-host/nvngx.dll'),'nr_host_sdk_static_library':False,'application_sha256':digest(stage/'app/FrameLab.exe'),'bundled_translation':True,'bundled_ocr':True,'bundled_game_samples':2,'nr_runtime_included':False,'bundled_rife':'4.22 lite / DirectML','ocr_recognizers':12,'language_choices':40,'gpu_translation_models_included':False}
+    metadata={'version':a.version,'source_commit':commit,'FRAMELAB_EXPERIMENTAL_NR':True,'setup_sha256':digest(stage/'app/FrameLab-Setup.exe'),'nr_host_sha256':digest(stage/'app/nr-host/nvngx.dll'),'nr_host_sdk_static_library':False,'application_sha256':digest(stage/'app/FrameLab.exe'),'bundled_translation':True,'bundled_ocr':True,'bundled_game_samples':2,'nr_runtime_included':False,'bundled_rife':'4.22 lite / DirectML','ocr_recognizers':12,'language_choices':40,'gpu_translation_models_included':False,'window_capture':True,'subtitle_only_overlay':True,'optional_openai_byok':True,'translation_backends':['CUDA','Vulkan','CPU'],'bundled_entity_filter':bool(a.entity_filter)}
     (stage/'build-variant.json').write_text(json.dumps(metadata,indent=2),encoding='utf-8')
     files=sorted(x for x in stage.rglob('*') if publishable(x,stage))
     (stage/'SHA256SUMS.txt').write_text(''.join(digest(x)+'  '+x.relative_to(stage).as_posix()+'\n' for x in files),encoding='utf-8')

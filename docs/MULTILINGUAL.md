@@ -38,7 +38,7 @@ Změna jazyka u zapnuté TranslateGemma znovu načte příslušné procesy.
 Jde o odhady, ne garantované nároky každého ovladače. Na 6GB RTX 4050 začni 4B Q4.
 Q8 a 12B jsou dostupné tlačítkem, v tomto notebooku se jejich kvalita ani rychlost
 neověřovala. Přesnější kvantizace sama nezaručuje lepší větu. Překladač ověřuje
-úplné načtení na GPU; nepřepne se potichu na pomalý CPU offload. Dostupnost GPU
+ve výchozím režimu úplné načtení na GPU; preview.18 má také výslovné CPU a volitelné GPU + RAM. Dostupnost GPU
 se řídí přibaleným runtime Ollama, nezávisle na GPU vybrané pro obraz v aplikaci.
 U počítačů s více GPU proto údaj o volné paměti rendereru nemusí patřit GPU překladače.
 
@@ -119,3 +119,7 @@ v `docs/licenses/Gemma-LICENSE.txt`; další omezení používání jsou součá
 PP-OCR / RapidOCR: Apache-2.0; modely jsou nezměněné a mají zapsané SHA-256.
 Úprava pořadí arabského OCR odpovídá dekódování PaddleOCR, rovněž Apache-2.0.
 Externí NR DLL se veřejně nepřibalují ani nezrcadlí.
+
+## Preview.18: backend a volitelný cloud
+
+Místní CUNI/Gemma nyní nabízejí CUDA, Vulkan i CPU a oddělený výběr GPU. Úplné GPU načtení zůstává výchozí, ale lze výslovně povolit GPU + RAM nebo CPU. Místní režim nepoužívá cloud; samostatná možnost OpenAI API odesílá OCR text s vlastním placeným klíčem. Výše uvedená měření jazyků zachovávají původní podmínky. [Nastavení a měření backendů](local-translation-compute.cs.md).

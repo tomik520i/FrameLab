@@ -33,7 +33,7 @@ class SubtitleRaster {
  };
  ComPtr<IDWriteFactory> write;ComPtr<ID2D1Factory> d2d;ComPtr<IWICImagingFactory> wic;bool comOwned=false;
 public:
- struct Image {Texture texture;unsigned width=0,height=0,missingGlyphs=0;std::string key;int frame=0;};
+ struct Image {Texture texture;std::vector<unsigned char> premultipliedBgra;unsigned width=0,height=0,missingGlyphs=0;std::string key;int frame=0;};
  ComPtr<ID3D11Device> device;std::string error;std::deque<Image> cache;
  ~SubtitleRaster(){cache.clear();wic.Reset();write.Reset();d2d.Reset();if(comOwned)CoUninitialize();}
  static std::wstring wide(const std::string& text){int n=MultiByteToWideChar(CP_UTF8,MB_ERR_INVALID_CHARS,text.data(),int(text.size()),nullptr,0);if(n<=0)throw std::runtime_error("Invalid subtitle UTF-8");std::wstring out(n,0);MultiByteToWideChar(CP_UTF8,MB_ERR_INVALID_CHARS,text.data(),int(text.size()),out.data(),n);return out;}
@@ -44,9 +44,9 @@ public:
   check(D2D1CreateFactory(D2D1_FACTORY_TYPE_SINGLE_THREADED,d2d.GetAddressOf()),"Subtitle Direct2D");
   check(CoCreateInstance(CLSID_WICImagingFactory,nullptr,CLSCTX_INPROC_SERVER,IID_PPV_ARGS(&wic)),"Subtitle WIC");
  }
- Image* get(const std::string& text,float size,float wrap,const std::string& locale,bool rtl,int frame){
-  if(!device||text.empty())return nullptr;
-  const std::string key=text+'\x1f'+std::to_string(size)+':'+std::to_string(wrap)+':'+locale+':'+std::to_string(rtl);
+ Image* get(const std::string& text,float size,float wrap,const std::string& locale,bool rtl,int frame,bool cpuOnly=false){
+  if((!device&&!cpuOnly)||text.empty())return nullptr;
+  const std::string key=text+'\x1f'+std::to_string(size)+':'+std::to_string(wrap)+':'+locale+':'+std::to_string(rtl)+':'+std::to_string(cpuOnly);
   for(auto& item:cache)if(item.key==key){item.frame=frame;return &item;}
   try{
    init();const auto input=wide(text),language=wide(locale);
@@ -71,6 +71,10 @@ public:
    Renderer shadow(target.Get(),black.Get()),glyphs(target.Get(),white.Get());
    target->BeginDraw();target->Clear(D2D1::ColorF(0,0));layout->Draw(nullptr,&shadow,3,3);layout->Draw(nullptr,&glyphs,2,2);check(target->EndDraw(),"Subtitle raster drawing");
    std::vector<unsigned char> pixels(size_t(width)*actualHeight*4);check(bitmap->CopyPixels(nullptr,width*4,UINT(pixels.size()),pixels.data()),"Subtitle pixels");
+   if(cpuOnly){
+    // Layered HWND consumes premultiplied BGRA directly, at physical pixel size.
+    if(cache.size()>=4)cache.pop_front();Image image;image.width=width;image.height=actualHeight;image.key=key;image.frame=frame;image.missingGlyphs=glyphs.missing;image.premultipliedBgra=std::move(pixels);cache.push_back(std::move(image));return &cache.back();
+   }
    // WIC premultiplied BGRA -> ImGui straight-alpha RGBA; prevents dark fringes.
    for(size_t i=0;i<pixels.size();i+=4){unsigned a=pixels[i+3];const unsigned b=pixels[i],g=pixels[i+1],r=pixels[i+2];pixels[i]=a?static_cast<unsigned char>(std::min(255u,(r*255+a/2)/a)):0;pixels[i+1]=a?static_cast<unsigned char>(std::min(255u,(g*255+a/2)/a)):0;pixels[i+2]=a?static_cast<unsigned char>(std::min(255u,(b*255+a/2)/a)):0;}
    // Keep textures referenced by this/previous draw lists alive across recording.

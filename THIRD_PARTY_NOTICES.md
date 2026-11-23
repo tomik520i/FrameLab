@@ -1,5 +1,7 @@
 # Component provenance
 
+- Optional English subtitle entity filter: [dslim/distilbert-NER](https://huggingface.co/dslim/distilbert-NER), Apache-2.0; quantized ONNX conversion from [onnx-community/distilbert-NER-ONNX](https://huggingface.co/onnx-community/distilbert-NER-ONNX/tree/3a19fe9404a4469d91aa3d551558a97f68872f67). Model revision, file hashes, Apache license and attribution are bundled in `app/translation/filter`. Hugging Face tokenizers 0.22.2 (Apache-2.0) and its license are bundled in `filter/deps`; inference uses the existing MIT-licensed ONNX Runtime on CPU. This component recognizes names; it is not a translation model. `tools/prepare_entity_filter.py` pins and verifies the model and Windows tokenizer wheel.
+
 Portable local-file player (2026-11-20): unmodified VideoLAN VLC **3.0.24**
 Windows x64 libraries and plugins, downloaded from the official VideoLAN archive.
 The LibVLC API library is LGPL-2.1-or-later; VLC/plugins also contain GPL and

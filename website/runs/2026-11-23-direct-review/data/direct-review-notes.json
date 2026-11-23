@@ -1,0 +1,13 @@
+{
+ "w500-002":{"C":"Nemrtví se mění na mrtvé; navíc chybná vazba ‚ať se nám jednou setkáme‘.","D":"Ztrácí konkrétního nepřítele: undead je nahrazeno slovem ‚nepravému‘."},
+ "w500-003":{"A":"Mluvení pravdy se mění na popírání. U matky se rozpadá shoda do ‚vy jste si sami zvolili‘; začátek obsahuje ‚Iste‘."},
+ "w500-004":{"B":"Vynechá, čí krev má téct. ‚Krvavá krev‘ ztrácí zásadní kontrast mezi přáteli a skřety.","A":"Přirozeně zachovává kontrast: ke krveprolití dojde, ale oběťmi budou skřeti."},
+ "w500-006":{"D":"Zůstalo jen představení. Celá hrozba ‚Tremble before my wrath‘ chybí."},
+ "w500-008":{"B":"Vypadla celá věta o dědictví.","C":"‚Myslíš, že jsem to jen tak blázní?‘ není správně utvořená česká otázka."},
+ "w500-009":{"A":"Chybí druhá věta o pochodu na jatka.","C":"Význam je rozpoznatelný, ale ‚do jatka‘ je chybný tvar; úvod je doslovný a těžkopádný.","D":"Zachovává nevyhnutelné odhalení i obraz sebevražedného pochodu přirozenou češtinou."},
+ "w500-016":{"A":"‚Main host‘ znamená hlavní vojsko, nikoli hostitele. Navíc chybí celá věta o jediné možnosti odvrátit pohromu.","D":"Překročení pole se mění na přesun na bojiště; ‚této velké katastrof‘ má chybný pád."},
+ "w500-017":{"B":"Z celé repliky zůstala jen první otázka. Chybí další oběti, pochybnost i oslovení Parandry."},
+ "w500-021":{"D":"Popletené role v ‚donuťte nás co nejvíce draků‘ a rozpadlá větná stavba; příkaz není spolehlivě čitelný."},
+ "w500-022":{"A":"Místo rodiny strýce se utopil samotný strýc. To je změna postavy, ne stylistická varianta."},
+ "w500-023":{"D":"Chybí rozkaz odvést lháře i informace o Delfadorově dávné smrti.","A":"Rozbitá negace ‚ty nejs‘ nedokončuje klíčové popření identity; střídá tykání a vykání."}
+}

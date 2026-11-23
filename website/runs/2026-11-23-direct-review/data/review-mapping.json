@@ -1,0 +1,3002 @@
+{
+  "w500-001": {
+    "A": "translategemma-4b-q4km",
+    "B": "cpu",
+    "C": "cuni-q3km",
+    "D": "gpt-6-luna"
+  },
+  "w500-002": {
+    "A": "gpt-6-luna",
+    "B": "cuni-q3km",
+    "C": "translategemma-4b-q4km",
+    "D": "cpu"
+  },
+  "w500-003": {
+    "A": "translategemma-4b-q4km",
+    "B": "gpt-6-luna",
+    "C": "cpu",
+    "D": "cuni-q3km"
+  },
+  "w500-004": {
+    "A": "gpt-6-luna",
+    "B": "cpu",
+    "C": "cuni-q3km",
+    "D": "translategemma-4b-q4km"
+  },
+  "w500-005": {
+    "A": "cuni-q3km",
+    "B": "translategemma-4b-q4km",
+    "C": "gpt-6-luna",
+    "D": "cpu"
+  },
+  "w500-006": {
+    "A": "cuni-q3km",
+    "B": "gpt-6-luna",
+    "C": "translategemma-4b-q4km",
+    "D": "cpu"
+  },
+  "w500-007": {
+    "A": "cpu",
+    "B": "cuni-q3km",
+    "C": "gpt-6-luna",
+    "D": "translategemma-4b-q4km"
+  },
+  "w500-008": {
+    "A": "cuni-q3km",
+    "B": "cpu",
+    "C": "translategemma-4b-q4km",
+    "D": "gpt-6-luna"
+  },
+  "w500-009": {
+    "A": "cpu",
+    "B": "translategemma-4b-q4km",
+    "C": "cuni-q3km",
+    "D": "gpt-6-luna"
+  },
+  "w500-010": {
+    "A": "translategemma-4b-q4km",
+    "B": "cpu",
+    "C": "gpt-6-luna",
+    "D": "cuni-q3km"
+  },
+  "w500-011": {
+    "A": "gpt-6-luna",
+    "B": "cpu",
+    "C": "translategemma-4b-q4km",
+    "D": "cuni-q3km"
+  },
+  "w500-012": {
+    "A": "cuni-q3km",
+    "B": "gpt-6-luna",
+    "C": "cpu",
+    "D": "translategemma-4b-q4km"
+  },
+  "w500-013": {
+    "A": "translategemma-4b-q4km",
+    "B": "cuni-q3km",
+    "C": "gpt-6-luna",
+    "D": "cpu"
+  },
+  "w500-014": {
+    "A": "gpt-6-luna",
+    "B": "cuni-q3km",
+    "C": "translategemma-4b-q4km",
+    "D": "cpu"
+  },
+  "w500-015": {
+    "A": "gpt-6-luna",
+    "B": "cpu",
+    "C": "translategemma-4b-q4km",
+    "D": "cuni-q3km"
+  },
+  "w500-016": {
+    "A": "cpu",
+    "B": "cuni-q3km",
+    "C": "gpt-6-luna",
+    "D": "translategemma-4b-q4km"
+  },
+  "w500-017": {
+    "A": "cuni-q3km",
+    "B": "cpu",
+    "C": "gpt-6-luna",
+    "D": "translategemma-4b-q4km"
+  },
+  "w500-018": {
+    "A": "translategemma-4b-q4km",
+    "B": "cuni-q3km",
+    "C": "gpt-6-luna",
+    "D": "cpu"
+  },
+  "w500-019": {
+    "A": "cuni-q3km",
+    "B": "cpu",
+    "C": "gpt-6-luna",
+    "D": "translategemma-4b-q4km"
+  },
+  "w500-020": {
+    "A": "cuni-q3km",
+    "B": "gpt-6-luna",
+    "C": "translategemma-4b-q4km",
+    "D": "cpu"
+  },
+  "w500-021": {
+    "A": "translategemma-4b-q4km",
+    "B": "gpt-6-luna",
+    "C": "cuni-q3km",
+    "D": "cpu"
+  },
+  "w500-022": {
+    "A": "cpu",
+    "B": "cuni-q3km",
+    "C": "translategemma-4b-q4km",
+    "D": "gpt-6-luna"
+  },
+  "w500-023": {
+    "A": "translategemma-4b-q4km",
+    "B": "cuni-q3km",
+    "C": "gpt-6-luna",
+    "D": "cpu"
+  },
+  "w500-024": {
+    "A": "cuni-q3km",
+    "B": "gpt-6-luna",
+    "C": "translategemma-4b-q4km",
+    "D": "cpu"
+  },
+  "w500-025": {
+    "A": "translategemma-4b-q4km",
+    "B": "cpu",
+    "C": "cuni-q3km",
+    "D": "gpt-6-luna"
+  },
+  "w500-026": {
+    "A": "cpu",
+    "B": "translategemma-4b-q4km",
+    "C": "gpt-6-luna",
+    "D": "cuni-q3km"
+  },
+  "w500-027": {
+    "A": "translategemma-4b-q4km",
+    "B": "cuni-q3km",
+    "C": "cpu",
+    "D": "gpt-6-luna"
+  },
+  "w500-028": {
+    "A": "gpt-6-luna",
+    "B": "cuni-q3km",
+    "C": "cpu",
+    "D": "translategemma-4b-q4km"
+  },
+  "w500-029": {
+    "A": "cpu",
+    "B": "gpt-6-luna",
+    "C": "translategemma-4b-q4km",
+    "D": "cuni-q3km"
+  },
+  "w500-030": {
+    "A": "cuni-q3km",
+    "B": "gpt-6-luna",
+    "C": "translategemma-4b-q4km",
+    "D": "cpu"
+  },
+  "w500-031": {
+    "A": "translategemma-4b-q4km",
+    "B": "cpu",
+    "C": "cuni-q3km",
+    "D": "gpt-6-luna"
+  },
+  "w500-032": {
+    "A": "cpu",
+    "B": "cuni-q3km",
+    "C": "translategemma-4b-q4km",
+    "D": "gpt-6-luna"
+  },
+  "w500-033": {
+    "A": "cuni-q3km",
+    "B": "gpt-6-luna",
+    "C": "translategemma-4b-q4km",
+    "D": "cpu"
+  },
+  "w500-034": {
+    "A": "cuni-q3km",
+    "B": "cpu",
+    "C": "translategemma-4b-q4km",
+    "D": "gpt-6-luna"
+  },
+  "w500-035": {
+    "A": "gpt-6-luna",
+    "B": "cuni-q3km",
+    "C": "translategemma-4b-q4km",
+    "D": "cpu"
+  },
+  "w500-036": {
+    "A": "cpu",
+    "B": "cuni-q3km",
+    "C": "translategemma-4b-q4km",
+    "D": "gpt-6-luna"
+  },
+  "w500-037": {
+    "A": "gpt-6-luna",
+    "B": "cpu",
+    "C": "cuni-q3km",
+    "D": "translategemma-4b-q4km"
+  },
+  "w500-038": {
+    "A": "cuni-q3km",
+    "B": "gpt-6-luna",
+    "C": "translategemma-4b-q4km",
+    "D": "cpu"
+  },
+  "w500-039": {
+    "A": "translategemma-4b-q4km",
+    "B": "cuni-q3km",
+    "C": "cpu",
+    "D": "gpt-6-luna"
+  },
+  "w500-040": {
+    "A": "gpt-6-luna",
+    "B": "cpu",
+    "C": "translategemma-4b-q4km",
+    "D": "cuni-q3km"
+  },
+  "w500-041": {
+    "A": "translategemma-4b-q4km",
+    "B": "cpu",
+    "C": "cuni-q3km",
+    "D": "gpt-6-luna"
+  },
+  "w500-042": {
+    "A": "cuni-q3km",
+    "B": "translategemma-4b-q4km",
+    "C": "gpt-6-luna",
+    "D": "cpu"
+  },
+  "w500-043": {
+    "A": "cpu",
+    "B": "gpt-6-luna",
+    "C": "cuni-q3km",
+    "D": "translategemma-4b-q4km"
+  },
+  "w500-044": {
+    "A": "cuni-q3km",
+    "B": "gpt-6-luna",
+    "C": "cpu",
+    "D": "translategemma-4b-q4km"
+  },
+  "w500-045": {
+    "A": "gpt-6-luna",
+    "B": "cuni-q3km",
+    "C": "cpu",
+    "D": "translategemma-4b-q4km"
+  },
+  "w500-046": {
+    "A": "translategemma-4b-q4km",
+    "B": "cuni-q3km",
+    "C": "gpt-6-luna",
+    "D": "cpu"
+  },
+  "w500-047": {
+    "A": "cuni-q3km",
+    "B": "cpu",
+    "C": "translategemma-4b-q4km",
+    "D": "gpt-6-luna"
+  },
+  "w500-048": {
+    "A": "gpt-6-luna",
+    "B": "translategemma-4b-q4km",
+    "C": "cuni-q3km",
+    "D": "cpu"
+  },
+  "w500-049": {
+    "A": "cuni-q3km",
+    "B": "cpu",
+    "C": "translategemma-4b-q4km",
+    "D": "gpt-6-luna"
+  },
+  "w500-050": {
+    "A": "translategemma-4b-q4km",
+    "B": "cpu",
+    "C": "gpt-6-luna",
+    "D": "cuni-q3km"
+  },
+  "w500-051": {
+    "A": "gpt-6-luna",
+    "B": "cpu",
+    "C": "translategemma-4b-q4km",
+    "D": "cuni-q3km"
+  },
+  "w500-052": {
+    "A": "cpu",
+    "B": "translategemma-4b-q4km",
+    "C": "gpt-6-luna",
+    "D": "cuni-q3km"
+  },
+  "w500-053": {
+    "A": "translategemma-4b-q4km",
+    "B": "gpt-6-luna",
+    "C": "cuni-q3km",
+    "D": "cpu"
+  },
+  "w500-054": {
+    "A": "cpu",
+    "B": "cuni-q3km",
+    "C": "gpt-6-luna",
+    "D": "translategemma-4b-q4km"
+  },
+  "w500-055": {
+    "A": "cuni-q3km",
+    "B": "gpt-6-luna",
+    "C": "translategemma-4b-q4km",
+    "D": "cpu"
+  },
+  "w500-056": {
+    "A": "gpt-6-luna",
+    "B": "cpu",
+    "C": "translategemma-4b-q4km",
+    "D": "cuni-q3km"
+  },
+  "w500-057": {
+    "A": "gpt-6-luna",
+    "B": "cpu",
+    "C": "translategemma-4b-q4km",
+    "D": "cuni-q3km"
+  },
+  "w500-058": {
+    "A": "cpu",
+    "B": "translategemma-4b-q4km",
+    "C": "cuni-q3km",
+    "D": "gpt-6-luna"
+  },
+  "w500-059": {
+    "A": "translategemma-4b-q4km",
+    "B": "cuni-q3km",
+    "C": "gpt-6-luna",
+    "D": "cpu"
+  },
+  "w500-060": {
+    "A": "translategemma-4b-q4km",
+    "B": "cuni-q3km",
+    "C": "gpt-6-luna",
+    "D": "cpu"
+  },
+  "w500-061": {
+    "A": "gpt-6-luna",
+    "B": "translategemma-4b-q4km",
+    "C": "cpu",
+    "D": "cuni-q3km"
+  },
+  "w500-062": {
+    "A": "gpt-6-luna",
+    "B": "cuni-q3km",
+    "C": "cpu",
+    "D": "translategemma-4b-q4km"
+  },
+  "w500-063": {
+    "A": "cpu",
+    "B": "translategemma-4b-q4km",
+    "C": "cuni-q3km",
+    "D": "gpt-6-luna"
+  },
+  "w500-064": {
+    "A": "translategemma-4b-q4km",
+    "B": "cuni-q3km",
+    "C": "gpt-6-luna",
+    "D": "cpu"
+  },
+  "w500-065": {
+    "A": "cpu",
+    "B": "translategemma-4b-q4km",
+    "C": "cuni-q3km",
+    "D": "gpt-6-luna"
+  },
+  "w500-066": {
+    "A": "cpu",
+    "B": "cuni-q3km",
+    "C": "gpt-6-luna",
+    "D": "translategemma-4b-q4km"
+  },
+  "w500-067": {
+    "A": "translategemma-4b-q4km",
+    "B": "cpu",
+    "C": "gpt-6-luna",
+    "D": "cuni-q3km"
+  },
+  "w500-068": {
+    "A": "gpt-6-luna",
+    "B": "cpu",
+    "C": "cuni-q3km",
+    "D": "translategemma-4b-q4km"
+  },
+  "w500-069": {
+    "A": "cpu",
+    "B": "translategemma-4b-q4km",
+    "C": "cuni-q3km",
+    "D": "gpt-6-luna"
+  },
+  "w500-070": {
+    "A": "translategemma-4b-q4km",
+    "B": "gpt-6-luna",
+    "C": "cuni-q3km",
+    "D": "cpu"
+  },
+  "w500-071": {
+    "A": "cuni-q3km",
+    "B": "translategemma-4b-q4km",
+    "C": "gpt-6-luna",
+    "D": "cpu"
+  },
+  "w500-072": {
+    "A": "gpt-6-luna",
+    "B": "cpu",
+    "C": "cuni-q3km",
+    "D": "translategemma-4b-q4km"
+  },
+  "w500-073": {
+    "A": "cpu",
+    "B": "translategemma-4b-q4km",
+    "C": "cuni-q3km",
+    "D": "gpt-6-luna"
+  },
+  "w500-074": {
+    "A": "gpt-6-luna",
+    "B": "cuni-q3km",
+    "C": "translategemma-4b-q4km",
+    "D": "cpu"
+  },
+  "w500-075": {
+    "A": "translategemma-4b-q4km",
+    "B": "gpt-6-luna",
+    "C": "cpu",
+    "D": "cuni-q3km"
+  },
+  "w500-076": {
+    "A": "cpu",
+    "B": "gpt-6-luna",
+    "C": "cuni-q3km",
+    "D": "translategemma-4b-q4km"
+  },
+  "w500-077": {
+    "A": "translategemma-4b-q4km",
+    "B": "cuni-q3km",
+    "C": "gpt-6-luna",
+    "D": "cpu"
+  },
+  "w500-078": {
+    "A": "gpt-6-luna",
+    "B": "translategemma-4b-q4km",
+    "C": "cpu",
+    "D": "cuni-q3km"
+  },
+  "w500-079": {
+    "A": "gpt-6-luna",
+    "B": "cuni-q3km",
+    "C": "cpu",
+    "D": "translategemma-4b-q4km"
+  },
+  "w500-080": {
+    "A": "cpu",
+    "B": "cuni-q3km",
+    "C": "gpt-6-luna",
+    "D": "translategemma-4b-q4km"
+  },
+  "w500-081": {
+    "A": "cuni-q3km",
+    "B": "translategemma-4b-q4km",
+    "C": "cpu",
+    "D": "gpt-6-luna"
+  },
+  "w500-082": {
+    "A": "cpu",
+    "B": "translategemma-4b-q4km",
+    "C": "gpt-6-luna",
+    "D": "cuni-q3km"
+  },
+  "w500-083": {
+    "A": "cuni-q3km",
+    "B": "cpu",
+    "C": "translategemma-4b-q4km",
+    "D": "gpt-6-luna"
+  },
+  "w500-084": {
+    "A": "gpt-6-luna",
+    "B": "cuni-q3km",
+    "C": "translategemma-4b-q4km",
+    "D": "cpu"
+  },
+  "w500-085": {
+    "A": "cpu",
+    "B": "cuni-q3km",
+    "C": "gpt-6-luna",
+    "D": "translategemma-4b-q4km"
+  },
+  "w500-086": {
+    "A": "gpt-6-luna",
+    "B": "cpu",
+    "C": "translategemma-4b-q4km",
+    "D": "cuni-q3km"
+  },
+  "w500-087": {
+    "A": "cpu",
+    "B": "translategemma-4b-q4km",
+    "C": "gpt-6-luna",
+    "D": "cuni-q3km"
+  },
+  "w500-088": {
+    "A": "gpt-6-luna",
+    "B": "translategemma-4b-q4km",
+    "C": "cpu",
+    "D": "cuni-q3km"
+  },
+  "w500-089": {
+    "A": "cuni-q3km",
+    "B": "cpu",
+    "C": "gpt-6-luna",
+    "D": "translategemma-4b-q4km"
+  },
+  "w500-090": {
+    "A": "cpu",
+    "B": "gpt-6-luna",
+    "C": "cuni-q3km",
+    "D": "translategemma-4b-q4km"
+  },
+  "w500-091": {
+    "A": "cpu",
+    "B": "gpt-6-luna",
+    "C": "cuni-q3km",
+    "D": "translategemma-4b-q4km"
+  },
+  "w500-092": {
+    "A": "gpt-6-luna",
+    "B": "cpu",
+    "C": "cuni-q3km",
+    "D": "translategemma-4b-q4km"
+  },
+  "w500-093": {
+    "A": "translategemma-4b-q4km",
+    "B": "gpt-6-luna",
+    "C": "cpu",
+    "D": "cuni-q3km"
+  },
+  "w500-094": {
+    "A": "cpu",
+    "B": "gpt-6-luna",
+    "C": "translategemma-4b-q4km",
+    "D": "cuni-q3km"
+  },
+  "w500-095": {
+    "A": "cuni-q3km",
+    "B": "cpu",
+    "C": "gpt-6-luna",
+    "D": "translategemma-4b-q4km"
+  },
+  "w500-096": {
+    "A": "gpt-6-luna",
+    "B": "translategemma-4b-q4km",
+    "C": "cpu",
+    "D": "cuni-q3km"
+  },
+  "w500-097": {
+    "A": "cpu",
+    "B": "translategemma-4b-q4km",
+    "C": "gpt-6-luna",
+    "D": "cuni-q3km"
+  },
+  "w500-098": {
+    "A": "translategemma-4b-q4km",
+    "B": "gpt-6-luna",
+    "C": "cpu",
+    "D": "cuni-q3km"
+  },
+  "w500-099": {
+    "A": "translategemma-4b-q4km",
+    "B": "gpt-6-luna",
+    "C": "cuni-q3km",
+    "D": "cpu"
+  },
+  "w500-100": {
+    "A": "gpt-6-luna",
+    "B": "cpu",
+    "C": "cuni-q3km",
+    "D": "translategemma-4b-q4km"
+  },
+  "w500-101": {
+    "A": "cuni-q3km",
+    "B": "gpt-6-luna",
+    "C": "translategemma-4b-q4km",
+    "D": "cpu"
+  },
+  "w500-102": {
+    "A": "translategemma-4b-q4km",
+    "B": "cuni-q3km",
+    "C": "gpt-6-luna",
+    "D": "cpu"
+  },
+  "w500-103": {
+    "A": "gpt-6-luna",
+    "B": "translategemma-4b-q4km",
+    "C": "cpu",
+    "D": "cuni-q3km"
+  },
+  "w500-104": {
+    "A": "cpu",
+    "B": "translategemma-4b-q4km",
+    "C": "cuni-q3km",
+    "D": "gpt-6-luna"
+  },
+  "w500-105": {
+    "A": "translategemma-4b-q4km",
+    "B": "gpt-6-luna",
+    "C": "cpu",
+    "D": "cuni-q3km"
+  },
+  "w500-106": {
+    "A": "cuni-q3km",
+    "B": "translategemma-4b-q4km",
+    "C": "cpu",
+    "D": "gpt-6-luna"
+  },
+  "w500-107": {
+    "A": "cuni-q3km",
+    "B": "gpt-6-luna",
+    "C": "translategemma-4b-q4km",
+    "D": "cpu"
+  },
+  "w500-108": {
+    "A": "cpu",
+    "B": "translategemma-4b-q4km",
+    "C": "gpt-6-luna",
+    "D": "cuni-q3km"
+  },
+  "w500-109": {
+    "A": "cuni-q3km",
+    "B": "gpt-6-luna",
+    "C": "translategemma-4b-q4km",
+    "D": "cpu"
+  },
+  "w500-110": {
+    "A": "translategemma-4b-q4km",
+    "B": "cpu",
+    "C": "cuni-q3km",
+    "D": "gpt-6-luna"
+  },
+  "w500-111": {
+    "A": "gpt-6-luna",
+    "B": "translategemma-4b-q4km",
+    "C": "cuni-q3km",
+    "D": "cpu"
+  },
+  "w500-112": {
+    "A": "cuni-q3km",
+    "B": "translategemma-4b-q4km",
+    "C": "cpu",
+    "D": "gpt-6-luna"
+  },
+  "w500-113": {
+    "A": "cuni-q3km",
+    "B": "translategemma-4b-q4km",
+    "C": "cpu",
+    "D": "gpt-6-luna"
+  },
+  "w500-114": {
+    "A": "cpu",
+    "B": "gpt-6-luna",
+    "C": "translategemma-4b-q4km",
+    "D": "cuni-q3km"
+  },
+  "w500-115": {
+    "A": "gpt-6-luna",
+    "B": "translategemma-4b-q4km",
+    "C": "cuni-q3km",
+    "D": "cpu"
+  },
+  "w500-116": {
+    "A": "gpt-6-luna",
+    "B": "cpu",
+    "C": "cuni-q3km",
+    "D": "translategemma-4b-q4km"
+  },
+  "w500-117": {
+    "A": "gpt-6-luna",
+    "B": "cuni-q3km",
+    "C": "cpu",
+    "D": "translategemma-4b-q4km"
+  },
+  "w500-118": {
+    "A": "translategemma-4b-q4km",
+    "B": "gpt-6-luna",
+    "C": "cpu",
+    "D": "cuni-q3km"
+  },
+  "w500-119": {
+    "A": "cpu",
+    "B": "translategemma-4b-q4km",
+    "C": "gpt-6-luna",
+    "D": "cuni-q3km"
+  },
+  "w500-120": {
+    "A": "translategemma-4b-q4km",
+    "B": "cpu",
+    "C": "gpt-6-luna",
+    "D": "cuni-q3km"
+  },
+  "w500-121": {
+    "A": "translategemma-4b-q4km",
+    "B": "cpu",
+    "C": "cuni-q3km",
+    "D": "gpt-6-luna"
+  },
+  "w500-122": {
+    "A": "gpt-6-luna",
+    "B": "translategemma-4b-q4km",
+    "C": "cuni-q3km",
+    "D": "cpu"
+  },
+  "w500-123": {
+    "A": "cuni-q3km",
+    "B": "translategemma-4b-q4km",
+    "C": "gpt-6-luna",
+    "D": "cpu"
+  },
+  "w500-124": {
+    "A": "gpt-6-luna",
+    "B": "cpu",
+    "C": "translategemma-4b-q4km",
+    "D": "cuni-q3km"
+  },
+  "w500-125": {
+    "A": "cuni-q3km",
+    "B": "cpu",
+    "C": "gpt-6-luna",
+    "D": "translategemma-4b-q4km"
+  },
+  "w500-126": {
+    "A": "cuni-q3km",
+    "B": "gpt-6-luna",
+    "C": "cpu",
+    "D": "translategemma-4b-q4km"
+  },
+  "w500-127": {
+    "A": "translategemma-4b-q4km",
+    "B": "cuni-q3km",
+    "C": "cpu",
+    "D": "gpt-6-luna"
+  },
+  "w500-128": {
+    "A": "gpt-6-luna",
+    "B": "cpu",
+    "C": "translategemma-4b-q4km",
+    "D": "cuni-q3km"
+  },
+  "w500-129": {
+    "A": "gpt-6-luna",
+    "B": "cpu",
+    "C": "cuni-q3km",
+    "D": "translategemma-4b-q4km"
+  },
+  "w500-130": {
+    "A": "translategemma-4b-q4km",
+    "B": "cuni-q3km",
+    "C": "cpu",
+    "D": "gpt-6-luna"
+  },
+  "w500-131": {
+    "A": "gpt-6-luna",
+    "B": "cpu",
+    "C": "cuni-q3km",
+    "D": "translategemma-4b-q4km"
+  },
+  "w500-132": {
+    "A": "cuni-q3km",
+    "B": "cpu",
+    "C": "gpt-6-luna",
+    "D": "translategemma-4b-q4km"
+  },
+  "w500-133": {
+    "A": "cuni-q3km",
+    "B": "translategemma-4b-q4km",
+    "C": "cpu",
+    "D": "gpt-6-luna"
+  },
+  "w500-134": {
+    "A": "cuni-q3km",
+    "B": "translategemma-4b-q4km",
+    "C": "gpt-6-luna",
+    "D": "cpu"
+  },
+  "w500-135": {
+    "A": "gpt-6-luna",
+    "B": "cuni-q3km",
+    "C": "translategemma-4b-q4km",
+    "D": "cpu"
+  },
+  "w500-136": {
+    "A": "cpu",
+    "B": "gpt-6-luna",
+    "C": "cuni-q3km",
+    "D": "translategemma-4b-q4km"
+  },
+  "w500-137": {
+    "A": "gpt-6-luna",
+    "B": "cpu",
+    "C": "translategemma-4b-q4km",
+    "D": "cuni-q3km"
+  },
+  "w500-138": {
+    "A": "translategemma-4b-q4km",
+    "B": "gpt-6-luna",
+    "C": "cpu",
+    "D": "cuni-q3km"
+  },
+  "w500-139": {
+    "A": "translategemma-4b-q4km",
+    "B": "cuni-q3km",
+    "C": "cpu",
+    "D": "gpt-6-luna"
+  },
+  "w500-140": {
+    "A": "translategemma-4b-q4km",
+    "B": "gpt-6-luna",
+    "C": "cpu",
+    "D": "cuni-q3km"
+  },
+  "w500-141": {
+    "A": "gpt-6-luna",
+    "B": "translategemma-4b-q4km",
+    "C": "cpu",
+    "D": "cuni-q3km"
+  },
+  "w500-142": {
+    "A": "cpu",
+    "B": "gpt-6-luna",
+    "C": "cuni-q3km",
+    "D": "translategemma-4b-q4km"
+  },
+  "w500-143": {
+    "A": "cpu",
+    "B": "gpt-6-luna",
+    "C": "cuni-q3km",
+    "D": "translategemma-4b-q4km"
+  },
+  "w500-144": {
+    "A": "gpt-6-luna",
+    "B": "cpu",
+    "C": "translategemma-4b-q4km",
+    "D": "cuni-q3km"
+  },
+  "w500-145": {
+    "A": "translategemma-4b-q4km",
+    "B": "gpt-6-luna",
+    "C": "cuni-q3km",
+    "D": "cpu"
+  },
+  "w500-146": {
+    "A": "cuni-q3km",
+    "B": "cpu",
+    "C": "gpt-6-luna",
+    "D": "translategemma-4b-q4km"
+  },
+  "w500-147": {
+    "A": "gpt-6-luna",
+    "B": "translategemma-4b-q4km",
+    "C": "cpu",
+    "D": "cuni-q3km"
+  },
+  "w500-148": {
+    "A": "cuni-q3km",
+    "B": "cpu",
+    "C": "translategemma-4b-q4km",
+    "D": "gpt-6-luna"
+  },
+  "w500-149": {
+    "A": "cpu",
+    "B": "translategemma-4b-q4km",
+    "C": "gpt-6-luna",
+    "D": "cuni-q3km"
+  },
+  "w500-150": {
+    "A": "cpu",
+    "B": "translategemma-4b-q4km",
+    "C": "cuni-q3km",
+    "D": "gpt-6-luna"
+  },
+  "w500-151": {
+    "A": "cuni-q3km",
+    "B": "translategemma-4b-q4km",
+    "C": "gpt-6-luna",
+    "D": "cpu"
+  },
+  "w500-152": {
+    "A": "cpu",
+    "B": "cuni-q3km",
+    "C": "gpt-6-luna",
+    "D": "translategemma-4b-q4km"
+  },
+  "w500-153": {
+    "A": "cuni-q3km",
+    "B": "translategemma-4b-q4km",
+    "C": "gpt-6-luna",
+    "D": "cpu"
+  },
+  "w500-154": {
+    "A": "cpu",
+    "B": "translategemma-4b-q4km",
+    "C": "gpt-6-luna",
+    "D": "cuni-q3km"
+  },
+  "w500-155": {
+    "A": "cuni-q3km",
+    "B": "cpu",
+    "C": "translategemma-4b-q4km",
+    "D": "gpt-6-luna"
+  },
+  "w500-156": {
+    "A": "cpu",
+    "B": "gpt-6-luna",
+    "C": "cuni-q3km",
+    "D": "translategemma-4b-q4km"
+  },
+  "w500-157": {
+    "A": "gpt-6-luna",
+    "B": "cpu",
+    "C": "cuni-q3km",
+    "D": "translategemma-4b-q4km"
+  },
+  "w500-158": {
+    "A": "gpt-6-luna",
+    "B": "cuni-q3km",
+    "C": "translategemma-4b-q4km",
+    "D": "cpu"
+  },
+  "w500-159": {
+    "A": "translategemma-4b-q4km",
+    "B": "cpu",
+    "C": "gpt-6-luna",
+    "D": "cuni-q3km"
+  },
+  "w500-160": {
+    "A": "translategemma-4b-q4km",
+    "B": "cuni-q3km",
+    "C": "gpt-6-luna",
+    "D": "cpu"
+  },
+  "w500-161": {
+    "A": "translategemma-4b-q4km",
+    "B": "cuni-q3km",
+    "C": "gpt-6-luna",
+    "D": "cpu"
+  },
+  "w500-162": {
+    "A": "cuni-q3km",
+    "B": "cpu",
+    "C": "translategemma-4b-q4km",
+    "D": "gpt-6-luna"
+  },
+  "w500-163": {
+    "A": "cuni-q3km",
+    "B": "translategemma-4b-q4km",
+    "C": "gpt-6-luna",
+    "D": "cpu"
+  },
+  "w500-164": {
+    "A": "cpu",
+    "B": "cuni-q3km",
+    "C": "gpt-6-luna",
+    "D": "translategemma-4b-q4km"
+  },
+  "w500-165": {
+    "A": "cuni-q3km",
+    "B": "cpu",
+    "C": "gpt-6-luna",
+    "D": "translategemma-4b-q4km"
+  },
+  "w500-166": {
+    "A": "cpu",
+    "B": "translategemma-4b-q4km",
+    "C": "cuni-q3km",
+    "D": "gpt-6-luna"
+  },
+  "w500-167": {
+    "A": "cuni-q3km",
+    "B": "cpu",
+    "C": "translategemma-4b-q4km",
+    "D": "gpt-6-luna"
+  },
+  "w500-168": {
+    "A": "translategemma-4b-q4km",
+    "B": "cpu",
+    "C": "cuni-q3km",
+    "D": "gpt-6-luna"
+  },
+  "w500-169": {
+    "A": "gpt-6-luna",
+    "B": "cuni-q3km",
+    "C": "cpu",
+    "D": "translategemma-4b-q4km"
+  },
+  "w500-170": {
+    "A": "translategemma-4b-q4km",
+    "B": "gpt-6-luna",
+    "C": "cuni-q3km",
+    "D": "cpu"
+  },
+  "w500-171": {
+    "A": "cpu",
+    "B": "gpt-6-luna",
+    "C": "cuni-q3km",
+    "D": "translategemma-4b-q4km"
+  },
+  "w500-172": {
+    "A": "translategemma-4b-q4km",
+    "B": "gpt-6-luna",
+    "C": "cpu",
+    "D": "cuni-q3km"
+  },
+  "w500-173": {
+    "A": "translategemma-4b-q4km",
+    "B": "cuni-q3km",
+    "C": "cpu",
+    "D": "gpt-6-luna"
+  },
+  "w500-174": {
+    "A": "cuni-q3km",
+    "B": "cpu",
+    "C": "gpt-6-luna",
+    "D": "translategemma-4b-q4km"
+  },
+  "w500-175": {
+    "A": "translategemma-4b-q4km",
+    "B": "gpt-6-luna",
+    "C": "cuni-q3km",
+    "D": "cpu"
+  },
+  "w500-176": {
+    "A": "cuni-q3km",
+    "B": "translategemma-4b-q4km",
+    "C": "cpu",
+    "D": "gpt-6-luna"
+  },
+  "w500-177": {
+    "A": "gpt-6-luna",
+    "B": "translategemma-4b-q4km",
+    "C": "cuni-q3km",
+    "D": "cpu"
+  },
+  "w500-178": {
+    "A": "translategemma-4b-q4km",
+    "B": "cuni-q3km",
+    "C": "cpu",
+    "D": "gpt-6-luna"
+  },
+  "w500-179": {
+    "A": "gpt-6-luna",
+    "B": "translategemma-4b-q4km",
+    "C": "cuni-q3km",
+    "D": "cpu"
+  },
+  "w500-180": {
+    "A": "cpu",
+    "B": "translategemma-4b-q4km",
+    "C": "gpt-6-luna",
+    "D": "cuni-q3km"
+  },
+  "w500-181": {
+    "A": "cpu",
+    "B": "cuni-q3km",
+    "C": "translategemma-4b-q4km",
+    "D": "gpt-6-luna"
+  },
+  "w500-182": {
+    "A": "cpu",
+    "B": "cuni-q3km",
+    "C": "gpt-6-luna",
+    "D": "translategemma-4b-q4km"
+  },
+  "w500-183": {
+    "A": "cpu",
+    "B": "translategemma-4b-q4km",
+    "C": "gpt-6-luna",
+    "D": "cuni-q3km"
+  },
+  "w500-184": {
+    "A": "translategemma-4b-q4km",
+    "B": "cuni-q3km",
+    "C": "gpt-6-luna",
+    "D": "cpu"
+  },
+  "w500-185": {
+    "A": "gpt-6-luna",
+    "B": "cuni-q3km",
+    "C": "cpu",
+    "D": "translategemma-4b-q4km"
+  },
+  "w500-186": {
+    "A": "translategemma-4b-q4km",
+    "B": "cuni-q3km",
+    "C": "cpu",
+    "D": "gpt-6-luna"
+  },
+  "w500-187": {
+    "A": "translategemma-4b-q4km",
+    "B": "cuni-q3km",
+    "C": "cpu",
+    "D": "gpt-6-luna"
+  },
+  "w500-188": {
+    "A": "translategemma-4b-q4km",
+    "B": "cpu",
+    "C": "cuni-q3km",
+    "D": "gpt-6-luna"
+  },
+  "w500-189": {
+    "A": "cpu",
+    "B": "gpt-6-luna",
+    "C": "translategemma-4b-q4km",
+    "D": "cuni-q3km"
+  },
+  "w500-190": {
+    "A": "cuni-q3km",
+    "B": "cpu",
+    "C": "translategemma-4b-q4km",
+    "D": "gpt-6-luna"
+  },
+  "w500-191": {
+    "A": "gpt-6-luna",
+    "B": "cpu",
+    "C": "cuni-q3km",
+    "D": "translategemma-4b-q4km"
+  },
+  "w500-192": {
+    "A": "cpu",
+    "B": "gpt-6-luna",
+    "C": "cuni-q3km",
+    "D": "translategemma-4b-q4km"
+  },
+  "w500-193": {
+    "A": "translategemma-4b-q4km",
+    "B": "cpu",
+    "C": "cuni-q3km",
+    "D": "gpt-6-luna"
+  },
+  "w500-194": {
+    "A": "translategemma-4b-q4km",
+    "B": "cpu",
+    "C": "gpt-6-luna",
+    "D": "cuni-q3km"
+  },
+  "w500-195": {
+    "A": "translategemma-4b-q4km",
+    "B": "cuni-q3km",
+    "C": "cpu",
+    "D": "gpt-6-luna"
+  },
+  "w500-196": {
+    "A": "translategemma-4b-q4km",
+    "B": "gpt-6-luna",
+    "C": "cuni-q3km",
+    "D": "cpu"
+  },
+  "w500-197": {
+    "A": "translategemma-4b-q4km",
+    "B": "cuni-q3km",
+    "C": "gpt-6-luna",
+    "D": "cpu"
+  },
+  "w500-198": {
+    "A": "translategemma-4b-q4km",
+    "B": "cpu",
+    "C": "cuni-q3km",
+    "D": "gpt-6-luna"
+  },
+  "w500-199": {
+    "A": "cuni-q3km",
+    "B": "cpu",
+    "C": "gpt-6-luna",
+    "D": "translategemma-4b-q4km"
+  },
+  "w500-200": {
+    "A": "cpu",
+    "B": "cuni-q3km",
+    "C": "gpt-6-luna",
+    "D": "translategemma-4b-q4km"
+  },
+  "w500-201": {
+    "A": "cuni-q3km",
+    "B": "translategemma-4b-q4km",
+    "C": "gpt-6-luna",
+    "D": "cpu"
+  },
+  "w500-202": {
+    "A": "translategemma-4b-q4km",
+    "B": "cpu",
+    "C": "cuni-q3km",
+    "D": "gpt-6-luna"
+  },
+  "w500-203": {
+    "A": "gpt-6-luna",
+    "B": "cuni-q3km",
+    "C": "translategemma-4b-q4km",
+    "D": "cpu"
+  },
+  "w500-204": {
+    "A": "gpt-6-luna",
+    "B": "cpu",
+    "C": "cuni-q3km",
+    "D": "translategemma-4b-q4km"
+  },
+  "w500-205": {
+    "A": "translategemma-4b-q4km",
+    "B": "gpt-6-luna",
+    "C": "cuni-q3km",
+    "D": "cpu"
+  },
+  "w500-206": {
+    "A": "cuni-q3km",
+    "B": "translategemma-4b-q4km",
+    "C": "gpt-6-luna",
+    "D": "cpu"
+  },
+  "w500-207": {
+    "A": "gpt-6-luna",
+    "B": "cpu",
+    "C": "translategemma-4b-q4km",
+    "D": "cuni-q3km"
+  },
+  "w500-208": {
+    "A": "cuni-q3km",
+    "B": "translategemma-4b-q4km",
+    "C": "cpu",
+    "D": "gpt-6-luna"
+  },
+  "w500-209": {
+    "A": "cuni-q3km",
+    "B": "gpt-6-luna",
+    "C": "translategemma-4b-q4km",
+    "D": "cpu"
+  },
+  "w500-210": {
+    "A": "translategemma-4b-q4km",
+    "B": "cpu",
+    "C": "cuni-q3km",
+    "D": "gpt-6-luna"
+  },
+  "w500-211": {
+    "A": "cpu",
+    "B": "cuni-q3km",
+    "C": "gpt-6-luna",
+    "D": "translategemma-4b-q4km"
+  },
+  "w500-212": {
+    "A": "cpu",
+    "B": "gpt-6-luna",
+    "C": "cuni-q3km",
+    "D": "translategemma-4b-q4km"
+  },
+  "w500-213": {
+    "A": "gpt-6-luna",
+    "B": "cpu",
+    "C": "translategemma-4b-q4km",
+    "D": "cuni-q3km"
+  },
+  "w500-214": {
+    "A": "translategemma-4b-q4km",
+    "B": "cpu",
+    "C": "gpt-6-luna",
+    "D": "cuni-q3km"
+  },
+  "w500-215": {
+    "A": "cpu",
+    "B": "cuni-q3km",
+    "C": "gpt-6-luna",
+    "D": "translategemma-4b-q4km"
+  },
+  "w500-216": {
+    "A": "translategemma-4b-q4km",
+    "B": "gpt-6-luna",
+    "C": "cpu",
+    "D": "cuni-q3km"
+  },
+  "w500-217": {
+    "A": "translategemma-4b-q4km",
+    "B": "cpu",
+    "C": "cuni-q3km",
+    "D": "gpt-6-luna"
+  },
+  "w500-218": {
+    "A": "cpu",
+    "B": "translategemma-4b-q4km",
+    "C": "cuni-q3km",
+    "D": "gpt-6-luna"
+  },
+  "w500-219": {
+    "A": "translategemma-4b-q4km",
+    "B": "cpu",
+    "C": "gpt-6-luna",
+    "D": "cuni-q3km"
+  },
+  "w500-220": {
+    "A": "gpt-6-luna",
+    "B": "cuni-q3km",
+    "C": "translategemma-4b-q4km",
+    "D": "cpu"
+  },
+  "w500-221": {
+    "A": "cuni-q3km",
+    "B": "translategemma-4b-q4km",
+    "C": "gpt-6-luna",
+    "D": "cpu"
+  },
+  "w500-222": {
+    "A": "cpu",
+    "B": "cuni-q3km",
+    "C": "gpt-6-luna",
+    "D": "translategemma-4b-q4km"
+  },
+  "w500-223": {
+    "A": "cpu",
+    "B": "gpt-6-luna",
+    "C": "translategemma-4b-q4km",
+    "D": "cuni-q3km"
+  },
+  "w500-224": {
+    "A": "cuni-q3km",
+    "B": "gpt-6-luna",
+    "C": "cpu",
+    "D": "translategemma-4b-q4km"
+  },
+  "w500-225": {
+    "A": "cuni-q3km",
+    "B": "gpt-6-luna",
+    "C": "translategemma-4b-q4km",
+    "D": "cpu"
+  },
+  "w500-226": {
+    "A": "cuni-q3km",
+    "B": "gpt-6-luna",
+    "C": "cpu",
+    "D": "translategemma-4b-q4km"
+  },
+  "w500-227": {
+    "A": "cuni-q3km",
+    "B": "translategemma-4b-q4km",
+    "C": "cpu",
+    "D": "gpt-6-luna"
+  },
+  "w500-228": {
+    "A": "gpt-6-luna",
+    "B": "cuni-q3km",
+    "C": "translategemma-4b-q4km",
+    "D": "cpu"
+  },
+  "w500-229": {
+    "A": "cuni-q3km",
+    "B": "cpu",
+    "C": "translategemma-4b-q4km",
+    "D": "gpt-6-luna"
+  },
+  "w500-230": {
+    "A": "cuni-q3km",
+    "B": "gpt-6-luna",
+    "C": "translategemma-4b-q4km",
+    "D": "cpu"
+  },
+  "w500-231": {
+    "A": "gpt-6-luna",
+    "B": "cpu",
+    "C": "cuni-q3km",
+    "D": "translategemma-4b-q4km"
+  },
+  "w500-232": {
+    "A": "gpt-6-luna",
+    "B": "translategemma-4b-q4km",
+    "C": "cpu",
+    "D": "cuni-q3km"
+  },
+  "w500-233": {
+    "A": "cuni-q3km",
+    "B": "gpt-6-luna",
+    "C": "cpu",
+    "D": "translategemma-4b-q4km"
+  },
+  "w500-234": {
+    "A": "cuni-q3km",
+    "B": "gpt-6-luna",
+    "C": "cpu",
+    "D": "translategemma-4b-q4km"
+  },
+  "w500-235": {
+    "A": "cpu",
+    "B": "gpt-6-luna",
+    "C": "translategemma-4b-q4km",
+    "D": "cuni-q3km"
+  },
+  "w500-236": {
+    "A": "cpu",
+    "B": "cuni-q3km",
+    "C": "gpt-6-luna",
+    "D": "translategemma-4b-q4km"
+  },
+  "w500-237": {
+    "A": "cpu",
+    "B": "translategemma-4b-q4km",
+    "C": "gpt-6-luna",
+    "D": "cuni-q3km"
+  },
+  "w500-238": {
+    "A": "cpu",
+    "B": "gpt-6-luna",
+    "C": "cuni-q3km",
+    "D": "translategemma-4b-q4km"
+  },
+  "w500-239": {
+    "A": "gpt-6-luna",
+    "B": "cpu",
+    "C": "translategemma-4b-q4km",
+    "D": "cuni-q3km"
+  },
+  "w500-240": {
+    "A": "translategemma-4b-q4km",
+    "B": "cpu",
+    "C": "cuni-q3km",
+    "D": "gpt-6-luna"
+  },
+  "w500-241": {
+    "A": "cuni-q3km",
+    "B": "gpt-6-luna",
+    "C": "cpu",
+    "D": "translategemma-4b-q4km"
+  },
+  "w500-242": {
+    "A": "gpt-6-luna",
+    "B": "cpu",
+    "C": "cuni-q3km",
+    "D": "translategemma-4b-q4km"
+  },
+  "w500-243": {
+    "A": "gpt-6-luna",
+    "B": "cpu",
+    "C": "cuni-q3km",
+    "D": "translategemma-4b-q4km"
+  },
+  "w500-244": {
+    "A": "cpu",
+    "B": "gpt-6-luna",
+    "C": "translategemma-4b-q4km",
+    "D": "cuni-q3km"
+  },
+  "w500-245": {
+    "A": "cuni-q3km",
+    "B": "gpt-6-luna",
+    "C": "translategemma-4b-q4km",
+    "D": "cpu"
+  },
+  "w500-246": {
+    "A": "translategemma-4b-q4km",
+    "B": "gpt-6-luna",
+    "C": "cpu",
+    "D": "cuni-q3km"
+  },
+  "w500-247": {
+    "A": "cuni-q3km",
+    "B": "translategemma-4b-q4km",
+    "C": "gpt-6-luna",
+    "D": "cpu"
+  },
+  "w500-248": {
+    "A": "gpt-6-luna",
+    "B": "translategemma-4b-q4km",
+    "C": "cpu",
+    "D": "cuni-q3km"
+  },
+  "w500-249": {
+    "A": "cpu",
+    "B": "translategemma-4b-q4km",
+    "C": "cuni-q3km",
+    "D": "gpt-6-luna"
+  },
+  "w500-250": {
+    "A": "cuni-q3km",
+    "B": "translategemma-4b-q4km",
+    "C": "cpu",
+    "D": "gpt-6-luna"
+  },
+  "w500-251": {
+    "A": "cuni-q3km",
+    "B": "translategemma-4b-q4km",
+    "C": "gpt-6-luna",
+    "D": "cpu"
+  },
+  "w500-252": {
+    "A": "cpu",
+    "B": "cuni-q3km",
+    "C": "gpt-6-luna",
+    "D": "translategemma-4b-q4km"
+  },
+  "w500-253": {
+    "A": "cpu",
+    "B": "gpt-6-luna",
+    "C": "translategemma-4b-q4km",
+    "D": "cuni-q3km"
+  },
+  "w500-254": {
+    "A": "cuni-q3km",
+    "B": "cpu",
+    "C": "gpt-6-luna",
+    "D": "translategemma-4b-q4km"
+  },
+  "w500-255": {
+    "A": "gpt-6-luna",
+    "B": "cuni-q3km",
+    "C": "cpu",
+    "D": "translategemma-4b-q4km"
+  },
+  "w500-256": {
+    "A": "cpu",
+    "B": "translategemma-4b-q4km",
+    "C": "gpt-6-luna",
+    "D": "cuni-q3km"
+  },
+  "w500-257": {
+    "A": "translategemma-4b-q4km",
+    "B": "gpt-6-luna",
+    "C": "cpu",
+    "D": "cuni-q3km"
+  },
+  "w500-258": {
+    "A": "gpt-6-luna",
+    "B": "translategemma-4b-q4km",
+    "C": "cpu",
+    "D": "cuni-q3km"
+  },
+  "w500-259": {
+    "A": "gpt-6-luna",
+    "B": "cpu",
+    "C": "cuni-q3km",
+    "D": "translategemma-4b-q4km"
+  },
+  "w500-260": {
+    "A": "cuni-q3km",
+    "B": "translategemma-4b-q4km",
+    "C": "cpu",
+    "D": "gpt-6-luna"
+  },
+  "w500-261": {
+    "A": "cpu",
+    "B": "gpt-6-luna",
+    "C": "translategemma-4b-q4km",
+    "D": "cuni-q3km"
+  },
+  "w500-262": {
+    "A": "translategemma-4b-q4km",
+    "B": "gpt-6-luna",
+    "C": "cpu",
+    "D": "cuni-q3km"
+  },
+  "w500-263": {
+    "A": "gpt-6-luna",
+    "B": "translategemma-4b-q4km",
+    "C": "cpu",
+    "D": "cuni-q3km"
+  },
+  "w500-264": {
+    "A": "gpt-6-luna",
+    "B": "cuni-q3km",
+    "C": "cpu",
+    "D": "translategemma-4b-q4km"
+  },
+  "w500-265": {
+    "A": "translategemma-4b-q4km",
+    "B": "cpu",
+    "C": "cuni-q3km",
+    "D": "gpt-6-luna"
+  },
+  "w500-266": {
+    "A": "gpt-6-luna",
+    "B": "translategemma-4b-q4km",
+    "C": "cpu",
+    "D": "cuni-q3km"
+  },
+  "w500-267": {
+    "A": "gpt-6-luna",
+    "B": "translategemma-4b-q4km",
+    "C": "cpu",
+    "D": "cuni-q3km"
+  },
+  "w500-268": {
+    "A": "gpt-6-luna",
+    "B": "translategemma-4b-q4km",
+    "C": "cuni-q3km",
+    "D": "cpu"
+  },
+  "w500-269": {
+    "A": "translategemma-4b-q4km",
+    "B": "gpt-6-luna",
+    "C": "cpu",
+    "D": "cuni-q3km"
+  },
+  "w500-270": {
+    "A": "gpt-6-luna",
+    "B": "cpu",
+    "C": "translategemma-4b-q4km",
+    "D": "cuni-q3km"
+  },
+  "w500-271": {
+    "A": "cuni-q3km",
+    "B": "gpt-6-luna",
+    "C": "cpu",
+    "D": "translategemma-4b-q4km"
+  },
+  "w500-272": {
+    "A": "cpu",
+    "B": "translategemma-4b-q4km",
+    "C": "cuni-q3km",
+    "D": "gpt-6-luna"
+  },
+  "w500-273": {
+    "A": "cpu",
+    "B": "translategemma-4b-q4km",
+    "C": "gpt-6-luna",
+    "D": "cuni-q3km"
+  },
+  "w500-274": {
+    "A": "gpt-6-luna",
+    "B": "cuni-q3km",
+    "C": "translategemma-4b-q4km",
+    "D": "cpu"
+  },
+  "w500-275": {
+    "A": "cpu",
+    "B": "gpt-6-luna",
+    "C": "translategemma-4b-q4km",
+    "D": "cuni-q3km"
+  },
+  "w500-276": {
+    "A": "cpu",
+    "B": "gpt-6-luna",
+    "C": "cuni-q3km",
+    "D": "translategemma-4b-q4km"
+  },
+  "w500-277": {
+    "A": "cuni-q3km",
+    "B": "gpt-6-luna",
+    "C": "translategemma-4b-q4km",
+    "D": "cpu"
+  },
+  "w500-278": {
+    "A": "cuni-q3km",
+    "B": "cpu",
+    "C": "translategemma-4b-q4km",
+    "D": "gpt-6-luna"
+  },
+  "w500-279": {
+    "A": "cuni-q3km",
+    "B": "gpt-6-luna",
+    "C": "translategemma-4b-q4km",
+    "D": "cpu"
+  },
+  "w500-280": {
+    "A": "gpt-6-luna",
+    "B": "translategemma-4b-q4km",
+    "C": "cpu",
+    "D": "cuni-q3km"
+  },
+  "w500-281": {
+    "A": "translategemma-4b-q4km",
+    "B": "cuni-q3km",
+    "C": "cpu",
+    "D": "gpt-6-luna"
+  },
+  "w500-282": {
+    "A": "gpt-6-luna",
+    "B": "translategemma-4b-q4km",
+    "C": "cuni-q3km",
+    "D": "cpu"
+  },
+  "w500-283": {
+    "A": "cuni-q3km",
+    "B": "gpt-6-luna",
+    "C": "cpu",
+    "D": "translategemma-4b-q4km"
+  },
+  "w500-284": {
+    "A": "gpt-6-luna",
+    "B": "cuni-q3km",
+    "C": "cpu",
+    "D": "translategemma-4b-q4km"
+  },
+  "w500-285": {
+    "A": "gpt-6-luna",
+    "B": "translategemma-4b-q4km",
+    "C": "cuni-q3km",
+    "D": "cpu"
+  },
+  "w500-286": {
+    "A": "cuni-q3km",
+    "B": "cpu",
+    "C": "translategemma-4b-q4km",
+    "D": "gpt-6-luna"
+  },
+  "w500-287": {
+    "A": "cpu",
+    "B": "cuni-q3km",
+    "C": "gpt-6-luna",
+    "D": "translategemma-4b-q4km"
+  },
+  "w500-288": {
+    "A": "cpu",
+    "B": "cuni-q3km",
+    "C": "translategemma-4b-q4km",
+    "D": "gpt-6-luna"
+  },
+  "w500-289": {
+    "A": "cpu",
+    "B": "cuni-q3km",
+    "C": "translategemma-4b-q4km",
+    "D": "gpt-6-luna"
+  },
+  "w500-290": {
+    "A": "cpu",
+    "B": "cuni-q3km",
+    "C": "translategemma-4b-q4km",
+    "D": "gpt-6-luna"
+  },
+  "w500-291": {
+    "A": "translategemma-4b-q4km",
+    "B": "cuni-q3km",
+    "C": "gpt-6-luna",
+    "D": "cpu"
+  },
+  "w500-292": {
+    "A": "translategemma-4b-q4km",
+    "B": "gpt-6-luna",
+    "C": "cpu",
+    "D": "cuni-q3km"
+  },
+  "w500-293": {
+    "A": "translategemma-4b-q4km",
+    "B": "gpt-6-luna",
+    "C": "cpu",
+    "D": "cuni-q3km"
+  },
+  "w500-294": {
+    "A": "translategemma-4b-q4km",
+    "B": "cpu",
+    "C": "cuni-q3km",
+    "D": "gpt-6-luna"
+  },
+  "w500-295": {
+    "A": "translategemma-4b-q4km",
+    "B": "cuni-q3km",
+    "C": "cpu",
+    "D": "gpt-6-luna"
+  },
+  "w500-296": {
+    "A": "gpt-6-luna",
+    "B": "cuni-q3km",
+    "C": "cpu",
+    "D": "translategemma-4b-q4km"
+  },
+  "w500-297": {
+    "A": "cuni-q3km",
+    "B": "cpu",
+    "C": "gpt-6-luna",
+    "D": "translategemma-4b-q4km"
+  },
+  "w500-298": {
+    "A": "gpt-6-luna",
+    "B": "translategemma-4b-q4km",
+    "C": "cpu",
+    "D": "cuni-q3km"
+  },
+  "w500-299": {
+    "A": "cpu",
+    "B": "translategemma-4b-q4km",
+    "C": "cuni-q3km",
+    "D": "gpt-6-luna"
+  },
+  "w500-300": {
+    "A": "translategemma-4b-q4km",
+    "B": "cpu",
+    "C": "cuni-q3km",
+    "D": "gpt-6-luna"
+  },
+  "w500-301": {
+    "A": "cuni-q3km",
+    "B": "gpt-6-luna",
+    "C": "cpu",
+    "D": "translategemma-4b-q4km"
+  },
+  "w500-302": {
+    "A": "cuni-q3km",
+    "B": "gpt-6-luna",
+    "C": "translategemma-4b-q4km",
+    "D": "cpu"
+  },
+  "w500-303": {
+    "A": "gpt-6-luna",
+    "B": "cpu",
+    "C": "translategemma-4b-q4km",
+    "D": "cuni-q3km"
+  },
+  "w500-304": {
+    "A": "gpt-6-luna",
+    "B": "cpu",
+    "C": "translategemma-4b-q4km",
+    "D": "cuni-q3km"
+  },
+  "w500-305": {
+    "A": "gpt-6-luna",
+    "B": "cpu",
+    "C": "translategemma-4b-q4km",
+    "D": "cuni-q3km"
+  },
+  "w500-306": {
+    "A": "gpt-6-luna",
+    "B": "cpu",
+    "C": "translategemma-4b-q4km",
+    "D": "cuni-q3km"
+  },
+  "w500-307": {
+    "A": "cpu",
+    "B": "translategemma-4b-q4km",
+    "C": "cuni-q3km",
+    "D": "gpt-6-luna"
+  },
+  "w500-308": {
+    "A": "cpu",
+    "B": "translategemma-4b-q4km",
+    "C": "gpt-6-luna",
+    "D": "cuni-q3km"
+  },
+  "w500-309": {
+    "A": "cuni-q3km",
+    "B": "gpt-6-luna",
+    "C": "cpu",
+    "D": "translategemma-4b-q4km"
+  },
+  "w500-310": {
+    "A": "cuni-q3km",
+    "B": "translategemma-4b-q4km",
+    "C": "cpu",
+    "D": "gpt-6-luna"
+  },
+  "w500-311": {
+    "A": "translategemma-4b-q4km",
+    "B": "gpt-6-luna",
+    "C": "cuni-q3km",
+    "D": "cpu"
+  },
+  "w500-312": {
+    "A": "gpt-6-luna",
+    "B": "cpu",
+    "C": "cuni-q3km",
+    "D": "translategemma-4b-q4km"
+  },
+  "w500-313": {
+    "A": "translategemma-4b-q4km",
+    "B": "gpt-6-luna",
+    "C": "cuni-q3km",
+    "D": "cpu"
+  },
+  "w500-314": {
+    "A": "cpu",
+    "B": "gpt-6-luna",
+    "C": "cuni-q3km",
+    "D": "translategemma-4b-q4km"
+  },
+  "w500-315": {
+    "A": "gpt-6-luna",
+    "B": "translategemma-4b-q4km",
+    "C": "cuni-q3km",
+    "D": "cpu"
+  },
+  "w500-316": {
+    "A": "cuni-q3km",
+    "B": "translategemma-4b-q4km",
+    "C": "gpt-6-luna",
+    "D": "cpu"
+  },
+  "w500-317": {
+    "A": "cuni-q3km",
+    "B": "gpt-6-luna",
+    "C": "cpu",
+    "D": "translategemma-4b-q4km"
+  },
+  "w500-318": {
+    "A": "translategemma-4b-q4km",
+    "B": "cuni-q3km",
+    "C": "cpu",
+    "D": "gpt-6-luna"
+  },
+  "w500-319": {
+    "A": "cpu",
+    "B": "translategemma-4b-q4km",
+    "C": "cuni-q3km",
+    "D": "gpt-6-luna"
+  },
+  "w500-320": {
+    "A": "gpt-6-luna",
+    "B": "cuni-q3km",
+    "C": "translategemma-4b-q4km",
+    "D": "cpu"
+  },
+  "w500-321": {
+    "A": "cpu",
+    "B": "translategemma-4b-q4km",
+    "C": "cuni-q3km",
+    "D": "gpt-6-luna"
+  },
+  "w500-322": {
+    "A": "cuni-q3km",
+    "B": "cpu",
+    "C": "gpt-6-luna",
+    "D": "translategemma-4b-q4km"
+  },
+  "w500-323": {
+    "A": "cpu",
+    "B": "translategemma-4b-q4km",
+    "C": "cuni-q3km",
+    "D": "gpt-6-luna"
+  },
+  "w500-324": {
+    "A": "cpu",
+    "B": "cuni-q3km",
+    "C": "translategemma-4b-q4km",
+    "D": "gpt-6-luna"
+  },
+  "w500-325": {
+    "A": "cpu",
+    "B": "gpt-6-luna",
+    "C": "translategemma-4b-q4km",
+    "D": "cuni-q3km"
+  },
+  "w500-326": {
+    "A": "cpu",
+    "B": "translategemma-4b-q4km",
+    "C": "cuni-q3km",
+    "D": "gpt-6-luna"
+  },
+  "w500-327": {
+    "A": "translategemma-4b-q4km",
+    "B": "cpu",
+    "C": "cuni-q3km",
+    "D": "gpt-6-luna"
+  },
+  "w500-328": {
+    "A": "cuni-q3km",
+    "B": "gpt-6-luna",
+    "C": "cpu",
+    "D": "translategemma-4b-q4km"
+  },
+  "w500-329": {
+    "A": "cuni-q3km",
+    "B": "gpt-6-luna",
+    "C": "translategemma-4b-q4km",
+    "D": "cpu"
+  },
+  "w500-330": {
+    "A": "cpu",
+    "B": "cuni-q3km",
+    "C": "gpt-6-luna",
+    "D": "translategemma-4b-q4km"
+  },
+  "w500-331": {
+    "A": "cpu",
+    "B": "cuni-q3km",
+    "C": "translategemma-4b-q4km",
+    "D": "gpt-6-luna"
+  },
+  "w500-332": {
+    "A": "cuni-q3km",
+    "B": "gpt-6-luna",
+    "C": "cpu",
+    "D": "translategemma-4b-q4km"
+  },
+  "w500-333": {
+    "A": "gpt-6-luna",
+    "B": "cpu",
+    "C": "translategemma-4b-q4km",
+    "D": "cuni-q3km"
+  },
+  "w500-334": {
+    "A": "cpu",
+    "B": "cuni-q3km",
+    "C": "translategemma-4b-q4km",
+    "D": "gpt-6-luna"
+  },
+  "w500-335": {
+    "A": "translategemma-4b-q4km",
+    "B": "gpt-6-luna",
+    "C": "cuni-q3km",
+    "D": "cpu"
+  },
+  "w500-336": {
+    "A": "cpu",
+    "B": "gpt-6-luna",
+    "C": "translategemma-4b-q4km",
+    "D": "cuni-q3km"
+  },
+  "w500-337": {
+    "A": "cpu",
+    "B": "gpt-6-luna",
+    "C": "translategemma-4b-q4km",
+    "D": "cuni-q3km"
+  },
+  "w500-338": {
+    "A": "gpt-6-luna",
+    "B": "cpu",
+    "C": "translategemma-4b-q4km",
+    "D": "cuni-q3km"
+  },
+  "w500-339": {
+    "A": "cuni-q3km",
+    "B": "translategemma-4b-q4km",
+    "C": "cpu",
+    "D": "gpt-6-luna"
+  },
+  "w500-340": {
+    "A": "cuni-q3km",
+    "B": "cpu",
+    "C": "gpt-6-luna",
+    "D": "translategemma-4b-q4km"
+  },
+  "w500-341": {
+    "A": "cuni-q3km",
+    "B": "gpt-6-luna",
+    "C": "translategemma-4b-q4km",
+    "D": "cpu"
+  },
+  "w500-342": {
+    "A": "translategemma-4b-q4km",
+    "B": "cpu",
+    "C": "gpt-6-luna",
+    "D": "cuni-q3km"
+  },
+  "w500-343": {
+    "A": "gpt-6-luna",
+    "B": "translategemma-4b-q4km",
+    "C": "cuni-q3km",
+    "D": "cpu"
+  },
+  "w500-344": {
+    "A": "translategemma-4b-q4km",
+    "B": "cpu",
+    "C": "gpt-6-luna",
+    "D": "cuni-q3km"
+  },
+  "w500-345": {
+    "A": "cuni-q3km",
+    "B": "cpu",
+    "C": "gpt-6-luna",
+    "D": "translategemma-4b-q4km"
+  },
+  "w500-346": {
+    "A": "cuni-q3km",
+    "B": "cpu",
+    "C": "gpt-6-luna",
+    "D": "translategemma-4b-q4km"
+  },
+  "w500-347": {
+    "A": "translategemma-4b-q4km",
+    "B": "gpt-6-luna",
+    "C": "cpu",
+    "D": "cuni-q3km"
+  },
+  "w500-348": {
+    "A": "gpt-6-luna",
+    "B": "translategemma-4b-q4km",
+    "C": "cpu",
+    "D": "cuni-q3km"
+  },
+  "w500-349": {
+    "A": "gpt-6-luna",
+    "B": "cuni-q3km",
+    "C": "cpu",
+    "D": "translategemma-4b-q4km"
+  },
+  "w500-350": {
+    "A": "translategemma-4b-q4km",
+    "B": "gpt-6-luna",
+    "C": "cuni-q3km",
+    "D": "cpu"
+  },
+  "w500-351": {
+    "A": "gpt-6-luna",
+    "B": "translategemma-4b-q4km",
+    "C": "cpu",
+    "D": "cuni-q3km"
+  },
+  "w500-352": {
+    "A": "cpu",
+    "B": "cuni-q3km",
+    "C": "gpt-6-luna",
+    "D": "translategemma-4b-q4km"
+  },
+  "w500-353": {
+    "A": "translategemma-4b-q4km",
+    "B": "gpt-6-luna",
+    "C": "cuni-q3km",
+    "D": "cpu"
+  },
+  "w500-354": {
+    "A": "gpt-6-luna",
+    "B": "cpu",
+    "C": "translategemma-4b-q4km",
+    "D": "cuni-q3km"
+  },
+  "w500-355": {
+    "A": "cpu",
+    "B": "translategemma-4b-q4km",
+    "C": "gpt-6-luna",
+    "D": "cuni-q3km"
+  },
+  "w500-356": {
+    "A": "cpu",
+    "B": "gpt-6-luna",
+    "C": "translategemma-4b-q4km",
+    "D": "cuni-q3km"
+  },
+  "w500-357": {
+    "A": "cpu",
+    "B": "cuni-q3km",
+    "C": "gpt-6-luna",
+    "D": "translategemma-4b-q4km"
+  },
+  "w500-358": {
+    "A": "cpu",
+    "B": "cuni-q3km",
+    "C": "gpt-6-luna",
+    "D": "translategemma-4b-q4km"
+  },
+  "w500-359": {
+    "A": "gpt-6-luna",
+    "B": "translategemma-4b-q4km",
+    "C": "cuni-q3km",
+    "D": "cpu"
+  },
+  "w500-360": {
+    "A": "cuni-q3km",
+    "B": "translategemma-4b-q4km",
+    "C": "gpt-6-luna",
+    "D": "cpu"
+  },
+  "w500-361": {
+    "A": "gpt-6-luna",
+    "B": "translategemma-4b-q4km",
+    "C": "cpu",
+    "D": "cuni-q3km"
+  },
+  "w500-362": {
+    "A": "translategemma-4b-q4km",
+    "B": "cpu",
+    "C": "cuni-q3km",
+    "D": "gpt-6-luna"
+  },
+  "w500-363": {
+    "A": "gpt-6-luna",
+    "B": "cuni-q3km",
+    "C": "translategemma-4b-q4km",
+    "D": "cpu"
+  },
+  "w500-364": {
+    "A": "translategemma-4b-q4km",
+    "B": "cpu",
+    "C": "gpt-6-luna",
+    "D": "cuni-q3km"
+  },
+  "w500-365": {
+    "A": "cuni-q3km",
+    "B": "gpt-6-luna",
+    "C": "translategemma-4b-q4km",
+    "D": "cpu"
+  },
+  "w500-366": {
+    "A": "translategemma-4b-q4km",
+    "B": "cuni-q3km",
+    "C": "cpu",
+    "D": "gpt-6-luna"
+  },
+  "w500-367": {
+    "A": "gpt-6-luna",
+    "B": "cuni-q3km",
+    "C": "translategemma-4b-q4km",
+    "D": "cpu"
+  },
+  "w500-368": {
+    "A": "translategemma-4b-q4km",
+    "B": "gpt-6-luna",
+    "C": "cpu",
+    "D": "cuni-q3km"
+  },
+  "w500-369": {
+    "A": "gpt-6-luna",
+    "B": "cuni-q3km",
+    "C": "cpu",
+    "D": "translategemma-4b-q4km"
+  },
+  "w500-370": {
+    "A": "cuni-q3km",
+    "B": "translategemma-4b-q4km",
+    "C": "cpu",
+    "D": "gpt-6-luna"
+  },
+  "w500-371": {
+    "A": "cuni-q3km",
+    "B": "gpt-6-luna",
+    "C": "translategemma-4b-q4km",
+    "D": "cpu"
+  },
+  "w500-372": {
+    "A": "translategemma-4b-q4km",
+    "B": "gpt-6-luna",
+    "C": "cpu",
+    "D": "cuni-q3km"
+  },
+  "w500-373": {
+    "A": "cpu",
+    "B": "translategemma-4b-q4km",
+    "C": "cuni-q3km",
+    "D": "gpt-6-luna"
+  },
+  "w500-374": {
+    "A": "cpu",
+    "B": "cuni-q3km",
+    "C": "translategemma-4b-q4km",
+    "D": "gpt-6-luna"
+  },
+  "w500-375": {
+    "A": "cpu",
+    "B": "cuni-q3km",
+    "C": "translategemma-4b-q4km",
+    "D": "gpt-6-luna"
+  },
+  "w500-376": {
+    "A": "cuni-q3km",
+    "B": "cpu",
+    "C": "translategemma-4b-q4km",
+    "D": "gpt-6-luna"
+  },
+  "w500-377": {
+    "A": "cpu",
+    "B": "gpt-6-luna",
+    "C": "translategemma-4b-q4km",
+    "D": "cuni-q3km"
+  },
+  "w500-378": {
+    "A": "cuni-q3km",
+    "B": "gpt-6-luna",
+    "C": "cpu",
+    "D": "translategemma-4b-q4km"
+  },
+  "w500-379": {
+    "A": "cuni-q3km",
+    "B": "gpt-6-luna",
+    "C": "cpu",
+    "D": "translategemma-4b-q4km"
+  },
+  "w500-380": {
+    "A": "cpu",
+    "B": "cuni-q3km",
+    "C": "translategemma-4b-q4km",
+    "D": "gpt-6-luna"
+  },
+  "w500-381": {
+    "A": "cpu",
+    "B": "cuni-q3km",
+    "C": "gpt-6-luna",
+    "D": "translategemma-4b-q4km"
+  },
+  "w500-382": {
+    "A": "translategemma-4b-q4km",
+    "B": "cpu",
+    "C": "gpt-6-luna",
+    "D": "cuni-q3km"
+  },
+  "w500-383": {
+    "A": "translategemma-4b-q4km",
+    "B": "gpt-6-luna",
+    "C": "cpu",
+    "D": "cuni-q3km"
+  },
+  "w500-384": {
+    "A": "cpu",
+    "B": "translategemma-4b-q4km",
+    "C": "cuni-q3km",
+    "D": "gpt-6-luna"
+  },
+  "w500-385": {
+    "A": "translategemma-4b-q4km",
+    "B": "cuni-q3km",
+    "C": "cpu",
+    "D": "gpt-6-luna"
+  },
+  "w500-386": {
+    "A": "gpt-6-luna",
+    "B": "translategemma-4b-q4km",
+    "C": "cuni-q3km",
+    "D": "cpu"
+  },
+  "w500-387": {
+    "A": "cpu",
+    "B": "gpt-6-luna",
+    "C": "cuni-q3km",
+    "D": "translategemma-4b-q4km"
+  },
+  "w500-388": {
+    "A": "cuni-q3km",
+    "B": "cpu",
+    "C": "translategemma-4b-q4km",
+    "D": "gpt-6-luna"
+  },
+  "w500-389": {
+    "A": "translategemma-4b-q4km",
+    "B": "gpt-6-luna",
+    "C": "cuni-q3km",
+    "D": "cpu"
+  },
+  "w500-390": {
+    "A": "cpu",
+    "B": "cuni-q3km",
+    "C": "translategemma-4b-q4km",
+    "D": "gpt-6-luna"
+  },
+  "w500-391": {
+    "A": "cuni-q3km",
+    "B": "cpu",
+    "C": "translategemma-4b-q4km",
+    "D": "gpt-6-luna"
+  },
+  "w500-392": {
+    "A": "cuni-q3km",
+    "B": "gpt-6-luna",
+    "C": "translategemma-4b-q4km",
+    "D": "cpu"
+  },
+  "w500-393": {
+    "A": "cpu",
+    "B": "gpt-6-luna",
+    "C": "cuni-q3km",
+    "D": "translategemma-4b-q4km"
+  },
+  "w500-394": {
+    "A": "gpt-6-luna",
+    "B": "translategemma-4b-q4km",
+    "C": "cpu",
+    "D": "cuni-q3km"
+  },
+  "w500-395": {
+    "A": "gpt-6-luna",
+    "B": "translategemma-4b-q4km",
+    "C": "cpu",
+    "D": "cuni-q3km"
+  },
+  "w500-396": {
+    "A": "translategemma-4b-q4km",
+    "B": "cpu",
+    "C": "cuni-q3km",
+    "D": "gpt-6-luna"
+  },
+  "w500-397": {
+    "A": "cuni-q3km",
+    "B": "translategemma-4b-q4km",
+    "C": "gpt-6-luna",
+    "D": "cpu"
+  },
+  "w500-398": {
+    "A": "gpt-6-luna",
+    "B": "translategemma-4b-q4km",
+    "C": "cpu",
+    "D": "cuni-q3km"
+  },
+  "w500-399": {
+    "A": "translategemma-4b-q4km",
+    "B": "cpu",
+    "C": "cuni-q3km",
+    "D": "gpt-6-luna"
+  },
+  "w500-400": {
+    "A": "translategemma-4b-q4km",
+    "B": "gpt-6-luna",
+    "C": "cpu",
+    "D": "cuni-q3km"
+  },
+  "w500-401": {
+    "A": "translategemma-4b-q4km",
+    "B": "cpu",
+    "C": "cuni-q3km",
+    "D": "gpt-6-luna"
+  },
+  "w500-402": {
+    "A": "cpu",
+    "B": "cuni-q3km",
+    "C": "gpt-6-luna",
+    "D": "translategemma-4b-q4km"
+  },
+  "w500-403": {
+    "A": "translategemma-4b-q4km",
+    "B": "gpt-6-luna",
+    "C": "cuni-q3km",
+    "D": "cpu"
+  },
+  "w500-404": {
+    "A": "translategemma-4b-q4km",
+    "B": "cpu",
+    "C": "cuni-q3km",
+    "D": "gpt-6-luna"
+  },
+  "w500-405": {
+    "A": "gpt-6-luna",
+    "B": "cpu",
+    "C": "cuni-q3km",
+    "D": "translategemma-4b-q4km"
+  },
+  "w500-406": {
+    "A": "cuni-q3km",
+    "B": "translategemma-4b-q4km",
+    "C": "gpt-6-luna",
+    "D": "cpu"
+  },
+  "w500-407": {
+    "A": "cuni-q3km",
+    "B": "gpt-6-luna",
+    "C": "translategemma-4b-q4km",
+    "D": "cpu"
+  },
+  "w500-408": {
+    "A": "gpt-6-luna",
+    "B": "cpu",
+    "C": "cuni-q3km",
+    "D": "translategemma-4b-q4km"
+  },
+  "w500-409": {
+    "A": "cpu",
+    "B": "cuni-q3km",
+    "C": "translategemma-4b-q4km",
+    "D": "gpt-6-luna"
+  },
+  "w500-410": {
+    "A": "translategemma-4b-q4km",
+    "B": "gpt-6-luna",
+    "C": "cuni-q3km",
+    "D": "cpu"
+  },
+  "w500-411": {
+    "A": "cuni-q3km",
+    "B": "cpu",
+    "C": "gpt-6-luna",
+    "D": "translategemma-4b-q4km"
+  },
+  "w500-412": {
+    "A": "cpu",
+    "B": "gpt-6-luna",
+    "C": "cuni-q3km",
+    "D": "translategemma-4b-q4km"
+  },
+  "w500-413": {
+    "A": "cpu",
+    "B": "translategemma-4b-q4km",
+    "C": "gpt-6-luna",
+    "D": "cuni-q3km"
+  },
+  "w500-414": {
+    "A": "translategemma-4b-q4km",
+    "B": "cpu",
+    "C": "cuni-q3km",
+    "D": "gpt-6-luna"
+  },
+  "w500-415": {
+    "A": "cuni-q3km",
+    "B": "gpt-6-luna",
+    "C": "cpu",
+    "D": "translategemma-4b-q4km"
+  },
+  "w500-416": {
+    "A": "cpu",
+    "B": "translategemma-4b-q4km",
+    "C": "cuni-q3km",
+    "D": "gpt-6-luna"
+  },
+  "w500-417": {
+    "A": "translategemma-4b-q4km",
+    "B": "cuni-q3km",
+    "C": "cpu",
+    "D": "gpt-6-luna"
+  },
+  "w500-418": {
+    "A": "gpt-6-luna",
+    "B": "cpu",
+    "C": "cuni-q3km",
+    "D": "translategemma-4b-q4km"
+  },
+  "w500-419": {
+    "A": "cpu",
+    "B": "translategemma-4b-q4km",
+    "C": "cuni-q3km",
+    "D": "gpt-6-luna"
+  },
+  "w500-420": {
+    "A": "cuni-q3km",
+    "B": "translategemma-4b-q4km",
+    "C": "gpt-6-luna",
+    "D": "cpu"
+  },
+  "w500-421": {
+    "A": "cuni-q3km",
+    "B": "cpu",
+    "C": "gpt-6-luna",
+    "D": "translategemma-4b-q4km"
+  },
+  "w500-422": {
+    "A": "cpu",
+    "B": "translategemma-4b-q4km",
+    "C": "gpt-6-luna",
+    "D": "cuni-q3km"
+  },
+  "w500-423": {
+    "A": "cuni-q3km",
+    "B": "translategemma-4b-q4km",
+    "C": "cpu",
+    "D": "gpt-6-luna"
+  },
+  "w500-424": {
+    "A": "cpu",
+    "B": "translategemma-4b-q4km",
+    "C": "gpt-6-luna",
+    "D": "cuni-q3km"
+  },
+  "w500-425": {
+    "A": "cuni-q3km",
+    "B": "cpu",
+    "C": "translategemma-4b-q4km",
+    "D": "gpt-6-luna"
+  },
+  "w500-426": {
+    "A": "gpt-6-luna",
+    "B": "translategemma-4b-q4km",
+    "C": "cuni-q3km",
+    "D": "cpu"
+  },
+  "w500-427": {
+    "A": "cuni-q3km",
+    "B": "translategemma-4b-q4km",
+    "C": "cpu",
+    "D": "gpt-6-luna"
+  },
+  "w500-428": {
+    "A": "translategemma-4b-q4km",
+    "B": "cuni-q3km",
+    "C": "gpt-6-luna",
+    "D": "cpu"
+  },
+  "w500-429": {
+    "A": "cpu",
+    "B": "cuni-q3km",
+    "C": "gpt-6-luna",
+    "D": "translategemma-4b-q4km"
+  },
+  "w500-430": {
+    "A": "translategemma-4b-q4km",
+    "B": "cpu",
+    "C": "cuni-q3km",
+    "D": "gpt-6-luna"
+  },
+  "w500-431": {
+    "A": "gpt-6-luna",
+    "B": "cuni-q3km",
+    "C": "translategemma-4b-q4km",
+    "D": "cpu"
+  },
+  "w500-432": {
+    "A": "cpu",
+    "B": "cuni-q3km",
+    "C": "gpt-6-luna",
+    "D": "translategemma-4b-q4km"
+  },
+  "w500-433": {
+    "A": "translategemma-4b-q4km",
+    "B": "cpu",
+    "C": "cuni-q3km",
+    "D": "gpt-6-luna"
+  },
+  "w500-434": {
+    "A": "cpu",
+    "B": "cuni-q3km",
+    "C": "translategemma-4b-q4km",
+    "D": "gpt-6-luna"
+  },
+  "w500-435": {
+    "A": "gpt-6-luna",
+    "B": "cpu",
+    "C": "cuni-q3km",
+    "D": "translategemma-4b-q4km"
+  },
+  "w500-436": {
+    "A": "gpt-6-luna",
+    "B": "translategemma-4b-q4km",
+    "C": "cuni-q3km",
+    "D": "cpu"
+  },
+  "w500-437": {
+    "A": "translategemma-4b-q4km",
+    "B": "cpu",
+    "C": "gpt-6-luna",
+    "D": "cuni-q3km"
+  },
+  "w500-438": {
+    "A": "translategemma-4b-q4km",
+    "B": "gpt-6-luna",
+    "C": "cpu",
+    "D": "cuni-q3km"
+  },
+  "w500-439": {
+    "A": "cpu",
+    "B": "gpt-6-luna",
+    "C": "cuni-q3km",
+    "D": "translategemma-4b-q4km"
+  },
+  "w500-440": {
+    "A": "translategemma-4b-q4km",
+    "B": "cpu",
+    "C": "gpt-6-luna",
+    "D": "cuni-q3km"
+  },
+  "w500-441": {
+    "A": "translategemma-4b-q4km",
+    "B": "cpu",
+    "C": "cuni-q3km",
+    "D": "gpt-6-luna"
+  },
+  "w500-442": {
+    "A": "cpu",
+    "B": "cuni-q3km",
+    "C": "translategemma-4b-q4km",
+    "D": "gpt-6-luna"
+  },
+  "w500-443": {
+    "A": "cuni-q3km",
+    "B": "cpu",
+    "C": "gpt-6-luna",
+    "D": "translategemma-4b-q4km"
+  },
+  "w500-444": {
+    "A": "gpt-6-luna",
+    "B": "translategemma-4b-q4km",
+    "C": "cuni-q3km",
+    "D": "cpu"
+  },
+  "w500-445": {
+    "A": "cpu",
+    "B": "translategemma-4b-q4km",
+    "C": "cuni-q3km",
+    "D": "gpt-6-luna"
+  },
+  "w500-446": {
+    "A": "gpt-6-luna",
+    "B": "cuni-q3km",
+    "C": "translategemma-4b-q4km",
+    "D": "cpu"
+  },
+  "w500-447": {
+    "A": "gpt-6-luna",
+    "B": "translategemma-4b-q4km",
+    "C": "cpu",
+    "D": "cuni-q3km"
+  },
+  "w500-448": {
+    "A": "gpt-6-luna",
+    "B": "cpu",
+    "C": "cuni-q3km",
+    "D": "translategemma-4b-q4km"
+  },
+  "w500-449": {
+    "A": "cpu",
+    "B": "gpt-6-luna",
+    "C": "cuni-q3km",
+    "D": "translategemma-4b-q4km"
+  },
+  "w500-450": {
+    "A": "translategemma-4b-q4km",
+    "B": "gpt-6-luna",
+    "C": "cuni-q3km",
+    "D": "cpu"
+  },
+  "w500-451": {
+    "A": "cuni-q3km",
+    "B": "gpt-6-luna",
+    "C": "cpu",
+    "D": "translategemma-4b-q4km"
+  },
+  "w500-452": {
+    "A": "translategemma-4b-q4km",
+    "B": "gpt-6-luna",
+    "C": "cpu",
+    "D": "cuni-q3km"
+  },
+  "w500-453": {
+    "A": "translategemma-4b-q4km",
+    "B": "gpt-6-luna",
+    "C": "cuni-q3km",
+    "D": "cpu"
+  },
+  "w500-454": {
+    "A": "cpu",
+    "B": "translategemma-4b-q4km",
+    "C": "cuni-q3km",
+    "D": "gpt-6-luna"
+  },
+  "w500-455": {
+    "A": "translategemma-4b-q4km",
+    "B": "cuni-q3km",
+    "C": "cpu",
+    "D": "gpt-6-luna"
+  },
+  "w500-456": {
+    "A": "gpt-6-luna",
+    "B": "translategemma-4b-q4km",
+    "C": "cpu",
+    "D": "cuni-q3km"
+  },
+  "w500-457": {
+    "A": "gpt-6-luna",
+    "B": "cpu",
+    "C": "translategemma-4b-q4km",
+    "D": "cuni-q3km"
+  },
+  "w500-458": {
+    "A": "cuni-q3km",
+    "B": "cpu",
+    "C": "gpt-6-luna",
+    "D": "translategemma-4b-q4km"
+  },
+  "w500-459": {
+    "A": "cuni-q3km",
+    "B": "translategemma-4b-q4km",
+    "C": "cpu",
+    "D": "gpt-6-luna"
+  },
+  "w500-460": {
+    "A": "cuni-q3km",
+    "B": "gpt-6-luna",
+    "C": "cpu",
+    "D": "translategemma-4b-q4km"
+  },
+  "w500-461": {
+    "A": "cuni-q3km",
+    "B": "translategemma-4b-q4km",
+    "C": "cpu",
+    "D": "gpt-6-luna"
+  },
+  "w500-462": {
+    "A": "cuni-q3km",
+    "B": "cpu",
+    "C": "translategemma-4b-q4km",
+    "D": "gpt-6-luna"
+  },
+  "w500-463": {
+    "A": "cpu",
+    "B": "cuni-q3km",
+    "C": "gpt-6-luna",
+    "D": "translategemma-4b-q4km"
+  },
+  "w500-464": {
+    "A": "cpu",
+    "B": "cuni-q3km",
+    "C": "gpt-6-luna",
+    "D": "translategemma-4b-q4km"
+  },
+  "w500-465": {
+    "A": "cpu",
+    "B": "gpt-6-luna",
+    "C": "cuni-q3km",
+    "D": "translategemma-4b-q4km"
+  },
+  "w500-466": {
+    "A": "gpt-6-luna",
+    "B": "translategemma-4b-q4km",
+    "C": "cpu",
+    "D": "cuni-q3km"
+  },
+  "w500-467": {
+    "A": "gpt-6-luna",
+    "B": "cuni-q3km",
+    "C": "cpu",
+    "D": "translategemma-4b-q4km"
+  },
+  "w500-468": {
+    "A": "translategemma-4b-q4km",
+    "B": "gpt-6-luna",
+    "C": "cpu",
+    "D": "cuni-q3km"
+  },
+  "w500-469": {
+    "A": "gpt-6-luna",
+    "B": "cuni-q3km",
+    "C": "cpu",
+    "D": "translategemma-4b-q4km"
+  },
+  "w500-470": {
+    "A": "translategemma-4b-q4km",
+    "B": "cpu",
+    "C": "gpt-6-luna",
+    "D": "cuni-q3km"
+  },
+  "w500-471": {
+    "A": "gpt-6-luna",
+    "B": "cuni-q3km",
+    "C": "cpu",
+    "D": "translategemma-4b-q4km"
+  },
+  "w500-472": {
+    "A": "cuni-q3km",
+    "B": "gpt-6-luna",
+    "C": "cpu",
+    "D": "translategemma-4b-q4km"
+  },
+  "w500-473": {
+    "A": "cuni-q3km",
+    "B": "cpu",
+    "C": "translategemma-4b-q4km",
+    "D": "gpt-6-luna"
+  },
+  "w500-474": {
+    "A": "cuni-q3km",
+    "B": "cpu",
+    "C": "gpt-6-luna",
+    "D": "translategemma-4b-q4km"
+  },
+  "w500-475": {
+    "A": "gpt-6-luna",
+    "B": "cpu",
+    "C": "translategemma-4b-q4km",
+    "D": "cuni-q3km"
+  },
+  "w500-476": {
+    "A": "translategemma-4b-q4km",
+    "B": "cpu",
+    "C": "cuni-q3km",
+    "D": "gpt-6-luna"
+  },
+  "w500-477": {
+    "A": "cuni-q3km",
+    "B": "translategemma-4b-q4km",
+    "C": "gpt-6-luna",
+    "D": "cpu"
+  },
+  "w500-478": {
+    "A": "cpu",
+    "B": "translategemma-4b-q4km",
+    "C": "cuni-q3km",
+    "D": "gpt-6-luna"
+  },
+  "w500-479": {
+    "A": "translategemma-4b-q4km",
+    "B": "cuni-q3km",
+    "C": "cpu",
+    "D": "gpt-6-luna"
+  },
+  "w500-480": {
+    "A": "gpt-6-luna",
+    "B": "cuni-q3km",
+    "C": "cpu",
+    "D": "translategemma-4b-q4km"
+  },
+  "w500-481": {
+    "A": "gpt-6-luna",
+    "B": "cuni-q3km",
+    "C": "translategemma-4b-q4km",
+    "D": "cpu"
+  },
+  "w500-482": {
+    "A": "cpu",
+    "B": "gpt-6-luna",
+    "C": "translategemma-4b-q4km",
+    "D": "cuni-q3km"
+  },
+  "w500-483": {
+    "A": "translategemma-4b-q4km",
+    "B": "gpt-6-luna",
+    "C": "cuni-q3km",
+    "D": "cpu"
+  },
+  "w500-484": {
+    "A": "translategemma-4b-q4km",
+    "B": "cuni-q3km",
+    "C": "cpu",
+    "D": "gpt-6-luna"
+  },
+  "w500-485": {
+    "A": "cpu",
+    "B": "gpt-6-luna",
+    "C": "translategemma-4b-q4km",
+    "D": "cuni-q3km"
+  },
+  "w500-486": {
+    "A": "cuni-q3km",
+    "B": "translategemma-4b-q4km",
+    "C": "gpt-6-luna",
+    "D": "cpu"
+  },
+  "w500-487": {
+    "A": "cuni-q3km",
+    "B": "cpu",
+    "C": "gpt-6-luna",
+    "D": "translategemma-4b-q4km"
+  },
+  "w500-488": {
+    "A": "cpu",
+    "B": "gpt-6-luna",
+    "C": "cuni-q3km",
+    "D": "translategemma-4b-q4km"
+  },
+  "w500-489": {
+    "A": "cpu",
+    "B": "gpt-6-luna",
+    "C": "translategemma-4b-q4km",
+    "D": "cuni-q3km"
+  },
+  "w500-490": {
+    "A": "gpt-6-luna",
+    "B": "cuni-q3km",
+    "C": "translategemma-4b-q4km",
+    "D": "cpu"
+  },
+  "w500-491": {
+    "A": "cuni-q3km",
+    "B": "translategemma-4b-q4km",
+    "C": "cpu",
+    "D": "gpt-6-luna"
+  },
+  "w500-492": {
+    "A": "translategemma-4b-q4km",
+    "B": "gpt-6-luna",
+    "C": "cuni-q3km",
+    "D": "cpu"
+  },
+  "w500-493": {
+    "A": "cuni-q3km",
+    "B": "translategemma-4b-q4km",
+    "C": "cpu",
+    "D": "gpt-6-luna"
+  },
+  "w500-494": {
+    "A": "cpu",
+    "B": "cuni-q3km",
+    "C": "gpt-6-luna",
+    "D": "translategemma-4b-q4km"
+  },
+  "w500-495": {
+    "A": "translategemma-4b-q4km",
+    "B": "gpt-6-luna",
+    "C": "cpu",
+    "D": "cuni-q3km"
+  },
+  "w500-496": {
+    "A": "cuni-q3km",
+    "B": "gpt-6-luna",
+    "C": "cpu",
+    "D": "translategemma-4b-q4km"
+  },
+  "w500-497": {
+    "A": "cuni-q3km",
+    "B": "gpt-6-luna",
+    "C": "translategemma-4b-q4km",
+    "D": "cpu"
+  },
+  "w500-498": {
+    "A": "translategemma-4b-q4km",
+    "B": "gpt-6-luna",
+    "C": "cuni-q3km",
+    "D": "cpu"
+  },
+  "w500-499": {
+    "A": "translategemma-4b-q4km",
+    "B": "gpt-6-luna",
+    "C": "cpu",
+    "D": "cuni-q3km"
+  },
+  "w500-500": {
+    "A": "translategemma-4b-q4km",
+    "B": "gpt-6-luna",
+    "C": "cpu",
+    "D": "cuni-q3km"
+  }
+}

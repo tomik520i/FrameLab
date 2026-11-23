@@ -15,9 +15,16 @@ void SubtitleSettings::sanitize(){
  placement=std::clamp(placement,0,2);horizontalAlign=std::clamp(horizontalAlign,0,2);verticalAlign=std::clamp(verticalAlign,0,2);edgeFallback=std::clamp(edgeFallback,0,1);
  intervalMs=std::clamp(intervalMs,200,1500);
  model=std::clamp(model,0,6);
+ contentFilter=std::clamp(contentFilter,0,2);
+ provider=std::clamp(provider,0,1);
+ if(computeBackend!="auto"&&computeBackend!="cuda"&&computeBackend!="vulkan"&&computeBackend!="cpu")computeBackend="auto";
+ if(computeBackend=="auto"||computeBackend=="cpu"||computeDevice.size()>96||computeDevice.find_first_not_of("0123456789abcdefABCDEF-GPU")!=std::string::npos)computeDevice.clear();
+ if(apiModel.empty()||apiModel.size()>160||apiModel.find_first_not_of("abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789_.:-")!=std::string::npos)apiModel="gpt-6-luna";
+ if(apiEffort!="none"&&apiEffort!="low"&&apiEffort!="medium"&&apiEffort!="high"&&apiEffort!="xhigh"&&apiEffort!="max")apiEffort="none";
+ apiTemperature=std::clamp(finite(apiTemperature,0),0.f,2.f);
  if(!subtitleLanguage(sourceLanguage))sourceLanguage="en";
  if(!subtitleLanguage(targetLanguage))targetLanguage="cs";
- if(!subtitlePairSupported(model,sourceLanguage,targetLanguage))enabled=false;
+ if(provider==0?!subtitlePairSupported(model,sourceLanguage,targetLanguage):sourceLanguage==targetLanguage)enabled=false;
  ocrEngine=std::clamp(ocrEngine,0,1);
  holdSeconds=std::clamp(finite(holdSeconds,1.2f),.5f,4.f);
  lingerSeconds=std::clamp(finite(lingerSeconds,3.f),holdSeconds,8.f);
@@ -31,7 +38,7 @@ void SubtitleSettings::sanitize(){
 }
 void SubtitleSettings::load(const std::filesystem::path& p){
  int version=0;std::ifstream f(p);
- if(f>>version&&version>=1&&version<=9){
+ if(f>>version&&version>=1&&version<=12){
   f>>left>>top>>right>>bottom>>fontPercent>>position>>background>>intervalMs>>showOriginal;
   if(version>=2)f>>coverSource;
   if(version>=3)f>>horizontal>>gapPercent>>placement>>horizontalAlign>>verticalAlign>>edgeFallback;
@@ -41,9 +48,12 @@ void SubtitleSettings::load(const std::filesystem::path& p){
   if(version>=7){SubtitleStyleProfile candidate;if(f>>candidate.enabled>>candidate.height>>candidate.rgb[0]>>candidate.rgb[1]>>candidate.rgb[2]>>candidate.heightTolerance>>candidate.colorTolerance)style=candidate;}
   if(version>=8)f>>std::quoted(style.sampleText)>>style.sampleFrameHeight>>style.sampleId;
   if(version>=9)f>>std::quoted(sourceLanguage)>>std::quoted(targetLanguage);
+  if(version>=10)f>>contentFilter;
+  if(version>=11)f>>provider>>std::quoted(apiModel)>>std::quoted(apiEffort)>>apiTemperatureEnabled>>apiTemperature;
+  if(version>=12)f>>std::quoted(computeBackend)>>std::quoted(computeDevice)>>allowCpuOffload;
  }
  sanitize();enabled=false;showRegion=false;editOverlay=false;inspectOcr=false;
 }
 void SubtitleSettings::save(const std::filesystem::path& p)const{
- std::ofstream(p)<<std::setprecision(std::numeric_limits<float>::max_digits10)<<9<<' '<<left<<' '<<top<<' '<<right<<' '<<bottom<<' '<<fontPercent<<' '<<position<<' '<<background<<' '<<intervalMs<<' '<<showOriginal<<' '<<coverSource<<' '<<horizontal<<' '<<gapPercent<<' '<<placement<<' '<<horizontalAlign<<' '<<verticalAlign<<' '<<edgeFallback<<' '<<model<<' '<<ocrEngine<<' '<<holdSeconds<<' '<<lingerSeconds<<' '<<joinFragments<<' '<<style.enabled<<' '<<style.height<<' '<<style.rgb[0]<<' '<<style.rgb[1]<<' '<<style.rgb[2]<<' '<<style.heightTolerance<<' '<<style.colorTolerance<<' '<<std::quoted(style.sampleText)<<' '<<style.sampleFrameHeight<<' '<<style.sampleId<<' '<<std::quoted(sourceLanguage)<<' '<<std::quoted(targetLanguage)<<'\n';
+ std::ofstream(p)<<std::setprecision(std::numeric_limits<float>::max_digits10)<<12<<' '<<left<<' '<<top<<' '<<right<<' '<<bottom<<' '<<fontPercent<<' '<<position<<' '<<background<<' '<<intervalMs<<' '<<showOriginal<<' '<<coverSource<<' '<<horizontal<<' '<<gapPercent<<' '<<placement<<' '<<horizontalAlign<<' '<<verticalAlign<<' '<<edgeFallback<<' '<<model<<' '<<ocrEngine<<' '<<holdSeconds<<' '<<lingerSeconds<<' '<<joinFragments<<' '<<style.enabled<<' '<<style.height<<' '<<style.rgb[0]<<' '<<style.rgb[1]<<' '<<style.rgb[2]<<' '<<style.heightTolerance<<' '<<style.colorTolerance<<' '<<std::quoted(style.sampleText)<<' '<<style.sampleFrameHeight<<' '<<style.sampleId<<' '<<std::quoted(sourceLanguage)<<' '<<std::quoted(targetLanguage)<<' '<<contentFilter<<' '<<provider<<' '<<std::quoted(apiModel)<<' '<<std::quoted(apiEffort)<<' '<<apiTemperatureEnabled<<' '<<apiTemperature<<' '<<std::quoted(computeBackend)<<' '<<std::quoted(computeDevice)<<' '<<allowCpuOffload<<'\n';
 }

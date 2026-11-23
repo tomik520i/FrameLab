@@ -1,0 +1,13 @@
+{
+ "w500-403":{"A":"Zbabělé elfy nazývá statečnými. Bez výslovného označení ironie tím mění smysl urážky.","B":"‚Povraždili spoustu trpaslíků‘ může při návaznosti na elfy mylně připisovat vraždění elfům; originál uvádí jejich odmítnutí pomoci, pachatele vraždění neuvádí."},
+ "w500-405":{"B":"Ze šesti vět zůstala jediná. Ztratily se útěk, pronásledování, přechod řeky i výhrůžka."},
+ "w500-410":{"A":"Z ohnivého žezla dělá meč; mění hledaný předmět."},
+ "w500-416":{"A":"Obrací směr pomoci: v originále pomáhají mořští lidé družině, v překladu družina pomáhá Merfolkům."},
+ "w500-419":{"B":"Vymýšlí otravu jako příčinu smrti. Originál neříká, jak se chlapec zabil."},
+ "w500-422":{"B":"Obklíčení ozbrojenými orky mění na ocelové překážky, které orkové postavili.","D":"Obrazné ‚ringed about with steel‘ konkretizuje jako ocelové ploty; originál žádné ploty neuvádí."},
+ "w500-429":{"A":"Chybí rozpoznání výstřelu trpasličí zbraně.","B":"Thunderstick překládá jako hromosvod (hromovod), místo trpasličí střelné zbraně.","C":"‚Hromovráz‘ je neobvyklé označení; neobjasňuje, že jde o trpasličí střelnou zbraň.","D":"‚Dýkový tlusťák‘ vůbec neodpovídá trpasličí zbrani."},
+ "w500-437":{"_case":"Lidská reference má jihovýchod, ale anglický originál jihozápad. Hodnocení se řídí originálem: správný jihozápad se nepenalizuje.","A":"Z jihozápadu zůstává pouze západ a žoldáky mění na nájemníky.","B":"Wood elves doslova převádí na dřevěné elfy, a navíc časový údaj zní jako období po skončení vlády."},
+ "w500-439":{"D":"Podmínku ‚pokud tě nebaví tábořit‘ obrací na ‚pokud ti nevadí stanovat‘. Čeština má zároveň více chybných tvarů."},
+ "w500-441":{"A":"Fantasy trolly zaměňuje za internetové komentáře a bojovou provokaci za žádost, aby přestali."},
+ "w500-443":{"D":"Gryfy mění na vlkodavy, kterým přisuzuje vejce. Úvodní věta je navíc nesrozumitelná."}
+}

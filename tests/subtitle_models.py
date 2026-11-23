@@ -19,15 +19,17 @@ class Handler(http.server.BaseHTTPRequestHandler):
     def log_message(self, *args):
         pass
     def do_GET(self):
+        payload=DATA[:256] if self.path=='/small' else DATA
         start = int(self.headers.get('Range', 'bytes=0-').split('=')[1].split('-')[0])
         self.ranges.append(start)
         self.send_response(206 if start else 200)
-        self.send_header('Content-Length', str(len(DATA)-start))
+        self.send_header('Content-Length', str(len(payload)-start))
+        self.send_header('Content-Type','application/octet-stream')
         if start:
-            self.send_header('Content-Range', f'bytes {start}-{len(DATA)-1}/{len(DATA)}')
+            self.send_header('Content-Range', f'bytes {start}-{len(payload)-1}/{len(payload)}')
         self.end_headers()
         try:
-            self.wfile.write(DATA[start:])
+            self.wfile.write(payload[start:])
         except (BrokenPipeError, ConnectionResetError):
             pass
 
@@ -67,6 +69,9 @@ class Assets(unittest.TestCase):
         with tempfile.TemporaryDirectory() as d:
             root = Path(d)
             asset = self.asset()
+            # Hash rejection needs only a small payload; the resume test below
+            # separately exercises multi-megabyte streaming and Range requests.
+            asset.update(bytes=256,url=f'http://127.0.0.1:{self.server.server_port}/small')
             asset['sha256'] = '0'*64
             with self.assertRaises(ValueError):
                 download(asset, root)
@@ -102,11 +107,16 @@ class Assets(unittest.TestCase):
             verify(path, model)
             exe = root/'gpu-runtime/ollama.exe'
             exe.write_bytes(b'fixture, never executed')
+            for name in ['lib/ollama/llama-server.exe','lib/ollama/vulkan/ggml-vulkan.dll']:
+                target=root/'gpu-runtime'/name;target.parent.mkdir(parents=True,exist_ok=True);target.write_bytes(b'fixture, never executed')
             data = dict(runtime=dict(sha256='fixture archive hash'))
             atomic_json(root/'gpu-runtime/verified.json', dict(
                 archive_sha256=data['runtime']['sha256'], executable=fingerprint(exe)))
             ready = model_status(root, model, data, dict(phase='missing'))
             self.assertEqual(ready['phase'], 'ready')
+            vulkan=root/'gpu-runtime/lib/ollama/vulkan/ggml-vulkan.dll';vulkan.unlink()
+            self.assertEqual(model_status(root,model,data,dict(phase='missing'))['phase'],'downloaded')
+            vulkan.write_bytes(b'fixture, never executed')
             exe.write_bytes(b'changed runtime')
             self.assertEqual(model_status(root, model, data, ready)['phase'], 'downloaded')
             path.write_bytes(b'changed model')

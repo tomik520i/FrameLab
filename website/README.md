@@ -31,3 +31,20 @@ The current homepage is authoritative HTML in `website/index.html`, with `releas
 New guide captures are in `docs/images/preview17/`: RIFE and GPU blocking from the local November 22 build, multilingual controls and Japanese/German captions from November 23. Captures show a local test with optional models already downloaded; the guide explicitly explains that public packages require those downloads. Existing installation screenshots retain their historical labels. `render_current_guides.py` builds all 14 text pages plus the two illustrated walkthroughs; `package_guides.py` copies these same pages/assets offline.
 
 Incremental deployment is supported when historical large release assets are already on the server. Review the live file hashes against the baseline, stage only the changed/new public files, verify hashes and all new downloads, back up replaced files outside the web root, and publish `index.html` last. Merge `site-manifest.json` and `downloads/catalog.json`; preserve existing downloads, historical media and server-only `country-data/runtime-config.json`. A new application release must be mirrored and verified before changing its download links. Never replace the whole web root with the source-only `website/` folder: large historical media are intentionally absent from Git.
+
+## November 23 API comparison and remote-window guide
+
+Hosting observation: the public Apache response currently injects the host's existing `/provoz/tracker.js?v=2` script into HTML. This is outside the FrameLab source template. The earlier no-analytics statement describes the original source implementation, not a verified absence of host-wide analytics today. Deployment verification records that exact insertion separately; all static data files are checked byte-for-byte.
+
+`tools/render_remote_guide.py` produces the Czech/English Remote Play, subtitle-only and BYOK API guides, including four real captures of the local test window. Console connectivity was not physically tested. These guides explicitly describe a local experiment, not a replacement for the public preview.17 download.
+
+`runs/2026-11-23-api500/` contains the 500-entry comparison, every translation and rating, latency, token-cost ledger, GPL dataset attribution and source-only audit archive. Rebuild with `render_api500_report.py` and `finalize_api500_audit.py` using the frozen local evidence; never publish a partial preview. The AI judge is not independent human validation. Large complete JSON is downloadable; the interactive viewer fetches smaller chunks. Keep all historical media and download catalog entries unchanged when adding this report.
+
+
+## Preview.18 publication
+
+Current package links point to preview.18. The historical public preview.17 hero capture remains explicitly labelled; it is not represented as a preview.18 capture. Remote Play/API/window functions are now included in the release. The paired compute guides and new walkthrough steps cover CUDA/Vulkan/CPU. Existing image comparison media and benchmark identities remain unchanged.
+
+`runs/2026-11-23-direct-review/` publishes all 2,000 individually assigned Codex review scores, blinded mapping, notes, formula, source hashes and CSV. No paid API requests were made for this second review. It is single-AI subjective assessment, not human validation. The older paid-judge page and frozen source audit remain historical evidence; do not regenerate their frozen code from current sources. `render_direct_review.py` renders from the saved ratings and original 500-entry outputs without inference.
+
+`runs/2026-11-23-compute/` retains the separate 32-translation backend compatibility/timing study and native OCR integration evidence. Do not combine its times with the 500-entry quality ranking or claim it measures simultaneous FG/NR.

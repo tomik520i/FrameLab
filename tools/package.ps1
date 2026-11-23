@@ -38,12 +38,14 @@ if (!(Test-Path -LiteralPath $NrHostPath)) { throw 'Build the NR adapter first (
 New-Item -ItemType Directory -Path "$stage/app/nr-host" -Force | Out-Null
 Copy-Item -LiteralPath $NrHostPath -Destination "$stage/app/nr-host/nvngx.dll"
 Copy-Item 'tools/Install-Enhancer.ps1' "$stage/tools/"
+Copy-Item 'tools/prepare_entity_filter.py' "$stage/tools/"
 Copy-Item '4 - Doplnit enhancer.cmd' $stage
 New-Item -ItemType Directory -Path "$stage/app/samples" -Force | Out-Null
 foreach ($sample in 'action.mp4','gta.mp4','ocr-demo.mp4','action.source.json','gta.source.json','ocr-demo.source.json') { Copy-Item -LiteralPath (Join-Path $SampleDirectory $sample) -Destination "$stage/app/samples/" }
 if ($Translation) {
  Copy-PublicComponent $TranslationDirectory "$stage/app/translation"
- Copy-Item 'tools/translate_worker.py','tools/subtitle_models.py','tools/subtitle_model_manager.py','tools/subtitle_gpu.py' "$stage/app/translation/"
+ Copy-Item 'docs/openai-model-profiles.json' "$stage/app/translation/"
+ Copy-Item 'tools/translate_worker.py','tools/subtitle_models.py','tools/subtitle_model_manager.py','tools/subtitle_compute.py','tools/subtitle_gpu.py','tools/openai_translation.py','tools/subtitle_filter.py','tools/subtitle_entities.py' "$stage/app/translation/"
  Copy-Item 'docs/subtitle-models.json' "$stage/app/translation/"
 }
 if ($Complete) {

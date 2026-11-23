@@ -1,0 +1,19 @@
+{
+  "count": 500,
+  "eligible": 809,
+  "seed": 20261123,
+  "sha256": "cb486f1b19a0fa468a3ab3f0bc5f9da4f0e0984598f808f2ee7e902ec77e5a34",
+  "source_po_sha256": "6a3cd23fd32c3a07e83eff128a6c93d65d4ad78a62a12c45324d941d7d9c4c83",
+  "source": {
+    "name": "wesnoth",
+    "repo": "wesnoth/wesnoth",
+    "commit": "a015f4a5c629c0eb45ac5f115595113c9880e4af",
+    "path": "po/wesnoth-httt/cs.po",
+    "url": "https://raw.githubusercontent.com/wesnoth/wesnoth/a015f4a5c629c0eb45ac5f115595113c9880e4af/po/wesnoth-httt/cs.po",
+    "sha256": "6a3cd23fd32c3a07e83eff128a6c93d65d4ad78a62a12c45324d941d7d9c4c83",
+    "licenses": [
+      "wesnoth-COPYING"
+    ]
+  },
+  "method": "Unique non-fuzzy [message] entries, 5-280 characters, 2-48 words, final punctuation, no markup/placeholders/newlines. Random sample before inference. Game translation is a human reference, not the only valid wording. Public game data may have appeared in training; this is not a contamination-free benchmark."
+}

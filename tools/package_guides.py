@@ -10,7 +10,9 @@ GUIDES = {'index.html': 'ZACNI TADY.html', 'en.html': 'START HERE.html',
           'subtitles.html':'TITULKY A MODELY.html','subtitles-en.html':'SUBTITLES AND MODELS.html',
           'recording.html':'NAHRAVANI.html','recording-en.html':'RECORDING.html',
           'multilingual.html':'VICEJAZYCNE TITULKY.html','multilingual-en.html':'MULTILINGUAL SUBTITLES.html',
-          'gpu.html':'PODPORA GPU.html','gpu-en.html':'GPU SUPPORT.html'}
+          'remote-subtitles.html':'REMOTE PLAY A API.html','remote-subtitles-en.html':'REMOTE PLAY AND API.html',
+          'gpu.html':'PODPORA GPU.html','gpu-en.html':'GPU SUPPORT.html',
+          'compute.html':'VYPOCET PREKLADU.html','compute-en.html':'TRANSLATION COMPUTE.html'}
 
 def copy_guides(stage):
     stage = Path(stage)
@@ -23,6 +25,8 @@ def copy_guides(stage):
             markup = markup.replace('href="https://opicebot.cz/framelab/guide/' + old, 'href="' + new)
             markup = markup.replace('href="' + old, 'href="' + new)
         markup = markup.replace('href="https://opicebot.cz/framelab/guide/"', 'href="ZACNI TADY.html"')
+        # Reports and site navigation are online; they are not files beside the EXE.
+        markup = markup.replace('href="../', 'href="https://opicebot.cz/framelab/')
         markup = markup.replace('"assets/', '"guide-assets/')
         (stage / destination).write_text(markup, encoding='utf-8')
     shutil.copytree(ROOT / 'website/guide/assets', stage / 'guide-assets', dirs_exist_ok=True)

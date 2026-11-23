@@ -38,13 +38,13 @@ struct Handle {HANDLE value=nullptr;~Handle(){if(value&&value!=INVALID_HANDLE_VA
 struct TranslationProcess {
  Handle process,input,output,errors,job;
  ~TranslationProcess(){if(process&&WaitForSingleObject(process,0)==WAIT_TIMEOUT){TerminateProcess(process,0);WaitForSingleObject(process,2000);}}
- void launch(const std::filesystem::path& app,int model,const std::wstring& mapping=L"",const std::string& source="en",const std::string& target="cs"){
+ void launch(const std::filesystem::path& app,int model,const std::wstring& mapping=L"",const std::string& source="en",const std::string& target="cs",int contentFilter=0,const SubtitleSettings* settings=nullptr){
   // OCR and MT start on different threads. Do not let either child inherit the
   // other's pipes/log handles: that can hide an exit and block log reopening.
   static std::mutex launchMutex;std::lock_guard launchLock(launchMutex);
   std::filesystem::create_directories(app/L"logs");
-  const bool ocr=!mapping.empty();const auto base=app/(ocr?L"ocr":L"translation"),python=app/L"translation"/L"python"/L"python.exe",script=base/(ocr?L"ocr_worker.py":L"translate_worker.py");
-  if(!std::filesystem::is_regular_file(python)||!std::filesystem::is_regular_file(script)||(!ocr&&model==0&&!std::filesystem::is_regular_file(base/L"model"/L"model.bin")))throw std::runtime_error("Local OCR / translation files missing. Extract the complete package.");
+  const bool ocr=!mapping.empty(),cloud=settings&&settings->provider==1;const auto base=app/(ocr?L"ocr":L"translation"),python=app/L"translation"/L"python"/L"python.exe",script=base/(ocr?L"ocr_worker.py":L"translate_worker.py");
+  if(!std::filesystem::is_regular_file(python)||!std::filesystem::is_regular_file(script)||(!ocr&&!cloud&&model==0&&!std::filesystem::is_regular_file(base/L"model"/L"model.bin")))throw std::runtime_error("Local OCR / translation files missing. Extract the complete package.");
   SECURITY_ATTRIBUTES sa{sizeof(sa),nullptr,TRUE};Handle childInput,childOutput;
   if(!CreatePipe(&childInput.value,&input.value,&sa,4096)||!CreatePipe(&output.value,&childOutput.value,&sa,4096))throw std::runtime_error("Subtitle pipe creation failed");
   SetHandleInformation(input,HANDLE_FLAG_INHERIT,0);SetHandleInformation(output,HANDLE_FLAG_INHERIT,0);
@@ -61,10 +61,13 @@ struct TranslationProcess {
   HANDLE inherited[]{childInput.value,childOutput.value,errors.value};
   if(!UpdateProcThreadAttribute(extended.lpAttributeList,0,PROC_THREAD_ATTRIBUTE_HANDLE_LIST,inherited,sizeof(inherited),nullptr,nullptr))throw std::runtime_error("Subtitle handle-list configuration failed");
   PROCESS_INFORMATION pi{};std::wstring command=L"\""+python.wstring()+L"\" -B -I \""+script.wstring()+L"\" ";
-  command+=ocr?L"--mapping \""+mapping+L"\" --style-protocol":L"--model \""+(base/L"model").wstring()+L"\" --backend "+winrt::to_hstring(subtitleModelCatalog.at(model).id).c_str();
+  command+=ocr?L"--mapping \""+mapping+L"\" --style-protocol":L"--model \""+(base/L"model").wstring()+L"\" --backend "+winrt::to_hstring(cloud?"openai":subtitleModelCatalog.at(model).id).c_str();
+  if(cloud){command+=L" --api-model "+std::wstring(winrt::to_hstring(settings->apiModel))+L" --api-effort "+std::wstring(winrt::to_hstring(settings->apiEffort));if(settings->apiTemperatureEnabled)command+=L" --api-temperature "+std::to_wstring(settings->apiTemperature);}
   if(!subtitleLanguage(source)||!subtitleLanguage(target))throw std::runtime_error("Unknown subtitle language");
   command+=ocr?L" --language "+std::wstring(winrt::to_hstring(source)):L" --source "+std::wstring(winrt::to_hstring(source))+L" --target "+std::wstring(winrt::to_hstring(target));
   job.value=CreateJobObjectW(nullptr,nullptr);JOBOBJECT_EXTENDED_LIMIT_INFORMATION limits{};limits.BasicLimitInformation.LimitFlags=JOB_OBJECT_LIMIT_KILL_ON_JOB_CLOSE;
+  if(!ocr)command+=L" --content-filter "+std::to_wstring(contentFilter);
+  if(!ocr&&!cloud&&settings){command+=L" --compute "+std::wstring(winrt::to_hstring(settings->computeBackend));if(!settings->computeDevice.empty())command+=L" --device "+std::wstring(winrt::to_hstring(settings->computeDevice));if(settings->allowCpuOffload)command+=L" --allow-offload";}
   if(!job||!SetInformationJobObject(job,JobObjectExtendedLimitInformation,&limits,sizeof(limits)))throw std::runtime_error("Subtitle process isolation failed");
   if(!CreateProcessW(python.c_str(),command.data(),nullptr,nullptr,TRUE,CREATE_NO_WINDOW|CREATE_SUSPENDED|EXTENDED_STARTUPINFO_PRESENT,nullptr,base.c_str(),&si,&pi))throw std::runtime_error("Local translation process failed to start");
   SetHandleInformation(errors,HANDLE_FLAG_INHERIT,0);
@@ -76,7 +79,7 @@ struct TranslationProcess {
   auto p=static_cast<unsigned char*>(data);const double deadline=clockSeconds()+timeout;
   while(length){if(cancelled()||clockSeconds()>deadline)throw std::runtime_error("Translation cancelled or timed out");DWORD available=0;if(!PeekNamedPipe(output,nullptr,0,nullptr,&available,nullptr))throw std::runtime_error("Translation process stopped; see translation-worker.log");if(!available){Sleep(5);continue;}DWORD got=0;if(!ReadFile(output,p,std::min(length,available),&got,nullptr)||!got)throw std::runtime_error("Translation response failed");p+=got;length-=got;}
  }
- std::string receive(const std::function<bool()>& cancelled,double timeout=30){uint32_t length=0;readExact(&length,4,cancelled,timeout);if(length>65536)throw std::runtime_error("Invalid subtitle response length");std::string value(length,'\0');if(length)readExact(value.data(),length,cancelled,timeout);return value;}
+ std::string receive(const std::function<bool()>& cancelled,double timeout=150){uint32_t length=0;readExact(&length,4,cancelled,timeout);if(length>65536)throw std::runtime_error("Invalid subtitle response length");std::string value(length,'\0');if(length)readExact(value.data(),length,cancelled,timeout);return value;}
  std::string translate(const std::string& text,const std::function<bool()>& cancelled){
   uint32_t length=uint32_t(text.size());std::vector<unsigned char> message(length+4);memcpy(message.data(),&length,4);memcpy(message.data()+4,text.data(),length);DWORD sent=0;
   if(!WriteFile(input,message.data(),DWORD(message.size()),&sent,nullptr)||sent!=message.size())throw std::runtime_error("Translation request failed");
@@ -130,13 +133,17 @@ struct SubtitleTranslator::Impl {
  Job samplePending;bool sampleAvailable=false;SubtitleStyleSample sampleResult;
  bool available=false,loading=false;uint64_t generation=1;double lastSubmitted=0;
  std::string modelError,ocrError,displayReading;std::thread worker,translator;
- explicit Impl(std::filesystem::path p):app(std::move(p)),worker([this]{runOcr();}),translator([this]{runTranslation();}){}
+ explicit Impl(std::filesystem::path p):app(std::filesystem::absolute(p)),worker([this]{runOcr();}),translator([this]{runTranslation();}){}
  ~Impl(){stop=true;wake.notify_all();translateWake.notify_all();worker.join();translator.join();}
- void clearLocked(){perf.ocrSuperseded+=available?1:0;perf.translationDrops+=texts.size();perf.captionDrops+=captions.size();event("subtitle_reset",{{"generation",double(generation+1)}});++generation;pending={};texts.clear();captions.clear();available=false;lastSubmitted=0;result={};result.generation=generation;ocrError.clear();displayReading.clear();++sampleEpoch;samplePending={};sampleAvailable=false;sampleResult={};}
+ void clearLocked(){perf.ocrSuperseded+=available?1:0;perf.translationDrops+=texts.size();perf.captionDrops+=captions.size();event("subtitle_reset",{{"generation",double(generation+1)}});++generation;pending={};texts.clear();captions.clear();available=false;lastSubmitted=0;auto backend=std::move(result.filterBackend);auto compute=std::move(result.computeDescription);result={};result.filterBackend=std::move(backend);result.computeDescription=std::move(compute);result.generation=generation;ocrError.clear();displayReading.clear();++sampleEpoch;samplePending={};sampleAvailable=false;sampleResult={};}
+ bool freshLocked(double now,double captured,const std::string& source)const{
+  return SubtitleState::fresh(now,captured,source,result.observedAt,result.source,std::max(2.0,3*settings.intervalMs/1000.));
+ }
  void displayLocked(double now,bool paused){
   // Never build an unlimited delay: retain at most three pending lines and
-  // expire work older than six seconds. Source/seek/model resets still flush all.
-  while(!captions.empty()&&now-captions.front().time>6){++perf.captionDrops;event("caption_expired",{{"job_id",double(captions.front().id)}});captions.pop_front();}
+  // expire old work unless fresh OCR still sees its source on screen.
+  // Source/seek/model resets still flush all, including a late GPU response.
+  while(!captions.empty()&&!freshLocked(now,captions.front().time,captions.front().observedSource)){++perf.captionDrops;event("caption_expired",{{"job_id",double(captions.front().id)}});captions.pop_front();}
   if(!captions.empty()&&(result.translated.empty()||(!paused&&now-result.displayedAt>=settings.holdSeconds))){
    auto caption=std::move(captions.front());captions.pop_front();
    ++perf.shown;perf.displayLatencyMs=(now-caption.time)*1000;event("caption_display",{{"job_id",double(caption.id)},{"capture_to_display_ms",perf.displayLatencyMs}},caption.source,caption.translated);
@@ -192,41 +199,48 @@ struct SubtitleTranslator::Impl {
   winrt::uninit_apartment();
  }
  void runTranslation(){
-  std::unique_ptr<TranslationProcess> process;uint64_t seenEpoch=0;int loadedModel=-1;std::string loadedSource,loadedTarget;SubtitleRetry retry;
-  std::unordered_map<std::string,std::string> cache;std::deque<std::string> order;SubtitleSentence sentences;
+  std::unique_ptr<TranslationProcess> process;uint64_t seenEpoch=0;int loadedModel=-1,loadedFilter=-1;std::string loadedSource,loadedTarget;SubtitleRetry retry;
+  std::unordered_map<std::string,std::string> cache;std::deque<std::string> order;SubtitleSentence sentences;uint64_t loadedEpoch=0;
   while(!stop){
    TextJob text;SubtitleSettings selected;uint64_t epoch;
    {std::unique_lock lock(mutex);if(!translateWake.wait_for(lock,std::chrono::milliseconds(200),[&]{return stop||modelEpoch!=seenEpoch||retry.due(clockSeconds())||(!retry.pending()&&!retry.exhausted()&&!texts.empty());}))continue;if(stop)break;epoch=modelEpoch;if(epoch!=seenEpoch)retry.reset();seenEpoch=epoch;selected=settings;if(!texts.empty()){text=std::move(texts.front());texts.pop_front();}}
    if(!selected.enabled){process.reset();loadedModel=-1;activeModel=-1;retry.reset();lifecycle(app,"model_unloaded");std::lock_guard lock(mutex);loading=false;result.status="Translation off; model unloaded";continue;}
    const auto cancelled=[&]{return stop||modelEpoch!=epoch;};
    try{
-    if(!process||loadedModel!=selected.model||loadedSource!=selected.sourceLanguage||loadedTarget!=selected.targetLanguage){
-     if(!subtitlePairSupported(selected.model,selected.sourceLanguage,selected.targetLanguage))throw std::runtime_error("Selected model does not support this language pair");
+    if(!process||loadedEpoch!=epoch||loadedModel!=selected.model||loadedSource!=selected.sourceLanguage||loadedTarget!=selected.targetLanguage||loadedFilter!=selected.contentFilter){
+     if(selected.provider==0&&!subtitlePairSupported(selected.model,selected.sourceLanguage,selected.targetLanguage))throw std::runtime_error("Selected model does not support this language pair");
      const bool recovering=retry.failures>0;lifecycle(app,recovering?"model_retry":"model_loading",{},retry.failures+1);
      process.reset();activeModel=-1;cache.clear();order.clear();sentences.clear();
-     {std::lock_guard lock(mutex);loading=true;modelError.clear();result.status="Loading and warming local translation model...";}
-     const auto loadingStarted=clockSeconds();process=std::make_unique<TranslationProcess>();process->launch(app,selected.model,L"",selected.sourceLanguage,selected.targetLanguage);
-     const auto ready=process->receive(cancelled,120);if(ready!="READY")throw std::runtime_error(ready);
+     {std::lock_guard lock(mutex);loading=true;modelError.clear();result.status=selected.provider?"Preparing OpenAI API translation...":"Loading and warming local translation model...";}
+     const auto loadingStarted=clockSeconds();process=std::make_unique<TranslationProcess>();process->launch(app,selected.model,L"",selected.sourceLanguage,selected.targetLanguage,selected.contentFilter,&selected);
+     const auto ready=process->receive(cancelled,240);if(ready!="READY"&&ready!="READY FILTER=ner"&&!ready.starts_with("READY COMPUTE=")&&!ready.starts_with("READY FILTER=ner COMPUTE="))throw std::runtime_error(ready);
      loadedModel=selected.model;loadedSource=selected.sourceLanguage;loadedTarget=selected.targetLanguage;
+     loadedFilter=selected.contentFilter;loadedEpoch=epoch;
      activeModel=loadedModel;
      // A cold model load can outlive the subtitle queue. Re-observe even an
      // unchanged on-screen line after every load, including a language switch.
-     {std::lock_guard lock(mutex);if(modelEpoch==epoch){retry.loaded(clockSeconds());++translationRecovery;loading=false;perf.modelLoadMs=(clockSeconds()-loadingStarted)*1000;event("model_ready",{{"model",double(loadedModel)},{"load_ms",perf.modelLoadMs}});lifecycle(app,recovering?"model_recovered":"model_ready",{},retry.failures+1);result.status="Local model ready";}}
+     {std::lock_guard lock(mutex);if(modelEpoch==epoch){retry.loaded(clockSeconds());++translationRecovery;loading=false;perf.modelLoadMs=(clockSeconds()-loadingStarted)*1000;event("model_ready",{{"model",double(loadedModel)},{"load_ms",perf.modelLoadMs}});lifecycle(app,recovering?"model_recovered":"model_ready",{},retry.failures+1);result.status=selected.provider?"OpenAI API ready (paid text translation)":"Local model ready";result.filterBackend=selected.provider?"openai":ready.starts_with("READY FILTER=ner")?"ner":"basic";auto compute=ready.find(" COMPUTE=");result.computeDescription=compute==std::string::npos?(selected.provider?"OpenAI API":"OPUS-MT / CPU"):ready.substr(compute+9);}}
     }
     if(text.source.empty())continue;
-    {std::lock_guard lock(mutex);if(text.generation!=generation||clockSeconds()-text.time>6){++perf.translationDrops;event("translation_expired",{{"job_id",double(text.id)}});continue;}perf.translationBusy=true;perf.translationQueueMs=(clockSeconds()-text.queuedAt)*1000;}
-    const auto input=selected.model>=4?SubtitleSentence::Prepared{text.source,text.source,false}:sentences.prepare(text.source,text.time,text.generation,selected.joinFragments);
+    {std::lock_guard lock(mutex);if(text.generation!=generation||!freshLocked(clockSeconds(),text.time,text.source)){++perf.translationDrops;event("translation_expired",{{"job_id",double(text.id)}});continue;}perf.translationBusy=true;perf.translationQueueMs=(clockSeconds()-text.queuedAt)*1000;}
+    const auto input=(selected.provider||selected.model>=4)?SubtitleSentence::Prepared{text.source,text.source,false}:sentences.prepare(text.source,text.time,text.generation,selected.joinFragments);
     const auto start=clockSeconds();std::string translated;bool cacheHit=false;
-    if(auto found=cache.find(input.request);found!=cache.end()){translated=found->second;cacheHit=true;}
+    const auto key=selected.contentFilter?text.source+"\n"+input.request:input.request;
+    if(auto found=cache.find(key);found!=cache.end()){translated=found->second;cacheHit=true;}
     else{
-     translated=process->translate(input.request,cancelled);
+     const auto request=selected.contentFilter?"FRAMELAB_REQUEST_V1\n{\"text\":"+Diagnostics::quote(input.request)+",\"observed\":"+Diagnostics::quote(text.source)+"}":input.request;
+     translated=process->translate(request,cancelled);
      if(cache.size()>=128){cache.erase(order.front());order.pop_front();}
-     cache[input.request]=translated;order.push_back(input.request);
+     cache[key]=translated;order.push_back(key);
     }
     retry.reset();
+    if(translated.starts_with("FRAMELAB_SKIP_V1:")){
+     sentences.clear();std::lock_guard lock(mutex);perf.translationBusy=false;perf.translationMs=(clockSeconds()-start)*1000;if(cacheHit)++perf.cacheHits;
+     if(text.generation==generation&&modelEpoch==epoch){++perf.filtered;event("subtitle_filtered",{{"job_id",double(text.id)},{"filter_ms",perf.translationMs}},text.source,translated.substr(17));result.status="Filtered non-dialogue: "+translated.substr(17);}continue;
+    }
     // Continue OCR and translation while the previous Czech caption is readable.
-    {std::lock_guard lock(mutex);perf.translationBusy=false;++perf.translations;if(cacheHit)++perf.cacheHits;perf.translationMs=(clockSeconds()-start)*1000;event("translation_complete",{{"job_id",double(text.id)},{"model",double(loadedModel)},{"translation_ms",perf.translationMs},{"queue_ms",perf.translationQueueMs},{"cache_hit",double(cacheHit)}},input.source,translated);if(text.generation==generation&&modelEpoch==epoch&&clockSeconds()-text.time<=6){if(captions.size()>=3){++perf.captionDrops;captions.pop_front();}captions.push_back({input.source,std::move(translated),text.ocrMs+float(perf.translationMs),text.time,text.source,text.id});result.status=input.joined?"Translated sentence continuation":"Local OCR + "+selected.sourceLanguage+" > "+selected.targetLanguage+" ready";}}
-   }catch(const std::exception& e){process.reset();loadedModel=-1;activeModel=-1;std::lock_guard lock(mutex);loading=false;perf.translationBusy=false;if(modelEpoch==epoch&&!stop){const double delay=retry.fail(clockSeconds());++perf.translationErrors;event("translation_error",{{"job_id",double(text.id)},{"attempt",double(retry.failures)},{"retry_seconds",delay}});lifecycle(app,"translation_error",e.what(),retry.failures,delay);modelError=std::string(e.what())+(delay>=0?" | Automatic model reload in "+std::to_string(int(delay))+" s":" | Automatic retries exhausted; toggle subtitles to retry. See subtitle-lifecycle.jsonl");result.status=modelError;}}
+    {std::lock_guard lock(mutex);perf.translationBusy=false;++perf.translations;if(cacheHit)++perf.cacheHits;perf.translationMs=(clockSeconds()-start)*1000;event("translation_complete",{{"job_id",double(text.id)},{"model",double(loadedModel)},{"translation_ms",perf.translationMs},{"queue_ms",perf.translationQueueMs},{"cache_hit",double(cacheHit)}},input.source,translated);if(text.generation==generation&&modelEpoch==epoch&&freshLocked(clockSeconds(),text.time,text.source)){if(captions.size()>=3){++perf.captionDrops;captions.pop_front();}captions.push_back({input.source,std::move(translated),text.ocrMs+float(perf.translationMs),text.time,text.source,text.id});result.status=input.joined?"Translated sentence continuation":"Local OCR + "+selected.sourceLanguage+" > "+selected.targetLanguage+" ready";}}
+   }catch(const std::exception& e){process.reset();loadedModel=-1;activeModel=-1;std::lock_guard lock(mutex);loading=false;perf.translationBusy=false;if(modelEpoch==epoch&&!stop){if(selected.provider){retry.failures=3;retry.readyAt=-1;}const double delay=retry.fail(clockSeconds());++perf.translationErrors;event("translation_error",{{"job_id",double(text.id)},{"attempt",double(retry.failures)},{"retry_seconds",delay}});lifecycle(app,"translation_error",e.what(),retry.failures,delay);modelError=std::string(e.what())+(delay>=0?" | Automatic model reload in "+std::to_string(int(delay))+" s":" | Automatic retries exhausted; toggle subtitles to retry. See subtitle-lifecycle.jsonl");result.status=modelError;}}
   }
  }
 };
@@ -234,10 +248,10 @@ SubtitleTranslator::SubtitleTranslator(const std::filesystem::path& app):impl(st
 SubtitleTranslator::~SubtitleTranslator()=default;
 void SubtitleTranslator::configure(SubtitleSettings settings){
  settings.sanitize();std::lock_guard lock(impl->mutex);const auto& previous=impl->settings;
- const bool modelChanged=settings.enabled!=previous.enabled||settings.model!=previous.model||settings.sourceLanguage!=previous.sourceLanguage||settings.targetLanguage!=previous.targetLanguage||!impl->modelError.empty();
+ const bool modelChanged=settings.computeBackend!=previous.computeBackend||settings.computeDevice!=previous.computeDevice||settings.allowCpuOffload!=previous.allowCpuOffload||settings.provider!=previous.provider||settings.apiModel!=previous.apiModel||settings.apiEffort!=previous.apiEffort||settings.apiTemperatureEnabled!=previous.apiTemperatureEnabled||settings.apiTemperature!=previous.apiTemperature||settings.apiKeyRevision!=previous.apiKeyRevision||settings.enabled!=previous.enabled||settings.model!=previous.model||settings.sourceLanguage!=previous.sourceLanguage||settings.targetLanguage!=previous.targetLanguage||settings.contentFilter!=previous.contentFilter||!impl->modelError.empty();
  const bool ocrChanged=settings.enabled!=previous.enabled||settings.ocrEngine!=previous.ocrEngine||settings.sourceLanguage!=previous.sourceLanguage||!impl->ocrError.empty();
  const bool sourceChanged=modelChanged||ocrChanged||settings.joinFragments!=previous.joinFragments||settings.left!=previous.left||settings.top!=previous.top||settings.right!=previous.right||settings.bottom!=previous.bottom||settings.intervalMs!=previous.intervalMs||settings.style!=previous.style;
- if(modelChanged){++impl->modelEpoch;impl->modelError.clear();}if(ocrChanged)++impl->ocrEpoch;
+ if(modelChanged){++impl->modelEpoch;impl->modelError.clear();impl->result.filterBackend.clear();impl->result.computeDescription.clear();}if(ocrChanged)++impl->ocrEpoch;
  impl->settings=settings;if(sourceChanged)impl->clearLocked();impl->translateWake.notify_one();impl->wake.notify_one();
 }
 void SubtitleTranslator::setDiagnostics(Diagnostics* recorder){impl->diagnostics=recorder;}

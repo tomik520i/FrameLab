@@ -2,9 +2,11 @@
 
 **Preview.17:** RIFE / DirectML for suitable non-NVIDIA GPUs, repaired Optical Flow, 40 language choices and TranslateGemma downloads. [Hardware and setup](docs/GPU-BACKENDS.md) · [Multilingual guide](docs/MULTILINGUAL.en.md) · [Measured results](docs/release-preview17.md).
 
+**Preview.18:** CUNI and TranslateGemma can select CUDA, Vulkan or CPU, with an independent translation GPU and optional GPU + RAM placement. Vulkan was exercised on Intel UHD and RTX 4050; AMD hardware remains untested. [Setup and measured limits](docs/local-translation-compute.cs.md).
+
 Capture card or video → GPU → your display. An experimental Windows app for frame generation, optional neural enhancement and local multilingual subtitles.
 
-**[Download preview.17](https://github.com/tomik520i/FrameLab/releases/download/v0.2.0-preview.17/FrameLab-0.2.0-preview.17-windows-x64-full.zip) · [Website & comparisons](https://opicebot.cz/framelab/) · [Česky](docs/README.cs.md)**
+**[Download preview.18](https://github.com/tomik520i/FrameLab/releases/download/v0.2.0-preview.18/FrameLab-0.2.0-preview.18-windows-x64-full.zip) · [Website & comparisons](https://opicebot.cz/framelab/) · [Česky](docs/README.cs.md)**
 
 [Illustrated setup guide — real screenshots, step by step](https://opicebot.cz/framelab/guide/visual-en.html)
 
@@ -77,3 +79,13 @@ Windows x64 and a compatible GPU/driver are required. VFG targets RTX 40/50; Opt
 **[Donate through my Opicebot portal](https://opicebot.cz/?public=prdelniopice&donation2=prdelniopice)** — the donation page is **Czech only**, with PayPal support in **CZK**.
 
 Source: GPL-3.0. Third-party components and game footage retain their own terms. This community experiment is not affiliated with NVIDIA or game publishers.
+
+## New in preview.18: game windows, independent captions and Vulkan
+
+- **Capture → Application window:** refresh, choose the running game or Remote Play window and start capture. Keep the source open; begin with windowed/borderless mode. Protected surfaces and some games cannot be captured. Image processing has its own GPU selection, applied after restart.
+- **Display → Subtitles only over source window:** a transparent, click-through overlay follows the selected window. Set the OCR region first and position translated text independently. This mode does not inject FG or NR into the game. [Remote Play, overlay and API walkthrough](https://opicebot.cz/framelab/guide/remote-subtitles-en.html).
+- **Subtitles → Translation compute:** Auto, CUDA, Vulkan or CPU, with a separate GPU choice. CUNI and Gemma retain their model files. Optional GPU + RAM allows partial placement. CUDA is fastest on this laptop; Intel UHD Vulkan works but is slow. Physical AMD testing is still outstanding. [Measured setup guide](docs/local-translation-compute.cs.md).
+- **Optional OpenAI API:** choose online translation, save your own key and refresh available models. Windows Credential Manager stores the key; OCR text is sent to the selected API. Model profiles govern supported reasoning/temperature parameters. Local models remain usable without a key. The application does not run a paid quality judge.
+- A bundled local filter reduces names, license plates and labels; ambiguous text still requires a suitable OCR region. Active playback/capture keeps the display awake without changing the Windows power plan.
+
+[All 2,000 translations, direct assistant review, ranking and examples](https://opicebot.cz/framelab/runs/2026-11-23-direct-review/). The 500-entry benchmark measured text translation with FG, NR and OCR off, not game performance.

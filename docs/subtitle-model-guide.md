@@ -1,5 +1,7 @@
 # Subtitle models, reading time and placement
 
+**Preview.18:** CUNI and TranslateGemma can use CUDA / Vulkan / CPU with a separate GPU selector. Full GPU loading is the default; explicit GPU + RAM is optional. A slow result remains eligible when fresh OCR confirms the same text. [Setup and tests](local-translation-compute.en.md). [500-entry direct quality review](https://opicebot.cz/framelab/runs/2026-11-23-direct-review/). Earlier measurements below retain their original conditions.
+
 ## Preview.17: more languages
 
 Choose **Language in the picture / OCR** and **Translate into** in Subtitles. There are 40 choices and 12 bundled OCR packs. OPUS-MT and CUNI still support EN → CS only. Other pairs use optional TranslateGemma downloads.

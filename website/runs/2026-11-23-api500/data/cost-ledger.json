@@ -1,0 +1,42 @@
+{
+  "currency": "USD",
+  "pricing": "Standard token rates checked 2026-11-23; not an invoice, excludes taxes and unrelated account activity",
+  "sections": [
+    {
+      "purpose": "500 translations",
+      "cases": 500,
+      "requests_with_usage": 499,
+      "known_estimated_usd": 0.018690099999999998
+    },
+    {
+      "purpose": "500 blinded assessments",
+      "cases": 500,
+      "requests_with_usage": 500,
+      "known_estimated_usd": 0.7090499999999998
+    },
+    {
+      "purpose": "100 content-filter cases",
+      "cases": 100,
+      "requests_with_usage": 88,
+      "known_estimated_usd": 0.0022462999999999997
+    },
+    {
+      "purpose": "Initial production API smoke test",
+      "requests_with_usage": 1,
+      "known_estimated_usd": 2.6700000000000002e-05
+    },
+    {
+      "purpose": "Separate retry and model/temperature probes (not substituted into benchmark)",
+      "requests_with_usage": 4,
+      "known_estimated_usd": 0.0005015
+    },
+    {
+      "purpose": "Native OCR/worker integration and live subtitle-only UI test",
+      "requests_with_usage": 7,
+      "known_estimated_usd": 0.00017370000000000002
+    }
+  ],
+  "known_estimated_usd": 0.7306883000000001,
+  "missing_usage_requests": 1,
+  "missing_usage_note": "Original benchmark w500-161 returned invalid structured output. The first adapter discarded its usage before raising; subtotal excludes this one request. Production now records usage before parsing. Separate diagnostic retry succeeded and remains outside the original 500 results."
+}

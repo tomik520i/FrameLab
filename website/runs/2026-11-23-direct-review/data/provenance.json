@@ -1,0 +1,13 @@
+{
+  "inputs": {
+    "dataset500.jsonl": "cb486f1b19a0fa468a3ab3f0bc5f9da4f0e0984598f808f2ee7e902ec77e5a34",
+    "cpu.jsonl": "a7bde64e449e343ab052c5c1190e2eec5d89d59c855a8782411aad550c875982",
+    "cuni-q3km.jsonl": "3c387f39bff31b70e1bf530477a7dc3672ef7f110877add2cfe49bd50bd32a0f",
+    "translategemma-4b-q4km.jsonl": "08215d95519f16a608d953b3bdda48ae36ecc513b6da9cb94a098c0b6486373b",
+    "gpt-6-luna.jsonl": "1053b75bd3a0cc2cf9360282715581d74ff3a7a4dc9e91193b770171b17a6276",
+    "direct-review-ratings.txt": "40391ae392fc0b9ea131e53ce0f25fbffecb4a7782c1c7ac9ae76d11c34b4e30"
+  },
+  "reviewed_entries": 500,
+  "reviewed_outputs": 2000,
+  "notes_cases": 97
+}

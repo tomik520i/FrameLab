@@ -1,0 +1,10 @@
+{
+ "w500-360":{"B":"‚Byli jsme poraženi‘ mění na ‚porazili jsme se‘, tedy na porážku způsobenou sobě samým."},
+ "w500-367":{"_case":"Obtížný případ pro všechny čtyři kandidáty. Rout zde znamená obracet vojsko na útěk, nikoli směrovat, rozdělovat nebo odvádět. Nelze označit vítěze za bezchybný.","A":"Routing překládá jako odvádění sil.","B":"Routing překládá jako rozdělování sil.","C":"Routing překládá jako směrování a ‚has had enough‘ navíc obrací na ‚už to nestačí‘.","D":"Chybnému překladu routing se vyhne vypuštěním celé první věty; zbytek je použitelný, ale neúplný."},
+ "w500-380":{"C":"Schůzku dvě hodiny po půlnoci posune na půlnoc. Navíc mění setkání na vyzvednutí osob a z Elensefaru dělá společnost."},
+ "w500-385":{"A":"Zákaz příliš dlouhého odpočinku se obrací na výzvu k dlouhé pauze. Trpasličí země jsou navíc přeložené jako staré dvory."},
+ "w500-387":{"A":"Z rozkazu ‚odejdi a nikdy se nevracej‘ dělá ‚odejdeme a nevrátíme se‘. Zároveň mizí nárok na trůn."},
+ "w500-393":{"A":"Celá pointa je obrácená: ‚nezvládnu to sám‘ se změnilo na ‚zvládnu to sám‘."},
+ "w500-394":{"B":"Mágem chráněnou osobu mění na mágova ochránce. Vztah mezi postavami je opačný."},
+ "w500-397":{"A":"Vypadl směr sever, důležitý pro hledání žezla. ‚Hold it back‘ také interpretuje jako uchování v mysli, místo zadržování působící moci.","B":"Vypadl směr sever a žezlo zůstalo v angličtině.","D":"Zůstal jen výčet okolních prvků. Chybí volání dědice i informace, kde bylo žezlo ukováno."}
+}

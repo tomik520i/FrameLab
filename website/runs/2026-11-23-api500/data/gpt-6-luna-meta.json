@@ -1,0 +1,33 @@
+{
+  "model": "gpt-6-luna",
+  "init_ms": 2.5940999621525407,
+  "requests": 500,
+  "serial": true,
+  "filter": "off for translation-quality isolation",
+  "ocr": false,
+  "fg": false,
+  "enhancer": false,
+  "started_utc": "2026-11-23T18:45:49Z",
+  "note": "Local runtimes warm internally during initialization; API initialization does not send a request. All 500 API calls including first are retained.",
+  "pricing": {
+    "id": "gpt-6-luna",
+    "label": "GPT-6 Luna",
+    "efforts": [
+      "none",
+      "low",
+      "medium",
+      "high",
+      "xhigh",
+      "max"
+    ],
+    "default_effort": "none",
+    "temperature_efforts": [
+      "none"
+    ],
+    "input_usd": 0.1,
+    "cached_usd": 0.01,
+    "output_usd": 0.5,
+    "cache_write_usd": 0.125,
+    "source": "https://developers.openai.com/api/docs/models/gpt-6-luna"
+  }
+}

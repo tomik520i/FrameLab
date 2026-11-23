@@ -1,0 +1,36 @@
+{
+  "model": "translategemma-4b-q4km",
+  "init_ms": 13879.62050002534,
+  "requests": 500,
+  "serial": true,
+  "filter": "off for translation-quality isolation",
+  "ocr": false,
+  "fg": false,
+  "enhancer": false,
+  "started_utc": "2026-11-23T18:46:16Z",
+  "note": "Local runtimes warm internally during initialization; API initialization does not send a request. All 500 API calls including first are retained.",
+  "gpu_runtime": {
+    "models": [
+      {
+        "name": "framelab-translategemma-4b-q4km:latest",
+        "model": "framelab-translategemma-4b-q4km:latest",
+        "size": 2753382317,
+        "digest": "8c54087ce5309e058434d8953b4cf8d76558930fbddda5130301d9d35471258f",
+        "details": {
+          "parent_model": "",
+          "format": "gguf",
+          "family": "gemma3",
+          "families": [
+            "gemma3"
+          ],
+          "parameter_size": "3.9B",
+          "quantization_level": "Q4_K_M"
+        },
+        "expires_at": "2319-03-05T19:33:33.208492107+01:00",
+        "size_vram": 2753382317,
+        "context_length": 2048,
+        "runner": "llamacpp"
+      }
+    ]
+  }
+}

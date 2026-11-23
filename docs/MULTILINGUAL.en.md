@@ -1,9 +1,9 @@
-# Multilingual subtitles and TranslateGemma — preview.17
+# Multilingual subtitles and TranslateGemma — preview.18
 
 [Česky](MULTILINGUAL.md) · [GPU compatibility](GPU-BACKENDS.md)
 
 FrameLab reads subtitle text in the picture. It does not transcribe speech.
-OCR and translation run locally after setup. The application interface remains English/Czech;
+In Local / offline mode, OCR and translation run locally after setup. Optional OpenAI API is a separate online choice. The application interface remains English/Czech;
 the source and target subtitle selectors offer 40 language variants.
 
 ## Start
@@ -30,9 +30,9 @@ The source selector is manual, not automatic language detection. Missing OCR pac
 
 First GPU setup also downloads a 1.62 GB portable Ollama archive. Leave about 8 GB extra disk space for extraction.
 Downloads support pause/resume and check the pinned SHA-256 before activation. No system Ollama installation or account is required.
-FrameLab owns a private process on 127.0.0.1 with cloud functionality disabled. It requires full GPU residency and reports failure rather than silently offloading to CPU.
+FrameLab owns a private process on 127.0.0.1 with cloud functionality disabled. Full GPU residency is the default; preview.18 also provides explicit CPU mode and an optional GPU + RAM choice, with actual placement checks.
 The translator's GPU is independent of the adapter selected for image processing. A renderer VRAM readout may refer to a different GPU on multi-GPU PCs.
-Only RTX 4050 6 GB with 4B Q4 was tested here. Q8/12B and translation on AMD/Intel are not validated by this release.
+These multilingual results used RTX 4050 6 GB with 4B Q4. Q8/12B remain untested here. Preview.18 separately validated CUNI on Intel UHD Vulkan and Gemma on RTX Vulkan; physical AMD testing remains outstanding. [Compute guide](local-translation-compute.en.md).
 
 ## Languages and text rendering
 

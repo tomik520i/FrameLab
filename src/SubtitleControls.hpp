@@ -9,6 +9,8 @@
 #include "Localization.hpp"
 #include "SubtitleProfiles.hpp"
 #include "SubtitleRaster.hpp"
+#include "OpenAiControls.hpp"
+#include "SubtitleComputeControls.hpp"
 #include <cmath>
 
 inline const char* subText(const char* en,const char* cs){return czech?cs:en;}
@@ -18,11 +20,14 @@ inline void subtitleUnicodeLabel(const std::string& text,const std::string& lang
  if(image)ImGui::Image((ImTextureID)(intptr_t)image->texture.view.Get(),{float(image->width),float(image->height)});
  else ImGui::TextWrapped("%s",text.c_str());
 }
-inline bool subtitlePanel(SubtitleSettings& settings,const SubtitleSnapshot& state,SubtitleModels& models,float freeVramMB,OcrSetup& ocr,HWND window,bool rapidReady,bool* selectStyle=nullptr,SubtitleProfiles* profiles=nullptr,bool* inspector=nullptr){
+inline bool subtitlePanel(SubtitleSettings& settings,const SubtitleSnapshot& state,SubtitleModels& models,OpenAiSettings& api,float freeVramMB,OcrSetup& ocr,HWND window,bool rapidReady,bool* selectStyle=nullptr,SubtitleProfiles* profiles=nullptr,bool* inspector=nullptr){
  const auto before=settings;
- ui::title(subText("LOCAL SUBTITLE TRANSLATION","LOKÁLNÍ PŘEKLAD TITULKŮ"));
- ImGui::TextWrapped("%s",subText("Reads subtitles in the picture and overlays a translation. OCR and translation stay on this PC.","Čte titulky v obraze a zobrazuje překlad. OCR i překlad běží lokálně na tomto PC."));
+ ui::title(subText("SUBTITLE TRANSLATION","PŘEKLAD TITULKŮ"));
+ ImGui::TextWrapped("%s",subText("Reads subtitles in the picture and overlays a translation. Choose local or optional API translation.","Čte titulky v obraze a zobrazuje překlad. Vyber místní nebo volitelný API překlad."));
  if(!subtitleRaster.error.empty())ImGui::TextWrapped("%s",subtitleRaster.error.c_str());
+ const int previousProvider=settings.provider;
+ ImGui::Combo(subText("Translation provider","Způsob překladu"),&settings.provider,"Local / offline\000OpenAI API / BYOK\000");
+ if(settings.provider!=previousProvider){settings.enabled=false;if(settings.provider==1&&api.hasKey())api.refresh();}
  auto languageCombo=[&](const char* id,std::string& value){
   const auto current=subtitleLanguage(value);bool changed=false;
   if(ImGui::BeginCombo(id,current?(czech?current->cs:current->name):value.c_str())){
@@ -34,7 +39,7 @@ inline bool subtitlePanel(SubtitleSettings& settings,const SubtitleSnapshot& sta
  bool languageChanged=languageCombo("##subtitle-source",settings.sourceLanguage);
  ui::field(subText("Translate into","Přeložit do jazyka"));
  languageChanged=languageCombo("##subtitle-target",settings.targetLanguage)||languageChanged;
- if(languageChanged&&settings.model<4&&(settings.sourceLanguage!="en"||settings.targetLanguage!="cs")){settings.model=4;settings.enabled=false;}
+ if(languageChanged&&!settings.provider&&settings.model<4&&(settings.sourceLanguage!="en"||settings.targetLanguage!="cs")){settings.model=4;settings.enabled=false;}
  if(settings.sourceLanguage!=before.sourceLanguage){rapidReady=false;ocr.select(settings.sourceLanguage);}
  ImGui::TextWrapped("%s",subText("Choose the actual subtitle language. This is not automatic language detection; the OCR alphabet follows this choice.","Vyber skutečný jazyk titulků. Nejde o automatickou detekci jazyka; podle této volby se přepíná i abeceda OCR."));
  const auto capability=ocr.snapshot();
@@ -54,14 +59,18 @@ inline bool subtitlePanel(SubtitleSettings& settings,const SubtitleSnapshot& sta
   if(!capability.outcome.empty())ImGui::TextWrapped("%s",capability.outcome.c_str());
  }
  }
+ bool ready=settings.ocrEngine==0?rapidReady:capability.available==1;
+ if(settings.provider)ready=openAiPanel(settings,api,window)&&ready;
+ else{
  ui::field(subText("Translation model","Překladový model"));
  if(ImGui::BeginCombo("##translation-model",subtitleModelCatalog[settings.model].name)){
   for(int id:{0,1,3,2,4,5,6})if(ImGui::Selectable(subtitleModelCatalog[id].name,settings.model==id)){if(settings.model!=id){settings.model=id;settings.enabled=false;}}
   ImGui::EndCombo();
  }
- bool ready=(settings.ocrEngine==0?rapidReady:capability.available==1)&&subtitlePairSupported(settings.model,settings.sourceLanguage,settings.targetLanguage);
+ ready=ready&&subtitlePairSupported(settings.model,settings.sourceLanguage,settings.targetLanguage);
  if(!subtitlePairSupported(settings.model,settings.sourceLanguage,settings.targetLanguage))ImGui::TextWrapped("%s",subText("Choose different languages. OPUS-MT / CUNI support EN > CS only; other pairs need TranslateGemma.","Vyber dva různé jazyky. OPUS-MT / CUNI umějí jen EN > CS; ostatní páry vyžadují TranslateGemma."));
  if(settings.model){
+  ready=subtitleComputePanel(settings,models,state)&&ready;
   const auto& item=subtitleModelCatalog[settings.model];const auto download=models.snapshot(settings.model);const bool modelReady=download.phase=="ready";ready=ready&&modelReady;
   ImGui::Text("%.2f GB | %s",item.downloadGB,modelReady?subText("Ready offline","Připraveno offline"):subText("Download needed","Je potřeba stáhnout"));
   const bool busy=download.phase=="downloading"||download.phase=="verifying"||download.phase=="extracting";
@@ -81,20 +90,22 @@ inline bool subtitlePanel(SubtitleSettings& settings,const SubtitleSnapshot& sta
   if(settings.model==3)ImGui::TextWrapped("%s",subText("Q5 is used in the published live-caption examples. Compare quality on your own material; higher precision does not guarantee a better translation.","Q5 je použitý ve zveřejněných ukázkách živých titulků. Kvalitu porovnej na vlastním obsahu; vyšší přesnost nezaručuje lepší překlad."));
   ImGui::Text(subText("Model: %.2f GB | estimated GPU: %.1f GiB + headroom","Model: %.2f GB | odhad GPU: %.1f GiB + rezerva"),item.downloadGB,item.requiredGiB);
   ImGui::TextWrapped("%s",subText("First GPU download also needs the 1.62 GB portable runtime. Allow about 8 GB extra disk space for its archive and extraction. Models stay on this PC.","První GPU model stáhne také přenosný runtime (1,62 GB). Pro archiv a rozbalení nech dalších asi 8 GB místa. Modely zůstávají na tomto PC."));
-  if(state.activeModel==settings.model)ImGui::TextColored(ui::accent,"%s",subText("Model loaded on GPU","Model načtený na GPU"));
-  else if(freeVramMB>=0){
-   const double free=freeVramMB/1024.;ImGui::Text(subText("Free GPU memory now: %.2f GiB","Teď volná paměť GPU: %.2f GiB"),free);
-   if(free<item.requiredGiB+.75)ImGui::TextWrapped("%s",subText("Low headroom: choose a smaller model that supports your languages, reduce enhancer resolution, or close another GPU app. Full GPU loading is checked; CPU offload is not silently accepted.","Malá rezerva: vyber menší model podporující tvoje jazyky, sniž rozlišení enhanceru nebo zavři jinou GPU aplikaci. Úplné načtení na GPU se ověřuje; přesun na CPU se tiše nepovolí."));
-   else ImGui::TextWrapped("%s",subText("Enough estimated headroom with the effects currently running. Recheck after increasing resolution, FG or enhancer settings.","Odhadovaná rezerva se současně běžícími efekty stačí. Po zvýšení rozlišení nebo nastavení FG/enhanceru ji znovu zkontroluj."));
-  }else ImGui::TextWrapped("%s",subText("Free GPU memory is unavailable; capacity cannot be recommended.","Volnou paměť GPU nelze zjistit; kapacitu nelze doporučit."));
+  ImGui::TextWrapped("%s",subText("Memory is checked on the selected translation device when loading. Vulkan can use shared memory on integrated GPUs; this is not dedicated VRAM. GPU + RAM offload is optional.","Paměť se při načítání kontroluje na zvolené GPU překladače. Vulkan může na integrované grafice používat sdílenou paměť; nejde o vyhrazenou VRAM. GPU + RAM je volitelný režim."));
   }
  }
+ }
  if(!ready)ImGui::BeginDisabled();
- ImGui::Checkbox(subText("Translate subtitles","Překládat titulky"),&settings.enabled);
+ ImGui::Checkbox(settings.provider?subText("Enable paid API translation","Zapnout placený API překlad"):subText("Translate subtitles","Překládat titulky"),&settings.enabled);
  if(!ready)ImGui::EndDisabled();
- if(settings.enabled&&ImGui::Button(subText("Unload translation model","Uvolnit překladový model")))settings.enabled=false;
- ImGui::TextDisabled("%s > %s | offline",settings.sourceLanguage.c_str(),settings.targetLanguage.c_str());
+ if(settings.enabled&&ImGui::Button(settings.provider?subText("Stop API translation","Zastavit API překlad"):subText("Unload translation model","Uvolnit překladový model")))settings.enabled=false;
+ ImGui::TextDisabled("%s > %s | %s",settings.sourceLanguage.c_str(),settings.targetLanguage.c_str(),settings.provider?"OpenAI API":"offline");
  ui::field(subText("Subtitle appearance","Vzhled originálních titulků"));
+ const char* filters[]={subText("Off / translate all OCR text","Vypnuto / překládat všechno z OCR"),subText("Basic / obvious noise and plates","Základní / zjevné chyby a SPZ"),settings.provider?subText("Smart / API content filter","Chytrý / posouzení přes API"):subText("Smart / conservative EN filter","Chytrý / konzervativní filtr EN")};
+ ImGui::Combo(subText("Text filter","Filtr textu"),&settings.contentFilter,filters,3);
+ if(settings.provider&&settings.contentFilter==2)ImGui::TextWrapped("%s",subText("The API checks for clear non-dialogue in the same request as translation. Uncertain speech should be kept. Region and appearance filtering still happen locally.","API posuzuje zjevný text mimo dialog ve stejném požadavku jako překlad. Nejisté repliky má ponechat. Filtr oblasti a vzhledu dál běží místně."));
+ if(!settings.provider&&settings.contentFilter==2){ImGui::TextWrapped("%s",subText("English: a small CPU model recognizes standalone names. Gemma also checks label-shaped text; CUNI suppresses unchanged names after translation. Other languages use the basic filter. Select the subtitle region/style too: uncertain text is kept to protect dialogue.","Angličtina: malý model na CPU poznává samostatná jména. Gemma navíc posuzuje nápisy; CUNI potlačí i jména ponechaná překladem beze změny. Jiné jazyky používají základní filtr. Vyber také oblast a vzhled titulků: nejistý text se ponechá, aby nemizel dialog."));
+  if(!settings.provider&&settings.enabled&&state.activeModel>=0&&settings.sourceLanguage=="en")ImGui::TextWrapped("%s",state.filterBackend=="ner"?subText("Name model active on CPU (no additional GPU memory)","Model jmen běží na CPU (bez další paměti GPU)"):subText("Name model missing / unavailable; conservative fallback active. Use the complete package.","Model jmen chybí / není dostupný; běží konzervativní náhrada. Použij kompletní balíček."));}
+ if(state.performance.filtered)ImGui::Text(subText("Filtered: %llu","Odfiltrováno: %llu"),(unsigned long long)state.performance.filtered);
  if(selectStyle){
   ImGui::BeginDisabled(settings.ocrEngine!=0||!rapidReady);
   if(ui::button(subText("Select subtitle word + reading area...","Označit slovo titulku + oblast čtení..."),true))*selectStyle=true;
@@ -129,11 +140,11 @@ inline bool subtitlePanel(SubtitleSettings& settings,const SubtitleSnapshot& sta
  }
  if(settings.enabled&&!state.status.empty())ImGui::TextWrapped("%s",state.status.c_str());
  ui::field(subText("Subtitle timing","Časování titulků"));
- ImGui::BeginDisabled(settings.model>=4);
+ ImGui::BeginDisabled(settings.provider||settings.model>=4);
  ImGui::Checkbox(subText("Join split sentences","Spojovat rozdělené věty"),&settings.joinFragments);
  ImGui::TextWrapped("%s",subText("Marks unfinished text and re-translates it with the next lowercase continuation (up to 6 s). Disable if separate dialogue is joined incorrectly.","Označí nedokončený text a přeloží jej znovu s navazující částí začínající malým písmenem (do 6 s). Vypni, pokud chybně spojí různé repliky."));
  ImGui::EndDisabled();
- if(settings.model>=4)ImGui::TextWrapped("%s",subText("TranslateGemma receives complete OCR readings without the English continuation heuristic.","TranslateGemma dostává celé čtení OCR bez anglické heuristiky spojování vět."));
+ if(!settings.provider&&settings.model>=4)ImGui::TextWrapped("%s",subText("TranslateGemma receives complete OCR readings without the English continuation heuristic.","TranslateGemma dostává celé čtení OCR bez anglické heuristiky spojování vět."));
  ui::field(subText("Minimum on screen (s)","Nejméně na obrazovce (s)"));ImGui::SliderFloat("##subtitle-hold",&settings.holdSeconds,.5f,4.f,"%.1f s");
  ui::field(subText("Keep while waiting (s)","Ponechat při čekání (s)"));ImGui::SliderFloat("##subtitle-linger",&settings.lingerSeconds,settings.holdSeconds,8.f,"%.1f s");
  ImGui::TextWrapped("%s",subText("Time starts when translated text appears. The next line is translated in parallel. Long captions get extra reading time; the next ready line can replace them after the minimum. Old queued work expires after 6 s.","Čas běží až od zobrazení překladu. Další věta se mezitím překládá. Dlouhý titulek má víc času na čtení; další hotový jej může nahradit po minimu. Rozpracované titulky starší 6 s se zahodí."));

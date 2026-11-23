@@ -16,6 +16,11 @@ struct SubtitleState {
    if(c=='!'||c=='?'||c=='\''||c=='"'||c==';'||((c=='.'||c==','||c==':'||c=='/')&&!numericSeparator))continue;out+=char(std::tolower(c));}return out;
  }
  static bool equivalent(const std::string& a,const std::string& b){return key(a)==key(b);}
+ // A slow local model may finish after the queue's normal six-second limit.
+ // Keep that result only while a fresh OCR reading confirms the same text.
+ static bool fresh(double now,double captured,const std::string& source,double observed,const std::string& current,double observationWindow){
+  return now-captured<=6||(!source.empty()&&now-observed<=observationWindow&&equivalent(source,current));
+ }
  static bool oneEdit(const std::string& a,const std::string& b){
   if(std::min(a.size(),b.size())<15||std::max(a.size(),b.size())-std::min(a.size(),b.size())>1)return false;
   size_t i=0,j=0;unsigned edits=0;while(i<a.size()&&j<b.size()){

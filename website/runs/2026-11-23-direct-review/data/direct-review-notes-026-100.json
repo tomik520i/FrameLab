@@ -1,0 +1,16 @@
+{
+ "w500-029":{"C":"‚Vaši vojáci budou pečeni‘ zamění péči o vojáky za jejich pečení. Další věta navíc přesouvá adresáta z vás na vojáky."},
+ "w500-030":{"D":"Repulsed zde znamená odražené útočníky, nikoli ‚odpudivé‘ hordy.","C":"Vynechá rozlišení mezi zavalenými vchody a stále přístupnými dveřmi; výsledkem je zdánlivý rozpor."},
+ "w500-035":{"C":"Žezlo se změnilo na meč, což je jiný předmět."},
+ "w500-042":{"_case":"Lidská reference zde začíná nepodloženým tvrzením o padlých mrtvých. Anglický zdroj říká, že to nevěstí nic dobrého. Správné kandidáty za odchylku od této reference nesrážím.","A":"Správně převádí idiom ‚bodes ill‘ na špatné znamení.","C":"Správně převádí idiom ‚bodes ill‘ na ‚nevěstí nic dobrého‘."},
+ "w500-046":{"A":"Head je hlava, nikoli mozek. Krátkost repliky nečiní tuto záměnu méně významnou."},
+ "w500-055":{"C":"Žezlo se mění na meč, nesmrtelnost na nehmotnost a mizí směr sever. To už mění herní informaci."},
+ "w500-057":{"D":"Doplňuje neobsažené ‚zachránila jsem‘, přestože originál jen opakuje otázku o záchraně."},
+ "w500-058":{"B":"Dwarven allies se změnili na dvořany. Jde o jinou skupinu pomocníků.","A":"Vymyšlené ‚denizény‘ ponechává klíčového nepřítele nesrozumitelného."},
+ "w500-073":{"B":"‚Nemohli bychom tě přesvědčit‘ obrací na ‚vy byste nás přesvědčit nemohli‘. Mění tím účastníky děje."},
+ "w500-078":{"B":"Nagové se mění na draky, tedy jiný typ jednotky."},
+ "w500-086":{"C":"‚Mám si!‘ vůbec nepředává získání žezla; klíčový předmět chybí."},
+ "w500-091":{"D":"Žezlo se mění na kladivo a trpasličí království na ‚dvorovské‘; zároveň jsou rozbité pády a shoda.","B":"Přes dlouhou repliku zachovává důvod odchodu, nedokončený příchod jara i cíl družiny."},
+ "w500-094":{"C":"Místo přijetí cizí pomoci nabízí vlastní pomoc: ‚Rádi vám pomůžeme‘. Role jsou obráceně."},
+ "w500-097":{"B":"Merfolk, vodní lid, se změnil na podvodníky. To je záměna bytostí, které má hráč zachránit."}
+}

@@ -1,0 +1,26 @@
+{
+  "conditions": "Test harness forces num_gpu=8; verifies partial-load acceptance and translation, not automatic memory fitting or speed.",
+  "description": "VULKAN / NVIDIA GeForce RTX 4050 Laptop GPU / GPU + RAM",
+  "loaded": {
+    "name": "framelab-cuni-q3km:latest",
+    "model": "framelab-cuni-q3km:latest",
+    "size": 4021697902,
+    "digest": "14d34e333bc5b0cc6158372c11590a58b1457a19cbcdf50466e8c2fd8298f1aa",
+    "details": {
+      "parent_model": "",
+      "format": "gguf",
+      "family": "llama",
+      "families": [
+        "llama"
+      ],
+      "parameter_size": "7.2B",
+      "quantization_level": "Q3_K_M"
+    },
+    "expires_at": "2319-03-05T21:09:50.014619907+01:00",
+    "size_vram": 1089522892,
+    "context_length": 2048,
+    "runner": "llamacpp"
+  },
+  "translation": "Měli bychom vyrazit před východem slunce.",
+  "passed": true
+}

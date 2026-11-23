@@ -1,0 +1,17 @@
+"""Preview.18 additions using real saved development captures, never fabricated UI."""
+from visual_guide_preview17 import content as previous
+
+def content(legacy):
+    shots,steps=previous(legacy)
+    steps=[(key,heading,tuple(s.replace('v0.2.0-preview.17','v0.2.0-preview.18').replace('FrameLab-0.2.0-preview.17','FrameLab-0.2.0-preview.18').replace('Download preview.17','Download preview.18').replace('Stáhnout preview.17','Stáhnout preview.18') for s in body),expected,pictures) for key,heading,body,expected,pictures in steps]
+    steps.extend([
+      ('window-api',('Okno hry, Remote Play a pouze titulky','Game window, Remote Play and subtitles only'),
+       ('<p>Vstup → Okno aplikace: obnov seznam a vyber hru. Pro samotné titulky zapni průhledný překryv přes zdrojové okno. Nastav OCR oblast a zvlášť pozici překladu. Místní modely zůstávají; placené API je volitelné s vlastním klíčem.</p><p><a href="remote-subtitles.html">Úplný návod s reálnými obrázky a připojením konzolí →</a></p><figure><img src="assets/subtitle-only-live.jpg" alt="Skutečný vývojový test překryvu titulků"><figcaption>Skutečný vývojový test na tomto notebooku. Konzole nebyla připojená; Remote Play postup se opírá o dokumentaci výrobců.</figcaption></figure>',
+        '<p>Capture → Application window: refresh and select the game. For captions alone, enable the transparent overlay over the source window. Set the OCR region and translated text position separately. Local models remain available; the paid API is optional with your own key.</p><p><a href="remote-subtitles-en.html">Full illustrated console, overlay and API guide →</a></p><figure><img src="assets/subtitle-only-live.jpg" alt="Real subtitle overlay development test"><figcaption>Actual development test on this laptop. No console was connected; Remote Play instructions follow manufacturer documentation.</figcaption></figure>'),
+       ('Překlad nad hrou, s kliknutím procházejícím do hry.','Translated text over the game, with clicks passing through.'),[]),
+      ('compute',('Zvol výpočet a GPU překladače','Choose translation compute and GPU'),
+       ('<p>Titulky → Local / offline → CUNI nebo Gemma → Výpočet překladu. Automatika zde použije NVIDIA CUDA; pro jiné vhodné GPU je Vulkan, případně CPU / RAM. GPU pro překlad se volí nezávisle na GPU pro obraz. Změna model vypne; znovu zapni překlad.</p><p><a href="compute.html">Paměť, možnosti a naměřené časy →</a></p><figure><img src="assets/vulkan-gpu-selection.jpg" alt="Skutečný výběr Intel a RTX pro Vulkan"><figcaption>Reálný vývojový snímek. Intel UHD fungoval, ale byl pomalejší než CPU. AMD nebylo fyzicky měřeno.</figcaption></figure>',
+        '<p>Subtitles → Local / offline → CUNI or Gemma → Translation compute. Auto uses NVIDIA CUDA here; Vulkan supports other suitable GPUs, or use CPU / RAM. Translation GPU is independent of image GPU. Changes disable translation; enable it again to load the new choice.</p><p><a href="compute-en.html">Memory, options and measured timing →</a></p><figure><img src="assets/vulkan-gpu-selection.jpg" alt="Actual Intel and RTX Vulkan device selection"><figcaption>Real development capture. Intel UHD worked but was slower than CPU. No physical AMD measurement.</figcaption></figure>'),
+       ('Stav ukáže skutečný backend a načtení do paměti.','Status reports the actual backend and memory placement.'),[])
+    ])
+    return shots,steps
