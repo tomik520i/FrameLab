@@ -1,0 +1,62 @@
+{
+  "runs/2026-11-20-3h/index.html": [
+    "i18n/notes/cf72d780ba39-00.json",
+    "i18n/notes/cf72d780ba39-01.json",
+    "i18n/notes/cf72d780ba39-02.json",
+    "i18n/notes/cf72d780ba39-03.json",
+    "i18n/notes/cf72d780ba39-04.json",
+    "i18n/notes/cf72d780ba39-05.json",
+    "i18n/notes/cf72d780ba39-06.json",
+    "i18n/notes/cf72d780ba39-07.json",
+    "i18n/notes/cf72d780ba39-08.json"
+  ],
+  "runs/2026-11-20-3h/prompt-test.html": [
+    "i18n/notes/4dd189d7594c-00.json",
+    "i18n/notes/4dd189d7594c-01.json",
+    "i18n/notes/4dd189d7594c-02.json",
+    "i18n/notes/4dd189d7594c-03.json",
+    "i18n/notes/4dd189d7594c-04.json",
+    "i18n/notes/4dd189d7594c-05.json",
+    "i18n/notes/4dd189d7594c-06.json",
+    "i18n/notes/4dd189d7594c-07.json",
+    "i18n/notes/4dd189d7594c-08.json"
+  ],
+  "runs/2026-11-23-api500/index.html": [
+    "i18n/notes/75211351e296-00.json",
+    "i18n/notes/75211351e296-01.json",
+    "i18n/notes/75211351e296-02.json",
+    "i18n/notes/75211351e296-03.json",
+    "i18n/notes/75211351e296-04.json",
+    "i18n/notes/75211351e296-05.json",
+    "i18n/notes/75211351e296-06.json",
+    "i18n/notes/75211351e296-07.json",
+    "i18n/notes/75211351e296-08.json",
+    "i18n/notes/75211351e296-09.json",
+    "i18n/notes/75211351e296-10.json",
+    "i18n/notes/75211351e296-11.json",
+    "i18n/notes/75211351e296-12.json",
+    "i18n/notes/75211351e296-13.json",
+    "i18n/notes/75211351e296-14.json",
+    "i18n/notes/75211351e296-15.json",
+    "i18n/notes/75211351e296-16.json",
+    "i18n/notes/75211351e296-17.json",
+    "i18n/notes/75211351e296-18.json",
+    "i18n/notes/75211351e296-19.json",
+    "i18n/notes/75211351e296-20.json",
+    "i18n/notes/75211351e296-21.json",
+    "i18n/notes/75211351e296-22.json",
+    "i18n/notes/75211351e296-23.json",
+    "i18n/notes/75211351e296-24.json"
+  ],
+  "runs/2026-11-23-direct-review/index.html": [
+    "i18n/notes/1845ea4362bc-00.json",
+    "i18n/notes/1845ea4362bc-01.json",
+    "i18n/notes/1845ea4362bc-02.json"
+  ],
+  "runs/2026-11-23-multilang/index.html": [
+    "i18n/notes/16e223dd484d-00.json"
+  ],
+  "translation/quality/report.html": [
+    "i18n/notes/c60342338aef-00.json"
+  ]
+}

@@ -1,0 +1,2418 @@
+{
+  "2dacfca517af43dd": {
+    "en": "FrameLab — capture, enhance, translate",
+    "cs": "FrameLab — zachycení, vylepšení a překlad obrazu"
+  },
+  "ac576a66d4563e60": {
+    "en": "Skip to content",
+    "cs": "Přejít na obsah"
+  },
+  "5bc94e9d4a97bbf5": {
+    "en": "CZ",
+    "cs": "CZ"
+  },
+  "600461e3023cea41": {
+    "en": "WINDOWS / MULTI-GPU / OPEN SOURCE",
+    "cs": "WINDOWS / VÍCE GPU / OTEVŘENÝ KÓD"
+  },
+  "fe24de561cd3a6bc": {
+    "en": "THE SIGNAL PATH",
+    "cs": "CESTA OBRAZU"
+  },
+  "f4262548cb993257": {
+    "en": "INPUT",
+    "cs": "VSTUP"
+  },
+  "27cd427750d27e7f": {
+    "en": "DISPLAY",
+    "cs": "ZOBRAZENÍ"
+  },
+  "088de5e3467520ae": {
+    "en": "Archive / preview.16 ↗",
+    "cs": "Archiv / preview.16 ↗"
+  },
+  "137ee693846f61cf": {
+    "en": "NEW / PREVIEW.18",
+    "cs": "NOVÉ / PREVIEW.18"
+  },
+  "438b914dfd69c4fd": {
+    "en": "01 / THE TOOLBOX",
+    "cs": "01 / FUNKCE"
+  },
+  "4463f9016a267211": {
+    "en": "NEW / PREVIEW.17 / PORTABLE FRAME GENERATION",
+    "cs": "NOVÉ / PREVIEW.17 / FRAME GEN PRO VÍCE GPU"
+  },
+  "2fb4019a35e427e8": {
+    "en": "Backend",
+    "cs": "Výpočetní backend"
+  },
+  "1125c9e4612a75a1": {
+    "en": "02 / RECORDED EVIDENCE",
+    "cs": "02 / NAHRÁVKY A DŮKAZY"
+  },
+  "22abbb04696e7b17": {
+    "en": "3 s → 12 s / 4× SLOW",
+    "cs": "3 s → 12 s / ZPOMALENÍ 4×"
+  },
+  "a7f9354837c355d1": {
+    "en": "ARCHIVE / SPIDER-MAN",
+    "cs": "ARCHIV / SPIDER-MAN"
+  },
+  "3d4ca963d7460614": {
+    "en": "TAKE 82183953",
+    "cs": "ZÁZNAM 82183953"
+  },
+  "9936ddde375deca3": {
+    "en": "2560 × 1440 · MEDIUM · VSYNC OFF",
+    "cs": "2560 × 1440 · STŘEDNÍ · VSYNC VYPNUTÝ"
+  },
+  "cd162c44cc7a1b7e": {
+    "en": "TAKE 112947656",
+    "cs": "ZÁZNAM 112947656"
+  },
+  "cf7b37fdd6128238": {
+    "en": "1920 × 1080 · MEDIUM · VSYNC OFF",
+    "cs": "1920 × 1080 · STŘEDNÍ · VSYNC VYPNUTÝ"
+  },
+  "dcf0b7c1e2ec81ab": {
+    "en": "TAKE 113768562",
+    "cs": "ZÁZNAM 113768562"
+  },
+  "118a4de18dda839c": {
+    "en": "2560 × 1440 · MEDIUM · VSYNC ON",
+    "cs": "2560 × 1440 · STŘEDNÍ · VSYNC ZAPNUTÝ"
+  },
+  "aaf3d0662b9964e7": {
+    "en": "TAKE 84744531",
+    "cs": "ZÁZNAM 84744531"
+  },
+  "3c9bf4c63c0721d4": {
+    "en": "ORIGINAL / 2× FG",
+    "cs": "ORIGINÁL / 2× FG"
+  },
+  "5077b86a6a496179": {
+    "en": "ORIGINAL / 3× FG",
+    "cs": "ORIGINÁL / 3× FG"
+  },
+  "1161d9f82c75e2a0": {
+    "en": "03 / IMAGE ENHANCEMENT",
+    "cs": "03 / VYLEPŠENÍ OBRAZU"
+  },
+  "c2e144915f19c1e2": {
+    "en": "TAKE 114426140",
+    "cs": "ZÁZNAM 114426140"
+  },
+  "a760c53acc062d5d": {
+    "en": "TAKE 114773125",
+    "cs": "ZÁZNAM 114773125"
+  },
+  "c341c7fe1027f948": {
+    "en": "BEFORE",
+    "cs": "PŘED"
+  },
+  "23f9cfb5a1ef10b4": {
+    "en": "AFTER / NR",
+    "cs": "PO / NR"
+  },
+  "6676f5271528f0c0": {
+    "en": "PS5 · GTA VI · 2560 × 1440 · 1 PASS · 100% · MOTION ON",
+    "cs": "PS5 · GTA VI · 2560 × 1440 · 1 PRŮCHOD · 100 % · POHYB ZAPNUTÝ"
+  },
+  "d2453284c537aa5c": {
+    "en": "NEW / LOCAL MULTILINGUAL OCR + TRANSLATION",
+    "cs": "NOVÉ / LOKÁLNÍ VÍCEJAZYČNÉ OCR A PŘEKLAD"
+  },
+  "0f25963c826a6bc3": {
+    "en": "ARCHIVE / CUNI Q5 / EN → CS",
+    "cs": "ARCHIV / CUNI Q5 / EN → CS"
+  },
+  "6caeb6b3c43c62f8": {
+    "en": "NO CLOUD TRANSLATION",
+    "cs": "BEZ CLOUDOVÉHO PŘEKLADU"
+  },
+  "ae290f336c9d4865": {
+    "en": "NEW / 20.11.2026 / FULL DEBUG AUDIT",
+    "cs": "NOVÉ / 20.11.2026 / ÚPLNÝ DEBUG AUDIT"
+  },
+  "0e1fa35f80348b42": {
+    "en": "05 / EARLIER RECORDING SESSION",
+    "cs": "05 / DŘÍVĚJŠÍ NAHRÁVÁNÍ"
+  },
+  "871c249cba08dfc1": {
+    "en": "OUTPUT / FPS",
+    "cs": "VÝSTUP / FPS"
+  },
+  "b78642d872c4675e": {
+    "en": "TIME / MIN",
+    "cs": "ČAS / MIN"
+  },
+  "da21c1973f1f0fe7": {
+    "en": "PS5 / GTA VI · Ryzen 9 5900X · 64 GB RAM · AVerMedia GC573 · 2560 × 1440 / 60 Hz input · VFG 2× Medium · NR 1440p / 1 pass",
+    "cs": "PS5 / GTA VI · Ryzen 9 5900X · 64 GB RAM · AVerMedia GC573 · vstup 2560 × 1440 / 60 Hz · VFG 2× Střední · NR 1440p / 1 průchod"
+  },
+  "f5a574e38c90d4a5": {
+    "en": "06 / GET IT RUNNING",
+    "cs": "06 / ZPROVOZNĚNÍ"
+  },
+  "f29e67b1cf6681b2": {
+    "en": "NO MAGIC CLAIMS",
+    "cs": "BEZ ZÁZRAČNÝCH SLIBŮ"
+  },
+  "7c920161130c58e8": {
+    "en": "KEEP THE EXPERIMENT GOING",
+    "cs": "PODPOŘ DALŠÍ EXPERIMENTY"
+  },
+  "5c466c118802bb9a": {
+    "en": "EXPERIMENTAL / GPL-3.0 / PREVIEW.18",
+    "cs": "EXPERIMENT / GPL-3.0 / PREVIEW.18"
+  },
+  "dc02376d88372208": {
+    "en": "FrameLab: RIFE / DirectML frame generation, experimental image enhancement, local multilingual subtitles, MKV playback and honest recorded comparisons. Portable Windows app.",
+    "cs": "FrameLab: generování snímků přes RIFE / DirectML, experimentální enhancer, lokální vícejazyčné titulky, přehrávání MKV a skutečné nahrávky pro porovnání. Přenosná aplikace pro Windows."
+  },
+  "361335922f0b62e6": {
+    "en": "Switch language",
+    "cs": "Změnit jazyk"
+  },
+  "558bf297a2d466ac": {
+    "en": "FrameLab preview.17 public ZIP: bundled GTA source, RIFE DirectML and frame generation controls",
+    "cs": "Veřejný ZIP FrameLab preview.17: přibalená ukázka GTA, RIFE DirectML a nastavení frame genu"
+  },
+  "7b57a702950eceef": {
+    "en": "Spider-Man original versus recorded 2x slow motion",
+    "cs": "Spider-Man: originál a záznam 2× frame genu ve zpomalení"
+  },
+  "feee90d0250b767a": {
+    "en": "Spider-Man original versus recorded 3x slow motion",
+    "cs": "Spider-Man: originál a záznam 3× frame genu ve zpomalení"
+  },
+  "5baddcafdec635f4": {
+    "en": "Spider-Man combat: original A, two generated phases and original B",
+    "cs": "Souboj ve Spider-Manovi: originál A, dvě dopočítané fáze a originál B"
+  },
+  "49fd3dca242b05da": {
+    "en": "Enhancer recording",
+    "cs": "Záznam enhanceru"
+  },
+  "cffca6babd3a048b": {
+    "en": "Recorded before enhancement",
+    "cs": "Záznam před úpravou enhancerem"
+  },
+  "d4a1e42562a5f354": {
+    "en": "Same output after enhancement",
+    "cs": "Stejný výstup po úpravě enhancerem"
+  },
+  "55eb87f72b214ee7": {
+    "en": "Before / after divider",
+    "cs": "Dělicí čára před / po"
+  },
+  "a37fcb1fe7c3ee2d": {
+    "en": "Real FrameLab test: English input translated to Japanese",
+    "cs": "Skutečný test FrameLabu: anglický vstup přeložený do japonštiny"
+  },
+  "2afc81dc7840ae32": {
+    "en": "Recorded output FPS and GPU utilization over the debug session",
+    "cs": "Zaznamenané výstupní FPS a vytížení GPU během debug relace"
+  },
+  "b340746c923b7214": {
+    "en": "FrameLab — component licenses",
+    "cs": "FrameLab — licence součástí"
+  },
+  "ea14377f55b0df7f": {
+    "en": "Components, licenses",
+    "cs": "Součásti, licence"
+  },
+  "6b9cae9021a3b62b": {
+    "en": "and recorded evidence.",
+    "cs": "a zaznamenané důkazy."
+  },
+  "bee663f93ecba943": {
+    "en": "The complete package contains separately licensed components. Their original license files and notices travel with the ZIP. The NVIDIA DLLs are not covered by FrameLab's GPL license.",
+    "cs": "Kompletní balík obsahuje součásti s různými licencemi. Jejich původní licence a oznámení jsou přiložené v ZIPu. Na NVIDIA DLL se GPL licence FrameLabu nevztahuje."
+  },
+  "b657c9528b1aefa9": {
+    "en": "DLSS 5 experiment and bundled offline subtitles",
+    "cs": "Experiment DLSS 5 a přibalené offline titulky"
+  },
+  "a37451760bef4300": {
+    "en": "The public preview.18 includes both gameplay samples and the offline OCR translator with its model. The SDK-free NR adapter and import wizard are included; external NR model DLLs are not.",
+    "cs": "Veřejná preview.18 obsahuje obě herní ukázky a offline OCR překladač s modelem. Přibalený je adaptér NR bez SDK a průvodce importem; externí modelové DLL pro NR přibalené nejsou."
+  },
+  "9be6e673faf0f15c": {
+    "en": "Exact download and setup steps",
+    "cs": "Přesný postup stažení a nastavení"
+  },
+  "4706472a616f7d96": {
+    "en": ". The",
+    "cs": "."
+  },
+  "796423e324c296c4": {
+    "en": "NR gallery",
+    "cs": "Galerie NR"
+  },
+  "f573adf1b0490783": {
+    "en": "contains previously exported images and videos, not runtime DLLs. Redistribution rights for the exact NR binaries have not been established; see the",
+    "cs": "obsahuje dříve vyexportované obrázky a videa, nikoli runtime DLL. Oprávnění k další distribuci konkrétních NR binárních souborů není doložené; viz"
+  },
+  "1254bb113e5ae690": {
+    "en": "component audit",
+    "cs": "audit součástí"
+  },
+  "5b9e5822e69ddcbc": {
+    "en": ". NVIDIA stated on November 9, 2026 that the DLSS 5 SDK has no public evaluation/preview access.",
+    "cs": ". NVIDIA 9. listopadu 2026 uvedla, že DLSS 5 SDK nemá veřejný evaluační ani preview přístup."
+  },
+  "c228b5531f16493b": {
+    "en": "The locally tested OCR translator uses the Helsinki-NLP OPUS-MT en-cs opus-2019-12-18 model under the CC BY 4.0 license included in that original archive, converted to CTranslate2 int8 with attribution and modifications recorded. Windows OCR is an operating-system component. The OCR translator is included in the complete preview.18 download. Component notices do not create permissions or automatically settle GPL/proprietary linking compatibility.",
+    "cs": "Lokálně otestovaný OCR překladač používá model Helsinki-NLP OPUS-MT en-cs opus-2019-12-18 s licencí CC BY 4.0 z původního archivu, převedený na CTranslate2 int8 se zachováním autorství a záznamem změn. Windows OCR je součást operačního systému. OCR překladač je v kompletním balíku preview.18. Licenční oznámení sama nevytvářejí oprávnění ani automaticky neřeší kompatibilitu propojení GPL a proprietárního kódu."
+  },
+  "e7ad522ea327e5ba": {
+    "en": "Application",
+    "cs": "Aplikace"
+  },
+  "051b2e36c77fe822": {
+    "en": "FrameLab source is GPL-3.0.",
+    "cs": "Zdrojový kód FrameLabu má licenci GPL-3.0."
+  },
+  "c011d6097bfbc8e9": {
+    "en": "License",
+    "cs": "Licence"
+  },
+  "8fadbc8de2733658": {
+    "en": "Third-party notices",
+    "cs": "Licence a oznámení třetích stran"
+  },
+  "16288734da85e00d": {
+    "en": "Matching source archive",
+    "cs": "Odpovídající zdrojový archiv"
+  },
+  "f8a1d57ee4d30800": {
+    "en": "Neural OCR and local translation",
+    "cs": "Neuronové OCR a lokální překlad"
+  },
+  "18b6ccd6565c3e68": {
+    "en": "Preview.18 bundles RapidOCR 1.4.4, PP-OCRv4 detection and 12 PP-OCRv5 recognition families (Apache-2.0), ONNX Runtime and original component notices. Windows OCR is an optional OS-provided fallback. The included Helsinki-NLP OPUS-MT en-cs opus-2019-12-18 archive is CC BY 4.0; conversion to CTranslate2 int8 retains attribution and provenance. Optional CUNI-MH Q3/Q5/Q8 GGUF downloads use the pinned publisher source and hashes; they are not bundled. The original CUNI model card identifies MIT licensing.",
+    "cs": "Preview.18 obsahuje RapidOCR 1.4.4, detektor PP-OCRv4 a 12 rozpoznávacích rodin PP-OCRv5 (Apache-2.0), ONNX Runtime a původní licenční oznámení. Windows OCR je volitelná záloha dodávaná systémem. Přiložený archiv Helsinki-NLP OPUS-MT en-cs opus-2019-12-18 má licenci CC BY 4.0; převod na CTranslate2 int8 zachovává autorství a původ. Volitelné CUNI-MH Q3/Q5/Q8 GGUF se stahují z pevně určeného zdroje s kontrolou hashů; v balíku nejsou. Původní modelová karta CUNI uvádí licenci MIT."
+  },
+  "622b1149fb5dee64": {
+    "en": "OCR versions and hashes",
+    "cs": "Verze a hashe OCR"
+  },
+  "adafde9fc39b495b": {
+    "cs": "FrameLab — skutečné rozdíly před / po",
+    "en": "FrameLab — actual before / after differences"
+  },
+  "0c9d671d43aa5d61": {
+    "cs": "← FrameLab / zpět na web",
+    "en": "← FrameLab / back to the website"
+  },
+  "6e00731e4ffbbd19": {
+    "cs": "LOKÁLNÍ NR EXPERIMENT · SKUTEČNÉ VÝSTUPY",
+    "en": "LOCAL NR EXPERIMENT · ACTUAL OUTPUTS"
+  },
+  "c810deebc68a5b40": {
+    "cs": "Co AI opravdu změnila?",
+    "en": "What did the AI actually change?"
+  },
+  "05de5845f5d3fa64": {
+    "cs": "Stejný snímek před a po enhanceru. Obě hry, síla efektu, detaily a krátká videa vedle sebe.",
+    "en": "The same frame before and after enhancement. Both games, effect strength, details and short side-by-side videos."
+  },
+  "a4c3c9995b13631e": {
+    "cs": "Licenční stav: neuzavřený.",
+    "en": "Licensing status: unresolved."
+  },
+  "66c672dc970bd8a7": {
+    "cs": "Použitá SF varianta je komunitně upravená proprietární DLL NVIDIA. GPL licence Veyry se na model nevztahuje. Nemáme ověřené oprávnění tuto DLL dále šířit. Tato galerie zobrazuje už hotové lokální výstupy a model nespouští.",
+    "en": "The SF variant used here is a community-modified proprietary NVIDIA DLL. Veyra's GPL license does not cover the model. We have not established permission to redistribute this DLL. This gallery shows previously exported local results and does not run the model."
+  },
+  "56002e3a1b566f8b": {
+    "cs": "Podrobnosti a zdroje",
+    "en": "Details and sources"
+  },
+  "a8b707eb2def093e": {
+    "cs": "Tohle jsou výsledky zdejšího FrameLabu na RTX 4050.",
+    "en": "These are this FrameLab installation's results on an RTX 4050."
+  },
+  "674c1b1a7ac4cb98": {
+    "cs": "Žádné ilustrační obrázky. Model upravil oba celé třísekundové klipy. Frame generation byla vypnutá. Viditelná změna sama o sobě neznamená lepší kvalitu.",
+    "en": "These are actual outputs, not illustrative images. The model processed both complete three-second clips. Frame generation was off. A visible change does not necessarily mean better quality."
+  },
+  "f43f872e45b0dead": {
+    "cs": "1. Prohlédni si stejný snímek",
+    "en": "1. Inspect the same frame"
+  },
+  "c01222619acf9c52": {
+    "cs": "Snímek",
+    "en": "Frame"
+  },
+  "bddd21a8e39caf58": {
+    "cs": "0,50 s · snímek 30",
+    "en": "0.50 s · frame 30"
+  },
+  "7513ddbf497803f6": {
+    "cs": "1,00 s · snímek 60",
+    "en": "1.00 s · frame 60"
+  },
+  "8fef209afdd0a61e": {
+    "cs": "2,00 s · snímek 120",
+    "en": "2.00 s · frame 120"
+  },
+  "a517595836076d0e": {
+    "cs": "2,75 s · snímek 165",
+    "en": "2.75 s · frame 165"
+  },
+  "bd8b58f5b88977e8": {
+    "cs": "Co ukázat",
+    "en": "View"
+  },
+  "8cdf10cba9de42a7": {
+    "cs": "Před / po přes dělicí čáru",
+    "en": "Before / after wipe"
+  },
+  "bb9c9cb357168105": {
+    "cs": "Stejný výřez vedle sebe",
+    "en": "Same crop side by side"
+  },
+  "4489f0b7020cf8bb": {
+    "cs": "Jen původní obraz",
+    "en": "Original image only"
+  },
+  "21f437fa687ec15a": {
+    "cs": "Jen upravený obraz",
+    "en": "Enhanced image only"
+  },
+  "e44c3bacf0bca0fb": {
+    "cs": "Rozdíl pixelů ×4",
+    "en": "Pixel difference ×4"
+  },
+  "0fa6b5475d452134": {
+    "cs": "Výřez",
+    "en": "Crop"
+  },
+  "93a0eeba9056a57f": {
+    "cs": "Celý obraz",
+    "en": "Full image"
+  },
+  "a6379efea817f4e5": {
+    "cs": "Materiály / stěna",
+    "en": "Materials / wall"
+  },
+  "9f1141bb5d44a678": {
+    "cs": "Pohyb / postava",
+    "en": "Motion / character"
+  },
+  "f4498616d37fc2dd": {
+    "cs": "Síla AI",
+    "en": "AI strength"
+  },
+  "b16520faf3a65409": {
+    "cs": "Dělicí čára",
+    "en": "Divider"
+  },
+  "e17678e0fb228520": {
+    "cs": "Podrž: původní",
+    "en": "Hold: original"
+  },
+  "85ff581f1c736a65": {
+    "cs": "Načítání snímků…",
+    "en": "Loading frames…"
+  },
+  "1108c6a0db5a5f9b": {
+    "cs": "PNG bez ztrátové komprese",
+    "en": "Lossless PNG"
+  },
+  "0843f41cc511221d": {
+    "cs": "Zkus",
+    "en": "Try"
+  },
+  "b365afdc70d42767": {
+    "cs": "Materiály / stěna → Vedle sebe",
+    "en": "Materials / wall → Side by side"
+  },
+  "577cc8ce25ffe35d": {
+    "cs": "a sílu 0 / 65 / 100 %. Potom přepni na HUD. Režim Rozdíl ×4 jen zvýrazňuje absolutní rozdíl plného AI výstupu proti originálu; černá znamená shodu. Není to skutečný vzhled výsledku ani mapa lepší kvality.",
+    "en": "at 0 / 65 / 100% strength. Then switch to the HUD. Difference ×4 highlights the absolute difference between full AI output and the original; black means identical. It is neither the final appearance nor a map of quality improvements."
+  },
+  "c2944dc960eaeace": {
+    "cs": "Původní PNG",
+    "en": "Original PNG"
+  },
+  "649e0190adb404a3": {
+    "cs": "Rozdíl ×4 PNG",
+    "en": "Difference ×4 PNG"
+  },
+  "4abf48037316a6f9": {
+    "cs": "2. Zkontroluj obraz v pohybu",
+    "en": "2. Check the image in motion"
+  },
+  "78006255009203a9": {
+    "cs": "Vlevo původní video, vpravo upravené. Obě poloviny jsou spojené do jednoho videa, takže se časově nerozejdou.",
+    "en": "Original video on the left, enhanced video on the right. Both halves are encoded in one video, so they cannot drift out of sync."
+  },
+  "d467059828235f94": {
+    "cs": "Síla 65 %",
+    "en": "Strength 65%"
+  },
+  "14a0453b02bd7e6b": {
+    "cs": "Síla 100 %",
+    "en": "Strength 100%"
+  },
+  "0b33747ab4327b3b": {
+    "cs": "Přehrávání",
+    "en": "Playback"
+  },
+  "1a4903a48cb42612": {
+    "cs": "Normální rychlost",
+    "en": "Normal speed"
+  },
+  "4765e5f36dcea923": {
+    "cs": "2× zpomalit",
+    "en": "2× slower"
+  },
+  "859104a3ef589423": {
+    "cs": "4× zpomalit",
+    "en": "4× slower"
+  },
+  "096ddadcaefe10ea": {
+    "cs": "Stáhnout MP4",
+    "en": "Download MP4"
+  },
+  "aefeba397514f2e7": {
+    "cs": "Předpočítaný export všech 180 snímků v 60 snímcích/s. Přesná vstupní reference byla ověřena u každého snímku. Video není záznam živého výkonu aplikace; živá verze může snímky vynechat. MP4 a zmenšení pro dvě poloviny mohou jemné změny skrýt, proto jsou výše také plné PNG.",
+    "en": "A precomputed export of all 180 frames at 60 frames/s. The exact input reference was verified for every frame. This video is not a recording of live application performance; live playback may drop frames. MP4 compression and scaling for the two panels may hide subtle changes, so full PNGs are also available above."
+  },
+  "a754866375fb1856": {
+    "cs": "3. Jak to celé funguje",
+    "en": "3. How it works"
+  },
+  "d550560501ed51cb": {
+    "cs": "FrameLab dostane hotový obraz z videa nebo capture karty. AI nemá přístup do hry. Pracuje pouze s tím, co už je na snímku.",
+    "en": "FrameLab receives a finished image from a video or capture card. The AI has no access to the game engine. It works only with what is already in the frame."
+  },
+  "169e5a23920254b8": {
+    "cs": "01 · VSTUP",
+    "en": "01 · INPUT"
+  },
+  "d494d1d8a75c0dd7": {
+    "cs": "Původní snímek",
+    "en": "Original frame"
+  },
+  "4599685890fe6789": {
+    "cs": "Například CS:GO 1920 × 1080. Jeho kopie zůstane pro přesné porovnání.",
+    "en": "For example, CS:GO at 1920 × 1080. A copy is retained for an exact comparison."
+  },
+  "5574666a701209f8": {
+    "cs": "02 · AI VÝPOČET",
+    "en": "02 · AI PROCESSING"
+  },
+  "0e3c507d8aa8793e": {
+    "cs": "Menší pracovní obraz",
+    "en": "Smaller working image"
+  },
+  "9a03588e41d0dd04": {
+    "cs": "Při nastavení 720p běží model nad 1280 × 720. Pohyb se odhaduje z předchozího snímku. Hloubka je plochá.",
+    "en": "At the 720p setting, the model processes 1280 × 720. Motion is estimated from the previous frame. Depth is flat."
+  },
+  "94620da556b6acd6": {
+    "cs": "03 · ZPĚT DO ROZLIŠENÍ ZDROJE",
+    "en": "03 · BACK TO SOURCE RESOLUTION"
+  },
+  "e780f251996d8470": {
+    "cs": "Přidání změn",
+    "en": "Applying the changes"
+  },
+  "f5be01c28365062a": {
+    "cs": "Z modelu se vezme změna proti jeho vstupu. Ta se přenese do původního 1080p obrazu.",
+    "en": "The change between the model output and its input is transferred to the original 1080p image."
+  },
+  "a0517c189a0890fa": {
+    "cs": "04 · SÍLA A POROVNÁNÍ",
+    "en": "04 · STRENGTH AND COMPARISON"
+  },
+  "f9901f93df688d5a": {
+    "cs": "Kolik efektu chceš",
+    "en": "Choose the effect strength"
+  },
+  "794ea2100030dd77": {
+    "cs": "0 % znamená původní obraz. 65 % přimíchá část úpravy. 100 % zobrazí plný výsledek.",
+    "en": "0% is the original image. 65% blends in part of the change. 100% shows the full result."
+  },
+  "643ce03c75177208": {
+    "cs": "Pracovní rozlišení není výstupní rozlišení.",
+    "en": "Working resolution is not output resolution."
+  },
+  "787c71f7979bb711": {
+    "cs": "Zvýšení z 720p na 1080p znamená více práce pro AI. Tento enhancer zde nepřevádí hru na 4K a nevytváří mezisnímky. Frame generation je samostatná funkce.",
+    "en": "Raising it from 720p to 1080p adds AI workload. This enhancer does not convert the game to 4K or generate intermediate frames here. Frame generation is a separate feature."
+  },
+  "18ed563e9f28c94e": {
+    "cs": "Je to komunitní Neural Rendering cesta podle Veyry. Chybějí skutečné motion vectors, hloubka a masky z enginu, takže výsledek může změnit kresbu materiálů, kontrast, světlo i HUD. Může být subjektivně lepší, příliš výrazný, nebo v pohybu nestabilní.",
+    "en": "This is a community Neural Rendering path based on Veyra. It lacks actual engine motion vectors, depth and masks, so it can change material detail, contrast, lighting and the HUD. It may look subjectively better, too strong, or unstable in motion."
+  },
+  "41f37ac65b8c949f": {
+    "cs": "Oficiální integraci DLSS přímo do hry tím nenahrazujeme.",
+    "en": "It does not replace official DLSS integration inside a game."
+  },
+  "6930ea37020ed354": {
+    "cs": "Obě hry, čtyři okamžiky",
+    "en": "Both games, four moments"
+  },
+  "6b4b93a83abd4782": {
+    "cs": "Nahoře přepínej mezi CS:GO a Spider-Manem a vyber čas snímku. Pro jemné změny použij výřez Materiály / stěna nebo HUD. Původní PNG a plný výsledek lze stáhnout beze změny.",
+    "en": "Switch between CS:GO and Spider-Man above and select a frame time. Use the Materials / wall or HUD crop for subtle changes. Original PNGs and full outputs can be downloaded unchanged."
+  },
+  "bf11e201adf65760": {
+    "cs": "Co ukazuje posuvník?",
+    "en": "What does the slider show?"
+  },
+  "2569e1c9f210ece4": {
+    "cs": "Dělicí čára odkrývá stejný snímek před a po úpravě. Síla mění přimíchání hotového výstupu: 0 % je původní obraz, 100 % celá úprava. Vizuální změna není automaticky zlepšení.",
+    "en": "The divider reveals the same frame before and after enhancement. Strength changes the blend of the finished output: 0% is the original, 100% is the complete change. A visual change is not automatically an improvement."
+  },
+  "3f825bfda0648a49": {
+    "cs": "Preview.11 obsahuje adaptér a průvodce doplněním externích NR souborů.",
+    "en": "Preview.11 introduced the adapter and the external NR file import wizard."
+  },
+  "b48003883f69a945": {
+    "cs": "Přesné downloady a kompletní instalace enhanceru",
+    "en": "Exact downloads and complete enhancer setup"
+  },
+  "81e2815958acd2f6": {
+    "cs": "Zpět k veřejnému balíčku FrameLabu",
+    "en": "Back to the public FrameLab package"
+  },
+  "4dc62c997ec21717": {
+    "cs": "Původ snímků, přesné nastavení a omezení porovnání",
+    "en": "Frame provenance, exact settings and comparison limits"
+  },
+  "3939d08341e9a02d": {
+    "cs": "CS:GO: třísekundový 1080p60 úsek z veřejného Xiph testu, čas 25–28 s. Souboj: třísekundový původní levý panel z veřejného FrameLab záznamu autora projektu, obnovený z 4× zpomalení, 960 × 540. Žádné generované mezisnímky nebyly použity jako původní obraz.",
+    "en": "CS:GO: a three-second 1080p60 segment from the public Xiph test, at 25–28 s. Combat: a three-second original left panel from the project author's public FrameLab recording, restored from 4× slow motion, 960 × 540. No generated intermediate frames were used as original input."
+  },
+  "7d7519e979ef6d95": {
+    "cs": "Runtime SF 310.9.16 z Veyra v2.1.9, preset 2, odhad pohybu zapnutý, plochá hloubka, intenzita modelu 1, pracovní výška 720. U menšího souboje se obraz nezvětšuje: AI pracuje v 960 × 536 (zaokrouhlení na násobky osmi). Kód exportu používá stejnou třídu Enhancer jako aplikace; vstup MP4 je pro export dekódován FFmpegem, živé přehrávání používá Windows Media Foundation.",
+    "en": "SF 310.9.16 runtime from Veyra v2.1.9, preset 2, motion estimation on, flat depth, model intensity 1, working height 720. The smaller combat clip is not enlarged: AI processes 960 × 536, rounded to multiples of eight. The export code uses the application's Enhancer class; FFmpeg decodes MP4 for export, while live playback uses Windows Media Foundation."
+  },
+  "dc0a730e6cafeeb2": {
+    "cs": "Ukázkové snímky jsou pevně zvolené v 0,50 / 1,00 / 2,00 / 2,75 s. Posuvník síly mění pouze přimíchání již vypočteného výsledku; nespouští znovu model. Hodnota je zaokrouhlená na 8bitovou alfu stejně jako v aplikaci. PNG zachovávají skutečné pixely exportu. Režim rozdílu je diagnosticky násobený čtyřmi. Není dostupný správný „ideální“ obraz pro výpočet skóre kvality.",
+    "en": "Sample frames are fixed at 0.50 / 1.00 / 2.00 / 2.75 s. The strength slider only blends the precomputed result; it does not rerun the model. Its value is rounded to 8-bit alpha, as in the application. PNGs preserve the actual exported pixels. Difference mode multiplies the difference by four for diagnosis. No ideal ground-truth image is available for a quality score."
+  },
+  "82ad1baf5f2eea4c": {
+    "cs": "Nastavení, počty snímků, kontrola reference a SHA-256 vstupů/výstupů",
+    "en": "Settings, frame counts, reference verification and input/output SHA-256 hashes"
+  },
+  "da5ce9c773c2844a": {
+    "cs": "Porovnání běží v prohlížeči nad předpočítanými soubory. Stránka nic nezpracovává modelem a neodesílá uživatelský obraz. Po stažení celé galerie ji lze prohlížet i offline.",
+    "en": "This comparison runs in the browser using precomputed files. The page does not run a model or upload the user's images. The complete downloaded gallery can also be viewed offline."
+  },
+  "9b035ce870a59cb0": {
+    "cs": "Síla efektu",
+    "en": "Effect strength"
+  },
+  "51ffda0fa08684b2": {
+    "cs": "Poloha dělicí čáry",
+    "en": "Divider position"
+  },
+  "87ddf9be3e2789a2": {
+    "cs": "Porovnání stejného snímku před a po AI",
+    "en": "Same frame before and after AI"
+  },
+  "c0fcf1e75f3a5dd0": {
+    "cs": "FRAME",
+    "en": "FRAME"
+  },
+  "7a62e3ac3d7c06e2": {
+    "cs": "LAB",
+    "en": "LAB"
+  },
+  "041ebc7928fb7759": {
+    "cs": "GitHub ↗",
+    "en": "GitHub ↗"
+  },
+  "895e98ae04f5e546": {
+    "cs": "PREVIEW.18 — 23.11.2026",
+    "en": "PREVIEW.18 — 23.11.2026"
+  },
+  "ea49523d744c40bc": {
+    "cs": "GPU",
+    "en": "GPU"
+  },
+  "ae690e060b09863a": {
+    "cs": "FG ↔ NR (Eco) →",
+    "en": "FG ↔ NR (Eco) →"
+  },
+  "13befd6f3e842f72": {
+    "cs": "FRAMELAB / PREVIEW.17 · RIFE / DIRECTML",
+    "en": "FRAMELAB / PREVIEW.17 · RIFE / DIRECTML"
+  },
+  "33f32ab91a8b9188": {
+    "cs": "CUDA / Vulkan / CPU →",
+    "en": "CUDA / Vulkan / CPU →"
+  },
+  "899ff0feae010726": {
+    "cs": "OpenAI GPT-6 Luna · none",
+    "en": "OpenAI GPT-6 Luna · none"
+  },
+  "ab98f2f2321d88b1": {
+    "cs": "CUNI-MH 7B Q3_K_M",
+    "en": "CUNI-MH 7B Q3_K_M"
+  },
+  "6e1988a85f7dfc6a": {
+    "cs": "TranslateGemma 4B Q4_K_M",
+    "en": "TranslateGemma 4B Q4_K_M"
+  },
+  "7f126d5f5966b9cd": {
+    "cs": "OPUS-MT / CPU",
+    "en": "OPUS-MT / CPU"
+  },
+  "63a1e1d832a99a80": {
+    "cs": "01 / FRAME LAB",
+    "en": "01 / FRAME LAB"
+  },
+  "705e29f56ec44c0c": {
+    "cs": "02 / FRAME LAB",
+    "en": "02 / FRAME LAB"
+  },
+  "0b89e556476809c0": {
+    "cs": "03 / FRAME LAB",
+    "en": "03 / FRAME LAB"
+  },
+  "6bf597dee15a5bf1": {
+    "cs": "04 / FRAME LAB",
+    "en": "04 / FRAME LAB"
+  },
+  "296e76d8b77a83d3": {
+    "cs": "05 / FRAME LAB",
+    "en": "05 / FRAME LAB"
+  },
+  "d5e881ffcc9b883a": {
+    "cs": "06 / FRAME LAB",
+    "en": "06 / FRAME LAB"
+  },
+  "406db884c1fe54bb": {
+    "cs": "RTX 4050 · RIFE Low",
+    "en": "RTX 4050 · RIFE Low"
+  },
+  "d2342aa37349aba2": {
+    "cs": "59.2 / s",
+    "en": "59.2 / s"
+  },
+  "efcdf9bf1343f51e": {
+    "cs": "Intel UHD · Optical Flow",
+    "en": "Intel UHD · Optical Flow"
+  },
+  "6fe95b1aabc40f69": {
+    "cs": "59.3 / s",
+    "en": "59.3 / s"
+  },
+  "06e7f85cd1540db9": {
+    "cs": "GIF ↗",
+    "en": "GIF ↗"
+  },
+  "2860625ae8131fe9": {
+    "cs": "01 / OCR",
+    "en": "01 / OCR"
+  },
+  "2aec63b949284b1f": {
+    "cs": "02 / TranslateGemma",
+    "en": "02 / TranslateGemma"
+  },
+  "5116172e76fee596": {
+    "cs": "PS5 · GTA VI · Q5 / RapidOCR / FG 2× + NR",
+    "en": "PS5 · GTA VI · Q5 / RapidOCR / FG 2× + NR"
+  },
+  "c05451ed6fe47c07": {
+    "cs": "SRT ↓",
+    "en": "SRT ↓"
+  },
+  "47efc7392fe5389b": {
+    "cs": "01 / 6.61 s",
+    "en": "01 / 6.61 s"
+  },
+  "3bdb7f1e64ad6d96": {
+    "cs": "02 / 3.70 s",
+    "en": "02 / 3.70 s"
+  },
+  "804be06a45febbce": {
+    "cs": "03 / 3.46 s",
+    "en": "03 / 3.46 s"
+  },
+  "080d7ada8ee88494": {
+    "cs": "EN → CS / Q5",
+    "en": "EN → CS / Q5"
+  },
+  "b16d5e14a82472ba": {
+    "cs": "56.80 FPS / 59.2% GPU",
+    "en": "56.80 FPS / 59.2% GPU"
+  },
+  "c49df65a8a63e522": {
+    "cs": "GPU / %",
+    "en": "GPU / %"
+  },
+  "e619a25a43ec7c83": {
+    "cs": "RTX 5070 Ti / 16 GB",
+    "en": "RTX 5070 Ti / 16 GB"
+  },
+  "ab47cbba8c53c07d": {
+    "cs": "JSON ↗",
+    "en": "JSON ↗"
+  },
+  "f0375d3f379774f3": {
+    "cs": "CSV ↓",
+    "en": "CSV ↓"
+  },
+  "be462b0ae0d4e649": {
+    "cs": "WINDOWS x64 / PREVIEW.18 ↓",
+    "en": "WINDOWS x64 / PREVIEW.18 ↓"
+  },
+  "22e1ee22812c0c90": {
+    "cs": "SHA-256 ↗",
+    "en": "SHA-256 ↗"
+  },
+  "17481156beea12dc": {
+    "cs": "CUDA / Vulkan / CPU ↗",
+    "en": "CUDA / Vulkan / CPU ↗"
+  },
+  "e02a2783b4781a58": {
+    "cs": "OCR / CUNI / TranslateGemma ↗",
+    "en": "OCR / CUNI / TranslateGemma ↗"
+  },
+  "f71dc387cc646213": {
+    "cs": "CS:GO · 1080p",
+    "en": "CS:GO · 1080p"
+  },
+  "67dcc118dc64dbe6": {
+    "cs": "Spider-Man · 540p",
+    "en": "Spider-Man · 540p"
+  },
+  "64d7cc3ee1d5a752": {
+    "cs": "HUD / text",
+    "en": "HUD / text"
+  },
+  "f16139d351cd6245": {
+    "cs": "AI 100 % PNG",
+    "en": "AI 100 % PNG"
+  },
+  "ad03928d398fdc41": {
+    "cs": "← FrameLab",
+    "en": "← FrameLab"
+  },
+  "1bfc7db9de37ce38": {
+    "en": "CUNI / TranslateGemma sources and hashes",
+    "cs": "Zdroje a hashe CUNI / TranslateGemma"
+  },
+  "7019c40c5bab5559": {
+    "en": "Current subtitle setup and limitations",
+    "cs": "Aktuální nastavení titulků a omezení"
+  },
+  "204bd75f375437ae": {
+    "en": "The five original NVIDIA DLLs are taken from the public",
+    "cs": "Pět původních NVIDIA DLL pochází z veřejného"
+  },
+  "94f145ba3bf06b16": {
+    "en": "nvidia-vfx 0.2.0.0 Windows x64 package",
+    "cs": "balíku nvidia-vfx 0.2.0.0 pro Windows x64"
+  },
+  "137a948423c8d628": {
+    "en": ". Their hashes are verified against the official wheel and their NVIDIA digital signatures are checked during packaging. The original NVIDIA Software License Agreement, AI Product-Specific Terms, model license and third-party notices are in",
+    "cs": ". Jejich hashe se porovnávají s oficiálním wheelem a při balení se kontrolují digitální podpisy NVIDIA. Původní NVIDIA Software License Agreement, AI Product-Specific Terms, licence modelu a oznámení třetích stran najdeš ve složce"
+  },
+  "8fba7a25e0e1d9e7": {
+    "en": "inside the complete ZIP and runtime add-on.",
+    "cs": "v kompletním ZIPu a runtime doplňku."
+  },
+  "de229f42427d2cf6": {
+    "en": "Full component provenance and distribution notes",
+    "cs": "Úplný původ součástí a podmínky distribuce"
+  },
+  "7e3922234ded0b0b": {
+    "en": ". The runtime supports Ada/Blackwell on Windows; RTX 5070 Ti and RTX 4050 Laptop were tested. This project is not sponsored or endorsed by NVIDIA.",
+    "cs": ". Runtime podporuje Ada/Blackwell ve Windows; testy proběhly na RTX 5070 Ti a RTX 4050 Laptop. Projekt není sponzorovaný ani schválený společností NVIDIA."
+  },
+  "ade858c623b43fdf": {
+    "en": "Portable clip export",
+    "cs": "Přenosný export klipů"
+  },
+  "c23749bbf9ed0912": {
+    "en": "CPython 3.11.9 (PSF), Pillow 13.0.0 and imageio-ffmpeg 0.6.0 retain their bundled licenses and notices. The separate FFmpeg 7.1 executable is a GPL-enabled upstream build; version/configuration/license output and source links accompany the package.",
+    "cs": "CPython 3.11.9 (PSF), Pillow 13.0.0 a imageio-ffmpeg 0.6.0 zachovávají přiložené licence a oznámení. Samostatný FFmpeg 7.1 je původní build se zapnutou podporou GPL; balík obsahuje výpis verze, konfigurace a licence i odkazy na zdroje."
+  },
+  "6936a3ce6114e477": {
+    "en": "CPython source",
+    "cs": "Zdrojový kód CPython"
+  },
+  "2555abe5b0b558e4": {
+    "en": "Pillow source",
+    "cs": "Zdrojový kód Pillow"
+  },
+  "06e922da205700f6": {
+    "en": "imageio-ffmpeg source",
+    "cs": "Zdrojový kód imageio-ffmpeg"
+  },
+  "1a0a721611dac791": {
+    "en": "FFmpeg source",
+    "cs": "Zdrojový kód FFmpeg"
+  },
+  "ce461c20c1331a47": {
+    "en": "Website and country detection",
+    "cs": "Web a určení země"
+  },
+  "ae07aa0a453b27eb": {
+    "en": "Space Grotesk and IBM Plex Mono are self-hosted under the SIL Open Font License; notices accompany the files. Font Awesome is provided by Opicebot. The FrameLab source adds no analytics, accounts or tracking cookies. The live hosting layer currently injects its own /provoz/tracker.js script; this is separate from FrameLab. A browser-local preference stores the selected language.",
+    "cs": "Písma Space Grotesk a IBM Plex Mono jsou uložená na vlastním serveru pod SIL Open Font License; licenční oznámení jsou přiložená. Font Awesome poskytuje Opicebot. Zdrojový kód FrameLabu nepřidává analytiku, účty ani sledovací cookies. Hosting nyní vkládá vlastní skript /provoz/tracker.js; ten je oddělený od FrameLabu. Jazyk se ukládá lokálně v prohlížeči."
+  },
+  "86fb0c62a79d4691": {
+    "en": "On first visit, a server-local IP-country lookup chooses Czech for Czechia/Slovakia and English otherwise. Approximate IPv4/IPv6 ranges come from",
+    "cs": "Při první návštěvě se podle lokálního vyhledání země IP na serveru zvolí čeština pro Česko a Slovensko, jinak angličtina. Přibližné rozsahy IPv4/IPv6 pocházejí od"
+  },
+  "3b3acf1a197ce27b": {
+    "en": "source URLs, retrieval date and hashes",
+    "cs": "zdrojové adresy, datum získání a hashe"
+  },
+  "35fce3a4e5ffb87c": {
+    "en": "are available. The lookup sends no visitor IP to a third party and does not retain it. Normal hosting access logs are separate. A VPN can change the inferred country. Manual language selection always wins; unavailable or unknown location falls back to English.",
+    "cs": "jsou dostupné. Vyhledávání neposílá IP návštěvníka třetí straně ani ji neukládá. Běžné přístupové logy hostingu jsou samostatné. VPN může změnit odhad země. Ruční výběr jazyka má vždy přednost; nedostupná nebo neznámá poloha vede k angličtině."
+  },
+  "f4e89b4b529b9f78": {
+    "en": "Game footage",
+    "cs": "Herní záběry"
+  },
+  "7aa0d12ed8a04bd6": {
+    "en": "Gameplay and game assets remain under their respective rights holders. The application's GPL license does not relicense them. Comparison exports contain recorded pixels, resized equally for presentation; no additional frame generation is applied during video export. Source-aligned comparisons remove processing delay. Read individual analyses for settings and measurement limitations.",
+    "cs": "Práva k záběrům a herním podkladům zůstávají příslušným držitelům. GPL licence aplikace je nepřelicencovává. Porovnání obsahují zaznamenané pixely, stejně zmenšené pro zobrazení; při exportu videí se nepřidávají další generované snímky. Porovnání zarovnaná podle zdroje odstraňují zpoždění zpracování. Nastavení a omezení měření uvádějí jednotlivé analýzy."
+  },
+  "44780949f31cfc50": {
+    "en": "Back to downloads and comparisons ↗",
+    "cs": "Zpět na stažení a porovnání ↗"
+  },
+  "cc2acd124526bed5": {
+    "en": "RIFE 4.22 lite and SmoovPlay references: MIT. ONNX Runtime: MIT. DirectML: separate Microsoft terms bundled with the runtime. PP-OCRv5: Apache-2.0, 12 pinned recognition families.",
+    "cs": "RIFE 4.22 lite a reference SmoovPlay: MIT. ONNX Runtime: MIT. DirectML: samostatné podmínky Microsoft přiložené k runtime. PP-OCRv5: Apache-2.0, 12 pevně určených rozpoznávacích rodin."
+  },
+  "601595f50dc4a8ab": {
+    "en": "TranslateGemma weights use the",
+    "cs": "Váhy TranslateGemma podléhají"
+  },
+  "1ac4624af6131aba": {
+    "en": "Gemma Terms of Use",
+    "cs": "podmínkám užití Gemma"
+  },
+  "65c60d04e4741be0": {
+    "en": "; they are optional publisher downloads, not GPL software or bundled public ZIP content. Gemma is provided under and subject to the Gemma Terms of Use found at ai.google.dev/gemma/terms.",
+    "cs": "; stahují se volitelně od vydavatele, nejde o GPL software ani o obsah veřejného ZIPu. Gemma je poskytována podle podmínek Gemma Terms of Use na ai.google.dev/gemma/terms."
+  },
+  "2d1c87225755eb4a": {
+    "en": ". External NR DLLs remain excluded from public bundles and mirrors.",
+    "cs": ". Externí NR DLL nejsou součástí veřejných balíků ani jejich zrcadel."
+  },
+  "1a758017f1606a9a": {
+    "en": "FrameLab — 3-hour debug audit, 20 Nov 2026",
+    "cs": "FrameLab — audit tříhodinového běhu, 20. 11. 2026"
+  },
+  "7da1c2338e901dd5": {
+    "en": "DATA ↓",
+    "cs": "DATA ↓"
+  },
+  "4b18a09241d1ceac": {
+    "en": "RUN / 20.11.2026 / debug-1795196244267574",
+    "cs": "BĚH / 20.11.2026 / debug-1795196244267574"
+  },
+  "36118d29d179760f": {
+    "en": "#88 / GOOD",
+    "cs": "#88 / BEZ ZJEVNÉ CHYBY"
+  },
+  "f516724aa2b0eaef": {
+    "en": "#204 / MAJOR",
+    "cs": "#204 / PODSTATNÁ CHYBA"
+  },
+  "4692db2c88a003f1": {
+    "en": "#505 / MAJOR",
+    "cs": "#505 / PODSTATNÁ CHYBA"
+  },
+  "6a3fde7ac2aeb1a2": {
+    "en": "#798 / MAJOR",
+    "cs": "#798 / PODSTATNÁ CHYBA"
+  },
+  "d15dea2fa84e76ea": {
+    "en": "#923 / MAJOR",
+    "cs": "#923 / PODSTATNÁ CHYBA"
+  },
+  "83a64bb4f1882ea4": {
+    "en": "#1726 / MAJOR",
+    "cs": "#1726 / PODSTATNÁ CHYBA"
+  },
+  "5a40e9b679f9a507": {
+    "en": "JavaScript is required for the searchable view. All translations are available as JSON/CSV below.",
+    "cs": "Pro prohledávání je potřeba JavaScript. Všechny překlady jsou níže ke stažení v JSON/CSV."
+  },
+  "0de6d869e03805ca": {
+    "en": "GPU mean",
+    "cs": "Průměr GPU"
+  },
+  "a1a5936d3b0f8a69": {
+    "en": "Max",
+    "cs": "Maximum"
+  },
+  "9ee22e25eead494f": {
+    "en": "Complete FrameLab debug audit: 1,747 translations, a complete 1,584-pair quality review, OCR, performance, settings, original logs and SHA-256 checksums.",
+    "cs": "Úplný debug audit FrameLabu: 1 747 překladů, hodnocení všech 1 584 unikátních dvojic, OCR, výkon, nastavení, původní logy a kontrolní součty SHA-256."
+  },
+  "53941fa954a6260c": {
+    "en": "Output FPS and total GPU utilization over the entire run",
+    "cs": "Výstupní FPS a celkové vytížení GPU během celého běhu"
+  },
+  "a8e2f30ab1c5249a": {
+    "en": "FrameLab — complete prompt comparison",
+    "cs": "FrameLab — úplné porovnání promptů"
+  },
+  "46342ec1eec9d78d": {
+    "en": "Phase",
+    "cs": "Fáze"
+  },
+  "5c39123805ffb4e2": {
+    "en": "Prompt",
+    "cs": "Prompt"
+  },
+  "bccef53a26259799": {
+    "en": "Good / minor / major / context",
+    "cs": "Bez chyby / menší / podstatná / kontext"
+  },
+  "37b0d9a157ea44a6": {
+    "en": "Median ms",
+    "cs": "Medián v ms"
+  },
+  "e26fed73ab4ee503": {
+    "en": "P95 ms",
+    "cs": "P95 v ms"
+  },
+  "02ed68718a744979": {
+    "en": "Major → good/minor",
+    "cs": "Podstatná → bez chyby / menší"
+  },
+  "ad5f50ecc7c06633": {
+    "en": "New major",
+    "cs": "Nová podstatná chyba"
+  },
+  "98fde154ec36537b": {
+    "en": "Summary JSON",
+    "cs": "Souhrn JSON"
+  },
+  "bbce45ecacf333f2": {
+    "en": "Every paired comparison JSON",
+    "cs": "Všechna párová porovnání JSON"
+  },
+  "25ce50fe967caa9f": {
+    "en": "All 3,768 assessed outputs JSON",
+    "cs": "Všech 3 768 posouzených výstupů JSON"
+  },
+  "2825f87de931748e": {
+    "en": "Prompts + raw results + GPU + grades ZIP",
+    "cs": "Prompty + surové výsledky + GPU + známky ZIP"
+  },
+  "e1f671e8ba7d1274": {
+    "en": "ZIP SHA-256",
+    "cs": "SHA-256 archivu ZIP"
+  },
+  "e09cc1c2297e6c8e": {
+    "en": "All original 1,747 translations",
+    "cs": "Všech 1 747 původních překladů"
+  },
+  "192da076df241f21": {
+    "en": "English hardware guide",
+    "cs": "Návod k hardwaru"
+  },
+  "08a108b96a4445f2": {
+    "cs": "Přesné licence a zdroje",
+    "en": "Exact notices and sources"
+  },
+  "ed71dfe41a7bfec1": {
+    "cs": "Přepnout do češtiny",
+    "en": "Switch to Czech"
+  },
+  "573c7c54c1f7ebd8": {
+    "cs": "Hledání",
+    "en": "Search"
+  },
+  "6a0851c7e62ee43d": {
+    "cs": "Vše",
+    "en": "All"
+  },
+  "ef260e9aa3c673af": {
+    "cs": "Vývojová sada",
+    "en": "Development set"
+  },
+  "df16c1c51be8437d": {
+    "cs": "Odložená ověřovací sada",
+    "en": "Held-out set"
+  },
+  "9b12a17bd896e904": {
+    "cs": "Změna",
+    "en": "Change"
+  },
+  "ec5548851cb49a0a": {
+    "cs": "Bez chyby / menší → podstatná",
+    "en": "Good / minor → major"
+  },
+  "45a82f0b2fcc1813": {
+    "cs": "Jiný text",
+    "en": "Different text"
+  },
+  "726f116e3b4e3d2c": {
+    "cs": "FRAME/LAB · LOKÁLNÍ TEST · 22. 11. 2026",
+    "en": "FRAME/LAB · LOCAL TEST · 22 NOV 2026"
+  },
+  "e4e284113c39f9fc": {
+    "cs": "RIFE 4.22 lite proti Optical Flow.",
+    "en": "RIFE 4.22 lite versus Optical Flow."
+  },
+  "92e0918c8dc2ba44": {
+    "cs": "44 stejných trojic z GTA · 1280 × 720 · Intel UHD + RTX 4050 Laptop. Prostřední skutečný snímek nebyl modelu předán. Známe tedy nejen vstup a výstup, ale i skutečný obraz, který se algoritmus snaží dopočítat.",
+    "en": "44 matching GTA triples · 1280 × 720 · Intel UHD + RTX 4050 Laptop. The actual middle frame was withheld from the model. We therefore have the input, the output and the ground-truth image the algorithm is trying to reconstruct."
+  },
+  "4de0a317c5c4ee82": {
+    "cs": "Podrobná zpráva a limity",
+    "en": "Detailed report and limitations"
+  },
+  "01aae7e70e941d0e": {
+    "cs": "Kvalita všech snímků CSV",
+    "en": "Quality of every frame: CSV"
+  },
+  "02dc7272f1dc5d4c": {
+    "cs": "Naměřené časy JSON",
+    "en": "Measured times: JSON"
+  },
+  "0cd184ec8841de38": {
+    "cs": "Aktuální veřejný balík",
+    "en": "Current public package"
+  },
+  "1f74502ef0bd8656": {
+    "cs": "Vlevo",
+    "en": "Left"
+  },
+  "47fb0d92c84b58a1": {
+    "cs": "Skutečný prostřední snímek",
+    "en": "Actual middle frame"
+  },
+  "c0eca4ce5414221f": {
+    "cs": "Vstup A",
+    "en": "Input A"
+  },
+  "011816c9e238d0f9": {
+    "cs": "Vstup B",
+    "en": "Input B"
+  },
+  "1a7f431b08ffd0d3": {
+    "cs": "Vpravo",
+    "en": "Right"
+  },
+  "2fd1aefa8f51b3f2": {
+    "cs": "Trojice",
+    "en": "Triple"
+  },
+  "f5effaa2d7ad0a0c": {
+    "cs": "Původní rozlišení 1 : 1",
+    "en": "Native resolution 1 : 1"
+  },
+  "afa010079c5dbbf8": {
+    "cs": "Posuň dělicí čáru — 0 % ukáže celou pravou variantu, 100 % celou levou.",
+    "en": "Move the divider — 0% shows the complete right variant; 100% shows the complete left variant."
+  },
+  "d73719e711bad30b": {
+    "cs": "Vstup A a B nejsou stejný čas jako generovaný obraz. Slouží k ověření směru pohybu. Pro hodnocení zvol RIFE / Optical Flow / Skutečný prostřední snímek. Obrázky jsou bezeztrátové, bez přidaného doostření.",
+    "en": "Inputs A and B represent different times from the generated frame. Use them to check motion direction. To assess quality, select RIFE / Optical Flow / Actual middle frame. Images are lossless, with no added sharpening."
+  },
+  "f5dacd2d9d308b00": {
+    "cs": "Stejný pohyb, vedle sebe",
+    "en": "The same motion, side by side"
+  },
+  "734e63f99d41f6f8": {
+    "cs": "Zleva: skutečné video, Optical Flow Medium, RIFE Medium na RTX. Z původních 30 FPS byly zadrženy liché snímky; rekonstruované sekvence mají opět 30 FPS. Tohle je test 15 → 30 FPS. Video je komprimovaný náhled; přesné pixely jsou v porovnání nahoře.",
+    "en": "From left: ground-truth video, Optical Flow Medium, RIFE Medium on RTX. Odd frames were withheld from the original 30 FPS footage; reconstructed sequences return to 30 FPS. This is a 15 → 30 FPS test. The video is a compressed preview; use the comparison above for exact pixels."
+  },
+  "f6ab35f34ee13b99": {
+    "cs": "Kvalita a čas výpočtu mimo přehrávač",
+    "en": "Quality and processing time outside the player"
+  },
+  "0ecc6e826b1ea5f5": {
+    "cs": "Celkem ms · medián / p95",
+    "en": "Total ms · median / p95"
+  },
+  "3c264154641ee859": {
+    "cs": "Deset zahřívacích dvojic se nepočítá. Čas zahrnuje vstupní kopie, dopočet a předání textury aplikaci; čtení textury pro analýzu se měří zvlášť. MAE je průměrná odchylka RGB v rozsahu 0–255. PSNR je průměr přes 44 snímků. Tyto metriky nenahrazují kontrolu pohybu, HUD a deformací.",
+    "en": "Ten warm-up pairs are excluded. Time includes input copies, interpolation and handing the texture to the application; texture readback for analysis is timed separately. MAE is the mean RGB deviation on a 0–255 scale. PSNR is averaged across 44 frames. These metrics do not replace inspecting motion, the HUD and deformation."
+  },
+  "af2742eabf638d46": {
+    "cs": "Vyšší kvalita neznamená automaticky plynulé hraní. Skutečné FPS a zpoždění běžící aplikace jsou ve zprávě. DirectML bylo fyzicky ověřeno na tomto Intelu a RTX; AMD ani starší GeForce zde nejsou.",
+    "en": "Higher quality does not automatically mean smooth gameplay. Actual application FPS and latency are in the report. DirectML was physically tested on this Intel GPU and RTX; no AMD or older GeForce was available."
+  },
+  "398c41bde00bf24b": {
+    "cs": "NR enhancer a „DLSS 5“",
+    "en": "NR enhancer and “DLSS 5”"
+  },
+  "adda58b4762b762d": {
+    "cs": "RIFE dopočítává pohyb. NR enhancer upravuje vzhled obrazu a používá jiný runtime. Na AMD/Intelu je tento NR enhancer zablokovaný, včetně F6 a obnoveného nastavení. Originální NR profil je omezen na RTX 50; na RTX 4050 zůstává samostatný komunitní ShortFuse experiment. Není to oficiální integrace DLSS 5 do hry.",
+    "en": "RIFE reconstructs motion. The NR enhancer changes image appearance and uses a different runtime. This NR enhancer is blocked on AMD/Intel, including F6 and restored settings. The original NR profile is restricted to RTX 50; RTX 4050 uses a separate community ShortFuse experiment. This is not official in-game DLSS 5 integration."
+  },
+  "b106196555d3826b": {
+    "cs": "Historický test z 22. 11. 2026 vznikl v místním experimentu. RIFE je nyní součástí veřejné preview.18. Podmínky a výsledky původního testu zůstávají stejné; viz licence jednotlivých součástí.",
+    "en": "This historical test was conducted locally on 22 November 2026. RIFE is now included in public preview.18. The original test conditions and results remain unchanged; see individual component licenses."
+  },
+  "d4f6ed7dc4a3f11d": {
+    "cs": "Předchozí trojice",
+    "en": "Previous triple"
+  },
+  "4ac6812a81519a81": {
+    "cs": "Další trojice",
+    "en": "Next triple"
+  },
+  "48821cf77831e08c": {
+    "cs": "Pravá varianta stejného okamžiku",
+    "en": "Right variant at the same instant"
+  },
+  "2d48ed528a5ca38e": {
+    "cs": "Levá varianta stejného okamžiku",
+    "en": "Left variant at the same instant"
+  },
+  "ef5c485273943cd7": {
+    "cs": "FrameLab — 500 překladů: lokální modely a OpenAI API",
+    "en": "FrameLab — 500 translations: local models and OpenAI API"
+  },
+  "71b62312157b9b6d": {
+    "cs": "Remote Play / jen titulky / API",
+    "en": "Remote Play / subtitles only / API"
+  },
+  "7939baa8da252cb1": {
+    "cs": "23. 11. 2026 · 500 STEJNÝCH REPLIK · 4 PŘEKLADAČE",
+    "en": "23 NOV 2026 · 500 MATCHING LINES · 4 TRANSLATORS"
+  },
+  "fc101046dd041aed": {
+    "cs": "Jaká je čeština",
+    "en": "How good is the Czech,"
+  },
+  "cb9a0720c17f4fd8": {
+    "cs": "a kolik stojí čekání?",
+    "en": "and how long is the wait?"
+  },
+  "158e2d7424bda123": {
+    "cs": "Měříme textový překlad bez OCR, frame genu a enhanceru.",
+    "en": "This measures text translation without OCR, frame generation or enhancement."
+  },
+  "4013c3b9912c74aa": {
+    "cs": "API a místní test běžely souběžně, místní modely postupně. Toto není měření latence hry ani záruka kvality všech jazyků. Měření vzniklo při vývoji; tyto funkce jsou nyní vydané v preview.18.",
+    "en": "API and local tests overlapped; local models ran sequentially. This does not measure game latency or guarantee quality in every language. These measurements were taken during development; the features are now released in preview.18."
+  },
+  "838928c6bc761922": {
+    "cs": "Nové: vlastní rozbor všech 2 000 uložených překladů bez dalších placených API volání.",
+    "en": "New: our own review of all 2,000 saved translations, with no further paid API calls."
+  },
+  "d0a9cf6dafcb291f": {
+    "cs": "Pořadí, skóre, největší rozdíly a všechny repliky →",
+    "en": "Ranking, scores, largest differences and every line →"
+  },
+  "8d648bb2499a459b": {
+    "cs": ". Níže zůstává původní placené AI hodnocení jako historický záznam. Funkce jsou nyní vydané v preview.18; původní podmínky testu se nemění.",
+    "en": ". The original paid AI assessment remains below as a historical record. These features are now released in preview.18; original test conditions remain unchanged."
+  },
+  "ee3c51d98f3fe963": {
+    "cs": "Rychlost a kvalita na stejném zadání",
+    "en": "Speed and quality on the same task"
+  },
+  "5e2c614c23f02239": {
+    "cs": "Model",
+    "en": "Model"
+  },
+  "b41dbcd5da21bd50": {
+    "cs": "Platné výstupy",
+    "en": "Valid outputs"
+  },
+  "40a82a7aff8214f6": {
+    "cs": "Medián",
+    "en": "Median"
+  },
+  "85e6ee9fdc17b9fe": {
+    "cs": "Význam / 4",
+    "en": "Meaning / 4"
+  },
+  "8f0586fea9c3ad05": {
+    "cs": "Čeština / 4",
+    "en": "Czech fluency / 4"
+  },
+  "d5e011150bf08ecf": {
+    "cs": "Závažná chyba*",
+    "en": "Critical error*"
+  },
+  "df0afd1dd3e0353d": {
+    "cs": "P95: 95 % požadavků skončilo do této doby; zahrnuje i chyby. chrF++ (0–100) měří podobnost s jednou lidskou referencí, nikoli přímo správnost. Význam, čeština a závažné chyby jsou hodnocení jednoho AI posuzovatele GPT-6.1 Terra. Jména kandidátů neviděl a jejich pořadí bylo pro každou repliku jiné. Není to nezávislý lidský audit; poskytovatel posuzovatele je stejný jako u jednoho kandidáta.",
+    "en": "P95: 95% of requests finished within this time, including failures. chrF++ (0–100) measures similarity to one human reference, not correctness directly. Meaning, Czech fluency and critical errors were assessed by one AI judge, GPT-6.1 Terra. Candidate names were hidden and their order varied for each line. This is not an independent human audit; the judge shares a provider with one candidate."
+  },
+  "d2b1919cc9912f1e": {
+    "cs": "Spotřeba API",
+    "en": "API usage"
+  },
+  "6454e3b6f648f3f6": {
+    "cs": "500 pokusů o překlad přes GPT-6 Luna:",
+    "en": "500 translation attempts with GPT-6 Luna:"
+  },
+  "cd57d7997a664a23": {
+    "cs": "za doložené tokeny, přibližně",
+    "en": "for documented tokens, approximately"
+  },
+  "1c5242499bf88408": {
+    "cs": "2 americké centy",
+    "en": "2 US cents"
+  },
+  "02be4f1ce0ab7e94": {
+    "cs": ". Doloženo 66,641 vstupních a 24,052 výstupních tokenů; reasoning tokeny: 0.",
+    "en": ". Documented usage: 66,641 input and 24,052 output tokens; reasoning tokens: 0."
+  },
+  "530f76835a819087": {
+    "cs": "Jedna odpověď měla neplatnou strukturu. První verze testovacího adaptéru u této chyby neuchovala spotřebu, takže částka je doložený mezisoučet, nikoli přesná faktura. Původní chybový řádek zůstává ve výsledcích. Dodatečný diagnostický pokus uspěl a nenahrazuje původní měření. Záznam spotřeby při neplatné odpovědi je v aplikaci opraven.",
+    "en": "One response had an invalid structure. The first test adapter did not retain its usage, so this is a documented subtotal, not an exact invoice. The original failed row remains in the results. A later diagnostic retry succeeded and does not replace the original measurement. Usage logging for invalid responses has been fixed in the application."
+  },
+  "79449bdb10ff6178": {
+    "cs": "Samostatné AI hodnocení všech kandidátů:",
+    "en": "Separate AI assessment of every candidate:"
+  },
+  "d84f96c9a6a97e9f": {
+    "cs": ". Zkouška 100 případů filtru:",
+    "en": ". The 100-case filter test:"
+  },
+  "d3ef59b3aaa099c0": {
+    "cs": ". Diagnostická a integrační volání jsou uvedena zvlášť v závěrečném účtu; hodnocení není součástí běžného překladu v aplikaci.",
+    "en": ". Diagnostic and integration calls are listed separately in the final ledger; judging is not part of normal in-app translation."
+  },
+  "d1b19025372b422c": {
+    "cs": "Odhad vychází z vrácených tokenů a veřejných cen Standard ověřených 23. 11. 2026; zahrnuje instrukce, výstup a případné cache-write tokeny, nezahrnuje daně, měnový převod ani jinou aktivitu účtu. Skutečné vyúčtování ověř na API platformě.",
+    "en": "The estimate uses returned tokens and public Standard prices verified on 23 November 2026. It includes instructions, output and any cache-write tokens; it excludes tax, currency conversion and other account activity. Check actual billing on the API platform."
+  },
+  "bf7463b747c9b5cc": {
+    "cs": "Celá tato zkouška včetně AI hodnocení: přibližně $0.73.",
+    "en": "This entire test, including AI judging: approximately $0.73."
+  },
+  "d53b41e92e808f65": {
+    "cs": "Doložený součet je $0.7306883; chybí tokeny jednoho neplatného výstupu. Většinu ceny tvoří dodatečné hodnocení, nikoli samotný překlad. Není to odečet aktuálního zůstatku účtu.",
+    "en": "The documented total is $0.7306883; tokens for one invalid output are missing. Most of the cost came from the additional judging, not translation itself. This is not a reading of the account's current balance."
+  },
+  "4745714c51e64eee": {
+    "cs": "Celý cenový účet včetně diagnostiky",
+    "en": "Full cost ledger, including diagnostics"
+  },
+  "913f87fd3a822b96": {
+    "cs": "Přesný postup opakování a omezení",
+    "en": "Exact reproduction steps and limitations"
+  },
+  "56fef09ca92e39dd": {
+    "cs": "Zdrojové skripty, prompty a profily",
+    "en": "Source scripts, prompts and profiles"
+  },
+  "617827c4683d0b18": {
+    "cs": "Verze a hashe zdrojů",
+    "en": "Source versions and hashes"
+  },
+  "33548cd99d343a30": {
+    "cs": "Co z toho vychází",
+    "en": "What the results suggest"
+  },
+  "500b654b4e35346a": {
+    "cs": "CUNI má v této sadě největší podobnost s lidskou referencí (chrF++), API dostalo od anonymizovaného AI posuzovatele nejvyšší průměr za význam a přirozenost. To nejsou totožná měřítka a posuzovatel je od stejného dodavatele jako API kandidát. CUNI je zde přesvědčivá místní volba pro EN → CS; širší jazyková nabídka TranslateGemma sama nezaručuje lepší češtinu. API šetří místní výpočet překladu, ale na tomto notebooku čekalo déle než oba GPU modely.",
+    "en": "CUNI has the highest similarity to the human reference in this dataset (chrF++). The blinded AI judge gave the API the highest average scores for meaning and naturalness. These are different measures, and the judge shares a provider with the API candidate. CUNI is a convincing local EN → CS option here; TranslateGemma's wider language support does not by itself guarantee better Czech. The API saves local translation compute, but on this laptop took longer than either GPU model."
+  },
+  "c41e465397297cb4": {
+    "cs": "Konkrétní chyby najdeš přes hledání ID:",
+    "en": "Find specific errors by searching for an ID:"
+  },
+  "9bf2e4e3f9d5690a": {
+    "cs": "— CPU ztratil „nemrtvé“, Gemma vytvořila gramaticky vadné přání, CUNI a API zachovaly význam.",
+    "en": "— CPU lost “undead”; Gemma produced an ungrammatical wish; CUNI and the API preserved the meaning."
+  },
+  "98ef6ec853743b84": {
+    "cs": "— i API selhalo: „I will put an end…“ změnilo na rozkaz „skoncuj“; CUNI tuto repliku zvládlo.",
+    "en": "— the API also failed: it turned “I will put an end…” into the command “skoncuj”; CUNI handled this line correctly."
+  },
+  "a0314066c6d1b673": {
+    "cs": "ukazuje subjektivitu skóre: posuzovatel API strhl bod za vynechání nejistoty „may“, přestože česká věta zní přirozeně. Jde o příklady k prohlédnutí, nikoli další nezávislé měření.",
+    "en": "illustrates the subjectivity of scoring: the judge deducted an API point for omitting the uncertainty of “may”, although the Czech sentence sounds natural. These are examples to inspect, not another independent measurement."
+  },
+  "c807434c5645ef0f": {
+    "cs": "Umí API odmítnout nápis?",
+    "en": "Can the API reject a sign?"
+  },
+  "50a30d49bcbf4d52": {
+    "cs": "Zvláštní zkouška 100 předem vybraných případů používá skutečný lokální předfiltr a API překlad s posouzením textu. Z 40 jednoznačně nechtěných textů odstranil 36; z 40 replik chybně odstranil 0. U 20 nejednoznačných příkladů odstranil 6. Chyby požadavků: 0.",
+    "en": "A separate test of 100 preselected cases used the actual local prefilter and API translation with content assessment. It removed 36 of 40 clearly unwanted texts and incorrectly removed 0 of 40 dialogue lines. It removed 6 of 20 ambiguous examples. Request failures: 0."
+  },
+  "54b349096c892b49": {
+    "cs": "Všechny případy",
+    "en": "All cases"
+  },
+  "2f9619298a1d2033": {
+    "cs": "Samotný text neumí spolehlivě rozlišit nápis od stejné věty vyslovené postavou. Nejisté případy proto oddělujeme. Hlavní sada 500 překladů měla filtr vypnutý, aby výsledek neovlivňovalo zahazování textu.",
+    "en": "Text alone cannot reliably distinguish a sign from the same sentence spoken by a character. Ambiguous cases are therefore reported separately. Filtering was disabled for the main 500-translation dataset so that discarded text would not affect the comparison."
+  },
+  "4650fc846810e020": {
+    "cs": "Jak test zopakovat",
+    "en": "How to reproduce the test"
+  },
+  "f7a8e6f9f85aa175": {
+    "cs": "Intel Core i5-13420H, RTX 4050 Laptop GPU 6 GiB, Windows 11. Každý překladač dostal všech 500 stejných anglických replik, postupně a bez historie sousedních vět. API dostávalo pouze text. Lokální runtime při načítání provádí zahřátí; jeho inicializace je samostatně v metadatech. První API požadavek je zahrnutý. Běžící desktop nebyl izolované laboratorní prostředí.",
+    "en": "Intel Core i5-13420H, RTX 4050 Laptop GPU 6 GiB, Windows 11. Every translator received all 500 matching English lines sequentially, with no history of surrounding sentences. The API received text only. The local runtime warms up during loading; initialization is recorded separately in metadata. The first API request is included. The running desktop was not an isolated laboratory environment."
+  },
+  "13d6dde79af0eb4b": {
+    "cs": "Sada je pevný výběr z české lokalizace hry",
+    "en": "The dataset is a fixed selection from the Czech localization of"
+  },
+  "0d5ef7e9823f6b3d": {
+    "cs": ": 500 různých položek dialogu z 809 způsobilých, seed 20261123. Vynechány fuzzy překlady, markup a proměnné; délka 5–280 znaků. Lidský překlad slouží jako reference, ale není jedinou správnou formulací. Materiál je veřejný a mohl být v trénovacích datech. Žánr fantasy a chybějící kontext omezují zobecnitelnost.",
+    "en": ": 500 distinct dialogue entries from 809 eligible entries, seed 20261123. Fuzzy translations, markup and variables were excluded; lengths were 5–280 characters. The human translation is a reference, not the only valid wording. This public material may have appeared in training data. The fantasy genre and missing context limit generalization."
+  },
+  "f279236114628445": {
+    "cs": "Licence GPL",
+    "en": "GPL license"
+  },
+  "eba11452b4ef06b4": {
+    "cs": "; autory české lokalizace uvádí zdrojový PO soubor.",
+    "en": "; Czech localization contributors are credited in the source PO file."
+  },
+  "3f7749b7879031ee": {
+    "cs": "Stáhnout všech 2 000 překladů v CSV",
+    "en": "Download all 2,000 translations as CSV"
+  },
+  "3bd7d3d8c77bd4d3": {
+    "cs": "Úplná data JSON",
+    "en": "Complete JSON data"
+  },
+  "2b7e208762b233a0": {
+    "cs": "Zdroj, výběr a hash datasetu",
+    "en": "Dataset source, selection and hash"
+  },
+  "a4a041d3316821d6": {
+    "cs": "Testovací skript",
+    "en": "Test script"
+  },
+  "38c14fb8dd058786": {
+    "cs": "NVIDIA VFG",
+    "en": "NVIDIA VFG"
+  },
+  "a52219e7fb1478df": {
+    "cs": "IPdeny",
+    "en": "IPdeny"
+  },
+  "36f7fa0b4e7c7349": {
+    "cs": "Preview.18: RIFE / DirectML / TranslateGemma",
+    "en": "Preview.18: RIFE / DirectML / TranslateGemma"
+  },
+  "81c25ac499d3df01": {
+    "cs": "FRAME / LAB",
+    "en": "FRAME / LAB"
+  },
+  "cee7ab0c30b2be15": {
+    "cs": "EN → CS",
+    "en": "EN → CS"
+  },
+  "18b36a23668e6002": {
+    "cs": "FPS / GPU",
+    "en": "FPS / GPU"
+  },
+  "2c4288cd36384983": {
+    "cs": "0.309 s",
+    "en": "0.309 s"
+  },
+  "39566688785b8a28": {
+    "cs": "0.821 s",
+    "en": "0.821 s"
+  },
+  "2df1b97e40638bc2": {
+    "cs": "56.80 fps",
+    "en": "56.80 fps"
+  },
+  "affb36852db83fe5": {
+    "cs": "We did not break up. We got in a fight and you ghosted me.",
+    "en": "We did not break up. We got in a fight and you ghosted me."
+  },
+  "cb0682bf46876cd7": {
+    "cs": "Nerozešli jsme se. Pohádali jsme se a ty ses na mě vykašlal.",
+    "en": "Nerozešli jsme se. Pohádali jsme se a ty ses na mě vykašlal."
+  },
+  "afcd5a7ecd0833eb": {
+    "cs": "No way, my man, we're gonna turn this into a party.",
+    "en": "No way, my man, we're gonna turn this into a party."
+  },
+  "5d9f623c948f4d71": {
+    "cs": "V žádném případě, kámo, z toho neuděláme párty.",
+    "en": "V žádném případě, kámo, z toho neuděláme párty."
+  },
+  "a9fe9be597f9d01b": {
+    "cs": "Y'hear that, Dorean? Ring the bell! Shots, baby!",
+    "en": "Y'hear that, Dorean? Ring the bell! Shots, baby!"
+  },
+  "cae7ddc52a47f389": {
+    "cs": "Slyšíš to, Doreane? Zazvoňte zvon! Střílej, baby!",
+    "en": "Slyšíš to, Doreane? Zazvoňte zvon! Střílej, baby!"
+  },
+  "6c500b499b6acc16": {
+    "cs": "Boom! And that's all she wrote.",
+    "en": "Boom! And that's all she wrote."
+  },
+  "fa4ddf241f7b2935": {
+    "cs": "A to je všechno, co napsala.",
+    "en": "A to je všechno, co napsala."
+  },
+  "329f3987043b30e2": {
+    "cs": "I need somewhere to send my, like, two bucks an hour. Can I use yours till I get one set up?",
+    "en": "I need somewhere to send my, like, two bucks an hour. Can I use yours till I get one set up?"
+  },
+  "1d82ce2453fe25be": {
+    "cs": "Potřebuju někam poslat svých tak dvě babky na hodinu. Můžu použít tvoji adresu, než si nějakou seženu?",
+    "en": "Potřebuju někam poslat svých tak dvě babky na hodinu. Můžu použít tvoji adresu, než si nějakou seženu?"
+  },
+  "6426012a6ff1a365": {
+    "cs": "key Lento",
+    "en": "key Lento"
+  },
+  "b0e63775a10c85a5": {
+    "cs": "klávesa Lento ...",
+    "en": "klávesa Lento ..."
+  },
+  "0801fdf4ae36b3cf": {
+    "cs": "142 W / 238 W",
+    "en": "142 W / 238 W"
+  },
+  "0be9ae56d9ffa5aa": {
+    "cs": "10.75 GiB",
+    "en": "10.75 GiB"
+  },
+  "8f30d2a7823e0b88": {
+    "cs": "49.75 / 70.72 ms",
+    "en": "49.75 / 70.72 ms"
+  },
+  "85869174459f3b9c": {
+    "cs": "FPS",
+    "en": "FPS"
+  },
+  "aebf8ec133e867b7": {
+    "cs": "P95",
+    "en": "P95"
+  },
+  "8d0388f881376f1b": {
+    "cs": "shots / #204 / Jason",
+    "en": "shots / #204 / Jason"
+  },
+  "af2f77588ad81723": {
+    "cs": "FRAME / LAB · AUDIT",
+    "en": "FRAME / LAB · AUDIT"
+  },
+  "b256efc184396112": {
+    "cs": "CZ / EN",
+    "en": "CZ / EN"
+  },
+  "8ce86a6ae65d3692": {
+    "cs": "N",
+    "en": "N"
+  },
+  "4ae1d5405cdf5a52": {
+    "cs": "examples-v1",
+    "en": "examples-v1"
+  },
+  "72badc431a9456ba": {
+    "cs": "rules-v1",
+    "en": "rules-v1"
+  },
+  "bacae28d36216c51": {
+    "cs": "baseline-repeat",
+    "en": "baseline-repeat"
+  },
+  "c06e43287ac154e3": {
+    "cs": "#204 / shots",
+    "en": "#204 / shots"
+  },
+  "42c0a8371ab59ce4": {
+    "cs": "FrameLab · RIFE / Optical Flow",
+    "en": "FrameLab · RIFE / Optical Flow"
+  },
+  "0fb678f9be7fdc1e": {
+    "cs": "RTX · Optical Flow Medium",
+    "en": "RTX · Optical Flow Medium"
+  },
+  "9a3d1c0623f49810": {
+    "cs": "RTX · RIFE Low",
+    "en": "RTX · RIFE Low"
+  },
+  "1ed5c9221709cdc9": {
+    "cs": "RTX · RIFE Medium",
+    "en": "RTX · RIFE Medium"
+  },
+  "0961b25d7a3d93e8": {
+    "cs": "Intel · Optical Flow Medium",
+    "en": "Intel · Optical Flow Medium"
+  },
+  "285678d59cb5393a": {
+    "cs": "Intel · RIFE Low",
+    "en": "Intel · RIFE Low"
+  },
+  "f60db170ece8182f": {
+    "cs": "Intel · RIFE Medium",
+    "en": "Intel · RIFE Medium"
+  },
+  "d15f3bfa7e3b4bf4": {
+    "cs": "GPU / backend",
+    "en": "GPU / backend"
+  },
+  "ee96328df5e11aa1": {
+    "cs": "RGB MAE ↓",
+    "en": "RGB MAE ↓"
+  },
+  "99c52813debf3db2": {
+    "cs": "PSNR dB ↑",
+    "en": "PSNR dB ↑"
+  },
+  "d06fc0efc8e8f93b": {
+    "cs": "FRAME/LAB",
+    "en": "FRAME/LAB"
+  },
+  "ca299f89de307eca": {
+    "cs": "chrF++",
+    "en": "chrF++"
+  },
+  "709ce67631842585": {
+    "cs": "GPT-6 Luna",
+    "en": "GPT-6 Luna"
+  },
+  "853a81ae7a8fb359": {
+    "cs": "GPT-6.1 Terra",
+    "en": "GPT-6.1 Terra"
+  },
+  "e667ddd6ad23c0c9": {
+    "cs": "w500-002",
+    "en": "w500-002"
+  },
+  "68eafac5529675bf": {
+    "cs": "w500-032",
+    "en": "w500-032"
+  },
+  "eb5d3d26132d14b0": {
+    "cs": "w500-026",
+    "en": "w500-026"
+  },
+  "1bee12bc6dad25a7": {
+    "cs": "Battle for Wesnoth",
+    "en": "Battle for Wesnoth"
+  },
+  "0d8cf8e9f8a03061": {
+    "cs": "Prompt a skript hodnocení",
+    "en": "Judging prompt and script"
+  },
+  "8535f9cb85831e20": {
+    "cs": "Nastavení posuzovatele",
+    "en": "Judge settings"
+  },
+  "27609ba4d93496ea": {
+    "cs": "Kontrolní součty",
+    "en": "Checksums"
+  },
+  "9a792201a4a11211": {
+    "cs": "Prohlédni si každou repliku",
+    "en": "Inspect every line"
+  },
+  "cc8635862200759d": {
+    "cs": "Hledat",
+    "en": "Search"
+  },
+  "c25ca5d74eee51b6": {
+    "cs": "Všechny čtyři",
+    "en": "All four"
+  },
+  "d3df9521339e081d": {
+    "cs": "jen závažné chyby podle AI",
+    "en": "only critical errors according to the AI judge"
+  },
+  "00c85f5d0879f6d4": {
+    "cs": "jen chyby požadavků",
+    "en": "only request failures"
+  },
+  "02a220013c3cd920": {
+    "cs": "Načítám data…",
+    "en": "Loading data…"
+  },
+  "298ff4980ef9ce57": {
+    "cs": "← Předchozí",
+    "en": "← Previous"
+  },
+  "22e0ed24b44e7dc6": {
+    "cs": "Další →",
+    "en": "Next →"
+  },
+  "9f84bb574ddfb427": {
+    "cs": "anglicky nebo česky",
+    "en": "English or Czech"
+  },
+  "c39a85c579cb6ff9": {
+    "cs": "500 replik / kvalita",
+    "en": "500 lines / quality"
+  },
+  "6179e01c3fe64312": {
+    "cs": "Nastavení překladu",
+    "en": "Translation setup"
+  },
+  "b4fea5c06a01163c": {
+    "cs": "Lokální modely: CUDA, Vulkan i CPU",
+    "en": "Local models: CUDA, Vulkan and CPU"
+  },
+  "bbef38273118359c": {
+    "cs": "Vývojové měření; funkce vydané v preview.18 · 23. 11. 2026 · 32 překladů, čtyři krátké repliky na konfiguraci. Bez OCR, FG a NR. CUDA Flash Attention zapnutý, Vulkan/CPU vypnutý. Toto je ověření kompatibility a orientační rychlosti, ne nové hodnocení jazykové kvality.",
+    "en": "Development measurements; features released in preview.18 · 23 November 2026 · 32 translations, four short lines per configuration. No OCR, FG or NR. Flash Attention enabled for CUDA, disabled for Vulkan/CPU. This checks compatibility and approximate speed; it is not a new language-quality evaluation."
+  },
+  "77cd3bfd1f0b8128": {
+    "cs": "Návod a metodika",
+    "en": "Guide and methodology"
+  },
+  "1bae06f13d82b476": {
+    "cs": "Všechna data",
+    "en": "All data"
+  },
+  "e1363fae54dc7a40": {
+    "cs": "Zařízení",
+    "en": "Device"
+  },
+  "00bec17356d16ea2": {
+    "cs": "Start + zahřátí",
+    "en": "Startup + warm-up"
+  },
+  "175753491febbb08": {
+    "cs": "Na tomto notebooku je CUDA nejrychlejší. Intel UHD přes Vulkan model načte, ale je pomalejší než CPU. AMD karta nebyla k dispozici. Vulkan se týká překladače; nezpřístupňuje NR na nepodporované grafice.",
+    "en": "CUDA is fastest on this laptop. Intel UHD loads the model through Vulkan but is slower than the CPU. No AMD card was available. Vulkan applies to translation; it does not enable NR on unsupported graphics hardware."
+  },
+  "3006079ee03d8968": {
+    "cs": "Ověření celé cesty",
+    "en": "End-to-end pipeline checks"
+  },
+  "a26a215a8b54a89d": {
+    "cs": "Intel / Vulkan / CUNI: 6/6. RTX / Vulkan / Gemma: 6/6. Skutečné obrázky, RapidOCR, filtr jmen, překladový proces a fronta titulků. Rozdělené načtení GPU + RAM navíc ověřeno vynucením osmi GPU vrstev v testovacím harnessu; nešlo o měření automatického rozhodování pod tlakem VRAM.",
+    "en": "Intel / Vulkan / CUNI: 6/6. RTX / Vulkan / Gemma: 6/6. Actual images, RapidOCR, name filtering, the translation worker and subtitle queue. GPU + RAM loading was additionally verified by forcing eight GPU layers in the test harness; this did not measure automatic decisions under VRAM pressure."
+  },
+  "485bb31481530b13": {
+    "cs": "Intel – finální log",
+    "en": "Intel — final log"
+  },
+  "104f483b7173f083": {
+    "cs": "RTX – finální log",
+    "en": "RTX — final log"
+  },
+  "73900abc06459b89": {
+    "cs": "Výběr v aplikaci",
+    "en": "Selection in the application"
+  },
+  "510bb0cdcb92eabd": {
+    "cs": "Titulky → Local / offline → CUNI nebo TranslateGemma → Výpočet překladu. GPU pro překlad se vybírá nezávisle na grafice pro obraz. Na tomto notebooku je ponechána doporučená automatika, která použije CUDA.",
+    "en": "Subtitles → Local / offline → CUNI or TranslateGemma → Translation compute. The translation GPU is selected independently of the image-processing GPU. This laptop retains the recommended automatic selection, which uses CUDA."
+  },
+  "809fba5b1786e399": {
+    "cs": "Každý výstup",
+    "en": "Every output"
+  },
+  "581521816f7339b3": {
+    "cs": "Skutečná nabídka Automaticky, CUDA, Vulkan a CPU",
+    "en": "Actual Auto, CUDA, Vulkan and CPU selector"
+  },
+  "e9b69654ea9c6bd3": {
+    "cs": "Skutečná nabídka Vulkan GPU: Intel UHD a NVIDIA RTX 4050",
+    "en": "Actual Vulkan GPU selector: Intel UHD and NVIDIA RTX 4050"
+  },
+  "e5abba5b67c3e503": {
+    "cs": "FrameLab — vlastní rozbor 2 000 překladů a pořadí modelů",
+    "en": "FrameLab — our review of 2,000 translations and model ranking"
+  },
+  "9beb25e978209692": {
+    "cs": "Stáhnout FrameLab",
+    "en": "Download FrameLab"
+  },
+  "c975a593940c8a7e": {
+    "cs": "Původní měření a cenový účet",
+    "en": "Original measurements and cost ledger"
+  },
+  "5f61c1330016c2c4": {
+    "cs": "500 REPLIK · 4 MODELY · 2 000 POSOUZENÝCH PŘEKLADŮ",
+    "en": "500 LINES · 4 MODELS · 2,000 ASSESSED TRANSLATIONS"
+  },
+  "1c7a7e18a3724099": {
+    "cs": "Který překladač",
+    "en": "Which translator"
+  },
+  "1da16d9861e3f445": {
+    "cs": "rozumí tomu, co říká?",
+    "en": "understands what it is saying?"
+  },
+  "6b2cdd05938bdf1c": {
+    "cs": "Vlastní rozbor uložených překladů asistentem Codex. Každý výstup byl přečten a jednotlivě ohodnocen podle anglického zadání. Nové hodnocení použilo",
+    "en": "Codex's own review of saved translations. Each output was read and individually scored against the English input. The new assessment used"
+  },
+  "85ae8b00e72269b5": {
+    "cs": "0 dalších placených API požadavků",
+    "en": "0 additional paid API requests"
+  },
+  "d6a40c06a3eae710": {
+    "cs": "Skóre je úsudek jednoho AI asistenta, nikoli lidský audit nebo procento přesnosti. Při bodování byly modely anonymně označené A–D. Metodika a původní data jsou níže.",
+    "en": "Scores reflect one AI assistant's judgment, not a human audit or an accuracy percentage. Models were anonymously labelled A–D during scoring. Methodology and original data are below."
+  },
+  "d8f24837ef8395b7": {
+    "cs": "Výsledek na této sadě",
+    "en": "Results on this dataset"
+  },
+  "a62a82c1068001ec": {
+    "cs": "Skóre / 100",
+    "en": "Score / 100"
+  },
+  "0575eeca1d8b0922": {
+    "cs": "Použitelné*",
+    "en": "Usable*"
+  },
+  "54c5d60662300c3a": {
+    "cs": "Významová chyba*",
+    "en": "Meaning error*"
+  },
+  "59b8ed9eb00a1f54": {
+    "cs": "Medián překladu",
+    "en": "Median translation time"
+  },
+  "2c71263d12db9365": {
+    "cs": "Nejvyšší výsledné skóre:",
+    "en": "Highest overall score:"
+  },
+  "2a78be083a963177": {
+    "cs": ". Nejlepší místní model v této sadě:",
+    "en": ". Best local model in this dataset:"
+  },
+  "fd5356fdc1ee071e": {
+    "cs": ". Nejnižší skóre:",
+    "en": ". Lowest score:"
+  },
+  "c974cbcc61b9f7cb": {
+    "cs": ". Výběr podle rychlosti se může lišit od výběru podle češtiny; časy ve stejné tabulce ukazují tento kompromis.",
+    "en": ". Choosing for speed may differ from choosing for Czech quality; timings in the same table show that trade-off."
+  },
+  "d04b2f39677c4aa1": {
+    "cs": "* Použitelné: význam i čeština alespoň 3/4. Významová chyba: význam nejvýše 2/4. Ani „použitelné“ neznamená bezchybné. Skóre počítá každou repliku stejně a vzniká jako",
+    "en": "* Usable: meaning and Czech fluency both at least 3/4. Meaning error: meaning at most 2/4. “Usable” does not mean flawless. Every line has equal weight, with scores calculated as"
+  },
+  "e2326a0dd6accad0": {
+    "cs": ". Význam má váhu 75 %, čeština 25 %. Chybějící výstup nebo text v jiném jazyce dostává 0 celkem, i když v jiném jazyce význam zachoval.",
+    "en": ". Meaning has a 75% weight and Czech fluency 25%. Missing output or output in another language receives zero overall, even if it preserves the meaning in that other language."
+  },
+  "f4c483de3aefdb4d": {
+    "cs": "Největší rozdíly, včetně slabých míst vítěze",
+    "en": "Largest differences, including the winner's weaknesses"
+  },
+  "6a3ee536e74b44ab": {
+    "cs": "Tyto příklady vysvětlují chyby, nikoli jejich četnost. Úplná tabulka níže umožňuje seřadit všechny repliky podle největšího rozdílu nebo od nejhoršího výstupu zvoleného modelu.",
+    "en": "These examples explain errors, not their frequency. The complete table below lets you sort every line by the largest model difference or the selected model's worst output."
+  },
+  "c44a527586e89b20": {
+    "cs": "Vodopád, nebo šedý zákal? · w500-470",
+    "en": "Waterfall or eye cataract? · w500-470"
+  },
+  "e2bcfe0550e6ea6b": {
+    "cs": "Několik set stop mění na několik set metrů, tedy podstatně mění odhad výšky.",
+    "en": "Changes several hundred feet to several hundred metres, substantially changing the estimated height."
+  },
+  "51cbaef0a0f589eb": {
+    "cs": "Cataract v kontextu řeky znamená vodopád. Překlad ‚šedý zákal‘ vybral nesprávný význam slova.",
+    "en": "In this river context, “cataract” means a waterfall. The Czech “šedý zákal” chooses the eye condition instead."
+  },
+  "b1863641cc5f16fc": {
+    "cs": "Otevřít ve všech výsledcích →",
+    "en": "Open in all results →"
+  },
+  "a9690a12f3f52170": {
+    "cs": "Plynulý text v nesprávném jazyce · w500-343",
+    "en": "Fluent text in the wrong language · w500-343"
+  },
+  "8ad5d94d54291d75": {
+    "cs": "Výstup je polsky, ne česky. Význam v polštině zachovává (4), čeština má 0; podle zveřejněného pravidla je celkové skóre takového výstupu 0, protože nesplnil cílový jazyk.",
+    "en": "The output is Polish, not Czech. It preserves the meaning in Polish (4), but Czech fluency is 0. Under the published rule, the overall score is zero because it does not meet the target-language requirement."
+  },
+  "45c0df2e33b9e29e": {
+    "cs": "Ztracená negace · w500-215",
+    "en": "Lost negation · w500-215"
+  },
+  "638a08ddb71b3c1b": {
+    "cs": "‚Nechci tě zabít‘ mění na ‚opravdu chci zabít‘. Přes zbytek plynulé věty jde o zásadní obrácení významu.",
+    "en": "Changes “I don't want to kill you” into “I really want to kill”. Despite the rest of the fluent sentence, this fundamentally reverses the meaning."
+  },
+  "e6aa55a86163ee7d": {
+    "cs": "Zvládnu to, nebo nezvládnu? · w500-393",
+    "en": "Can I do it or not? · w500-393"
+  },
+  "efe1e3cd8cc30541": {
+    "cs": "Celá pointa je obrácená: ‚nezvládnu to sám‘ se změnilo na ‚zvládnu to sám‘.",
+    "en": "The entire point is reversed: “I can't do it alone” becomes “I can do it alone”."
+  },
+  "3ff17ed7a085a8ff": {
+    "cs": "Chybuje i API · w500-032",
+    "en": "The API makes mistakes too · w500-032"
+  },
+  "66f185e3b384a7f0": {
+    "cs": "Chybná API odpověď zůstává ve skóre · w500-161",
+    "en": "The failed API response remains in the score · w500-161"
+  },
+  "c4a7f0322bfef811": {
+    "cs": "Chybová zpráva zde sama prozrazuje API původ kandidáta. Skrytí názvů modelů tedy není dokonale zaslepené.",
+    "en": "Here the error message itself reveals the candidate's API origin. Hiding model names therefore does not make the review perfectly blinded."
+  },
+  "95edb6fc3c7533ce": {
+    "cs": "Původní pokus nevrátil platný překlad, proto má 0/4 za význam i češtinu. Pozdější úspěšný diagnostický pokus tento neúspěch v měření nenahrazuje.",
+    "en": "The original attempt returned no valid translation, so it receives 0/4 for both meaning and Czech fluency. A later successful diagnostic retry does not replace this failure in the measurement."
+  },
+  "e14a12e57f9f8e70": {
+    "cs": "Obtížná replika pro všechny čtyři · w500-367",
+    "en": "A difficult line for all four · w500-367"
+  },
+  "051e315b9dcef370": {
+    "cs": "Obtížný případ pro všechny čtyři kandidáty. Rout zde znamená obracet vojsko na útěk, nikoli směrovat, rozdělovat nebo odvádět. Nelze označit vítěze za bezchybný.",
+    "en": "A difficult case for all four candidates. “Rout” here means putting an army to flight, not directing, dividing or diverting it. The winner cannot be called flawless."
+  },
+  "407d362a73a22d41": {
+    "cs": "Routing překládá jako odvádění sil.",
+    "en": "Translates “routing” as diverting forces."
+  },
+  "ba37813a0719c0fd": {
+    "cs": "Routing překládá jako rozdělování sil.",
+    "en": "Translates “routing” as dividing forces."
+  },
+  "3a5534ea1c1dde41": {
+    "cs": "Routing překládá jako směrování a ‚has had enough‘ navíc obrací na ‚už to nestačí‘.",
+    "en": "Translates “routing” as directing, and also reverses “has had enough” into “it is no longer enough”."
+  },
+  "59d1928d59a04d1d": {
+    "cs": "Chybnému překladu routing se vyhne vypuštěním celé první věty; zbytek je použitelný, ale neúplný.",
+    "en": "Avoids mistranslating “routing” by omitting the entire first sentence; the rest is usable but incomplete."
+  },
+  "73604374294952ea": {
+    "cs": "Ani lidská reference není neomylná · w500-437",
+    "en": "Even the human reference can be wrong · w500-437"
+  },
+  "348915fd6cb4bf60": {
+    "cs": "Lidská reference má jihovýchod, ale anglický originál jihozápad. Hodnocení se řídí originálem: správný jihozápad se nepenalizuje.",
+    "en": "The human reference says southeast, but the English original says southwest. The assessment follows the original: the correct southwest is not penalized."
+  },
+  "ef691fe4c165191c": {
+    "cs": "Z jihozápadu zůstává pouze západ a žoldáky mění na nájemníky.",
+    "en": "Reduces southwest to west and turns mercenaries into tenants."
+  },
+  "9019c08c9c349906": {
+    "cs": "Wood elves doslova převádí na dřevěné elfy, a navíc časový údaj zní jako období po skončení vlády.",
+    "en": "Literally turns “wood elves” into wooden elves, and the time phrase also sounds like a period after the reign ended."
+  },
+  "2ec12efc31802ab7": {
+    "cs": "Co stojí test a co běžný překlad",
+    "en": "Test cost versus normal translation cost"
+  },
+  "e345a0c7db274984": {
+    "cs": "Původních 500 překladových požadavků: doloženě",
+    "en": "The original 500 translation requests: documented cost"
+  },
+  "4d7ac8a0e5e695ab": {
+    "cs": ". Předchozí samostatné API hodnocení:",
+    "en": ". The previous separate API assessment:"
+  },
+  "ee5e663f2b391abf": {
+    "cs": ". Celá tehdejší zkouška včetně filtru, diagnostiky a integračních volání: doloženě",
+    "en": ". The entire earlier test, including filtering, diagnostics and integration calls: documented cost"
+  },
+  "1abf6cf5e4e42ae0": {
+    "cs": ", plus jedna odpověď bez zachované spotřeby. Toto nové hodnocení uložených výsledků:",
+    "en": ", plus one response whose usage was not retained. This new assessment of saved results:"
+  },
+  "170c23663995b091": {
+    "cs": "$0 nových volání uživatelského API",
+    "en": "$0 in new calls to the user's API"
+  },
+  "b02021e49c192442": {
+    "cs": "Částky jsou odhady z tokenů, nikoli faktura nebo aktuální zůstatek. Placený posuzovatel se při normálním používání FrameLabu nespouští.",
+    "en": "Amounts are token-based estimates, not invoices or the current balance. The paid judge does not run during normal FrameLab use."
+  },
+  "21ddd6e107dc137d": {
+    "cs": "Úplný původní účet",
+    "en": "Complete original ledger"
+  },
+  "f20ed113734dcef4": {
+    "cs": "Jak číst skóre a jeho omezení",
+    "en": "How to read the scores and their limitations"
+  },
+  "e5472a8e8cea1e3b": {
+    "cs": "Pořadí anonymních kandidátů A–D bylo promíchané zvlášť pro každou repliku. Styl mohl prozradit původ modelu a hodnotitel znal dřívější obecné závěry. Jde o asistenta Codex od OpenAI; jeden kandidát je od stejného dodavatele. Původní placené skóre nebylo použité k přidělení těchto bodů a zůstává zvlášť v archivu.",
+    "en": "Anonymous candidates A–D were shuffled separately for each line. Style could reveal a model's origin, and the reviewer knew earlier general conclusions. The reviewer is OpenAI's Codex assistant; one candidate shares that provider. The original paid scores were not used to assign these scores and remain archived separately."
+  },
+  "23ebfde08c299200": {
+    "cs": "Význam:",
+    "en": "Meaning:"
+  },
+  "395b88f1bfb2ff0c": {
+    "cs": "4 = zachován; 3 = menší ztráta nebo posun; 2 = podstatná chyba; 1 = převážně nesprávně; 0 = chybí nebo nesouvisí.",
+    "en": "4 = preserved; 3 = minor loss or shift; 2 = material error; 1 = mostly incorrect; 0 = missing or unrelated."
+  },
+  "49cd68b93fb09468": {
+    "cs": "Čeština:",
+    "en": "Czech fluency:"
+  },
+  "35e4a9391c0460f7": {
+    "cs": "4 = přirozená; 3 = drobné neobratnosti; 2 = více gramatických problémů; 1 = těžko srozumitelná; 0 = chybí nebo není česká.",
+    "en": "4 = natural; 3 = minor awkwardness; 2 = several grammatical problems; 1 = difficult to understand; 0 = missing or not Czech."
+  },
+  "25db8fafd16fdf10": {
+    "cs": "Rozhoduje anglický originál. Česká reference je pomůcka; přijatelné synonymum nebo rod, který angličtina neurčuje, není sám o sobě chyba. Případy 042 a 437 dokládají chyby reference.",
+    "en": "The English original takes precedence. The Czech reference is an aid; an acceptable synonym or a gender not specified in English is not an error by itself. Cases 042 and 437 demonstrate reference errors."
+  },
+  "1df16f38ae12d8fa": {
+    "cs": "500 různých položek z fantasy hry Battle for Wesnoth, ne 500 nezávislých žánrů. Některé repliky jsou si podobné; modely mohly veřejná data vidět při trénování. Výsledky neprokazují kvalitu ostatních jazyků nebo OCR.",
+    "en": "500 distinct entries from the fantasy game Battle for Wesnoth, not 500 independent genres. Some lines are similar; models may have seen the public data during training. Results do not establish quality in other languages or OCR quality."
+  },
+  "5df7c83834225923": {
+    "cs": "Časy pocházejí z původního textového testu na i5-13420H / RTX 4050 Laptop 6 GiB.",
+    "en": "Times come from the original text-only test on an i5-13420H / RTX 4050 Laptop 6 GiB."
+  },
+  "4e077ddba6ca7c75": {
+    "cs": "OCR, FG a enhancer byly vypnuté.",
+    "en": "OCR, FG and the enhancer were off."
+  },
+  "acf132003dae2529": {
+    "cs": "Lokální modely běžely postupně, API souběžně s lokálním testem. Nejde o latenci titulku ve hře.",
+    "en": "Local models ran sequentially; the API overlapped with the local test. This is not in-game subtitle latency."
+  },
+  "71aa4acd8fc0a1a9": {
+    "cs": "Starší testy Hy-MT Q8 a dalších kvantizací používaly jinou sadu 300 položek. Do tohoto pořadí se nepřimíchávají. Srovnání CUDA/Vulkan měří jinou, malou sadu a výkon; nemění zde hodnocené výstupy.",
+    "en": "Earlier Hy-MT Q8 and other quantization tests used a different 300-entry dataset. They are not mixed into this ranking. The CUDA/Vulkan comparison measures performance on another small dataset; it does not change the outputs assessed here."
+  },
+  "b14e319651d7e2c7": {
+    "cs": "API případ 161 selhal. Pozdější úspěšný diagnostický pokus jej nenahrazuje. U každého skóre lze dohledat skutečný původní výstup.",
+    "en": "API case 161 failed. A later successful diagnostic retry does not replace it. Every score can be traced to the actual original output."
+  },
+  "a668de7b5649b54b": {
+    "cs": "Všech 500 replik vedle sebe",
+    "en": "All 500 lines side by side"
+  },
+  "243f95a371e92f50": {
+    "cs": "Řazení",
+    "en": "Sort order"
+  },
+  "28f39662c081cbfe": {
+    "cs": "Největší rozdíl modelů",
+    "en": "Largest model difference"
+  },
+  "eef81c7549111e4f": {
+    "cs": "Původní pořadí",
+    "en": "Original order"
+  },
+  "71210e47eed7e785": {
+    "cs": "Nejhorší zvolený model",
+    "en": "Selected model: worst first"
+  },
+  "79d9335f1a1098a2": {
+    "cs": "Nejlepší zvolený model",
+    "en": "Selected model: best first"
+  },
+  "1ec95212def787e0": {
+    "cs": "Model pro řazení",
+    "en": "Model to sort by"
+  },
+  "e5cde3fc20f5f106": {
+    "cs": "Jen s vysvětlením",
+    "en": "Only entries with notes"
+  },
+  "55b46a65c1260ecf": {
+    "cs": "Načítám uložené výsledky…",
+    "en": "Loading saved results…"
+  },
+  "9f39ca5228e51c63": {
+    "cs": "Data ke kontrole",
+    "en": "Data for inspection"
+  },
+  "118ef833ed6e9008": {
+    "cs": "2 000 překladů a skóre — CSV",
+    "en": "2,000 translations and scores — CSV"
+  },
+  "d6ab817a6ad88db7": {
+    "cs": "Původní anonymní hodnocení",
+    "en": "Original anonymous ratings"
+  },
+  "356aa6a787a16e7e": {
+    "cs": "Odhalení kandidátů A–D",
+    "en": "Candidate A–D mapping"
+  },
+  "61123e764850f676": {
+    "cs": "SHA-256 vstupů",
+    "en": "Input SHA-256 hashes"
+  },
+  "8e9551c7970becda": {
+    "cs": "Dataset a zdroj",
+    "en": "Dataset and source"
+  },
+  "7a089e62210861a6": {
+    "cs": "GPL a původní licence datasetu",
+    "en": "GPL and original dataset license"
+  },
+  "f7db3f8e79f1fc07": {
+    "cs": "Texty hry a české reference: autoři Battle for Wesnoth a české lokalizace, GPL-2.0-or-later, přesný zdroj v manifestu. Konkrétní poznámky jsou jen u označených případů; prázdná poznámka neznamená, že výstup nebyl posouzen.",
+    "en": "Game text and Czech references: Battle for Wesnoth and Czech localization contributors, GPL-2.0-or-later; exact source in the manifest. Specific notes are attached only to selected cases; an empty note does not mean an output was not reviewed."
+  },
+  "aaf360cbf563e3bc": {
+    "cs": "ID, anglický nebo český text",
+    "en": "ID, English or Czech text"
+  },
+  "b906c80058fdfc35": {
+    "en": "FrameLab — multilingual integration evidence",
+    "cs": "FrameLab — důkazy vícejazyčné integrace"
+  },
+  "a38b039aaa34f6ca": {
+    "en": "GPU residency reported by runtime",
+    "cs": "Obsazení GPU paměti podle runtime"
+  },
+  "8b1a4c13a2c5f446": {
+    "en": "Original JSONL",
+    "cs": "Původní JSONL"
+  },
+  "b3662db4d70ad97e": {
+    "en": "Runtime metadata",
+    "cs": "Metadata runtime"
+  },
+  "989da04b0aaaa57f": {
+    "en": "Pair",
+    "cs": "Jazykový pár"
+  },
+  "36ecb4f8669133ce": {
+    "en": "Input",
+    "cs": "Vstup"
+  },
+  "4d653cd7b963dc34": {
+    "en": "Actual output",
+    "cs": "Skutečný výstup"
+  },
+  "a43a1e683808ef09": {
+    "en": "Original OCR JSON",
+    "cs": "Původní OCR JSON"
+  },
+  "2ab25f10948b26d7": {
+    "en": "Fixture",
+    "cs": "Testovací obrázek"
+  },
+  "ca99b7f1b14ee2c0": {
+    "en": "Expected",
+    "cs": "Očekávaný text"
+  },
+  "a84b81cdb6a21700": {
+    "en": "OCR output",
+    "cs": "Výstup OCR"
+  },
+  "17dfb7f57639e1c4": {
+    "en": "Release notes and methodology",
+    "cs": "Poznámky k vydání a metodika"
+  },
+  "6d5d9004797377e1": {
+    "en": "Licenses",
+    "cs": "Licence"
+  },
+  "cc7247fd290709e6": {
+    "en": "FrameLab · CUNI Q3 / Q8 desktop results",
+    "cs": "FrameLab · CUNI Q3 / Q8 — výsledky na stolním PC"
+  },
+  "2ec7241b0789bcd7": {
+    "en": "JSON · performance",
+    "cs": "JSON · výkon"
+  },
+  "7975300f01bc46f8": {
+    "en": "Hardware",
+    "cs": "Hardware"
+  },
+  "d43fb8a961ff2d1f": {
+    "en": "App settings",
+    "cs": "Nastavení aplikace"
+  },
+  "5bbf6a090263d164": {
+    "en": "Q3 prompt / settings",
+    "cs": "Q3 prompt / nastavení"
+  },
+  "80c492817b6fe93b": {
+    "en": "Q8 prompt / settings",
+    "cs": "Q8 prompt / nastavení"
+  },
+  "f2a57bad3d4b112c": {
+    "en": "Evaluator",
+    "cs": "Hodnoticí skript"
+  },
+  "bf0a401bab4abb7b": {
+    "en": "SHA-256 / all files",
+    "cs": "SHA-256 / všechny soubory"
+  },
+  "a75eadd335ab620b": {
+    "en": "FrameLab · CUNI Q3 vs Q8 · 300 sentences",
+    "cs": "FrameLab · CUNI Q3 proti Q8 · 300 vět"
+  },
+  "faf953bcb9ee0fab": {
+    "en": "Prompt / settings",
+    "cs": "Prompt / nastavení"
+  },
+  "2d75d34e5262c085": {
+    "en": "Review notes",
+    "cs": "Poznámky k hodnocení"
+  },
+  "08e774c5bacc362a": {
+    "en": "All sources",
+    "cs": "Všechny zdroje"
+  },
+  "b1fa878a98a15b74": {
+    "en": "Diagnostic",
+    "cs": "Diagnostické věty"
+  },
+  "2a4341791858bb7c": {
+    "en": "FrameLab website",
+    "cs": "Web FrameLabu"
+  },
+  "219c4a6c86a716e9": {
+    "en": "Results",
+    "cs": "Výsledky"
+  },
+  "f42681c55d71dc0a": {
+    "en": "Search sentences",
+    "cs": "Hledat věty"
+  },
+  "0e570ca6fabe24f9": {
+    "en": "Source",
+    "cs": "Zdroj"
+  },
+  "63cacd8adce38471": {
+    "en": "Comparison filter",
+    "cs": "Filtr porovnání"
+  },
+  "6168ec63339d283f": {
+    "cs": "Návod k jazykům",
+    "en": "Language guide"
+  },
+  "c2120751ecf502de": {
+    "cs": "Obrazový návod",
+    "en": "Illustrated guide"
+  },
+  "3b0e09570621edf7": {
+    "cs": "RIFE: obraz a výkon",
+    "en": "RIFE: image and performance"
+  },
+  "340203962b7fea3b": {
+    "cs": "medián překladu",
+    "en": "median translation"
+  },
+  "ce457ebd9b2a27b8": {
+    "cs": "P95 překladu",
+    "en": "translation P95"
+  },
+  "fdb12182b3952e43": {
+    "cs": "Kvalita a současný běh",
+    "en": "Quality and concurrent use"
+  },
+  "4a4f152b884c0a97": {
+    "cs": "Všech 56 překladů",
+    "en": "All 56 translations"
+  },
+  "7b6749a0f647d55a": {
+    "cs": "OCR a vykreslení",
+    "en": "OCR and rendering"
+  },
+  "6bdd486f6a069565": {
+    "cs": "· Odkazy v prvním sloupci otevřou přesné vstupy.",
+    "en": "· First-column links open the exact inputs."
+  },
+  "6754cdba936e2116": {
+    "cs": "Rozsah kontroly",
+    "en": "Validation scope"
+  },
+  "f09dc57494e7881d": {
+    "cs": "Čeština",
+    "en": "English"
+  },
+  "a0beaa49209e80ec": {
+    "cs": "FrameLab / CUDA, Vulkan, CPU",
+    "en": "FrameLab / CUDA, Vulkan, CPU"
+  },
+  "21e49eb2b299c9f7": {
+    "cs": "Log",
+    "en": "Log"
+  },
+  "10a9750211d67df5": {
+    "cs": "cuni-q3km",
+    "en": "cuni-q3km"
+  },
+  "53a88e24b497f47d": {
+    "cs": "cuda / NVIDIA",
+    "en": "cuda / NVIDIA"
+  },
+  "41ae87c5b1dbd70c": {
+    "cs": "0.74 s",
+    "en": "0.74 s"
+  },
+  "c1ba36d23c0df21d": {
+    "cs": "14.2 s",
+    "en": "14.2 s"
+  },
+  "db1a21a0bc2ef8fb": {
+    "cs": "JSON",
+    "en": "JSON"
+  },
+  "57ec69814d45ed3f": {
+    "cs": "vulkan / NVIDIA",
+    "en": "vulkan / NVIDIA"
+  },
+  "eb1b95fb7e2668f9": {
+    "cs": "5.26 s",
+    "en": "5.26 s"
+  },
+  "132305f9aab5fe68": {
+    "cs": "27.5 s",
+    "en": "27.5 s"
+  },
+  "e60e1b12645b3d35": {
+    "cs": "vulkan / Intel",
+    "en": "vulkan / Intel"
+  },
+  "0ad14a4abef5e6d1": {
+    "cs": "21.50 s",
+    "en": "21.50 s"
+  },
+  "fa6f49f6ecc814fc": {
+    "cs": "25.4 s",
+    "en": "25.4 s"
+  },
+  "20de04ba0c7d7a7a": {
+    "cs": "cpu / Intel Core i5-13420H",
+    "en": "cpu / Intel Core i5-13420H"
+  },
+  "7548a40004e69e11": {
+    "cs": "4.28 s",
+    "en": "4.28 s"
+  },
+  "0df78739a5cdd310": {
+    "cs": "15.1 s",
+    "en": "15.1 s"
+  },
+  "d959c5d17b44ac97": {
+    "cs": "translategemma-4b-q4km",
+    "en": "translategemma-4b-q4km"
+  },
+  "1e2cda1f2dc60f89": {
+    "cs": "0.49 s",
+    "en": "0.49 s"
+  },
+  "d42bca6285b162a4": {
+    "cs": "12.7 s",
+    "en": "12.7 s"
+  },
+  "1672f88b95a92877": {
+    "cs": "2.52 s",
+    "en": "2.52 s"
+  },
+  "84246da2c7a0adf7": {
+    "cs": "49.2 s",
+    "en": "49.2 s"
+  },
+  "e06b4d9159299ebd": {
+    "cs": "11.46 s",
+    "en": "11.46 s"
+  },
+  "8ef910af02c36f4b": {
+    "cs": "50.8 s",
+    "en": "50.8 s"
+  },
+  "d747ed60f6372e4f": {
+    "cs": "3.53 s",
+    "en": "3.53 s"
+  },
+  "ab487d79d1b9e39c": {
+    "cs": "GPU + RAM",
+    "en": "GPU + RAM"
+  },
+  "251b7d04d7a2691d": {
+    "cs": "OpenAI GPT-6 Luna · none (98.1/100)",
+    "en": "OpenAI GPT-6 Luna · none (98.1/100)"
+  },
+  "f2212032d7ff09db": {
+    "cs": "CUNI-MH 7B Q3_K_M (93.8/100)",
+    "en": "CUNI-MH 7B Q3_K_M (93.8/100)"
+  },
+  "60a1a73a1ca51d12": {
+    "cs": "OPUS-MT / CPU (74.4/100)",
+    "en": "OPUS-MT / CPU (74.4/100)"
+  },
+  "2baddaf639650ee5": {
+    "cs": "23 NOV 2026 / PREVIEW.17 / RTX 4050 LAPTOP 6 GB",
+    "en": "23 NOV 2026 / PREVIEW.17 / RTX 4050 LAPTOP 6 GB"
+  },
+  "c8db6a54963d26c0": {
+    "cs": "431 ms",
+    "en": "431 ms"
+  },
+  "11a9f562d97bee99": {
+    "cs": "566 ms",
+    "en": "566 ms"
+  },
+  "c2e924de6f64525d": {
+    "cs": "2.56 GiB",
+    "en": "2.56 GiB"
+  },
+  "3843971dcfdee508": {
+    "cs": "ID",
+    "en": "ID"
+  },
+  "f785c3ce1d580c8f": {
+    "cs": "ms",
+    "en": "ms"
+  },
+  "3f38a5f8fe312574": {
+    "cs": "CER",
+    "en": "CER"
+  },
+  "ad6ef1d5e0e3639a": {
+    "cs": "RTX 5070 Ti · CUNI-MH 7B · 2026-11-19",
+    "en": "RTX 5070 Ti · CUNI-MH 7B · 2026-11-19"
+  },
+  "347e08e007e5839a": {
+    "cs": "Q3_K_M",
+    "en": "Q3_K_M"
+  },
+  "88d36da1c6cdde5c": {
+    "cs": "Q8_0",
+    "en": "Q8_0"
+  },
+  "202a7b4bc080b327": {
+    "cs": "CSV · 300",
+    "en": "CSV · 300"
+  },
+  "f911e414cf6bdfc5": {
+    "cs": "GitHub",
+    "en": "GitHub"
+  },
+  "38586c15ddbc77b3": {
+    "cs": "CUNI-MH 7B · RTX 5070 Ti · 2026-11-19",
+    "en": "CUNI-MH 7B · RTX 5070 Ti · 2026-11-19"
+  },
+  "b4795f1e105486ff": {
+    "cs": "3.52 GB GGUF",
+    "en": "3.52 GB GGUF"
+  },
+  "0da278ef535dbbf0": {
+    "cs": "7.70 GB GGUF",
+    "en": "7.70 GB GGUF"
+  },
+  "eb6b42f54c42d283": {
+    "cs": "CSV",
+    "en": "CSV"
+  },
+  "bbd07c4fc02c99b9": {
+    "cs": "SHA-256",
+    "en": "SHA-256"
+  },
+  "9845dc1c4be131c2": {
+    "cs": "Wesnoth",
+    "en": "Wesnoth"
+  },
+  "b40859d83bd7f9f2": {
+    "cs": "Warzone 2100",
+    "en": "Warzone 2100"
+  }
+}

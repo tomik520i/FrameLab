@@ -12,9 +12,7 @@
     if(save){manual=true;try{localStorage.setItem('framelab-language',language)}catch{}}
     render();draw();
   }
-  $('#language').addEventListener('click',()=>applyLanguage(language==='en'?'cs':'en',true));
-  const requested=new URLSearchParams(location.search).get('lang');let stored;try{stored=localStorage.getItem('framelab-language')}catch{}
-  if(['en','cs'].includes(requested))applyLanguage(requested,true);else if(['en','cs'].includes(stored)){manual=true;applyLanguage(stored)}else fetch('../../locale.php',{cache:'no-store'}).then(r=>r.ok?r.json():Promise.reject()).then(r=>{if(!manual)applyLanguage(r.language)}).catch(()=>{});
+  addEventListener('framelab:language',e=>applyLanguage(e.detail.language));
   const time = seconds => {const v=Math.floor(seconds);return [Math.floor(v/3600),Math.floor(v/60)%60,v%60].map(x=>String(x).padStart(2,'0')).join(':')};
   function render(){
     if(!translations.length)return;
@@ -27,9 +25,9 @@
     const list=$('#translation-list');list.replaceChildren();
     for(const r of selected.slice(page*pageSize,(page+1)*pageSize)){
       const rev=reviews.get(r.id),grade=rev?.grade||'not_reviewed',card=el('article',undefined,'translation');card.id='translation-'+r.id;
-      const meta=el('div',undefined,'meta');meta.append(el('span',`#${r.id} · ${time(r.time_s)} · OCR job ${r.job_id}`),el('span',labels[language][grade],'badge '+grade));card.append(meta);
-      const pair=el('div',undefined,'pair');for(const [lang,label,text] of [['en','EN / LOGGED SOURCE',r.source],['cs','CS / OUTPUT',r.translation]]){const col=el('div');col.lang=lang;col.append(el('small',label),el('div',text));pair.append(col)}card.append(pair);
-      if(rev){const note=el('p',rev['note_'+language]||'Review note (Czech): '+rev.note_cs);note.lang=rev['note_'+language]?language:'cs';card.append(note);}
+      const meta=el('div',undefined,'meta');meta.append(el('span',`#${r.id} · ${time(r.time_s)} · ${t('OCR job','OCR úloha')} ${r.job_id}`),el('span',labels[language][grade],'badge '+grade));card.append(meta);
+      const pair=el('div',undefined,'pair');for(const [lang,label,text] of [['en',t('EN / LOGGED SOURCE','EN / ZALOGOVANÝ VSTUP'),r.source],['cs',t('CS / OUTPUT','CS / VÝSTUP'),r.translation]]){const col=el('div');col.lang=lang;col.append(el('small',label),el('div',text));pair.append(col)}card.append(pair);
+      if(rev){const note=el('p',(window.FrameLabLocale?.note(rev.note_cs)||rev['note_'+language]||rev.note_cs));note.lang=language;card.append(note);}
       const timing=`${t('Translation','Překlad')}: ${r.translation_ms.toFixed(1)} ms${r.cache_hit?' / CACHE':''} · ${t('Caption delay','Zpoždění titulku')}: ${r.displayed?(r.caption_delay_ms/1000).toFixed(3)+' s':t('NOT DISPLAYED','NEZOBRAZENO')}`;card.append(el('p',timing));
       const details=el('details');details.append(el('summary',t('Original OCR fragment and timing details','Původní OCR fragment a podrobnosti časů')));
       const display={utc:r.utc,time_s:r.time_s,ocr_source:r.ocr_source,ocr_ms:r.ocr_ms,ocr_queue_ms:r.ocr_queue_ms,confidence:r.confidence,translation_queue_ms:r.translation_queue_ms,display_time_s:r.display_time_s,displayed:r.displayed,cache_hit:r.cache_hit,reviewed_pair_id:rev?.reviewed_pair_id,exact_duplicate_reuse:rev?.exact_duplicate_reuse,judgment_origin:rev?.judgment_origin};details.append(el('pre',JSON.stringify(display,null,2)));card.append(details);list.append(card);
@@ -46,7 +44,7 @@
     for(let m=0;m<=150;m+=30)ctx.fillText(m+'m',x(m*60)-8,h-7);
     for(const [key,color] of [['output_fps','#bdff57'],['gpu_percent','#70c7b0']]){ctx.strokeStyle=color;ctx.lineWidth=1.5;ctx.beginPath();let started=false;for(const r of chart){if(!Number.isFinite(r[key])){started=false;continue}if(started)ctx.lineTo(x(r.time_s),y(r[key]));else{ctx.moveTo(x(r.time_s),y(r[key]));started=true}}ctx.stroke()}
     const selected=Math.min(chart.length-1,Number($('#time').value));const r=chart[selected];ctx.strokeStyle='#eef1e6';ctx.beginPath();ctx.moveTo(x(r.time_s),top);ctx.lineTo(x(r.time_s),bottom);ctx.stroke();
-    $('#chart-readout').textContent=`${time(r.time_s)}–${time(r.end_s)} | OUTPUT ${r.output_fps.toFixed(1)} fps | GPU ${r.gpu_percent?.toFixed(1)??'N/A'}% | ${r.gpu_power_w?.toFixed(1)??'N/A'} W | ${t('gaps > 50 ms','mezery > 50 ms')}: ${r.gaps_over_50ms}`;
+    $('#chart-readout').textContent=`${time(r.time_s)}–${time(r.end_s)} | ${t('OUTPUT','VÝSTUP')} ${r.output_fps.toFixed(1)} fps | GPU ${r.gpu_percent?.toFixed(1)??'N/A'}% | ${r.gpu_power_w?.toFixed(1)??'N/A'} W | ${t('gaps > 50 ms','mezery > 50 ms')}: ${r.gaps_over_50ms}`;
   }
   get('data/chart.json').then(rows=>{chart=rows;$('#time').max=rows.length-1;draw();new ResizeObserver(draw).observe($('#performance-chart'))}).catch(()=>{$('#chart-readout').textContent=t('Chart unavailable; download chart.json or metrics.csv.','Graf není dostupný; stáhni chart.json nebo metrics.csv.')});
   $('#time').addEventListener('input',draw);

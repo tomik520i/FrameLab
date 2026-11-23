@@ -1,0 +1,4 @@
+.site-language-bar{display:flex;align-items:center;justify-content:space-between;gap:20px;max-width:1250px;margin:0 auto;padding:16px clamp(18px,4vw,55px);font:15px/1.5 system-ui,sans-serif;border-bottom:1px solid #34402f}
+.site-language-bar a{color:#bdff57}.site-language-bar button{font:inherit;padding:8px 14px;border:1px solid #536345;border-radius:5px;background:#24301f;color:#f2f3e8;cursor:pointer}
+[data-site-language]:focus-visible{outline:3px solid #bdff57;outline-offset:4px}
+[data-language-only][hidden]{display:none!important}.site-locale-error{color:#ffb196;font:14px/1.5 system-ui,sans-serif}

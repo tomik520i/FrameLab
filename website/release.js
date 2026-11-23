@@ -8,11 +8,7 @@
     document.querySelectorAll('[data-guide]').forEach(e=>e.href='guide/'+paths[e.dataset.guide][language==='cs'?1:0]);
     if(save){manual=true;try{localStorage.setItem('framelab-language',language)}catch{}}
   }
-  $('#language').addEventListener('click',()=>applyLanguage(language==='en'?'cs':'en',true));
-  const query=new URLSearchParams(location.search).get('lang');let stored;try{stored=localStorage.getItem('framelab-language')}catch{}
-  if(['en','cs'].includes(query)){applyLanguage(query,true)}else if(['en','cs'].includes(stored)){applyLanguage(stored);manual=true}else{
-    fetch('locale.php',{cache:'no-store'}).then(r=>r.ok?r.json():Promise.reject()).then(r=>{if(!manual)applyLanguage(r.language)}).catch(()=>{if(!manual)applyLanguage('en')});
-  }
+  addEventListener('framelab:language',e=>applyLanguage(e.detail.language));
   $('#wipe-position').addEventListener('input',e=>$('#enhancer-wipe').style.setProperty('--position',e.target.value+'%'));
   document.querySelectorAll('[data-enhancer]').forEach(button=>button.addEventListener('click',()=>{
     const n=button.dataset.enhancer;document.querySelectorAll('[data-enhancer]').forEach(b=>{b.classList.toggle('selected',b===button);b.setAttribute('aria-pressed',String(b===button))});

@@ -1,6 +1,7 @@
 """Copy the same illustrated guides to a portable package, including offline assets."""
 from pathlib import Path
 import shutil
+import re
 
 ROOT = Path(__file__).resolve().parents[1]
 GUIDES = {'index.html': 'ZACNI TADY.html', 'en.html': 'START HERE.html',
@@ -19,6 +20,11 @@ def copy_guides(stage):
     stage.mkdir(parents=True, exist_ok=True)
     for source, destination in GUIDES.items():
         markup = (ROOT / 'website/guide' / source).read_text(encoding='utf-8')
+        # Paired static guides work through file:// without a web server. Shared
+        # website controls use fetch and online routes, so keep native links here.
+        markup = re.sub(r'<script\b[^>]*src="[^"]*site-i18n\.js[^\"]*"[^>]*>\s*</script>', '', markup)
+        markup = re.sub(r'<link\b[^>]*href="[^"]*site-i18n\.css[^\"]*"[^>]*>', '', markup)
+        markup = re.sub(r' data-locale-switch="(?:cs|en)"', '', markup)
         markup = markup.replace('<link rel="stylesheet" href="../styles.css">', '')
         markup = markup.replace('href="../#download"', 'href="https://opicebot.cz/framelab/#download"')
         for old, new in GUIDES.items():

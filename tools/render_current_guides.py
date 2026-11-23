@@ -4,7 +4,7 @@ import html,re,shutil,sys
 from render_visual_guide import figure as draw_figure, lightbox, guide_banner, main as render_visual
 ROOT=Path(__file__).resolve().parents[1]
 PAGES=[('START_HERE.md','en.html','en','capture'),('INSTALL.cs.md','index.html','cs','capture'),('docs/subtitle-model-guide.md','subtitles-en.html','en','models'),('docs/subtitle-model-guide.cs.md','subtitles.html','cs','models'),('docs/enhancer-install.en.md','enhancer-en.html','en','nr'),('docs/enhancer-install.cs.md','enhancer.html','cs','nr'),('docs/pipeline-recording.md','recording-en.html','en','recording'),('INSTALL.cs.md','recording.html','cs','recording'),('START_HERE.md','fullscreen-en.html','en','display'),('INSTALL.cs.md','fullscreen.html','cs','display')]
-PAGES += [('docs/MULTILINGUAL.md','multilingual.html','cs','models'),('docs/MULTILINGUAL.en.md','multilingual-en.html','en','models'),('docs/GPU-BACKENDS.md','gpu.html','cs','fg'),('docs/GPU-BACKENDS.md','gpu-en.html','en','fg')]
+PAGES += [('docs/MULTILINGUAL.md','multilingual.html','cs','models'),('docs/MULTILINGUAL.en.md','multilingual-en.html','en','models'),('docs/GPU-BACKENDS.cs.md','gpu.html','cs','fg'),('docs/GPU-BACKENDS.md','gpu-en.html','en','fg')]
 LINKS={source:name for source,name,*_ in PAGES if name!='recording.html'}
 PAGES += [('docs/local-translation-compute.cs.md','compute.html','cs','models'),('docs/local-translation-compute.en.md','compute-en.html','en','models')]
 LINKS.update({source:name for source,name,*_ in PAGES if name.startswith('compute')})
