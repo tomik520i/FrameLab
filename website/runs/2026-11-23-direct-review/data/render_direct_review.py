@@ -75,6 +75,11 @@ def main():
             'timing':'Reused original measurements. Local models serial, API overlapped local runs. Warmup separate. No new translation calls.'},
         models=summaries, cases=combined)
     (data/'review.json').write_text(json.dumps(report,ensure_ascii=False,indent=2),'utf-8')
+    chunks=[]
+    for start in range(0,500,25):
+        name=f'viewer-{start//25+1:02d}.json';chunks.append(name)
+        (data/name).write_text(json.dumps(combined[start:start+25],ensure_ascii=False),'utf-8')
+    (data/'viewer-index.json').write_text(json.dumps({'models':summaries,'chunks':chunks},ensure_ascii=False),'utf-8')
     for file in [a.review/'direct-review-ratings.txt',a.review/'review-mapping.json',a.review/'review-blind-input.jsonl',*sorted(a.review.glob('direct-review-notes*.json'))]:
         shutil.copy2(file,data/file.name)
     with (data/'translations-scored.csv').open('w',encoding='utf-8-sig',newline='') as stream:
