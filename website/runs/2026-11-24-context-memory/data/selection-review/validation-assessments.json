@@ -1,0 +1,4002 @@
+[
+  {
+    "model": "gpt-6-luna",
+    "mode": "baseline",
+    "id": "validation-365",
+    "score": 4,
+    "note_cs": "D: Zbyl HTML uzavírací tag.",
+    "note_en": "D: Stray HTML closing tag.",
+    "output_sha256": "a9a58f1a7d142371405258fced655a16750b9d1b6060d82ed64085b396080665",
+    "anonymous_candidate": "A"
+  },
+  {
+    "model": "gpt-6-luna",
+    "mode": "raw6",
+    "id": "validation-365",
+    "score": 4,
+    "note_cs": "D: Zbyl HTML uzavírací tag.",
+    "note_en": "D: Stray HTML closing tag.",
+    "output_sha256": "a38c4a2d7548ce607773d1461c6f269265d5840c0200675c8de93dd56e8ac76b",
+    "anonymous_candidate": "B"
+  },
+  {
+    "model": "gpt-6-luna",
+    "mode": "raw16",
+    "id": "validation-365",
+    "score": 4,
+    "note_cs": "D: Zbyl HTML uzavírací tag.",
+    "note_en": "D: Stray HTML closing tag.",
+    "output_sha256": "a38c4a2d7548ce607773d1461c6f269265d5840c0200675c8de93dd56e8ac76b",
+    "anonymous_candidate": "B"
+  },
+  {
+    "model": "gpt-6-luna",
+    "mode": "prose",
+    "id": "validation-365",
+    "score": 4,
+    "note_cs": "D: Zbyl HTML uzavírací tag.",
+    "note_en": "D: Stray HTML closing tag.",
+    "output_sha256": "a38c4a2d7548ce607773d1461c6f269265d5840c0200675c8de93dd56e8ac76b",
+    "anonymous_candidate": "B"
+  },
+  {
+    "model": "gpt-6-luna",
+    "mode": "facts",
+    "id": "validation-365",
+    "score": 4,
+    "note_cs": "D: Zbyl HTML uzavírací tag.",
+    "note_en": "D: Stray HTML closing tag.",
+    "output_sha256": "a38c4a2d7548ce607773d1461c6f269265d5840c0200675c8de93dd56e8ac76b",
+    "anonymous_candidate": "B"
+  },
+  {
+    "model": "server-gemma4",
+    "mode": "baseline",
+    "id": "validation-365",
+    "score": 4,
+    "note_cs": "D: Zbyl HTML uzavírací tag.",
+    "note_en": "D: Stray HTML closing tag.",
+    "output_sha256": "fe49d05bd55044979a0708f18bc025cb644119e7e20d4b0a94f58f622f8649c8",
+    "anonymous_candidate": "C"
+  },
+  {
+    "model": "server-gemma4",
+    "mode": "raw6",
+    "id": "validation-365",
+    "score": 2,
+    "note_cs": "D: Zbyl HTML uzavírací tag.",
+    "note_en": "D: Stray HTML closing tag.",
+    "output_sha256": "3e383cafde6f8ec431be35e746f5b78344b5a53a0749024482435c63e25516dc",
+    "anonymous_candidate": "D"
+  },
+  {
+    "model": "server-gemma4",
+    "mode": "raw16",
+    "id": "validation-365",
+    "score": 2,
+    "note_cs": "D: Zbyl HTML uzavírací tag.",
+    "note_en": "D: Stray HTML closing tag.",
+    "output_sha256": "3e383cafde6f8ec431be35e746f5b78344b5a53a0749024482435c63e25516dc",
+    "anonymous_candidate": "D"
+  },
+  {
+    "model": "server-gemma4",
+    "mode": "prose",
+    "id": "validation-365",
+    "score": 2,
+    "note_cs": "D: Zbyl HTML uzavírací tag.",
+    "note_en": "D: Stray HTML closing tag.",
+    "output_sha256": "3e383cafde6f8ec431be35e746f5b78344b5a53a0749024482435c63e25516dc",
+    "anonymous_candidate": "D"
+  },
+  {
+    "model": "server-gemma4",
+    "mode": "facts",
+    "id": "validation-365",
+    "score": 2,
+    "note_cs": "D: Zbyl HTML uzavírací tag.",
+    "note_en": "D: Stray HTML closing tag.",
+    "output_sha256": "3e383cafde6f8ec431be35e746f5b78344b5a53a0749024482435c63e25516dc",
+    "anonymous_candidate": "D"
+  },
+  {
+    "model": "server-gemma4",
+    "mode": "baseline",
+    "id": "validation-366",
+    "score": 3,
+    "note_cs": "A: Neobratný slovosled. C: Vymyšlená otázka z nedokončeného „You“.",
+    "note_en": "A: Awkward word order. C: Invented question from the unfinished You fragment.",
+    "output_sha256": "b071cdad1c81f8bed0986d1cb0196373996259c018d31ca5a9961ece20684e42",
+    "anonymous_candidate": "A"
+  },
+  {
+    "model": "gpt-6-luna",
+    "mode": "raw6",
+    "id": "validation-366",
+    "score": 4,
+    "note_cs": "A: Neobratný slovosled. C: Vymyšlená otázka z nedokončeného „You“.",
+    "note_en": "A: Awkward word order. C: Invented question from the unfinished You fragment.",
+    "output_sha256": "8cb1d011630a6779bd0f08bfa39f799e51b870371fcce915d3ba1b92c3edbe56",
+    "anonymous_candidate": "B"
+  },
+  {
+    "model": "gpt-6-luna",
+    "mode": "raw16",
+    "id": "validation-366",
+    "score": 4,
+    "note_cs": "A: Neobratný slovosled. C: Vymyšlená otázka z nedokončeného „You“.",
+    "note_en": "A: Awkward word order. C: Invented question from the unfinished You fragment.",
+    "output_sha256": "8cb1d011630a6779bd0f08bfa39f799e51b870371fcce915d3ba1b92c3edbe56",
+    "anonymous_candidate": "B"
+  },
+  {
+    "model": "gpt-6-luna",
+    "mode": "prose",
+    "id": "validation-366",
+    "score": 4,
+    "note_cs": "A: Neobratný slovosled. C: Vymyšlená otázka z nedokončeného „You“.",
+    "note_en": "A: Awkward word order. C: Invented question from the unfinished You fragment.",
+    "output_sha256": "8cb1d011630a6779bd0f08bfa39f799e51b870371fcce915d3ba1b92c3edbe56",
+    "anonymous_candidate": "B"
+  },
+  {
+    "model": "gpt-6-luna",
+    "mode": "facts",
+    "id": "validation-366",
+    "score": 4,
+    "note_cs": "A: Neobratný slovosled. C: Vymyšlená otázka z nedokončeného „You“.",
+    "note_en": "A: Awkward word order. C: Invented question from the unfinished You fragment.",
+    "output_sha256": "8cb1d011630a6779bd0f08bfa39f799e51b870371fcce915d3ba1b92c3edbe56",
+    "anonymous_candidate": "B"
+  },
+  {
+    "model": "gpt-6-luna",
+    "mode": "baseline",
+    "id": "validation-366",
+    "score": 4,
+    "note_cs": "A: Neobratný slovosled. C: Vymyšlená otázka z nedokončeného „You“.",
+    "note_en": "A: Awkward word order. C: Invented question from the unfinished You fragment.",
+    "output_sha256": "8cb1d011630a6779bd0f08bfa39f799e51b870371fcce915d3ba1b92c3edbe56",
+    "anonymous_candidate": "B"
+  },
+  {
+    "model": "server-gemma4",
+    "mode": "raw6",
+    "id": "validation-366",
+    "score": 2,
+    "note_cs": "A: Neobratný slovosled. C: Vymyšlená otázka z nedokončeného „You“.",
+    "note_en": "A: Awkward word order. C: Invented question from the unfinished You fragment.",
+    "output_sha256": "31686faa303cf040c7208ed32559aeb4d75e2c150c0501f4cf04350595dd7494",
+    "anonymous_candidate": "C"
+  },
+  {
+    "model": "server-gemma4",
+    "mode": "raw16",
+    "id": "validation-366",
+    "score": 2,
+    "note_cs": "A: Neobratný slovosled. C: Vymyšlená otázka z nedokončeného „You“.",
+    "note_en": "A: Awkward word order. C: Invented question from the unfinished You fragment.",
+    "output_sha256": "31686faa303cf040c7208ed32559aeb4d75e2c150c0501f4cf04350595dd7494",
+    "anonymous_candidate": "C"
+  },
+  {
+    "model": "server-gemma4",
+    "mode": "prose",
+    "id": "validation-366",
+    "score": 2,
+    "note_cs": "A: Neobratný slovosled. C: Vymyšlená otázka z nedokončeného „You“.",
+    "note_en": "A: Awkward word order. C: Invented question from the unfinished You fragment.",
+    "output_sha256": "31686faa303cf040c7208ed32559aeb4d75e2c150c0501f4cf04350595dd7494",
+    "anonymous_candidate": "C"
+  },
+  {
+    "model": "server-gemma4",
+    "mode": "facts",
+    "id": "validation-366",
+    "score": 2,
+    "note_cs": "A: Neobratný slovosled. C: Vymyšlená otázka z nedokončeného „You“.",
+    "note_en": "A: Awkward word order. C: Invented question from the unfinished You fragment.",
+    "output_sha256": "31686faa303cf040c7208ed32559aeb4d75e2c150c0501f4cf04350595dd7494",
+    "anonymous_candidate": "C"
+  },
+  {
+    "model": "gpt-6-luna",
+    "mode": "baseline",
+    "id": "validation-367",
+    "score": 4,
+    "note_cs": "C: Vyvádění ven místo vyřízení telefonátu. F: Chybná gramatika a ztracený smysl.",
+    "note_en": "C: Taking something out instead of handling the phone call outside. F: Broken grammar and lost meaning.",
+    "output_sha256": "ed6f5c7cbe863a4abc295bde6d05344043626f9a01500a8cbc556f2391d402ae",
+    "anonymous_candidate": "A"
+  },
+  {
+    "model": "gpt-6-luna",
+    "mode": "raw6",
+    "id": "validation-367",
+    "score": 4,
+    "note_cs": "C: Vyvádění ven místo vyřízení telefonátu. F: Chybná gramatika a ztracený smysl.",
+    "note_en": "C: Taking something out instead of handling the phone call outside. F: Broken grammar and lost meaning.",
+    "output_sha256": "f68802ad2cce712c687008ada878d2a423a0d3bb3ca05ef91afe3c5348da6260",
+    "anonymous_candidate": "B"
+  },
+  {
+    "model": "server-gemma4",
+    "mode": "raw16",
+    "id": "validation-367",
+    "score": 2,
+    "note_cs": "C: Vyvádění ven místo vyřízení telefonátu. F: Chybná gramatika a ztracený smysl.",
+    "note_en": "C: Taking something out instead of handling the phone call outside. F: Broken grammar and lost meaning.",
+    "output_sha256": "2069e9d386ecafb2a7b0620d28afbab3d5fe7141958c4615a0cef7d8c77cc991",
+    "anonymous_candidate": "C"
+  },
+  {
+    "model": "server-gemma4",
+    "mode": "prose",
+    "id": "validation-367",
+    "score": 2,
+    "note_cs": "C: Vyvádění ven místo vyřízení telefonátu. F: Chybná gramatika a ztracený smysl.",
+    "note_en": "C: Taking something out instead of handling the phone call outside. F: Broken grammar and lost meaning.",
+    "output_sha256": "2069e9d386ecafb2a7b0620d28afbab3d5fe7141958c4615a0cef7d8c77cc991",
+    "anonymous_candidate": "C"
+  },
+  {
+    "model": "server-gemma4",
+    "mode": "facts",
+    "id": "validation-367",
+    "score": 2,
+    "note_cs": "C: Vyvádění ven místo vyřízení telefonátu. F: Chybná gramatika a ztracený smysl.",
+    "note_en": "C: Taking something out instead of handling the phone call outside. F: Broken grammar and lost meaning.",
+    "output_sha256": "2069e9d386ecafb2a7b0620d28afbab3d5fe7141958c4615a0cef7d8c77cc991",
+    "anonymous_candidate": "C"
+  },
+  {
+    "model": "server-gemma4",
+    "mode": "raw6",
+    "id": "validation-367",
+    "score": 2,
+    "note_cs": "C: Vyvádění ven místo vyřízení telefonátu. F: Chybná gramatika a ztracený smysl.",
+    "note_en": "C: Taking something out instead of handling the phone call outside. F: Broken grammar and lost meaning.",
+    "output_sha256": "2069e9d386ecafb2a7b0620d28afbab3d5fe7141958c4615a0cef7d8c77cc991",
+    "anonymous_candidate": "C"
+  },
+  {
+    "model": "gpt-6-luna",
+    "mode": "prose",
+    "id": "validation-367",
+    "score": 4,
+    "note_cs": "C: Vyvádění ven místo vyřízení telefonátu. F: Chybná gramatika a ztracený smysl.",
+    "note_en": "C: Taking something out instead of handling the phone call outside. F: Broken grammar and lost meaning.",
+    "output_sha256": "d0e86ec1c448925b407e9cff55c16febc57dc9216ddffda007c3136032b713a7",
+    "anonymous_candidate": "D"
+  },
+  {
+    "model": "gpt-6-luna",
+    "mode": "raw16",
+    "id": "validation-367",
+    "score": 4,
+    "note_cs": "C: Vyvádění ven místo vyřízení telefonátu. F: Chybná gramatika a ztracený smysl.",
+    "note_en": "C: Taking something out instead of handling the phone call outside. F: Broken grammar and lost meaning.",
+    "output_sha256": "c345e64c151918090eb28f5b3e142c02c7a8e0e63cadc002100ea6f2d343005e",
+    "anonymous_candidate": "E"
+  },
+  {
+    "model": "gpt-6-luna",
+    "mode": "facts",
+    "id": "validation-367",
+    "score": 4,
+    "note_cs": "C: Vyvádění ven místo vyřízení telefonátu. F: Chybná gramatika a ztracený smysl.",
+    "note_en": "C: Taking something out instead of handling the phone call outside. F: Broken grammar and lost meaning.",
+    "output_sha256": "c345e64c151918090eb28f5b3e142c02c7a8e0e63cadc002100ea6f2d343005e",
+    "anonymous_candidate": "E"
+  },
+  {
+    "model": "server-gemma4",
+    "mode": "baseline",
+    "id": "validation-367",
+    "score": 2,
+    "note_cs": "C: Vyvádění ven místo vyřízení telefonátu. F: Chybná gramatika a ztracený smysl.",
+    "note_en": "C: Taking something out instead of handling the phone call outside. F: Broken grammar and lost meaning.",
+    "output_sha256": "e9139587f0fbe8d0924fac90802b9e0242cef0d44bc8109d70433b21f118ebdb",
+    "anonymous_candidate": "F"
+  },
+  {
+    "model": "gpt-6-luna",
+    "mode": "prose",
+    "id": "validation-368",
+    "score": 4,
+    "note_cs": "Význam a čitelnost zachovány.",
+    "note_en": "Meaning and readability preserved.",
+    "output_sha256": "932259e4da854c9e0a216ba454148bf2243d47762223db6cdca1d234e05135b0",
+    "anonymous_candidate": "A"
+  },
+  {
+    "model": "gpt-6-luna",
+    "mode": "facts",
+    "id": "validation-368",
+    "score": 4,
+    "note_cs": "Význam a čitelnost zachovány.",
+    "note_en": "Meaning and readability preserved.",
+    "output_sha256": "932259e4da854c9e0a216ba454148bf2243d47762223db6cdca1d234e05135b0",
+    "anonymous_candidate": "A"
+  },
+  {
+    "model": "gpt-6-luna",
+    "mode": "baseline",
+    "id": "validation-368",
+    "score": 4,
+    "note_cs": "Význam a čitelnost zachovány.",
+    "note_en": "Meaning and readability preserved.",
+    "output_sha256": "932259e4da854c9e0a216ba454148bf2243d47762223db6cdca1d234e05135b0",
+    "anonymous_candidate": "A"
+  },
+  {
+    "model": "gpt-6-luna",
+    "mode": "raw6",
+    "id": "validation-368",
+    "score": 4,
+    "note_cs": "Význam a čitelnost zachovány.",
+    "note_en": "Meaning and readability preserved.",
+    "output_sha256": "932259e4da854c9e0a216ba454148bf2243d47762223db6cdca1d234e05135b0",
+    "anonymous_candidate": "A"
+  },
+  {
+    "model": "gpt-6-luna",
+    "mode": "raw16",
+    "id": "validation-368",
+    "score": 4,
+    "note_cs": "Význam a čitelnost zachovány.",
+    "note_en": "Meaning and readability preserved.",
+    "output_sha256": "932259e4da854c9e0a216ba454148bf2243d47762223db6cdca1d234e05135b0",
+    "anonymous_candidate": "A"
+  },
+  {
+    "model": "server-gemma4",
+    "mode": "prose",
+    "id": "validation-368",
+    "score": 4,
+    "note_cs": "Význam a čitelnost zachovány.",
+    "note_en": "Meaning and readability preserved.",
+    "output_sha256": "cc22b381e0433391caabe525a0218acc503c77462d485f2a108389351b327746",
+    "anonymous_candidate": "B"
+  },
+  {
+    "model": "server-gemma4",
+    "mode": "facts",
+    "id": "validation-368",
+    "score": 4,
+    "note_cs": "Význam a čitelnost zachovány.",
+    "note_en": "Meaning and readability preserved.",
+    "output_sha256": "cc22b381e0433391caabe525a0218acc503c77462d485f2a108389351b327746",
+    "anonymous_candidate": "B"
+  },
+  {
+    "model": "server-gemma4",
+    "mode": "baseline",
+    "id": "validation-368",
+    "score": 4,
+    "note_cs": "Význam a čitelnost zachovány.",
+    "note_en": "Meaning and readability preserved.",
+    "output_sha256": "cc22b381e0433391caabe525a0218acc503c77462d485f2a108389351b327746",
+    "anonymous_candidate": "B"
+  },
+  {
+    "model": "server-gemma4",
+    "mode": "raw6",
+    "id": "validation-368",
+    "score": 4,
+    "note_cs": "Význam a čitelnost zachovány.",
+    "note_en": "Meaning and readability preserved.",
+    "output_sha256": "cc22b381e0433391caabe525a0218acc503c77462d485f2a108389351b327746",
+    "anonymous_candidate": "B"
+  },
+  {
+    "model": "server-gemma4",
+    "mode": "raw16",
+    "id": "validation-368",
+    "score": 4,
+    "note_cs": "Význam a čitelnost zachovány.",
+    "note_en": "Meaning and readability preserved.",
+    "output_sha256": "cc22b381e0433391caabe525a0218acc503c77462d485f2a108389351b327746",
+    "anonymous_candidate": "B"
+  },
+  {
+    "model": "gpt-6-luna",
+    "mode": "facts",
+    "id": "validation-513",
+    "score": 4,
+    "note_cs": "Mám styl je méně přesné než taneční schopnost; D navíc přidává Moment.",
+    "note_en": "Having style is less precise than dance moves; D also adds an unsupported wait.",
+    "output_sha256": "18d32204be4b50b1c01bdfcc5258c0c576723014c3172041c84ed66ac438f623",
+    "anonymous_candidate": "A"
+  },
+  {
+    "model": "gpt-6-luna",
+    "mode": "raw6",
+    "id": "validation-513",
+    "score": 4,
+    "note_cs": "Mám styl je méně přesné než taneční schopnost; D navíc přidává Moment.",
+    "note_en": "Having style is less precise than dance moves; D also adds an unsupported wait.",
+    "output_sha256": "18d32204be4b50b1c01bdfcc5258c0c576723014c3172041c84ed66ac438f623",
+    "anonymous_candidate": "A"
+  },
+  {
+    "model": "gpt-6-luna",
+    "mode": "prose",
+    "id": "validation-513",
+    "score": 4,
+    "note_cs": "Mám styl je méně přesné než taneční schopnost; D navíc přidává Moment.",
+    "note_en": "Having style is less precise than dance moves; D also adds an unsupported wait.",
+    "output_sha256": "18d32204be4b50b1c01bdfcc5258c0c576723014c3172041c84ed66ac438f623",
+    "anonymous_candidate": "A"
+  },
+  {
+    "model": "gpt-6-luna",
+    "mode": "baseline",
+    "id": "validation-513",
+    "score": 4,
+    "note_cs": "Mám styl je méně přesné než taneční schopnost; D navíc přidává Moment.",
+    "note_en": "Having style is less precise than dance moves; D also adds an unsupported wait.",
+    "output_sha256": "785cde86a6b2673a5a0e02c6b8675f8a6d2167f9faed57f5286fdac6f5164a95",
+    "anonymous_candidate": "B"
+  },
+  {
+    "model": "server-gemma4",
+    "mode": "facts",
+    "id": "validation-513",
+    "score": 3,
+    "note_cs": "Mám styl je méně přesné než taneční schopnost; D navíc přidává Moment.",
+    "note_en": "Having style is less precise than dance moves; D also adds an unsupported wait.",
+    "output_sha256": "8394fc28ca41fb9173445774f6ffafa752f3377c5579b00adae9fb557250b306",
+    "anonymous_candidate": "C"
+  },
+  {
+    "model": "server-gemma4",
+    "mode": "raw16",
+    "id": "validation-513",
+    "score": 3,
+    "note_cs": "Mám styl je méně přesné než taneční schopnost; D navíc přidává Moment.",
+    "note_en": "Having style is less precise than dance moves; D also adds an unsupported wait.",
+    "output_sha256": "00f96b02548e98225e6226d84757dbcca29bd665259eee0e5ac1c04b71b1ec53",
+    "anonymous_candidate": "D"
+  },
+  {
+    "model": "gpt-6-luna",
+    "mode": "raw16",
+    "id": "validation-513",
+    "score": 4,
+    "note_cs": "Mám styl je méně přesné než taneční schopnost; D navíc přidává Moment.",
+    "note_en": "Having style is less precise than dance moves; D also adds an unsupported wait.",
+    "output_sha256": "8e4892d9568ed284dccd303a0baf1581bce30f4507150871d032a9c4277b75e2",
+    "anonymous_candidate": "E"
+  },
+  {
+    "model": "server-gemma4",
+    "mode": "raw6",
+    "id": "validation-513",
+    "score": 3,
+    "note_cs": "Mám styl je méně přesné než taneční schopnost; D navíc přidává Moment.",
+    "note_en": "Having style is less precise than dance moves; D also adds an unsupported wait.",
+    "output_sha256": "d8d1834faa85a28fb8124e079fad2ef3bd342faebe5f693a376f8606d9292579",
+    "anonymous_candidate": "F"
+  },
+  {
+    "model": "server-gemma4",
+    "mode": "prose",
+    "id": "validation-513",
+    "score": 3,
+    "note_cs": "Mám styl je méně přesné než taneční schopnost; D navíc přidává Moment.",
+    "note_en": "Having style is less precise than dance moves; D also adds an unsupported wait.",
+    "output_sha256": "d8d1834faa85a28fb8124e079fad2ef3bd342faebe5f693a376f8606d9292579",
+    "anonymous_candidate": "F"
+  },
+  {
+    "model": "server-gemma4",
+    "mode": "baseline",
+    "id": "validation-513",
+    "score": 3,
+    "note_cs": "Mám styl je méně přesné než taneční schopnost; D navíc přidává Moment.",
+    "note_en": "Having style is less precise than dance moves; D also adds an unsupported wait.",
+    "output_sha256": "bf2d766a651a06e16e648714948a6b5b622891d395cb20cb86abde5074860dac",
+    "anonymous_candidate": "G"
+  },
+  {
+    "model": "server-gemma4",
+    "mode": "prose",
+    "id": "validation-514",
+    "score": 3,
+    "note_cs": "Hodnotí se přirozená výzva k blízkému tanci, nikoli doslovný negramatický tanec na člověku.",
+    "note_en": "Assess natural invitation to dance close, not ungrammatical literal dancing on a person.",
+    "output_sha256": "d12e7d107a9b7a36573c1d81a0a9ea60a03f3522333306554a00f779936ef19b",
+    "anonymous_candidate": "A"
+  },
+  {
+    "model": "server-gemma4",
+    "mode": "facts",
+    "id": "validation-514",
+    "score": 2,
+    "note_cs": "Hodnotí se přirozená výzva k blízkému tanci, nikoli doslovný negramatický tanec na člověku.",
+    "note_en": "Assess natural invitation to dance close, not ungrammatical literal dancing on a person.",
+    "output_sha256": "754ff3bc2643b507ba1646010280d6a193b5d4039bf77bbf2389d46deb24af92",
+    "anonymous_candidate": "B"
+  },
+  {
+    "model": "gpt-6-luna",
+    "mode": "baseline",
+    "id": "validation-514",
+    "score": 3,
+    "note_cs": "Hodnotí se přirozená výzva k blízkému tanci, nikoli doslovný negramatický tanec na člověku.",
+    "note_en": "Assess natural invitation to dance close, not ungrammatical literal dancing on a person.",
+    "output_sha256": "18311ab7e615c4471f1a388270e18c3f142dfc8b6127bc99dc3e32bea18d02f0",
+    "anonymous_candidate": "C"
+  },
+  {
+    "model": "server-gemma4",
+    "mode": "raw16",
+    "id": "validation-514",
+    "score": 2,
+    "note_cs": "Hodnotí se přirozená výzva k blízkému tanci, nikoli doslovný negramatický tanec na člověku.",
+    "note_en": "Assess natural invitation to dance close, not ungrammatical literal dancing on a person.",
+    "output_sha256": "56de42343d038ea6da92a1bf6572599f3bd2f5cdffb159950a2f71cc295a5fc3",
+    "anonymous_candidate": "D"
+  },
+  {
+    "model": "gpt-6-luna",
+    "mode": "prose",
+    "id": "validation-514",
+    "score": 4,
+    "note_cs": "Hodnotí se přirozená výzva k blízkému tanci, nikoli doslovný negramatický tanec na člověku.",
+    "note_en": "Assess natural invitation to dance close, not ungrammatical literal dancing on a person.",
+    "output_sha256": "7cffe02cd1f3878dc2e52cbc8dab5aa905bf441ba4ce5ebc1687373579a157c1",
+    "anonymous_candidate": "E"
+  },
+  {
+    "model": "gpt-6-luna",
+    "mode": "raw6",
+    "id": "validation-514",
+    "score": 3,
+    "note_cs": "Hodnotí se přirozená výzva k blízkému tanci, nikoli doslovný negramatický tanec na člověku.",
+    "note_en": "Assess natural invitation to dance close, not ungrammatical literal dancing on a person.",
+    "output_sha256": "a9b34a737bde2331e376c4cf345611968833e12cf0fade185471107b15eff237",
+    "anonymous_candidate": "F"
+  },
+  {
+    "model": "gpt-6-luna",
+    "mode": "facts",
+    "id": "validation-514",
+    "score": 3,
+    "note_cs": "Hodnotí se přirozená výzva k blízkému tanci, nikoli doslovný negramatický tanec na člověku.",
+    "note_en": "Assess natural invitation to dance close, not ungrammatical literal dancing on a person.",
+    "output_sha256": "cd2fa53372db26228415570c3e2c6d2bef9bbe2ca86bc55bb90629e65c47d49a",
+    "anonymous_candidate": "G"
+  },
+  {
+    "model": "gpt-6-luna",
+    "mode": "raw16",
+    "id": "validation-514",
+    "score": 3,
+    "note_cs": "Hodnotí se přirozená výzva k blízkému tanci, nikoli doslovný negramatický tanec na člověku.",
+    "note_en": "Assess natural invitation to dance close, not ungrammatical literal dancing on a person.",
+    "output_sha256": "a38cf3b528871c4c57b2af2b2705e4e97ed305d3e5d114d7a1a7b6a8d30da474",
+    "anonymous_candidate": "H"
+  },
+  {
+    "model": "server-gemma4",
+    "mode": "baseline",
+    "id": "validation-514",
+    "score": 3,
+    "note_cs": "Hodnotí se přirozená výzva k blízkému tanci, nikoli doslovný negramatický tanec na člověku.",
+    "note_en": "Assess natural invitation to dance close, not ungrammatical literal dancing on a person.",
+    "output_sha256": "d85ee726f9e3fc44ca846ed896257e20bcf3907e8bffa302c579df1236468c99",
+    "anonymous_candidate": "I"
+  },
+  {
+    "model": "server-gemma4",
+    "mode": "raw6",
+    "id": "validation-514",
+    "score": 2,
+    "note_cs": "Hodnotí se přirozená výzva k blízkému tanci, nikoli doslovný negramatický tanec na člověku.",
+    "note_en": "Assess natural invitation to dance close, not ungrammatical literal dancing on a person.",
+    "output_sha256": "0e800a1cd368fcae91bc44a59833ecc3e83f02d57979736df3417acd62938c71",
+    "anonymous_candidate": "J"
+  },
+  {
+    "model": "gpt-6-luna",
+    "mode": "facts",
+    "id": "validation-515",
+    "score": 3,
+    "note_cs": "Mami v tanečním flirtu působí příliš doslovně. D mění smysl na nejezdit; G má chybný slovesný tvar.",
+    "note_en": "Mami is overly literal in the flirtatious dance scene. D changes meaning to not driving; G has a malformed verb.",
+    "output_sha256": "649511b95709b849f0cf6684b380eb14f693c4dd0fa7455bf5240b11ba202329",
+    "anonymous_candidate": "A"
+  },
+  {
+    "model": "gpt-6-luna",
+    "mode": "baseline",
+    "id": "validation-515",
+    "score": 3,
+    "note_cs": "Mami v tanečním flirtu působí příliš doslovně. D mění smysl na nejezdit; G má chybný slovesný tvar.",
+    "note_en": "Mami is overly literal in the flirtatious dance scene. D changes meaning to not driving; G has a malformed verb.",
+    "output_sha256": "213de2eaa175e1eab334f17324e57ade90c11bfe57bcea7099e7d9c3ee03bd91",
+    "anonymous_candidate": "B"
+  },
+  {
+    "model": "gpt-6-luna",
+    "mode": "raw16",
+    "id": "validation-515",
+    "score": 3,
+    "note_cs": "Mami v tanečním flirtu působí příliš doslovně. D mění smysl na nejezdit; G má chybný slovesný tvar.",
+    "note_en": "Mami is overly literal in the flirtatious dance scene. D changes meaning to not driving; G has a malformed verb.",
+    "output_sha256": "c57bdf7ce7a2e4ca3369f71987958486118e604600d05951c567c40c20fd8005",
+    "anonymous_candidate": "C"
+  },
+  {
+    "model": "server-gemma4",
+    "mode": "prose",
+    "id": "validation-515",
+    "score": 1,
+    "note_cs": "Mami v tanečním flirtu působí příliš doslovně. D mění smysl na nejezdit; G má chybný slovesný tvar.",
+    "note_en": "Mami is overly literal in the flirtatious dance scene. D changes meaning to not driving; G has a malformed verb.",
+    "output_sha256": "0ea4987622ca0c2e01a577ed871c3a59f44f0ec3d517be19d5e247b6c9bda44a",
+    "anonymous_candidate": "D"
+  },
+  {
+    "model": "gpt-6-luna",
+    "mode": "prose",
+    "id": "validation-515",
+    "score": 3,
+    "note_cs": "Mami v tanečním flirtu působí příliš doslovně. D mění smysl na nejezdit; G má chybný slovesný tvar.",
+    "note_en": "Mami is overly literal in the flirtatious dance scene. D changes meaning to not driving; G has a malformed verb.",
+    "output_sha256": "f0d7714884fa3a3aa90738b133ee9da5e809221f8d1bf0060e3d184ddf8c2bab",
+    "anonymous_candidate": "E"
+  },
+  {
+    "model": "server-gemma4",
+    "mode": "raw16",
+    "id": "validation-515",
+    "score": 3,
+    "note_cs": "Mami v tanečním flirtu působí příliš doslovně. D mění smysl na nejezdit; G má chybný slovesný tvar.",
+    "note_en": "Mami is overly literal in the flirtatious dance scene. D changes meaning to not driving; G has a malformed verb.",
+    "output_sha256": "79cfe2684b36d4d28256727a3c6de70b41325ef77521ec67db6611c0b88f4c24",
+    "anonymous_candidate": "F"
+  },
+  {
+    "model": "server-gemma4",
+    "mode": "facts",
+    "id": "validation-515",
+    "score": 3,
+    "note_cs": "Mami v tanečním flirtu působí příliš doslovně. D mění smysl na nejezdit; G má chybný slovesný tvar.",
+    "note_en": "Mami is overly literal in the flirtatious dance scene. D changes meaning to not driving; G has a malformed verb.",
+    "output_sha256": "79cfe2684b36d4d28256727a3c6de70b41325ef77521ec67db6611c0b88f4c24",
+    "anonymous_candidate": "F"
+  },
+  {
+    "model": "server-gemma4",
+    "mode": "baseline",
+    "id": "validation-515",
+    "score": 3,
+    "note_cs": "Mami v tanečním flirtu působí příliš doslovně. D mění smysl na nejezdit; G má chybný slovesný tvar.",
+    "note_en": "Mami is overly literal in the flirtatious dance scene. D changes meaning to not driving; G has a malformed verb.",
+    "output_sha256": "79cfe2684b36d4d28256727a3c6de70b41325ef77521ec67db6611c0b88f4c24",
+    "anonymous_candidate": "F"
+  },
+  {
+    "model": "server-gemma4",
+    "mode": "raw6",
+    "id": "validation-515",
+    "score": 2,
+    "note_cs": "Mami v tanečním flirtu působí příliš doslovně. D mění smysl na nejezdit; G má chybný slovesný tvar.",
+    "note_en": "Mami is overly literal in the flirtatious dance scene. D changes meaning to not driving; G has a malformed verb.",
+    "output_sha256": "56289169daaf0a541aff56981879b9b2443109805e112b04299e9d01e771726e",
+    "anonymous_candidate": "G"
+  },
+  {
+    "model": "gpt-6-luna",
+    "mode": "raw6",
+    "id": "validation-515",
+    "score": 3,
+    "note_cs": "Mami v tanečním flirtu působí příliš doslovně. D mění smysl na nejezdit; G má chybný slovesný tvar.",
+    "note_en": "Mami is overly literal in the flirtatious dance scene. D changes meaning to not driving; G has a malformed verb.",
+    "output_sha256": "b4a4821e69a151f6cc26ddf47e546a42a17bb1249392beaa1c99a7e3d4681f14",
+    "anonymous_candidate": "H"
+  },
+  {
+    "model": "server-gemma4",
+    "mode": "prose",
+    "id": "validation-516",
+    "score": 3,
+    "note_cs": "A mění implicitní osobu na neosobní to; ostatní zachovávají pochvalu.",
+    "note_en": "A changes the implicit person to impersonal it; others preserve the compliment.",
+    "output_sha256": "82b9aeb29cc7f41e771da75d139059e18c7074071de94f5a13cbe882af6b3b9c",
+    "anonymous_candidate": "A"
+  },
+  {
+    "model": "server-gemma4",
+    "mode": "facts",
+    "id": "validation-516",
+    "score": 3,
+    "note_cs": "A mění implicitní osobu na neosobní to; ostatní zachovávají pochvalu.",
+    "note_en": "A changes the implicit person to impersonal it; others preserve the compliment.",
+    "output_sha256": "82b9aeb29cc7f41e771da75d139059e18c7074071de94f5a13cbe882af6b3b9c",
+    "anonymous_candidate": "A"
+  },
+  {
+    "model": "server-gemma4",
+    "mode": "baseline",
+    "id": "validation-516",
+    "score": 3,
+    "note_cs": "A mění implicitní osobu na neosobní to; ostatní zachovávají pochvalu.",
+    "note_en": "A changes the implicit person to impersonal it; others preserve the compliment.",
+    "output_sha256": "82b9aeb29cc7f41e771da75d139059e18c7074071de94f5a13cbe882af6b3b9c",
+    "anonymous_candidate": "A"
+  },
+  {
+    "model": "gpt-6-luna",
+    "mode": "raw16",
+    "id": "validation-516",
+    "score": 4,
+    "note_cs": "A mění implicitní osobu na neosobní to; ostatní zachovávají pochvalu.",
+    "note_en": "A changes the implicit person to impersonal it; others preserve the compliment.",
+    "output_sha256": "2fffc88acd278ff631280cc4f231e85cd89fa76f0299589e5c18f460abb125bb",
+    "anonymous_candidate": "B"
+  },
+  {
+    "model": "gpt-6-luna",
+    "mode": "prose",
+    "id": "validation-516",
+    "score": 4,
+    "note_cs": "A mění implicitní osobu na neosobní to; ostatní zachovávají pochvalu.",
+    "note_en": "A changes the implicit person to impersonal it; others preserve the compliment.",
+    "output_sha256": "2fffc88acd278ff631280cc4f231e85cd89fa76f0299589e5c18f460abb125bb",
+    "anonymous_candidate": "B"
+  },
+  {
+    "model": "gpt-6-luna",
+    "mode": "facts",
+    "id": "validation-516",
+    "score": 4,
+    "note_cs": "A mění implicitní osobu na neosobní to; ostatní zachovávají pochvalu.",
+    "note_en": "A changes the implicit person to impersonal it; others preserve the compliment.",
+    "output_sha256": "2fffc88acd278ff631280cc4f231e85cd89fa76f0299589e5c18f460abb125bb",
+    "anonymous_candidate": "B"
+  },
+  {
+    "model": "gpt-6-luna",
+    "mode": "baseline",
+    "id": "validation-516",
+    "score": 4,
+    "note_cs": "A mění implicitní osobu na neosobní to; ostatní zachovávají pochvalu.",
+    "note_en": "A changes the implicit person to impersonal it; others preserve the compliment.",
+    "output_sha256": "2fffc88acd278ff631280cc4f231e85cd89fa76f0299589e5c18f460abb125bb",
+    "anonymous_candidate": "B"
+  },
+  {
+    "model": "gpt-6-luna",
+    "mode": "raw6",
+    "id": "validation-516",
+    "score": 4,
+    "note_cs": "A mění implicitní osobu na neosobní to; ostatní zachovávají pochvalu.",
+    "note_en": "A changes the implicit person to impersonal it; others preserve the compliment.",
+    "output_sha256": "2fffc88acd278ff631280cc4f231e85cd89fa76f0299589e5c18f460abb125bb",
+    "anonymous_candidate": "B"
+  },
+  {
+    "model": "server-gemma4",
+    "mode": "raw16",
+    "id": "validation-516",
+    "score": 4,
+    "note_cs": "A mění implicitní osobu na neosobní to; ostatní zachovávají pochvalu.",
+    "note_en": "A changes the implicit person to impersonal it; others preserve the compliment.",
+    "output_sha256": "71e24dbb08b938a960375afb47233c649e46c0b18cf0d04d204b2f416c2198ef",
+    "anonymous_candidate": "C"
+  },
+  {
+    "model": "server-gemma4",
+    "mode": "raw6",
+    "id": "validation-516",
+    "score": 4,
+    "note_cs": "A mění implicitní osobu na neosobní to; ostatní zachovávají pochvalu.",
+    "note_en": "A changes the implicit person to impersonal it; others preserve the compliment.",
+    "output_sha256": "71e24dbb08b938a960375afb47233c649e46c0b18cf0d04d204b2f416c2198ef",
+    "anonymous_candidate": "C"
+  },
+  {
+    "model": "server-gemma4",
+    "mode": "prose",
+    "id": "validation-685",
+    "score": 4,
+    "note_cs": "D/G/H/J vynechávají jazykovou poznámku ve zdroji; význam varování zachován.",
+    "note_en": "D/G/H/J omit the source language annotation; warning meaning is preserved.",
+    "output_sha256": "5c8ac7293c0ebc2170db3b7ca62bd99795f2bddee19000f0bf292c4784526684",
+    "anonymous_candidate": "A"
+  },
+  {
+    "model": "gpt-6-luna",
+    "mode": "raw6",
+    "id": "validation-685",
+    "score": 4,
+    "note_cs": "D/G/H/J vynechávají jazykovou poznámku ve zdroji; význam varování zachován.",
+    "note_en": "D/G/H/J omit the source language annotation; warning meaning is preserved.",
+    "output_sha256": "4efc398bf7bdc63c383686a6f562ae2744c0c7d3a01850fccf806c8cd1ccd555",
+    "anonymous_candidate": "B"
+  },
+  {
+    "model": "server-gemma4",
+    "mode": "facts",
+    "id": "validation-685",
+    "score": 4,
+    "note_cs": "D/G/H/J vynechávají jazykovou poznámku ve zdroji; význam varování zachován.",
+    "note_en": "D/G/H/J omit the source language annotation; warning meaning is preserved.",
+    "output_sha256": "40207b318f055656e5b004c25b952f507c31260da4bc6e0dfce6da53c6df138f",
+    "anonymous_candidate": "C"
+  },
+  {
+    "model": "gpt-6-luna",
+    "mode": "prose",
+    "id": "validation-685",
+    "score": 3,
+    "note_cs": "D/G/H/J vynechávají jazykovou poznámku ve zdroji; význam varování zachován.",
+    "note_en": "D/G/H/J omit the source language annotation; warning meaning is preserved.",
+    "output_sha256": "383bc6cff853c7ab0a494723439613bef1a44569f6e14ca9c9ea844a91a2a95a",
+    "anonymous_candidate": "D"
+  },
+  {
+    "model": "server-gemma4",
+    "mode": "raw6",
+    "id": "validation-685",
+    "score": 4,
+    "note_cs": "D/G/H/J vynechávají jazykovou poznámku ve zdroji; význam varování zachován.",
+    "note_en": "D/G/H/J omit the source language annotation; warning meaning is preserved.",
+    "output_sha256": "885f61da321fa10a668e64a015c4e5b80c6a4d03ccc93d59b9d5f47bacfd2866",
+    "anonymous_candidate": "E"
+  },
+  {
+    "model": "gpt-6-luna",
+    "mode": "facts",
+    "id": "validation-685",
+    "score": 4,
+    "note_cs": "D/G/H/J vynechávají jazykovou poznámku ve zdroji; význam varování zachován.",
+    "note_en": "D/G/H/J omit the source language annotation; warning meaning is preserved.",
+    "output_sha256": "ad069f60ad168267a4006b1c8d93940a1fb255b2839098beb4c692b4d2a51b3e",
+    "anonymous_candidate": "F"
+  },
+  {
+    "model": "gpt-6-luna",
+    "mode": "raw16",
+    "id": "validation-685",
+    "score": 3,
+    "note_cs": "D/G/H/J vynechávají jazykovou poznámku ve zdroji; význam varování zachován.",
+    "note_en": "D/G/H/J omit the source language annotation; warning meaning is preserved.",
+    "output_sha256": "01c0c20fd74a77339bdd17a6f5f57eb3662d89b26fca19ccf93751dea99f1b59",
+    "anonymous_candidate": "G"
+  },
+  {
+    "model": "server-gemma4",
+    "mode": "baseline",
+    "id": "validation-685",
+    "score": 3,
+    "note_cs": "D/G/H/J vynechávají jazykovou poznámku ve zdroji; význam varování zachován.",
+    "note_en": "D/G/H/J omit the source language annotation; warning meaning is preserved.",
+    "output_sha256": "be5cdf24add4f352e54566e4cdb71f98f6eea4ff612a758e0999601837fe830d",
+    "anonymous_candidate": "H"
+  },
+  {
+    "model": "server-gemma4",
+    "mode": "raw16",
+    "id": "validation-685",
+    "score": 4,
+    "note_cs": "D/G/H/J vynechávají jazykovou poznámku ve zdroji; význam varování zachován.",
+    "note_en": "D/G/H/J omit the source language annotation; warning meaning is preserved.",
+    "output_sha256": "296c222d643cad4b09101824a9a511eac3412636dd6907a254c10a0c2403822d",
+    "anonymous_candidate": "I"
+  },
+  {
+    "model": "gpt-6-luna",
+    "mode": "baseline",
+    "id": "validation-685",
+    "score": 3,
+    "note_cs": "D/G/H/J vynechávají jazykovou poznámku ve zdroji; význam varování zachován.",
+    "note_en": "D/G/H/J omit the source language annotation; warning meaning is preserved.",
+    "output_sha256": "a3655d4197f323bc759d81e72d344d83d8de14f26629fabd3d3c8123a5480c7d",
+    "anonymous_candidate": "J"
+  },
+  {
+    "model": "server-gemma4",
+    "mode": "facts",
+    "id": "validation-686",
+    "score": 3,
+    "note_cs": "A počešťuje jméno Katerina; B zachovává původní jméno s českým vokativem.",
+    "note_en": "A localizes Katerina to a different spelling; B preserves the original name with Czech vocative.",
+    "output_sha256": "076a1dd8278d559fd0c5ec771a58ef5377216074192411e88d6f1e3c90011362",
+    "anonymous_candidate": "A"
+  },
+  {
+    "model": "server-gemma4",
+    "mode": "baseline",
+    "id": "validation-686",
+    "score": 3,
+    "note_cs": "A počešťuje jméno Katerina; B zachovává původní jméno s českým vokativem.",
+    "note_en": "A localizes Katerina to a different spelling; B preserves the original name with Czech vocative.",
+    "output_sha256": "076a1dd8278d559fd0c5ec771a58ef5377216074192411e88d6f1e3c90011362",
+    "anonymous_candidate": "A"
+  },
+  {
+    "model": "server-gemma4",
+    "mode": "raw6",
+    "id": "validation-686",
+    "score": 3,
+    "note_cs": "A počešťuje jméno Katerina; B zachovává původní jméno s českým vokativem.",
+    "note_en": "A localizes Katerina to a different spelling; B preserves the original name with Czech vocative.",
+    "output_sha256": "076a1dd8278d559fd0c5ec771a58ef5377216074192411e88d6f1e3c90011362",
+    "anonymous_candidate": "A"
+  },
+  {
+    "model": "server-gemma4",
+    "mode": "raw16",
+    "id": "validation-686",
+    "score": 3,
+    "note_cs": "A počešťuje jméno Katerina; B zachovává původní jméno s českým vokativem.",
+    "note_en": "A localizes Katerina to a different spelling; B preserves the original name with Czech vocative.",
+    "output_sha256": "076a1dd8278d559fd0c5ec771a58ef5377216074192411e88d6f1e3c90011362",
+    "anonymous_candidate": "A"
+  },
+  {
+    "model": "server-gemma4",
+    "mode": "prose",
+    "id": "validation-686",
+    "score": 3,
+    "note_cs": "A počešťuje jméno Katerina; B zachovává původní jméno s českým vokativem.",
+    "note_en": "A localizes Katerina to a different spelling; B preserves the original name with Czech vocative.",
+    "output_sha256": "076a1dd8278d559fd0c5ec771a58ef5377216074192411e88d6f1e3c90011362",
+    "anonymous_candidate": "A"
+  },
+  {
+    "model": "gpt-6-luna",
+    "mode": "facts",
+    "id": "validation-686",
+    "score": 3,
+    "note_cs": "A počešťuje jméno Katerina; B zachovává původní jméno s českým vokativem.",
+    "note_en": "A localizes Katerina to a different spelling; B preserves the original name with Czech vocative.",
+    "output_sha256": "076a1dd8278d559fd0c5ec771a58ef5377216074192411e88d6f1e3c90011362",
+    "anonymous_candidate": "A"
+  },
+  {
+    "model": "gpt-6-luna",
+    "mode": "baseline",
+    "id": "validation-686",
+    "score": 3,
+    "note_cs": "A počešťuje jméno Katerina; B zachovává původní jméno s českým vokativem.",
+    "note_en": "A localizes Katerina to a different spelling; B preserves the original name with Czech vocative.",
+    "output_sha256": "076a1dd8278d559fd0c5ec771a58ef5377216074192411e88d6f1e3c90011362",
+    "anonymous_candidate": "A"
+  },
+  {
+    "model": "gpt-6-luna",
+    "mode": "raw6",
+    "id": "validation-686",
+    "score": 3,
+    "note_cs": "A počešťuje jméno Katerina; B zachovává původní jméno s českým vokativem.",
+    "note_en": "A localizes Katerina to a different spelling; B preserves the original name with Czech vocative.",
+    "output_sha256": "076a1dd8278d559fd0c5ec771a58ef5377216074192411e88d6f1e3c90011362",
+    "anonymous_candidate": "A"
+  },
+  {
+    "model": "gpt-6-luna",
+    "mode": "raw16",
+    "id": "validation-686",
+    "score": 4,
+    "note_cs": "A počešťuje jméno Katerina; B zachovává původní jméno s českým vokativem.",
+    "note_en": "A localizes Katerina to a different spelling; B preserves the original name with Czech vocative.",
+    "output_sha256": "8f82b9f43b81e75846c7b1910a5f87c192cd8f7d5e6c9abeb24e0f6cb2a868ef",
+    "anonymous_candidate": "B"
+  },
+  {
+    "model": "gpt-6-luna",
+    "mode": "prose",
+    "id": "validation-686",
+    "score": 4,
+    "note_cs": "A počešťuje jméno Katerina; B zachovává původní jméno s českým vokativem.",
+    "note_en": "A localizes Katerina to a different spelling; B preserves the original name with Czech vocative.",
+    "output_sha256": "8f82b9f43b81e75846c7b1910a5f87c192cd8f7d5e6c9abeb24e0f6cb2a868ef",
+    "anonymous_candidate": "B"
+  },
+  {
+    "model": "server-gemma4",
+    "mode": "baseline",
+    "id": "validation-687",
+    "score": 3,
+    "note_cs": "A vynechává jazykovou poznámku.",
+    "note_en": "A omits the language annotation.",
+    "output_sha256": "6c029cf0efbe7fa1ddef918ba919eb1fa00f101bfffe7e6de645a00bee069974",
+    "anonymous_candidate": "A"
+  },
+  {
+    "model": "gpt-6-luna",
+    "mode": "baseline",
+    "id": "validation-687",
+    "score": 3,
+    "note_cs": "A vynechává jazykovou poznámku.",
+    "note_en": "A omits the language annotation.",
+    "output_sha256": "6c029cf0efbe7fa1ddef918ba919eb1fa00f101bfffe7e6de645a00bee069974",
+    "anonymous_candidate": "A"
+  },
+  {
+    "model": "gpt-6-luna",
+    "mode": "raw6",
+    "id": "validation-687",
+    "score": 3,
+    "note_cs": "A vynechává jazykovou poznámku.",
+    "note_en": "A omits the language annotation.",
+    "output_sha256": "6c029cf0efbe7fa1ddef918ba919eb1fa00f101bfffe7e6de645a00bee069974",
+    "anonymous_candidate": "A"
+  },
+  {
+    "model": "server-gemma4",
+    "mode": "raw6",
+    "id": "validation-687",
+    "score": 4,
+    "note_cs": "A vynechává jazykovou poznámku.",
+    "note_en": "A omits the language annotation.",
+    "output_sha256": "677070a82dbe7f5719e07ddd225545de210911e077f5b72e04f53a07cc7245b2",
+    "anonymous_candidate": "B"
+  },
+  {
+    "model": "server-gemma4",
+    "mode": "raw16",
+    "id": "validation-687",
+    "score": 4,
+    "note_cs": "A vynechává jazykovou poznámku.",
+    "note_en": "A omits the language annotation.",
+    "output_sha256": "677070a82dbe7f5719e07ddd225545de210911e077f5b72e04f53a07cc7245b2",
+    "anonymous_candidate": "B"
+  },
+  {
+    "model": "server-gemma4",
+    "mode": "prose",
+    "id": "validation-687",
+    "score": 4,
+    "note_cs": "A vynechává jazykovou poznámku.",
+    "note_en": "A omits the language annotation.",
+    "output_sha256": "677070a82dbe7f5719e07ddd225545de210911e077f5b72e04f53a07cc7245b2",
+    "anonymous_candidate": "B"
+  },
+  {
+    "model": "server-gemma4",
+    "mode": "facts",
+    "id": "validation-687",
+    "score": 4,
+    "note_cs": "A vynechává jazykovou poznámku.",
+    "note_en": "A omits the language annotation.",
+    "output_sha256": "677070a82dbe7f5719e07ddd225545de210911e077f5b72e04f53a07cc7245b2",
+    "anonymous_candidate": "B"
+  },
+  {
+    "model": "gpt-6-luna",
+    "mode": "raw16",
+    "id": "validation-687",
+    "score": 4,
+    "note_cs": "A vynechává jazykovou poznámku.",
+    "note_en": "A omits the language annotation.",
+    "output_sha256": "d7aa0e9e31750d9cc986e2a56160dcf2114368ffd541e86942b60c55a617e071",
+    "anonymous_candidate": "C"
+  },
+  {
+    "model": "gpt-6-luna",
+    "mode": "prose",
+    "id": "validation-687",
+    "score": 4,
+    "note_cs": "A vynechává jazykovou poznámku.",
+    "note_en": "A omits the language annotation.",
+    "output_sha256": "d7aa0e9e31750d9cc986e2a56160dcf2114368ffd541e86942b60c55a617e071",
+    "anonymous_candidate": "C"
+  },
+  {
+    "model": "gpt-6-luna",
+    "mode": "facts",
+    "id": "validation-687",
+    "score": 4,
+    "note_cs": "A vynechává jazykovou poznámku.",
+    "note_en": "A omits the language annotation.",
+    "output_sha256": "d7aa0e9e31750d9cc986e2a56160dcf2114368ffd541e86942b60c55a617e071",
+    "anonymous_candidate": "C"
+  },
+  {
+    "model": "gpt-6-luna",
+    "mode": "raw6",
+    "id": "validation-688",
+    "score": 2,
+    "note_cs": "A vymýšlí odchod, přestože jde o odmítnutí sáhnout na zvíře. B má neúplnou českou konstrukci.",
+    "note_en": "A invents leaving when the context concerns not touching an animal. B has an incomplete Czech construction.",
+    "output_sha256": "b72df8e9b44f933abc30ffa68dd30f7d234cd24010ba7ec652abc6ac2a54cc50",
+    "anonymous_candidate": "A"
+  },
+  {
+    "model": "server-gemma4",
+    "mode": "raw16",
+    "id": "validation-688",
+    "score": 3,
+    "note_cs": "A vymýšlí odchod, přestože jde o odmítnutí sáhnout na zvíře. B má neúplnou českou konstrukci.",
+    "note_en": "A invents leaving when the context concerns not touching an animal. B has an incomplete Czech construction.",
+    "output_sha256": "1d7b649e7638e56337dac2ee2d84771abf5d0ae1291c46f2dbece1ca9238a17f",
+    "anonymous_candidate": "B"
+  },
+  {
+    "model": "server-gemma4",
+    "mode": "raw6",
+    "id": "validation-688",
+    "score": 4,
+    "note_cs": "A vymýšlí odchod, přestože jde o odmítnutí sáhnout na zvíře. B má neúplnou českou konstrukci.",
+    "note_en": "A invents leaving when the context concerns not touching an animal. B has an incomplete Czech construction.",
+    "output_sha256": "af9e068895c188e777572b9544f6c0dac4b0212e011c6af5ff13b54a55e640d9",
+    "anonymous_candidate": "C"
+  },
+  {
+    "model": "server-gemma4",
+    "mode": "prose",
+    "id": "validation-688",
+    "score": 4,
+    "note_cs": "A vymýšlí odchod, přestože jde o odmítnutí sáhnout na zvíře. B má neúplnou českou konstrukci.",
+    "note_en": "A invents leaving when the context concerns not touching an animal. B has an incomplete Czech construction.",
+    "output_sha256": "af9e068895c188e777572b9544f6c0dac4b0212e011c6af5ff13b54a55e640d9",
+    "anonymous_candidate": "C"
+  },
+  {
+    "model": "server-gemma4",
+    "mode": "facts",
+    "id": "validation-688",
+    "score": 4,
+    "note_cs": "A vymýšlí odchod, přestože jde o odmítnutí sáhnout na zvíře. B má neúplnou českou konstrukci.",
+    "note_en": "A invents leaving when the context concerns not touching an animal. B has an incomplete Czech construction.",
+    "output_sha256": "af9e068895c188e777572b9544f6c0dac4b0212e011c6af5ff13b54a55e640d9",
+    "anonymous_candidate": "C"
+  },
+  {
+    "model": "server-gemma4",
+    "mode": "baseline",
+    "id": "validation-688",
+    "score": 4,
+    "note_cs": "A vymýšlí odchod, přestože jde o odmítnutí sáhnout na zvíře. B má neúplnou českou konstrukci.",
+    "note_en": "A invents leaving when the context concerns not touching an animal. B has an incomplete Czech construction.",
+    "output_sha256": "af9e068895c188e777572b9544f6c0dac4b0212e011c6af5ff13b54a55e640d9",
+    "anonymous_candidate": "C"
+  },
+  {
+    "model": "gpt-6-luna",
+    "mode": "raw16",
+    "id": "validation-688",
+    "score": 4,
+    "note_cs": "A vymýšlí odchod, přestože jde o odmítnutí sáhnout na zvíře. B má neúplnou českou konstrukci.",
+    "note_en": "A invents leaving when the context concerns not touching an animal. B has an incomplete Czech construction.",
+    "output_sha256": "8406a2ae4b9bf1efb8b16689d4f2cf469d94dedab0b7ac028671c828a1edfdce",
+    "anonymous_candidate": "D"
+  },
+  {
+    "model": "gpt-6-luna",
+    "mode": "prose",
+    "id": "validation-688",
+    "score": 4,
+    "note_cs": "A vymýšlí odchod, přestože jde o odmítnutí sáhnout na zvíře. B má neúplnou českou konstrukci.",
+    "note_en": "A invents leaving when the context concerns not touching an animal. B has an incomplete Czech construction.",
+    "output_sha256": "8406a2ae4b9bf1efb8b16689d4f2cf469d94dedab0b7ac028671c828a1edfdce",
+    "anonymous_candidate": "D"
+  },
+  {
+    "model": "gpt-6-luna",
+    "mode": "facts",
+    "id": "validation-688",
+    "score": 4,
+    "note_cs": "A vymýšlí odchod, přestože jde o odmítnutí sáhnout na zvíře. B má neúplnou českou konstrukci.",
+    "note_en": "A invents leaving when the context concerns not touching an animal. B has an incomplete Czech construction.",
+    "output_sha256": "8406a2ae4b9bf1efb8b16689d4f2cf469d94dedab0b7ac028671c828a1edfdce",
+    "anonymous_candidate": "D"
+  },
+  {
+    "model": "gpt-6-luna",
+    "mode": "baseline",
+    "id": "validation-688",
+    "score": 4,
+    "note_cs": "A vymýšlí odchod, přestože jde o odmítnutí sáhnout na zvíře. B má neúplnou českou konstrukci.",
+    "note_en": "A invents leaving when the context concerns not touching an animal. B has an incomplete Czech construction.",
+    "output_sha256": "8406a2ae4b9bf1efb8b16689d4f2cf469d94dedab0b7ac028671c828a1edfdce",
+    "anonymous_candidate": "D"
+  },
+  {
+    "model": "gpt-6-luna",
+    "mode": "baseline",
+    "id": "validation-753",
+    "score": 3,
+    "note_cs": "Zachovat odmítnutí a hrubý tón. B/D navíc chybně skloňují a mají neobratnou konstrukci.",
+    "note_en": "Preserve refusal and coarse tone. B/D additionally have wrong inflections/awkward grammar.",
+    "output_sha256": "55b94b0133808b5cdfd2d3a519377d2140becac084cf2db7132a88a3e11b117c",
+    "anonymous_candidate": "A"
+  },
+  {
+    "model": "server-gemma4",
+    "mode": "raw16",
+    "id": "validation-753",
+    "score": 2,
+    "note_cs": "Zachovat odmítnutí a hrubý tón. B/D navíc chybně skloňují a mají neobratnou konstrukci.",
+    "note_en": "Preserve refusal and coarse tone. B/D additionally have wrong inflections/awkward grammar.",
+    "output_sha256": "5ef84dcc2d75cb1194e2a4beb2ffa036a98ae0fd08e35513a0228e7fc9e87ed6",
+    "anonymous_candidate": "B"
+  },
+  {
+    "model": "gpt-6-luna",
+    "mode": "raw16",
+    "id": "validation-753",
+    "score": 3,
+    "note_cs": "Zachovat odmítnutí a hrubý tón. B/D navíc chybně skloňují a mají neobratnou konstrukci.",
+    "note_en": "Preserve refusal and coarse tone. B/D additionally have wrong inflections/awkward grammar.",
+    "output_sha256": "0ab639f82a0876d09a2c78ed1cf63083f394e6ce9817d733cfdcbd947b04c5f4",
+    "anonymous_candidate": "C"
+  },
+  {
+    "model": "gpt-6-luna",
+    "mode": "prose",
+    "id": "validation-753",
+    "score": 3,
+    "note_cs": "Zachovat odmítnutí a hrubý tón. B/D navíc chybně skloňují a mají neobratnou konstrukci.",
+    "note_en": "Preserve refusal and coarse tone. B/D additionally have wrong inflections/awkward grammar.",
+    "output_sha256": "0ab639f82a0876d09a2c78ed1cf63083f394e6ce9817d733cfdcbd947b04c5f4",
+    "anonymous_candidate": "C"
+  },
+  {
+    "model": "server-gemma4",
+    "mode": "prose",
+    "id": "validation-753",
+    "score": 2,
+    "note_cs": "Zachovat odmítnutí a hrubý tón. B/D navíc chybně skloňují a mají neobratnou konstrukci.",
+    "note_en": "Preserve refusal and coarse tone. B/D additionally have wrong inflections/awkward grammar.",
+    "output_sha256": "2cbfcbb56e4bcfa4ee2d24c3ec8125a9067c9106ebd090e0ae95ddf5d5a8b2ba",
+    "anonymous_candidate": "D"
+  },
+  {
+    "model": "server-gemma4",
+    "mode": "facts",
+    "id": "validation-753",
+    "score": 2,
+    "note_cs": "Zachovat odmítnutí a hrubý tón. B/D navíc chybně skloňují a mají neobratnou konstrukci.",
+    "note_en": "Preserve refusal and coarse tone. B/D additionally have wrong inflections/awkward grammar.",
+    "output_sha256": "2cbfcbb56e4bcfa4ee2d24c3ec8125a9067c9106ebd090e0ae95ddf5d5a8b2ba",
+    "anonymous_candidate": "D"
+  },
+  {
+    "model": "server-gemma4",
+    "mode": "baseline",
+    "id": "validation-753",
+    "score": 2,
+    "note_cs": "Zachovat odmítnutí a hrubý tón. B/D navíc chybně skloňují a mají neobratnou konstrukci.",
+    "note_en": "Preserve refusal and coarse tone. B/D additionally have wrong inflections/awkward grammar.",
+    "output_sha256": "2cbfcbb56e4bcfa4ee2d24c3ec8125a9067c9106ebd090e0ae95ddf5d5a8b2ba",
+    "anonymous_candidate": "D"
+  },
+  {
+    "model": "gpt-6-luna",
+    "mode": "facts",
+    "id": "validation-753",
+    "score": 3,
+    "note_cs": "Zachovat odmítnutí a hrubý tón. B/D navíc chybně skloňují a mají neobratnou konstrukci.",
+    "note_en": "Preserve refusal and coarse tone. B/D additionally have wrong inflections/awkward grammar.",
+    "output_sha256": "89108c5cfe5dc4cb45d110db19ae6f5d7706f197dc08585d0306a1e477b0a7a5",
+    "anonymous_candidate": "E"
+  },
+  {
+    "model": "gpt-6-luna",
+    "mode": "raw6",
+    "id": "validation-753",
+    "score": 3,
+    "note_cs": "Zachovat odmítnutí a hrubý tón. B/D navíc chybně skloňují a mají neobratnou konstrukci.",
+    "note_en": "Preserve refusal and coarse tone. B/D additionally have wrong inflections/awkward grammar.",
+    "output_sha256": "89108c5cfe5dc4cb45d110db19ae6f5d7706f197dc08585d0306a1e477b0a7a5",
+    "anonymous_candidate": "E"
+  },
+  {
+    "model": "server-gemma4",
+    "mode": "raw6",
+    "id": "validation-753",
+    "score": 3,
+    "note_cs": "Zachovat odmítnutí a hrubý tón. B/D navíc chybně skloňují a mají neobratnou konstrukci.",
+    "note_en": "Preserve refusal and coarse tone. B/D additionally have wrong inflections/awkward grammar.",
+    "output_sha256": "d3c85ea5f21f27e7140b57808dfd41746f0e425a6cab1789557838eb561e6768",
+    "anonymous_candidate": "F"
+  },
+  {
+    "model": "server-gemma4",
+    "mode": "prose",
+    "id": "validation-754",
+    "score": 3,
+    "note_cs": "B/C jsou přijatelný popis ladné postavy; jiné varianty jsou doslovné či částečně nepřeložené. Přesný vizuální referent neznáme.",
+    "note_en": "B/C acceptably describe a dainty figure; others are literal or partly untranslated. Exact visual referent is unknown.",
+    "output_sha256": "b4e609cdfb88083dbf35f7f4c4f3def8f57a6ed08bb88dbbec94e4ebe952c681",
+    "anonymous_candidate": "A"
+  },
+  {
+    "model": "server-gemma4",
+    "mode": "facts",
+    "id": "validation-754",
+    "score": 3,
+    "note_cs": "B/C jsou přijatelný popis ladné postavy; jiné varianty jsou doslovné či částečně nepřeložené. Přesný vizuální referent neznáme.",
+    "note_en": "B/C acceptably describe a dainty figure; others are literal or partly untranslated. Exact visual referent is unknown.",
+    "output_sha256": "b4e609cdfb88083dbf35f7f4c4f3def8f57a6ed08bb88dbbec94e4ebe952c681",
+    "anonymous_candidate": "A"
+  },
+  {
+    "model": "server-gemma4",
+    "mode": "raw6",
+    "id": "validation-754",
+    "score": 3,
+    "note_cs": "B/C jsou přijatelný popis ladné postavy; jiné varianty jsou doslovné či částečně nepřeložené. Přesný vizuální referent neznáme.",
+    "note_en": "B/C acceptably describe a dainty figure; others are literal or partly untranslated. Exact visual referent is unknown.",
+    "output_sha256": "b4e609cdfb88083dbf35f7f4c4f3def8f57a6ed08bb88dbbec94e4ebe952c681",
+    "anonymous_candidate": "A"
+  },
+  {
+    "model": "server-gemma4",
+    "mode": "raw16",
+    "id": "validation-754",
+    "score": 3,
+    "note_cs": "B/C jsou přijatelný popis ladné postavy; jiné varianty jsou doslovné či částečně nepřeložené. Přesný vizuální referent neznáme.",
+    "note_en": "B/C acceptably describe a dainty figure; others are literal or partly untranslated. Exact visual referent is unknown.",
+    "output_sha256": "b4e609cdfb88083dbf35f7f4c4f3def8f57a6ed08bb88dbbec94e4ebe952c681",
+    "anonymous_candidate": "A"
+  },
+  {
+    "model": "gpt-6-luna",
+    "mode": "raw6",
+    "id": "validation-754",
+    "score": 4,
+    "note_cs": "B/C jsou přijatelný popis ladné postavy; jiné varianty jsou doslovné či částečně nepřeložené. Přesný vizuální referent neznáme.",
+    "note_en": "B/C acceptably describe a dainty figure; others are literal or partly untranslated. Exact visual referent is unknown.",
+    "output_sha256": "029a06086604f54bd1ab23905eaded09e3afc64562e2158b36534b22b482a678",
+    "anonymous_candidate": "B"
+  },
+  {
+    "model": "gpt-6-luna",
+    "mode": "raw16",
+    "id": "validation-754",
+    "score": 4,
+    "note_cs": "B/C jsou přijatelný popis ladné postavy; jiné varianty jsou doslovné či částečně nepřeložené. Přesný vizuální referent neznáme.",
+    "note_en": "B/C acceptably describe a dainty figure; others are literal or partly untranslated. Exact visual referent is unknown.",
+    "output_sha256": "029a06086604f54bd1ab23905eaded09e3afc64562e2158b36534b22b482a678",
+    "anonymous_candidate": "B"
+  },
+  {
+    "model": "gpt-6-luna",
+    "mode": "baseline",
+    "id": "validation-754",
+    "score": 4,
+    "note_cs": "B/C jsou přijatelný popis ladné postavy; jiné varianty jsou doslovné či částečně nepřeložené. Přesný vizuální referent neznáme.",
+    "note_en": "B/C acceptably describe a dainty figure; others are literal or partly untranslated. Exact visual referent is unknown.",
+    "output_sha256": "4c8fb3fcd3dbef7546f9f8dc7eada866337e14e3ae674946967bf8390f04c179",
+    "anonymous_candidate": "C"
+  },
+  {
+    "model": "server-gemma4",
+    "mode": "baseline",
+    "id": "validation-754",
+    "score": 2,
+    "note_cs": "B/C jsou přijatelný popis ladné postavy; jiné varianty jsou doslovné či částečně nepřeložené. Přesný vizuální referent neznáme.",
+    "note_en": "B/C acceptably describe a dainty figure; others are literal or partly untranslated. Exact visual referent is unknown.",
+    "output_sha256": "a68cbefc6428c558596c2462f5ee090b734859944f5f1f4fcb53b58e56df52ed",
+    "anonymous_candidate": "D"
+  },
+  {
+    "model": "gpt-6-luna",
+    "mode": "prose",
+    "id": "validation-754",
+    "score": 3,
+    "note_cs": "B/C jsou přijatelný popis ladné postavy; jiné varianty jsou doslovné či částečně nepřeložené. Přesný vizuální referent neznáme.",
+    "note_en": "B/C acceptably describe a dainty figure; others are literal or partly untranslated. Exact visual referent is unknown.",
+    "output_sha256": "46217f6eda8efa7482126bc22cef306d4036033fd03f7f2affb1a6fead439ccc",
+    "anonymous_candidate": "E"
+  },
+  {
+    "model": "gpt-6-luna",
+    "mode": "facts",
+    "id": "validation-754",
+    "score": 3,
+    "note_cs": "B/C jsou přijatelný popis ladné postavy; jiné varianty jsou doslovné či částečně nepřeložené. Přesný vizuální referent neznáme.",
+    "note_en": "B/C acceptably describe a dainty figure; others are literal or partly untranslated. Exact visual referent is unknown.",
+    "output_sha256": "46217f6eda8efa7482126bc22cef306d4036033fd03f7f2affb1a6fead439ccc",
+    "anonymous_candidate": "E"
+  },
+  {
+    "model": "server-gemma4",
+    "mode": "facts",
+    "id": "validation-755",
+    "score": 3,
+    "note_cs": "A/C zmírňují vulgaritu; B/D/E zachovávají běžný hrubý výraz.",
+    "note_en": "A/C soften profanity; B/D/E retain natural coarse phrasing.",
+    "output_sha256": "ef99fcf0b067e89d78e823541190729710e5a7ae2c38403eea3067e81438269a",
+    "anonymous_candidate": "A"
+  },
+  {
+    "model": "server-gemma4",
+    "mode": "raw16",
+    "id": "validation-755",
+    "score": 3,
+    "note_cs": "A/C zmírňují vulgaritu; B/D/E zachovávají běžný hrubý výraz.",
+    "note_en": "A/C soften profanity; B/D/E retain natural coarse phrasing.",
+    "output_sha256": "ef99fcf0b067e89d78e823541190729710e5a7ae2c38403eea3067e81438269a",
+    "anonymous_candidate": "A"
+  },
+  {
+    "model": "gpt-6-luna",
+    "mode": "facts",
+    "id": "validation-755",
+    "score": 4,
+    "note_cs": "A/C zmírňují vulgaritu; B/D/E zachovávají běžný hrubý výraz.",
+    "note_en": "A/C soften profanity; B/D/E retain natural coarse phrasing.",
+    "output_sha256": "97568cab68008f4766080109e46e61fb6392e192f79a362f3b11dda5bafa7b1a",
+    "anonymous_candidate": "B"
+  },
+  {
+    "model": "gpt-6-luna",
+    "mode": "baseline",
+    "id": "validation-755",
+    "score": 4,
+    "note_cs": "A/C zmírňují vulgaritu; B/D/E zachovávají běžný hrubý výraz.",
+    "note_en": "A/C soften profanity; B/D/E retain natural coarse phrasing.",
+    "output_sha256": "97568cab68008f4766080109e46e61fb6392e192f79a362f3b11dda5bafa7b1a",
+    "anonymous_candidate": "B"
+  },
+  {
+    "model": "gpt-6-luna",
+    "mode": "raw6",
+    "id": "validation-755",
+    "score": 4,
+    "note_cs": "A/C zmírňují vulgaritu; B/D/E zachovávají běžný hrubý výraz.",
+    "note_en": "A/C soften profanity; B/D/E retain natural coarse phrasing.",
+    "output_sha256": "97568cab68008f4766080109e46e61fb6392e192f79a362f3b11dda5bafa7b1a",
+    "anonymous_candidate": "B"
+  },
+  {
+    "model": "gpt-6-luna",
+    "mode": "raw16",
+    "id": "validation-755",
+    "score": 4,
+    "note_cs": "A/C zmírňují vulgaritu; B/D/E zachovávají běžný hrubý výraz.",
+    "note_en": "A/C soften profanity; B/D/E retain natural coarse phrasing.",
+    "output_sha256": "97568cab68008f4766080109e46e61fb6392e192f79a362f3b11dda5bafa7b1a",
+    "anonymous_candidate": "B"
+  },
+  {
+    "model": "gpt-6-luna",
+    "mode": "prose",
+    "id": "validation-755",
+    "score": 4,
+    "note_cs": "A/C zmírňují vulgaritu; B/D/E zachovávají běžný hrubý výraz.",
+    "note_en": "A/C soften profanity; B/D/E retain natural coarse phrasing.",
+    "output_sha256": "97568cab68008f4766080109e46e61fb6392e192f79a362f3b11dda5bafa7b1a",
+    "anonymous_candidate": "B"
+  },
+  {
+    "model": "server-gemma4",
+    "mode": "baseline",
+    "id": "validation-755",
+    "score": 3,
+    "note_cs": "A/C zmírňují vulgaritu; B/D/E zachovávají běžný hrubý výraz.",
+    "note_en": "A/C soften profanity; B/D/E retain natural coarse phrasing.",
+    "output_sha256": "82e94b4824f0bf1750767b4f9dceb646c4262312621e0d2926de0d475191324a",
+    "anonymous_candidate": "C"
+  },
+  {
+    "model": "server-gemma4",
+    "mode": "prose",
+    "id": "validation-755",
+    "score": 4,
+    "note_cs": "A/C zmírňují vulgaritu; B/D/E zachovávají běžný hrubý výraz.",
+    "note_en": "A/C soften profanity; B/D/E retain natural coarse phrasing.",
+    "output_sha256": "4eec2b5b36c33c93922de020103bc5c85e6736fae65185479837b621803eb99d",
+    "anonymous_candidate": "D"
+  },
+  {
+    "model": "server-gemma4",
+    "mode": "raw6",
+    "id": "validation-755",
+    "score": 4,
+    "note_cs": "A/C zmírňují vulgaritu; B/D/E zachovávají běžný hrubý výraz.",
+    "note_en": "A/C soften profanity; B/D/E retain natural coarse phrasing.",
+    "output_sha256": "73782db5ee25d73fd509d935828fdab29975df299b3eac6d1c0fedffd7ef96df",
+    "anonymous_candidate": "E"
+  },
+  {
+    "model": "server-gemma4",
+    "mode": "baseline",
+    "id": "validation-756",
+    "score": 3,
+    "note_cs": "A/C/E mění odhad na silnější jistotu „musí být“.",
+    "note_en": "A/C/E strengthen a guess to must be.",
+    "output_sha256": "d586284c53dc3e396aff58aee9d6bf18f37ffc92725238f08f277c6a2a6c4f99",
+    "anonymous_candidate": "A"
+  },
+  {
+    "model": "server-gemma4",
+    "mode": "raw6",
+    "id": "validation-756",
+    "score": 3,
+    "note_cs": "A/C/E mění odhad na silnější jistotu „musí být“.",
+    "note_en": "A/C/E strengthen a guess to must be.",
+    "output_sha256": "d586284c53dc3e396aff58aee9d6bf18f37ffc92725238f08f277c6a2a6c4f99",
+    "anonymous_candidate": "A"
+  },
+  {
+    "model": "server-gemma4",
+    "mode": "facts",
+    "id": "validation-756",
+    "score": 3,
+    "note_cs": "A/C/E mění odhad na silnější jistotu „musí být“.",
+    "note_en": "A/C/E strengthen a guess to must be.",
+    "output_sha256": "d586284c53dc3e396aff58aee9d6bf18f37ffc92725238f08f277c6a2a6c4f99",
+    "anonymous_candidate": "A"
+  },
+  {
+    "model": "gpt-6-luna",
+    "mode": "baseline",
+    "id": "validation-756",
+    "score": 4,
+    "note_cs": "A/C/E mění odhad na silnější jistotu „musí být“.",
+    "note_en": "A/C/E strengthen a guess to must be.",
+    "output_sha256": "d76d8bf002ac802b6b718b1dd5d92bb564fab9fc038a6b0d63305d3eb599fe56",
+    "anonymous_candidate": "B"
+  },
+  {
+    "model": "gpt-6-luna",
+    "mode": "raw16",
+    "id": "validation-756",
+    "score": 4,
+    "note_cs": "A/C/E mění odhad na silnější jistotu „musí být“.",
+    "note_en": "A/C/E strengthen a guess to must be.",
+    "output_sha256": "d76d8bf002ac802b6b718b1dd5d92bb564fab9fc038a6b0d63305d3eb599fe56",
+    "anonymous_candidate": "B"
+  },
+  {
+    "model": "gpt-6-luna",
+    "mode": "prose",
+    "id": "validation-756",
+    "score": 4,
+    "note_cs": "A/C/E mění odhad na silnější jistotu „musí být“.",
+    "note_en": "A/C/E strengthen a guess to must be.",
+    "output_sha256": "d76d8bf002ac802b6b718b1dd5d92bb564fab9fc038a6b0d63305d3eb599fe56",
+    "anonymous_candidate": "B"
+  },
+  {
+    "model": "server-gemma4",
+    "mode": "raw16",
+    "id": "validation-756",
+    "score": 3,
+    "note_cs": "A/C/E mění odhad na silnější jistotu „musí být“.",
+    "note_en": "A/C/E strengthen a guess to must be.",
+    "output_sha256": "06f754f6640c069787cb3532ff71694b67fa89ae2929732bbc7975a5dfe15a91",
+    "anonymous_candidate": "C"
+  },
+  {
+    "model": "gpt-6-luna",
+    "mode": "raw6",
+    "id": "validation-756",
+    "score": 4,
+    "note_cs": "A/C/E mění odhad na silnější jistotu „musí být“.",
+    "note_en": "A/C/E strengthen a guess to must be.",
+    "output_sha256": "f2c7e42445ea4d74a3b6e596d1eb752a7961e192bde6a3ee0a270cd50483fb20",
+    "anonymous_candidate": "D"
+  },
+  {
+    "model": "gpt-6-luna",
+    "mode": "facts",
+    "id": "validation-756",
+    "score": 4,
+    "note_cs": "A/C/E mění odhad na silnější jistotu „musí být“.",
+    "note_en": "A/C/E strengthen a guess to must be.",
+    "output_sha256": "f2c7e42445ea4d74a3b6e596d1eb752a7961e192bde6a3ee0a270cd50483fb20",
+    "anonymous_candidate": "D"
+  },
+  {
+    "model": "server-gemma4",
+    "mode": "prose",
+    "id": "validation-756",
+    "score": 3,
+    "note_cs": "A/C/E mění odhad na silnější jistotu „musí být“.",
+    "note_en": "A/C/E strengthen a guess to must be.",
+    "output_sha256": "5a6b0269b9d64593332d149beaa3be3e80e1aa97c52d17c125e371288aa03cb3",
+    "anonymous_candidate": "E"
+  },
+  {
+    "model": "server-gemma4",
+    "mode": "raw6",
+    "id": "validation-845",
+    "score": 4,
+    "note_cs": "B/C zmírňují intenzitu nadávky; ostatní jsou přirozené hrubé výkřiky.",
+    "note_en": "B/C soften the expletive; others are natural coarse exclamations.",
+    "output_sha256": "e5c0daadb7d6fda98932ccaa26e79245bc2bf31432b87ddced01e125190f3ab0",
+    "anonymous_candidate": "A"
+  },
+  {
+    "model": "server-gemma4",
+    "mode": "prose",
+    "id": "validation-845",
+    "score": 4,
+    "note_cs": "B/C zmírňují intenzitu nadávky; ostatní jsou přirozené hrubé výkřiky.",
+    "note_en": "B/C soften the expletive; others are natural coarse exclamations.",
+    "output_sha256": "e5c0daadb7d6fda98932ccaa26e79245bc2bf31432b87ddced01e125190f3ab0",
+    "anonymous_candidate": "A"
+  },
+  {
+    "model": "gpt-6-luna",
+    "mode": "baseline",
+    "id": "validation-845",
+    "score": 3,
+    "note_cs": "B/C zmírňují intenzitu nadávky; ostatní jsou přirozené hrubé výkřiky.",
+    "note_en": "B/C soften the expletive; others are natural coarse exclamations.",
+    "output_sha256": "11907a4ac8374690aeb909fa80326381a9a749e5fa7ba1a5afc196ac0cb68381",
+    "anonymous_candidate": "B"
+  },
+  {
+    "model": "gpt-6-luna",
+    "mode": "raw16",
+    "id": "validation-845",
+    "score": 3,
+    "note_cs": "B/C zmírňují intenzitu nadávky; ostatní jsou přirozené hrubé výkřiky.",
+    "note_en": "B/C soften the expletive; others are natural coarse exclamations.",
+    "output_sha256": "93ee0a4ee03bdc66bca0bf406d27909c71da7ca38ff1e4b6300d649262e638eb",
+    "anonymous_candidate": "C"
+  },
+  {
+    "model": "gpt-6-luna",
+    "mode": "prose",
+    "id": "validation-845",
+    "score": 3,
+    "note_cs": "B/C zmírňují intenzitu nadávky; ostatní jsou přirozené hrubé výkřiky.",
+    "note_en": "B/C soften the expletive; others are natural coarse exclamations.",
+    "output_sha256": "93ee0a4ee03bdc66bca0bf406d27909c71da7ca38ff1e4b6300d649262e638eb",
+    "anonymous_candidate": "C"
+  },
+  {
+    "model": "server-gemma4",
+    "mode": "raw16",
+    "id": "validation-845",
+    "score": 4,
+    "note_cs": "B/C zmírňují intenzitu nadávky; ostatní jsou přirozené hrubé výkřiky.",
+    "note_en": "B/C soften the expletive; others are natural coarse exclamations.",
+    "output_sha256": "8f54826319eea8327e72ae195db80d691b4014fe72bd54cdfecfd8da55311890",
+    "anonymous_candidate": "D"
+  },
+  {
+    "model": "server-gemma4",
+    "mode": "facts",
+    "id": "validation-845",
+    "score": 4,
+    "note_cs": "B/C zmírňují intenzitu nadávky; ostatní jsou přirozené hrubé výkřiky.",
+    "note_en": "B/C soften the expletive; others are natural coarse exclamations.",
+    "output_sha256": "8f54826319eea8327e72ae195db80d691b4014fe72bd54cdfecfd8da55311890",
+    "anonymous_candidate": "D"
+  },
+  {
+    "model": "server-gemma4",
+    "mode": "baseline",
+    "id": "validation-845",
+    "score": 4,
+    "note_cs": "B/C zmírňují intenzitu nadávky; ostatní jsou přirozené hrubé výkřiky.",
+    "note_en": "B/C soften the expletive; others are natural coarse exclamations.",
+    "output_sha256": "8f54826319eea8327e72ae195db80d691b4014fe72bd54cdfecfd8da55311890",
+    "anonymous_candidate": "D"
+  },
+  {
+    "model": "gpt-6-luna",
+    "mode": "raw6",
+    "id": "validation-845",
+    "score": 4,
+    "note_cs": "B/C zmírňují intenzitu nadávky; ostatní jsou přirozené hrubé výkřiky.",
+    "note_en": "B/C soften the expletive; others are natural coarse exclamations.",
+    "output_sha256": "741dab41e601131895caedc3d012868ea5db3deac18686f60ca68c325240bac4",
+    "anonymous_candidate": "E"
+  },
+  {
+    "model": "gpt-6-luna",
+    "mode": "facts",
+    "id": "validation-845",
+    "score": 4,
+    "note_cs": "B/C zmírňují intenzitu nadávky; ostatní jsou přirozené hrubé výkřiky.",
+    "note_en": "B/C soften the expletive; others are natural coarse exclamations.",
+    "output_sha256": "741dab41e601131895caedc3d012868ea5db3deac18686f60ca68c325240bac4",
+    "anonymous_candidate": "E"
+  },
+  {
+    "model": "gpt-6-luna",
+    "mode": "facts",
+    "id": "validation-846",
+    "score": 4,
+    "note_cs": "Význam a čitelnost zachovány.",
+    "note_en": "Meaning and readability preserved.",
+    "output_sha256": "6910654764930e4973a4b09d8b1e69388e162bcabb235fe4e64547c968fdf4d0",
+    "anonymous_candidate": "A"
+  },
+  {
+    "model": "gpt-6-luna",
+    "mode": "raw6",
+    "id": "validation-846",
+    "score": 4,
+    "note_cs": "Význam a čitelnost zachovány.",
+    "note_en": "Meaning and readability preserved.",
+    "output_sha256": "6910654764930e4973a4b09d8b1e69388e162bcabb235fe4e64547c968fdf4d0",
+    "anonymous_candidate": "A"
+  },
+  {
+    "model": "server-gemma4",
+    "mode": "raw16",
+    "id": "validation-846",
+    "score": 4,
+    "note_cs": "Význam a čitelnost zachovány.",
+    "note_en": "Meaning and readability preserved.",
+    "output_sha256": "a9eb691f3f0b225d97cbb1ce9b1c98078f0b1f42a9a6278e4798bda451f17f82",
+    "anonymous_candidate": "B"
+  },
+  {
+    "model": "server-gemma4",
+    "mode": "prose",
+    "id": "validation-846",
+    "score": 4,
+    "note_cs": "Význam a čitelnost zachovány.",
+    "note_en": "Meaning and readability preserved.",
+    "output_sha256": "a9eb691f3f0b225d97cbb1ce9b1c98078f0b1f42a9a6278e4798bda451f17f82",
+    "anonymous_candidate": "B"
+  },
+  {
+    "model": "server-gemma4",
+    "mode": "facts",
+    "id": "validation-846",
+    "score": 4,
+    "note_cs": "Význam a čitelnost zachovány.",
+    "note_en": "Meaning and readability preserved.",
+    "output_sha256": "a9eb691f3f0b225d97cbb1ce9b1c98078f0b1f42a9a6278e4798bda451f17f82",
+    "anonymous_candidate": "B"
+  },
+  {
+    "model": "server-gemma4",
+    "mode": "baseline",
+    "id": "validation-846",
+    "score": 4,
+    "note_cs": "Význam a čitelnost zachovány.",
+    "note_en": "Meaning and readability preserved.",
+    "output_sha256": "a9eb691f3f0b225d97cbb1ce9b1c98078f0b1f42a9a6278e4798bda451f17f82",
+    "anonymous_candidate": "B"
+  },
+  {
+    "model": "server-gemma4",
+    "mode": "raw6",
+    "id": "validation-846",
+    "score": 4,
+    "note_cs": "Význam a čitelnost zachovány.",
+    "note_en": "Meaning and readability preserved.",
+    "output_sha256": "a9eb691f3f0b225d97cbb1ce9b1c98078f0b1f42a9a6278e4798bda451f17f82",
+    "anonymous_candidate": "B"
+  },
+  {
+    "model": "gpt-6-luna",
+    "mode": "raw16",
+    "id": "validation-846",
+    "score": 4,
+    "note_cs": "Význam a čitelnost zachovány.",
+    "note_en": "Meaning and readability preserved.",
+    "output_sha256": "a9eb691f3f0b225d97cbb1ce9b1c98078f0b1f42a9a6278e4798bda451f17f82",
+    "anonymous_candidate": "B"
+  },
+  {
+    "model": "gpt-6-luna",
+    "mode": "prose",
+    "id": "validation-846",
+    "score": 4,
+    "note_cs": "Význam a čitelnost zachovány.",
+    "note_en": "Meaning and readability preserved.",
+    "output_sha256": "a9eb691f3f0b225d97cbb1ce9b1c98078f0b1f42a9a6278e4798bda451f17f82",
+    "anonymous_candidate": "B"
+  },
+  {
+    "model": "gpt-6-luna",
+    "mode": "baseline",
+    "id": "validation-846",
+    "score": 4,
+    "note_cs": "Význam a čitelnost zachovány.",
+    "note_en": "Meaning and readability preserved.",
+    "output_sha256": "a9eb691f3f0b225d97cbb1ce9b1c98078f0b1f42a9a6278e4798bda451f17f82",
+    "anonymous_candidate": "B"
+  },
+  {
+    "model": "gpt-6-luna",
+    "mode": "prose",
+    "id": "validation-847",
+    "score": 4,
+    "note_cs": "C mění poznání konkrétní věci na otázku, zda je to ono.",
+    "note_en": "C shifts recognition of that object to asking whether it is the one.",
+    "output_sha256": "9f860eefa6c8857e80de916ee466a8cad46ac531742f312efb881ed9fac83798",
+    "anonymous_candidate": "A"
+  },
+  {
+    "model": "gpt-6-luna",
+    "mode": "facts",
+    "id": "validation-847",
+    "score": 4,
+    "note_cs": "C mění poznání konkrétní věci na otázku, zda je to ono.",
+    "note_en": "C shifts recognition of that object to asking whether it is the one.",
+    "output_sha256": "9f860eefa6c8857e80de916ee466a8cad46ac531742f312efb881ed9fac83798",
+    "anonymous_candidate": "A"
+  },
+  {
+    "model": "gpt-6-luna",
+    "mode": "baseline",
+    "id": "validation-847",
+    "score": 4,
+    "note_cs": "C mění poznání konkrétní věci na otázku, zda je to ono.",
+    "note_en": "C shifts recognition of that object to asking whether it is the one.",
+    "output_sha256": "9f860eefa6c8857e80de916ee466a8cad46ac531742f312efb881ed9fac83798",
+    "anonymous_candidate": "A"
+  },
+  {
+    "model": "gpt-6-luna",
+    "mode": "raw6",
+    "id": "validation-847",
+    "score": 4,
+    "note_cs": "C mění poznání konkrétní věci na otázku, zda je to ono.",
+    "note_en": "C shifts recognition of that object to asking whether it is the one.",
+    "output_sha256": "9f860eefa6c8857e80de916ee466a8cad46ac531742f312efb881ed9fac83798",
+    "anonymous_candidate": "A"
+  },
+  {
+    "model": "gpt-6-luna",
+    "mode": "raw16",
+    "id": "validation-847",
+    "score": 4,
+    "note_cs": "C mění poznání konkrétní věci na otázku, zda je to ono.",
+    "note_en": "C shifts recognition of that object to asking whether it is the one.",
+    "output_sha256": "9f860eefa6c8857e80de916ee466a8cad46ac531742f312efb881ed9fac83798",
+    "anonymous_candidate": "A"
+  },
+  {
+    "model": "server-gemma4",
+    "mode": "prose",
+    "id": "validation-847",
+    "score": 4,
+    "note_cs": "C mění poznání konkrétní věci na otázku, zda je to ono.",
+    "note_en": "C shifts recognition of that object to asking whether it is the one.",
+    "output_sha256": "b22dcc1e9e89e0ee3385319258d0e85f48709312258fd04e7d7d99d2df84c621",
+    "anonymous_candidate": "B"
+  },
+  {
+    "model": "server-gemma4",
+    "mode": "facts",
+    "id": "validation-847",
+    "score": 4,
+    "note_cs": "C mění poznání konkrétní věci na otázku, zda je to ono.",
+    "note_en": "C shifts recognition of that object to asking whether it is the one.",
+    "output_sha256": "b22dcc1e9e89e0ee3385319258d0e85f48709312258fd04e7d7d99d2df84c621",
+    "anonymous_candidate": "B"
+  },
+  {
+    "model": "server-gemma4",
+    "mode": "baseline",
+    "id": "validation-847",
+    "score": 4,
+    "note_cs": "C mění poznání konkrétní věci na otázku, zda je to ono.",
+    "note_en": "C shifts recognition of that object to asking whether it is the one.",
+    "output_sha256": "b22dcc1e9e89e0ee3385319258d0e85f48709312258fd04e7d7d99d2df84c621",
+    "anonymous_candidate": "B"
+  },
+  {
+    "model": "server-gemma4",
+    "mode": "raw6",
+    "id": "validation-847",
+    "score": 4,
+    "note_cs": "C mění poznání konkrétní věci na otázku, zda je to ono.",
+    "note_en": "C shifts recognition of that object to asking whether it is the one.",
+    "output_sha256": "b22dcc1e9e89e0ee3385319258d0e85f48709312258fd04e7d7d99d2df84c621",
+    "anonymous_candidate": "B"
+  },
+  {
+    "model": "server-gemma4",
+    "mode": "raw16",
+    "id": "validation-847",
+    "score": 3,
+    "note_cs": "C mění poznání konkrétní věci na otázku, zda je to ono.",
+    "note_en": "C shifts recognition of that object to asking whether it is the one.",
+    "output_sha256": "a96bea131472c619aff98d8ea3388ced85a0263e8d67a263046211aca210dca2",
+    "anonymous_candidate": "C"
+  },
+  {
+    "model": "gpt-6-luna",
+    "mode": "raw6",
+    "id": "validation-848",
+    "score": 2,
+    "note_cs": "A/B mění získanou věc na pochycenou znalost. E/H mají chybnou gramatiku. F neodůvodněně zdůrazňuje právě teď a zvednutí.",
+    "note_en": "A/B turn an acquired object into learned knowledge. E/H have broken grammar. F unjustifiably stresses just-now lifting.",
+    "output_sha256": "7acd5f429bd1bcdb17043b9e566861022bbbe2da2c1a092c026fb84cd6e61d41",
+    "anonymous_candidate": "A"
+  },
+  {
+    "model": "gpt-6-luna",
+    "mode": "raw16",
+    "id": "validation-848",
+    "score": 2,
+    "note_cs": "A/B mění získanou věc na pochycenou znalost. E/H mají chybnou gramatiku. F neodůvodněně zdůrazňuje právě teď a zvednutí.",
+    "note_en": "A/B turn an acquired object into learned knowledge. E/H have broken grammar. F unjustifiably stresses just-now lifting.",
+    "output_sha256": "e5759b8fc20ecec876c265bba170b4a5f759d422b6b00e61135f7a7aa9d1dd68",
+    "anonymous_candidate": "B"
+  },
+  {
+    "model": "gpt-6-luna",
+    "mode": "facts",
+    "id": "validation-848",
+    "score": 4,
+    "note_cs": "A/B mění získanou věc na pochycenou znalost. E/H mají chybnou gramatiku. F neodůvodněně zdůrazňuje právě teď a zvednutí.",
+    "note_en": "A/B turn an acquired object into learned knowledge. E/H have broken grammar. F unjustifiably stresses just-now lifting.",
+    "output_sha256": "2eee2ea1dc4ddcfa9046b6d239f812b12d9d584e20c18417e54b51cd5e9c436c",
+    "anonymous_candidate": "C"
+  },
+  {
+    "model": "gpt-6-luna",
+    "mode": "prose",
+    "id": "validation-848",
+    "score": 4,
+    "note_cs": "A/B mění získanou věc na pochycenou znalost. E/H mají chybnou gramatiku. F neodůvodněně zdůrazňuje právě teď a zvednutí.",
+    "note_en": "A/B turn an acquired object into learned knowledge. E/H have broken grammar. F unjustifiably stresses just-now lifting.",
+    "output_sha256": "2c72a6298bf7221a356ca26fecb1e349d6a19c23e5da8591eab38f0b88296e38",
+    "anonymous_candidate": "D"
+  },
+  {
+    "model": "server-gemma4",
+    "mode": "facts",
+    "id": "validation-848",
+    "score": 2,
+    "note_cs": "A/B mění získanou věc na pochycenou znalost. E/H mají chybnou gramatiku. F neodůvodněně zdůrazňuje právě teď a zvednutí.",
+    "note_en": "A/B turn an acquired object into learned knowledge. E/H have broken grammar. F unjustifiably stresses just-now lifting.",
+    "output_sha256": "e22310cdfa343fe6e06a45ee7f1bc9eaad5ba092d78414446b11d41b4e057025",
+    "anonymous_candidate": "E"
+  },
+  {
+    "model": "server-gemma4",
+    "mode": "prose",
+    "id": "validation-848",
+    "score": 2,
+    "note_cs": "A/B mění získanou věc na pochycenou znalost. E/H mají chybnou gramatiku. F neodůvodněně zdůrazňuje právě teď a zvednutí.",
+    "note_en": "A/B turn an acquired object into learned knowledge. E/H have broken grammar. F unjustifiably stresses just-now lifting.",
+    "output_sha256": "e22310cdfa343fe6e06a45ee7f1bc9eaad5ba092d78414446b11d41b4e057025",
+    "anonymous_candidate": "E"
+  },
+  {
+    "model": "server-gemma4",
+    "mode": "baseline",
+    "id": "validation-848",
+    "score": 3,
+    "note_cs": "A/B mění získanou věc na pochycenou znalost. E/H mají chybnou gramatiku. F neodůvodněně zdůrazňuje právě teď a zvednutí.",
+    "note_en": "A/B turn an acquired object into learned knowledge. E/H have broken grammar. F unjustifiably stresses just-now lifting.",
+    "output_sha256": "44705df8905855cc43f1da4d34c3465123e376a00f718928e8cf79fe22afd0ec",
+    "anonymous_candidate": "F"
+  },
+  {
+    "model": "gpt-6-luna",
+    "mode": "baseline",
+    "id": "validation-848",
+    "score": 4,
+    "note_cs": "A/B mění získanou věc na pochycenou znalost. E/H mají chybnou gramatiku. F neodůvodněně zdůrazňuje právě teď a zvednutí.",
+    "note_en": "A/B turn an acquired object into learned knowledge. E/H have broken grammar. F unjustifiably stresses just-now lifting.",
+    "output_sha256": "b668c51e56ca2b9b2f34bd0c800be54ee6bd6ef66669895f5ae1b91c83e6f982",
+    "anonymous_candidate": "G"
+  },
+  {
+    "model": "server-gemma4",
+    "mode": "raw6",
+    "id": "validation-848",
+    "score": 2,
+    "note_cs": "A/B mění získanou věc na pochycenou znalost. E/H mají chybnou gramatiku. F neodůvodněně zdůrazňuje právě teď a zvednutí.",
+    "note_en": "A/B turn an acquired object into learned knowledge. E/H have broken grammar. F unjustifiably stresses just-now lifting.",
+    "output_sha256": "7467e86f2d810802e20c960e510ac3761385ad11e44f16aadf58018728041d7d",
+    "anonymous_candidate": "H"
+  },
+  {
+    "model": "server-gemma4",
+    "mode": "raw16",
+    "id": "validation-848",
+    "score": 2,
+    "note_cs": "A/B mění získanou věc na pochycenou znalost. E/H mají chybnou gramatiku. F neodůvodněně zdůrazňuje právě teď a zvednutí.",
+    "note_en": "A/B turn an acquired object into learned knowledge. E/H have broken grammar. F unjustifiably stresses just-now lifting.",
+    "output_sha256": "7467e86f2d810802e20c960e510ac3761385ad11e44f16aadf58018728041d7d",
+    "anonymous_candidate": "H"
+  },
+  {
+    "model": "server-gemma4",
+    "mode": "baseline",
+    "id": "validation-941",
+    "score": 4,
+    "note_cs": "Jde o nápis CLOSE, ne rozhovor. Překlad nápisu je správný; odmítání nápisů se zde netestuje.",
+    "note_en": "This is the CLOSE label, not dialogue. Label translation is correct; label rejection is not under test.",
+    "output_sha256": "2c1b6f41d612a4816cefb1ab5b2cf69600b0691c3e385314ea3abf2f5f245cbe",
+    "anonymous_candidate": "A"
+  },
+  {
+    "model": "server-gemma4",
+    "mode": "raw6",
+    "id": "validation-941",
+    "score": 4,
+    "note_cs": "Jde o nápis CLOSE, ne rozhovor. Překlad nápisu je správný; odmítání nápisů se zde netestuje.",
+    "note_en": "This is the CLOSE label, not dialogue. Label translation is correct; label rejection is not under test.",
+    "output_sha256": "2c1b6f41d612a4816cefb1ab5b2cf69600b0691c3e385314ea3abf2f5f245cbe",
+    "anonymous_candidate": "A"
+  },
+  {
+    "model": "server-gemma4",
+    "mode": "raw16",
+    "id": "validation-941",
+    "score": 4,
+    "note_cs": "Jde o nápis CLOSE, ne rozhovor. Překlad nápisu je správný; odmítání nápisů se zde netestuje.",
+    "note_en": "This is the CLOSE label, not dialogue. Label translation is correct; label rejection is not under test.",
+    "output_sha256": "2c1b6f41d612a4816cefb1ab5b2cf69600b0691c3e385314ea3abf2f5f245cbe",
+    "anonymous_candidate": "A"
+  },
+  {
+    "model": "server-gemma4",
+    "mode": "prose",
+    "id": "validation-941",
+    "score": 4,
+    "note_cs": "Jde o nápis CLOSE, ne rozhovor. Překlad nápisu je správný; odmítání nápisů se zde netestuje.",
+    "note_en": "This is the CLOSE label, not dialogue. Label translation is correct; label rejection is not under test.",
+    "output_sha256": "2c1b6f41d612a4816cefb1ab5b2cf69600b0691c3e385314ea3abf2f5f245cbe",
+    "anonymous_candidate": "A"
+  },
+  {
+    "model": "server-gemma4",
+    "mode": "facts",
+    "id": "validation-941",
+    "score": 4,
+    "note_cs": "Jde o nápis CLOSE, ne rozhovor. Překlad nápisu je správný; odmítání nápisů se zde netestuje.",
+    "note_en": "This is the CLOSE label, not dialogue. Label translation is correct; label rejection is not under test.",
+    "output_sha256": "2c1b6f41d612a4816cefb1ab5b2cf69600b0691c3e385314ea3abf2f5f245cbe",
+    "anonymous_candidate": "A"
+  },
+  {
+    "model": "gpt-6-luna",
+    "mode": "baseline",
+    "id": "validation-941",
+    "score": 4,
+    "note_cs": "Jde o nápis CLOSE, ne rozhovor. Překlad nápisu je správný; odmítání nápisů se zde netestuje.",
+    "note_en": "This is the CLOSE label, not dialogue. Label translation is correct; label rejection is not under test.",
+    "output_sha256": "2c1b6f41d612a4816cefb1ab5b2cf69600b0691c3e385314ea3abf2f5f245cbe",
+    "anonymous_candidate": "A"
+  },
+  {
+    "model": "gpt-6-luna",
+    "mode": "raw6",
+    "id": "validation-941",
+    "score": 4,
+    "note_cs": "Jde o nápis CLOSE, ne rozhovor. Překlad nápisu je správný; odmítání nápisů se zde netestuje.",
+    "note_en": "This is the CLOSE label, not dialogue. Label translation is correct; label rejection is not under test.",
+    "output_sha256": "2c1b6f41d612a4816cefb1ab5b2cf69600b0691c3e385314ea3abf2f5f245cbe",
+    "anonymous_candidate": "A"
+  },
+  {
+    "model": "gpt-6-luna",
+    "mode": "raw16",
+    "id": "validation-941",
+    "score": 4,
+    "note_cs": "Jde o nápis CLOSE, ne rozhovor. Překlad nápisu je správný; odmítání nápisů se zde netestuje.",
+    "note_en": "This is the CLOSE label, not dialogue. Label translation is correct; label rejection is not under test.",
+    "output_sha256": "2c1b6f41d612a4816cefb1ab5b2cf69600b0691c3e385314ea3abf2f5f245cbe",
+    "anonymous_candidate": "A"
+  },
+  {
+    "model": "gpt-6-luna",
+    "mode": "prose",
+    "id": "validation-941",
+    "score": 4,
+    "note_cs": "Jde o nápis CLOSE, ne rozhovor. Překlad nápisu je správný; odmítání nápisů se zde netestuje.",
+    "note_en": "This is the CLOSE label, not dialogue. Label translation is correct; label rejection is not under test.",
+    "output_sha256": "2c1b6f41d612a4816cefb1ab5b2cf69600b0691c3e385314ea3abf2f5f245cbe",
+    "anonymous_candidate": "A"
+  },
+  {
+    "model": "gpt-6-luna",
+    "mode": "facts",
+    "id": "validation-941",
+    "score": 4,
+    "note_cs": "Jde o nápis CLOSE, ne rozhovor. Překlad nápisu je správný; odmítání nápisů se zde netestuje.",
+    "note_en": "This is the CLOSE label, not dialogue. Label translation is correct; label rejection is not under test.",
+    "output_sha256": "2c1b6f41d612a4816cefb1ab5b2cf69600b0691c3e385314ea3abf2f5f245cbe",
+    "anonymous_candidate": "A"
+  },
+  {
+    "model": "server-gemma4",
+    "mode": "baseline",
+    "id": "validation-942",
+    "score": 3,
+    "note_cs": "Telefonní pozdrav podniku Joey’s. B mění název podniku na identitu osoby. A/C/E jsou méně přirozené telefonní uvedení.",
+    "note_en": "Telephone greeting from Joey’s business. B changes the business name to a person identity. A/C/E are less natural phone introductions.",
+    "output_sha256": "6c0cc1f5f91173d2282c69fe8f29f567cb9baf45fe09a3478c3c301527afa4ad",
+    "anonymous_candidate": "A"
+  },
+  {
+    "model": "gpt-6-luna",
+    "mode": "raw6",
+    "id": "validation-942",
+    "score": 2,
+    "note_cs": "Telefonní pozdrav podniku Joey’s. B mění název podniku na identitu osoby. A/C/E jsou méně přirozené telefonní uvedení.",
+    "note_en": "Telephone greeting from Joey’s business. B changes the business name to a person identity. A/C/E are less natural phone introductions.",
+    "output_sha256": "082951fe2665d8c9dc04c01fe43de205974c4b0cb8402a4b4dc9eaa15328be94",
+    "anonymous_candidate": "B"
+  },
+  {
+    "model": "gpt-6-luna",
+    "mode": "prose",
+    "id": "validation-942",
+    "score": 2,
+    "note_cs": "Telefonní pozdrav podniku Joey’s. B mění název podniku na identitu osoby. A/C/E jsou méně přirozené telefonní uvedení.",
+    "note_en": "Telephone greeting from Joey’s business. B changes the business name to a person identity. A/C/E are less natural phone introductions.",
+    "output_sha256": "082951fe2665d8c9dc04c01fe43de205974c4b0cb8402a4b4dc9eaa15328be94",
+    "anonymous_candidate": "B"
+  },
+  {
+    "model": "server-gemma4",
+    "mode": "raw6",
+    "id": "validation-942",
+    "score": 3,
+    "note_cs": "Telefonní pozdrav podniku Joey’s. B mění název podniku na identitu osoby. A/C/E jsou méně přirozené telefonní uvedení.",
+    "note_en": "Telephone greeting from Joey’s business. B changes the business name to a person identity. A/C/E are less natural phone introductions.",
+    "output_sha256": "301187d3d1b6e40e6552ea25040370ae1b38b54f921fcae38a18d2cee08e2f63",
+    "anonymous_candidate": "C"
+  },
+  {
+    "model": "server-gemma4",
+    "mode": "raw16",
+    "id": "validation-942",
+    "score": 3,
+    "note_cs": "Telefonní pozdrav podniku Joey’s. B mění název podniku na identitu osoby. A/C/E jsou méně přirozené telefonní uvedení.",
+    "note_en": "Telephone greeting from Joey’s business. B changes the business name to a person identity. A/C/E are less natural phone introductions.",
+    "output_sha256": "301187d3d1b6e40e6552ea25040370ae1b38b54f921fcae38a18d2cee08e2f63",
+    "anonymous_candidate": "C"
+  },
+  {
+    "model": "gpt-6-luna",
+    "mode": "raw16",
+    "id": "validation-942",
+    "score": 4,
+    "note_cs": "Telefonní pozdrav podniku Joey’s. B mění název podniku na identitu osoby. A/C/E jsou méně přirozené telefonní uvedení.",
+    "note_en": "Telephone greeting from Joey’s business. B changes the business name to a person identity. A/C/E are less natural phone introductions.",
+    "output_sha256": "746aee60ef89ec6a0f23d9cdaac1f8eb9775103a6b4e5b7e1dc17b02c3d7df26",
+    "anonymous_candidate": "D"
+  },
+  {
+    "model": "server-gemma4",
+    "mode": "prose",
+    "id": "validation-942",
+    "score": 3,
+    "note_cs": "Telefonní pozdrav podniku Joey’s. B mění název podniku na identitu osoby. A/C/E jsou méně přirozené telefonní uvedení.",
+    "note_en": "Telephone greeting from Joey’s business. B changes the business name to a person identity. A/C/E are less natural phone introductions.",
+    "output_sha256": "d6f37447e6a3671cd82a417450b3da65e11cc458a64c628600a81ae0719029e8",
+    "anonymous_candidate": "E"
+  },
+  {
+    "model": "server-gemma4",
+    "mode": "facts",
+    "id": "validation-942",
+    "score": 3,
+    "note_cs": "Telefonní pozdrav podniku Joey’s. B mění název podniku na identitu osoby. A/C/E jsou méně přirozené telefonní uvedení.",
+    "note_en": "Telephone greeting from Joey’s business. B changes the business name to a person identity. A/C/E are less natural phone introductions.",
+    "output_sha256": "d6f37447e6a3671cd82a417450b3da65e11cc458a64c628600a81ae0719029e8",
+    "anonymous_candidate": "E"
+  },
+  {
+    "model": "gpt-6-luna",
+    "mode": "facts",
+    "id": "validation-942",
+    "score": 4,
+    "note_cs": "Telefonní pozdrav podniku Joey’s. B mění název podniku na identitu osoby. A/C/E jsou méně přirozené telefonní uvedení.",
+    "note_en": "Telephone greeting from Joey’s business. B changes the business name to a person identity. A/C/E are less natural phone introductions.",
+    "output_sha256": "1116c5448c6faccb14b46c6e39952facba098c90bb567ec826beef3123cb532f",
+    "anonymous_candidate": "F"
+  },
+  {
+    "model": "gpt-6-luna",
+    "mode": "baseline",
+    "id": "validation-942",
+    "score": 4,
+    "note_cs": "Telefonní pozdrav podniku Joey’s. B mění název podniku na identitu osoby. A/C/E jsou méně přirozené telefonní uvedení.",
+    "note_en": "Telephone greeting from Joey’s business. B changes the business name to a person identity. A/C/E are less natural phone introductions.",
+    "output_sha256": "1116c5448c6faccb14b46c6e39952facba098c90bb567ec826beef3123cb532f",
+    "anonymous_candidate": "F"
+  },
+  {
+    "model": "server-gemma4",
+    "mode": "raw16",
+    "id": "validation-943",
+    "score": 2,
+    "note_cs": "A má chybnou gramatiku „já je Jason“. E je doslovné Hej, G nechává anglické man.",
+    "note_en": "A has broken grammar in self-introduction. E uses literal Hej; G leaves English man untranslated.",
+    "output_sha256": "057c7502595535cdbb01055868dbaa5ba023e68c372fe1824161a8cbca26c2f4",
+    "anonymous_candidate": "A"
+  },
+  {
+    "model": "server-gemma4",
+    "mode": "facts",
+    "id": "validation-943",
+    "score": 4,
+    "note_cs": "A má chybnou gramatiku „já je Jason“. E je doslovné Hej, G nechává anglické man.",
+    "note_en": "A has broken grammar in self-introduction. E uses literal Hej; G leaves English man untranslated.",
+    "output_sha256": "d83f0b4c3adc6d612c8d01d4165c31e21631200d56785ae6c4cf1338a61e544c",
+    "anonymous_candidate": "B"
+  },
+  {
+    "model": "server-gemma4",
+    "mode": "prose",
+    "id": "validation-943",
+    "score": 4,
+    "note_cs": "A má chybnou gramatiku „já je Jason“. E je doslovné Hej, G nechává anglické man.",
+    "note_en": "A has broken grammar in self-introduction. E uses literal Hej; G leaves English man untranslated.",
+    "output_sha256": "b817ade6cbdb1e905713f646590bfdfd0358f9db6effe5d9b1dad6917dead0c9",
+    "anonymous_candidate": "C"
+  },
+  {
+    "model": "gpt-6-luna",
+    "mode": "facts",
+    "id": "validation-943",
+    "score": 4,
+    "note_cs": "A má chybnou gramatiku „já je Jason“. E je doslovné Hej, G nechává anglické man.",
+    "note_en": "A has broken grammar in self-introduction. E uses literal Hej; G leaves English man untranslated.",
+    "output_sha256": "5e6b5a42aa85f6ae19959f61695bfd3602f132282f0023d5207562dd06fe11de",
+    "anonymous_candidate": "D"
+  },
+  {
+    "model": "gpt-6-luna",
+    "mode": "baseline",
+    "id": "validation-943",
+    "score": 4,
+    "note_cs": "A má chybnou gramatiku „já je Jason“. E je doslovné Hej, G nechává anglické man.",
+    "note_en": "A has broken grammar in self-introduction. E uses literal Hej; G leaves English man untranslated.",
+    "output_sha256": "5e6b5a42aa85f6ae19959f61695bfd3602f132282f0023d5207562dd06fe11de",
+    "anonymous_candidate": "D"
+  },
+  {
+    "model": "gpt-6-luna",
+    "mode": "raw6",
+    "id": "validation-943",
+    "score": 4,
+    "note_cs": "A má chybnou gramatiku „já je Jason“. E je doslovné Hej, G nechává anglické man.",
+    "note_en": "A has broken grammar in self-introduction. E uses literal Hej; G leaves English man untranslated.",
+    "output_sha256": "5e6b5a42aa85f6ae19959f61695bfd3602f132282f0023d5207562dd06fe11de",
+    "anonymous_candidate": "D"
+  },
+  {
+    "model": "server-gemma4",
+    "mode": "baseline",
+    "id": "validation-943",
+    "score": 3,
+    "note_cs": "A má chybnou gramatiku „já je Jason“. E je doslovné Hej, G nechává anglické man.",
+    "note_en": "A has broken grammar in self-introduction. E uses literal Hej; G leaves English man untranslated.",
+    "output_sha256": "c9356f7f7a1402016db406495bf9c5a5b7ca487bf5adea5c6fa7938f34087e26",
+    "anonymous_candidate": "E"
+  },
+  {
+    "model": "gpt-6-luna",
+    "mode": "raw16",
+    "id": "validation-943",
+    "score": 4,
+    "note_cs": "A má chybnou gramatiku „já je Jason“. E je doslovné Hej, G nechává anglické man.",
+    "note_en": "A has broken grammar in self-introduction. E uses literal Hej; G leaves English man untranslated.",
+    "output_sha256": "e59fac77ae1bed36105c91df3d88ab92c1b2bd464776ddf92e61b535328d67ff",
+    "anonymous_candidate": "F"
+  },
+  {
+    "model": "gpt-6-luna",
+    "mode": "prose",
+    "id": "validation-943",
+    "score": 4,
+    "note_cs": "A má chybnou gramatiku „já je Jason“. E je doslovné Hej, G nechává anglické man.",
+    "note_en": "A has broken grammar in self-introduction. E uses literal Hej; G leaves English man untranslated.",
+    "output_sha256": "e59fac77ae1bed36105c91df3d88ab92c1b2bd464776ddf92e61b535328d67ff",
+    "anonymous_candidate": "F"
+  },
+  {
+    "model": "server-gemma4",
+    "mode": "raw6",
+    "id": "validation-943",
+    "score": 3,
+    "note_cs": "A má chybnou gramatiku „já je Jason“. E je doslovné Hej, G nechává anglické man.",
+    "note_en": "A has broken grammar in self-introduction. E uses literal Hej; G leaves English man untranslated.",
+    "output_sha256": "58590e690268f626d7cf81d0ac4593ec568f42ab2506c4ddb27c6a47979bee7f",
+    "anonymous_candidate": "G"
+  },
+  {
+    "model": "server-gemma4",
+    "mode": "raw16",
+    "id": "validation-944",
+    "score": 3,
+    "note_cs": "B zachovává jméno Donnie. Ostatní mění psaní jména nebo mají chybné skloňování.",
+    "note_en": "B preserves Donnie. Others change name spelling or use incorrect inflection.",
+    "output_sha256": "6f421e498c70ff08a27606a53569a31527f217323f3d00d200449c530a37c6dc",
+    "anonymous_candidate": "A"
+  },
+  {
+    "model": "gpt-6-luna",
+    "mode": "prose",
+    "id": "validation-944",
+    "score": 4,
+    "note_cs": "B zachovává jméno Donnie. Ostatní mění psaní jména nebo mají chybné skloňování.",
+    "note_en": "B preserves Donnie. Others change name spelling or use incorrect inflection.",
+    "output_sha256": "6e838899edb7a3c2f390a1e6cd649578ae3b0828e001c2d8c91cb91094c86408",
+    "anonymous_candidate": "B"
+  },
+  {
+    "model": "gpt-6-luna",
+    "mode": "facts",
+    "id": "validation-944",
+    "score": 4,
+    "note_cs": "B zachovává jméno Donnie. Ostatní mění psaní jména nebo mají chybné skloňování.",
+    "note_en": "B preserves Donnie. Others change name spelling or use incorrect inflection.",
+    "output_sha256": "6e838899edb7a3c2f390a1e6cd649578ae3b0828e001c2d8c91cb91094c86408",
+    "anonymous_candidate": "B"
+  },
+  {
+    "model": "gpt-6-luna",
+    "mode": "baseline",
+    "id": "validation-944",
+    "score": 4,
+    "note_cs": "B zachovává jméno Donnie. Ostatní mění psaní jména nebo mají chybné skloňování.",
+    "note_en": "B preserves Donnie. Others change name spelling or use incorrect inflection.",
+    "output_sha256": "6e838899edb7a3c2f390a1e6cd649578ae3b0828e001c2d8c91cb91094c86408",
+    "anonymous_candidate": "B"
+  },
+  {
+    "model": "gpt-6-luna",
+    "mode": "raw6",
+    "id": "validation-944",
+    "score": 4,
+    "note_cs": "B zachovává jméno Donnie. Ostatní mění psaní jména nebo mají chybné skloňování.",
+    "note_en": "B preserves Donnie. Others change name spelling or use incorrect inflection.",
+    "output_sha256": "6e838899edb7a3c2f390a1e6cd649578ae3b0828e001c2d8c91cb91094c86408",
+    "anonymous_candidate": "B"
+  },
+  {
+    "model": "gpt-6-luna",
+    "mode": "raw16",
+    "id": "validation-944",
+    "score": 4,
+    "note_cs": "B zachovává jméno Donnie. Ostatní mění psaní jména nebo mají chybné skloňování.",
+    "note_en": "B preserves Donnie. Others change name spelling or use incorrect inflection.",
+    "output_sha256": "6e838899edb7a3c2f390a1e6cd649578ae3b0828e001c2d8c91cb91094c86408",
+    "anonymous_candidate": "B"
+  },
+  {
+    "model": "server-gemma4",
+    "mode": "baseline",
+    "id": "validation-944",
+    "score": 3,
+    "note_cs": "B zachovává jméno Donnie. Ostatní mění psaní jména nebo mají chybné skloňování.",
+    "note_en": "B preserves Donnie. Others change name spelling or use incorrect inflection.",
+    "output_sha256": "6f39b73838edeca5a94c8abaa78f1c41910a9105659b7157faa8b731d7b5acd5",
+    "anonymous_candidate": "C"
+  },
+  {
+    "model": "server-gemma4",
+    "mode": "facts",
+    "id": "validation-944",
+    "score": 3,
+    "note_cs": "B zachovává jméno Donnie. Ostatní mění psaní jména nebo mají chybné skloňování.",
+    "note_en": "B preserves Donnie. Others change name spelling or use incorrect inflection.",
+    "output_sha256": "ba1346a08f949501a1a6fe946f936c35699f8c66eba30c1ad6d71c5871f0f380",
+    "anonymous_candidate": "D"
+  },
+  {
+    "model": "server-gemma4",
+    "mode": "prose",
+    "id": "validation-944",
+    "score": 3,
+    "note_cs": "B zachovává jméno Donnie. Ostatní mění psaní jména nebo mají chybné skloňování.",
+    "note_en": "B preserves Donnie. Others change name spelling or use incorrect inflection.",
+    "output_sha256": "6925141e2835364d00b5fc91d578b470a74e441671894796c06eed9875fa263b",
+    "anonymous_candidate": "E"
+  },
+  {
+    "model": "server-gemma4",
+    "mode": "raw6",
+    "id": "validation-944",
+    "score": 3,
+    "note_cs": "B zachovává jméno Donnie. Ostatní mění psaní jména nebo mají chybné skloňování.",
+    "note_en": "B preserves Donnie. Others change name spelling or use incorrect inflection.",
+    "output_sha256": "6cd7de1f124663ef579f6d49bfc97dfe42d9a1d632cefedbefa9c71b78c53e2e",
+    "anonymous_candidate": "F"
+  },
+  {
+    "model": "server-gemma4",
+    "mode": "baseline",
+    "id": "validation-977",
+    "score": 4,
+    "note_cs": "D volí ženské jednu, přestože se mluví o účtu.",
+    "note_en": "D uses feminine one although the antecedent is a bank account (masculine in Czech).",
+    "output_sha256": "80ae25136bce0bba2160c7b0270918be3683594c172bae3e749ab22e98fcc5f4",
+    "anonymous_candidate": "A"
+  },
+  {
+    "model": "server-gemma4",
+    "mode": "prose",
+    "id": "validation-977",
+    "score": 4,
+    "note_cs": "D volí ženské jednu, přestože se mluví o účtu.",
+    "note_en": "D uses feminine one although the antecedent is a bank account (masculine in Czech).",
+    "output_sha256": "80ae25136bce0bba2160c7b0270918be3683594c172bae3e749ab22e98fcc5f4",
+    "anonymous_candidate": "A"
+  },
+  {
+    "model": "server-gemma4",
+    "mode": "facts",
+    "id": "validation-977",
+    "score": 4,
+    "note_cs": "D volí ženské jednu, přestože se mluví o účtu.",
+    "note_en": "D uses feminine one although the antecedent is a bank account (masculine in Czech).",
+    "output_sha256": "603a818e3e33c353386482faeecabfe7597f18d63c9d5cd319020bf9f340cb37",
+    "anonymous_candidate": "B"
+  },
+  {
+    "model": "server-gemma4",
+    "mode": "raw6",
+    "id": "validation-977",
+    "score": 4,
+    "note_cs": "D volí ženské jednu, přestože se mluví o účtu.",
+    "note_en": "D uses feminine one although the antecedent is a bank account (masculine in Czech).",
+    "output_sha256": "603a818e3e33c353386482faeecabfe7597f18d63c9d5cd319020bf9f340cb37",
+    "anonymous_candidate": "B"
+  },
+  {
+    "model": "server-gemma4",
+    "mode": "raw16",
+    "id": "validation-977",
+    "score": 4,
+    "note_cs": "D volí ženské jednu, přestože se mluví o účtu.",
+    "note_en": "D uses feminine one although the antecedent is a bank account (masculine in Czech).",
+    "output_sha256": "603a818e3e33c353386482faeecabfe7597f18d63c9d5cd319020bf9f340cb37",
+    "anonymous_candidate": "B"
+  },
+  {
+    "model": "gpt-6-luna",
+    "mode": "facts",
+    "id": "validation-977",
+    "score": 4,
+    "note_cs": "D volí ženské jednu, přestože se mluví o účtu.",
+    "note_en": "D uses feminine one although the antecedent is a bank account (masculine in Czech).",
+    "output_sha256": "9330fbc0630daa8234cc24fc24eba3e5c09443ed87e36d20cb1d072ef2c6b6ee",
+    "anonymous_candidate": "C"
+  },
+  {
+    "model": "gpt-6-luna",
+    "mode": "baseline",
+    "id": "validation-977",
+    "score": 3,
+    "note_cs": "D volí ženské jednu, přestože se mluví o účtu.",
+    "note_en": "D uses feminine one although the antecedent is a bank account (masculine in Czech).",
+    "output_sha256": "90538584a15d79113d3b7cf359164fabb7e73c7d3d4674b87bd129b0779b9bac",
+    "anonymous_candidate": "D"
+  },
+  {
+    "model": "gpt-6-luna",
+    "mode": "raw6",
+    "id": "validation-977",
+    "score": 3,
+    "note_cs": "D volí ženské jednu, přestože se mluví o účtu.",
+    "note_en": "D uses feminine one although the antecedent is a bank account (masculine in Czech).",
+    "output_sha256": "90538584a15d79113d3b7cf359164fabb7e73c7d3d4674b87bd129b0779b9bac",
+    "anonymous_candidate": "D"
+  },
+  {
+    "model": "gpt-6-luna",
+    "mode": "raw16",
+    "id": "validation-977",
+    "score": 3,
+    "note_cs": "D volí ženské jednu, přestože se mluví o účtu.",
+    "note_en": "D uses feminine one although the antecedent is a bank account (masculine in Czech).",
+    "output_sha256": "90538584a15d79113d3b7cf359164fabb7e73c7d3d4674b87bd129b0779b9bac",
+    "anonymous_candidate": "D"
+  },
+  {
+    "model": "gpt-6-luna",
+    "mode": "prose",
+    "id": "validation-977",
+    "score": 3,
+    "note_cs": "D volí ženské jednu, přestože se mluví o účtu.",
+    "note_en": "D uses feminine one although the antecedent is a bank account (masculine in Czech).",
+    "output_sha256": "90538584a15d79113d3b7cf359164fabb7e73c7d3d4674b87bd129b0779b9bac",
+    "anonymous_candidate": "D"
+  },
+  {
+    "model": "server-gemma4",
+    "mode": "raw16",
+    "id": "validation-978",
+    "score": 4,
+    "note_cs": "C má chybný význam uvolňovací program místo podpory propuštěných z vězení.",
+    "note_en": "C uses a mechanical releasing-program sense instead of a program for released prisoners.",
+    "output_sha256": "7ceacde184a2ad0edfe340e77c7a073a20d2c7d3242b3b696fc87557fcc6b108",
+    "anonymous_candidate": "A"
+  },
+  {
+    "model": "server-gemma4",
+    "mode": "facts",
+    "id": "validation-978",
+    "score": 4,
+    "note_cs": "C má chybný význam uvolňovací program místo podpory propuštěných z vězení.",
+    "note_en": "C uses a mechanical releasing-program sense instead of a program for released prisoners.",
+    "output_sha256": "7ceacde184a2ad0edfe340e77c7a073a20d2c7d3242b3b696fc87557fcc6b108",
+    "anonymous_candidate": "A"
+  },
+  {
+    "model": "server-gemma4",
+    "mode": "prose",
+    "id": "validation-978",
+    "score": 4,
+    "note_cs": "C má chybný význam uvolňovací program místo podpory propuštěných z vězení.",
+    "note_en": "C uses a mechanical releasing-program sense instead of a program for released prisoners.",
+    "output_sha256": "9bd2773e01bb5043d08a5fac867c8aa0f1bca39ae123af3ef38768916fb6e82d",
+    "anonymous_candidate": "B"
+  },
+  {
+    "model": "gpt-6-luna",
+    "mode": "raw6",
+    "id": "validation-978",
+    "score": 4,
+    "note_cs": "C má chybný význam uvolňovací program místo podpory propuštěných z vězení.",
+    "note_en": "C uses a mechanical releasing-program sense instead of a program for released prisoners.",
+    "output_sha256": "9bd2773e01bb5043d08a5fac867c8aa0f1bca39ae123af3ef38768916fb6e82d",
+    "anonymous_candidate": "B"
+  },
+  {
+    "model": "gpt-6-luna",
+    "mode": "raw16",
+    "id": "validation-978",
+    "score": 4,
+    "note_cs": "C má chybný význam uvolňovací program místo podpory propuštěných z vězení.",
+    "note_en": "C uses a mechanical releasing-program sense instead of a program for released prisoners.",
+    "output_sha256": "9bd2773e01bb5043d08a5fac867c8aa0f1bca39ae123af3ef38768916fb6e82d",
+    "anonymous_candidate": "B"
+  },
+  {
+    "model": "gpt-6-luna",
+    "mode": "prose",
+    "id": "validation-978",
+    "score": 4,
+    "note_cs": "C má chybný význam uvolňovací program místo podpory propuštěných z vězení.",
+    "note_en": "C uses a mechanical releasing-program sense instead of a program for released prisoners.",
+    "output_sha256": "9bd2773e01bb5043d08a5fac867c8aa0f1bca39ae123af3ef38768916fb6e82d",
+    "anonymous_candidate": "B"
+  },
+  {
+    "model": "gpt-6-luna",
+    "mode": "facts",
+    "id": "validation-978",
+    "score": 4,
+    "note_cs": "C má chybný význam uvolňovací program místo podpory propuštěných z vězení.",
+    "note_en": "C uses a mechanical releasing-program sense instead of a program for released prisoners.",
+    "output_sha256": "9bd2773e01bb5043d08a5fac867c8aa0f1bca39ae123af3ef38768916fb6e82d",
+    "anonymous_candidate": "B"
+  },
+  {
+    "model": "server-gemma4",
+    "mode": "baseline",
+    "id": "validation-978",
+    "score": 2,
+    "note_cs": "C má chybný význam uvolňovací program místo podpory propuštěných z vězení.",
+    "note_en": "C uses a mechanical releasing-program sense instead of a program for released prisoners.",
+    "output_sha256": "4c7040087e33b212b09d6a622f564cad1516c289b3e676e11f5acb73daadba71",
+    "anonymous_candidate": "C"
+  },
+  {
+    "model": "server-gemma4",
+    "mode": "raw6",
+    "id": "validation-978",
+    "score": 4,
+    "note_cs": "C má chybný význam uvolňovací program místo podpory propuštěných z vězení.",
+    "note_en": "C uses a mechanical releasing-program sense instead of a program for released prisoners.",
+    "output_sha256": "2435562e79cd6ddc1fdd3ab8a64bd2c0a7c4f5bfa25d77b7e84a006c9e752e9d",
+    "anonymous_candidate": "D"
+  },
+  {
+    "model": "gpt-6-luna",
+    "mode": "baseline",
+    "id": "validation-978",
+    "score": 4,
+    "note_cs": "C má chybný význam uvolňovací program místo podpory propuštěných z vězení.",
+    "note_en": "C uses a mechanical releasing-program sense instead of a program for released prisoners.",
+    "output_sha256": "1b6813e6208d91f16c542046f844f00996b94dd030bbcd1b70786280e2512429",
+    "anonymous_candidate": "E"
+  },
+  {
+    "model": "gpt-6-luna",
+    "mode": "raw6",
+    "id": "validation-979",
+    "score": 4,
+    "note_cs": "Eliptická otázka bez did/will neumožňuje jistě určit čas; obě čtení ponechána přijatelná.",
+    "note_en": "Elliptical question without did/will does not securely determine tense; both readings accepted.",
+    "output_sha256": "4ac9c8d05f141b4b467dece7e8fd97b43c379ff47d6a20775b72db7bde43077e",
+    "anonymous_candidate": "A"
+  },
+  {
+    "model": "gpt-6-luna",
+    "mode": "raw16",
+    "id": "validation-979",
+    "score": 4,
+    "note_cs": "Eliptická otázka bez did/will neumožňuje jistě určit čas; obě čtení ponechána přijatelná.",
+    "note_en": "Elliptical question without did/will does not securely determine tense; both readings accepted.",
+    "output_sha256": "4ac9c8d05f141b4b467dece7e8fd97b43c379ff47d6a20775b72db7bde43077e",
+    "anonymous_candidate": "A"
+  },
+  {
+    "model": "gpt-6-luna",
+    "mode": "prose",
+    "id": "validation-979",
+    "score": 4,
+    "note_cs": "Eliptická otázka bez did/will neumožňuje jistě určit čas; obě čtení ponechána přijatelná.",
+    "note_en": "Elliptical question without did/will does not securely determine tense; both readings accepted.",
+    "output_sha256": "4ac9c8d05f141b4b467dece7e8fd97b43c379ff47d6a20775b72db7bde43077e",
+    "anonymous_candidate": "A"
+  },
+  {
+    "model": "gpt-6-luna",
+    "mode": "facts",
+    "id": "validation-979",
+    "score": 4,
+    "note_cs": "Eliptická otázka bez did/will neumožňuje jistě určit čas; obě čtení ponechána přijatelná.",
+    "note_en": "Elliptical question without did/will does not securely determine tense; both readings accepted.",
+    "output_sha256": "4ac9c8d05f141b4b467dece7e8fd97b43c379ff47d6a20775b72db7bde43077e",
+    "anonymous_candidate": "A"
+  },
+  {
+    "model": "gpt-6-luna",
+    "mode": "baseline",
+    "id": "validation-979",
+    "score": 4,
+    "note_cs": "Eliptická otázka bez did/will neumožňuje jistě určit čas; obě čtení ponechána přijatelná.",
+    "note_en": "Elliptical question without did/will does not securely determine tense; both readings accepted.",
+    "output_sha256": "4ac9c8d05f141b4b467dece7e8fd97b43c379ff47d6a20775b72db7bde43077e",
+    "anonymous_candidate": "A"
+  },
+  {
+    "model": "server-gemma4",
+    "mode": "raw6",
+    "id": "validation-979",
+    "score": 4,
+    "note_cs": "Eliptická otázka bez did/will neumožňuje jistě určit čas; obě čtení ponechána přijatelná.",
+    "note_en": "Elliptical question without did/will does not securely determine tense; both readings accepted.",
+    "output_sha256": "61570204b107718f54e7c10ac8e60b59e90acd605c7f970dc8949871e9758794",
+    "anonymous_candidate": "B"
+  },
+  {
+    "model": "server-gemma4",
+    "mode": "raw16",
+    "id": "validation-979",
+    "score": 4,
+    "note_cs": "Eliptická otázka bez did/will neumožňuje jistě určit čas; obě čtení ponechána přijatelná.",
+    "note_en": "Elliptical question without did/will does not securely determine tense; both readings accepted.",
+    "output_sha256": "61570204b107718f54e7c10ac8e60b59e90acd605c7f970dc8949871e9758794",
+    "anonymous_candidate": "B"
+  },
+  {
+    "model": "server-gemma4",
+    "mode": "baseline",
+    "id": "validation-979",
+    "score": 4,
+    "note_cs": "Eliptická otázka bez did/will neumožňuje jistě určit čas; obě čtení ponechána přijatelná.",
+    "note_en": "Elliptical question without did/will does not securely determine tense; both readings accepted.",
+    "output_sha256": "61570204b107718f54e7c10ac8e60b59e90acd605c7f970dc8949871e9758794",
+    "anonymous_candidate": "B"
+  },
+  {
+    "model": "server-gemma4",
+    "mode": "prose",
+    "id": "validation-979",
+    "score": 4,
+    "note_cs": "Eliptická otázka bez did/will neumožňuje jistě určit čas; obě čtení ponechána přijatelná.",
+    "note_en": "Elliptical question without did/will does not securely determine tense; both readings accepted.",
+    "output_sha256": "debc3e3390d24ed087ac45a86d8463e56a03c60d77c75313188ba3ad98cf7b55",
+    "anonymous_candidate": "C"
+  },
+  {
+    "model": "server-gemma4",
+    "mode": "facts",
+    "id": "validation-979",
+    "score": 4,
+    "note_cs": "Eliptická otázka bez did/will neumožňuje jistě určit čas; obě čtení ponechána přijatelná.",
+    "note_en": "Elliptical question without did/will does not securely determine tense; both readings accepted.",
+    "output_sha256": "debc3e3390d24ed087ac45a86d8463e56a03c60d77c75313188ba3ad98cf7b55",
+    "anonymous_candidate": "C"
+  },
+  {
+    "model": "server-gemma4",
+    "mode": "raw16",
+    "id": "validation-980",
+    "score": 4,
+    "note_cs": "B/H používají doslovné chceme vidět místo zjistit; ostatní přirozené.",
+    "note_en": "B/H use literal want to see rather than find out; others natural.",
+    "output_sha256": "eaa7cc8b21c5548e119fdf48b323ebe1c0df4decbf5806f11d4776f9dd1b2264",
+    "anonymous_candidate": "A"
+  },
+  {
+    "model": "server-gemma4",
+    "mode": "prose",
+    "id": "validation-980",
+    "score": 4,
+    "note_cs": "B/H používají doslovné chceme vidět místo zjistit; ostatní přirozené.",
+    "note_en": "B/H use literal want to see rather than find out; others natural.",
+    "output_sha256": "eaa7cc8b21c5548e119fdf48b323ebe1c0df4decbf5806f11d4776f9dd1b2264",
+    "anonymous_candidate": "A"
+  },
+  {
+    "model": "server-gemma4",
+    "mode": "raw6",
+    "id": "validation-980",
+    "score": 3,
+    "note_cs": "B/H používají doslovné chceme vidět místo zjistit; ostatní přirozené.",
+    "note_en": "B/H use literal want to see rather than find out; others natural.",
+    "output_sha256": "505f71af4584554b7608dff17333278aa4cdefc0a4874475b7b274ed54be72e7",
+    "anonymous_candidate": "B"
+  },
+  {
+    "model": "gpt-6-luna",
+    "mode": "prose",
+    "id": "validation-980",
+    "score": 4,
+    "note_cs": "B/H používají doslovné chceme vidět místo zjistit; ostatní přirozené.",
+    "note_en": "B/H use literal want to see rather than find out; others natural.",
+    "output_sha256": "dfa25447859dbfabc7d519a12a4df0e3399794baf7dab55bdca5225711a349e8",
+    "anonymous_candidate": "C"
+  },
+  {
+    "model": "gpt-6-luna",
+    "mode": "facts",
+    "id": "validation-980",
+    "score": 4,
+    "note_cs": "B/H používají doslovné chceme vidět místo zjistit; ostatní přirozené.",
+    "note_en": "B/H use literal want to see rather than find out; others natural.",
+    "output_sha256": "dfa25447859dbfabc7d519a12a4df0e3399794baf7dab55bdca5225711a349e8",
+    "anonymous_candidate": "C"
+  },
+  {
+    "model": "gpt-6-luna",
+    "mode": "raw6",
+    "id": "validation-980",
+    "score": 4,
+    "note_cs": "B/H používají doslovné chceme vidět místo zjistit; ostatní přirozené.",
+    "note_en": "B/H use literal want to see rather than find out; others natural.",
+    "output_sha256": "a1fbdb29bd08f1ebc6311867a999e288a550b13a58bd4de8d8e2299c5df5ca3b",
+    "anonymous_candidate": "D"
+  },
+  {
+    "model": "server-gemma4",
+    "mode": "baseline",
+    "id": "validation-980",
+    "score": 4,
+    "note_cs": "B/H používají doslovné chceme vidět místo zjistit; ostatní přirozené.",
+    "note_en": "B/H use literal want to see rather than find out; others natural.",
+    "output_sha256": "81d8f43f1ef2929d4b1c1ffae299f90540666dbb9709997bb6878cd21cb194bb",
+    "anonymous_candidate": "E"
+  },
+  {
+    "model": "gpt-6-luna",
+    "mode": "raw16",
+    "id": "validation-980",
+    "score": 4,
+    "note_cs": "B/H používají doslovné chceme vidět místo zjistit; ostatní přirozené.",
+    "note_en": "B/H use literal want to see rather than find out; others natural.",
+    "output_sha256": "ee96aea6c36e2d98a2326a263acb4a332c08ddfe73644f066947518b90041952",
+    "anonymous_candidate": "F"
+  },
+  {
+    "model": "gpt-6-luna",
+    "mode": "baseline",
+    "id": "validation-980",
+    "score": 4,
+    "note_cs": "B/H používají doslovné chceme vidět místo zjistit; ostatní přirozené.",
+    "note_en": "B/H use literal want to see rather than find out; others natural.",
+    "output_sha256": "e88c5d8b2dd8ee56071ee8e3baaeb05d447d76d24c46ecbc0781ad57125cab8a",
+    "anonymous_candidate": "G"
+  },
+  {
+    "model": "server-gemma4",
+    "mode": "facts",
+    "id": "validation-980",
+    "score": 3,
+    "note_cs": "B/H používají doslovné chceme vidět místo zjistit; ostatní přirozené.",
+    "note_en": "B/H use literal want to see rather than find out; others natural.",
+    "output_sha256": "0db3cd73889457e844747eea2a4aad83c7fabf654f50b4d7d2c570c85df6c1d1",
+    "anonymous_candidate": "H"
+  },
+  {
+    "model": "gpt-6-luna",
+    "mode": "raw16",
+    "id": "validation-1041",
+    "score": 3,
+    "note_cs": "A/B/C zmírňují hrubý výkřik.",
+    "note_en": "A/B/C soften the coarse exclamation.",
+    "output_sha256": "8e128c318ee47b6fe3ca6ba0fe2ced672148d2a525be4f59e446d2ffa1425d9a",
+    "anonymous_candidate": "A"
+  },
+  {
+    "model": "gpt-6-luna",
+    "mode": "baseline",
+    "id": "validation-1041",
+    "score": 3,
+    "note_cs": "A/B/C zmírňují hrubý výkřik.",
+    "note_en": "A/B/C soften the coarse exclamation.",
+    "output_sha256": "12b96bf006cc6bb7ba8f69e0f8f0c36c47cad6e35e4f4d878183645c6d7576e7",
+    "anonymous_candidate": "B"
+  },
+  {
+    "model": "gpt-6-luna",
+    "mode": "prose",
+    "id": "validation-1041",
+    "score": 3,
+    "note_cs": "A/B/C zmírňují hrubý výkřik.",
+    "note_en": "A/B/C soften the coarse exclamation.",
+    "output_sha256": "f289172b900ec28ef27faeb285e08c842816031df8253f6e763ff37590281619",
+    "anonymous_candidate": "C"
+  },
+  {
+    "model": "gpt-6-luna",
+    "mode": "facts",
+    "id": "validation-1041",
+    "score": 3,
+    "note_cs": "A/B/C zmírňují hrubý výkřik.",
+    "note_en": "A/B/C soften the coarse exclamation.",
+    "output_sha256": "f289172b900ec28ef27faeb285e08c842816031df8253f6e763ff37590281619",
+    "anonymous_candidate": "C"
+  },
+  {
+    "model": "server-gemma4",
+    "mode": "prose",
+    "id": "validation-1041",
+    "score": 4,
+    "note_cs": "A/B/C zmírňují hrubý výkřik.",
+    "note_en": "A/B/C soften the coarse exclamation.",
+    "output_sha256": "511921b60d658439f347e12bb6434bb79fb9efcc6724530a06a96d056f3adc3e",
+    "anonymous_candidate": "D"
+  },
+  {
+    "model": "server-gemma4",
+    "mode": "facts",
+    "id": "validation-1041",
+    "score": 4,
+    "note_cs": "A/B/C zmírňují hrubý výkřik.",
+    "note_en": "A/B/C soften the coarse exclamation.",
+    "output_sha256": "511921b60d658439f347e12bb6434bb79fb9efcc6724530a06a96d056f3adc3e",
+    "anonymous_candidate": "D"
+  },
+  {
+    "model": "server-gemma4",
+    "mode": "baseline",
+    "id": "validation-1041",
+    "score": 4,
+    "note_cs": "A/B/C zmírňují hrubý výkřik.",
+    "note_en": "A/B/C soften the coarse exclamation.",
+    "output_sha256": "511921b60d658439f347e12bb6434bb79fb9efcc6724530a06a96d056f3adc3e",
+    "anonymous_candidate": "D"
+  },
+  {
+    "model": "server-gemma4",
+    "mode": "raw6",
+    "id": "validation-1041",
+    "score": 4,
+    "note_cs": "A/B/C zmírňují hrubý výkřik.",
+    "note_en": "A/B/C soften the coarse exclamation.",
+    "output_sha256": "511921b60d658439f347e12bb6434bb79fb9efcc6724530a06a96d056f3adc3e",
+    "anonymous_candidate": "D"
+  },
+  {
+    "model": "server-gemma4",
+    "mode": "raw16",
+    "id": "validation-1041",
+    "score": 4,
+    "note_cs": "A/B/C zmírňují hrubý výkřik.",
+    "note_en": "A/B/C soften the coarse exclamation.",
+    "output_sha256": "511921b60d658439f347e12bb6434bb79fb9efcc6724530a06a96d056f3adc3e",
+    "anonymous_candidate": "D"
+  },
+  {
+    "model": "gpt-6-luna",
+    "mode": "raw6",
+    "id": "validation-1041",
+    "score": 4,
+    "note_cs": "A/B/C zmírňují hrubý výkřik.",
+    "note_en": "A/B/C soften the coarse exclamation.",
+    "output_sha256": "084e0b877006d0881f5e332a423ddcec3e3c3e290b61811db3c8e254144d856f",
+    "anonymous_candidate": "E"
+  },
+  {
+    "model": "server-gemma4",
+    "mode": "raw16",
+    "id": "validation-1042",
+    "score": 4,
+    "note_cs": "B/E mají nesmyslné do hajdu. D zmírňuje vulgaritu.",
+    "note_en": "B/E contain nonsensical do hajdu. D softens profanity.",
+    "output_sha256": "ea0fed3d135a1d1f5849f1d27d6ca3c38d3e338bce83573ed6b997387d43995c",
+    "anonymous_candidate": "A"
+  },
+  {
+    "model": "server-gemma4",
+    "mode": "facts",
+    "id": "validation-1042",
+    "score": 2,
+    "note_cs": "B/E mají nesmyslné do hajdu. D zmírňuje vulgaritu.",
+    "note_en": "B/E contain nonsensical do hajdu. D softens profanity.",
+    "output_sha256": "38151942fbee93811885665091cce2c6be152fd3b9dacd9e6e541acc8dee6718",
+    "anonymous_candidate": "B"
+  },
+  {
+    "model": "server-gemma4",
+    "mode": "prose",
+    "id": "validation-1042",
+    "score": 4,
+    "note_cs": "B/E mají nesmyslné do hajdu. D zmírňuje vulgaritu.",
+    "note_en": "B/E contain nonsensical do hajdu. D softens profanity.",
+    "output_sha256": "282946a0a31635175ffd7e917682d10d12651c936af9db411dade6366285c1da",
+    "anonymous_candidate": "C"
+  },
+  {
+    "model": "gpt-6-luna",
+    "mode": "facts",
+    "id": "validation-1042",
+    "score": 3,
+    "note_cs": "B/E mají nesmyslné do hajdu. D zmírňuje vulgaritu.",
+    "note_en": "B/E contain nonsensical do hajdu. D softens profanity.",
+    "output_sha256": "c0ba4ce46e453d065c06f105bf86dd5abbd2b413f9aa8804cfafa4d14eb0219c",
+    "anonymous_candidate": "D"
+  },
+  {
+    "model": "gpt-6-luna",
+    "mode": "baseline",
+    "id": "validation-1042",
+    "score": 3,
+    "note_cs": "B/E mají nesmyslné do hajdu. D zmírňuje vulgaritu.",
+    "note_en": "B/E contain nonsensical do hajdu. D softens profanity.",
+    "output_sha256": "c0ba4ce46e453d065c06f105bf86dd5abbd2b413f9aa8804cfafa4d14eb0219c",
+    "anonymous_candidate": "D"
+  },
+  {
+    "model": "gpt-6-luna",
+    "mode": "raw6",
+    "id": "validation-1042",
+    "score": 3,
+    "note_cs": "B/E mají nesmyslné do hajdu. D zmírňuje vulgaritu.",
+    "note_en": "B/E contain nonsensical do hajdu. D softens profanity.",
+    "output_sha256": "c0ba4ce46e453d065c06f105bf86dd5abbd2b413f9aa8804cfafa4d14eb0219c",
+    "anonymous_candidate": "D"
+  },
+  {
+    "model": "gpt-6-luna",
+    "mode": "raw16",
+    "id": "validation-1042",
+    "score": 3,
+    "note_cs": "B/E mají nesmyslné do hajdu. D zmírňuje vulgaritu.",
+    "note_en": "B/E contain nonsensical do hajdu. D softens profanity.",
+    "output_sha256": "c0ba4ce46e453d065c06f105bf86dd5abbd2b413f9aa8804cfafa4d14eb0219c",
+    "anonymous_candidate": "D"
+  },
+  {
+    "model": "gpt-6-luna",
+    "mode": "prose",
+    "id": "validation-1042",
+    "score": 3,
+    "note_cs": "B/E mají nesmyslné do hajdu. D zmírňuje vulgaritu.",
+    "note_en": "B/E contain nonsensical do hajdu. D softens profanity.",
+    "output_sha256": "c0ba4ce46e453d065c06f105bf86dd5abbd2b413f9aa8804cfafa4d14eb0219c",
+    "anonymous_candidate": "D"
+  },
+  {
+    "model": "server-gemma4",
+    "mode": "raw6",
+    "id": "validation-1042",
+    "score": 2,
+    "note_cs": "B/E mají nesmyslné do hajdu. D zmírňuje vulgaritu.",
+    "note_en": "B/E contain nonsensical do hajdu. D softens profanity.",
+    "output_sha256": "cda08189bc8296660f9c534d7c9f269641594c1266390bcccac7deea73d7934f",
+    "anonymous_candidate": "E"
+  },
+  {
+    "model": "server-gemma4",
+    "mode": "baseline",
+    "id": "validation-1042",
+    "score": 4,
+    "note_cs": "B/E mají nesmyslné do hajdu. D zmírňuje vulgaritu.",
+    "note_en": "B/E contain nonsensical do hajdu. D softens profanity.",
+    "output_sha256": "c995e7a3dd0217cc6f8b355f74a15074c9dd09cd1f5dac5b456e2394e68204ad",
+    "anonymous_candidate": "F"
+  },
+  {
+    "model": "server-gemma4",
+    "mode": "baseline",
+    "id": "validation-1043",
+    "score": 2,
+    "note_cs": "A/F mění odmítnutí bank na tvrzení, že jsou v potížích. B má chybný slovesný tvar. E přidává neurčité oni.",
+    "note_en": "A/F change dismissal of banks into saying banks are in trouble. B has malformed verb. E adds an unspecified they.",
+    "output_sha256": "fd996760ff59966020014e618fe3ace32fe554bec1bf81e98cdcc7f96b4387a9",
+    "anonymous_candidate": "A"
+  },
+  {
+    "model": "server-gemma4",
+    "mode": "prose",
+    "id": "validation-1043",
+    "score": 2,
+    "note_cs": "A/F mění odmítnutí bank na tvrzení, že jsou v potížích. B má chybný slovesný tvar. E přidává neurčité oni.",
+    "note_en": "A/F change dismissal of banks into saying banks are in trouble. B has malformed verb. E adds an unspecified they.",
+    "output_sha256": "fe7a4354a7f4b9f27c26759449a49d4868b45bd7761eaa2d84d96256561ab597",
+    "anonymous_candidate": "B"
+  },
+  {
+    "model": "gpt-6-luna",
+    "mode": "baseline",
+    "id": "validation-1043",
+    "score": 4,
+    "note_cs": "A/F mění odmítnutí bank na tvrzení, že jsou v potížích. B má chybný slovesný tvar. E přidává neurčité oni.",
+    "note_en": "A/F change dismissal of banks into saying banks are in trouble. B has malformed verb. E adds an unspecified they.",
+    "output_sha256": "1183738c317913c98609b4762ba86f3954cd5c8210b20db9699a2b07c1f1b2d9",
+    "anonymous_candidate": "C"
+  },
+  {
+    "model": "server-gemma4",
+    "mode": "raw6",
+    "id": "validation-1043",
+    "score": 4,
+    "note_cs": "A/F mění odmítnutí bank na tvrzení, že jsou v potížích. B má chybný slovesný tvar. E přidává neurčité oni.",
+    "note_en": "A/F change dismissal of banks into saying banks are in trouble. B has malformed verb. E adds an unspecified they.",
+    "output_sha256": "0b9a340fe9ab0f7b1a7887e63a459dd334e362a074359fd467bfe6f24e621449",
+    "anonymous_candidate": "D"
+  },
+  {
+    "model": "gpt-6-luna",
+    "mode": "raw6",
+    "id": "validation-1043",
+    "score": 3,
+    "note_cs": "A/F mění odmítnutí bank na tvrzení, že jsou v potížích. B má chybný slovesný tvar. E přidává neurčité oni.",
+    "note_en": "A/F change dismissal of banks into saying banks are in trouble. B has malformed verb. E adds an unspecified they.",
+    "output_sha256": "d03685d2d679e18264320c67718c0c22ada093854ae27d6e67677740cdd09dd2",
+    "anonymous_candidate": "E"
+  },
+  {
+    "model": "gpt-6-luna",
+    "mode": "raw16",
+    "id": "validation-1043",
+    "score": 3,
+    "note_cs": "A/F mění odmítnutí bank na tvrzení, že jsou v potížích. B má chybný slovesný tvar. E přidává neurčité oni.",
+    "note_en": "A/F change dismissal of banks into saying banks are in trouble. B has malformed verb. E adds an unspecified they.",
+    "output_sha256": "d03685d2d679e18264320c67718c0c22ada093854ae27d6e67677740cdd09dd2",
+    "anonymous_candidate": "E"
+  },
+  {
+    "model": "gpt-6-luna",
+    "mode": "prose",
+    "id": "validation-1043",
+    "score": 3,
+    "note_cs": "A/F mění odmítnutí bank na tvrzení, že jsou v potížích. B má chybný slovesný tvar. E přidává neurčité oni.",
+    "note_en": "A/F change dismissal of banks into saying banks are in trouble. B has malformed verb. E adds an unspecified they.",
+    "output_sha256": "d03685d2d679e18264320c67718c0c22ada093854ae27d6e67677740cdd09dd2",
+    "anonymous_candidate": "E"
+  },
+  {
+    "model": "gpt-6-luna",
+    "mode": "facts",
+    "id": "validation-1043",
+    "score": 3,
+    "note_cs": "A/F mění odmítnutí bank na tvrzení, že jsou v potížích. B má chybný slovesný tvar. E přidává neurčité oni.",
+    "note_en": "A/F change dismissal of banks into saying banks are in trouble. B has malformed verb. E adds an unspecified they.",
+    "output_sha256": "d03685d2d679e18264320c67718c0c22ada093854ae27d6e67677740cdd09dd2",
+    "anonymous_candidate": "E"
+  },
+  {
+    "model": "server-gemma4",
+    "mode": "raw16",
+    "id": "validation-1043",
+    "score": 2,
+    "note_cs": "A/F mění odmítnutí bank na tvrzení, že jsou v potížích. B má chybný slovesný tvar. E přidává neurčité oni.",
+    "note_en": "A/F change dismissal of banks into saying banks are in trouble. B has malformed verb. E adds an unspecified they.",
+    "output_sha256": "1859621ae0cb41de14885639586fd68d3eacae949828a791b04b36211f524b59",
+    "anonymous_candidate": "F"
+  },
+  {
+    "model": "server-gemma4",
+    "mode": "facts",
+    "id": "validation-1043",
+    "score": 2,
+    "note_cs": "A/F mění odmítnutí bank na tvrzení, že jsou v potížích. B má chybný slovesný tvar. E přidává neurčité oni.",
+    "note_en": "A/F change dismissal of banks into saying banks are in trouble. B has malformed verb. E adds an unspecified they.",
+    "output_sha256": "1859621ae0cb41de14885639586fd68d3eacae949828a791b04b36211f524b59",
+    "anonymous_candidate": "F"
+  },
+  {
+    "model": "server-gemma4",
+    "mode": "prose",
+    "id": "validation-1044",
+    "score": 4,
+    "note_cs": "BuckMe je zachováno podle zdroje; F mění jméno na oslovení Bucku.",
+    "note_en": "BuckMe is preserved as supplied; F changes it to addressing Buck.",
+    "output_sha256": "c08c6c56ab12e193b6bf7d7233cf4a1eebb787285a355093fab58709f4ebcb86",
+    "anonymous_candidate": "A"
+  },
+  {
+    "model": "gpt-6-luna",
+    "mode": "raw6",
+    "id": "validation-1044",
+    "score": 4,
+    "note_cs": "BuckMe je zachováno podle zdroje; F mění jméno na oslovení Bucku.",
+    "note_en": "BuckMe is preserved as supplied; F changes it to addressing Buck.",
+    "output_sha256": "728f8db3d81801bae9122cfed9b36b50817ed372e29834fceb047c0f331cd1d6",
+    "anonymous_candidate": "B"
+  },
+  {
+    "model": "server-gemma4",
+    "mode": "raw16",
+    "id": "validation-1044",
+    "score": 4,
+    "note_cs": "BuckMe je zachováno podle zdroje; F mění jméno na oslovení Bucku.",
+    "note_en": "BuckMe is preserved as supplied; F changes it to addressing Buck.",
+    "output_sha256": "0c53ddf76692e1bdb916ade46040347a4340aa57896539012ea90fde21fa8d86",
+    "anonymous_candidate": "C"
+  },
+  {
+    "model": "gpt-6-luna",
+    "mode": "prose",
+    "id": "validation-1044",
+    "score": 4,
+    "note_cs": "BuckMe je zachováno podle zdroje; F mění jméno na oslovení Bucku.",
+    "note_en": "BuckMe is preserved as supplied; F changes it to addressing Buck.",
+    "output_sha256": "ed830ff8fcd9b5a2518fe7c764c711b8e7d637845bd0fe94fecde9d88b6db2bc",
+    "anonymous_candidate": "D"
+  },
+  {
+    "model": "gpt-6-luna",
+    "mode": "facts",
+    "id": "validation-1044",
+    "score": 4,
+    "note_cs": "BuckMe je zachováno podle zdroje; F mění jméno na oslovení Bucku.",
+    "note_en": "BuckMe is preserved as supplied; F changes it to addressing Buck.",
+    "output_sha256": "ed830ff8fcd9b5a2518fe7c764c711b8e7d637845bd0fe94fecde9d88b6db2bc",
+    "anonymous_candidate": "D"
+  },
+  {
+    "model": "server-gemma4",
+    "mode": "raw6",
+    "id": "validation-1044",
+    "score": 4,
+    "note_cs": "BuckMe je zachováno podle zdroje; F mění jméno na oslovení Bucku.",
+    "note_en": "BuckMe is preserved as supplied; F changes it to addressing Buck.",
+    "output_sha256": "c235f9a9e42acab6e950c64df518bed82fe71c7bf229441d8c966d69d4f5c22f",
+    "anonymous_candidate": "E"
+  },
+  {
+    "model": "server-gemma4",
+    "mode": "facts",
+    "id": "validation-1044",
+    "score": 4,
+    "note_cs": "BuckMe je zachováno podle zdroje; F mění jméno na oslovení Bucku.",
+    "note_en": "BuckMe is preserved as supplied; F changes it to addressing Buck.",
+    "output_sha256": "c235f9a9e42acab6e950c64df518bed82fe71c7bf229441d8c966d69d4f5c22f",
+    "anonymous_candidate": "E"
+  },
+  {
+    "model": "server-gemma4",
+    "mode": "baseline",
+    "id": "validation-1044",
+    "score": 4,
+    "note_cs": "BuckMe je zachováno podle zdroje; F mění jméno na oslovení Bucku.",
+    "note_en": "BuckMe is preserved as supplied; F changes it to addressing Buck.",
+    "output_sha256": "c235f9a9e42acab6e950c64df518bed82fe71c7bf229441d8c966d69d4f5c22f",
+    "anonymous_candidate": "E"
+  },
+  {
+    "model": "gpt-6-luna",
+    "mode": "baseline",
+    "id": "validation-1044",
+    "score": 4,
+    "note_cs": "BuckMe je zachováno podle zdroje; F mění jméno na oslovení Bucku.",
+    "note_en": "BuckMe is preserved as supplied; F changes it to addressing Buck.",
+    "output_sha256": "c235f9a9e42acab6e950c64df518bed82fe71c7bf229441d8c966d69d4f5c22f",
+    "anonymous_candidate": "E"
+  },
+  {
+    "model": "gpt-6-luna",
+    "mode": "raw16",
+    "id": "validation-1044",
+    "score": 2,
+    "note_cs": "BuckMe je zachováno podle zdroje; F mění jméno na oslovení Bucku.",
+    "note_en": "BuckMe is preserved as supplied; F changes it to addressing Buck.",
+    "output_sha256": "5f240d4318e70f35fba64e000674591c109ecf6aab3bfb65f6c9aec36267ed03",
+    "anonymous_candidate": "F"
+  },
+  {
+    "model": "server-gemma4",
+    "mode": "raw16",
+    "id": "validation-1425",
+    "score": 4,
+    "note_cs": "Význam a čitelnost zachovány.",
+    "note_en": "Meaning and readability preserved.",
+    "output_sha256": "fe9408b7481e20cc7d771d317729eec314fef886fbdfef131610d25c4965ea7a",
+    "anonymous_candidate": "A"
+  },
+  {
+    "model": "server-gemma4",
+    "mode": "raw6",
+    "id": "validation-1425",
+    "score": 4,
+    "note_cs": "Význam a čitelnost zachovány.",
+    "note_en": "Meaning and readability preserved.",
+    "output_sha256": "fe9408b7481e20cc7d771d317729eec314fef886fbdfef131610d25c4965ea7a",
+    "anonymous_candidate": "A"
+  },
+  {
+    "model": "gpt-6-luna",
+    "mode": "raw16",
+    "id": "validation-1425",
+    "score": 4,
+    "note_cs": "Význam a čitelnost zachovány.",
+    "note_en": "Meaning and readability preserved.",
+    "output_sha256": "f3f4c30c2c7e3eb27bb2b809c75253acfe3651760a2de58e1e8717ce85227ca4",
+    "anonymous_candidate": "B"
+  },
+  {
+    "model": "server-gemma4",
+    "mode": "baseline",
+    "id": "validation-1425",
+    "score": 4,
+    "note_cs": "Význam a čitelnost zachovány.",
+    "note_en": "Meaning and readability preserved.",
+    "output_sha256": "5af9748f144ee4ab9122934c8beaf647d70ce4ea845a6b69af3e2160d06d2ba4",
+    "anonymous_candidate": "C"
+  },
+  {
+    "model": "server-gemma4",
+    "mode": "prose",
+    "id": "validation-1425",
+    "score": 4,
+    "note_cs": "Význam a čitelnost zachovány.",
+    "note_en": "Meaning and readability preserved.",
+    "output_sha256": "9f314d58117326b121cbe23a79bf3f4f32da46832012da04de3ba0feead6c442",
+    "anonymous_candidate": "D"
+  },
+  {
+    "model": "gpt-6-luna",
+    "mode": "prose",
+    "id": "validation-1425",
+    "score": 4,
+    "note_cs": "Význam a čitelnost zachovány.",
+    "note_en": "Meaning and readability preserved.",
+    "output_sha256": "4217a0aabf39432ac76e5e426b240365da7054c21acef002a6746cea00c7a6c6",
+    "anonymous_candidate": "E"
+  },
+  {
+    "model": "gpt-6-luna",
+    "mode": "facts",
+    "id": "validation-1425",
+    "score": 4,
+    "note_cs": "Význam a čitelnost zachovány.",
+    "note_en": "Meaning and readability preserved.",
+    "output_sha256": "4217a0aabf39432ac76e5e426b240365da7054c21acef002a6746cea00c7a6c6",
+    "anonymous_candidate": "E"
+  },
+  {
+    "model": "gpt-6-luna",
+    "mode": "raw6",
+    "id": "validation-1425",
+    "score": 4,
+    "note_cs": "Význam a čitelnost zachovány.",
+    "note_en": "Meaning and readability preserved.",
+    "output_sha256": "da547ea0a0b6a75fad94824a0e76521ae47bb21d8923614fdbbe9f51d62feb93",
+    "anonymous_candidate": "F"
+  },
+  {
+    "model": "gpt-6-luna",
+    "mode": "baseline",
+    "id": "validation-1425",
+    "score": 4,
+    "note_cs": "Význam a čitelnost zachovány.",
+    "note_en": "Meaning and readability preserved.",
+    "output_sha256": "94322e72e4984568b7edd896389cee23518114ab91b14fd3f905f77ce3a71f46",
+    "anonymous_candidate": "G"
+  },
+  {
+    "model": "server-gemma4",
+    "mode": "facts",
+    "id": "validation-1425",
+    "score": 4,
+    "note_cs": "Význam a čitelnost zachovány.",
+    "note_en": "Meaning and readability preserved.",
+    "output_sha256": "60b379f6fc9ffb711a40088b7fafb6803926be9e7e22ab8d1c7bf3f095f0cc23",
+    "anonymous_candidate": "H"
+  },
+  {
+    "model": "gpt-6-luna",
+    "mode": "facts",
+    "id": "validation-1426",
+    "score": 4,
+    "note_cs": "B má negramatické budu přistát.",
+    "note_en": "B has ungrammatical future construction budu přistát.",
+    "output_sha256": "51e83280b24c723b4f7feffb8d4d0fb92c95435f998406a7e8aa46cab06493d5",
+    "anonymous_candidate": "A"
+  },
+  {
+    "model": "gpt-6-luna",
+    "mode": "baseline",
+    "id": "validation-1426",
+    "score": 4,
+    "note_cs": "B má negramatické budu přistát.",
+    "note_en": "B has ungrammatical future construction budu přistát.",
+    "output_sha256": "51e83280b24c723b4f7feffb8d4d0fb92c95435f998406a7e8aa46cab06493d5",
+    "anonymous_candidate": "A"
+  },
+  {
+    "model": "gpt-6-luna",
+    "mode": "raw6",
+    "id": "validation-1426",
+    "score": 4,
+    "note_cs": "B má negramatické budu přistát.",
+    "note_en": "B has ungrammatical future construction budu přistát.",
+    "output_sha256": "51e83280b24c723b4f7feffb8d4d0fb92c95435f998406a7e8aa46cab06493d5",
+    "anonymous_candidate": "A"
+  },
+  {
+    "model": "gpt-6-luna",
+    "mode": "raw16",
+    "id": "validation-1426",
+    "score": 4,
+    "note_cs": "B má negramatické budu přistát.",
+    "note_en": "B has ungrammatical future construction budu přistát.",
+    "output_sha256": "51e83280b24c723b4f7feffb8d4d0fb92c95435f998406a7e8aa46cab06493d5",
+    "anonymous_candidate": "A"
+  },
+  {
+    "model": "server-gemma4",
+    "mode": "baseline",
+    "id": "validation-1426",
+    "score": 2,
+    "note_cs": "B má negramatické budu přistát.",
+    "note_en": "B has ungrammatical future construction budu přistát.",
+    "output_sha256": "6809d9ca599f2e9da457973c3de670a0c931e304ed5f555b1606cce3341ee277",
+    "anonymous_candidate": "B"
+  },
+  {
+    "model": "server-gemma4",
+    "mode": "prose",
+    "id": "validation-1426",
+    "score": 4,
+    "note_cs": "B má negramatické budu přistát.",
+    "note_en": "B has ungrammatical future construction budu přistát.",
+    "output_sha256": "184a36e66e6eac2a75c2c78a660b0c1a5db5a2fd0183570b200153c567588459",
+    "anonymous_candidate": "C"
+  },
+  {
+    "model": "server-gemma4",
+    "mode": "facts",
+    "id": "validation-1426",
+    "score": 4,
+    "note_cs": "B má negramatické budu přistát.",
+    "note_en": "B has ungrammatical future construction budu přistát.",
+    "output_sha256": "184a36e66e6eac2a75c2c78a660b0c1a5db5a2fd0183570b200153c567588459",
+    "anonymous_candidate": "C"
+  },
+  {
+    "model": "server-gemma4",
+    "mode": "raw6",
+    "id": "validation-1426",
+    "score": 4,
+    "note_cs": "B má negramatické budu přistát.",
+    "note_en": "B has ungrammatical future construction budu přistát.",
+    "output_sha256": "184a36e66e6eac2a75c2c78a660b0c1a5db5a2fd0183570b200153c567588459",
+    "anonymous_candidate": "C"
+  },
+  {
+    "model": "server-gemma4",
+    "mode": "raw16",
+    "id": "validation-1426",
+    "score": 4,
+    "note_cs": "B má negramatické budu přistát.",
+    "note_en": "B has ungrammatical future construction budu přistát.",
+    "output_sha256": "184a36e66e6eac2a75c2c78a660b0c1a5db5a2fd0183570b200153c567588459",
+    "anonymous_candidate": "C"
+  },
+  {
+    "model": "gpt-6-luna",
+    "mode": "prose",
+    "id": "validation-1426",
+    "score": 4,
+    "note_cs": "B má negramatické budu přistát.",
+    "note_en": "B has ungrammatical future construction budu přistát.",
+    "output_sha256": "de4e9c0b37bc4467d5f92239216a377f660718cc6aaa001ead74a8a0289f71c7",
+    "anonymous_candidate": "D"
+  },
+  {
+    "model": "gpt-6-luna",
+    "mode": "raw6",
+    "id": "validation-1427",
+    "score": 1,
+    "note_cs": "Zdroj říká, že loď vypadá jako ostatní. Všechny varianty ztrácejí podobnost; A/B/C/F navíc vymýšlejí stav, polohu či vlastnictví.",
+    "note_en": "Source says the boat looks like the others. All variants lose resemblance; A/B/C/F additionally invent condition, location or ownership.",
+    "output_sha256": "a1fb22f60505cda71815edb8e7bb5b6e8da1c8c00806fa83a03409fd4300d91d",
+    "anonymous_candidate": "A"
+  },
+  {
+    "model": "gpt-6-luna",
+    "mode": "prose",
+    "id": "validation-1427",
+    "score": 1,
+    "note_cs": "Zdroj říká, že loď vypadá jako ostatní. Všechny varianty ztrácejí podobnost; A/B/C/F navíc vymýšlejí stav, polohu či vlastnictví.",
+    "note_en": "Source says the boat looks like the others. All variants lose resemblance; A/B/C/F additionally invent condition, location or ownership.",
+    "output_sha256": "5ba08680efa9309dd42a78c05a971cf2f24d7e0dae41c1132087e0ca71b0f024",
+    "anonymous_candidate": "B"
+  },
+  {
+    "model": "gpt-6-luna",
+    "mode": "baseline",
+    "id": "validation-1427",
+    "score": 1,
+    "note_cs": "Zdroj říká, že loď vypadá jako ostatní. Všechny varianty ztrácejí podobnost; A/B/C/F navíc vymýšlejí stav, polohu či vlastnictví.",
+    "note_en": "Source says the boat looks like the others. All variants lose resemblance; A/B/C/F additionally invent condition, location or ownership.",
+    "output_sha256": "1757b950137ae7af4616fea64373d1b8a4b379b7fcd7de8beea862d4c1be7214",
+    "anonymous_candidate": "C"
+  },
+  {
+    "model": "gpt-6-luna",
+    "mode": "raw16",
+    "id": "validation-1427",
+    "score": 1,
+    "note_cs": "Zdroj říká, že loď vypadá jako ostatní. Všechny varianty ztrácejí podobnost; A/B/C/F navíc vymýšlejí stav, polohu či vlastnictví.",
+    "note_en": "Source says the boat looks like the others. All variants lose resemblance; A/B/C/F additionally invent condition, location or ownership.",
+    "output_sha256": "1757b950137ae7af4616fea64373d1b8a4b379b7fcd7de8beea862d4c1be7214",
+    "anonymous_candidate": "C"
+  },
+  {
+    "model": "server-gemma4",
+    "mode": "raw6",
+    "id": "validation-1427",
+    "score": 2,
+    "note_cs": "Zdroj říká, že loď vypadá jako ostatní. Všechny varianty ztrácejí podobnost; A/B/C/F navíc vymýšlejí stav, polohu či vlastnictví.",
+    "note_en": "Source says the boat looks like the others. All variants lose resemblance; A/B/C/F additionally invent condition, location or ownership.",
+    "output_sha256": "b8cef5ee2210867ff9223c0379370e79c3fbbb2cece0f62cbd501b45222ca937",
+    "anonymous_candidate": "D"
+  },
+  {
+    "model": "server-gemma4",
+    "mode": "raw16",
+    "id": "validation-1427",
+    "score": 2,
+    "note_cs": "Zdroj říká, že loď vypadá jako ostatní. Všechny varianty ztrácejí podobnost; A/B/C/F navíc vymýšlejí stav, polohu či vlastnictví.",
+    "note_en": "Source says the boat looks like the others. All variants lose resemblance; A/B/C/F additionally invent condition, location or ownership.",
+    "output_sha256": "b8cef5ee2210867ff9223c0379370e79c3fbbb2cece0f62cbd501b45222ca937",
+    "anonymous_candidate": "D"
+  },
+  {
+    "model": "server-gemma4",
+    "mode": "facts",
+    "id": "validation-1427",
+    "score": 2,
+    "note_cs": "Zdroj říká, že loď vypadá jako ostatní. Všechny varianty ztrácejí podobnost; A/B/C/F navíc vymýšlejí stav, polohu či vlastnictví.",
+    "note_en": "Source says the boat looks like the others. All variants lose resemblance; A/B/C/F additionally invent condition, location or ownership.",
+    "output_sha256": "9d81ffb220d0f3c364e5dc86a62d6a6ff666f9fdda653c8a5d10c4a84e5e8ce4",
+    "anonymous_candidate": "E"
+  },
+  {
+    "model": "server-gemma4",
+    "mode": "baseline",
+    "id": "validation-1427",
+    "score": 2,
+    "note_cs": "Zdroj říká, že loď vypadá jako ostatní. Všechny varianty ztrácejí podobnost; A/B/C/F navíc vymýšlejí stav, polohu či vlastnictví.",
+    "note_en": "Source says the boat looks like the others. All variants lose resemblance; A/B/C/F additionally invent condition, location or ownership.",
+    "output_sha256": "9d81ffb220d0f3c364e5dc86a62d6a6ff666f9fdda653c8a5d10c4a84e5e8ce4",
+    "anonymous_candidate": "E"
+  },
+  {
+    "model": "server-gemma4",
+    "mode": "prose",
+    "id": "validation-1427",
+    "score": 2,
+    "note_cs": "Zdroj říká, že loď vypadá jako ostatní. Všechny varianty ztrácejí podobnost; A/B/C/F navíc vymýšlejí stav, polohu či vlastnictví.",
+    "note_en": "Source says the boat looks like the others. All variants lose resemblance; A/B/C/F additionally invent condition, location or ownership.",
+    "output_sha256": "9d81ffb220d0f3c364e5dc86a62d6a6ff666f9fdda653c8a5d10c4a84e5e8ce4",
+    "anonymous_candidate": "E"
+  },
+  {
+    "model": "gpt-6-luna",
+    "mode": "facts",
+    "id": "validation-1427",
+    "score": 1,
+    "note_cs": "Zdroj říká, že loď vypadá jako ostatní. Všechny varianty ztrácejí podobnost; A/B/C/F navíc vymýšlejí stav, polohu či vlastnictví.",
+    "note_en": "Source says the boat looks like the others. All variants lose resemblance; A/B/C/F additionally invent condition, location or ownership.",
+    "output_sha256": "6a4d39b37a527a9ba14a44bff7a39e04b0c95edc6bf11e18469ac09298ed7fa4",
+    "anonymous_candidate": "F"
+  },
+  {
+    "model": "server-gemma4",
+    "mode": "prose",
+    "id": "validation-1428",
+    "score": 2,
+    "note_cs": "Piece je v kontextu ozbrojených kurýrů zbraň. B správně; A/F náhradní díl chybně; ostatní ponechávají předmět neurčitý.",
+    "note_en": "Piece means gun in the armed-delivery context. B correct; A/F incorrectly use spare part; others leave the object vague.",
+    "output_sha256": "fd616990fad9c9495a5c741d1a96969c6bb32132296dc12310ea1d87d3c49201",
+    "anonymous_candidate": "A"
+  },
+  {
+    "model": "server-gemma4",
+    "mode": "raw6",
+    "id": "validation-1428",
+    "score": 4,
+    "note_cs": "Piece je v kontextu ozbrojených kurýrů zbraň. B správně; A/F náhradní díl chybně; ostatní ponechávají předmět neurčitý.",
+    "note_en": "Piece means gun in the armed-delivery context. B correct; A/F incorrectly use spare part; others leave the object vague.",
+    "output_sha256": "6205f8cb956b144d74095e25a6c97d7eb8ba18a843052b4f936c94d5c55a5241",
+    "anonymous_candidate": "B"
+  },
+  {
+    "model": "gpt-6-luna",
+    "mode": "raw16",
+    "id": "validation-1428",
+    "score": 3,
+    "note_cs": "Piece je v kontextu ozbrojených kurýrů zbraň. B správně; A/F náhradní díl chybně; ostatní ponechávají předmět neurčitý.",
+    "note_en": "Piece means gun in the armed-delivery context. B correct; A/F incorrectly use spare part; others leave the object vague.",
+    "output_sha256": "4f6c68c9c9f6c36a76a87ebc030f45764cc370b95232db322e840029fee609c6",
+    "anonymous_candidate": "C"
+  },
+  {
+    "model": "server-gemma4",
+    "mode": "raw16",
+    "id": "validation-1428",
+    "score": 3,
+    "note_cs": "Piece je v kontextu ozbrojených kurýrů zbraň. B správně; A/F náhradní díl chybně; ostatní ponechávají předmět neurčitý.",
+    "note_en": "Piece means gun in the armed-delivery context. B correct; A/F incorrectly use spare part; others leave the object vague.",
+    "output_sha256": "700d9379d3bdaf72bf2cedd85f8a9c5e8cb89b403879e37ee29369ba4a7ba31e",
+    "anonymous_candidate": "D"
+  },
+  {
+    "model": "server-gemma4",
+    "mode": "facts",
+    "id": "validation-1428",
+    "score": 3,
+    "note_cs": "Piece je v kontextu ozbrojených kurýrů zbraň. B správně; A/F náhradní díl chybně; ostatní ponechávají předmět neurčitý.",
+    "note_en": "Piece means gun in the armed-delivery context. B correct; A/F incorrectly use spare part; others leave the object vague.",
+    "output_sha256": "700d9379d3bdaf72bf2cedd85f8a9c5e8cb89b403879e37ee29369ba4a7ba31e",
+    "anonymous_candidate": "D"
+  },
+  {
+    "model": "gpt-6-luna",
+    "mode": "raw6",
+    "id": "validation-1428",
+    "score": 3,
+    "note_cs": "Piece je v kontextu ozbrojených kurýrů zbraň. B správně; A/F náhradní díl chybně; ostatní ponechávají předmět neurčitý.",
+    "note_en": "Piece means gun in the armed-delivery context. B correct; A/F incorrectly use spare part; others leave the object vague.",
+    "output_sha256": "46818efce18fc1bcca05ea32728aff2cd90a89a00aee7c5caad8dea00352342d",
+    "anonymous_candidate": "E"
+  },
+  {
+    "model": "gpt-6-luna",
+    "mode": "facts",
+    "id": "validation-1428",
+    "score": 3,
+    "note_cs": "Piece je v kontextu ozbrojených kurýrů zbraň. B správně; A/F náhradní díl chybně; ostatní ponechávají předmět neurčitý.",
+    "note_en": "Piece means gun in the armed-delivery context. B correct; A/F incorrectly use spare part; others leave the object vague.",
+    "output_sha256": "46818efce18fc1bcca05ea32728aff2cd90a89a00aee7c5caad8dea00352342d",
+    "anonymous_candidate": "E"
+  },
+  {
+    "model": "server-gemma4",
+    "mode": "baseline",
+    "id": "validation-1428",
+    "score": 2,
+    "note_cs": "Piece je v kontextu ozbrojených kurýrů zbraň. B správně; A/F náhradní díl chybně; ostatní ponechávají předmět neurčitý.",
+    "note_en": "Piece means gun in the armed-delivery context. B correct; A/F incorrectly use spare part; others leave the object vague.",
+    "output_sha256": "e7fb3b1b96b2d3e14ca4f136ff4399209fd651634d329bc83ac768c7a2767735",
+    "anonymous_candidate": "F"
+  },
+  {
+    "model": "gpt-6-luna",
+    "mode": "prose",
+    "id": "validation-1428",
+    "score": 3,
+    "note_cs": "Piece je v kontextu ozbrojených kurýrů zbraň. B správně; A/F náhradní díl chybně; ostatní ponechávají předmět neurčitý.",
+    "note_en": "Piece means gun in the armed-delivery context. B correct; A/F incorrectly use spare part; others leave the object vague.",
+    "output_sha256": "decec0f39aff195700b7e9751e2978bc57dd9570a0708cdb37cff5c195c7526b",
+    "anonymous_candidate": "G"
+  },
+  {
+    "model": "gpt-6-luna",
+    "mode": "baseline",
+    "id": "validation-1428",
+    "score": 3,
+    "note_cs": "Piece je v kontextu ozbrojených kurýrů zbraň. B správně; A/F náhradní díl chybně; ostatní ponechávají předmět neurčitý.",
+    "note_en": "Piece means gun in the armed-delivery context. B correct; A/F incorrectly use spare part; others leave the object vague.",
+    "output_sha256": "8dea99a7486f6c6dd37b63e7ef5663788695ab8f1d328ebd4551b5ced873491c",
+    "anonymous_candidate": "H"
+  },
+  {
+    "model": "gpt-6-luna",
+    "mode": "baseline",
+    "id": "validation-1453",
+    "score": 4,
+    "note_cs": "C může znít jako rozmrzelé přitakání místo nadšeného souhlasu; ostatní přijatelné.",
+    "note_en": "C can sound annoyed rather than enthusiastically affirmative; others acceptable.",
+    "output_sha256": "27e6d98fb3aa6ef55c572c927a57b439159563ffbe73b25a5ef7c517090b84c3",
+    "anonymous_candidate": "A"
+  },
+  {
+    "model": "gpt-6-luna",
+    "mode": "raw16",
+    "id": "validation-1453",
+    "score": 4,
+    "note_cs": "C může znít jako rozmrzelé přitakání místo nadšeného souhlasu; ostatní přijatelné.",
+    "note_en": "C can sound annoyed rather than enthusiastically affirmative; others acceptable.",
+    "output_sha256": "1583c05d47094197531a1eea964391d4ef6bde6c9d0860d064d0c055bcd32385",
+    "anonymous_candidate": "B"
+  },
+  {
+    "model": "gpt-6-luna",
+    "mode": "raw6",
+    "id": "validation-1453",
+    "score": 3,
+    "note_cs": "C může znít jako rozmrzelé přitakání místo nadšeného souhlasu; ostatní přijatelné.",
+    "note_en": "C can sound annoyed rather than enthusiastically affirmative; others acceptable.",
+    "output_sha256": "64cdf08004de61186d85c817bbfecc6ad1ddc60741d9659bed6f5e1076095075",
+    "anonymous_candidate": "C"
+  },
+  {
+    "model": "gpt-6-luna",
+    "mode": "prose",
+    "id": "validation-1453",
+    "score": 3,
+    "note_cs": "C může znít jako rozmrzelé přitakání místo nadšeného souhlasu; ostatní přijatelné.",
+    "note_en": "C can sound annoyed rather than enthusiastically affirmative; others acceptable.",
+    "output_sha256": "64cdf08004de61186d85c817bbfecc6ad1ddc60741d9659bed6f5e1076095075",
+    "anonymous_candidate": "C"
+  },
+  {
+    "model": "gpt-6-luna",
+    "mode": "facts",
+    "id": "validation-1453",
+    "score": 4,
+    "note_cs": "C může znít jako rozmrzelé přitakání místo nadšeného souhlasu; ostatní přijatelné.",
+    "note_en": "C can sound annoyed rather than enthusiastically affirmative; others acceptable.",
+    "output_sha256": "8fac1cd65471f92c3a4e74a955ebc02ad627d4477d194765bb554023a9a73381",
+    "anonymous_candidate": "D"
+  },
+  {
+    "model": "server-gemma4",
+    "mode": "raw16",
+    "id": "validation-1453",
+    "score": 4,
+    "note_cs": "C může znít jako rozmrzelé přitakání místo nadšeného souhlasu; ostatní přijatelné.",
+    "note_en": "C can sound annoyed rather than enthusiastically affirmative; others acceptable.",
+    "output_sha256": "16548310f8669d3d733b10f79886c284449bf757dd39d49dd05b66c71f0ed008",
+    "anonymous_candidate": "E"
+  },
+  {
+    "model": "server-gemma4",
+    "mode": "prose",
+    "id": "validation-1453",
+    "score": 4,
+    "note_cs": "C může znít jako rozmrzelé přitakání místo nadšeného souhlasu; ostatní přijatelné.",
+    "note_en": "C can sound annoyed rather than enthusiastically affirmative; others acceptable.",
+    "output_sha256": "16548310f8669d3d733b10f79886c284449bf757dd39d49dd05b66c71f0ed008",
+    "anonymous_candidate": "E"
+  },
+  {
+    "model": "server-gemma4",
+    "mode": "facts",
+    "id": "validation-1453",
+    "score": 4,
+    "note_cs": "C může znít jako rozmrzelé přitakání místo nadšeného souhlasu; ostatní přijatelné.",
+    "note_en": "C can sound annoyed rather than enthusiastically affirmative; others acceptable.",
+    "output_sha256": "16548310f8669d3d733b10f79886c284449bf757dd39d49dd05b66c71f0ed008",
+    "anonymous_candidate": "E"
+  },
+  {
+    "model": "server-gemma4",
+    "mode": "raw6",
+    "id": "validation-1453",
+    "score": 4,
+    "note_cs": "C může znít jako rozmrzelé přitakání místo nadšeného souhlasu; ostatní přijatelné.",
+    "note_en": "C can sound annoyed rather than enthusiastically affirmative; others acceptable.",
+    "output_sha256": "059ab283d5f1a0572e501bb7ad4c871820c17a95863e24bcded1aa86c4fe6a59",
+    "anonymous_candidate": "F"
+  },
+  {
+    "model": "server-gemma4",
+    "mode": "baseline",
+    "id": "validation-1453",
+    "score": 4,
+    "note_cs": "C může znít jako rozmrzelé přitakání místo nadšeného souhlasu; ostatní přijatelné.",
+    "note_en": "C can sound annoyed rather than enthusiastically affirmative; others acceptable.",
+    "output_sha256": "059ab283d5f1a0572e501bb7ad4c871820c17a95863e24bcded1aa86c4fe6a59",
+    "anonymous_candidate": "F"
+  },
+  {
+    "model": "server-gemma4",
+    "mode": "raw16",
+    "id": "validation-1454",
+    "score": 4,
+    "note_cs": "Význam a čitelnost zachovány.",
+    "note_en": "Meaning and readability preserved.",
+    "output_sha256": "d52eaedd5fa3b91dde328e862acae9eaca517698fadf8606dc0c2ede3711b2c7",
+    "anonymous_candidate": "A"
+  },
+  {
+    "model": "server-gemma4",
+    "mode": "prose",
+    "id": "validation-1454",
+    "score": 4,
+    "note_cs": "Význam a čitelnost zachovány.",
+    "note_en": "Meaning and readability preserved.",
+    "output_sha256": "d52eaedd5fa3b91dde328e862acae9eaca517698fadf8606dc0c2ede3711b2c7",
+    "anonymous_candidate": "A"
+  },
+  {
+    "model": "server-gemma4",
+    "mode": "facts",
+    "id": "validation-1454",
+    "score": 4,
+    "note_cs": "Význam a čitelnost zachovány.",
+    "note_en": "Meaning and readability preserved.",
+    "output_sha256": "d52eaedd5fa3b91dde328e862acae9eaca517698fadf8606dc0c2ede3711b2c7",
+    "anonymous_candidate": "A"
+  },
+  {
+    "model": "server-gemma4",
+    "mode": "baseline",
+    "id": "validation-1454",
+    "score": 4,
+    "note_cs": "Význam a čitelnost zachovány.",
+    "note_en": "Meaning and readability preserved.",
+    "output_sha256": "d52eaedd5fa3b91dde328e862acae9eaca517698fadf8606dc0c2ede3711b2c7",
+    "anonymous_candidate": "A"
+  },
+  {
+    "model": "server-gemma4",
+    "mode": "raw6",
+    "id": "validation-1454",
+    "score": 4,
+    "note_cs": "Význam a čitelnost zachovány.",
+    "note_en": "Meaning and readability preserved.",
+    "output_sha256": "d52eaedd5fa3b91dde328e862acae9eaca517698fadf8606dc0c2ede3711b2c7",
+    "anonymous_candidate": "A"
+  },
+  {
+    "model": "gpt-6-luna",
+    "mode": "raw16",
+    "id": "validation-1454",
+    "score": 4,
+    "note_cs": "Význam a čitelnost zachovány.",
+    "note_en": "Meaning and readability preserved.",
+    "output_sha256": "d52eaedd5fa3b91dde328e862acae9eaca517698fadf8606dc0c2ede3711b2c7",
+    "anonymous_candidate": "A"
+  },
+  {
+    "model": "gpt-6-luna",
+    "mode": "prose",
+    "id": "validation-1454",
+    "score": 4,
+    "note_cs": "Význam a čitelnost zachovány.",
+    "note_en": "Meaning and readability preserved.",
+    "output_sha256": "d52eaedd5fa3b91dde328e862acae9eaca517698fadf8606dc0c2ede3711b2c7",
+    "anonymous_candidate": "A"
+  },
+  {
+    "model": "gpt-6-luna",
+    "mode": "facts",
+    "id": "validation-1454",
+    "score": 4,
+    "note_cs": "Význam a čitelnost zachovány.",
+    "note_en": "Meaning and readability preserved.",
+    "output_sha256": "d52eaedd5fa3b91dde328e862acae9eaca517698fadf8606dc0c2ede3711b2c7",
+    "anonymous_candidate": "A"
+  },
+  {
+    "model": "gpt-6-luna",
+    "mode": "baseline",
+    "id": "validation-1454",
+    "score": 4,
+    "note_cs": "Význam a čitelnost zachovány.",
+    "note_en": "Meaning and readability preserved.",
+    "output_sha256": "d52eaedd5fa3b91dde328e862acae9eaca517698fadf8606dc0c2ede3711b2c7",
+    "anonymous_candidate": "A"
+  },
+  {
+    "model": "gpt-6-luna",
+    "mode": "raw6",
+    "id": "validation-1454",
+    "score": 4,
+    "note_cs": "Význam a čitelnost zachovány.",
+    "note_en": "Meaning and readability preserved.",
+    "output_sha256": "d52eaedd5fa3b91dde328e862acae9eaca517698fadf8606dc0c2ede3711b2c7",
+    "anonymous_candidate": "A"
+  },
+  {
+    "model": "server-gemma4",
+    "mode": "prose",
+    "id": "validation-1455",
+    "score": 4,
+    "note_cs": "C vynechává poděkování i jazykovou poznámku ze současného zdroje.",
+    "note_en": "C omits both thanks and the language annotation from the current source.",
+    "output_sha256": "c3f412de9e84f223f44ac5f359d185702806129d0863530d461b49bec69d61b7",
+    "anonymous_candidate": "A"
+  },
+  {
+    "model": "server-gemma4",
+    "mode": "facts",
+    "id": "validation-1455",
+    "score": 4,
+    "note_cs": "C vynechává poděkování i jazykovou poznámku ze současného zdroje.",
+    "note_en": "C omits both thanks and the language annotation from the current source.",
+    "output_sha256": "c3f412de9e84f223f44ac5f359d185702806129d0863530d461b49bec69d61b7",
+    "anonymous_candidate": "A"
+  },
+  {
+    "model": "server-gemma4",
+    "mode": "raw6",
+    "id": "validation-1455",
+    "score": 4,
+    "note_cs": "C vynechává poděkování i jazykovou poznámku ze současného zdroje.",
+    "note_en": "C omits both thanks and the language annotation from the current source.",
+    "output_sha256": "c3f412de9e84f223f44ac5f359d185702806129d0863530d461b49bec69d61b7",
+    "anonymous_candidate": "A"
+  },
+  {
+    "model": "server-gemma4",
+    "mode": "raw16",
+    "id": "validation-1455",
+    "score": 4,
+    "note_cs": "C vynechává poděkování i jazykovou poznámku ze současného zdroje.",
+    "note_en": "C omits both thanks and the language annotation from the current source.",
+    "output_sha256": "c3f412de9e84f223f44ac5f359d185702806129d0863530d461b49bec69d61b7",
+    "anonymous_candidate": "A"
+  },
+  {
+    "model": "gpt-6-luna",
+    "mode": "prose",
+    "id": "validation-1455",
+    "score": 4,
+    "note_cs": "C vynechává poděkování i jazykovou poznámku ze současného zdroje.",
+    "note_en": "C omits both thanks and the language annotation from the current source.",
+    "output_sha256": "534d8cbdca1263d14c04cd3a6ab5726f2cf93c2d116ee6a6a4c86986192f0cb3",
+    "anonymous_candidate": "B"
+  },
+  {
+    "model": "gpt-6-luna",
+    "mode": "facts",
+    "id": "validation-1455",
+    "score": 4,
+    "note_cs": "C vynechává poděkování i jazykovou poznámku ze současného zdroje.",
+    "note_en": "C omits both thanks and the language annotation from the current source.",
+    "output_sha256": "534d8cbdca1263d14c04cd3a6ab5726f2cf93c2d116ee6a6a4c86986192f0cb3",
+    "anonymous_candidate": "B"
+  },
+  {
+    "model": "gpt-6-luna",
+    "mode": "baseline",
+    "id": "validation-1455",
+    "score": 4,
+    "note_cs": "C vynechává poděkování i jazykovou poznámku ze současného zdroje.",
+    "note_en": "C omits both thanks and the language annotation from the current source.",
+    "output_sha256": "534d8cbdca1263d14c04cd3a6ab5726f2cf93c2d116ee6a6a4c86986192f0cb3",
+    "anonymous_candidate": "B"
+  },
+  {
+    "model": "gpt-6-luna",
+    "mode": "raw6",
+    "id": "validation-1455",
+    "score": 4,
+    "note_cs": "C vynechává poděkování i jazykovou poznámku ze současného zdroje.",
+    "note_en": "C omits both thanks and the language annotation from the current source.",
+    "output_sha256": "534d8cbdca1263d14c04cd3a6ab5726f2cf93c2d116ee6a6a4c86986192f0cb3",
+    "anonymous_candidate": "B"
+  },
+  {
+    "model": "gpt-6-luna",
+    "mode": "raw16",
+    "id": "validation-1455",
+    "score": 4,
+    "note_cs": "C vynechává poděkování i jazykovou poznámku ze současného zdroje.",
+    "note_en": "C omits both thanks and the language annotation from the current source.",
+    "output_sha256": "534d8cbdca1263d14c04cd3a6ab5726f2cf93c2d116ee6a6a4c86986192f0cb3",
+    "anonymous_candidate": "B"
+  },
+  {
+    "model": "server-gemma4",
+    "mode": "baseline",
+    "id": "validation-1455",
+    "score": 2,
+    "note_cs": "C vynechává poděkování i jazykovou poznámku ze současného zdroje.",
+    "note_en": "C omits both thanks and the language annotation from the current source.",
+    "output_sha256": "0ac8e6e02a3f226cb35d8364b14b75a53fb44182fec74b038d2836b3138636aa",
+    "anonymous_candidate": "C"
+  },
+  {
+    "model": "server-gemma4",
+    "mode": "raw16",
+    "id": "validation-1456",
+    "score": 4,
+    "note_cs": "C vynechává poděkování a jazykovou poznámku; D z poznámky dělá oslovení Španěle.",
+    "note_en": "C omits thanks and the language annotation; D turns the annotation into addressing a Spaniard.",
+    "output_sha256": "c3f412de9e84f223f44ac5f359d185702806129d0863530d461b49bec69d61b7",
+    "anonymous_candidate": "A"
+  },
+  {
+    "model": "server-gemma4",
+    "mode": "prose",
+    "id": "validation-1456",
+    "score": 4,
+    "note_cs": "C vynechává poděkování a jazykovou poznámku; D z poznámky dělá oslovení Španěle.",
+    "note_en": "C omits thanks and the language annotation; D turns the annotation into addressing a Spaniard.",
+    "output_sha256": "c3f412de9e84f223f44ac5f359d185702806129d0863530d461b49bec69d61b7",
+    "anonymous_candidate": "A"
+  },
+  {
+    "model": "server-gemma4",
+    "mode": "facts",
+    "id": "validation-1456",
+    "score": 4,
+    "note_cs": "C vynechává poděkování a jazykovou poznámku; D z poznámky dělá oslovení Španěle.",
+    "note_en": "C omits thanks and the language annotation; D turns the annotation into addressing a Spaniard.",
+    "output_sha256": "534d8cbdca1263d14c04cd3a6ab5726f2cf93c2d116ee6a6a4c86986192f0cb3",
+    "anonymous_candidate": "B"
+  },
+  {
+    "model": "server-gemma4",
+    "mode": "raw6",
+    "id": "validation-1456",
+    "score": 4,
+    "note_cs": "C vynechává poděkování a jazykovou poznámku; D z poznámky dělá oslovení Španěle.",
+    "note_en": "C omits thanks and the language annotation; D turns the annotation into addressing a Spaniard.",
+    "output_sha256": "534d8cbdca1263d14c04cd3a6ab5726f2cf93c2d116ee6a6a4c86986192f0cb3",
+    "anonymous_candidate": "B"
+  },
+  {
+    "model": "gpt-6-luna",
+    "mode": "facts",
+    "id": "validation-1456",
+    "score": 4,
+    "note_cs": "C vynechává poděkování a jazykovou poznámku; D z poznámky dělá oslovení Španěle.",
+    "note_en": "C omits thanks and the language annotation; D turns the annotation into addressing a Spaniard.",
+    "output_sha256": "534d8cbdca1263d14c04cd3a6ab5726f2cf93c2d116ee6a6a4c86986192f0cb3",
+    "anonymous_candidate": "B"
+  },
+  {
+    "model": "gpt-6-luna",
+    "mode": "raw6",
+    "id": "validation-1456",
+    "score": 4,
+    "note_cs": "C vynechává poděkování a jazykovou poznámku; D z poznámky dělá oslovení Španěle.",
+    "note_en": "C omits thanks and the language annotation; D turns the annotation into addressing a Spaniard.",
+    "output_sha256": "534d8cbdca1263d14c04cd3a6ab5726f2cf93c2d116ee6a6a4c86986192f0cb3",
+    "anonymous_candidate": "B"
+  },
+  {
+    "model": "gpt-6-luna",
+    "mode": "raw16",
+    "id": "validation-1456",
+    "score": 4,
+    "note_cs": "C vynechává poděkování a jazykovou poznámku; D z poznámky dělá oslovení Španěle.",
+    "note_en": "C omits thanks and the language annotation; D turns the annotation into addressing a Spaniard.",
+    "output_sha256": "534d8cbdca1263d14c04cd3a6ab5726f2cf93c2d116ee6a6a4c86986192f0cb3",
+    "anonymous_candidate": "B"
+  },
+  {
+    "model": "gpt-6-luna",
+    "mode": "prose",
+    "id": "validation-1456",
+    "score": 4,
+    "note_cs": "C vynechává poděkování a jazykovou poznámku; D z poznámky dělá oslovení Španěle.",
+    "note_en": "C omits thanks and the language annotation; D turns the annotation into addressing a Spaniard.",
+    "output_sha256": "534d8cbdca1263d14c04cd3a6ab5726f2cf93c2d116ee6a6a4c86986192f0cb3",
+    "anonymous_candidate": "B"
+  },
+  {
+    "model": "server-gemma4",
+    "mode": "baseline",
+    "id": "validation-1456",
+    "score": 2,
+    "note_cs": "C vynechává poděkování a jazykovou poznámku; D z poznámky dělá oslovení Španěle.",
+    "note_en": "C omits thanks and the language annotation; D turns the annotation into addressing a Spaniard.",
+    "output_sha256": "0ac8e6e02a3f226cb35d8364b14b75a53fb44182fec74b038d2836b3138636aa",
+    "anonymous_candidate": "C"
+  },
+  {
+    "model": "gpt-6-luna",
+    "mode": "baseline",
+    "id": "validation-1456",
+    "score": 3,
+    "note_cs": "C vynechává poděkování a jazykovou poznámku; D z poznámky dělá oslovení Španěle.",
+    "note_en": "C omits thanks and the language annotation; D turns the annotation into addressing a Spaniard.",
+    "output_sha256": "322c8e5bb554b32a481e2b8d1119944359976c65134386ea4025c28100252a5d",
+    "anonymous_candidate": "D"
+  }
+]

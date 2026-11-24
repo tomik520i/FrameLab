@@ -1,0 +1,1982 @@
+[
+  {
+    "id": "validation-365",
+    "source": "Ah.",
+    "source_history": [
+      "You know she's, uh.. huh. She's interesting.",
+      "You know she's, uh... huh. She's interesting.",
+      "You know she's, uh.. huh. She's interesting.",
+      "You know she's, uh... huh. She's interesting.",
+      "You know she's, uh.. huh. She's interesting.",
+      "She has a lot of different hobbies.",
+      "She has a lot of different hobbies Yep.",
+      "She has a lot of different hobbies. Yep.",
+      "Yep.",
+      "Mind if I steal her for a sec, Lori?",
+      "Can't keep your hands off her, huh?",
+      "Thank you!",
+      "Wow, you know, I think I might not be good enough for you.",
+      "That's just her way.",
+      "Who is it?",
+      "It's my mom."
+    ],
+    "candidates": [
+      {
+        "candidate": "A",
+        "text": "Ach.",
+        "error": null
+      },
+      {
+        "candidate": "B",
+        "text": "Aha.",
+        "error": null
+      },
+      {
+        "candidate": "C",
+        "text": "Á.",
+        "error": null
+      },
+      {
+        "candidate": "D",
+        "text": "Á</a>",
+        "error": null
+      }
+    ]
+  },
+  {
+    "id": "validation-366",
+    "source": "Yeah. Just give me a sec. You.",
+    "source_history": [
+      "You know she's, uh... huh. She's interesting.",
+      "You know she's, uh.. huh. She's interesting.",
+      "You know she's, uh... huh. She's interesting.",
+      "You know she's, uh.. huh. She's interesting.",
+      "She has a lot of different hobbies.",
+      "She has a lot of different hobbies Yep.",
+      "She has a lot of different hobbies. Yep.",
+      "Yep.",
+      "Mind if I steal her for a sec, Lori?",
+      "Can't keep your hands off her, huh?",
+      "Thank you!",
+      "Wow, you know, I think I might not be good enough for you.",
+      "That's just her way.",
+      "Who is it?",
+      "It's my mom.",
+      "Ah."
+    ],
+    "candidates": [
+      {
+        "candidate": "A",
+        "text": "Jo. Jen mi chvíli dej. Ty.",
+        "error": null
+      },
+      {
+        "candidate": "B",
+        "text": "Jo. Dej mi chvilku. Ty.",
+        "error": null
+      },
+      {
+        "candidate": "C",
+        "text": "Jo. Jen mi chvilku dej. A ty?",
+        "error": null
+      }
+    ]
+  },
+  {
+    "id": "validation-367",
+    "source": "You just enjoy yourself. I'mma take it outside.",
+    "source_history": [
+      "You know she's, uh.. huh. She's interesting.",
+      "You know she's, uh... huh. She's interesting.",
+      "You know she's, uh.. huh. She's interesting.",
+      "She has a lot of different hobbies.",
+      "She has a lot of different hobbies Yep.",
+      "She has a lot of different hobbies. Yep.",
+      "Yep.",
+      "Mind if I steal her for a sec, Lori?",
+      "Can't keep your hands off her, huh?",
+      "Thank you!",
+      "Wow, you know, I think I might not be good enough for you.",
+      "That's just her way.",
+      "Who is it?",
+      "It's my mom.",
+      "Ah.",
+      "Yeah. Just give me a sec. You..."
+    ],
+    "candidates": [
+      {
+        "candidate": "A",
+        "text": "Ty si to jen užívej. Já to vyřídím venku.",
+        "error": null
+      },
+      {
+        "candidate": "B",
+        "text": "Ty si to užij. Já to vyřídím venku.",
+        "error": null
+      },
+      {
+        "candidate": "C",
+        "text": "Užij si to. Já to vyvedu ven.",
+        "error": null
+      },
+      {
+        "candidate": "D",
+        "text": "Ty si to užij. Já si to vyřídím venku.",
+        "error": null
+      },
+      {
+        "candidate": "E",
+        "text": "Ty se bav. Já to vyřídím venku.",
+        "error": null
+      },
+      {
+        "candidate": "F",
+        "text": "Už si jen užívej. Já se půjdu ven.",
+        "error": null
+      }
+    ]
+  },
+  {
+    "id": "validation-368",
+    "source": "You good?",
+    "source_history": [
+      "You know she's, uh... huh. She's interesting.",
+      "You know she's, uh.. huh. She's interesting.",
+      "She has a lot of different hobbies.",
+      "She has a lot of different hobbies Yep.",
+      "She has a lot of different hobbies. Yep.",
+      "Yep.",
+      "Mind if I steal her for a sec, Lori?",
+      "Can't keep your hands off her, huh?",
+      "Thank you!",
+      "Wow, you know, I think I might not be good enough for you.",
+      "That's just her way.",
+      "Who is it?",
+      "It's my mom.",
+      "Ah.",
+      "Yeah. Just give me a sec. You...",
+      "You just enjoy yourself. I'mma take it outside."
+    ],
+    "candidates": [
+      {
+        "candidate": "A",
+        "text": "Jsi v pohodě?",
+        "error": null
+      },
+      {
+        "candidate": "B",
+        "text": "V pořádku?",
+        "error": null
+      }
+    ]
+  },
+  {
+    "id": "validation-513",
+    "source": "Oh, I got moves, baby.",
+    "source_history": [
+      "Oh.",
+      "Come on!",
+      "Oh.",
+      "Come on!",
+      "Oh.",
+      "Come on!",
+      "Oh.",
+      "Come on!",
+      "Oh.",
+      "Come on!",
+      "Oh.",
+      "Come on!",
+      "Oh, come on, Jay!",
+      "You sure you're ready for this?",
+      "You sure you're ready for this?",
+      "Ah, show me what you got!"
+    ],
+    "candidates": [
+      {
+        "candidate": "A",
+        "text": "Ale já umím pěkně hýbat tělem, zlato.",
+        "error": null
+      },
+      {
+        "candidate": "B",
+        "text": "Jé, umím to rozjet, zlato.",
+        "error": null
+      },
+      {
+        "candidate": "C",
+        "text": "Jo, mám styl, zlato.",
+        "error": null
+      },
+      {
+        "candidate": "D",
+        "text": "Moment, mám styl, zlato.",
+        "error": null
+      },
+      {
+        "candidate": "E",
+        "text": "Jé, já umím pěkně hýbat tělem, zlato.",
+        "error": null
+      },
+      {
+        "candidate": "F",
+        "text": "Ó, mám styl, zlato.",
+        "error": null
+      },
+      {
+        "candidate": "G",
+        "text": "Mám styl, zlato.",
+        "error": null
+      }
+    ]
+  },
+  {
+    "id": "validation-514",
+    "source": "So dance up on me, white boy!",
+    "source_history": [
+      "Come on!",
+      "Oh.",
+      "Come on!",
+      "Oh, come on, Jay!",
+      "You sure you're ready for this?",
+      "You sure you're ready for this?",
+      "Ah, show me what you got!",
+      "Oh, I got moves, baby.",
+      "Ooh.",
+      "Oh, I got moves, baby.",
+      "Ooh.",
+      "Oh, I got moves, baby.",
+      "Ooh.",
+      "Oh, I got moves, baby.",
+      "Ooh.",
+      "Oh, I got moves, baby."
+    ],
+    "candidates": [
+      {
+        "candidate": "A",
+        "text": "Tak pojď na mě, bílej chlape!",
+        "error": null
+      },
+      {
+        "candidate": "B",
+        "text": "Tak tanec na mě, bílej chlape!",
+        "error": null
+      },
+      {
+        "candidate": "C",
+        "text": "Tak pojď na mě tancovat, bělochu!",
+        "error": null
+      },
+      {
+        "candidate": "D",
+        "text": "Tak pojď si na mě zkus dát tanec, bílej chlape!",
+        "error": null
+      },
+      {
+        "candidate": "E",
+        "text": "Tak pojď, zatancuj si se mnou, bělochu!",
+        "error": null
+      },
+      {
+        "candidate": "F",
+        "text": "Tak pojď na mě zatančit, bělochu!",
+        "error": null
+      },
+      {
+        "candidate": "G",
+        "text": "Tak pojď, bílý kluku, zatancuj si se mnou!",
+        "error": null
+      },
+      {
+        "candidate": "H",
+        "text": "Tak se na mě rozjeď, bělochu!",
+        "error": null
+      },
+      {
+        "candidate": "I",
+        "text": "Tak tanči přede mnou, bílej chlape!",
+        "error": null
+      },
+      {
+        "candidate": "J",
+        "text": "Tak tanec ke mně, bílej chlape!",
+        "error": null
+      }
+    ]
+  },
+  {
+    "id": "validation-515",
+    "source": "Woo! Don't hold back, mama. Go for it!",
+    "source_history": [
+      "Oh.",
+      "Come on!",
+      "Oh, come on, Jay!",
+      "You sure you're ready for this?",
+      "You sure you're ready for this?",
+      "Ah, show me what you got!",
+      "Oh, I got moves, baby.",
+      "Ooh.",
+      "Oh, I got moves, baby.",
+      "Ooh.",
+      "Oh, I got moves, baby.",
+      "Ooh.",
+      "Oh, I got moves, baby.",
+      "Ooh.",
+      "Oh, I got moves, baby.",
+      "So dance up on me, white boy!"
+    ],
+    "candidates": [
+      {
+        "candidate": "A",
+        "text": "Jó! Nešetři se, mami. Do toho!",
+        "error": null
+      },
+      {
+        "candidate": "B",
+        "text": "Jupí! Jen do toho, mami. Ukaž, co v tobě je!",
+        "error": null
+      },
+      {
+        "candidate": "C",
+        "text": "Jé! Nešetři mě, mami. Do toho!",
+        "error": null
+      },
+      {
+        "candidate": "D",
+        "text": "Woo! Nejezdi, mami. Do toho!",
+        "error": null
+      },
+      {
+        "candidate": "E",
+        "text": "Jú! Nešetři se, mami. Do toho!",
+        "error": null
+      },
+      {
+        "candidate": "F",
+        "text": "Woo! Nešetři to, mami. Jdi do toho!",
+        "error": null
+      },
+      {
+        "candidate": "G",
+        "text": "Woo! Nejezdržuj se, mami. Jdi do toho!",
+        "error": null
+      },
+      {
+        "candidate": "H",
+        "text": "Jó! Nešetři mě, mami. Do toho!",
+        "error": null
+      }
+    ]
+  },
+  {
+    "id": "validation-516",
+    "source": "Looking good, Jay.",
+    "source_history": [
+      "Oh, come on, Jay!",
+      "You sure you're ready for this?",
+      "You sure you're ready for this?",
+      "Ah, show me what you got!",
+      "Oh, I got moves, baby.",
+      "Ooh.",
+      "Oh, I got moves, baby.",
+      "Ooh.",
+      "Oh, I got moves, baby.",
+      "Ooh.",
+      "Oh, I got moves, baby.",
+      "Ooh.",
+      "Oh, I got moves, baby.",
+      "So dance up on me, white boy!",
+      "Woo! Don't hold back, mama. Go for it!",
+      "Patriot"
+    ],
+    "candidates": [
+      {
+        "candidate": "A",
+        "text": "Vypadá to dobře, Jay.",
+        "error": null
+      },
+      {
+        "candidate": "B",
+        "text": "Vypadáš dobře, Jayi.",
+        "error": null
+      },
+      {
+        "candidate": "C",
+        "text": "Vypadáš dobře, Jay.",
+        "error": null
+      }
+    ]
+  },
+  {
+    "id": "validation-685",
+    "source": "In Italian: You don't know if it has any diseases, leave it!",
+    "source_history": [
+      "Believe me.",
+      "Oh, my God!",
+      "Believe me.",
+      "She's so cute! Can I pet her?",
+      "K- Kat! Katerina!",
+      "In Italian: What is it?",
+      "In Italian: What the fuck are you doing? You're pregnant. Come on, cut it out.",
+      "In Italian: Mattia, are you crazy?",
+      "It's a pet!",
+      "In Italian: Are you cra-",
+      "It's a pet!",
+      "In Italian: Are you cra-",
+      "It's a pet!",
+      "In Italian: Are you cra-",
+      "It's a pet!",
+      "In Italian: Are you cra-"
+    ],
+    "candidates": [
+      {
+        "candidate": "A",
+        "text": "V italštině: Nevíš, jestli to nemá nějakou nemoc, nechej to!",
+        "error": null
+      },
+      {
+        "candidate": "B",
+        "text": "Italsky: Nevíš, jestli nemá nějakou nemoc, nech ho!",
+        "error": null
+      },
+      {
+        "candidate": "C",
+        "text": "V italštině: Nevíš, jestli je nakažená nějakou nemocí, tak ji nechej být!",
+        "error": null
+      },
+      {
+        "candidate": "D",
+        "text": "Nevíš, jestli nemá nějakou nemoc, nech ji!",
+        "error": null
+      },
+      {
+        "candidate": "E",
+        "text": "V italštině: Nevíš, jestli je nakažené nějakou nemocí, nechej to být!",
+        "error": null
+      },
+      {
+        "candidate": "F",
+        "text": "Italsky: Nevíš, jestli nemá nějakou nemoc. Nech ji!",
+        "error": null
+      },
+      {
+        "candidate": "G",
+        "text": "Nevíš, jestli nemá nějakou nemoc. Nech ji!",
+        "error": null
+      },
+      {
+        "candidate": "H",
+        "text": "Nevíš, jestli je to nakažené nějakou nemocí, nechej to být!",
+        "error": null
+      },
+      {
+        "candidate": "I",
+        "text": "V italštině: Nevíš, jestli nemá nějakou nemoc, nechej to být!",
+        "error": null
+      },
+      {
+        "candidate": "J",
+        "text": "Nevíš, jestli nemá nějakou nemoc, nech to být!",
+        "error": null
+      }
+    ]
+  },
+  {
+    "id": "validation-686",
+    "source": "Katerina!",
+    "source_history": [
+      "In Italian: Mattia, are you crazy?",
+      "It's a pet!",
+      "In Italian: Are you cra-",
+      "It's a pet!",
+      "In Italian: Are you cra-",
+      "It's a pet!",
+      "In Italian: Are you cra-",
+      "It's a pet!",
+      "In Italian: Are you cra-",
+      "In Italian: You don't know if it has any diseases, leave it!",
+      "In Italian: For God's sake!",
+      "In Italian: You don't know if it has any diseases, leave it!",
+      "In Italian: For God's sake!",
+      "In Italian: You don't know if it has any diseases, leave it!",
+      "In Italian: For God's sake!",
+      "In Italian: You don't know if it has any diseases, leave it!"
+    ],
+    "candidates": [
+      {
+        "candidate": "A",
+        "text": "Kateřino!",
+        "error": null
+      },
+      {
+        "candidate": "B",
+        "text": "Katerino!",
+        "error": null
+      }
+    ]
+  },
+  {
+    "id": "validation-687",
+    "source": "In Italian: Alright, alright.",
+    "source_history": [
+      "It's a pet!",
+      "In Italian: Are you cra-",
+      "It's a pet!",
+      "In Italian: Are you cra-",
+      "It's a pet!",
+      "In Italian: Are you cra-",
+      "In Italian: You don't know if it has any diseases, leave it!",
+      "In Italian: For God's sake!",
+      "In Italian: You don't know if it has any diseases, leave it!",
+      "In Italian: For God's sake!",
+      "In Italian: You don't know if it has any diseases, leave it!",
+      "In Italian: For God's sake!",
+      "In Italian: You don't know if it has any diseases, leave it!",
+      "Katerina!",
+      "In Italian: Come on!",
+      "Katerina!"
+    ],
+    "candidates": [
+      {
+        "candidate": "A",
+        "text": "Dobře, dobře.",
+        "error": null
+      },
+      {
+        "candidate": "B",
+        "text": "V italštině: Dobře, dobře.",
+        "error": null
+      },
+      {
+        "candidate": "C",
+        "text": "Italsky: Dobře, dobře.",
+        "error": null
+      }
+    ]
+  },
+  {
+    "id": "validation-688",
+    "source": "I'm sorry. probably best I don't.",
+    "source_history": [
+      "In Italian: Are you cra-",
+      "It's a pet!",
+      "In Italian: Are you cra-",
+      "It's a pet!",
+      "In Italian: Are you cra-",
+      "In Italian: You don't know if it has any diseases, leave it!",
+      "In Italian: For God's sake!",
+      "In Italian: You don't know if it has any diseases, leave it!",
+      "In Italian: For God's sake!",
+      "In Italian: You don't know if it has any diseases, leave it!",
+      "In Italian: For God's sake!",
+      "In Italian: You don't know if it has any diseases, leave it!",
+      "Katerina!",
+      "In Italian: Come on!",
+      "Katerina!",
+      "In Italian: Alright, alright."
+    ],
+    "candidates": [
+      {
+        "candidate": "A",
+        "text": "Promiň. Asi bude nejlepší, když nepůjdu.",
+        "error": null
+      },
+      {
+        "candidate": "B",
+        "text": "Omlouvám se. Pravděpodobně nejlepší, když to neudělám.",
+        "error": null
+      },
+      {
+        "candidate": "C",
+        "text": "Omlouvám se. Pravděpodobně je nejlepší, když to neudělám.",
+        "error": null
+      },
+      {
+        "candidate": "D",
+        "text": "Promiň. Asi bude nejlepší, když to neudělám.",
+        "error": null
+      }
+    ]
+  },
+  {
+    "id": "validation-753",
+    "source": "Nah, fuck that. If anybody leaves, it's gonna be these guys.",
+    "source_history": [
+      "Hey, ya'll can just skedaddle the fuck right on out of here.",
+      "We ain't friends no more, dipshit, got it?",
+      "VA",
+      "What's going on? Hey ladies, you might wanna convince your boyfriends",
+      "to get up off that table before something bad happens. Uh-uh, J-dog, you gonna take that?",
+      "Uh-uh, J-dog, you gonna take that? Uhh...",
+      "Uhh...",
+      "Yo, bro. Be cool, huh?",
+      "How 'bout you boys go get another round on me?",
+      "Oh yeah?",
+      "Sure. My name's Mattia.",
+      "Hear that? He wants to buy me a drink. I think he's sweet on me.",
+      "Hear that? He wants to buy me a drink I think he's sweet on me.",
+      "Hear that? He wants to buy me a drink. I think he's sweet on me. Yeah, I think he likes you.",
+      "Yeah, I think he likes you.",
+      "Maybe we should go..."
+    ],
+    "candidates": [
+      {
+        "candidate": "A",
+        "text": "Ne, na to kašlu. Jestli někdo odejde, budou to tihle.",
+        "error": null
+      },
+      {
+        "candidate": "B",
+        "text": "Ne, to mě je v píči. Jestli někdo odejde, tak tihle týpky.",
+        "error": null
+      },
+      {
+        "candidate": "C",
+        "text": "Ani náhodou. Jestli někdo odejde, tak tihle týpci.",
+        "error": null
+      },
+      {
+        "candidate": "D",
+        "text": "Ne, to mě nezajímá. Jestli někdo odejde, tak tihle týpky.",
+        "error": null
+      },
+      {
+        "candidate": "E",
+        "text": "Ne, na to kašlu. Jestli někdo odejde, tak tihle.",
+        "error": null
+      },
+      {
+        "candidate": "F",
+        "text": "Ne, to mě nezajímá. Jestli někdo odejde, tak tihle chlapi.",
+        "error": null
+      }
+    ]
+  },
+  {
+    "id": "validation-754",
+    "source": "Ooh! Dainty form, man! Dainty form.",
+    "source_history": [
+      "We ain't friends no more, dipshit, got it?",
+      "VA",
+      "What's going on? Hey ladies, you might wanna convince your boyfriends",
+      "to get up off that table before something bad happens. Uh-uh, J-dog, you gonna take that?",
+      "Uh-uh, J-dog, you gonna take that? Uhh...",
+      "Uhh...",
+      "Yo, bro. Be cool, huh?",
+      "How 'bout you boys go get another round on me?",
+      "Oh yeah?",
+      "Sure. My name's Mattia.",
+      "Hear that? He wants to buy me a drink. I think he's sweet on me.",
+      "Hear that? He wants to buy me a drink I think he's sweet on me.",
+      "Hear that? He wants to buy me a drink. I think he's sweet on me. Yeah, I think he likes you.",
+      "Yeah, I think he likes you.",
+      "Maybe we should go...",
+      "Nah, fuck that. If anybody leaves, it's gonna be these guys."
+    ],
+    "candidates": [
+      {
+        "candidate": "A",
+        "text": "Ooh! Jemná postava, kámo! Jemná postava.",
+        "error": null
+      },
+      {
+        "candidate": "B",
+        "text": "Jé! To je ale ladná postava, chlape! Ladná postava.",
+        "error": null
+      },
+      {
+        "candidate": "C",
+        "text": "Jé! To je ale ladná postava, člověče! Ladná postava.",
+        "error": null
+      },
+      {
+        "candidate": "D",
+        "text": "Ooo! Jemná postava, man! Jemná postava.",
+        "error": null
+      },
+      {
+        "candidate": "E",
+        "text": "Jé! To je ale ladná forma, kámo! Ladná forma.",
+        "error": null
+      }
+    ]
+  },
+  {
+    "id": "validation-755",
+    "source": "The fuck is this?",
+    "source_history": [
+      "VA",
+      "What's going on? Hey ladies, you might wanna convince your boyfriends",
+      "to get up off that table before something bad happens. Uh-uh, J-dog, you gonna take that?",
+      "Uh-uh, J-dog, you gonna take that? Uhh...",
+      "Uhh...",
+      "Yo, bro. Be cool, huh?",
+      "How 'bout you boys go get another round on me?",
+      "Oh yeah?",
+      "Sure. My name's Mattia.",
+      "Hear that? He wants to buy me a drink. I think he's sweet on me.",
+      "Hear that? He wants to buy me a drink I think he's sweet on me.",
+      "Hear that? He wants to buy me a drink. I think he's sweet on me. Yeah, I think he likes you.",
+      "Yeah, I think he likes you.",
+      "Maybe we should go...",
+      "Nah, fuck that. If anybody leaves, it's gonna be these guys.",
+      "Ooh! Dainty form, man! Dainty form."
+    ],
+    "candidates": [
+      {
+        "candidate": "A",
+        "text": "Co to sakra je?",
+        "error": null
+      },
+      {
+        "candidate": "B",
+        "text": "Co to kurva je?",
+        "error": null
+      },
+      {
+        "candidate": "C",
+        "text": "Co je to sakra za věc?",
+        "error": null
+      },
+      {
+        "candidate": "D",
+        "text": "Co je to za píčovinu?",
+        "error": null
+      },
+      {
+        "candidate": "E",
+        "text": "Co to je za píčovinu?",
+        "error": null
+      }
+    ]
+  },
+  {
+    "id": "validation-756",
+    "source": "Oh, guessing that's D-man.",
+    "source_history": [
+      "What's going on? Hey ladies, you might wanna convince your boyfriends",
+      "to get up off that table before something bad happens. Uh-uh, J-dog, you gonna take that?",
+      "Uh-uh, J-dog, you gonna take that? Uhh...",
+      "Uhh...",
+      "Yo, bro. Be cool, huh?",
+      "How 'bout you boys go get another round on me?",
+      "Oh yeah?",
+      "Sure. My name's Mattia.",
+      "Hear that? He wants to buy me a drink. I think he's sweet on me.",
+      "Hear that? He wants to buy me a drink I think he's sweet on me.",
+      "Hear that? He wants to buy me a drink. I think he's sweet on me. Yeah, I think he likes you.",
+      "Yeah, I think he likes you.",
+      "Maybe we should go...",
+      "Nah, fuck that. If anybody leaves, it's gonna be these guys.",
+      "Ooh! Dainty form, man! Dainty form.",
+      "The fuck is this?"
+    ],
+    "candidates": [
+      {
+        "candidate": "A",
+        "text": "Takže to musí být D-man.",
+        "error": null
+      },
+      {
+        "candidate": "B",
+        "text": "Aha, hádám, že to je D-man.",
+        "error": null
+      },
+      {
+        "candidate": "C",
+        "text": "Tak to musí být D-man.",
+        "error": null
+      },
+      {
+        "candidate": "D",
+        "text": "Jo, hádám, že to je D-man.",
+        "error": null
+      },
+      {
+        "candidate": "E",
+        "text": "Takže to musí být ten D-man.",
+        "error": null
+      }
+    ]
+  },
+  {
+    "id": "validation-845",
+    "source": "Oh,shit!",
+    "source_history": [
+      "if you use your imagination...",
+      "It could really be something, you know.",
+      "Hey! No.",
+      "We don't touch that light switch.",
+      "No.",
+      "No?",
+      "No.",
+      "No?",
+      "No.",
+      "No?",
+      "No.",
+      "No?",
+      "What happens if I flip the switch?",
+      "Bad things.",
+      "I kinda wanna do it now.",
+      "Don't do it."
+    ],
+    "candidates": [
+      {
+        "candidate": "A",
+        "text": "Ty krávo!",
+        "error": null
+      },
+      {
+        "candidate": "B",
+        "text": "Sakra!",
+        "error": null
+      },
+      {
+        "candidate": "C",
+        "text": "Ale, sakra!",
+        "error": null
+      },
+      {
+        "candidate": "D",
+        "text": "Ty vole!",
+        "error": null
+      },
+      {
+        "candidate": "E",
+        "text": "Do prdele!",
+        "error": null
+      }
+    ]
+  },
+  {
+    "id": "validation-846",
+    "source": "What's this?",
+    "source_history": [
+      "Hey! No.",
+      "We don't touch that light switch.",
+      "No.",
+      "No?",
+      "No.",
+      "No?",
+      "No.",
+      "No?",
+      "No.",
+      "No?",
+      "What happens if I flip the switch?",
+      "Bad things.",
+      "I kinda wanna do it now.",
+      "Don't do it.",
+      "Oh,shit!",
+      "Oh, shit!"
+    ],
+    "candidates": [
+      {
+        "candidate": "A",
+        "text": "Co je tohle?",
+        "error": null
+      },
+      {
+        "candidate": "B",
+        "text": "Co je to?",
+        "error": null
+      }
+    ]
+  },
+  {
+    "id": "validation-847",
+    "source": "Oh, that?",
+    "source_history": [
+      "We don't touch that light switch.",
+      "No.",
+      "No?",
+      "No.",
+      "No?",
+      "No.",
+      "No?",
+      "No.",
+      "No?",
+      "What happens if I flip the switch?",
+      "Bad things.",
+      "I kinda wanna do it now.",
+      "Don't do it.",
+      "Oh,shit!",
+      "Oh, shit!",
+      "What's this?"
+    ],
+    "candidates": [
+      {
+        "candidate": "A",
+        "text": "Aha, tohle?",
+        "error": null
+      },
+      {
+        "candidate": "B",
+        "text": "To?",
+        "error": null
+      },
+      {
+        "candidate": "C",
+        "text": "To je ono?",
+        "error": null
+      }
+    ]
+  },
+  {
+    "id": "validation-848",
+    "source": "It's just something I picked up.",
+    "source_history": [
+      "No?",
+      "No.",
+      "No?",
+      "No.",
+      "No?",
+      "No.",
+      "No?",
+      "What happens if I flip the switch?",
+      "Bad things.",
+      "I kinda wanna do it now.",
+      "Don't do it.",
+      "Oh,shit!",
+      "Oh, shit!",
+      "What's this?",
+      "Oh, that?",
+      "DE"
+    ],
+    "candidates": [
+      {
+        "candidate": "A",
+        "text": "To jsem jen tak pochytil.",
+        "error": null
+      },
+      {
+        "candidate": "B",
+        "text": "To je jen něco, co jsem pochytil.",
+        "error": null
+      },
+      {
+        "candidate": "C",
+        "text": "To je jen něco, co jsem někde sehnal.",
+        "error": null
+      },
+      {
+        "candidate": "D",
+        "text": "To je jen něco, co jsem někde sebral.",
+        "error": null
+      },
+      {
+        "candidate": "E",
+        "text": "Jen jsem to někam našel.",
+        "error": null
+      },
+      {
+        "candidate": "F",
+        "text": "Jen jsem to zrovna zvedl.",
+        "error": null
+      },
+      {
+        "candidate": "G",
+        "text": "To jsem jen tak někde sebral.",
+        "error": null
+      },
+      {
+        "candidate": "H",
+        "text": "Jen jsem to někam zvedl.",
+        "error": null
+      }
+    ]
+  },
+  {
+    "id": "validation-941",
+    "source": "CLOSE",
+    "source_history": [
+      "Here, fishy, fishy. fishy! Ah..",
+      "SELL STASH BAG (+$960)",
+      "Urgh. Urgh...",
+      "NAL",
+      "NN",
+      "Pa",
+      "SELL STASH BAG (+",
+      "SELL STASH",
+      "SELL STAS",
+      "SELL STASH",
+      "SELL S",
+      "Naga",
+      "SELL STASH BAG (+$0)",
+      "SYW",
+      "LI",
+      "Z1"
+    ],
+    "candidates": [
+      {
+        "candidate": "A",
+        "text": "ZAVŘÍT",
+        "error": null
+      }
+    ]
+  },
+  {
+    "id": "validation-942",
+    "source": "Y'ello, Joey's.",
+    "source_history": [
+      "SELL STASH BAG (+$960)",
+      "Urgh. Urgh...",
+      "NAL",
+      "NN",
+      "Pa",
+      "SELL STASH BAG (+",
+      "SELL STASH",
+      "SELL STAS",
+      "SELL STASH",
+      "SELL S",
+      "Naga",
+      "SELL STASH BAG (+$0)",
+      "SYW",
+      "LI",
+      "Z1",
+      "CLOSE"
+    ],
+    "candidates": [
+      {
+        "candidate": "A",
+        "text": "Ahoj, Joey's.",
+        "error": null
+      },
+      {
+        "candidate": "B",
+        "text": "Haló, tady Joey.",
+        "error": null
+      },
+      {
+        "candidate": "C",
+        "text": "Ahoj, u Joeyů.",
+        "error": null
+      },
+      {
+        "candidate": "D",
+        "text": "Haló, Joey's.",
+        "error": null
+      },
+      {
+        "candidate": "E",
+        "text": "Ahoj, u Joeyho.",
+        "error": null
+      },
+      {
+        "candidate": "F",
+        "text": "Haló, tady Joey's.",
+        "error": null
+      }
+    ]
+  },
+  {
+    "id": "validation-943",
+    "source": "Hey man, it's Jason. You said you could help out if I hit some trouble with the car?",
+    "source_history": [
+      "Urgh. Urgh...",
+      "NAL",
+      "NN",
+      "Pa",
+      "SELL STASH BAG (+",
+      "SELL STASH",
+      "SELL STAS",
+      "SELL STASH",
+      "SELL S",
+      "Naga",
+      "SELL STASH BAG (+$0)",
+      "SYW",
+      "LI",
+      "Z1",
+      "CLOSE",
+      "Y'ello, Joey's."
+    ],
+    "candidates": [
+      {
+        "candidate": "A",
+        "text": "Ahoj, já je Jason. Říkal jsi, že mi pomůžeš, když budu mít problém s autem?",
+        "error": null
+      },
+      {
+        "candidate": "B",
+        "text": "Ahoj, tady Jason. Říkal jsi, že mi pomůžeš, když budu mít problém s autem?",
+        "error": null
+      },
+      {
+        "candidate": "C",
+        "text": "Čau kámo, tady Jason. Říkal jsi, že mi pomůžeš, když budu mít problém s autem?",
+        "error": null
+      },
+      {
+        "candidate": "D",
+        "text": "Ahoj, tady Jason. Říkal jsi, že mi můžeš pomoct, kdybych měl s autem nějaké potíže?",
+        "error": null
+      },
+      {
+        "candidate": "E",
+        "text": "Hej, tady Jason. Říkal jsi, že mi pomůžeš, když budu mít problém s autem?",
+        "error": null
+      },
+      {
+        "candidate": "F",
+        "text": "Čau, tady Jason. Říkal jsi, že mi můžeš pomoct, kdybych měl s autem nějaké potíže?",
+        "error": null
+      },
+      {
+        "candidate": "G",
+        "text": "Čau man, tady Jason. Říkal jsi, že mi pomůžeš, když budu mít problém s autem?",
+        "error": null
+      }
+    ]
+  },
+  {
+    "id": "validation-944",
+    "source": "Yeah, sure thing, man. Do it for Donnie all the time.",
+    "source_history": [
+      "NAL",
+      "NN",
+      "Pa",
+      "SELL STASH BAG (+",
+      "SELL STASH",
+      "SELL STAS",
+      "SELL STASH",
+      "SELL S",
+      "Naga",
+      "SELL STASH BAG (+$0)",
+      "SYW",
+      "LI",
+      "Z1",
+      "CLOSE",
+      "Y'ello, Joey's.",
+      "Hey man, it's Jason. You said you could help out if I hit some trouble with the car?"
+    ],
+    "candidates": [
+      {
+        "candidate": "A",
+        "text": "Jo, jasně, kámo. Vždycky to dělám pro Donnyho.",
+        "error": null
+      },
+      {
+        "candidate": "B",
+        "text": "Jo, jasně, kámo. Pro Donnieho to dělám pořád.",
+        "error": null
+      },
+      {
+        "candidate": "C",
+        "text": "Jo, jasná věc, kámo. Dělám to pro Donnyho pořád.",
+        "error": null
+      },
+      {
+        "candidate": "D",
+        "text": "Jo, jasně kámo. Vždycky to dělám pro Donnyho.",
+        "error": null
+      },
+      {
+        "candidate": "E",
+        "text": "Jo, jasně kámo. Vždycky to dělám pro Donnii.",
+        "error": null
+      },
+      {
+        "candidate": "F",
+        "text": "Jo, jasně, kámo. Pro Donny to dělám pořád.",
+        "error": null
+      }
+    ]
+  },
+  {
+    "id": "validation-977",
+    "source": "Yeah, my girl needs one, too. She just got out of prison.",
+    "source_history": [
+      "Are you looking to move to Fleeca?",
+      "FLEECA",
+      "Are you looking to move to Fleeca?",
+      "FLEECA",
+      "Are you looking to move to Fleeca?",
+      "FLCCA",
+      "AN",
+      "FLCCUA",
+      "Move? No, it's a new account. I don't have one, right now.",
+      "You don't have a bank account?",
+      "They tried to set me up with one when I got discharged,",
+      "but I didn't do it, so...",
+      "Here I am.",
+      "Right.",
+      "Here's some ID.",
+      "Jay!"
+    ],
+    "candidates": [
+      {
+        "candidate": "A",
+        "text": "Jo, i moje holka jeden potřebuje. Právě vyšla z vězení.",
+        "error": null
+      },
+      {
+        "candidate": "B",
+        "text": "Jo, moje holka taky jeden potřebuje. Právě vyšla z vězení.",
+        "error": null
+      },
+      {
+        "candidate": "C",
+        "text": "Jo, moje holka ho taky potřebuje. Právě ji pustili z vězení.",
+        "error": null
+      },
+      {
+        "candidate": "D",
+        "text": "Jo, moje holka taky jednu potřebuje. Právě ji pustili z vězení.",
+        "error": null
+      }
+    ]
+  },
+  {
+    "id": "validation-978",
+    "source": "It's the release program, you might've heard of it.",
+    "source_history": [
+      "FLEECA",
+      "Are you looking to move to Fleeca?",
+      "FLEECA",
+      "Are you looking to move to Fleeca?",
+      "FLCCA",
+      "AN",
+      "FLCCUA",
+      "Move? No, it's a new account. I don't have one, right now.",
+      "You don't have a bank account?",
+      "They tried to set me up with one when I got discharged,",
+      "but I didn't do it, so...",
+      "Here I am.",
+      "Right.",
+      "Here's some ID.",
+      "Jay!",
+      "Yeah, my girl needs one, too. She just got out of prison."
+    ],
+    "candidates": [
+      {
+        "candidate": "A",
+        "text": "Je to program pro propuštěné, možná jste o něm slyšeli.",
+        "error": null
+      },
+      {
+        "candidate": "B",
+        "text": "Je to program pro propuštěné, možná jste o něm slyšel.",
+        "error": null
+      },
+      {
+        "candidate": "C",
+        "text": "Je to ten uvolňovací program, možná jsi o něm slyšel.",
+        "error": null
+      },
+      {
+        "candidate": "D",
+        "text": "Je to program pro propouštěné, možná jste o něm slyšeli.",
+        "error": null
+      },
+      {
+        "candidate": "E",
+        "text": "Je to program pro propuštěné, možná už jsi o něm slyšel.",
+        "error": null
+      }
+    ]
+  },
+  {
+    "id": "validation-979",
+    "source": "You tell him?",
+    "source_history": [
+      "FLEECA",
+      "Are you looking to move to Fleeca?",
+      "FLCCA",
+      "AN",
+      "FLCCUA",
+      "Move? No, it's a new account. I don't have one, right now.",
+      "You don't have a bank account?",
+      "They tried to set me up with one when I got discharged,",
+      "but I didn't do it, so...",
+      "Here I am.",
+      "Right.",
+      "Here's some ID.",
+      "Jay!",
+      "Yeah, my girl needs one, too. She just got out of prison.",
+      "It's the release program, you might've heard of it.",
+      "What?"
+    ],
+    "candidates": [
+      {
+        "candidate": "A",
+        "text": "Řekl jsi mu to?",
+        "error": null
+      },
+      {
+        "candidate": "B",
+        "text": "Řekneš mu to?",
+        "error": null
+      },
+      {
+        "candidate": "C",
+        "text": "Ty mu to řekneš?",
+        "error": null
+      }
+    ]
+  },
+  {
+    "id": "validation-980",
+    "source": "On top of the accounts, we wanna see if we can get a loan,",
+    "source_history": [
+      "Move? No, it's a new account. I don't have one, right now.",
+      "You don't have a bank account?",
+      "They tried to set me up with one when I got discharged,",
+      "but I didn't do it, so...",
+      "Here I am.",
+      "Right.",
+      "Here's some ID.",
+      "Jay!",
+      "Yeah, my girl needs one, too. She just got out of prison.",
+      "It's the release program, you might've heard of it.",
+      "What?",
+      "You tell him?",
+      "What?",
+      "You tell him?",
+      "What?",
+      "You tell him?"
+    ],
+    "candidates": [
+      {
+        "candidate": "A",
+        "text": "Kromě účtů bychom chtěli vědět, jestli si můžeme vzít půjčku,",
+        "error": null
+      },
+      {
+        "candidate": "B",
+        "text": "Kromě účtů chceme vidět, jestli si můžeme vzít půjčku,",
+        "error": null
+      },
+      {
+        "candidate": "C",
+        "text": "Kromě účtů chceme zjistit, jestli můžeme dostat půjčku,",
+        "error": null
+      },
+      {
+        "candidate": "D",
+        "text": "Kromě těch účtů chceme zjistit, jestli můžeme získat půjčku,",
+        "error": null
+      },
+      {
+        "candidate": "E",
+        "text": "Kromě účtů chceme vědět, jestli si můžeme vzít půjčku,",
+        "error": null
+      },
+      {
+        "candidate": "F",
+        "text": "Kromě účtů chceme zjistit, jestli můžeme získat půjčku,",
+        "error": null
+      },
+      {
+        "candidate": "G",
+        "text": "Kromě těch účtů chceme zjistit, jestli bychom mohli dostat půjčku,",
+        "error": null
+      },
+      {
+        "candidate": "H",
+        "text": "Kromě těch účtů chceme vidět, jestli se nám podaří vzít půjčku,",
+        "error": null
+      }
+    ]
+  },
+  {
+    "id": "validation-1041",
+    "source": "Oh, shit. Yeah.",
+    "source_history": [
+      "Uh, no.",
+      "See? He's just like you.",
+      "Uh, no.",
+      "See? He's just like you.",
+      "Uh, no.",
+      "See? He's just like you.",
+      "Yeah, yeah.",
+      "Tommy's gettin' so big.",
+      "Yeah, he's not a baby anymore.",
+      "He's almost a little boy.",
+      "Can't believe I'm missing all of this.",
+      "Nine months'll go quick.",
+      "As soon as we can travel,",
+      "we'll be in a car going up to Liberty State.",
+      "Should call your aunt, check in.",
+      "Nah, it's too late."
+    ],
+    "candidates": [
+      {
+        "candidate": "A",
+        "text": "Ale, sakra. Jo.",
+        "error": null
+      },
+      {
+        "candidate": "B",
+        "text": "Sakra. Jo.",
+        "error": null
+      },
+      {
+        "candidate": "C",
+        "text": "Ach, sakra. Jo.",
+        "error": null
+      },
+      {
+        "candidate": "D",
+        "text": "Ty vole. Jo.",
+        "error": null
+      },
+      {
+        "candidate": "E",
+        "text": "Do prdele. Jo.",
+        "error": null
+      }
+    ]
+  },
+  {
+    "id": "validation-1042",
+    "source": "Fuck the banks, right?",
+    "source_history": [
+      "See? He's just like you.",
+      "Uh, no.",
+      "See? He's just like you.",
+      "Uh, no.",
+      "See? He's just like you.",
+      "Yeah, yeah.",
+      "Tommy's gettin' so big.",
+      "Yeah, he's not a baby anymore.",
+      "He's almost a little boy.",
+      "Can't believe I'm missing all of this.",
+      "Nine months'll go quick.",
+      "As soon as we can travel,",
+      "we'll be in a car going up to Liberty State.",
+      "Should call your aunt, check in.",
+      "Nah, it's too late.",
+      "Oh, shit. Yeah."
+    ],
+    "candidates": [
+      {
+        "candidate": "A",
+        "text": "Do hajzlu s těmi bankami, že?",
+        "error": null
+      },
+      {
+        "candidate": "B",
+        "text": "Do hajdu banky, že?",
+        "error": null
+      },
+      {
+        "candidate": "C",
+        "text": "Do prdele s těmi bankami, co?",
+        "error": null
+      },
+      {
+        "candidate": "D",
+        "text": "Kašlat na banky, co?",
+        "error": null
+      },
+      {
+        "candidate": "E",
+        "text": "Do hajdu ty banky, že?",
+        "error": null
+      },
+      {
+        "candidate": "F",
+        "text": "Do prdele s těmi bankami, že?",
+        "error": null
+      }
+    ]
+  },
+  {
+    "id": "validation-1043",
+    "source": "Yeah, fuck the banks.",
+    "source_history": [
+      "Uh, no.",
+      "See? He's just like you.",
+      "Uh, no.",
+      "See? He's just like you.",
+      "Yeah, yeah.",
+      "Tommy's gettin' so big.",
+      "Yeah, he's not a baby anymore.",
+      "He's almost a little boy.",
+      "Can't believe I'm missing all of this.",
+      "Nine months'll go quick.",
+      "As soon as we can travel,",
+      "we'll be in a car going up to Liberty State.",
+      "Should call your aunt, check in.",
+      "Nah, it's too late.",
+      "Oh, shit. Yeah.",
+      "Fuck the banks, right?"
+    ],
+    "candidates": [
+      {
+        "candidate": "A",
+        "text": "Jo, ty banky jsou v prdeli.",
+        "error": null
+      },
+      {
+        "candidate": "B",
+        "text": "Jo, jeba na ty banky.",
+        "error": null
+      },
+      {
+        "candidate": "C",
+        "text": "Jo, na banky se můžu vysrat.",
+        "error": null
+      },
+      {
+        "candidate": "D",
+        "text": "Jo, do prdele s těmi bankami.",
+        "error": null
+      },
+      {
+        "candidate": "E",
+        "text": "Jo, na banky se můžou vysrat.",
+        "error": null
+      },
+      {
+        "candidate": "F",
+        "text": "Jo, banky jsou v píči.",
+        "error": null
+      }
+    ]
+  },
+  {
+    "id": "validation-1044",
+    "source": "So, BuckMe, right?",
+    "source_history": [
+      "See? He's just like you.",
+      "Uh, no.",
+      "See? He's just like you.",
+      "Yeah, yeah.",
+      "Tommy's gettin' so big.",
+      "Yeah, he's not a baby anymore.",
+      "He's almost a little boy.",
+      "Can't believe I'm missing all of this.",
+      "Nine months'll go quick.",
+      "As soon as we can travel,",
+      "we'll be in a car going up to Liberty State.",
+      "Should call your aunt, check in.",
+      "Nah, it's too late.",
+      "Oh, shit. Yeah.",
+      "Fuck the banks, right?",
+      "Yeah, fuck the banks."
+    ],
+    "candidates": [
+      {
+        "candidate": "A",
+        "text": "Takže, BuckMe, že ano?",
+        "error": null
+      },
+      {
+        "candidate": "B",
+        "text": "Takže, BuckMe, jo?",
+        "error": null
+      },
+      {
+        "candidate": "C",
+        "text": "Takže BuckMe, že?",
+        "error": null
+      },
+      {
+        "candidate": "D",
+        "text": "Takže, BuckMe, co?",
+        "error": null
+      },
+      {
+        "candidate": "E",
+        "text": "Takže, BuckMe, že?",
+        "error": null
+      },
+      {
+        "candidate": "F",
+        "text": "Takže, Bucku, co?",
+        "error": null
+      }
+    ]
+  },
+  {
+    "id": "validation-1425",
+    "source": "Uh, copy. yeah, we see you at point E5, we'll move off to zone B7, North Maroon Key.",
+    "source_history": [
+      "We got a new broker.. 'cause the old broker... well it's complicated.",
+      "We got a new broker... 'cause the old broker... well, it's complicated.",
+      "You mean, since you and Donnie got caught skimming?",
+      "Shit.",
+      "Yeah, Cal told me.",
+      "Goddamn.",
+      "It's cool, this is a new broker, fresh start, right?",
+      "Yeah.",
+      "So, how does it work exactly?",
+      "You know, pricing, payment, fees, and this broker guy...",
+      "how much does he make?",
+      "Slow down. Brian handles all that.",
+      "Our job is just to get the shit,",
+      "deliver it and keep an eye out for the coast guard.",
+      "We're basically strapped delivery men, you got it?",
+      "Mmhmm. Got it."
+    ],
+    "candidates": [
+      {
+        "candidate": "A",
+        "text": "Jasně, vidíme vás v bodě E5, přesuneme se do zóny B7, North Maroon Key.",
+        "error": null
+      },
+      {
+        "candidate": "B",
+        "text": "Ehm, rozumím. Vidíme vás u bodu E5, přesuneme se do zóny B7, North Maroon Key.",
+        "error": null
+      },
+      {
+        "candidate": "C",
+        "text": "Rozumím, vidíme vás v bodě E5, přesouváme se do zóny B7, North Maroon Key.",
+        "error": null
+      },
+      {
+        "candidate": "D",
+        "text": "Jasně, přijímám. Vidíme vás v bodě E5, přesuneme se do zóny B7, North Maroon Key.",
+        "error": null
+      },
+      {
+        "candidate": "E",
+        "text": "Ehm, rozumím. Jo, vidíme vás v bodě E5, přesuneme se do zóny B7, North Maroon Key.",
+        "error": null
+      },
+      {
+        "candidate": "F",
+        "text": "Ehm, rozumím. Jo, vidíme vás na bodě E5. Přesuneme se do zóny B7, North Maroon Key.",
+        "error": null
+      },
+      {
+        "candidate": "G",
+        "text": "Ehm, rozumím. Jo, vidíme vás na bodě E5, přesuneme se do zóny B7, North Maroon Key.",
+        "error": null
+      },
+      {
+        "candidate": "H",
+        "text": "Jasně, vidíme vás v bodě E5, přesouváme se do zóny B7, North Maroon Key.",
+        "error": null
+      }
+    ]
+  },
+  {
+    "id": "validation-1426",
+    "source": "That's got to be them. I'm gonna land.",
+    "source_history": [
+      "You mean, since you and Donnie got caught skimming?",
+      "Shit.",
+      "Yeah, Cal told me.",
+      "Goddamn.",
+      "It's cool, this is a new broker, fresh start, right?",
+      "Yeah.",
+      "So, how does it work exactly?",
+      "You know, pricing, payment, fees, and this broker guy...",
+      "how much does he make?",
+      "Slow down. Brian handles all that.",
+      "Our job is just to get the shit,",
+      "deliver it and keep an eye out for the coast guard.",
+      "We're basically strapped delivery men, you got it?",
+      "Mmhmm. Got it.",
+      "Uh, copy. yeah, we see you at point E5, we'll move off to zone B7, North Maroon Key.",
+      "Uh, copy. yeah, we see you at point E5, we'll move off to zone B7. North Maroon Key."
+    ],
+    "candidates": [
+      {
+        "candidate": "A",
+        "text": "To musí být oni. Přistanu.",
+        "error": null
+      },
+      {
+        "candidate": "B",
+        "text": "Musí to být oni. Budu přistát.",
+        "error": null
+      },
+      {
+        "candidate": "C",
+        "text": "Musí to být oni. Budu přistávat.",
+        "error": null
+      },
+      {
+        "candidate": "D",
+        "text": "To musí být oni. Jdu přistát.",
+        "error": null
+      }
+    ]
+  },
+  {
+    "id": "validation-1427",
+    "source": "Okay. Looks like all the rest of the boats to me.",
+    "source_history": [
+      "Shit.",
+      "Yeah, Cal told me.",
+      "Goddamn.",
+      "It's cool, this is a new broker, fresh start, right?",
+      "Yeah.",
+      "So, how does it work exactly?",
+      "You know, pricing, payment, fees, and this broker guy...",
+      "how much does he make?",
+      "Slow down. Brian handles all that.",
+      "Our job is just to get the shit,",
+      "deliver it and keep an eye out for the coast guard.",
+      "We're basically strapped delivery men, you got it?",
+      "Mmhmm. Got it.",
+      "Uh, copy. yeah, we see you at point E5, we'll move off to zone B7, North Maroon Key.",
+      "Uh, copy. yeah, we see you at point E5, we'll move off to zone B7. North Maroon Key.",
+      "That's got to be them. I'm gonna land."
+    ],
+    "candidates": [
+      {
+        "candidate": "A",
+        "text": "Dobře. Vypadá to, že všechny ostatní lodě jsou podle mě v pořádku.",
+        "error": null
+      },
+      {
+        "candidate": "B",
+        "text": "Dobře. Vypadá to, že všechny ostatní lodě jsou tady.",
+        "error": null
+      },
+      {
+        "candidate": "C",
+        "text": "Dobře. Vypadá to, že všechny ostatní lodě jsou moje.",
+        "error": null
+      },
+      {
+        "candidate": "D",
+        "text": "Dobře. Vypadá to, že jsou to všechny ostatní lodě.",
+        "error": null
+      },
+      {
+        "candidate": "E",
+        "text": "Dobře. Vypadá to, že to jsou všechny ostatní lodě.",
+        "error": null
+      },
+      {
+        "candidate": "F",
+        "text": "Dobře. Vypadá to, že všechny ostatní lodě jsou tam.",
+        "error": null
+      }
+    ]
+  },
+  {
+    "id": "validation-1428",
+    "source": "Yo, you got a spare piece?",
+    "source_history": [
+      "Yeah, Cal told me.",
+      "Goddamn.",
+      "It's cool, this is a new broker, fresh start, right?",
+      "Yeah.",
+      "So, how does it work exactly?",
+      "You know, pricing, payment, fees, and this broker guy...",
+      "how much does he make?",
+      "Slow down. Brian handles all that.",
+      "Our job is just to get the shit,",
+      "deliver it and keep an eye out for the coast guard.",
+      "We're basically strapped delivery men, you got it?",
+      "Mmhmm. Got it.",
+      "Uh, copy. yeah, we see you at point E5, we'll move off to zone B7, North Maroon Key.",
+      "Uh, copy. yeah, we see you at point E5, we'll move off to zone B7. North Maroon Key.",
+      "That's got to be them. I'm gonna land.",
+      "Okay. Looks like all the rest of the boats to me."
+    ],
+    "candidates": [
+      {
+        "candidate": "A",
+        "text": "Hej, máš nějakou náhradní část?",
+        "error": null
+      },
+      {
+        "candidate": "B",
+        "text": "Hej, máš nějakou náhradní zbraň?",
+        "error": null
+      },
+      {
+        "candidate": "C",
+        "text": "Hej, nemáš jeden navíc?",
+        "error": null
+      },
+      {
+        "candidate": "D",
+        "text": "Hej, máš nějakou náhradní?",
+        "error": null
+      },
+      {
+        "candidate": "E",
+        "text": "Hej, nemáš náhodou jeden navíc?",
+        "error": null
+      },
+      {
+        "candidate": "F",
+        "text": "Hej, máš nějaký náhradní díl?",
+        "error": null
+      },
+      {
+        "candidate": "G",
+        "text": "Hej, nemáš jeden kus navíc?",
+        "error": null
+      },
+      {
+        "candidate": "H",
+        "text": "Hej, nemáš náhradní kus?",
+        "error": null
+      }
+    ]
+  },
+  {
+    "id": "validation-1453",
+    "source": "Hell yeah.",
+    "source_history": [
+      "Hey, there!",
+      "In Spanish: Throw that shit.",
+      "Friendly guys.",
+      "Yeah, let's just get this over with.",
+      "Uhh...",
+      "It's a little far off.",
+      "Hang on, I got you. Uhh..",
+      "The pushy sticky thing, right?",
+      "Gently! You know, maybe I should do it. No, no, no, I got it.",
+      "No, no, no, I got it.",
+      "Directional controls are at your feet.",
+      "Got it.",
+      "Now inch us forward..",
+      "That's backwards, Lu.",
+      "Yeah, hold on. I'm getting the hang of this thing.",
+      "Got it!"
+    ],
+    "candidates": [
+      {
+        "candidate": "A",
+        "text": "To si piš.",
+        "error": null
+      },
+      {
+        "candidate": "B",
+        "text": "To jo!",
+        "error": null
+      },
+      {
+        "candidate": "C",
+        "text": "Jo, sakra.",
+        "error": null
+      },
+      {
+        "candidate": "D",
+        "text": "Sakra jo.",
+        "error": null
+      },
+      {
+        "candidate": "E",
+        "text": "Jo teda.",
+        "error": null
+      },
+      {
+        "candidate": "F",
+        "text": "Jo teda!",
+        "error": null
+      }
+    ]
+  },
+  {
+    "id": "validation-1454",
+    "source": "Thanks!",
+    "source_history": [
+      "It's a little far off.",
+      "Hang on, I got you. Uhh..",
+      "The pushy sticky thing, right?",
+      "Gently! You know, maybe I should do it. No, no, no, I got it.",
+      "No, no, no, I got it.",
+      "Directional controls are at your feet.",
+      "Got it.",
+      "Now inch us forward..",
+      "That's backwards, Lu.",
+      "Yeah, hold on. I'm getting the hang of this thing.",
+      "Got it!",
+      "Hell yeah.",
+      "ERIS",
+      "ERD",
+      "ERIS",
+      "Well..."
+    ],
+    "candidates": [
+      {
+        "candidate": "A",
+        "text": "Díky!",
+        "error": null
+      }
+    ]
+  },
+  {
+    "id": "validation-1455",
+    "source": "Thanks! In Spanish: Hey! Where you goin'?",
+    "source_history": [
+      "Hang on, I got you. Uhh..",
+      "The pushy sticky thing, right?",
+      "Gently! You know, maybe I should do it. No, no, no, I got it.",
+      "No, no, no, I got it.",
+      "Directional controls are at your feet.",
+      "Got it.",
+      "Now inch us forward..",
+      "That's backwards, Lu.",
+      "Yeah, hold on. I'm getting the hang of this thing.",
+      "Got it!",
+      "Hell yeah.",
+      "ERIS",
+      "ERD",
+      "ERIS",
+      "Well...",
+      "Thanks!"
+    ],
+    "candidates": [
+      {
+        "candidate": "A",
+        "text": "Díky! Ve španělštině: Hej! Kam jdeš?",
+        "error": null
+      },
+      {
+        "candidate": "B",
+        "text": "Díky! Španělsky: Hej! Kam jdeš?",
+        "error": null
+      },
+      {
+        "candidate": "C",
+        "text": "Hej! Kam jdeš?",
+        "error": null
+      }
+    ]
+  },
+  {
+    "id": "validation-1456",
+    "source": "Thanks! Spanish: Hey! Where you goin'?",
+    "source_history": [
+      "The pushy sticky thing, right?",
+      "Gently! You know, maybe I should do it. No, no, no, I got it.",
+      "No, no, no, I got it.",
+      "Directional controls are at your feet.",
+      "Got it.",
+      "Now inch us forward..",
+      "That's backwards, Lu.",
+      "Yeah, hold on. I'm getting the hang of this thing.",
+      "Got it!",
+      "Hell yeah.",
+      "ERIS",
+      "ERD",
+      "ERIS",
+      "Well...",
+      "Thanks!",
+      "Thanks! In Spanish: Hey! Where you goin'?"
+    ],
+    "candidates": [
+      {
+        "candidate": "A",
+        "text": "Díky! Ve španělštině: Hej! Kam jdeš?",
+        "error": null
+      },
+      {
+        "candidate": "B",
+        "text": "Díky! Španělsky: Hej! Kam jdeš?",
+        "error": null
+      },
+      {
+        "candidate": "C",
+        "text": "Hej! Kam jdeš?",
+        "error": null
+      },
+      {
+        "candidate": "D",
+        "text": "Díky! Španěle: Hej! Kam jdeš?",
+        "error": null
+      }
+    ]
+  }
+]

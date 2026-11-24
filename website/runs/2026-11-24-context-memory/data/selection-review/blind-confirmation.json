@@ -1,0 +1,1050 @@
+[
+  {
+    "id": "validation-1",
+    "source": "KRS",
+    "source_history": [
+      "AF",
+      "AP",
+      "ID",
+      "AP",
+      "ID",
+      "AP",
+      "VZ",
+      "AP",
+      "ID",
+      "AP",
+      "ID",
+      "AP",
+      "AF"
+    ],
+    "candidates": [
+      {
+        "candidate": "A",
+        "text": "KRS",
+        "error": null
+      }
+    ]
+  },
+  {
+    "id": "validation-2",
+    "source": "The hell's this guy doing?",
+    "source_history": [
+      "AF",
+      "AP",
+      "ID",
+      "AP",
+      "ID",
+      "AP",
+      "VZ",
+      "AP",
+      "ID",
+      "AP",
+      "ID",
+      "AP",
+      "AF",
+      "KRS",
+      "Acy Lento",
+      "Gambit Bay"
+    ],
+    "candidates": [
+      {
+        "candidate": "A",
+        "text": "Co to ten chlap sakra dělá?",
+        "error": null
+      },
+      {
+        "candidate": "B",
+        "text": "Co to ten chlap dělá?",
+        "error": null
+      },
+      {
+        "candidate": "C",
+        "text": "Co to sakra ten chlap dělá?",
+        "error": null
+      }
+    ]
+  },
+  {
+    "id": "validation-3",
+    "source": "Get used to this shit, baby! I'll be here all weekend! Take that!",
+    "source_history": [
+      "AP",
+      "ID",
+      "AP",
+      "ID",
+      "AP",
+      "VZ",
+      "AP",
+      "ID",
+      "AP",
+      "ID",
+      "AP",
+      "AF",
+      "KRS",
+      "Acy Lento",
+      "Gambit Bay",
+      "The hell's this guy doing?"
+    ],
+    "candidates": [
+      {
+        "candidate": "A",
+        "text": "Zvykni si na tohle, zlato! Budu tu celý víkend! Tak to máš!",
+        "error": null
+      },
+      {
+        "candidate": "B",
+        "text": "Zvykni si na to, zlato! Budu tu celý víkend! Tak to máš!",
+        "error": null
+      },
+      {
+        "candidate": "C",
+        "text": "Zvykni si na tyhle sračky, zlato! Budu tu celý víkend! Tak to máš!",
+        "error": null
+      },
+      {
+        "candidate": "D",
+        "text": "Zvykej si na to, zlato! Budu tu celý víkend! Tohle si vezmi!",
+        "error": null
+      },
+      {
+        "candidate": "E",
+        "text": "Zvykej si na to, zlato! Budu tu celý víkend! Tak si to vezmi!",
+        "error": null
+      },
+      {
+        "candidate": "F",
+        "text": "Zvykej si na tuhle prach, zlato! Budu tu celý víkend! Tak to si vezmi!",
+        "error": null
+      },
+      {
+        "candidate": "G",
+        "text": "Zvykej si na tohle, zlato! Budu tu celý víkend! Tak to schytáš!",
+        "error": null
+      }
+    ]
+  },
+  {
+    "id": "validation-4",
+    "source": "Fuck off! Fuck off! Fuck off! Yeah!",
+    "source_history": [
+      "ID",
+      "AP",
+      "ID",
+      "AP",
+      "VZ",
+      "AP",
+      "ID",
+      "AP",
+      "ID",
+      "AP",
+      "AF",
+      "KRS",
+      "Acy Lento",
+      "Gambit Bay",
+      "The hell's this guy doing?",
+      "Get used to this shit, baby! I'll be here all weekend! Take that!"
+    ],
+    "candidates": [
+      {
+        "candidate": "A",
+        "text": "Táhni do prdele! Táhni do prdele! Táhni do prdele! Jo!",
+        "error": null
+      },
+      {
+        "candidate": "B",
+        "text": "Jdi do prdele! Jdi do prdele! Jdi do prdele! Jo!",
+        "error": null
+      },
+      {
+        "candidate": "C",
+        "text": "Do hajdu! Do hajdu! Do hajdu! Jo!",
+        "error": null
+      },
+      {
+        "candidate": "D",
+        "text": "Táhni! Táhni! Táhni! Jo!",
+        "error": null
+      }
+    ]
+  },
+  {
+    "id": "validation-141",
+    "source": "A few of the guys are going to a place near us, by the water.",
+    "source_history": [
+      "Eh, hey! The Phoenix was a classic. But no, l, uh, got something new.",
+      "Eh, hey! The Phoenix was a classic. But no, I, uh, got something new.",
+      "Eh, hey! The Phoenix was a classic. But no, I, uh got something new.",
+      "Eh, hey! The Phoenix was a classic. But no, I, uh, got something new.",
+      "This is wild.",
+      "This is it.",
+      "Oh. It's not that new.",
+      "Oh! And what do you drive?",
+      "Shit, I'm not complaining. I like it.",
+      "Nice outfit, by the way.",
+      "Hey. I dress for comfort.",
+      "Hey, I dress for comfort.",
+      "Ugh, these clothes are gross, man.",
+      "Oh, I got your stuff. It's just right there.",
+      "Nice. Thanks for that.",
+      "Wanna go get a drink?"
+    ],
+    "candidates": [
+      {
+        "candidate": "A",
+        "text": "Pár chlapů jde na místo nedaleko nás, k vodě.",
+        "error": null
+      },
+      {
+        "candidate": "B",
+        "text": "Pár kluků jde na místo nedaleko nás, u vody.",
+        "error": null
+      },
+      {
+        "candidate": "C",
+        "text": "Několik kluků jde na místo blízko nás, k vodě.",
+        "error": null
+      },
+      {
+        "candidate": "D",
+        "text": "Někteří kluci jdou na místo blízko nás, k vodě.",
+        "error": null
+      },
+      {
+        "candidate": "E",
+        "text": "Pár kluků jde na místo kousek od nás, u vody.",
+        "error": null
+      }
+    ]
+  },
+  {
+    "id": "validation-142",
+    "source": "Okay, sounds good! Been waiting to see this island paradise.",
+    "source_history": [
+      "Eh, hey! The Phoenix was a classic. But no, I, uh, got something new.",
+      "Eh, hey! The Phoenix was a classic. But no, I, uh got something new.",
+      "Eh, hey! The Phoenix was a classic. But no, I, uh, got something new.",
+      "This is wild.",
+      "This is it.",
+      "Oh. It's not that new.",
+      "Oh! And what do you drive?",
+      "Shit, I'm not complaining. I like it.",
+      "Nice outfit, by the way.",
+      "Hey. I dress for comfort.",
+      "Hey, I dress for comfort.",
+      "Ugh, these clothes are gross, man.",
+      "Oh, I got your stuff. It's just right there.",
+      "Nice. Thanks for that.",
+      "Wanna go get a drink?",
+      "A few of the guys are going to a place near us, by the water."
+    ],
+    "candidates": [
+      {
+        "candidate": "A",
+        "text": "Dobře, to zní skvěle! Už se nemůžu dočkat, až uvidím tenhle ostrovní ráj.",
+        "error": null
+      },
+      {
+        "candidate": "B",
+        "text": "Dobře, zní to dobře! Už jsem se těšil, až uvidím tento ostrovní ráj.",
+        "error": null
+      },
+      {
+        "candidate": "C",
+        "text": "Dobře, zní to dobře! Už jsem se těšil, až ten ostrovní ráj uvidím.",
+        "error": null
+      },
+      {
+        "candidate": "D",
+        "text": "Dobře, to zní fajn! Už se nemůžu dočkat, až uvidím tenhle ostrovní ráj.",
+        "error": null
+      },
+      {
+        "candidate": "E",
+        "text": "Dobře, zní to dobře! Už jsem se těšil, až tento ostrovní ráj uvidím.",
+        "error": null
+      }
+    ]
+  },
+  {
+    "id": "validation-143",
+    "source": "Unless... y'know, you wanna drive up to Liberty State, drop in on little man?",
+    "source_history": [
+      "Eh, hey! The Phoenix was a classic. But no, I, uh got something new.",
+      "Eh, hey! The Phoenix was a classic. But no, I, uh, got something new.",
+      "This is wild.",
+      "This is it.",
+      "Oh. It's not that new.",
+      "Oh! And what do you drive?",
+      "Shit, I'm not complaining. I like it.",
+      "Nice outfit, by the way.",
+      "Hey. I dress for comfort.",
+      "Hey, I dress for comfort.",
+      "Ugh, these clothes are gross, man.",
+      "Oh, I got your stuff. It's just right there.",
+      "Nice. Thanks for that.",
+      "Wanna go get a drink?",
+      "A few of the guys are going to a place near us, by the water.",
+      "Okay, sounds good! Been waiting to see this island paradise."
+    ],
+    "candidates": [
+      {
+        "candidate": "A",
+        "text": "Ledaže... víš co, nechceš zajet do Liberty State a stavit se za malým?",
+        "error": null
+      },
+      {
+        "candidate": "B",
+        "text": "Kdyby... víš, kdyby ses chtěl vyjet k Liberty State a zastavit se za tím chlapíkem?",
+        "error": null
+      },
+      {
+        "candidate": "C",
+        "text": "Pokud teda... víš, nechceš zajet do Liberty State a mrknout na malýho?",
+        "error": null
+      },
+      {
+        "candidate": "D",
+        "text": "Kdyby... víš, kdybys chtěl zajet k Liberty State a zastavit se u toho malého?",
+        "error": null
+      },
+      {
+        "candidate": "E",
+        "text": "Kdyby se... víš, chtěl jet až k Liberty State a zastavit se u toho malého?",
+        "error": null
+      },
+      {
+        "candidate": "F",
+        "text": "Jestli teda... víš co, nechceš zajet do Liberty State a stavit se za malým?",
+        "error": null
+      },
+      {
+        "candidate": "G",
+        "text": "Kdyby se... víš, chtěl vyrazit až k Liberty State a zastavit se za tím chlapíkem?",
+        "error": null
+      }
+    ]
+  },
+  {
+    "id": "validation-144",
+    "source": "I gotta stay in, like, a half-mile radius of your place.",
+    "source_history": [
+      "This is wild.",
+      "This is it.",
+      "Oh. It's not that new.",
+      "Oh! And what do you drive?",
+      "Shit, I'm not complaining. I like it.",
+      "Nice outfit, by the way.",
+      "Hey. I dress for comfort.",
+      "Hey, I dress for comfort.",
+      "Ugh, these clothes are gross, man.",
+      "Oh, I got your stuff. It's just right there.",
+      "Nice. Thanks for that.",
+      "Wanna go get a drink?",
+      "A few of the guys are going to a place near us, by the water.",
+      "Okay, sounds good! Been waiting to see this island paradise.",
+      "Unless... y'know, you wanna drive up to Liberty State, drop in on little man?",
+      "Unless.. y'know, you wanna drive up to Liberty State, drop in on little man?"
+    ],
+    "candidates": [
+      {
+        "candidate": "A",
+        "text": "Musím zůstat tak do půl míle od tvého domu.",
+        "error": null
+      },
+      {
+        "candidate": "B",
+        "text": "Musím zůstat v okruhu asi půl míle od tvýho domu.",
+        "error": null
+      },
+      {
+        "candidate": "C",
+        "text": "Musím zůstat v okruhu asi půl míle od tvého domu.",
+        "error": null
+      },
+      {
+        "candidate": "D",
+        "text": "Musím zůstat v okruhu asi půl míle od tvého bydliště.",
+        "error": null
+      },
+      {
+        "candidate": "E",
+        "text": "Musím zůstat tak do půl míle od tvého bydliště.",
+        "error": null
+      }
+    ]
+  },
+  {
+    "id": "validation-237",
+    "source": "Oh, from the sounds of it you got lots to do, so, uh..",
+    "source_history": [
+      "Maybe next time you decide to go robbing?",
+      "Maybe hire a babysitter, huh?",
+      "Cal, what the fuck?",
+      "Hey, hey, hey, hey.",
+      "Hey. Yo, yo, you got it?",
+      "Hell yeah, baby.",
+      "Little eightball, for the boys on the eight ball.",
+      "If we can get, like, an air base contract for this shit,",
+      "we don't need to sell to nobody else. You got a little somethin'-somethin' put aside for us?",
+      "You got a little somethin'-somethin' put aside for us?",
+      "Hell yeah, I got y'all greedy fuckers.",
+      "And, oh... Who do we have here?",
+      "And, oh.. Who do we have here?",
+      "Hey, baby. Me llamo a-Donnie, but you can call me papi.",
+      "Oh, so you're Donnie.",
+      "Mm. I guess you heard, I've been getting Jason's ass paid."
+    ],
+    "candidates": [
+      {
+        "candidate": "A",
+        "text": "No, podle toho, co říkáš, máš toho hodně na práci, takže, ehm…",
+        "error": null
+      },
+      {
+        "candidate": "B",
+        "text": "Tak ty z toho podle zvuku vypadá, že máš toho hodně práce, takže, uh..",
+        "error": null
+      },
+      {
+        "candidate": "C",
+        "text": "Tak to podle toho zvuku vypadá, že máš toho hodně práce, takže, uh..",
+        "error": null
+      },
+      {
+        "candidate": "D",
+        "text": "Tak podle toho zvucí, že toho máš hodně, takže, uh..",
+        "error": null
+      },
+      {
+        "candidate": "E",
+        "text": "Ach, podle toho, co říkáš, máš toho hodně práce, takže, uh..",
+        "error": null
+      }
+    ]
+  },
+  {
+    "id": "validation-238",
+    "source": "don't let me keep you.",
+    "source_history": [
+      "Maybe hire a babysitter, huh?",
+      "Cal, what the fuck?",
+      "Hey, hey, hey, hey.",
+      "Hey. Yo, yo, you got it?",
+      "Hell yeah, baby.",
+      "Little eightball, for the boys on the eight ball.",
+      "If we can get, like, an air base contract for this shit,",
+      "we don't need to sell to nobody else. You got a little somethin'-somethin' put aside for us?",
+      "You got a little somethin'-somethin' put aside for us?",
+      "Hell yeah, I got y'all greedy fuckers.",
+      "And, oh... Who do we have here?",
+      "And, oh.. Who do we have here?",
+      "Hey, baby. Me llamo a-Donnie, but you can call me papi.",
+      "Oh, so you're Donnie.",
+      "Mm. I guess you heard, I've been getting Jason's ass paid.",
+      "Oh, from the sounds of it you got lots to do, so, uh..."
+    ],
+    "candidates": [
+      {
+        "candidate": "A",
+        "text": "nebudu vás zdržovat.",
+        "error": null
+      },
+      {
+        "candidate": "B",
+        "text": "Nechci tě zdržovat.",
+        "error": null
+      },
+      {
+        "candidate": "C",
+        "text": "nebudu vás déle zdržovat.",
+        "error": null
+      },
+      {
+        "candidate": "D",
+        "text": "nechci tě zdržovat.",
+        "error": null
+      }
+    ]
+  },
+  {
+    "id": "validation-239",
+    "source": "Oh, I got all the time in the world for you, darlin'.",
+    "source_history": [
+      "Cal, what the fuck?",
+      "Hey, hey, hey, hey.",
+      "Hey. Yo, yo, you got it?",
+      "Hell yeah, baby.",
+      "Little eightball, for the boys on the eight ball.",
+      "If we can get, like, an air base contract for this shit,",
+      "we don't need to sell to nobody else. You got a little somethin'-somethin' put aside for us?",
+      "You got a little somethin'-somethin' put aside for us?",
+      "Hell yeah, I got y'all greedy fuckers.",
+      "And, oh... Who do we have here?",
+      "And, oh.. Who do we have here?",
+      "Hey, baby. Me llamo a-Donnie, but you can call me papi.",
+      "Oh, so you're Donnie.",
+      "Mm. I guess you heard, I've been getting Jason's ass paid.",
+      "Oh, from the sounds of it you got lots to do, so, uh...",
+      "don't let me keep you."
+    ],
+    "candidates": [
+      {
+        "candidate": "A",
+        "text": "Ale no tak, na tebe mám všechen čas na světě, zlato.",
+        "error": null
+      },
+      {
+        "candidate": "B",
+        "text": "Ale, na tebe mám času, kolik jen chceš, zlatíčko.",
+        "error": null
+      },
+      {
+        "candidate": "C",
+        "text": "Ale já mám na tebe času, kolik jen chceš, zlato.",
+        "error": null
+      },
+      {
+        "candidate": "D",
+        "text": "Mám pro tebe, miláčku, celý svět a spoustu času.",
+        "error": null
+      },
+      {
+        "candidate": "E",
+        "text": "Ach, pro tebe mám víc než dost času, miláčku.",
+        "error": null
+      },
+      {
+        "candidate": "F",
+        "text": "Oh, pro tebe mám víc než dost času, miláčku.",
+        "error": null
+      },
+      {
+        "candidate": "G",
+        "text": "Copot, pro tebe mám víc času, než si dokážeš představit, miláčku.",
+        "error": null
+      }
+    ]
+  },
+  {
+    "id": "validation-240",
+    "source": "I need some fresh air. Can you bring me another Pindayho?",
+    "source_history": [
+      "Hey, hey, hey, hey.",
+      "Hey. Yo, yo, you got it?",
+      "Hell yeah, baby.",
+      "Little eightball, for the boys on the eight ball.",
+      "If we can get, like, an air base contract for this shit,",
+      "we don't need to sell to nobody else. You got a little somethin'-somethin' put aside for us?",
+      "You got a little somethin'-somethin' put aside for us?",
+      "Hell yeah, I got y'all greedy fuckers.",
+      "And, oh... Who do we have here?",
+      "And, oh.. Who do we have here?",
+      "Hey, baby. Me llamo a-Donnie, but you can call me papi.",
+      "Oh, so you're Donnie.",
+      "Mm. I guess you heard, I've been getting Jason's ass paid.",
+      "Oh, from the sounds of it you got lots to do, so, uh...",
+      "don't let me keep you.",
+      "Oh, I got all the time in the world for you, darlin'."
+    ],
+    "candidates": [
+      {
+        "candidate": "A",
+        "text": "Potřebuju trochu čerstvého vzduchu. Přinesla bys mi další Pindayho?",
+        "error": null
+      },
+      {
+        "candidate": "B",
+        "text": "Potřebuju trochu čerstvého vzduchu. Můžeš mi přinést další Pindayho?",
+        "error": null
+      },
+      {
+        "candidate": "C",
+        "text": "Potřebuji trochu čerstvého vzduchu. Přinesla bys mi další Pindayho?",
+        "error": null
+      },
+      {
+        "candidate": "D",
+        "text": "Potřebuju se nadýchat čerstvého vzduchu. Můžeš mi přinést další Pindayho?",
+        "error": null
+      },
+      {
+        "candidate": "E",
+        "text": "Potřebuju trochu čerstvého vzduchu. Přinesl bys mi další Pindayho?",
+        "error": null
+      }
+    ]
+  },
+  {
+    "id": "validation-261",
+    "source": "Oh, Jason! You are too much!",
+    "source_history": [
+      "EIA",
+      "BA",
+      "ARLEN",
+      "DGI",
+      "Hey, Rhonda.",
+      "Hey, Jay, that your baby mama I saw?",
+      "Yep. She just got out.",
+      "Where's the baby?",
+      "We're working on it.",
+      "Why you makin' that face?",
+      "Oh, you too much.",
+      "Why aren't you out there talking to her right now?",
+      "Oh, I get it. You're trying to make her jealous a little, right?",
+      "Not look too needy, right out of the gate? I get it.",
+      "You want me to laugh like you said something funny?",
+      "No, no, I'm just making-"
+    ],
+    "candidates": [
+      {
+        "candidate": "A",
+        "text": "Ó, Jasi! Ty jsi ale moc!",
+        "error": null
+      },
+      {
+        "candidate": "B",
+        "text": "Ach, Jasone! Ty jsi fakt případ!",
+        "error": null
+      },
+      {
+        "candidate": "C",
+        "text": "Ach, Jasi! Ty jsi ale moc!",
+        "error": null
+      },
+      {
+        "candidate": "D",
+        "text": "Ach, Jasone! Ty jsi ale číslo!",
+        "error": null
+      }
+    ]
+  },
+  {
+    "id": "validation-262",
+    "source": "Is she looking?",
+    "source_history": [
+      "BA",
+      "ARLEN",
+      "DGI",
+      "Hey, Rhonda.",
+      "Hey, Jay, that your baby mama I saw?",
+      "Yep. She just got out.",
+      "Where's the baby?",
+      "We're working on it.",
+      "Why you makin' that face?",
+      "Oh, you too much.",
+      "Why aren't you out there talking to her right now?",
+      "Oh, I get it. You're trying to make her jealous a little, right?",
+      "Not look too needy, right out of the gate? I get it.",
+      "You want me to laugh like you said something funny?",
+      "No, no, I'm just making-",
+      "Oh, Jason! You are too much!"
+    ],
+    "candidates": [
+      {
+        "candidate": "A",
+        "text": "Dívá se?",
+        "error": null
+      }
+    ]
+  },
+  {
+    "id": "validation-263",
+    "source": "So, what do you got planned for her tonight? Somethin' nice?",
+    "source_history": [
+      "ARLEN",
+      "DGI",
+      "Hey, Rhonda.",
+      "Hey, Jay, that your baby mama I saw?",
+      "Yep. She just got out.",
+      "Where's the baby?",
+      "We're working on it.",
+      "Why you makin' that face?",
+      "Oh, you too much.",
+      "Why aren't you out there talking to her right now?",
+      "Oh, I get it. You're trying to make her jealous a little, right?",
+      "Not look too needy, right out of the gate? I get it.",
+      "You want me to laugh like you said something funny?",
+      "No, no, I'm just making-",
+      "Oh, Jason! You are too much!",
+      "Is she looking?"
+    ],
+    "candidates": [
+      {
+        "candidate": "A",
+        "text": "Tak co pro ni dneska večer chystáš? Něco hezkého?",
+        "error": null
+      },
+      {
+        "candidate": "B",
+        "text": "Tak co máš pro ni dneska v plánu? Něco hezkého?",
+        "error": null
+      },
+      {
+        "candidate": "C",
+        "text": "Tak co máš pro ni na tu noc v plánu? Něco hezkého?",
+        "error": null
+      },
+      {
+        "candidate": "D",
+        "text": "Tak co pro ni dneska večer chystáš? Něco pěkného?",
+        "error": null
+      },
+      {
+        "candidate": "E",
+        "text": "Tak co pro ni máš dnes večer v plánu? Něco hezkého?",
+        "error": null
+      }
+    ]
+  },
+  {
+    "id": "validation-264",
+    "source": "Don't forget about your lady out there.",
+    "source_history": [
+      "DGI",
+      "Hey, Rhonda.",
+      "Hey, Jay, that your baby mama I saw?",
+      "Yep. She just got out.",
+      "Where's the baby?",
+      "We're working on it.",
+      "Why you makin' that face?",
+      "Oh, you too much.",
+      "Why aren't you out there talking to her right now?",
+      "Oh, I get it. You're trying to make her jealous a little, right?",
+      "Not look too needy, right out of the gate? I get it.",
+      "You want me to laugh like you said something funny?",
+      "No, no, I'm just making-",
+      "Oh, Jason! You are too much!",
+      "Is she looking?",
+      "So, what do you got planned for her tonight? Somethin' nice?"
+    ],
+    "candidates": [
+      {
+        "candidate": "A",
+        "text": "Nezapomeň na svou dámu tam venku.",
+        "error": null
+      },
+      {
+        "candidate": "B",
+        "text": "Nezapomeň na svou dámu venku.",
+        "error": null
+      },
+      {
+        "candidate": "C",
+        "text": "Nezapomeň na tu svou slečnu venku.",
+        "error": null
+      },
+      {
+        "candidate": "D",
+        "text": "Nezapomeň na svou slečnu tam venku.",
+        "error": null
+      }
+    ]
+  },
+  {
+    "id": "validation-481",
+    "source": "Hey.",
+    "source_history": [
+      "SANTO CAPRA",
+      "Get the fuck out of here, bro.",
+      "SANTO CAPRA",
+      "Nobody wants you here killing the vibe.",
+      "Take the car back to vC, we gonna call a cab.",
+      "Take the car back to VC, we gonna call a cab.",
+      "Take the car back to vC, we gonna call a cab.",
+      "Take the car back to VC, we gonna call a cab.",
+      "In Italian: Go, go, go.",
+      "'Ey, you gotta meet Mattia.",
+      "Ciao, come here, Lucia. Hey.",
+      "Thanks for looking out for my girl when she was in that place.",
+      "I hated to think of her alone there.",
+      "Hey, of course. I know what it's like, turning up on the block.",
+      "Hey. I will not forget that.",
+      "In Italian: I swear. I won't."
+    ],
+    "candidates": [
+      {
+        "candidate": "A",
+        "text": "Ahoj.",
+        "error": null
+      }
+    ]
+  },
+  {
+    "id": "validation-482",
+    "source": "This is Jason.",
+    "source_history": [
+      "In Italian: Go, go, go.",
+      "'Ey, you gotta meet Mattia.",
+      "Ciao, come here, Lucia. Hey.",
+      "Thanks for looking out for my girl when she was in that place.",
+      "I hated to think of her alone there.",
+      "Hey, of course. I know what it's like, turning up on the block.",
+      "Hey. I will not forget that.",
+      "In Italian: I swear. I won't.",
+      "Hey.",
+      "Ciao!",
+      "Hey.",
+      "Ciao!",
+      "Hey.",
+      "Ciao!",
+      "Hey.",
+      "Alright, bro."
+    ],
+    "candidates": [
+      {
+        "candidate": "A",
+        "text": "Tady Jason.",
+        "error": null
+      },
+      {
+        "candidate": "B",
+        "text": "Tohle je Jason.",
+        "error": null
+      },
+      {
+        "candidate": "C",
+        "text": "Tady je Jason.",
+        "error": null
+      }
+    ]
+  },
+  {
+    "id": "validation-483",
+    "source": "In Italian: Nice to meet you.",
+    "source_history": [
+      "Ciao!",
+      "Hey.",
+      "Ciao!",
+      "Hey.",
+      "Ciao!",
+      "Hey.",
+      "Alright, bro.",
+      "This is Jason.",
+      "Alright, bro.",
+      "This is Jason.",
+      "Alright, bro.",
+      "This is Jason.",
+      "Alright, bro.",
+      "This is Jason.",
+      "Alright, bro.",
+      "This is Jason."
+    ],
+    "candidates": [
+      {
+        "candidate": "A",
+        "text": "Italsky: Těší mě.",
+        "error": null
+      },
+      {
+        "candidate": "B",
+        "text": "V italštině: Těší mě.",
+        "error": null
+      },
+      {
+        "candidate": "C",
+        "text": "Těší mě.",
+        "error": null
+      }
+    ]
+  },
+  {
+    "id": "validation-484",
+    "source": "Hey, what the fuck is this place, bro? Where's all the women at?",
+    "source_history": [
+      "Hey.",
+      "Ciao!",
+      "Hey.",
+      "Ciao!",
+      "Hey.",
+      "Alright, bro.",
+      "This is Jason.",
+      "Alright, bro.",
+      "This is Jason.",
+      "Alright, bro.",
+      "This is Jason.",
+      "Alright, bro.",
+      "This is Jason.",
+      "Alright, bro.",
+      "This is Jason.",
+      "In Italian: Nice to meet you."
+    ],
+    "candidates": [
+      {
+        "candidate": "A",
+        "text": "Hej, co je za hajzl místo, kámo? Kde jsou všechny ty ženský?",
+        "error": null
+      },
+      {
+        "candidate": "B",
+        "text": "Hej, co to sakra za místo je, kámo? Kde jsou všechny ty ženský?",
+        "error": null
+      },
+      {
+        "candidate": "C",
+        "text": "Hej, co to sakra za místo, kámo? Kde jsou všechny ty ženský?",
+        "error": null
+      },
+      {
+        "candidate": "D",
+        "text": "Hej, co je to kurva za místo, kámo? Kde jsou všechny ženský?",
+        "error": null
+      }
+    ]
+  },
+  {
+    "id": "validation-1333",
+    "source": "Hey, Jay.",
+    "source_history": [
+      "THE",
+      "M1",
+      "Half way through.",
+      "Check it out.",
+      "Almost there.",
+      "AL",
+      "Bri, Bri, Bri!",
+      "TT",
+      "Well, I think I earned myself a beer!",
+      "You want one, Jay?",
+      "Thanks, I'm good.",
+      "BE",
+      "Thanks, I'm good.",
+      "Hey, Lucia!",
+      "Your handsome sperm donor awaits.",
+      "Thanks, Cal."
+    ],
+    "candidates": [
+      {
+        "candidate": "A",
+        "text": "Ahoj, Jay.",
+        "error": null
+      },
+      {
+        "candidate": "B",
+        "text": "Ahoj, Jayi.",
+        "error": null
+      }
+    ]
+  },
+  {
+    "id": "validation-1334",
+    "source": "Oh shit, was I picking you up? You hungry yet?",
+    "source_history": [
+      "M1",
+      "Half way through.",
+      "Check it out.",
+      "Almost there.",
+      "AL",
+      "Bri, Bri, Bri!",
+      "TT",
+      "Well, I think I earned myself a beer!",
+      "You want one, Jay?",
+      "Thanks, I'm good.",
+      "BE",
+      "Thanks, I'm good.",
+      "Hey, Lucia!",
+      "Your handsome sperm donor awaits.",
+      "Thanks, Cal.",
+      "Hey, Jay."
+    ],
+    "candidates": [
+      {
+        "candidate": "A",
+        "text": "Ty vole, já tě měl vyzvednout? Už máš hlad?",
+        "error": null
+      },
+      {
+        "candidate": "B",
+        "text": "Sakra, měl jsem tě vyzvednout? Už máš hlad?",
+        "error": null
+      },
+      {
+        "candidate": "C",
+        "text": "Ty vole, já tě měl vyzvednout? Máš už hlad?",
+        "error": null
+      },
+      {
+        "candidate": "D",
+        "text": "Do prdele, měl jsem tě vyzvednout? Už máš hlad?",
+        "error": null
+      }
+    ]
+  },
+  {
+    "id": "validation-1335",
+    "source": "I'm good.",
+    "source_history": [
+      "Half way through.",
+      "Check it out.",
+      "Almost there.",
+      "AL",
+      "Bri, Bri, Bri!",
+      "TT",
+      "Well, I think I earned myself a beer!",
+      "You want one, Jay?",
+      "Thanks, I'm good.",
+      "BE",
+      "Thanks, I'm good.",
+      "Hey, Lucia!",
+      "Your handsome sperm donor awaits.",
+      "Thanks, Cal.",
+      "Hey, Jay.",
+      "Oh shit, was I picking you up? You hungry yet?"
+    ],
+    "candidates": [
+      {
+        "candidate": "A",
+        "text": "Mám dobře.",
+        "error": null
+      },
+      {
+        "candidate": "B",
+        "text": "Mám se dobře.",
+        "error": null
+      },
+      {
+        "candidate": "C",
+        "text": "Jsem v pohodě.",
+        "error": null
+      }
+    ]
+  },
+  {
+    "id": "validation-1336",
+    "source": "So.. this is what you do?",
+    "source_history": [
+      "Check it out.",
+      "Almost there.",
+      "AL",
+      "Bri, Bri, Bri!",
+      "TT",
+      "Well, I think I earned myself a beer!",
+      "You want one, Jay?",
+      "Thanks, I'm good.",
+      "BE",
+      "Thanks, I'm good.",
+      "Hey, Lucia!",
+      "Your handsome sperm donor awaits.",
+      "Thanks, Cal.",
+      "Hey, Jay.",
+      "Oh shit, was I picking you up? You hungry yet?",
+      "I'm good."
+    ],
+    "candidates": [
+      {
+        "candidate": "A",
+        "text": "Takže... tohle je to, co děláš?",
+        "error": null
+      },
+      {
+        "candidate": "B",
+        "text": "Takže... tohle děláš?",
+        "error": null
+      },
+      {
+        "candidate": "C",
+        "text": "Takže… tohle děláš?",
+        "error": null
+      }
+    ]
+  }
+]

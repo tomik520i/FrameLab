@@ -1,0 +1,325 @@
+{
+  "schema": 1,
+  "languages": [
+    {
+      "code": "en",
+      "name": "English",
+      "name_cs": "Angličtina",
+      "ocr_model": "en_PP-OCRv5_rec_mobile.onnx",
+      "windows": "en-US",
+      "rtl": false
+    },
+    {
+      "code": "cs",
+      "name": "Czech",
+      "name_cs": "Čeština",
+      "ocr_model": "latin_PP-OCRv5_rec_mobile.onnx",
+      "windows": "cs-CZ",
+      "rtl": false
+    },
+    {
+      "code": "sk",
+      "name": "Slovak",
+      "name_cs": "Slovenština",
+      "ocr_model": "latin_PP-OCRv5_rec_mobile.onnx",
+      "windows": "sk-SK",
+      "rtl": false
+    },
+    {
+      "code": "de",
+      "name": "German",
+      "name_cs": "Němčina",
+      "ocr_model": "latin_PP-OCRv5_rec_mobile.onnx",
+      "windows": "de-DE",
+      "rtl": false
+    },
+    {
+      "code": "fr",
+      "name": "French",
+      "name_cs": "Francouzština",
+      "ocr_model": "latin_PP-OCRv5_rec_mobile.onnx",
+      "windows": "fr-FR",
+      "rtl": false
+    },
+    {
+      "code": "es",
+      "name": "Spanish",
+      "name_cs": "Španělština",
+      "ocr_model": "latin_PP-OCRv5_rec_mobile.onnx",
+      "windows": "es-ES",
+      "rtl": false
+    },
+    {
+      "code": "it",
+      "name": "Italian",
+      "name_cs": "Italština",
+      "ocr_model": "latin_PP-OCRv5_rec_mobile.onnx",
+      "windows": "it-IT",
+      "rtl": false
+    },
+    {
+      "code": "pt",
+      "name": "Portuguese",
+      "name_cs": "Portugalština",
+      "ocr_model": "latin_PP-OCRv5_rec_mobile.onnx",
+      "windows": "pt-PT",
+      "rtl": false
+    },
+    {
+      "code": "pl",
+      "name": "Polish",
+      "name_cs": "Polština",
+      "ocr_model": "latin_PP-OCRv5_rec_mobile.onnx",
+      "windows": "pl-PL",
+      "rtl": false
+    },
+    {
+      "code": "uk",
+      "name": "Ukrainian",
+      "name_cs": "Ukrajinština",
+      "ocr_model": "eslav_PP-OCRv5_rec_mobile.onnx",
+      "windows": "uk-UA",
+      "rtl": false
+    },
+    {
+      "code": "ru",
+      "name": "Russian",
+      "name_cs": "Ruština",
+      "ocr_model": "eslav_PP-OCRv5_rec_mobile.onnx",
+      "windows": "ru-RU",
+      "rtl": false
+    },
+    {
+      "code": "ja",
+      "name": "Japanese",
+      "name_cs": "Japonština",
+      "ocr_model": "ch_PP-OCRv5_rec_mobile.onnx",
+      "windows": "ja-JP",
+      "rtl": false
+    },
+    {
+      "code": "ko",
+      "name": "Korean",
+      "name_cs": "Korejština",
+      "ocr_model": "korean_PP-OCRv5_rec_mobile.onnx",
+      "windows": "ko-KR",
+      "rtl": false
+    },
+    {
+      "code": "zh-CN",
+      "name": "Chinese (Simplified)",
+      "name_cs": "Čínština (zjednodušená)",
+      "ocr_model": "ch_PP-OCRv5_rec_mobile.onnx",
+      "windows": "zh-CN",
+      "rtl": false
+    },
+    {
+      "code": "zh-TW",
+      "name": "Chinese (Traditional)",
+      "name_cs": "Čínština (tradiční)",
+      "ocr_model": "ch_PP-OCRv5_rec_mobile.onnx",
+      "windows": "zh-TW",
+      "rtl": false
+    },
+    {
+      "code": "ar",
+      "name": "Arabic",
+      "name_cs": "Arabština",
+      "ocr_model": "arabic_PP-OCRv5_rec_mobile.onnx",
+      "windows": "ar-SA",
+      "rtl": true
+    },
+    {
+      "code": "el",
+      "name": "Greek",
+      "name_cs": "Řečtina",
+      "ocr_model": "el_PP-OCRv5_rec_mobile.onnx",
+      "windows": "el-GR",
+      "rtl": false
+    },
+    {
+      "code": "hi",
+      "name": "Hindi",
+      "name_cs": "Hindština",
+      "ocr_model": "devanagari_PP-OCRv5_rec_mobile.onnx",
+      "windows": "hi-IN",
+      "rtl": false
+    },
+    {
+      "code": "tr",
+      "name": "Turkish",
+      "name_cs": "Turečtina",
+      "ocr_model": "latin_PP-OCRv5_rec_mobile.onnx",
+      "windows": "tr-TR",
+      "rtl": false
+    },
+    {
+      "code": "vi",
+      "name": "Vietnamese",
+      "name_cs": "Vietnamština",
+      "ocr_model": "latin_PP-OCRv5_rec_mobile.onnx",
+      "windows": "vi-VN",
+      "rtl": false
+    },
+    {
+      "code": "nl",
+      "name": "Dutch",
+      "name_cs": "Nizozemština",
+      "ocr_model": "latin_PP-OCRv5_rec_mobile.onnx",
+      "windows": "nl-NL",
+      "rtl": false
+    },
+    {
+      "code": "sv",
+      "name": "Swedish",
+      "name_cs": "Švédština",
+      "ocr_model": "latin_PP-OCRv5_rec_mobile.onnx",
+      "windows": "sv-SE",
+      "rtl": false
+    },
+    {
+      "code": "no",
+      "name": "Norwegian",
+      "name_cs": "Norština",
+      "ocr_model": "latin_PP-OCRv5_rec_mobile.onnx",
+      "windows": "nb-NO",
+      "rtl": false
+    },
+    {
+      "code": "da",
+      "name": "Danish",
+      "name_cs": "Dánština",
+      "ocr_model": "latin_PP-OCRv5_rec_mobile.onnx",
+      "windows": "da-DK",
+      "rtl": false
+    },
+    {
+      "code": "fi",
+      "name": "Finnish",
+      "name_cs": "Finština",
+      "ocr_model": "latin_PP-OCRv5_rec_mobile.onnx",
+      "windows": "fi-FI",
+      "rtl": false
+    },
+    {
+      "code": "hu",
+      "name": "Hungarian",
+      "name_cs": "Maďarština",
+      "ocr_model": "latin_PP-OCRv5_rec_mobile.onnx",
+      "windows": "hu-HU",
+      "rtl": false
+    },
+    {
+      "code": "ro",
+      "name": "Romanian",
+      "name_cs": "Rumunština",
+      "ocr_model": "latin_PP-OCRv5_rec_mobile.onnx",
+      "windows": "ro-RO",
+      "rtl": false
+    },
+    {
+      "code": "bg",
+      "name": "Bulgarian",
+      "name_cs": "Bulharština",
+      "ocr_model": "cyrillic_PP-OCRv5_rec_mobile.onnx",
+      "windows": "bg-BG",
+      "rtl": false
+    },
+    {
+      "code": "hr",
+      "name": "Croatian",
+      "name_cs": "Chorvatština",
+      "ocr_model": "latin_PP-OCRv5_rec_mobile.onnx",
+      "windows": "hr-HR",
+      "rtl": false
+    },
+    {
+      "code": "sl",
+      "name": "Slovenian",
+      "name_cs": "Slovinština",
+      "ocr_model": "latin_PP-OCRv5_rec_mobile.onnx",
+      "windows": "sl-SI",
+      "rtl": false
+    },
+    {
+      "code": "et",
+      "name": "Estonian",
+      "name_cs": "Estonština",
+      "ocr_model": "latin_PP-OCRv5_rec_mobile.onnx",
+      "windows": "et-EE",
+      "rtl": false
+    },
+    {
+      "code": "lt",
+      "name": "Lithuanian",
+      "name_cs": "Litevština",
+      "ocr_model": "latin_PP-OCRv5_rec_mobile.onnx",
+      "windows": "lt-LT",
+      "rtl": false
+    },
+    {
+      "code": "lv",
+      "name": "Latvian",
+      "name_cs": "Lotyština",
+      "ocr_model": "latin_PP-OCRv5_rec_mobile.onnx",
+      "windows": "lv-LV",
+      "rtl": false
+    },
+    {
+      "code": "id",
+      "name": "Indonesian",
+      "name_cs": "Indonéština",
+      "ocr_model": "latin_PP-OCRv5_rec_mobile.onnx",
+      "windows": "id-ID",
+      "rtl": false
+    },
+    {
+      "code": "ms",
+      "name": "Malay",
+      "name_cs": "Malajština",
+      "ocr_model": "latin_PP-OCRv5_rec_mobile.onnx",
+      "windows": "ms-MY",
+      "rtl": false
+    },
+    {
+      "code": "th",
+      "name": "Thai",
+      "name_cs": "Thajština",
+      "ocr_model": "th_PP-OCRv5_rec_mobile.onnx",
+      "windows": "th-TH",
+      "rtl": false
+    },
+    {
+      "code": "fa",
+      "name": "Persian",
+      "name_cs": "Perština",
+      "ocr_model": "arabic_PP-OCRv5_rec_mobile.onnx",
+      "windows": "fa-IR",
+      "rtl": true
+    },
+    {
+      "code": "ur",
+      "name": "Urdu",
+      "name_cs": "Urdština",
+      "ocr_model": "arabic_PP-OCRv5_rec_mobile.onnx",
+      "windows": "ur-PK",
+      "rtl": true
+    },
+    {
+      "code": "ta",
+      "name": "Tamil",
+      "name_cs": "Tamilština",
+      "ocr_model": "ta_PP-OCRv5_rec_mobile.onnx",
+      "windows": "ta-IN",
+      "rtl": false
+    },
+    {
+      "code": "te",
+      "name": "Telugu",
+      "name_cs": "Telugština",
+      "ocr_model": "te_PP-OCRv5_rec_mobile.onnx",
+      "windows": "te-IN",
+      "rtl": false
+    }
+  ]
+}

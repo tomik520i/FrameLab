@@ -2,7 +2,8 @@
 
 Live policy: initial update after two accepted captions; subsequent updates at
 most once per eight source seconds and only with two new captions. One background
-update can run at a time; a caption never waits for it. No hidden second model, retries,
+update can run at a time; it starts after accepting a caption, not on arrival of
+the next one. A caption never waits for it. No hidden second model, retries,
 persistent memory, future captions or translated text enter this state.
 """
 import json
@@ -73,6 +74,23 @@ class EvidenceMemory(ContextPolicy):
         except Exception as exc:
             self.error=str(exc);self.pins=[];self.previous='';self.audit['error']=self.error
 
+    def _schedule_after_accept(self,request):
+        due=self.new_count>=2 and (self.updated_at is None or request.time_s-self.updated_at>=8)
+        if due and not self.error and self.pending is None:
+            supplied=sorted({x['id']:x for x in self.pins+self.recent}.values(),key=lambda x:x['time_s'])
+            protected={x['id'] for x in self.pins}
+            while supplied and sum(len(x['text']) for x in supplied)>2400:
+                supplied.pop(next((i for i,x in enumerate(supplied) if x['id'] not in protected),0))
+            # The renderer job ID is diagnostic metadata, not an evidence ID.
+            # A live model mixed event_id=69 into evidence="o69" when only o4
+            # existed. Expose one identifier namespace to the model.
+            observations=[{k:x[k] for k in ('id','text','speaker')} for x in supplied]
+            payload=dict(previous_memory_unverified=self.previous,observations=observations,verified_profiles=[])
+            self.pending=dict(future=self.executor.submit(self._build,payload),epoch=self.epoch,payload=payload,sources=supplied,event_id=request.event_id)
+            self.audit.update(submitted=True,submitted_event_id=request.event_id)
+            self.updated_at=request.time_s;self.new_count=0
+            if not self.asynchronous:self.pending['future'].result();self._collect()
+
     def prepare(self,request):
         if self.last_time is not None and request.time_s-self.last_time>60:self.reset()
         fallback=super().prepare(request)
@@ -81,18 +99,6 @@ class EvidenceMemory(ContextPolicy):
         if len(request.text.encode('utf-8'))>1600:return None
         self.recent=[x for x in self.recent if 0<=request.time_s-x['time_s']<=120][-16:]
         self.pins=[x for x in self.pins if 0<=request.time_s-x['time_s']<=600]
-        due=self.new_count>=2 and (self.updated_at is None or request.time_s-self.updated_at>=8)
-        if due and not self.error and self.pending is None:
-            supplied=sorted({x['id']:x for x in self.pins+self.recent}.values(),key=lambda x:x['time_s'])
-            protected={x['id'] for x in self.pins}
-            while supplied and sum(len(x['text']) for x in supplied)>2400:
-                supplied.pop(next((i for i,x in enumerate(supplied) if x['id'] not in protected),0))
-            observations=[{k:v for k,v in x.items() if k!='time_s'} for x in supplied]
-            payload=dict(previous_memory_unverified=self.previous,observations=observations,verified_profiles=[])
-            self.pending=dict(future=self.executor.submit(self._build,payload),epoch=self.epoch,payload=payload,sources=supplied,event_id=request.event_id)
-            self.audit.update(submitted=True,submitted_event_id=request.event_id)
-            self.updated_at=request.time_s;self.new_count=0
-            if not self.asynchronous:self.pending['future'].result();self._collect()
         if self.error:
             self.status='Memory stopped; recent dialogue only: '+self.error
             return fallback
@@ -117,3 +123,6 @@ class EvidenceMemory(ContextPolicy):
         self.recent.append(dict(id=f'o{self.serial}',text=request.observed,speaker=observed_speaker(request.observed),time_s=request.time_s,event_id=request.event_id))
         self.recent=self.recent[-16:]
         while self.recent and sum(len(x['text']) for x in self.recent)>2400:self.recent.pop(0)
+        # Start while the next caption is still on screen / not yet captured.
+        # Only already accepted source text enters this job.
+        self._schedule_after_accept(request)

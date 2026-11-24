@@ -2,9 +2,10 @@
 
 - Add a custom OpenAI-compatible / Ollama provider with model discovery, endpoint-specific Windows credentials and bounded configuration. OCR stays on the FrameLab PC.
 - Add opt-in source-history and same-model selection of original dialogue. Selection runs in the background, discards old-generation results and falls back to recent history on failure. CUNI cannot enable the memory builder; no secondary summarizer is used.
+- Start background selection immediately after accepting a caption and expose only one evidence-ID namespace to the model. Keep failed native runs and recent-history fallback visible in the report.
 - Show the actual context used for the latest translation in settings. Add explicit diagnostic traces, settings migration and packaging support.
-- Publish Czech/English evidence: 1,408 reviewed text-only outputs, 50 + 50 alternating latency requests, and 11 native-app runs through OCR/filter/translation/render with VFG and NR. Keep failed queueing and wrong-context examples visible. No paid quality judge.
-- Validate with 43 Python tests and 18 native tests. This is not a new binary release; public preview.18 archives remain unchanged. The planned 25 Czech + 50 multilingual live-context demonstrations are still pending.
+- Publish Czech/English evidence: 1,408 reviewed text-only outputs, 50 + 50 alternating latency requests, and 19 native-app runs through OCR/filter/translation/render with VFG and NR. Keep failed queueing and wrong-context examples visible. No paid quality judge.
+- Validate with 44 Python tests and 18 native tests. This is not a new binary release; public preview.18 archives remain unchanged. The planned 25 Czech + 50 multilingual live-context demonstrations are still pending.
 
 # 0.2.0-preview.17 — 2026-11-23
 

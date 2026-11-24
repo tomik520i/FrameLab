@@ -1,0 +1,262 @@
+[
+  {
+    "model": "server-gemma4",
+    "mode": "baseline",
+    "n": 40,
+    "score": 78.75,
+    "severe": 0,
+    "median_ms": 443.28664999920875,
+    "median_with_build_ms": 443.28664999920875,
+    "pairs": {
+      "baseline": {
+        "wins": 0,
+        "ties": 40,
+        "losses": 0
+      },
+      "raw6": {
+        "wins": 7,
+        "ties": 21,
+        "losses": 12
+      },
+      "raw16": {
+        "wins": 7,
+        "ties": 24,
+        "losses": 9
+      }
+    }
+  },
+  {
+    "model": "server-gemma4",
+    "mode": "raw6",
+    "n": 40,
+    "score": 84.375,
+    "severe": 0,
+    "median_ms": 548.1771499617025,
+    "median_with_build_ms": 548.1771499617025,
+    "pairs": {
+      "baseline": {
+        "wins": 12,
+        "ties": 21,
+        "losses": 7
+      },
+      "raw6": {
+        "wins": 0,
+        "ties": 40,
+        "losses": 0
+      },
+      "raw16": {
+        "wins": 7,
+        "ties": 30,
+        "losses": 3
+      }
+    }
+  },
+  {
+    "model": "server-gemma4",
+    "mode": "raw16",
+    "n": 40,
+    "score": 81.875,
+    "severe": 0,
+    "median_ms": 597.5506998365745,
+    "median_with_build_ms": 597.5506998365745,
+    "pairs": {
+      "baseline": {
+        "wins": 9,
+        "ties": 24,
+        "losses": 7
+      },
+      "raw6": {
+        "wins": 3,
+        "ties": 30,
+        "losses": 7
+      },
+      "raw16": {
+        "wins": 0,
+        "ties": 40,
+        "losses": 0
+      }
+    }
+  },
+  {
+    "model": "server-gemma4",
+    "mode": "prose",
+    "n": 40,
+    "score": 83.125,
+    "severe": 1,
+    "median_ms": 535.1225500926375,
+    "median_with_build_ms": 1307.554900064133,
+    "pairs": {
+      "baseline": {
+        "wins": 9,
+        "ties": 27,
+        "losses": 4
+      },
+      "raw6": {
+        "wins": 4,
+        "ties": 31,
+        "losses": 5
+      },
+      "raw16": {
+        "wins": 5,
+        "ties": 32,
+        "losses": 3
+      }
+    }
+  },
+  {
+    "model": "server-gemma4",
+    "mode": "facts",
+    "n": 40,
+    "score": 81.875,
+    "severe": 0,
+    "median_ms": 530.3475999971852,
+    "median_with_build_ms": 1617.2723500058055,
+    "pairs": {
+      "baseline": {
+        "wins": 9,
+        "ties": 25,
+        "losses": 6
+      },
+      "raw6": {
+        "wins": 2,
+        "ties": 33,
+        "losses": 5
+      },
+      "raw16": {
+        "wins": 3,
+        "ties": 34,
+        "losses": 3
+      }
+    }
+  },
+  {
+    "model": "gpt-6-luna",
+    "mode": "baseline",
+    "n": 40,
+    "score": 90.625,
+    "severe": 1,
+    "median_ms": 1408.2836500601843,
+    "median_with_build_ms": 1408.2836500601843,
+    "pairs": {
+      "baseline": {
+        "wins": 0,
+        "ties": 40,
+        "losses": 0
+      },
+      "raw6": {
+        "wins": 5,
+        "ties": 31,
+        "losses": 4
+      },
+      "raw16": {
+        "wins": 3,
+        "ties": 34,
+        "losses": 3
+      }
+    }
+  },
+  {
+    "model": "gpt-6-luna",
+    "mode": "raw6",
+    "n": 40,
+    "score": 88.125,
+    "severe": 1,
+    "median_ms": 1170.8917500218377,
+    "median_with_build_ms": 1170.8917500218377,
+    "pairs": {
+      "baseline": {
+        "wins": 4,
+        "ties": 31,
+        "losses": 5
+      },
+      "raw6": {
+        "wins": 0,
+        "ties": 40,
+        "losses": 0
+      },
+      "raw16": {
+        "wins": 4,
+        "ties": 31,
+        "losses": 5
+      }
+    }
+  },
+  {
+    "model": "gpt-6-luna",
+    "mode": "raw16",
+    "n": 40,
+    "score": 89.375,
+    "severe": 1,
+    "median_ms": 1172.5319999968633,
+    "median_with_build_ms": 1172.5319999968633,
+    "pairs": {
+      "baseline": {
+        "wins": 3,
+        "ties": 34,
+        "losses": 3
+      },
+      "raw6": {
+        "wins": 5,
+        "ties": 31,
+        "losses": 4
+      },
+      "raw16": {
+        "wins": 0,
+        "ties": 40,
+        "losses": 0
+      }
+    }
+  },
+  {
+    "model": "gpt-6-luna",
+    "mode": "prose",
+    "n": 40,
+    "score": 90.0,
+    "severe": 1,
+    "median_ms": 1193.2543499860913,
+    "median_with_build_ms": 2799.2136999964714,
+    "pairs": {
+      "baseline": {
+        "wins": 4,
+        "ties": 32,
+        "losses": 4
+      },
+      "raw6": {
+        "wins": 5,
+        "ties": 31,
+        "losses": 4
+      },
+      "raw16": {
+        "wins": 3,
+        "ties": 34,
+        "losses": 3
+      }
+    }
+  },
+  {
+    "model": "gpt-6-luna",
+    "mode": "facts",
+    "n": 40,
+    "score": 92.5,
+    "severe": 1,
+    "median_ms": 1220.3884000191465,
+    "median_with_build_ms": 2940.616499981843,
+    "pairs": {
+      "baseline": {
+        "wins": 5,
+        "ties": 33,
+        "losses": 2
+      },
+      "raw6": {
+        "wins": 6,
+        "ties": 32,
+        "losses": 2
+      },
+      "raw16": {
+        "wins": 5,
+        "ties": 33,
+        "losses": 2
+      }
+    }
+  }
+]

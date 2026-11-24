@@ -5,6 +5,23 @@ from subtitle_context import CaptionRequest
 from subtitle_evidence_memory import EvidenceMemory,parse_selection
 
 class EvidenceMemoryTests(unittest.TestCase):
+    def test_update_starts_after_accepting_second_caption_before_next_arrives(self):
+        entered=threading.Event();seen=[]
+        def generate(instruction,data):
+            seen.append(data);entered.set();return '{"facts":[]}'
+        p=EvidenceMemory(generate)
+        try:
+            first=CaptionRequest('First clue.','First clue.',1.,1,'a')
+            second=CaptionRequest('Correction to the plan.','Correction to the plan.',6.,1,'b')
+            p.prepare(first);p.remember(first);p.prepare(second)
+            self.assertFalse(entered.is_set())
+            p.remember(second)
+            self.assertTrue(entered.wait(1))
+            self.assertEqual([o['text'] for o in seen[0]['observations']],['First clue.','Correction to the plan.'])
+            self.assertTrue(all(set(o)=={'id','text','speaker'} for o in seen[0]['observations']))
+            self.assertEqual(p.pending['event_id'],'b')
+        finally:p.close()
+
     def test_background_update_does_not_block_caption_or_leak_across_reset(self):
         entered=threading.Event();release=threading.Event();calls=[]
         def slow(*args):
@@ -13,7 +30,9 @@ class EvidenceMemoryTests(unittest.TestCase):
         p=EvidenceMemory(slow)
         try:
             for i in range(2):
-                q=CaptionRequest(f'Old line {i}.',f'Old line {i}.',float(i),1,str(i));p.prepare(q);p.remember(q)
+                q=CaptionRequest(f'Old line {i}.',f'Old line {i}.',float(i),1,str(i));p.prepare(q)
+                started=time.perf_counter();p.remember(q)
+                self.assertLess(time.perf_counter()-started,.2)
             start=time.perf_counter();context=p.prepare(CaptionRequest('Now.','Now.',3.,1,'c'))
             self.assertLess(time.perf_counter()-start,.2);self.assertTrue(entered.wait(1));self.assertEqual(len(context['history']),2)
             p.prepare(CaptionRequest('New scene.','New scene.',4.,2,'d'))

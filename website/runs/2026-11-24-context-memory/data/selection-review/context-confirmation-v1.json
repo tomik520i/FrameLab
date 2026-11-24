@@ -1,0 +1,3831 @@
+{
+  "schema": 1,
+  "seed": 2026112472,
+  "starts": [
+    1,
+    141,
+    237,
+    261,
+    481,
+    1333
+  ],
+  "previous_sha256": "0131a8e0a4c04c5c721d4b8325b8a0c62101edf87a8e7e37f01a351ca4b9e2de",
+  "additional_exclusion_sha256": "9ff43818439e3dea4d97140cfad07ba27232a5cc3878e94402dcc7e1e6e0cb27",
+  "stream_sha256": "5c558232c9920d1b8176066e8ded6df1a10cf8edf519dbc9e7ede2e288baceb2",
+  "scope": "24 real OCR targets in 6 four-job windows, disjoint from earlier target cases supplied in previous/exclude. Selection based only on seeded IDs and time continuity, not known model output or quality. Not independent games or a human-rated benchmark.",
+  "rows": [
+    {
+      "id": "validation-1",
+      "scene": "validation-window-1",
+      "source": "KRS",
+      "time_s": 260.0626456,
+      "domain": "real_ocr",
+      "context": {
+        "current_speaker": null,
+        "current_time_s": 260.0626456,
+        "current_segment": 3,
+        "segment_semantics": "Temporal proximity only; speaker and topic continuity are unverified.",
+        "history": [
+          {
+            "start_s": 247.7802899,
+            "end_s": 247.7802899,
+            "source": "AF",
+            "speaker": null,
+            "event_id": "780",
+            "segment": 3,
+            "age_s": 12.282
+          },
+          {
+            "start_s": 248.1244985,
+            "end_s": 248.1244985,
+            "source": "AP",
+            "speaker": null,
+            "event_id": "782",
+            "segment": 3,
+            "age_s": 11.938
+          },
+          {
+            "start_s": 248.4415155,
+            "end_s": 248.4415155,
+            "source": "ID",
+            "speaker": null,
+            "event_id": "784",
+            "segment": 3,
+            "age_s": 11.621
+          },
+          {
+            "start_s": 248.4415583,
+            "end_s": 248.4415583,
+            "source": "AP",
+            "speaker": null,
+            "event_id": "785",
+            "segment": 3,
+            "age_s": 11.621
+          },
+          {
+            "start_s": 248.7858337,
+            "end_s": 248.7858337,
+            "source": "ID",
+            "speaker": null,
+            "event_id": "787",
+            "segment": 3,
+            "age_s": 11.277
+          },
+          {
+            "start_s": 248.785885,
+            "end_s": 249.1237597,
+            "source": "AP",
+            "speaker": null,
+            "event_id": "790",
+            "segment": 3,
+            "age_s": 10.939
+          },
+          {
+            "start_s": 249.4302964,
+            "end_s": 249.4302964,
+            "source": "VZ",
+            "speaker": null,
+            "event_id": "792",
+            "segment": 3,
+            "age_s": 10.632
+          },
+          {
+            "start_s": 249.4303562,
+            "end_s": 249.4303562,
+            "source": "AP",
+            "speaker": null,
+            "event_id": "793",
+            "segment": 3,
+            "age_s": 10.632
+          },
+          {
+            "start_s": 249.742321,
+            "end_s": 249.742321,
+            "source": "ID",
+            "speaker": null,
+            "event_id": "795",
+            "segment": 3,
+            "age_s": 10.32
+          },
+          {
+            "start_s": 249.7423968,
+            "end_s": 249.7423968,
+            "source": "AP",
+            "speaker": null,
+            "event_id": "796",
+            "segment": 3,
+            "age_s": 10.32
+          },
+          {
+            "start_s": 250.0537976,
+            "end_s": 250.0537976,
+            "source": "ID",
+            "speaker": null,
+            "event_id": "798",
+            "segment": 3,
+            "age_s": 10.009
+          },
+          {
+            "start_s": 250.0538512,
+            "end_s": 250.3553626,
+            "source": "AP",
+            "speaker": null,
+            "event_id": "801",
+            "segment": 3,
+            "age_s": 9.707
+          },
+          {
+            "start_s": 250.7562677,
+            "end_s": 250.7562677,
+            "source": "AF",
+            "speaker": null,
+            "event_id": "803",
+            "segment": 3,
+            "age_s": 9.306
+          }
+        ],
+        "verified_profiles": []
+      }
+    },
+    {
+      "id": "validation-2",
+      "scene": "validation-window-1",
+      "source": "The hell's this guy doing?",
+      "time_s": 291.0151445,
+      "domain": "real_ocr",
+      "context": {
+        "current_speaker": null,
+        "current_time_s": 291.0151445,
+        "current_segment": 5,
+        "segment_semantics": "Temporal proximity only; speaker and topic continuity are unverified.",
+        "history": [
+          {
+            "start_s": 247.7802899,
+            "end_s": 247.7802899,
+            "source": "AF",
+            "speaker": null,
+            "event_id": "780",
+            "segment": 3,
+            "age_s": 43.235
+          },
+          {
+            "start_s": 248.1244985,
+            "end_s": 248.1244985,
+            "source": "AP",
+            "speaker": null,
+            "event_id": "782",
+            "segment": 3,
+            "age_s": 42.891
+          },
+          {
+            "start_s": 248.4415155,
+            "end_s": 248.4415155,
+            "source": "ID",
+            "speaker": null,
+            "event_id": "784",
+            "segment": 3,
+            "age_s": 42.574
+          },
+          {
+            "start_s": 248.4415583,
+            "end_s": 248.4415583,
+            "source": "AP",
+            "speaker": null,
+            "event_id": "785",
+            "segment": 3,
+            "age_s": 42.574
+          },
+          {
+            "start_s": 248.7858337,
+            "end_s": 248.7858337,
+            "source": "ID",
+            "speaker": null,
+            "event_id": "787",
+            "segment": 3,
+            "age_s": 42.229
+          },
+          {
+            "start_s": 248.785885,
+            "end_s": 249.1237597,
+            "source": "AP",
+            "speaker": null,
+            "event_id": "790",
+            "segment": 3,
+            "age_s": 41.891
+          },
+          {
+            "start_s": 249.4302964,
+            "end_s": 249.4302964,
+            "source": "VZ",
+            "speaker": null,
+            "event_id": "792",
+            "segment": 3,
+            "age_s": 41.585
+          },
+          {
+            "start_s": 249.4303562,
+            "end_s": 249.4303562,
+            "source": "AP",
+            "speaker": null,
+            "event_id": "793",
+            "segment": 3,
+            "age_s": 41.585
+          },
+          {
+            "start_s": 249.742321,
+            "end_s": 249.742321,
+            "source": "ID",
+            "speaker": null,
+            "event_id": "795",
+            "segment": 3,
+            "age_s": 41.273
+          },
+          {
+            "start_s": 249.7423968,
+            "end_s": 249.7423968,
+            "source": "AP",
+            "speaker": null,
+            "event_id": "796",
+            "segment": 3,
+            "age_s": 41.273
+          },
+          {
+            "start_s": 250.0537976,
+            "end_s": 250.0537976,
+            "source": "ID",
+            "speaker": null,
+            "event_id": "798",
+            "segment": 3,
+            "age_s": 40.961
+          },
+          {
+            "start_s": 250.0538512,
+            "end_s": 250.3553626,
+            "source": "AP",
+            "speaker": null,
+            "event_id": "801",
+            "segment": 3,
+            "age_s": 40.66
+          },
+          {
+            "start_s": 250.7562677,
+            "end_s": 250.7562677,
+            "source": "AF",
+            "speaker": null,
+            "event_id": "803",
+            "segment": 3,
+            "age_s": 40.259
+          },
+          {
+            "start_s": 259.7558591,
+            "end_s": 260.3575138,
+            "source": "KRS",
+            "speaker": null,
+            "event_id": "840",
+            "segment": 3,
+            "age_s": 30.658
+          },
+          {
+            "start_s": 261.0261762,
+            "end_s": 261.0261762,
+            "source": "Acy Lento",
+            "speaker": null,
+            "event_id": "845",
+            "segment": 3,
+            "age_s": 29.989
+          },
+          {
+            "start_s": 275.1513041,
+            "end_s": 275.1513041,
+            "source": "Gambit Bay",
+            "speaker": null,
+            "event_id": "898",
+            "segment": 4,
+            "age_s": 15.864
+          }
+        ],
+        "verified_profiles": []
+      }
+    },
+    {
+      "id": "validation-3",
+      "scene": "validation-window-1",
+      "source": "Get used to this shit, baby! I'll be here all weekend! Take that!",
+      "time_s": 292.0190072,
+      "domain": "real_ocr",
+      "context": {
+        "current_speaker": null,
+        "current_time_s": 292.0190072,
+        "current_segment": 5,
+        "segment_semantics": "Temporal proximity only; speaker and topic continuity are unverified.",
+        "history": [
+          {
+            "start_s": 248.1244985,
+            "end_s": 248.1244985,
+            "source": "AP",
+            "speaker": null,
+            "event_id": "782",
+            "segment": 3,
+            "age_s": 43.895
+          },
+          {
+            "start_s": 248.4415155,
+            "end_s": 248.4415155,
+            "source": "ID",
+            "speaker": null,
+            "event_id": "784",
+            "segment": 3,
+            "age_s": 43.577
+          },
+          {
+            "start_s": 248.4415583,
+            "end_s": 248.4415583,
+            "source": "AP",
+            "speaker": null,
+            "event_id": "785",
+            "segment": 3,
+            "age_s": 43.577
+          },
+          {
+            "start_s": 248.7858337,
+            "end_s": 248.7858337,
+            "source": "ID",
+            "speaker": null,
+            "event_id": "787",
+            "segment": 3,
+            "age_s": 43.233
+          },
+          {
+            "start_s": 248.785885,
+            "end_s": 249.1237597,
+            "source": "AP",
+            "speaker": null,
+            "event_id": "790",
+            "segment": 3,
+            "age_s": 42.895
+          },
+          {
+            "start_s": 249.4302964,
+            "end_s": 249.4302964,
+            "source": "VZ",
+            "speaker": null,
+            "event_id": "792",
+            "segment": 3,
+            "age_s": 42.589
+          },
+          {
+            "start_s": 249.4303562,
+            "end_s": 249.4303562,
+            "source": "AP",
+            "speaker": null,
+            "event_id": "793",
+            "segment": 3,
+            "age_s": 42.589
+          },
+          {
+            "start_s": 249.742321,
+            "end_s": 249.742321,
+            "source": "ID",
+            "speaker": null,
+            "event_id": "795",
+            "segment": 3,
+            "age_s": 42.277
+          },
+          {
+            "start_s": 249.7423968,
+            "end_s": 249.7423968,
+            "source": "AP",
+            "speaker": null,
+            "event_id": "796",
+            "segment": 3,
+            "age_s": 42.277
+          },
+          {
+            "start_s": 250.0537976,
+            "end_s": 250.0537976,
+            "source": "ID",
+            "speaker": null,
+            "event_id": "798",
+            "segment": 3,
+            "age_s": 41.965
+          },
+          {
+            "start_s": 250.0538512,
+            "end_s": 250.3553626,
+            "source": "AP",
+            "speaker": null,
+            "event_id": "801",
+            "segment": 3,
+            "age_s": 41.664
+          },
+          {
+            "start_s": 250.7562677,
+            "end_s": 250.7562677,
+            "source": "AF",
+            "speaker": null,
+            "event_id": "803",
+            "segment": 3,
+            "age_s": 41.263
+          },
+          {
+            "start_s": 259.7558591,
+            "end_s": 260.3575138,
+            "source": "KRS",
+            "speaker": null,
+            "event_id": "840",
+            "segment": 3,
+            "age_s": 31.661
+          },
+          {
+            "start_s": 261.0261762,
+            "end_s": 261.0261762,
+            "source": "Acy Lento",
+            "speaker": null,
+            "event_id": "845",
+            "segment": 3,
+            "age_s": 30.993
+          },
+          {
+            "start_s": 275.1513041,
+            "end_s": 275.1513041,
+            "source": "Gambit Bay",
+            "speaker": null,
+            "event_id": "898",
+            "segment": 4,
+            "age_s": 16.868
+          },
+          {
+            "start_s": 291.0151445,
+            "end_s": 291.6378014,
+            "source": "The hell's this guy doing?",
+            "speaker": null,
+            "event_id": "955",
+            "segment": 5,
+            "age_s": 0.381
+          }
+        ],
+        "verified_profiles": []
+      }
+    },
+    {
+      "id": "validation-4",
+      "scene": "validation-window-1",
+      "source": "Fuck off! Fuck off! Fuck off! Yeah!",
+      "time_s": 297.0259366,
+      "domain": "real_ocr",
+      "context": {
+        "current_speaker": null,
+        "current_time_s": 297.0259366,
+        "current_segment": 5,
+        "segment_semantics": "Temporal proximity only; speaker and topic continuity are unverified.",
+        "history": [
+          {
+            "start_s": 248.4415155,
+            "end_s": 248.4415155,
+            "source": "ID",
+            "speaker": null,
+            "event_id": "784",
+            "segment": 3,
+            "age_s": 48.584
+          },
+          {
+            "start_s": 248.4415583,
+            "end_s": 248.4415583,
+            "source": "AP",
+            "speaker": null,
+            "event_id": "785",
+            "segment": 3,
+            "age_s": 48.584
+          },
+          {
+            "start_s": 248.7858337,
+            "end_s": 248.7858337,
+            "source": "ID",
+            "speaker": null,
+            "event_id": "787",
+            "segment": 3,
+            "age_s": 48.24
+          },
+          {
+            "start_s": 248.785885,
+            "end_s": 249.1237597,
+            "source": "AP",
+            "speaker": null,
+            "event_id": "790",
+            "segment": 3,
+            "age_s": 47.902
+          },
+          {
+            "start_s": 249.4302964,
+            "end_s": 249.4302964,
+            "source": "VZ",
+            "speaker": null,
+            "event_id": "792",
+            "segment": 3,
+            "age_s": 47.596
+          },
+          {
+            "start_s": 249.4303562,
+            "end_s": 249.4303562,
+            "source": "AP",
+            "speaker": null,
+            "event_id": "793",
+            "segment": 3,
+            "age_s": 47.596
+          },
+          {
+            "start_s": 249.742321,
+            "end_s": 249.742321,
+            "source": "ID",
+            "speaker": null,
+            "event_id": "795",
+            "segment": 3,
+            "age_s": 47.284
+          },
+          {
+            "start_s": 249.7423968,
+            "end_s": 249.7423968,
+            "source": "AP",
+            "speaker": null,
+            "event_id": "796",
+            "segment": 3,
+            "age_s": 47.284
+          },
+          {
+            "start_s": 250.0537976,
+            "end_s": 250.0537976,
+            "source": "ID",
+            "speaker": null,
+            "event_id": "798",
+            "segment": 3,
+            "age_s": 46.972
+          },
+          {
+            "start_s": 250.0538512,
+            "end_s": 250.3553626,
+            "source": "AP",
+            "speaker": null,
+            "event_id": "801",
+            "segment": 3,
+            "age_s": 46.671
+          },
+          {
+            "start_s": 250.7562677,
+            "end_s": 250.7562677,
+            "source": "AF",
+            "speaker": null,
+            "event_id": "803",
+            "segment": 3,
+            "age_s": 46.27
+          },
+          {
+            "start_s": 259.7558591,
+            "end_s": 260.3575138,
+            "source": "KRS",
+            "speaker": null,
+            "event_id": "840",
+            "segment": 3,
+            "age_s": 36.668
+          },
+          {
+            "start_s": 261.0261762,
+            "end_s": 261.0261762,
+            "source": "Acy Lento",
+            "speaker": null,
+            "event_id": "845",
+            "segment": 3,
+            "age_s": 36.0
+          },
+          {
+            "start_s": 275.1513041,
+            "end_s": 275.1513041,
+            "source": "Gambit Bay",
+            "speaker": null,
+            "event_id": "898",
+            "segment": 4,
+            "age_s": 21.875
+          },
+          {
+            "start_s": 291.0151445,
+            "end_s": 291.6378014,
+            "source": "The hell's this guy doing?",
+            "speaker": null,
+            "event_id": "955",
+            "segment": 5,
+            "age_s": 5.388
+          },
+          {
+            "start_s": 292.0190072,
+            "end_s": 296.351276,
+            "source": "Get used to this shit, baby! I'll be here all weekend! Take that!",
+            "speaker": null,
+            "event_id": "981",
+            "segment": 5,
+            "age_s": 0.675
+          }
+        ],
+        "verified_profiles": []
+      }
+    },
+    {
+      "id": "validation-141",
+      "scene": "validation-window-141",
+      "source": "A few of the guys are going to a place near us, by the water.",
+      "time_s": 1206.173902,
+      "domain": "real_ocr",
+      "context": {
+        "current_speaker": null,
+        "current_time_s": 1206.173902,
+        "current_segment": 24,
+        "segment_semantics": "Temporal proximity only; speaker and topic continuity are unverified.",
+        "history": [
+          {
+            "start_s": 1153.853902,
+            "end_s": 1153.853902,
+            "source": "Eh, hey! The Phoenix was a classic. But no, l, uh, got something new.",
+            "speaker": null,
+            "event_id": "4762",
+            "segment": 23,
+            "age_s": 52.32
+          },
+          {
+            "start_s": 1154.439468,
+            "end_s": 1155.329528,
+            "source": "Eh, hey! The Phoenix was a classic. But no, I, uh, got something new.",
+            "speaker": null,
+            "event_id": "4771",
+            "segment": 23,
+            "age_s": 50.844
+          },
+          {
+            "start_s": 1155.713678,
+            "end_s": 1155.713678,
+            "source": "Eh, hey! The Phoenix was a classic. But no, I, uh got something new.",
+            "speaker": null,
+            "event_id": "4774",
+            "segment": 23,
+            "age_s": 50.46
+          },
+          {
+            "start_s": 1156.201826,
+            "end_s": 1157.110334,
+            "source": "Eh, hey! The Phoenix was a classic. But no, I, uh, got something new.",
+            "speaker": null,
+            "event_id": "4783",
+            "segment": 23,
+            "age_s": 49.064
+          },
+          {
+            "start_s": 1158.59684,
+            "end_s": 1161.076709,
+            "source": "This is wild.",
+            "speaker": null,
+            "event_id": "4805",
+            "segment": 23,
+            "age_s": 45.097
+          },
+          {
+            "start_s": 1161.712633,
+            "end_s": 1161.712633,
+            "source": "This is it.",
+            "speaker": null,
+            "event_id": "4808",
+            "segment": 23,
+            "age_s": 44.461
+          },
+          {
+            "start_s": 1162.969813,
+            "end_s": 1164.542619,
+            "source": "Oh. It's not that new.",
+            "speaker": null,
+            "event_id": "4823",
+            "segment": 23,
+            "age_s": 41.631
+          },
+          {
+            "start_s": 1165.176084,
+            "end_s": 1166.460404,
+            "source": "Oh! And what do you drive?",
+            "speaker": null,
+            "event_id": "4834",
+            "segment": 23,
+            "age_s": 39.713
+          },
+          {
+            "start_s": 1167.160552,
+            "end_s": 1168.522735,
+            "source": "Shit, I'm not complaining. I like it.",
+            "speaker": null,
+            "event_id": "4845",
+            "segment": 23,
+            "age_s": 37.651
+          },
+          {
+            "start_s": 1174.940686,
+            "end_s": 1176.242695,
+            "source": "Nice outfit, by the way.",
+            "speaker": null,
+            "event_id": "4875",
+            "segment": 23,
+            "age_s": 29.931
+          },
+          {
+            "start_s": 1176.563818,
+            "end_s": 1176.563818,
+            "source": "Hey. I dress for comfort.",
+            "speaker": null,
+            "event_id": "4877",
+            "segment": 23,
+            "age_s": 29.61
+          },
+          {
+            "start_s": 1176.857047,
+            "end_s": 1177.496239,
+            "source": "Hey, I dress for comfort.",
+            "speaker": null,
+            "event_id": "4883",
+            "segment": 23,
+            "age_s": 28.678
+          },
+          {
+            "start_s": 1178.417998,
+            "end_s": 1181.63367,
+            "source": "Ugh, these clothes are gross, man.",
+            "speaker": null,
+            "event_id": "4907",
+            "segment": 23,
+            "age_s": 24.54
+          },
+          {
+            "start_s": 1182.847454,
+            "end_s": 1185.047799,
+            "source": "Oh, I got your stuff. It's just right there.",
+            "speaker": null,
+            "event_id": "4927",
+            "segment": 23,
+            "age_s": 21.126
+          },
+          {
+            "start_s": 1185.658206,
+            "end_s": 1188.229398,
+            "source": "Nice. Thanks for that.",
+            "speaker": null,
+            "event_id": "4946",
+            "segment": 23,
+            "age_s": 17.945
+          },
+          {
+            "start_s": 1204.389333,
+            "end_s": 1205.084634,
+            "source": "Wanna go get a drink?",
+            "speaker": null,
+            "event_id": "5020",
+            "segment": 24,
+            "age_s": 1.089
+          }
+        ],
+        "verified_profiles": []
+      }
+    },
+    {
+      "id": "validation-142",
+      "scene": "validation-window-141",
+      "source": "Okay, sounds good! Been waiting to see this island paradise.",
+      "time_s": 1208.520804,
+      "domain": "real_ocr",
+      "context": {
+        "current_speaker": null,
+        "current_time_s": 1208.520804,
+        "current_segment": 24,
+        "segment_semantics": "Temporal proximity only; speaker and topic continuity are unverified.",
+        "history": [
+          {
+            "start_s": 1154.439468,
+            "end_s": 1155.329528,
+            "source": "Eh, hey! The Phoenix was a classic. But no, I, uh, got something new.",
+            "speaker": null,
+            "event_id": "4771",
+            "segment": 23,
+            "age_s": 53.191
+          },
+          {
+            "start_s": 1155.713678,
+            "end_s": 1155.713678,
+            "source": "Eh, hey! The Phoenix was a classic. But no, I, uh got something new.",
+            "speaker": null,
+            "event_id": "4774",
+            "segment": 23,
+            "age_s": 52.807
+          },
+          {
+            "start_s": 1156.201826,
+            "end_s": 1157.110334,
+            "source": "Eh, hey! The Phoenix was a classic. But no, I, uh, got something new.",
+            "speaker": null,
+            "event_id": "4783",
+            "segment": 23,
+            "age_s": 51.41
+          },
+          {
+            "start_s": 1158.59684,
+            "end_s": 1161.076709,
+            "source": "This is wild.",
+            "speaker": null,
+            "event_id": "4805",
+            "segment": 23,
+            "age_s": 47.444
+          },
+          {
+            "start_s": 1161.712633,
+            "end_s": 1161.712633,
+            "source": "This is it.",
+            "speaker": null,
+            "event_id": "4808",
+            "segment": 23,
+            "age_s": 46.808
+          },
+          {
+            "start_s": 1162.969813,
+            "end_s": 1164.542619,
+            "source": "Oh. It's not that new.",
+            "speaker": null,
+            "event_id": "4823",
+            "segment": 23,
+            "age_s": 43.978
+          },
+          {
+            "start_s": 1165.176084,
+            "end_s": 1166.460404,
+            "source": "Oh! And what do you drive?",
+            "speaker": null,
+            "event_id": "4834",
+            "segment": 23,
+            "age_s": 42.06
+          },
+          {
+            "start_s": 1167.160552,
+            "end_s": 1168.522735,
+            "source": "Shit, I'm not complaining. I like it.",
+            "speaker": null,
+            "event_id": "4845",
+            "segment": 23,
+            "age_s": 39.998
+          },
+          {
+            "start_s": 1174.940686,
+            "end_s": 1176.242695,
+            "source": "Nice outfit, by the way.",
+            "speaker": null,
+            "event_id": "4875",
+            "segment": 23,
+            "age_s": 32.278
+          },
+          {
+            "start_s": 1176.563818,
+            "end_s": 1176.563818,
+            "source": "Hey. I dress for comfort.",
+            "speaker": null,
+            "event_id": "4877",
+            "segment": 23,
+            "age_s": 31.957
+          },
+          {
+            "start_s": 1176.857047,
+            "end_s": 1177.496239,
+            "source": "Hey, I dress for comfort.",
+            "speaker": null,
+            "event_id": "4883",
+            "segment": 23,
+            "age_s": 31.025
+          },
+          {
+            "start_s": 1178.417998,
+            "end_s": 1181.63367,
+            "source": "Ugh, these clothes are gross, man.",
+            "speaker": null,
+            "event_id": "4907",
+            "segment": 23,
+            "age_s": 26.887
+          },
+          {
+            "start_s": 1182.847454,
+            "end_s": 1185.047799,
+            "source": "Oh, I got your stuff. It's just right there.",
+            "speaker": null,
+            "event_id": "4927",
+            "segment": 23,
+            "age_s": 23.473
+          },
+          {
+            "start_s": 1185.658206,
+            "end_s": 1188.229398,
+            "source": "Nice. Thanks for that.",
+            "speaker": null,
+            "event_id": "4946",
+            "segment": 23,
+            "age_s": 20.291
+          },
+          {
+            "start_s": 1204.389333,
+            "end_s": 1205.084634,
+            "source": "Wanna go get a drink?",
+            "speaker": null,
+            "event_id": "5020",
+            "segment": 24,
+            "age_s": 3.436
+          },
+          {
+            "start_s": 1206.173902,
+            "end_s": 1208.043408,
+            "source": "A few of the guys are going to a place near us, by the water.",
+            "speaker": null,
+            "event_id": "5039",
+            "segment": 24,
+            "age_s": 0.477
+          }
+        ],
+        "verified_profiles": []
+      }
+    },
+    {
+      "id": "validation-143",
+      "scene": "validation-window-141",
+      "source": "Unless... y'know, you wanna drive up to Liberty State, drop in on little man?",
+      "time_s": 1213.132781,
+      "domain": "real_ocr",
+      "context": {
+        "current_speaker": null,
+        "current_time_s": 1213.132781,
+        "current_segment": 24,
+        "segment_semantics": "Temporal proximity only; speaker and topic continuity are unverified.",
+        "history": [
+          {
+            "start_s": 1155.713678,
+            "end_s": 1155.713678,
+            "source": "Eh, hey! The Phoenix was a classic. But no, I, uh got something new.",
+            "speaker": null,
+            "event_id": "4774",
+            "segment": 23,
+            "age_s": 57.419
+          },
+          {
+            "start_s": 1156.201826,
+            "end_s": 1157.110334,
+            "source": "Eh, hey! The Phoenix was a classic. But no, I, uh, got something new.",
+            "speaker": null,
+            "event_id": "4783",
+            "segment": 23,
+            "age_s": 56.022
+          },
+          {
+            "start_s": 1158.59684,
+            "end_s": 1161.076709,
+            "source": "This is wild.",
+            "speaker": null,
+            "event_id": "4805",
+            "segment": 23,
+            "age_s": 52.056
+          },
+          {
+            "start_s": 1161.712633,
+            "end_s": 1161.712633,
+            "source": "This is it.",
+            "speaker": null,
+            "event_id": "4808",
+            "segment": 23,
+            "age_s": 51.42
+          },
+          {
+            "start_s": 1162.969813,
+            "end_s": 1164.542619,
+            "source": "Oh. It's not that new.",
+            "speaker": null,
+            "event_id": "4823",
+            "segment": 23,
+            "age_s": 48.59
+          },
+          {
+            "start_s": 1165.176084,
+            "end_s": 1166.460404,
+            "source": "Oh! And what do you drive?",
+            "speaker": null,
+            "event_id": "4834",
+            "segment": 23,
+            "age_s": 46.672
+          },
+          {
+            "start_s": 1167.160552,
+            "end_s": 1168.522735,
+            "source": "Shit, I'm not complaining. I like it.",
+            "speaker": null,
+            "event_id": "4845",
+            "segment": 23,
+            "age_s": 44.61
+          },
+          {
+            "start_s": 1174.940686,
+            "end_s": 1176.242695,
+            "source": "Nice outfit, by the way.",
+            "speaker": null,
+            "event_id": "4875",
+            "segment": 23,
+            "age_s": 36.89
+          },
+          {
+            "start_s": 1176.563818,
+            "end_s": 1176.563818,
+            "source": "Hey. I dress for comfort.",
+            "speaker": null,
+            "event_id": "4877",
+            "segment": 23,
+            "age_s": 36.569
+          },
+          {
+            "start_s": 1176.857047,
+            "end_s": 1177.496239,
+            "source": "Hey, I dress for comfort.",
+            "speaker": null,
+            "event_id": "4883",
+            "segment": 23,
+            "age_s": 35.637
+          },
+          {
+            "start_s": 1178.417998,
+            "end_s": 1181.63367,
+            "source": "Ugh, these clothes are gross, man.",
+            "speaker": null,
+            "event_id": "4907",
+            "segment": 23,
+            "age_s": 31.499
+          },
+          {
+            "start_s": 1182.847454,
+            "end_s": 1185.047799,
+            "source": "Oh, I got your stuff. It's just right there.",
+            "speaker": null,
+            "event_id": "4927",
+            "segment": 23,
+            "age_s": 28.085
+          },
+          {
+            "start_s": 1185.658206,
+            "end_s": 1188.229398,
+            "source": "Nice. Thanks for that.",
+            "speaker": null,
+            "event_id": "4946",
+            "segment": 23,
+            "age_s": 24.903
+          },
+          {
+            "start_s": 1204.389333,
+            "end_s": 1205.084634,
+            "source": "Wanna go get a drink?",
+            "speaker": null,
+            "event_id": "5020",
+            "segment": 24,
+            "age_s": 8.048
+          },
+          {
+            "start_s": 1206.173902,
+            "end_s": 1208.043408,
+            "source": "A few of the guys are going to a place near us, by the water.",
+            "speaker": null,
+            "event_id": "5039",
+            "segment": 24,
+            "age_s": 5.089
+          },
+          {
+            "start_s": 1208.520804,
+            "end_s": 1211.743121,
+            "source": "Okay, sounds good! Been waiting to see this island paradise.",
+            "speaker": null,
+            "event_id": "5062",
+            "segment": 24,
+            "age_s": 1.39
+          }
+        ],
+        "verified_profiles": []
+      }
+    },
+    {
+      "id": "validation-144",
+      "scene": "validation-window-141",
+      "source": "I gotta stay in, like, a half-mile radius of your place.",
+      "time_s": 1217.336129,
+      "domain": "real_ocr",
+      "context": {
+        "current_speaker": null,
+        "current_time_s": 1217.336129,
+        "current_segment": 24,
+        "segment_semantics": "Temporal proximity only; speaker and topic continuity are unverified.",
+        "history": [
+          {
+            "start_s": 1158.59684,
+            "end_s": 1161.076709,
+            "source": "This is wild.",
+            "speaker": null,
+            "event_id": "4805",
+            "segment": 23,
+            "age_s": 56.259
+          },
+          {
+            "start_s": 1161.712633,
+            "end_s": 1161.712633,
+            "source": "This is it.",
+            "speaker": null,
+            "event_id": "4808",
+            "segment": 23,
+            "age_s": 55.623
+          },
+          {
+            "start_s": 1162.969813,
+            "end_s": 1164.542619,
+            "source": "Oh. It's not that new.",
+            "speaker": null,
+            "event_id": "4823",
+            "segment": 23,
+            "age_s": 52.794
+          },
+          {
+            "start_s": 1165.176084,
+            "end_s": 1166.460404,
+            "source": "Oh! And what do you drive?",
+            "speaker": null,
+            "event_id": "4834",
+            "segment": 23,
+            "age_s": 50.876
+          },
+          {
+            "start_s": 1167.160552,
+            "end_s": 1168.522735,
+            "source": "Shit, I'm not complaining. I like it.",
+            "speaker": null,
+            "event_id": "4845",
+            "segment": 23,
+            "age_s": 48.813
+          },
+          {
+            "start_s": 1174.940686,
+            "end_s": 1176.242695,
+            "source": "Nice outfit, by the way.",
+            "speaker": null,
+            "event_id": "4875",
+            "segment": 23,
+            "age_s": 41.093
+          },
+          {
+            "start_s": 1176.563818,
+            "end_s": 1176.563818,
+            "source": "Hey. I dress for comfort.",
+            "speaker": null,
+            "event_id": "4877",
+            "segment": 23,
+            "age_s": 40.772
+          },
+          {
+            "start_s": 1176.857047,
+            "end_s": 1177.496239,
+            "source": "Hey, I dress for comfort.",
+            "speaker": null,
+            "event_id": "4883",
+            "segment": 23,
+            "age_s": 39.84
+          },
+          {
+            "start_s": 1178.417998,
+            "end_s": 1181.63367,
+            "source": "Ugh, these clothes are gross, man.",
+            "speaker": null,
+            "event_id": "4907",
+            "segment": 23,
+            "age_s": 35.702
+          },
+          {
+            "start_s": 1182.847454,
+            "end_s": 1185.047799,
+            "source": "Oh, I got your stuff. It's just right there.",
+            "speaker": null,
+            "event_id": "4927",
+            "segment": 23,
+            "age_s": 32.288
+          },
+          {
+            "start_s": 1185.658206,
+            "end_s": 1188.229398,
+            "source": "Nice. Thanks for that.",
+            "speaker": null,
+            "event_id": "4946",
+            "segment": 23,
+            "age_s": 29.107
+          },
+          {
+            "start_s": 1204.389333,
+            "end_s": 1205.084634,
+            "source": "Wanna go get a drink?",
+            "speaker": null,
+            "event_id": "5020",
+            "segment": 24,
+            "age_s": 12.251
+          },
+          {
+            "start_s": 1206.173902,
+            "end_s": 1208.043408,
+            "source": "A few of the guys are going to a place near us, by the water.",
+            "speaker": null,
+            "event_id": "5039",
+            "segment": 24,
+            "age_s": 9.293
+          },
+          {
+            "start_s": 1208.520804,
+            "end_s": 1211.743121,
+            "source": "Okay, sounds good! Been waiting to see this island paradise.",
+            "speaker": null,
+            "event_id": "5062",
+            "segment": 24,
+            "age_s": 5.593
+          },
+          {
+            "start_s": 1213.132781,
+            "end_s": 1214.472701,
+            "source": "Unless... y'know, you wanna drive up to Liberty State, drop in on little man?",
+            "speaker": null,
+            "event_id": "5078",
+            "segment": 24,
+            "age_s": 2.863
+          },
+          {
+            "start_s": 1214.92299,
+            "end_s": 1216.112693,
+            "source": "Unless.. y'know, you wanna drive up to Liberty State, drop in on little man?",
+            "speaker": null,
+            "event_id": "5090",
+            "segment": 24,
+            "age_s": 1.223
+          }
+        ],
+        "verified_profiles": []
+      }
+    },
+    {
+      "id": "validation-237",
+      "scene": "validation-window-237",
+      "source": "Oh, from the sounds of it you got lots to do, so, uh..",
+      "time_s": 1595.457083,
+      "domain": "real_ocr",
+      "context": {
+        "current_speaker": null,
+        "current_time_s": 1595.457083,
+        "current_segment": 27,
+        "segment_semantics": "Temporal proximity only; speaker and topic continuity are unverified.",
+        "history": [
+          {
+            "start_s": 1553.311968,
+            "end_s": 1555.701536,
+            "source": "Maybe next time you decide to go robbing?",
+            "speaker": null,
+            "event_id": "6628",
+            "segment": 27,
+            "age_s": 39.756
+          },
+          {
+            "start_s": 1556.106654,
+            "end_s": 1557.273062,
+            "source": "Maybe hire a babysitter, huh?",
+            "speaker": null,
+            "event_id": "6636",
+            "segment": 27,
+            "age_s": 38.184
+          },
+          {
+            "start_s": 1557.909743,
+            "end_s": 1558.970888,
+            "source": "Cal, what the fuck?",
+            "speaker": null,
+            "event_id": "6645",
+            "segment": 27,
+            "age_s": 36.486
+          },
+          {
+            "start_s": 1559.303953,
+            "end_s": 1560.320948,
+            "source": "Hey, hey, hey, hey.",
+            "speaker": null,
+            "event_id": "6653",
+            "segment": 27,
+            "age_s": 35.136
+          },
+          {
+            "start_s": 1560.933235,
+            "end_s": 1562.567323,
+            "source": "Hey. Yo, yo, you got it?",
+            "speaker": null,
+            "event_id": "6666",
+            "segment": 27,
+            "age_s": 32.89
+          },
+          {
+            "start_s": 1562.878234,
+            "end_s": 1563.774636,
+            "source": "Hell yeah, baby.",
+            "speaker": null,
+            "event_id": "6674",
+            "segment": 27,
+            "age_s": 31.682
+          },
+          {
+            "start_s": 1564.798004,
+            "end_s": 1567.990901,
+            "source": "Little eightball, for the boys on the eight ball.",
+            "speaker": null,
+            "event_id": "6694",
+            "segment": 27,
+            "age_s": 27.466
+          },
+          {
+            "start_s": 1568.683851,
+            "end_s": 1571.926989,
+            "source": "If we can get, like, an air base contract for this shit,",
+            "speaker": null,
+            "event_id": "6717",
+            "segment": 27,
+            "age_s": 23.53
+          },
+          {
+            "start_s": 1572.318434,
+            "end_s": 1574.561803,
+            "source": "we don't need to sell to nobody else. You got a little somethin'-somethin' put aside for us?",
+            "speaker": null,
+            "event_id": "6732",
+            "segment": 27,
+            "age_s": 20.895
+          },
+          {
+            "start_s": 1574.932173,
+            "end_s": 1575.76305,
+            "source": "You got a little somethin'-somethin' put aside for us?",
+            "speaker": null,
+            "event_id": "6738",
+            "segment": 27,
+            "age_s": 19.694
+          },
+          {
+            "start_s": 1576.512801,
+            "end_s": 1578.804908,
+            "source": "Hell yeah, I got y'all greedy fuckers.",
+            "speaker": null,
+            "event_id": "6755",
+            "segment": 27,
+            "age_s": 16.652
+          },
+          {
+            "start_s": 1579.803842,
+            "end_s": 1581.479403,
+            "source": "And, oh... Who do we have here?",
+            "speaker": null,
+            "event_id": "6769",
+            "segment": 27,
+            "age_s": 13.978
+          },
+          {
+            "start_s": 1581.842984,
+            "end_s": 1581.842984,
+            "source": "And, oh.. Who do we have here?",
+            "speaker": null,
+            "event_id": "6771",
+            "segment": 27,
+            "age_s": 13.614
+          },
+          {
+            "start_s": 1582.22858,
+            "end_s": 1587.672556,
+            "source": "Hey, baby. Me llamo a-Donnie, but you can call me papi.",
+            "speaker": null,
+            "event_id": "6803",
+            "segment": 27,
+            "age_s": 7.785
+          },
+          {
+            "start_s": 1588.00258,
+            "end_s": 1589.271134,
+            "source": "Oh, so you're Donnie.",
+            "speaker": null,
+            "event_id": "6813",
+            "segment": 27,
+            "age_s": 6.186
+          },
+          {
+            "start_s": 1589.657849,
+            "end_s": 1593.436048,
+            "source": "Mm. I guess you heard, I've been getting Jason's ass paid.",
+            "speaker": null,
+            "event_id": "6837",
+            "segment": 27,
+            "age_s": 2.021
+          }
+        ],
+        "verified_profiles": []
+      }
+    },
+    {
+      "id": "validation-238",
+      "scene": "validation-window-237",
+      "source": "don't let me keep you.",
+      "time_s": 1598.26962,
+      "domain": "real_ocr",
+      "context": {
+        "current_speaker": null,
+        "current_time_s": 1598.26962,
+        "current_segment": 27,
+        "segment_semantics": "Temporal proximity only; speaker and topic continuity are unverified.",
+        "history": [
+          {
+            "start_s": 1556.106654,
+            "end_s": 1557.273062,
+            "source": "Maybe hire a babysitter, huh?",
+            "speaker": null,
+            "event_id": "6636",
+            "segment": 27,
+            "age_s": 40.997
+          },
+          {
+            "start_s": 1557.909743,
+            "end_s": 1558.970888,
+            "source": "Cal, what the fuck?",
+            "speaker": null,
+            "event_id": "6645",
+            "segment": 27,
+            "age_s": 39.299
+          },
+          {
+            "start_s": 1559.303953,
+            "end_s": 1560.320948,
+            "source": "Hey, hey, hey, hey.",
+            "speaker": null,
+            "event_id": "6653",
+            "segment": 27,
+            "age_s": 37.949
+          },
+          {
+            "start_s": 1560.933235,
+            "end_s": 1562.567323,
+            "source": "Hey. Yo, yo, you got it?",
+            "speaker": null,
+            "event_id": "6666",
+            "segment": 27,
+            "age_s": 35.702
+          },
+          {
+            "start_s": 1562.878234,
+            "end_s": 1563.774636,
+            "source": "Hell yeah, baby.",
+            "speaker": null,
+            "event_id": "6674",
+            "segment": 27,
+            "age_s": 34.495
+          },
+          {
+            "start_s": 1564.798004,
+            "end_s": 1567.990901,
+            "source": "Little eightball, for the boys on the eight ball.",
+            "speaker": null,
+            "event_id": "6694",
+            "segment": 27,
+            "age_s": 30.279
+          },
+          {
+            "start_s": 1568.683851,
+            "end_s": 1571.926989,
+            "source": "If we can get, like, an air base contract for this shit,",
+            "speaker": null,
+            "event_id": "6717",
+            "segment": 27,
+            "age_s": 26.343
+          },
+          {
+            "start_s": 1572.318434,
+            "end_s": 1574.561803,
+            "source": "we don't need to sell to nobody else. You got a little somethin'-somethin' put aside for us?",
+            "speaker": null,
+            "event_id": "6732",
+            "segment": 27,
+            "age_s": 23.708
+          },
+          {
+            "start_s": 1574.932173,
+            "end_s": 1575.76305,
+            "source": "You got a little somethin'-somethin' put aside for us?",
+            "speaker": null,
+            "event_id": "6738",
+            "segment": 27,
+            "age_s": 22.507
+          },
+          {
+            "start_s": 1576.512801,
+            "end_s": 1578.804908,
+            "source": "Hell yeah, I got y'all greedy fuckers.",
+            "speaker": null,
+            "event_id": "6755",
+            "segment": 27,
+            "age_s": 19.465
+          },
+          {
+            "start_s": 1579.803842,
+            "end_s": 1581.479403,
+            "source": "And, oh... Who do we have here?",
+            "speaker": null,
+            "event_id": "6769",
+            "segment": 27,
+            "age_s": 16.79
+          },
+          {
+            "start_s": 1581.842984,
+            "end_s": 1581.842984,
+            "source": "And, oh.. Who do we have here?",
+            "speaker": null,
+            "event_id": "6771",
+            "segment": 27,
+            "age_s": 16.427
+          },
+          {
+            "start_s": 1582.22858,
+            "end_s": 1587.672556,
+            "source": "Hey, baby. Me llamo a-Donnie, but you can call me papi.",
+            "speaker": null,
+            "event_id": "6803",
+            "segment": 27,
+            "age_s": 10.597
+          },
+          {
+            "start_s": 1588.00258,
+            "end_s": 1589.271134,
+            "source": "Oh, so you're Donnie.",
+            "speaker": null,
+            "event_id": "6813",
+            "segment": 27,
+            "age_s": 8.998
+          },
+          {
+            "start_s": 1589.657849,
+            "end_s": 1593.436048,
+            "source": "Mm. I guess you heard, I've been getting Jason's ass paid.",
+            "speaker": null,
+            "event_id": "6837",
+            "segment": 27,
+            "age_s": 4.834
+          },
+          {
+            "start_s": 1595.056879,
+            "end_s": 1597.933523,
+            "source": "Oh, from the sounds of it you got lots to do, so, uh...",
+            "speaker": null,
+            "event_id": "6851",
+            "segment": 27,
+            "age_s": 0.336
+          }
+        ],
+        "verified_profiles": []
+      }
+    },
+    {
+      "id": "validation-239",
+      "scene": "validation-window-237",
+      "source": "Oh, I got all the time in the world for you, darlin'.",
+      "time_s": 1599.870647,
+      "domain": "real_ocr",
+      "context": {
+        "current_speaker": null,
+        "current_time_s": 1599.870647,
+        "current_segment": 27,
+        "segment_semantics": "Temporal proximity only; speaker and topic continuity are unverified.",
+        "history": [
+          {
+            "start_s": 1557.909743,
+            "end_s": 1558.970888,
+            "source": "Cal, what the fuck?",
+            "speaker": null,
+            "event_id": "6645",
+            "segment": 27,
+            "age_s": 40.9
+          },
+          {
+            "start_s": 1559.303953,
+            "end_s": 1560.320948,
+            "source": "Hey, hey, hey, hey.",
+            "speaker": null,
+            "event_id": "6653",
+            "segment": 27,
+            "age_s": 39.55
+          },
+          {
+            "start_s": 1560.933235,
+            "end_s": 1562.567323,
+            "source": "Hey. Yo, yo, you got it?",
+            "speaker": null,
+            "event_id": "6666",
+            "segment": 27,
+            "age_s": 37.303
+          },
+          {
+            "start_s": 1562.878234,
+            "end_s": 1563.774636,
+            "source": "Hell yeah, baby.",
+            "speaker": null,
+            "event_id": "6674",
+            "segment": 27,
+            "age_s": 36.096
+          },
+          {
+            "start_s": 1564.798004,
+            "end_s": 1567.990901,
+            "source": "Little eightball, for the boys on the eight ball.",
+            "speaker": null,
+            "event_id": "6694",
+            "segment": 27,
+            "age_s": 31.88
+          },
+          {
+            "start_s": 1568.683851,
+            "end_s": 1571.926989,
+            "source": "If we can get, like, an air base contract for this shit,",
+            "speaker": null,
+            "event_id": "6717",
+            "segment": 27,
+            "age_s": 27.944
+          },
+          {
+            "start_s": 1572.318434,
+            "end_s": 1574.561803,
+            "source": "we don't need to sell to nobody else. You got a little somethin'-somethin' put aside for us?",
+            "speaker": null,
+            "event_id": "6732",
+            "segment": 27,
+            "age_s": 25.309
+          },
+          {
+            "start_s": 1574.932173,
+            "end_s": 1575.76305,
+            "source": "You got a little somethin'-somethin' put aside for us?",
+            "speaker": null,
+            "event_id": "6738",
+            "segment": 27,
+            "age_s": 24.108
+          },
+          {
+            "start_s": 1576.512801,
+            "end_s": 1578.804908,
+            "source": "Hell yeah, I got y'all greedy fuckers.",
+            "speaker": null,
+            "event_id": "6755",
+            "segment": 27,
+            "age_s": 21.066
+          },
+          {
+            "start_s": 1579.803842,
+            "end_s": 1581.479403,
+            "source": "And, oh... Who do we have here?",
+            "speaker": null,
+            "event_id": "6769",
+            "segment": 27,
+            "age_s": 18.391
+          },
+          {
+            "start_s": 1581.842984,
+            "end_s": 1581.842984,
+            "source": "And, oh.. Who do we have here?",
+            "speaker": null,
+            "event_id": "6771",
+            "segment": 27,
+            "age_s": 18.028
+          },
+          {
+            "start_s": 1582.22858,
+            "end_s": 1587.672556,
+            "source": "Hey, baby. Me llamo a-Donnie, but you can call me papi.",
+            "speaker": null,
+            "event_id": "6803",
+            "segment": 27,
+            "age_s": 12.198
+          },
+          {
+            "start_s": 1588.00258,
+            "end_s": 1589.271134,
+            "source": "Oh, so you're Donnie.",
+            "speaker": null,
+            "event_id": "6813",
+            "segment": 27,
+            "age_s": 10.6
+          },
+          {
+            "start_s": 1589.657849,
+            "end_s": 1593.436048,
+            "source": "Mm. I guess you heard, I've been getting Jason's ass paid.",
+            "speaker": null,
+            "event_id": "6837",
+            "segment": 27,
+            "age_s": 6.435
+          },
+          {
+            "start_s": 1595.056879,
+            "end_s": 1597.933523,
+            "source": "Oh, from the sounds of it you got lots to do, so, uh...",
+            "speaker": null,
+            "event_id": "6851",
+            "segment": 27,
+            "age_s": 1.937
+          },
+          {
+            "start_s": 1598.26962,
+            "end_s": 1599.187277,
+            "source": "don't let me keep you.",
+            "speaker": null,
+            "event_id": "6867",
+            "segment": 27,
+            "age_s": 0.683
+          }
+        ],
+        "verified_profiles": []
+      }
+    },
+    {
+      "id": "validation-240",
+      "scene": "validation-window-237",
+      "source": "I need some fresh air. Can you bring me another Pindayho?",
+      "time_s": 1604.423949,
+      "domain": "real_ocr",
+      "context": {
+        "current_speaker": null,
+        "current_time_s": 1604.423949,
+        "current_segment": 27,
+        "segment_semantics": "Temporal proximity only; speaker and topic continuity are unverified.",
+        "history": [
+          {
+            "start_s": 1559.303953,
+            "end_s": 1560.320948,
+            "source": "Hey, hey, hey, hey.",
+            "speaker": null,
+            "event_id": "6653",
+            "segment": 27,
+            "age_s": 44.103
+          },
+          {
+            "start_s": 1560.933235,
+            "end_s": 1562.567323,
+            "source": "Hey. Yo, yo, you got it?",
+            "speaker": null,
+            "event_id": "6666",
+            "segment": 27,
+            "age_s": 41.857
+          },
+          {
+            "start_s": 1562.878234,
+            "end_s": 1563.774636,
+            "source": "Hell yeah, baby.",
+            "speaker": null,
+            "event_id": "6674",
+            "segment": 27,
+            "age_s": 40.649
+          },
+          {
+            "start_s": 1564.798004,
+            "end_s": 1567.990901,
+            "source": "Little eightball, for the boys on the eight ball.",
+            "speaker": null,
+            "event_id": "6694",
+            "segment": 27,
+            "age_s": 36.433
+          },
+          {
+            "start_s": 1568.683851,
+            "end_s": 1571.926989,
+            "source": "If we can get, like, an air base contract for this shit,",
+            "speaker": null,
+            "event_id": "6717",
+            "segment": 27,
+            "age_s": 32.497
+          },
+          {
+            "start_s": 1572.318434,
+            "end_s": 1574.561803,
+            "source": "we don't need to sell to nobody else. You got a little somethin'-somethin' put aside for us?",
+            "speaker": null,
+            "event_id": "6732",
+            "segment": 27,
+            "age_s": 29.862
+          },
+          {
+            "start_s": 1574.932173,
+            "end_s": 1575.76305,
+            "source": "You got a little somethin'-somethin' put aside for us?",
+            "speaker": null,
+            "event_id": "6738",
+            "segment": 27,
+            "age_s": 28.661
+          },
+          {
+            "start_s": 1576.512801,
+            "end_s": 1578.804908,
+            "source": "Hell yeah, I got y'all greedy fuckers.",
+            "speaker": null,
+            "event_id": "6755",
+            "segment": 27,
+            "age_s": 25.619
+          },
+          {
+            "start_s": 1579.803842,
+            "end_s": 1581.479403,
+            "source": "And, oh... Who do we have here?",
+            "speaker": null,
+            "event_id": "6769",
+            "segment": 27,
+            "age_s": 22.945
+          },
+          {
+            "start_s": 1581.842984,
+            "end_s": 1581.842984,
+            "source": "And, oh.. Who do we have here?",
+            "speaker": null,
+            "event_id": "6771",
+            "segment": 27,
+            "age_s": 22.581
+          },
+          {
+            "start_s": 1582.22858,
+            "end_s": 1587.672556,
+            "source": "Hey, baby. Me llamo a-Donnie, but you can call me papi.",
+            "speaker": null,
+            "event_id": "6803",
+            "segment": 27,
+            "age_s": 16.751
+          },
+          {
+            "start_s": 1588.00258,
+            "end_s": 1589.271134,
+            "source": "Oh, so you're Donnie.",
+            "speaker": null,
+            "event_id": "6813",
+            "segment": 27,
+            "age_s": 15.153
+          },
+          {
+            "start_s": 1589.657849,
+            "end_s": 1593.436048,
+            "source": "Mm. I guess you heard, I've been getting Jason's ass paid.",
+            "speaker": null,
+            "event_id": "6837",
+            "segment": 27,
+            "age_s": 10.988
+          },
+          {
+            "start_s": 1595.056879,
+            "end_s": 1597.933523,
+            "source": "Oh, from the sounds of it you got lots to do, so, uh...",
+            "speaker": null,
+            "event_id": "6851",
+            "segment": 27,
+            "age_s": 6.49
+          },
+          {
+            "start_s": 1598.26962,
+            "end_s": 1599.187277,
+            "source": "don't let me keep you.",
+            "speaker": null,
+            "event_id": "6867",
+            "segment": 27,
+            "age_s": 5.237
+          },
+          {
+            "start_s": 1599.870647,
+            "end_s": 1603.197979,
+            "source": "Oh, I got all the time in the world for you, darlin'.",
+            "speaker": null,
+            "event_id": "6890",
+            "segment": 27,
+            "age_s": 1.226
+          }
+        ],
+        "verified_profiles": []
+      }
+    },
+    {
+      "id": "validation-261",
+      "scene": "validation-window-261",
+      "source": "Oh, Jason! You are too much!",
+      "time_s": 1688.372979,
+      "domain": "real_ocr",
+      "context": {
+        "current_speaker": null,
+        "current_time_s": 1688.372979,
+        "current_segment": 28,
+        "segment_semantics": "Temporal proximity only; speaker and topic continuity are unverified.",
+        "history": [
+          {
+            "start_s": 1642.92345,
+            "end_s": 1642.92345,
+            "source": "EIA",
+            "speaker": null,
+            "event_id": "7069",
+            "segment": 28,
+            "age_s": 45.45
+          },
+          {
+            "start_s": 1644.660798,
+            "end_s": 1644.660798,
+            "source": "BA",
+            "speaker": null,
+            "event_id": "7075",
+            "segment": 28,
+            "age_s": 43.712
+          },
+          {
+            "start_s": 1647.998329,
+            "end_s": 1647.998329,
+            "source": "ARLEN",
+            "speaker": null,
+            "event_id": "7087",
+            "segment": 28,
+            "age_s": 40.375
+          },
+          {
+            "start_s": 1649.302852,
+            "end_s": 1649.302852,
+            "source": "DGI",
+            "speaker": null,
+            "event_id": "7093",
+            "segment": 28,
+            "age_s": 39.07
+          },
+          {
+            "start_s": 1653.503019,
+            "end_s": 1654.127635,
+            "source": "Hey, Rhonda.",
+            "speaker": null,
+            "event_id": "7115",
+            "segment": 28,
+            "age_s": 34.245
+          },
+          {
+            "start_s": 1654.785996,
+            "end_s": 1657.361644,
+            "source": "Hey, Jay, that your baby mama I saw?",
+            "speaker": null,
+            "event_id": "7134",
+            "segment": 28,
+            "age_s": 31.011
+          },
+          {
+            "start_s": 1657.648337,
+            "end_s": 1658.806159,
+            "source": "Yep. She just got out.",
+            "speaker": null,
+            "event_id": "7142",
+            "segment": 28,
+            "age_s": 29.567
+          },
+          {
+            "start_s": 1659.200474,
+            "end_s": 1660.636287,
+            "source": "Where's the baby?",
+            "speaker": null,
+            "event_id": "7152",
+            "segment": 28,
+            "age_s": 27.737
+          },
+          {
+            "start_s": 1661.396712,
+            "end_s": 1662.565038,
+            "source": "We're working on it.",
+            "speaker": null,
+            "event_id": "7161",
+            "segment": 28,
+            "age_s": 25.808
+          },
+          {
+            "start_s": 1665.875014,
+            "end_s": 1668.121947,
+            "source": "Why you makin' that face?",
+            "speaker": null,
+            "event_id": "7183",
+            "segment": 28,
+            "age_s": 20.251
+          },
+          {
+            "start_s": 1669.52967,
+            "end_s": 1670.467788,
+            "source": "Oh, you too much.",
+            "speaker": null,
+            "event_id": "7194",
+            "segment": 28,
+            "age_s": 17.905
+          },
+          {
+            "start_s": 1672.684052,
+            "end_s": 1674.799368,
+            "source": "Why aren't you out there talking to her right now?",
+            "speaker": null,
+            "event_id": "7214",
+            "segment": 28,
+            "age_s": 13.574
+          },
+          {
+            "start_s": 1675.51492,
+            "end_s": 1679.065388,
+            "source": "Oh, I get it. You're trying to make her jealous a little, right?",
+            "speaker": null,
+            "event_id": "7237",
+            "segment": 28,
+            "age_s": 9.308
+          },
+          {
+            "start_s": 1680.022226,
+            "end_s": 1682.965478,
+            "source": "Not look too needy, right out of the gate? I get it.",
+            "speaker": null,
+            "event_id": "7257",
+            "segment": 28,
+            "age_s": 5.408
+          },
+          {
+            "start_s": 1683.734096,
+            "end_s": 1685.552854,
+            "source": "You want me to laugh like you said something funny?",
+            "speaker": null,
+            "event_id": "7270",
+            "segment": 28,
+            "age_s": 2.82
+          },
+          {
+            "start_s": 1686.174069,
+            "end_s": 1687.444097,
+            "source": "No, no, I'm just making-",
+            "speaker": null,
+            "event_id": "7281",
+            "segment": 28,
+            "age_s": 0.929
+          }
+        ],
+        "verified_profiles": []
+      }
+    },
+    {
+      "id": "validation-262",
+      "scene": "validation-window-261",
+      "source": "Is she looking?",
+      "time_s": 1692.333168,
+      "domain": "real_ocr",
+      "context": {
+        "current_speaker": null,
+        "current_time_s": 1692.333168,
+        "current_segment": 28,
+        "segment_semantics": "Temporal proximity only; speaker and topic continuity are unverified.",
+        "history": [
+          {
+            "start_s": 1644.660798,
+            "end_s": 1644.660798,
+            "source": "BA",
+            "speaker": null,
+            "event_id": "7075",
+            "segment": 28,
+            "age_s": 47.672
+          },
+          {
+            "start_s": 1647.998329,
+            "end_s": 1647.998329,
+            "source": "ARLEN",
+            "speaker": null,
+            "event_id": "7087",
+            "segment": 28,
+            "age_s": 44.335
+          },
+          {
+            "start_s": 1649.302852,
+            "end_s": 1649.302852,
+            "source": "DGI",
+            "speaker": null,
+            "event_id": "7093",
+            "segment": 28,
+            "age_s": 43.03
+          },
+          {
+            "start_s": 1653.503019,
+            "end_s": 1654.127635,
+            "source": "Hey, Rhonda.",
+            "speaker": null,
+            "event_id": "7115",
+            "segment": 28,
+            "age_s": 38.206
+          },
+          {
+            "start_s": 1654.785996,
+            "end_s": 1657.361644,
+            "source": "Hey, Jay, that your baby mama I saw?",
+            "speaker": null,
+            "event_id": "7134",
+            "segment": 28,
+            "age_s": 34.972
+          },
+          {
+            "start_s": 1657.648337,
+            "end_s": 1658.806159,
+            "source": "Yep. She just got out.",
+            "speaker": null,
+            "event_id": "7142",
+            "segment": 28,
+            "age_s": 33.527
+          },
+          {
+            "start_s": 1659.200474,
+            "end_s": 1660.636287,
+            "source": "Where's the baby?",
+            "speaker": null,
+            "event_id": "7152",
+            "segment": 28,
+            "age_s": 31.697
+          },
+          {
+            "start_s": 1661.396712,
+            "end_s": 1662.565038,
+            "source": "We're working on it.",
+            "speaker": null,
+            "event_id": "7161",
+            "segment": 28,
+            "age_s": 29.768
+          },
+          {
+            "start_s": 1665.875014,
+            "end_s": 1668.121947,
+            "source": "Why you makin' that face?",
+            "speaker": null,
+            "event_id": "7183",
+            "segment": 28,
+            "age_s": 24.211
+          },
+          {
+            "start_s": 1669.52967,
+            "end_s": 1670.467788,
+            "source": "Oh, you too much.",
+            "speaker": null,
+            "event_id": "7194",
+            "segment": 28,
+            "age_s": 21.865
+          },
+          {
+            "start_s": 1672.684052,
+            "end_s": 1674.799368,
+            "source": "Why aren't you out there talking to her right now?",
+            "speaker": null,
+            "event_id": "7214",
+            "segment": 28,
+            "age_s": 17.534
+          },
+          {
+            "start_s": 1675.51492,
+            "end_s": 1679.065388,
+            "source": "Oh, I get it. You're trying to make her jealous a little, right?",
+            "speaker": null,
+            "event_id": "7237",
+            "segment": 28,
+            "age_s": 13.268
+          },
+          {
+            "start_s": 1680.022226,
+            "end_s": 1682.965478,
+            "source": "Not look too needy, right out of the gate? I get it.",
+            "speaker": null,
+            "event_id": "7257",
+            "segment": 28,
+            "age_s": 9.368
+          },
+          {
+            "start_s": 1683.734096,
+            "end_s": 1685.552854,
+            "source": "You want me to laugh like you said something funny?",
+            "speaker": null,
+            "event_id": "7270",
+            "segment": 28,
+            "age_s": 6.78
+          },
+          {
+            "start_s": 1686.174069,
+            "end_s": 1687.444097,
+            "source": "No, no, I'm just making-",
+            "speaker": null,
+            "event_id": "7281",
+            "segment": 28,
+            "age_s": 4.889
+          },
+          {
+            "start_s": 1688.372979,
+            "end_s": 1692.036466,
+            "source": "Oh, Jason! You are too much!",
+            "speaker": null,
+            "event_id": "7307",
+            "segment": 28,
+            "age_s": 0.297
+          }
+        ],
+        "verified_profiles": []
+      }
+    },
+    {
+      "id": "validation-263",
+      "scene": "validation-window-261",
+      "source": "So, what do you got planned for her tonight? Somethin' nice?",
+      "time_s": 1698.995902,
+      "domain": "real_ocr",
+      "context": {
+        "current_speaker": null,
+        "current_time_s": 1698.995902,
+        "current_segment": 28,
+        "segment_semantics": "Temporal proximity only; speaker and topic continuity are unverified.",
+        "history": [
+          {
+            "start_s": 1647.998329,
+            "end_s": 1647.998329,
+            "source": "ARLEN",
+            "speaker": null,
+            "event_id": "7087",
+            "segment": 28,
+            "age_s": 50.998
+          },
+          {
+            "start_s": 1649.302852,
+            "end_s": 1649.302852,
+            "source": "DGI",
+            "speaker": null,
+            "event_id": "7093",
+            "segment": 28,
+            "age_s": 49.693
+          },
+          {
+            "start_s": 1653.503019,
+            "end_s": 1654.127635,
+            "source": "Hey, Rhonda.",
+            "speaker": null,
+            "event_id": "7115",
+            "segment": 28,
+            "age_s": 44.868
+          },
+          {
+            "start_s": 1654.785996,
+            "end_s": 1657.361644,
+            "source": "Hey, Jay, that your baby mama I saw?",
+            "speaker": null,
+            "event_id": "7134",
+            "segment": 28,
+            "age_s": 41.634
+          },
+          {
+            "start_s": 1657.648337,
+            "end_s": 1658.806159,
+            "source": "Yep. She just got out.",
+            "speaker": null,
+            "event_id": "7142",
+            "segment": 28,
+            "age_s": 40.19
+          },
+          {
+            "start_s": 1659.200474,
+            "end_s": 1660.636287,
+            "source": "Where's the baby?",
+            "speaker": null,
+            "event_id": "7152",
+            "segment": 28,
+            "age_s": 38.36
+          },
+          {
+            "start_s": 1661.396712,
+            "end_s": 1662.565038,
+            "source": "We're working on it.",
+            "speaker": null,
+            "event_id": "7161",
+            "segment": 28,
+            "age_s": 36.431
+          },
+          {
+            "start_s": 1665.875014,
+            "end_s": 1668.121947,
+            "source": "Why you makin' that face?",
+            "speaker": null,
+            "event_id": "7183",
+            "segment": 28,
+            "age_s": 30.874
+          },
+          {
+            "start_s": 1669.52967,
+            "end_s": 1670.467788,
+            "source": "Oh, you too much.",
+            "speaker": null,
+            "event_id": "7194",
+            "segment": 28,
+            "age_s": 28.528
+          },
+          {
+            "start_s": 1672.684052,
+            "end_s": 1674.799368,
+            "source": "Why aren't you out there talking to her right now?",
+            "speaker": null,
+            "event_id": "7214",
+            "segment": 28,
+            "age_s": 24.197
+          },
+          {
+            "start_s": 1675.51492,
+            "end_s": 1679.065388,
+            "source": "Oh, I get it. You're trying to make her jealous a little, right?",
+            "speaker": null,
+            "event_id": "7237",
+            "segment": 28,
+            "age_s": 19.931
+          },
+          {
+            "start_s": 1680.022226,
+            "end_s": 1682.965478,
+            "source": "Not look too needy, right out of the gate? I get it.",
+            "speaker": null,
+            "event_id": "7257",
+            "segment": 28,
+            "age_s": 16.03
+          },
+          {
+            "start_s": 1683.734096,
+            "end_s": 1685.552854,
+            "source": "You want me to laugh like you said something funny?",
+            "speaker": null,
+            "event_id": "7270",
+            "segment": 28,
+            "age_s": 13.443
+          },
+          {
+            "start_s": 1686.174069,
+            "end_s": 1687.444097,
+            "source": "No, no, I'm just making-",
+            "speaker": null,
+            "event_id": "7281",
+            "segment": 28,
+            "age_s": 11.552
+          },
+          {
+            "start_s": 1688.372979,
+            "end_s": 1692.036466,
+            "source": "Oh, Jason! You are too much!",
+            "speaker": null,
+            "event_id": "7307",
+            "segment": 28,
+            "age_s": 6.959
+          },
+          {
+            "start_s": 1692.333168,
+            "end_s": 1692.937375,
+            "source": "Is she looking?",
+            "speaker": null,
+            "event_id": "7313",
+            "segment": 28,
+            "age_s": 6.059
+          }
+        ],
+        "verified_profiles": []
+      }
+    },
+    {
+      "id": "validation-264",
+      "scene": "validation-window-261",
+      "source": "Don't forget about your lady out there.",
+      "time_s": 1710.854118,
+      "domain": "real_ocr",
+      "context": {
+        "current_speaker": null,
+        "current_time_s": 1710.854118,
+        "current_segment": 28,
+        "segment_semantics": "Temporal proximity only; speaker and topic continuity are unverified.",
+        "history": [
+          {
+            "start_s": 1649.302852,
+            "end_s": 1649.302852,
+            "source": "DGI",
+            "speaker": null,
+            "event_id": "7093",
+            "segment": 28,
+            "age_s": 61.551
+          },
+          {
+            "start_s": 1653.503019,
+            "end_s": 1654.127635,
+            "source": "Hey, Rhonda.",
+            "speaker": null,
+            "event_id": "7115",
+            "segment": 28,
+            "age_s": 56.726
+          },
+          {
+            "start_s": 1654.785996,
+            "end_s": 1657.361644,
+            "source": "Hey, Jay, that your baby mama I saw?",
+            "speaker": null,
+            "event_id": "7134",
+            "segment": 28,
+            "age_s": 53.492
+          },
+          {
+            "start_s": 1657.648337,
+            "end_s": 1658.806159,
+            "source": "Yep. She just got out.",
+            "speaker": null,
+            "event_id": "7142",
+            "segment": 28,
+            "age_s": 52.048
+          },
+          {
+            "start_s": 1659.200474,
+            "end_s": 1660.636287,
+            "source": "Where's the baby?",
+            "speaker": null,
+            "event_id": "7152",
+            "segment": 28,
+            "age_s": 50.218
+          },
+          {
+            "start_s": 1661.396712,
+            "end_s": 1662.565038,
+            "source": "We're working on it.",
+            "speaker": null,
+            "event_id": "7161",
+            "segment": 28,
+            "age_s": 48.289
+          },
+          {
+            "start_s": 1665.875014,
+            "end_s": 1668.121947,
+            "source": "Why you makin' that face?",
+            "speaker": null,
+            "event_id": "7183",
+            "segment": 28,
+            "age_s": 42.732
+          },
+          {
+            "start_s": 1669.52967,
+            "end_s": 1670.467788,
+            "source": "Oh, you too much.",
+            "speaker": null,
+            "event_id": "7194",
+            "segment": 28,
+            "age_s": 40.386
+          },
+          {
+            "start_s": 1672.684052,
+            "end_s": 1674.799368,
+            "source": "Why aren't you out there talking to her right now?",
+            "speaker": null,
+            "event_id": "7214",
+            "segment": 28,
+            "age_s": 36.055
+          },
+          {
+            "start_s": 1675.51492,
+            "end_s": 1679.065388,
+            "source": "Oh, I get it. You're trying to make her jealous a little, right?",
+            "speaker": null,
+            "event_id": "7237",
+            "segment": 28,
+            "age_s": 31.789
+          },
+          {
+            "start_s": 1680.022226,
+            "end_s": 1682.965478,
+            "source": "Not look too needy, right out of the gate? I get it.",
+            "speaker": null,
+            "event_id": "7257",
+            "segment": 28,
+            "age_s": 27.889
+          },
+          {
+            "start_s": 1683.734096,
+            "end_s": 1685.552854,
+            "source": "You want me to laugh like you said something funny?",
+            "speaker": null,
+            "event_id": "7270",
+            "segment": 28,
+            "age_s": 25.301
+          },
+          {
+            "start_s": 1686.174069,
+            "end_s": 1687.444097,
+            "source": "No, no, I'm just making-",
+            "speaker": null,
+            "event_id": "7281",
+            "segment": 28,
+            "age_s": 23.41
+          },
+          {
+            "start_s": 1688.372979,
+            "end_s": 1692.036466,
+            "source": "Oh, Jason! You are too much!",
+            "speaker": null,
+            "event_id": "7307",
+            "segment": 28,
+            "age_s": 18.818
+          },
+          {
+            "start_s": 1692.333168,
+            "end_s": 1692.937375,
+            "source": "Is she looking?",
+            "speaker": null,
+            "event_id": "7313",
+            "segment": 28,
+            "age_s": 17.917
+          },
+          {
+            "start_s": 1698.995902,
+            "end_s": 1703.744907,
+            "source": "So, what do you got planned for her tonight? Somethin' nice?",
+            "speaker": null,
+            "event_id": "7358",
+            "segment": 28,
+            "age_s": 7.109
+          }
+        ],
+        "verified_profiles": []
+      }
+    },
+    {
+      "id": "validation-481",
+      "scene": "validation-window-481",
+      "source": "Hey.",
+      "time_s": 2428.487207,
+      "domain": "real_ocr",
+      "context": {
+        "current_speaker": null,
+        "current_time_s": 2428.487207,
+        "current_segment": 33,
+        "segment_semantics": "Temporal proximity only; speaker and topic continuity are unverified.",
+        "history": [
+          {
+            "start_s": 2404.906524,
+            "end_s": 2404.906524,
+            "source": "SANTO CAPRA",
+            "speaker": null,
+            "event_id": "10799",
+            "segment": 33,
+            "age_s": 23.581
+          },
+          {
+            "start_s": 2405.26321,
+            "end_s": 2406.2183,
+            "source": "Get the fuck out of here, bro.",
+            "speaker": null,
+            "event_id": "10808",
+            "segment": 33,
+            "age_s": 22.269
+          },
+          {
+            "start_s": 2406.546469,
+            "end_s": 2406.546469,
+            "source": "SANTO CAPRA",
+            "speaker": null,
+            "event_id": "10809",
+            "segment": 33,
+            "age_s": 21.941
+          },
+          {
+            "start_s": 2406.890962,
+            "end_s": 2407.901529,
+            "source": "Nobody wants you here killing the vibe.",
+            "speaker": null,
+            "event_id": "10818",
+            "segment": 33,
+            "age_s": 20.586
+          },
+          {
+            "start_s": 2408.313597,
+            "end_s": 2408.313597,
+            "source": "Take the car back to vC, we gonna call a cab.",
+            "speaker": null,
+            "event_id": "10820",
+            "segment": 33,
+            "age_s": 20.174
+          },
+          {
+            "start_s": 2408.632859,
+            "end_s": 2408.632859,
+            "source": "Take the car back to VC, we gonna call a cab.",
+            "speaker": null,
+            "event_id": "10822",
+            "segment": 33,
+            "age_s": 19.854
+          },
+          {
+            "start_s": 2408.994162,
+            "end_s": 2410.019711,
+            "source": "Take the car back to vC, we gonna call a cab.",
+            "speaker": null,
+            "event_id": "10830",
+            "segment": 33,
+            "age_s": 18.467
+          },
+          {
+            "start_s": 2410.385357,
+            "end_s": 2410.385357,
+            "source": "Take the car back to VC, we gonna call a cab.",
+            "speaker": null,
+            "event_id": "10832",
+            "segment": 33,
+            "age_s": 18.102
+          },
+          {
+            "start_s": 2410.702787,
+            "end_s": 2411.664235,
+            "source": "In Italian: Go, go, go.",
+            "speaker": null,
+            "event_id": "10840",
+            "segment": 33,
+            "age_s": 16.823
+          },
+          {
+            "start_s": 2411.996922,
+            "end_s": 2412.933925,
+            "source": "'Ey, you gotta meet Mattia.",
+            "speaker": null,
+            "event_id": "10848",
+            "segment": 33,
+            "age_s": 15.553
+          },
+          {
+            "start_s": 2413.28384,
+            "end_s": 2416.1539,
+            "source": "Ciao, come here, Lucia. Hey.",
+            "speaker": null,
+            "event_id": "10868",
+            "segment": 33,
+            "age_s": 12.333
+          },
+          {
+            "start_s": 2416.542107,
+            "end_s": 2418.393273,
+            "source": "Thanks for looking out for my girl when she was in that place.",
+            "speaker": null,
+            "event_id": "10880",
+            "segment": 33,
+            "age_s": 10.094
+          },
+          {
+            "start_s": 2418.993923,
+            "end_s": 2420.365931,
+            "source": "I hated to think of her alone there.",
+            "speaker": null,
+            "event_id": "10891",
+            "segment": 33,
+            "age_s": 8.121
+          },
+          {
+            "start_s": 2420.737364,
+            "end_s": 2423.726773,
+            "source": "Hey, of course. I know what it's like, turning up on the block.",
+            "speaker": null,
+            "event_id": "10909",
+            "segment": 33,
+            "age_s": 4.76
+          },
+          {
+            "start_s": 2424.064531,
+            "end_s": 2425.646663,
+            "source": "Hey. I will not forget that.",
+            "speaker": null,
+            "event_id": "10921",
+            "segment": 33,
+            "age_s": 2.841
+          },
+          {
+            "start_s": 2426.264186,
+            "end_s": 2427.515133,
+            "source": "In Italian: I swear. I won't.",
+            "speaker": null,
+            "event_id": "10926",
+            "segment": 33,
+            "age_s": 0.972
+          }
+        ],
+        "verified_profiles": []
+      }
+    },
+    {
+      "id": "validation-482",
+      "scene": "validation-window-481",
+      "source": "This is Jason.",
+      "time_s": 2430.055443,
+      "domain": "real_ocr",
+      "context": {
+        "current_speaker": null,
+        "current_time_s": 2430.055443,
+        "current_segment": 33,
+        "segment_semantics": "Temporal proximity only; speaker and topic continuity are unverified.",
+        "history": [
+          {
+            "start_s": 2410.702787,
+            "end_s": 2411.664235,
+            "source": "In Italian: Go, go, go.",
+            "speaker": null,
+            "event_id": "10840",
+            "segment": 33,
+            "age_s": 18.391
+          },
+          {
+            "start_s": 2411.996922,
+            "end_s": 2412.933925,
+            "source": "'Ey, you gotta meet Mattia.",
+            "speaker": null,
+            "event_id": "10848",
+            "segment": 33,
+            "age_s": 17.122
+          },
+          {
+            "start_s": 2413.28384,
+            "end_s": 2416.1539,
+            "source": "Ciao, come here, Lucia. Hey.",
+            "speaker": null,
+            "event_id": "10868",
+            "segment": 33,
+            "age_s": 13.902
+          },
+          {
+            "start_s": 2416.542107,
+            "end_s": 2418.393273,
+            "source": "Thanks for looking out for my girl when she was in that place.",
+            "speaker": null,
+            "event_id": "10880",
+            "segment": 33,
+            "age_s": 11.662
+          },
+          {
+            "start_s": 2418.993923,
+            "end_s": 2420.365931,
+            "source": "I hated to think of her alone there.",
+            "speaker": null,
+            "event_id": "10891",
+            "segment": 33,
+            "age_s": 9.69
+          },
+          {
+            "start_s": 2420.737364,
+            "end_s": 2423.726773,
+            "source": "Hey, of course. I know what it's like, turning up on the block.",
+            "speaker": null,
+            "event_id": "10909",
+            "segment": 33,
+            "age_s": 6.329
+          },
+          {
+            "start_s": 2424.064531,
+            "end_s": 2425.646663,
+            "source": "Hey. I will not forget that.",
+            "speaker": null,
+            "event_id": "10921",
+            "segment": 33,
+            "age_s": 4.409
+          },
+          {
+            "start_s": 2426.264186,
+            "end_s": 2427.515133,
+            "source": "In Italian: I swear. I won't.",
+            "speaker": null,
+            "event_id": "10926",
+            "segment": 33,
+            "age_s": 2.54
+          },
+          {
+            "start_s": 2428.487207,
+            "end_s": 2428.487207,
+            "source": "Hey.",
+            "speaker": null,
+            "event_id": "10937",
+            "segment": 33,
+            "age_s": 1.568
+          },
+          {
+            "start_s": 2428.814243,
+            "end_s": 2428.814243,
+            "source": "Ciao!",
+            "speaker": null,
+            "event_id": "10939",
+            "segment": 33,
+            "age_s": 1.241
+          },
+          {
+            "start_s": 2428.814263,
+            "end_s": 2428.814263,
+            "source": "Hey.",
+            "speaker": null,
+            "event_id": "10940",
+            "segment": 33,
+            "age_s": 1.241
+          },
+          {
+            "start_s": 2429.118582,
+            "end_s": 2429.118582,
+            "source": "Ciao!",
+            "speaker": null,
+            "event_id": "10942",
+            "segment": 33,
+            "age_s": 0.937
+          },
+          {
+            "start_s": 2429.1186,
+            "end_s": 2429.1186,
+            "source": "Hey.",
+            "speaker": null,
+            "event_id": "10943",
+            "segment": 33,
+            "age_s": 0.937
+          },
+          {
+            "start_s": 2429.413995,
+            "end_s": 2429.413995,
+            "source": "Ciao!",
+            "speaker": null,
+            "event_id": "10945",
+            "segment": 33,
+            "age_s": 0.641
+          },
+          {
+            "start_s": 2429.414018,
+            "end_s": 2429.414018,
+            "source": "Hey.",
+            "speaker": null,
+            "event_id": "10946",
+            "segment": 33,
+            "age_s": 0.641
+          },
+          {
+            "start_s": 2429.731099,
+            "end_s": 2429.731099,
+            "source": "Alright, bro.",
+            "speaker": null,
+            "event_id": "10948",
+            "segment": 33,
+            "age_s": 0.324
+          }
+        ],
+        "verified_profiles": []
+      }
+    },
+    {
+      "id": "validation-483",
+      "scene": "validation-window-481",
+      "source": "In Italian: Nice to meet you.",
+      "time_s": 2431.737046,
+      "domain": "real_ocr",
+      "context": {
+        "current_speaker": null,
+        "current_time_s": 2431.737046,
+        "current_segment": 33,
+        "segment_semantics": "Temporal proximity only; speaker and topic continuity are unverified.",
+        "history": [
+          {
+            "start_s": 2428.814243,
+            "end_s": 2428.814243,
+            "source": "Ciao!",
+            "speaker": null,
+            "event_id": "10939",
+            "segment": 33,
+            "age_s": 2.923
+          },
+          {
+            "start_s": 2428.814263,
+            "end_s": 2428.814263,
+            "source": "Hey.",
+            "speaker": null,
+            "event_id": "10940",
+            "segment": 33,
+            "age_s": 2.923
+          },
+          {
+            "start_s": 2429.118582,
+            "end_s": 2429.118582,
+            "source": "Ciao!",
+            "speaker": null,
+            "event_id": "10942",
+            "segment": 33,
+            "age_s": 2.618
+          },
+          {
+            "start_s": 2429.1186,
+            "end_s": 2429.1186,
+            "source": "Hey.",
+            "speaker": null,
+            "event_id": "10943",
+            "segment": 33,
+            "age_s": 2.618
+          },
+          {
+            "start_s": 2429.413995,
+            "end_s": 2429.413995,
+            "source": "Ciao!",
+            "speaker": null,
+            "event_id": "10945",
+            "segment": 33,
+            "age_s": 2.323
+          },
+          {
+            "start_s": 2429.414018,
+            "end_s": 2429.414018,
+            "source": "Hey.",
+            "speaker": null,
+            "event_id": "10946",
+            "segment": 33,
+            "age_s": 2.323
+          },
+          {
+            "start_s": 2429.731099,
+            "end_s": 2429.731099,
+            "source": "Alright, bro.",
+            "speaker": null,
+            "event_id": "10948",
+            "segment": 33,
+            "age_s": 2.006
+          },
+          {
+            "start_s": 2429.731122,
+            "end_s": 2430.055443,
+            "source": "This is Jason.",
+            "speaker": null,
+            "event_id": "10952",
+            "segment": 33,
+            "age_s": 1.682
+          },
+          {
+            "start_s": 2430.391924,
+            "end_s": 2430.391924,
+            "source": "Alright, bro.",
+            "speaker": null,
+            "event_id": "10954",
+            "segment": 33,
+            "age_s": 1.345
+          },
+          {
+            "start_s": 2430.391949,
+            "end_s": 2430.391949,
+            "source": "This is Jason.",
+            "speaker": null,
+            "event_id": "10955",
+            "segment": 33,
+            "age_s": 1.345
+          },
+          {
+            "start_s": 2430.72007,
+            "end_s": 2430.72007,
+            "source": "Alright, bro.",
+            "speaker": null,
+            "event_id": "10957",
+            "segment": 33,
+            "age_s": 1.017
+          },
+          {
+            "start_s": 2430.720089,
+            "end_s": 2430.720089,
+            "source": "This is Jason.",
+            "speaker": null,
+            "event_id": "10958",
+            "segment": 33,
+            "age_s": 1.017
+          },
+          {
+            "start_s": 2431.0655,
+            "end_s": 2431.0655,
+            "source": "Alright, bro.",
+            "speaker": null,
+            "event_id": "10960",
+            "segment": 33,
+            "age_s": 0.672
+          },
+          {
+            "start_s": 2431.065533,
+            "end_s": 2431.065533,
+            "source": "This is Jason.",
+            "speaker": null,
+            "event_id": "10961",
+            "segment": 33,
+            "age_s": 0.672
+          },
+          {
+            "start_s": 2431.416273,
+            "end_s": 2431.416273,
+            "source": "Alright, bro.",
+            "speaker": null,
+            "event_id": "10963",
+            "segment": 33,
+            "age_s": 0.321
+          },
+          {
+            "start_s": 2431.416298,
+            "end_s": 2431.416298,
+            "source": "This is Jason.",
+            "speaker": null,
+            "event_id": "10964",
+            "segment": 33,
+            "age_s": 0.321
+          }
+        ],
+        "verified_profiles": []
+      }
+    },
+    {
+      "id": "validation-484",
+      "scene": "validation-window-481",
+      "source": "Hey, what the fuck is this place, bro? Where's all the women at?",
+      "time_s": 2433.400832,
+      "domain": "real_ocr",
+      "context": {
+        "current_speaker": null,
+        "current_time_s": 2433.400832,
+        "current_segment": 33,
+        "segment_semantics": "Temporal proximity only; speaker and topic continuity are unverified.",
+        "history": [
+          {
+            "start_s": 2428.814263,
+            "end_s": 2428.814263,
+            "source": "Hey.",
+            "speaker": null,
+            "event_id": "10940",
+            "segment": 33,
+            "age_s": 4.587
+          },
+          {
+            "start_s": 2429.118582,
+            "end_s": 2429.118582,
+            "source": "Ciao!",
+            "speaker": null,
+            "event_id": "10942",
+            "segment": 33,
+            "age_s": 4.282
+          },
+          {
+            "start_s": 2429.1186,
+            "end_s": 2429.1186,
+            "source": "Hey.",
+            "speaker": null,
+            "event_id": "10943",
+            "segment": 33,
+            "age_s": 4.282
+          },
+          {
+            "start_s": 2429.413995,
+            "end_s": 2429.413995,
+            "source": "Ciao!",
+            "speaker": null,
+            "event_id": "10945",
+            "segment": 33,
+            "age_s": 3.987
+          },
+          {
+            "start_s": 2429.414018,
+            "end_s": 2429.414018,
+            "source": "Hey.",
+            "speaker": null,
+            "event_id": "10946",
+            "segment": 33,
+            "age_s": 3.987
+          },
+          {
+            "start_s": 2429.731099,
+            "end_s": 2429.731099,
+            "source": "Alright, bro.",
+            "speaker": null,
+            "event_id": "10948",
+            "segment": 33,
+            "age_s": 3.67
+          },
+          {
+            "start_s": 2429.731122,
+            "end_s": 2430.055443,
+            "source": "This is Jason.",
+            "speaker": null,
+            "event_id": "10952",
+            "segment": 33,
+            "age_s": 3.345
+          },
+          {
+            "start_s": 2430.391924,
+            "end_s": 2430.391924,
+            "source": "Alright, bro.",
+            "speaker": null,
+            "event_id": "10954",
+            "segment": 33,
+            "age_s": 3.009
+          },
+          {
+            "start_s": 2430.391949,
+            "end_s": 2430.391949,
+            "source": "This is Jason.",
+            "speaker": null,
+            "event_id": "10955",
+            "segment": 33,
+            "age_s": 3.009
+          },
+          {
+            "start_s": 2430.72007,
+            "end_s": 2430.72007,
+            "source": "Alright, bro.",
+            "speaker": null,
+            "event_id": "10957",
+            "segment": 33,
+            "age_s": 2.681
+          },
+          {
+            "start_s": 2430.720089,
+            "end_s": 2430.720089,
+            "source": "This is Jason.",
+            "speaker": null,
+            "event_id": "10958",
+            "segment": 33,
+            "age_s": 2.681
+          },
+          {
+            "start_s": 2431.0655,
+            "end_s": 2431.0655,
+            "source": "Alright, bro.",
+            "speaker": null,
+            "event_id": "10960",
+            "segment": 33,
+            "age_s": 2.335
+          },
+          {
+            "start_s": 2431.065533,
+            "end_s": 2431.065533,
+            "source": "This is Jason.",
+            "speaker": null,
+            "event_id": "10961",
+            "segment": 33,
+            "age_s": 2.335
+          },
+          {
+            "start_s": 2431.416273,
+            "end_s": 2431.416273,
+            "source": "Alright, bro.",
+            "speaker": null,
+            "event_id": "10963",
+            "segment": 33,
+            "age_s": 1.985
+          },
+          {
+            "start_s": 2431.416298,
+            "end_s": 2431.416298,
+            "source": "This is Jason.",
+            "speaker": null,
+            "event_id": "10964",
+            "segment": 33,
+            "age_s": 1.985
+          },
+          {
+            "start_s": 2431.737046,
+            "end_s": 2432.407396,
+            "source": "In Italian: Nice to meet you.",
+            "speaker": null,
+            "event_id": "10970",
+            "segment": 33,
+            "age_s": 0.993
+          }
+        ],
+        "verified_profiles": []
+      }
+    },
+    {
+      "id": "validation-1333",
+      "scene": "validation-window-1333",
+      "source": "Hey, Jay.",
+      "time_s": 8886.446743,
+      "domain": "real_ocr",
+      "context": {
+        "current_speaker": null,
+        "current_time_s": 8886.446743,
+        "current_segment": 141,
+        "segment_semantics": "Temporal proximity only; speaker and topic continuity are unverified.",
+        "history": [
+          {
+            "start_s": 8831.388468,
+            "end_s": 8831.388468,
+            "source": "THE",
+            "speaker": null,
+            "event_id": "38914",
+            "segment": 140,
+            "age_s": 55.058
+          },
+          {
+            "start_s": 8836.24514,
+            "end_s": 8836.24514,
+            "source": "M1",
+            "speaker": null,
+            "event_id": "38934",
+            "segment": 140,
+            "age_s": 50.202
+          },
+          {
+            "start_s": 8844.465978,
+            "end_s": 8845.112011,
+            "source": "Half way through.",
+            "speaker": null,
+            "event_id": "38968",
+            "segment": 140,
+            "age_s": 41.335
+          },
+          {
+            "start_s": 8855.497815,
+            "end_s": 8855.812894,
+            "source": "Check it out.",
+            "speaker": null,
+            "event_id": "39008",
+            "segment": 141,
+            "age_s": 30.634
+          },
+          {
+            "start_s": 8859.162967,
+            "end_s": 8860.074247,
+            "source": "Almost there.",
+            "speaker": null,
+            "event_id": "39026",
+            "segment": 141,
+            "age_s": 26.372
+          },
+          {
+            "start_s": 8868.711908,
+            "end_s": 8868.711908,
+            "source": "AL",
+            "speaker": null,
+            "event_id": "39054",
+            "segment": 141,
+            "age_s": 17.735
+          },
+          {
+            "start_s": 8870.531155,
+            "end_s": 8870.531155,
+            "source": "Bri, Bri, Bri!",
+            "speaker": null,
+            "event_id": "39062",
+            "segment": 141,
+            "age_s": 15.916
+          },
+          {
+            "start_s": 8871.450295,
+            "end_s": 8871.450295,
+            "source": "TT",
+            "speaker": null,
+            "event_id": "39066",
+            "segment": 141,
+            "age_s": 14.996
+          },
+          {
+            "start_s": 8872.385212,
+            "end_s": 8874.858057,
+            "source": "Well, I think I earned myself a beer!",
+            "speaker": null,
+            "event_id": "39088",
+            "segment": 141,
+            "age_s": 11.589
+          },
+          {
+            "start_s": 8876.597213,
+            "end_s": 8877.308399,
+            "source": "You want one, Jay?",
+            "speaker": null,
+            "event_id": "39099",
+            "segment": 141,
+            "age_s": 9.138
+          },
+          {
+            "start_s": 8877.870169,
+            "end_s": 8877.870169,
+            "source": "Thanks, I'm good.",
+            "speaker": null,
+            "event_id": "39102",
+            "segment": 141,
+            "age_s": 8.577
+          },
+          {
+            "start_s": 8878.234074,
+            "end_s": 8878.234074,
+            "source": "BE",
+            "speaker": null,
+            "event_id": "39103",
+            "segment": 141,
+            "age_s": 8.213
+          },
+          {
+            "start_s": 8878.234134,
+            "end_s": 8878.499353,
+            "source": "Thanks, I'm good.",
+            "speaker": null,
+            "event_id": "39107",
+            "segment": 141,
+            "age_s": 7.947
+          },
+          {
+            "start_s": 8880.94745,
+            "end_s": 8881.896018,
+            "source": "Hey, Lucia!",
+            "speaker": null,
+            "event_id": "39122",
+            "segment": 141,
+            "age_s": 4.551
+          },
+          {
+            "start_s": 8882.259853,
+            "end_s": 8884.929806,
+            "source": "Your handsome sperm donor awaits.",
+            "speaker": null,
+            "event_id": "39140",
+            "segment": 141,
+            "age_s": 1.517
+          },
+          {
+            "start_s": 8885.245029,
+            "end_s": 8885.49584,
+            "source": "Thanks, Cal.",
+            "speaker": null,
+            "event_id": "39144",
+            "segment": 141,
+            "age_s": 0.951
+          }
+        ],
+        "verified_profiles": []
+      }
+    },
+    {
+      "id": "validation-1334",
+      "scene": "validation-window-1333",
+      "source": "Oh shit, was I picking you up? You hungry yet?",
+      "time_s": 8886.773079,
+      "domain": "real_ocr",
+      "context": {
+        "current_speaker": null,
+        "current_time_s": 8886.773079,
+        "current_segment": 141,
+        "segment_semantics": "Temporal proximity only; speaker and topic continuity are unverified.",
+        "history": [
+          {
+            "start_s": 8836.24514,
+            "end_s": 8836.24514,
+            "source": "M1",
+            "speaker": null,
+            "event_id": "38934",
+            "segment": 140,
+            "age_s": 50.528
+          },
+          {
+            "start_s": 8844.465978,
+            "end_s": 8845.112011,
+            "source": "Half way through.",
+            "speaker": null,
+            "event_id": "38968",
+            "segment": 140,
+            "age_s": 41.661
+          },
+          {
+            "start_s": 8855.497815,
+            "end_s": 8855.812894,
+            "source": "Check it out.",
+            "speaker": null,
+            "event_id": "39008",
+            "segment": 141,
+            "age_s": 30.96
+          },
+          {
+            "start_s": 8859.162967,
+            "end_s": 8860.074247,
+            "source": "Almost there.",
+            "speaker": null,
+            "event_id": "39026",
+            "segment": 141,
+            "age_s": 26.699
+          },
+          {
+            "start_s": 8868.711908,
+            "end_s": 8868.711908,
+            "source": "AL",
+            "speaker": null,
+            "event_id": "39054",
+            "segment": 141,
+            "age_s": 18.061
+          },
+          {
+            "start_s": 8870.531155,
+            "end_s": 8870.531155,
+            "source": "Bri, Bri, Bri!",
+            "speaker": null,
+            "event_id": "39062",
+            "segment": 141,
+            "age_s": 16.242
+          },
+          {
+            "start_s": 8871.450295,
+            "end_s": 8871.450295,
+            "source": "TT",
+            "speaker": null,
+            "event_id": "39066",
+            "segment": 141,
+            "age_s": 15.323
+          },
+          {
+            "start_s": 8872.385212,
+            "end_s": 8874.858057,
+            "source": "Well, I think I earned myself a beer!",
+            "speaker": null,
+            "event_id": "39088",
+            "segment": 141,
+            "age_s": 11.915
+          },
+          {
+            "start_s": 8876.597213,
+            "end_s": 8877.308399,
+            "source": "You want one, Jay?",
+            "speaker": null,
+            "event_id": "39099",
+            "segment": 141,
+            "age_s": 9.465
+          },
+          {
+            "start_s": 8877.870169,
+            "end_s": 8877.870169,
+            "source": "Thanks, I'm good.",
+            "speaker": null,
+            "event_id": "39102",
+            "segment": 141,
+            "age_s": 8.903
+          },
+          {
+            "start_s": 8878.234074,
+            "end_s": 8878.234074,
+            "source": "BE",
+            "speaker": null,
+            "event_id": "39103",
+            "segment": 141,
+            "age_s": 8.539
+          },
+          {
+            "start_s": 8878.234134,
+            "end_s": 8878.499353,
+            "source": "Thanks, I'm good.",
+            "speaker": null,
+            "event_id": "39107",
+            "segment": 141,
+            "age_s": 8.274
+          },
+          {
+            "start_s": 8880.94745,
+            "end_s": 8881.896018,
+            "source": "Hey, Lucia!",
+            "speaker": null,
+            "event_id": "39122",
+            "segment": 141,
+            "age_s": 4.877
+          },
+          {
+            "start_s": 8882.259853,
+            "end_s": 8884.929806,
+            "source": "Your handsome sperm donor awaits.",
+            "speaker": null,
+            "event_id": "39140",
+            "segment": 141,
+            "age_s": 1.843
+          },
+          {
+            "start_s": 8885.245029,
+            "end_s": 8885.49584,
+            "source": "Thanks, Cal.",
+            "speaker": null,
+            "event_id": "39144",
+            "segment": 141,
+            "age_s": 1.277
+          },
+          {
+            "start_s": 8886.446743,
+            "end_s": 8886.446743,
+            "source": "Hey, Jay.",
+            "speaker": null,
+            "event_id": "39148",
+            "segment": 141,
+            "age_s": 0.326
+          }
+        ],
+        "verified_profiles": []
+      }
+    },
+    {
+      "id": "validation-1335",
+      "scene": "validation-window-1333",
+      "source": "I'm good.",
+      "time_s": 8889.007905,
+      "domain": "real_ocr",
+      "context": {
+        "current_speaker": null,
+        "current_time_s": 8889.007905,
+        "current_segment": 141,
+        "segment_semantics": "Temporal proximity only; speaker and topic continuity are unverified.",
+        "history": [
+          {
+            "start_s": 8844.465978,
+            "end_s": 8845.112011,
+            "source": "Half way through.",
+            "speaker": null,
+            "event_id": "38968",
+            "segment": 140,
+            "age_s": 43.896
+          },
+          {
+            "start_s": 8855.497815,
+            "end_s": 8855.812894,
+            "source": "Check it out.",
+            "speaker": null,
+            "event_id": "39008",
+            "segment": 141,
+            "age_s": 33.195
+          },
+          {
+            "start_s": 8859.162967,
+            "end_s": 8860.074247,
+            "source": "Almost there.",
+            "speaker": null,
+            "event_id": "39026",
+            "segment": 141,
+            "age_s": 28.934
+          },
+          {
+            "start_s": 8868.711908,
+            "end_s": 8868.711908,
+            "source": "AL",
+            "speaker": null,
+            "event_id": "39054",
+            "segment": 141,
+            "age_s": 20.296
+          },
+          {
+            "start_s": 8870.531155,
+            "end_s": 8870.531155,
+            "source": "Bri, Bri, Bri!",
+            "speaker": null,
+            "event_id": "39062",
+            "segment": 141,
+            "age_s": 18.477
+          },
+          {
+            "start_s": 8871.450295,
+            "end_s": 8871.450295,
+            "source": "TT",
+            "speaker": null,
+            "event_id": "39066",
+            "segment": 141,
+            "age_s": 17.558
+          },
+          {
+            "start_s": 8872.385212,
+            "end_s": 8874.858057,
+            "source": "Well, I think I earned myself a beer!",
+            "speaker": null,
+            "event_id": "39088",
+            "segment": 141,
+            "age_s": 14.15
+          },
+          {
+            "start_s": 8876.597213,
+            "end_s": 8877.308399,
+            "source": "You want one, Jay?",
+            "speaker": null,
+            "event_id": "39099",
+            "segment": 141,
+            "age_s": 11.7
+          },
+          {
+            "start_s": 8877.870169,
+            "end_s": 8877.870169,
+            "source": "Thanks, I'm good.",
+            "speaker": null,
+            "event_id": "39102",
+            "segment": 141,
+            "age_s": 11.138
+          },
+          {
+            "start_s": 8878.234074,
+            "end_s": 8878.234074,
+            "source": "BE",
+            "speaker": null,
+            "event_id": "39103",
+            "segment": 141,
+            "age_s": 10.774
+          },
+          {
+            "start_s": 8878.234134,
+            "end_s": 8878.499353,
+            "source": "Thanks, I'm good.",
+            "speaker": null,
+            "event_id": "39107",
+            "segment": 141,
+            "age_s": 10.509
+          },
+          {
+            "start_s": 8880.94745,
+            "end_s": 8881.896018,
+            "source": "Hey, Lucia!",
+            "speaker": null,
+            "event_id": "39122",
+            "segment": 141,
+            "age_s": 7.112
+          },
+          {
+            "start_s": 8882.259853,
+            "end_s": 8884.929806,
+            "source": "Your handsome sperm donor awaits.",
+            "speaker": null,
+            "event_id": "39140",
+            "segment": 141,
+            "age_s": 4.078
+          },
+          {
+            "start_s": 8885.245029,
+            "end_s": 8885.49584,
+            "source": "Thanks, Cal.",
+            "speaker": null,
+            "event_id": "39144",
+            "segment": 141,
+            "age_s": 3.512
+          },
+          {
+            "start_s": 8886.446743,
+            "end_s": 8886.446743,
+            "source": "Hey, Jay.",
+            "speaker": null,
+            "event_id": "39148",
+            "segment": 141,
+            "age_s": 2.561
+          },
+          {
+            "start_s": 8886.773079,
+            "end_s": 8888.39207,
+            "source": "Oh shit, was I picking you up? You hungry yet?",
+            "speaker": null,
+            "event_id": "39160",
+            "segment": 141,
+            "age_s": 0.616
+          }
+        ],
+        "verified_profiles": []
+      }
+    },
+    {
+      "id": "validation-1336",
+      "scene": "validation-window-1333",
+      "source": "So.. this is what you do?",
+      "time_s": 8890.505558,
+      "domain": "real_ocr",
+      "context": {
+        "current_speaker": null,
+        "current_time_s": 8890.505558,
+        "current_segment": 141,
+        "segment_semantics": "Temporal proximity only; speaker and topic continuity are unverified.",
+        "history": [
+          {
+            "start_s": 8855.497815,
+            "end_s": 8855.812894,
+            "source": "Check it out.",
+            "speaker": null,
+            "event_id": "39008",
+            "segment": 141,
+            "age_s": 34.693
+          },
+          {
+            "start_s": 8859.162967,
+            "end_s": 8860.074247,
+            "source": "Almost there.",
+            "speaker": null,
+            "event_id": "39026",
+            "segment": 141,
+            "age_s": 30.431
+          },
+          {
+            "start_s": 8868.711908,
+            "end_s": 8868.711908,
+            "source": "AL",
+            "speaker": null,
+            "event_id": "39054",
+            "segment": 141,
+            "age_s": 21.794
+          },
+          {
+            "start_s": 8870.531155,
+            "end_s": 8870.531155,
+            "source": "Bri, Bri, Bri!",
+            "speaker": null,
+            "event_id": "39062",
+            "segment": 141,
+            "age_s": 19.974
+          },
+          {
+            "start_s": 8871.450295,
+            "end_s": 8871.450295,
+            "source": "TT",
+            "speaker": null,
+            "event_id": "39066",
+            "segment": 141,
+            "age_s": 19.055
+          },
+          {
+            "start_s": 8872.385212,
+            "end_s": 8874.858057,
+            "source": "Well, I think I earned myself a beer!",
+            "speaker": null,
+            "event_id": "39088",
+            "segment": 141,
+            "age_s": 15.648
+          },
+          {
+            "start_s": 8876.597213,
+            "end_s": 8877.308399,
+            "source": "You want one, Jay?",
+            "speaker": null,
+            "event_id": "39099",
+            "segment": 141,
+            "age_s": 13.197
+          },
+          {
+            "start_s": 8877.870169,
+            "end_s": 8877.870169,
+            "source": "Thanks, I'm good.",
+            "speaker": null,
+            "event_id": "39102",
+            "segment": 141,
+            "age_s": 12.635
+          },
+          {
+            "start_s": 8878.234074,
+            "end_s": 8878.234074,
+            "source": "BE",
+            "speaker": null,
+            "event_id": "39103",
+            "segment": 141,
+            "age_s": 12.271
+          },
+          {
+            "start_s": 8878.234134,
+            "end_s": 8878.499353,
+            "source": "Thanks, I'm good.",
+            "speaker": null,
+            "event_id": "39107",
+            "segment": 141,
+            "age_s": 12.006
+          },
+          {
+            "start_s": 8880.94745,
+            "end_s": 8881.896018,
+            "source": "Hey, Lucia!",
+            "speaker": null,
+            "event_id": "39122",
+            "segment": 141,
+            "age_s": 8.61
+          },
+          {
+            "start_s": 8882.259853,
+            "end_s": 8884.929806,
+            "source": "Your handsome sperm donor awaits.",
+            "speaker": null,
+            "event_id": "39140",
+            "segment": 141,
+            "age_s": 5.576
+          },
+          {
+            "start_s": 8885.245029,
+            "end_s": 8885.49584,
+            "source": "Thanks, Cal.",
+            "speaker": null,
+            "event_id": "39144",
+            "segment": 141,
+            "age_s": 5.01
+          },
+          {
+            "start_s": 8886.446743,
+            "end_s": 8886.446743,
+            "source": "Hey, Jay.",
+            "speaker": null,
+            "event_id": "39148",
+            "segment": 141,
+            "age_s": 4.059
+          },
+          {
+            "start_s": 8886.773079,
+            "end_s": 8888.39207,
+            "source": "Oh shit, was I picking you up? You hungry yet?",
+            "speaker": null,
+            "event_id": "39160",
+            "segment": 141,
+            "age_s": 2.113
+          },
+          {
+            "start_s": 8889.007905,
+            "end_s": 8889.327338,
+            "source": "I'm good.",
+            "speaker": null,
+            "event_id": "39165",
+            "segment": 141,
+            "age_s": 1.178
+          }
+        ],
+        "verified_profiles": []
+      }
+    }
+  ]
+}

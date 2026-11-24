@@ -1,0 +1,82 @@
+[
+  {
+    "model": "server-gemma4",
+    "mode": "baseline",
+    "score": 80.20833333333334,
+    "win": 0,
+    "tie": 24,
+    "loss": 0,
+    "median_translation_ms": 433.4589500213042,
+    "median_build_plus_translation_ms": 433.4589500213042
+  },
+  {
+    "model": "server-gemma4",
+    "mode": "raw6",
+    "score": 83.33333333333334,
+    "win": 3,
+    "tie": 19,
+    "loss": 2,
+    "median_translation_ms": 552.2832500282675,
+    "median_build_plus_translation_ms": 552.2832500282675
+  },
+  {
+    "model": "server-gemma4",
+    "mode": "raw16",
+    "score": 79.16666666666666,
+    "win": 1,
+    "tie": 21,
+    "loss": 2,
+    "median_translation_ms": 615.9812000114471,
+    "median_build_plus_translation_ms": 615.9812000114471
+  },
+  {
+    "model": "server-gemma4",
+    "mode": "retrieved",
+    "score": 82.29166666666666,
+    "win": 4,
+    "tie": 18,
+    "loss": 2,
+    "median_translation_ms": 537.6074999803677,
+    "median_build_plus_translation_ms": 1559.4834497896954
+  },
+  {
+    "model": "gpt-6-luna",
+    "mode": "baseline",
+    "score": 96.875,
+    "win": 0,
+    "tie": 24,
+    "loss": 0,
+    "median_translation_ms": 1313.7531999964267,
+    "median_build_plus_translation_ms": 1313.7531999964267
+  },
+  {
+    "model": "gpt-6-luna",
+    "mode": "raw6",
+    "score": 97.91666666666666,
+    "win": 2,
+    "tie": 21,
+    "loss": 1,
+    "median_translation_ms": 1239.2909000627697,
+    "median_build_plus_translation_ms": 1239.2909000627697
+  },
+  {
+    "model": "gpt-6-luna",
+    "mode": "raw16",
+    "score": 93.75,
+    "win": 2,
+    "tie": 18,
+    "loss": 4,
+    "median_translation_ms": 1301.880150102079,
+    "median_build_plus_translation_ms": 1301.880150102079
+  },
+  {
+    "model": "gpt-6-luna",
+    "mode": "retrieved",
+    "score": 97.91666666666666,
+    "win": 3,
+    "tie": 20,
+    "loss": 1,
+    "median_translation_ms": 1206.144499941729,
+    "median_build_plus_translation_ms": 2746.1639000102878
+  }
+]

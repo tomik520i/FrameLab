@@ -10,6 +10,7 @@ jobs:
           python-version: '3.11'
       - shell: pwsh
         run: ./tools/setup-deps.ps1 -BuildOnly
+      - run: python -m unittest discover -s tests -p "test_*.py"
       - shell: pwsh
         run: ./build.ps1
       - run: ctest --test-dir build -C Release --output-on-failure

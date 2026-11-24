@@ -1,0 +1,3226 @@
+[
+  {
+    "id": "validation-365",
+    "candidate": "A",
+    "labels": [
+      {
+        "model": "gpt-6-luna",
+        "mode": "baseline",
+        "id": "validation-365"
+      }
+    ]
+  },
+  {
+    "id": "validation-365",
+    "candidate": "B",
+    "labels": [
+      {
+        "model": "gpt-6-luna",
+        "mode": "raw6",
+        "id": "validation-365"
+      },
+      {
+        "model": "gpt-6-luna",
+        "mode": "raw16",
+        "id": "validation-365"
+      },
+      {
+        "model": "gpt-6-luna",
+        "mode": "prose",
+        "id": "validation-365"
+      },
+      {
+        "model": "gpt-6-luna",
+        "mode": "facts",
+        "id": "validation-365"
+      }
+    ]
+  },
+  {
+    "id": "validation-365",
+    "candidate": "C",
+    "labels": [
+      {
+        "model": "server-gemma4",
+        "mode": "baseline",
+        "id": "validation-365"
+      }
+    ]
+  },
+  {
+    "id": "validation-365",
+    "candidate": "D",
+    "labels": [
+      {
+        "model": "server-gemma4",
+        "mode": "raw6",
+        "id": "validation-365"
+      },
+      {
+        "model": "server-gemma4",
+        "mode": "raw16",
+        "id": "validation-365"
+      },
+      {
+        "model": "server-gemma4",
+        "mode": "prose",
+        "id": "validation-365"
+      },
+      {
+        "model": "server-gemma4",
+        "mode": "facts",
+        "id": "validation-365"
+      }
+    ]
+  },
+  {
+    "id": "validation-366",
+    "candidate": "A",
+    "labels": [
+      {
+        "model": "server-gemma4",
+        "mode": "baseline",
+        "id": "validation-366"
+      }
+    ]
+  },
+  {
+    "id": "validation-366",
+    "candidate": "B",
+    "labels": [
+      {
+        "model": "gpt-6-luna",
+        "mode": "raw6",
+        "id": "validation-366"
+      },
+      {
+        "model": "gpt-6-luna",
+        "mode": "raw16",
+        "id": "validation-366"
+      },
+      {
+        "model": "gpt-6-luna",
+        "mode": "prose",
+        "id": "validation-366"
+      },
+      {
+        "model": "gpt-6-luna",
+        "mode": "facts",
+        "id": "validation-366"
+      },
+      {
+        "model": "gpt-6-luna",
+        "mode": "baseline",
+        "id": "validation-366"
+      }
+    ]
+  },
+  {
+    "id": "validation-366",
+    "candidate": "C",
+    "labels": [
+      {
+        "model": "server-gemma4",
+        "mode": "raw6",
+        "id": "validation-366"
+      },
+      {
+        "model": "server-gemma4",
+        "mode": "raw16",
+        "id": "validation-366"
+      },
+      {
+        "model": "server-gemma4",
+        "mode": "prose",
+        "id": "validation-366"
+      },
+      {
+        "model": "server-gemma4",
+        "mode": "facts",
+        "id": "validation-366"
+      }
+    ]
+  },
+  {
+    "id": "validation-367",
+    "candidate": "A",
+    "labels": [
+      {
+        "model": "gpt-6-luna",
+        "mode": "baseline",
+        "id": "validation-367"
+      }
+    ]
+  },
+  {
+    "id": "validation-367",
+    "candidate": "B",
+    "labels": [
+      {
+        "model": "gpt-6-luna",
+        "mode": "raw6",
+        "id": "validation-367"
+      }
+    ]
+  },
+  {
+    "id": "validation-367",
+    "candidate": "C",
+    "labels": [
+      {
+        "model": "server-gemma4",
+        "mode": "raw16",
+        "id": "validation-367"
+      },
+      {
+        "model": "server-gemma4",
+        "mode": "prose",
+        "id": "validation-367"
+      },
+      {
+        "model": "server-gemma4",
+        "mode": "facts",
+        "id": "validation-367"
+      },
+      {
+        "model": "server-gemma4",
+        "mode": "raw6",
+        "id": "validation-367"
+      }
+    ]
+  },
+  {
+    "id": "validation-367",
+    "candidate": "D",
+    "labels": [
+      {
+        "model": "gpt-6-luna",
+        "mode": "prose",
+        "id": "validation-367"
+      }
+    ]
+  },
+  {
+    "id": "validation-367",
+    "candidate": "E",
+    "labels": [
+      {
+        "model": "gpt-6-luna",
+        "mode": "raw16",
+        "id": "validation-367"
+      },
+      {
+        "model": "gpt-6-luna",
+        "mode": "facts",
+        "id": "validation-367"
+      }
+    ]
+  },
+  {
+    "id": "validation-367",
+    "candidate": "F",
+    "labels": [
+      {
+        "model": "server-gemma4",
+        "mode": "baseline",
+        "id": "validation-367"
+      }
+    ]
+  },
+  {
+    "id": "validation-368",
+    "candidate": "A",
+    "labels": [
+      {
+        "model": "gpt-6-luna",
+        "mode": "prose",
+        "id": "validation-368"
+      },
+      {
+        "model": "gpt-6-luna",
+        "mode": "facts",
+        "id": "validation-368"
+      },
+      {
+        "model": "gpt-6-luna",
+        "mode": "baseline",
+        "id": "validation-368"
+      },
+      {
+        "model": "gpt-6-luna",
+        "mode": "raw6",
+        "id": "validation-368"
+      },
+      {
+        "model": "gpt-6-luna",
+        "mode": "raw16",
+        "id": "validation-368"
+      }
+    ]
+  },
+  {
+    "id": "validation-368",
+    "candidate": "B",
+    "labels": [
+      {
+        "model": "server-gemma4",
+        "mode": "prose",
+        "id": "validation-368"
+      },
+      {
+        "model": "server-gemma4",
+        "mode": "facts",
+        "id": "validation-368"
+      },
+      {
+        "model": "server-gemma4",
+        "mode": "baseline",
+        "id": "validation-368"
+      },
+      {
+        "model": "server-gemma4",
+        "mode": "raw6",
+        "id": "validation-368"
+      },
+      {
+        "model": "server-gemma4",
+        "mode": "raw16",
+        "id": "validation-368"
+      }
+    ]
+  },
+  {
+    "id": "validation-513",
+    "candidate": "A",
+    "labels": [
+      {
+        "model": "gpt-6-luna",
+        "mode": "facts",
+        "id": "validation-513"
+      },
+      {
+        "model": "gpt-6-luna",
+        "mode": "raw6",
+        "id": "validation-513"
+      },
+      {
+        "model": "gpt-6-luna",
+        "mode": "prose",
+        "id": "validation-513"
+      }
+    ]
+  },
+  {
+    "id": "validation-513",
+    "candidate": "B",
+    "labels": [
+      {
+        "model": "gpt-6-luna",
+        "mode": "baseline",
+        "id": "validation-513"
+      }
+    ]
+  },
+  {
+    "id": "validation-513",
+    "candidate": "C",
+    "labels": [
+      {
+        "model": "server-gemma4",
+        "mode": "facts",
+        "id": "validation-513"
+      }
+    ]
+  },
+  {
+    "id": "validation-513",
+    "candidate": "D",
+    "labels": [
+      {
+        "model": "server-gemma4",
+        "mode": "raw16",
+        "id": "validation-513"
+      }
+    ]
+  },
+  {
+    "id": "validation-513",
+    "candidate": "E",
+    "labels": [
+      {
+        "model": "gpt-6-luna",
+        "mode": "raw16",
+        "id": "validation-513"
+      }
+    ]
+  },
+  {
+    "id": "validation-513",
+    "candidate": "F",
+    "labels": [
+      {
+        "model": "server-gemma4",
+        "mode": "raw6",
+        "id": "validation-513"
+      },
+      {
+        "model": "server-gemma4",
+        "mode": "prose",
+        "id": "validation-513"
+      }
+    ]
+  },
+  {
+    "id": "validation-513",
+    "candidate": "G",
+    "labels": [
+      {
+        "model": "server-gemma4",
+        "mode": "baseline",
+        "id": "validation-513"
+      }
+    ]
+  },
+  {
+    "id": "validation-514",
+    "candidate": "A",
+    "labels": [
+      {
+        "model": "server-gemma4",
+        "mode": "prose",
+        "id": "validation-514"
+      }
+    ]
+  },
+  {
+    "id": "validation-514",
+    "candidate": "B",
+    "labels": [
+      {
+        "model": "server-gemma4",
+        "mode": "facts",
+        "id": "validation-514"
+      }
+    ]
+  },
+  {
+    "id": "validation-514",
+    "candidate": "C",
+    "labels": [
+      {
+        "model": "gpt-6-luna",
+        "mode": "baseline",
+        "id": "validation-514"
+      }
+    ]
+  },
+  {
+    "id": "validation-514",
+    "candidate": "D",
+    "labels": [
+      {
+        "model": "server-gemma4",
+        "mode": "raw16",
+        "id": "validation-514"
+      }
+    ]
+  },
+  {
+    "id": "validation-514",
+    "candidate": "E",
+    "labels": [
+      {
+        "model": "gpt-6-luna",
+        "mode": "prose",
+        "id": "validation-514"
+      }
+    ]
+  },
+  {
+    "id": "validation-514",
+    "candidate": "F",
+    "labels": [
+      {
+        "model": "gpt-6-luna",
+        "mode": "raw6",
+        "id": "validation-514"
+      }
+    ]
+  },
+  {
+    "id": "validation-514",
+    "candidate": "G",
+    "labels": [
+      {
+        "model": "gpt-6-luna",
+        "mode": "facts",
+        "id": "validation-514"
+      }
+    ]
+  },
+  {
+    "id": "validation-514",
+    "candidate": "H",
+    "labels": [
+      {
+        "model": "gpt-6-luna",
+        "mode": "raw16",
+        "id": "validation-514"
+      }
+    ]
+  },
+  {
+    "id": "validation-514",
+    "candidate": "I",
+    "labels": [
+      {
+        "model": "server-gemma4",
+        "mode": "baseline",
+        "id": "validation-514"
+      }
+    ]
+  },
+  {
+    "id": "validation-514",
+    "candidate": "J",
+    "labels": [
+      {
+        "model": "server-gemma4",
+        "mode": "raw6",
+        "id": "validation-514"
+      }
+    ]
+  },
+  {
+    "id": "validation-515",
+    "candidate": "A",
+    "labels": [
+      {
+        "model": "gpt-6-luna",
+        "mode": "facts",
+        "id": "validation-515"
+      }
+    ]
+  },
+  {
+    "id": "validation-515",
+    "candidate": "B",
+    "labels": [
+      {
+        "model": "gpt-6-luna",
+        "mode": "baseline",
+        "id": "validation-515"
+      }
+    ]
+  },
+  {
+    "id": "validation-515",
+    "candidate": "C",
+    "labels": [
+      {
+        "model": "gpt-6-luna",
+        "mode": "raw16",
+        "id": "validation-515"
+      }
+    ]
+  },
+  {
+    "id": "validation-515",
+    "candidate": "D",
+    "labels": [
+      {
+        "model": "server-gemma4",
+        "mode": "prose",
+        "id": "validation-515"
+      }
+    ]
+  },
+  {
+    "id": "validation-515",
+    "candidate": "E",
+    "labels": [
+      {
+        "model": "gpt-6-luna",
+        "mode": "prose",
+        "id": "validation-515"
+      }
+    ]
+  },
+  {
+    "id": "validation-515",
+    "candidate": "F",
+    "labels": [
+      {
+        "model": "server-gemma4",
+        "mode": "raw16",
+        "id": "validation-515"
+      },
+      {
+        "model": "server-gemma4",
+        "mode": "facts",
+        "id": "validation-515"
+      },
+      {
+        "model": "server-gemma4",
+        "mode": "baseline",
+        "id": "validation-515"
+      }
+    ]
+  },
+  {
+    "id": "validation-515",
+    "candidate": "G",
+    "labels": [
+      {
+        "model": "server-gemma4",
+        "mode": "raw6",
+        "id": "validation-515"
+      }
+    ]
+  },
+  {
+    "id": "validation-515",
+    "candidate": "H",
+    "labels": [
+      {
+        "model": "gpt-6-luna",
+        "mode": "raw6",
+        "id": "validation-515"
+      }
+    ]
+  },
+  {
+    "id": "validation-516",
+    "candidate": "A",
+    "labels": [
+      {
+        "model": "server-gemma4",
+        "mode": "prose",
+        "id": "validation-516"
+      },
+      {
+        "model": "server-gemma4",
+        "mode": "facts",
+        "id": "validation-516"
+      },
+      {
+        "model": "server-gemma4",
+        "mode": "baseline",
+        "id": "validation-516"
+      }
+    ]
+  },
+  {
+    "id": "validation-516",
+    "candidate": "B",
+    "labels": [
+      {
+        "model": "gpt-6-luna",
+        "mode": "raw16",
+        "id": "validation-516"
+      },
+      {
+        "model": "gpt-6-luna",
+        "mode": "prose",
+        "id": "validation-516"
+      },
+      {
+        "model": "gpt-6-luna",
+        "mode": "facts",
+        "id": "validation-516"
+      },
+      {
+        "model": "gpt-6-luna",
+        "mode": "baseline",
+        "id": "validation-516"
+      },
+      {
+        "model": "gpt-6-luna",
+        "mode": "raw6",
+        "id": "validation-516"
+      }
+    ]
+  },
+  {
+    "id": "validation-516",
+    "candidate": "C",
+    "labels": [
+      {
+        "model": "server-gemma4",
+        "mode": "raw16",
+        "id": "validation-516"
+      },
+      {
+        "model": "server-gemma4",
+        "mode": "raw6",
+        "id": "validation-516"
+      }
+    ]
+  },
+  {
+    "id": "validation-685",
+    "candidate": "A",
+    "labels": [
+      {
+        "model": "server-gemma4",
+        "mode": "prose",
+        "id": "validation-685"
+      }
+    ]
+  },
+  {
+    "id": "validation-685",
+    "candidate": "B",
+    "labels": [
+      {
+        "model": "gpt-6-luna",
+        "mode": "raw6",
+        "id": "validation-685"
+      }
+    ]
+  },
+  {
+    "id": "validation-685",
+    "candidate": "C",
+    "labels": [
+      {
+        "model": "server-gemma4",
+        "mode": "facts",
+        "id": "validation-685"
+      }
+    ]
+  },
+  {
+    "id": "validation-685",
+    "candidate": "D",
+    "labels": [
+      {
+        "model": "gpt-6-luna",
+        "mode": "prose",
+        "id": "validation-685"
+      }
+    ]
+  },
+  {
+    "id": "validation-685",
+    "candidate": "E",
+    "labels": [
+      {
+        "model": "server-gemma4",
+        "mode": "raw6",
+        "id": "validation-685"
+      }
+    ]
+  },
+  {
+    "id": "validation-685",
+    "candidate": "F",
+    "labels": [
+      {
+        "model": "gpt-6-luna",
+        "mode": "facts",
+        "id": "validation-685"
+      }
+    ]
+  },
+  {
+    "id": "validation-685",
+    "candidate": "G",
+    "labels": [
+      {
+        "model": "gpt-6-luna",
+        "mode": "raw16",
+        "id": "validation-685"
+      }
+    ]
+  },
+  {
+    "id": "validation-685",
+    "candidate": "H",
+    "labels": [
+      {
+        "model": "server-gemma4",
+        "mode": "baseline",
+        "id": "validation-685"
+      }
+    ]
+  },
+  {
+    "id": "validation-685",
+    "candidate": "I",
+    "labels": [
+      {
+        "model": "server-gemma4",
+        "mode": "raw16",
+        "id": "validation-685"
+      }
+    ]
+  },
+  {
+    "id": "validation-685",
+    "candidate": "J",
+    "labels": [
+      {
+        "model": "gpt-6-luna",
+        "mode": "baseline",
+        "id": "validation-685"
+      }
+    ]
+  },
+  {
+    "id": "validation-686",
+    "candidate": "A",
+    "labels": [
+      {
+        "model": "server-gemma4",
+        "mode": "facts",
+        "id": "validation-686"
+      },
+      {
+        "model": "server-gemma4",
+        "mode": "baseline",
+        "id": "validation-686"
+      },
+      {
+        "model": "server-gemma4",
+        "mode": "raw6",
+        "id": "validation-686"
+      },
+      {
+        "model": "server-gemma4",
+        "mode": "raw16",
+        "id": "validation-686"
+      },
+      {
+        "model": "server-gemma4",
+        "mode": "prose",
+        "id": "validation-686"
+      },
+      {
+        "model": "gpt-6-luna",
+        "mode": "facts",
+        "id": "validation-686"
+      },
+      {
+        "model": "gpt-6-luna",
+        "mode": "baseline",
+        "id": "validation-686"
+      },
+      {
+        "model": "gpt-6-luna",
+        "mode": "raw6",
+        "id": "validation-686"
+      }
+    ]
+  },
+  {
+    "id": "validation-686",
+    "candidate": "B",
+    "labels": [
+      {
+        "model": "gpt-6-luna",
+        "mode": "raw16",
+        "id": "validation-686"
+      },
+      {
+        "model": "gpt-6-luna",
+        "mode": "prose",
+        "id": "validation-686"
+      }
+    ]
+  },
+  {
+    "id": "validation-687",
+    "candidate": "A",
+    "labels": [
+      {
+        "model": "server-gemma4",
+        "mode": "baseline",
+        "id": "validation-687"
+      },
+      {
+        "model": "gpt-6-luna",
+        "mode": "baseline",
+        "id": "validation-687"
+      },
+      {
+        "model": "gpt-6-luna",
+        "mode": "raw6",
+        "id": "validation-687"
+      }
+    ]
+  },
+  {
+    "id": "validation-687",
+    "candidate": "B",
+    "labels": [
+      {
+        "model": "server-gemma4",
+        "mode": "raw6",
+        "id": "validation-687"
+      },
+      {
+        "model": "server-gemma4",
+        "mode": "raw16",
+        "id": "validation-687"
+      },
+      {
+        "model": "server-gemma4",
+        "mode": "prose",
+        "id": "validation-687"
+      },
+      {
+        "model": "server-gemma4",
+        "mode": "facts",
+        "id": "validation-687"
+      }
+    ]
+  },
+  {
+    "id": "validation-687",
+    "candidate": "C",
+    "labels": [
+      {
+        "model": "gpt-6-luna",
+        "mode": "raw16",
+        "id": "validation-687"
+      },
+      {
+        "model": "gpt-6-luna",
+        "mode": "prose",
+        "id": "validation-687"
+      },
+      {
+        "model": "gpt-6-luna",
+        "mode": "facts",
+        "id": "validation-687"
+      }
+    ]
+  },
+  {
+    "id": "validation-688",
+    "candidate": "A",
+    "labels": [
+      {
+        "model": "gpt-6-luna",
+        "mode": "raw6",
+        "id": "validation-688"
+      }
+    ]
+  },
+  {
+    "id": "validation-688",
+    "candidate": "B",
+    "labels": [
+      {
+        "model": "server-gemma4",
+        "mode": "raw16",
+        "id": "validation-688"
+      }
+    ]
+  },
+  {
+    "id": "validation-688",
+    "candidate": "C",
+    "labels": [
+      {
+        "model": "server-gemma4",
+        "mode": "raw6",
+        "id": "validation-688"
+      },
+      {
+        "model": "server-gemma4",
+        "mode": "prose",
+        "id": "validation-688"
+      },
+      {
+        "model": "server-gemma4",
+        "mode": "facts",
+        "id": "validation-688"
+      },
+      {
+        "model": "server-gemma4",
+        "mode": "baseline",
+        "id": "validation-688"
+      }
+    ]
+  },
+  {
+    "id": "validation-688",
+    "candidate": "D",
+    "labels": [
+      {
+        "model": "gpt-6-luna",
+        "mode": "raw16",
+        "id": "validation-688"
+      },
+      {
+        "model": "gpt-6-luna",
+        "mode": "prose",
+        "id": "validation-688"
+      },
+      {
+        "model": "gpt-6-luna",
+        "mode": "facts",
+        "id": "validation-688"
+      },
+      {
+        "model": "gpt-6-luna",
+        "mode": "baseline",
+        "id": "validation-688"
+      }
+    ]
+  },
+  {
+    "id": "validation-753",
+    "candidate": "A",
+    "labels": [
+      {
+        "model": "gpt-6-luna",
+        "mode": "baseline",
+        "id": "validation-753"
+      }
+    ]
+  },
+  {
+    "id": "validation-753",
+    "candidate": "B",
+    "labels": [
+      {
+        "model": "server-gemma4",
+        "mode": "raw16",
+        "id": "validation-753"
+      }
+    ]
+  },
+  {
+    "id": "validation-753",
+    "candidate": "C",
+    "labels": [
+      {
+        "model": "gpt-6-luna",
+        "mode": "raw16",
+        "id": "validation-753"
+      },
+      {
+        "model": "gpt-6-luna",
+        "mode": "prose",
+        "id": "validation-753"
+      }
+    ]
+  },
+  {
+    "id": "validation-753",
+    "candidate": "D",
+    "labels": [
+      {
+        "model": "server-gemma4",
+        "mode": "prose",
+        "id": "validation-753"
+      },
+      {
+        "model": "server-gemma4",
+        "mode": "facts",
+        "id": "validation-753"
+      },
+      {
+        "model": "server-gemma4",
+        "mode": "baseline",
+        "id": "validation-753"
+      }
+    ]
+  },
+  {
+    "id": "validation-753",
+    "candidate": "E",
+    "labels": [
+      {
+        "model": "gpt-6-luna",
+        "mode": "facts",
+        "id": "validation-753"
+      },
+      {
+        "model": "gpt-6-luna",
+        "mode": "raw6",
+        "id": "validation-753"
+      }
+    ]
+  },
+  {
+    "id": "validation-753",
+    "candidate": "F",
+    "labels": [
+      {
+        "model": "server-gemma4",
+        "mode": "raw6",
+        "id": "validation-753"
+      }
+    ]
+  },
+  {
+    "id": "validation-754",
+    "candidate": "A",
+    "labels": [
+      {
+        "model": "server-gemma4",
+        "mode": "prose",
+        "id": "validation-754"
+      },
+      {
+        "model": "server-gemma4",
+        "mode": "facts",
+        "id": "validation-754"
+      },
+      {
+        "model": "server-gemma4",
+        "mode": "raw6",
+        "id": "validation-754"
+      },
+      {
+        "model": "server-gemma4",
+        "mode": "raw16",
+        "id": "validation-754"
+      }
+    ]
+  },
+  {
+    "id": "validation-754",
+    "candidate": "B",
+    "labels": [
+      {
+        "model": "gpt-6-luna",
+        "mode": "raw6",
+        "id": "validation-754"
+      },
+      {
+        "model": "gpt-6-luna",
+        "mode": "raw16",
+        "id": "validation-754"
+      }
+    ]
+  },
+  {
+    "id": "validation-754",
+    "candidate": "C",
+    "labels": [
+      {
+        "model": "gpt-6-luna",
+        "mode": "baseline",
+        "id": "validation-754"
+      }
+    ]
+  },
+  {
+    "id": "validation-754",
+    "candidate": "D",
+    "labels": [
+      {
+        "model": "server-gemma4",
+        "mode": "baseline",
+        "id": "validation-754"
+      }
+    ]
+  },
+  {
+    "id": "validation-754",
+    "candidate": "E",
+    "labels": [
+      {
+        "model": "gpt-6-luna",
+        "mode": "prose",
+        "id": "validation-754"
+      },
+      {
+        "model": "gpt-6-luna",
+        "mode": "facts",
+        "id": "validation-754"
+      }
+    ]
+  },
+  {
+    "id": "validation-755",
+    "candidate": "A",
+    "labels": [
+      {
+        "model": "server-gemma4",
+        "mode": "facts",
+        "id": "validation-755"
+      },
+      {
+        "model": "server-gemma4",
+        "mode": "raw16",
+        "id": "validation-755"
+      }
+    ]
+  },
+  {
+    "id": "validation-755",
+    "candidate": "B",
+    "labels": [
+      {
+        "model": "gpt-6-luna",
+        "mode": "facts",
+        "id": "validation-755"
+      },
+      {
+        "model": "gpt-6-luna",
+        "mode": "baseline",
+        "id": "validation-755"
+      },
+      {
+        "model": "gpt-6-luna",
+        "mode": "raw6",
+        "id": "validation-755"
+      },
+      {
+        "model": "gpt-6-luna",
+        "mode": "raw16",
+        "id": "validation-755"
+      },
+      {
+        "model": "gpt-6-luna",
+        "mode": "prose",
+        "id": "validation-755"
+      }
+    ]
+  },
+  {
+    "id": "validation-755",
+    "candidate": "C",
+    "labels": [
+      {
+        "model": "server-gemma4",
+        "mode": "baseline",
+        "id": "validation-755"
+      }
+    ]
+  },
+  {
+    "id": "validation-755",
+    "candidate": "D",
+    "labels": [
+      {
+        "model": "server-gemma4",
+        "mode": "prose",
+        "id": "validation-755"
+      }
+    ]
+  },
+  {
+    "id": "validation-755",
+    "candidate": "E",
+    "labels": [
+      {
+        "model": "server-gemma4",
+        "mode": "raw6",
+        "id": "validation-755"
+      }
+    ]
+  },
+  {
+    "id": "validation-756",
+    "candidate": "A",
+    "labels": [
+      {
+        "model": "server-gemma4",
+        "mode": "baseline",
+        "id": "validation-756"
+      },
+      {
+        "model": "server-gemma4",
+        "mode": "raw6",
+        "id": "validation-756"
+      },
+      {
+        "model": "server-gemma4",
+        "mode": "facts",
+        "id": "validation-756"
+      }
+    ]
+  },
+  {
+    "id": "validation-756",
+    "candidate": "B",
+    "labels": [
+      {
+        "model": "gpt-6-luna",
+        "mode": "baseline",
+        "id": "validation-756"
+      },
+      {
+        "model": "gpt-6-luna",
+        "mode": "raw16",
+        "id": "validation-756"
+      },
+      {
+        "model": "gpt-6-luna",
+        "mode": "prose",
+        "id": "validation-756"
+      }
+    ]
+  },
+  {
+    "id": "validation-756",
+    "candidate": "C",
+    "labels": [
+      {
+        "model": "server-gemma4",
+        "mode": "raw16",
+        "id": "validation-756"
+      }
+    ]
+  },
+  {
+    "id": "validation-756",
+    "candidate": "D",
+    "labels": [
+      {
+        "model": "gpt-6-luna",
+        "mode": "raw6",
+        "id": "validation-756"
+      },
+      {
+        "model": "gpt-6-luna",
+        "mode": "facts",
+        "id": "validation-756"
+      }
+    ]
+  },
+  {
+    "id": "validation-756",
+    "candidate": "E",
+    "labels": [
+      {
+        "model": "server-gemma4",
+        "mode": "prose",
+        "id": "validation-756"
+      }
+    ]
+  },
+  {
+    "id": "validation-845",
+    "candidate": "A",
+    "labels": [
+      {
+        "model": "server-gemma4",
+        "mode": "raw6",
+        "id": "validation-845"
+      },
+      {
+        "model": "server-gemma4",
+        "mode": "prose",
+        "id": "validation-845"
+      }
+    ]
+  },
+  {
+    "id": "validation-845",
+    "candidate": "B",
+    "labels": [
+      {
+        "model": "gpt-6-luna",
+        "mode": "baseline",
+        "id": "validation-845"
+      }
+    ]
+  },
+  {
+    "id": "validation-845",
+    "candidate": "C",
+    "labels": [
+      {
+        "model": "gpt-6-luna",
+        "mode": "raw16",
+        "id": "validation-845"
+      },
+      {
+        "model": "gpt-6-luna",
+        "mode": "prose",
+        "id": "validation-845"
+      }
+    ]
+  },
+  {
+    "id": "validation-845",
+    "candidate": "D",
+    "labels": [
+      {
+        "model": "server-gemma4",
+        "mode": "raw16",
+        "id": "validation-845"
+      },
+      {
+        "model": "server-gemma4",
+        "mode": "facts",
+        "id": "validation-845"
+      },
+      {
+        "model": "server-gemma4",
+        "mode": "baseline",
+        "id": "validation-845"
+      }
+    ]
+  },
+  {
+    "id": "validation-845",
+    "candidate": "E",
+    "labels": [
+      {
+        "model": "gpt-6-luna",
+        "mode": "raw6",
+        "id": "validation-845"
+      },
+      {
+        "model": "gpt-6-luna",
+        "mode": "facts",
+        "id": "validation-845"
+      }
+    ]
+  },
+  {
+    "id": "validation-846",
+    "candidate": "A",
+    "labels": [
+      {
+        "model": "gpt-6-luna",
+        "mode": "facts",
+        "id": "validation-846"
+      },
+      {
+        "model": "gpt-6-luna",
+        "mode": "raw6",
+        "id": "validation-846"
+      }
+    ]
+  },
+  {
+    "id": "validation-846",
+    "candidate": "B",
+    "labels": [
+      {
+        "model": "server-gemma4",
+        "mode": "raw16",
+        "id": "validation-846"
+      },
+      {
+        "model": "server-gemma4",
+        "mode": "prose",
+        "id": "validation-846"
+      },
+      {
+        "model": "server-gemma4",
+        "mode": "facts",
+        "id": "validation-846"
+      },
+      {
+        "model": "server-gemma4",
+        "mode": "baseline",
+        "id": "validation-846"
+      },
+      {
+        "model": "server-gemma4",
+        "mode": "raw6",
+        "id": "validation-846"
+      },
+      {
+        "model": "gpt-6-luna",
+        "mode": "raw16",
+        "id": "validation-846"
+      },
+      {
+        "model": "gpt-6-luna",
+        "mode": "prose",
+        "id": "validation-846"
+      },
+      {
+        "model": "gpt-6-luna",
+        "mode": "baseline",
+        "id": "validation-846"
+      }
+    ]
+  },
+  {
+    "id": "validation-847",
+    "candidate": "A",
+    "labels": [
+      {
+        "model": "gpt-6-luna",
+        "mode": "prose",
+        "id": "validation-847"
+      },
+      {
+        "model": "gpt-6-luna",
+        "mode": "facts",
+        "id": "validation-847"
+      },
+      {
+        "model": "gpt-6-luna",
+        "mode": "baseline",
+        "id": "validation-847"
+      },
+      {
+        "model": "gpt-6-luna",
+        "mode": "raw6",
+        "id": "validation-847"
+      },
+      {
+        "model": "gpt-6-luna",
+        "mode": "raw16",
+        "id": "validation-847"
+      }
+    ]
+  },
+  {
+    "id": "validation-847",
+    "candidate": "B",
+    "labels": [
+      {
+        "model": "server-gemma4",
+        "mode": "prose",
+        "id": "validation-847"
+      },
+      {
+        "model": "server-gemma4",
+        "mode": "facts",
+        "id": "validation-847"
+      },
+      {
+        "model": "server-gemma4",
+        "mode": "baseline",
+        "id": "validation-847"
+      },
+      {
+        "model": "server-gemma4",
+        "mode": "raw6",
+        "id": "validation-847"
+      }
+    ]
+  },
+  {
+    "id": "validation-847",
+    "candidate": "C",
+    "labels": [
+      {
+        "model": "server-gemma4",
+        "mode": "raw16",
+        "id": "validation-847"
+      }
+    ]
+  },
+  {
+    "id": "validation-848",
+    "candidate": "A",
+    "labels": [
+      {
+        "model": "gpt-6-luna",
+        "mode": "raw6",
+        "id": "validation-848"
+      }
+    ]
+  },
+  {
+    "id": "validation-848",
+    "candidate": "B",
+    "labels": [
+      {
+        "model": "gpt-6-luna",
+        "mode": "raw16",
+        "id": "validation-848"
+      }
+    ]
+  },
+  {
+    "id": "validation-848",
+    "candidate": "C",
+    "labels": [
+      {
+        "model": "gpt-6-luna",
+        "mode": "facts",
+        "id": "validation-848"
+      }
+    ]
+  },
+  {
+    "id": "validation-848",
+    "candidate": "D",
+    "labels": [
+      {
+        "model": "gpt-6-luna",
+        "mode": "prose",
+        "id": "validation-848"
+      }
+    ]
+  },
+  {
+    "id": "validation-848",
+    "candidate": "E",
+    "labels": [
+      {
+        "model": "server-gemma4",
+        "mode": "facts",
+        "id": "validation-848"
+      },
+      {
+        "model": "server-gemma4",
+        "mode": "prose",
+        "id": "validation-848"
+      }
+    ]
+  },
+  {
+    "id": "validation-848",
+    "candidate": "F",
+    "labels": [
+      {
+        "model": "server-gemma4",
+        "mode": "baseline",
+        "id": "validation-848"
+      }
+    ]
+  },
+  {
+    "id": "validation-848",
+    "candidate": "G",
+    "labels": [
+      {
+        "model": "gpt-6-luna",
+        "mode": "baseline",
+        "id": "validation-848"
+      }
+    ]
+  },
+  {
+    "id": "validation-848",
+    "candidate": "H",
+    "labels": [
+      {
+        "model": "server-gemma4",
+        "mode": "raw6",
+        "id": "validation-848"
+      },
+      {
+        "model": "server-gemma4",
+        "mode": "raw16",
+        "id": "validation-848"
+      }
+    ]
+  },
+  {
+    "id": "validation-941",
+    "candidate": "A",
+    "labels": [
+      {
+        "model": "server-gemma4",
+        "mode": "baseline",
+        "id": "validation-941"
+      },
+      {
+        "model": "server-gemma4",
+        "mode": "raw6",
+        "id": "validation-941"
+      },
+      {
+        "model": "server-gemma4",
+        "mode": "raw16",
+        "id": "validation-941"
+      },
+      {
+        "model": "server-gemma4",
+        "mode": "prose",
+        "id": "validation-941"
+      },
+      {
+        "model": "server-gemma4",
+        "mode": "facts",
+        "id": "validation-941"
+      },
+      {
+        "model": "gpt-6-luna",
+        "mode": "baseline",
+        "id": "validation-941"
+      },
+      {
+        "model": "gpt-6-luna",
+        "mode": "raw6",
+        "id": "validation-941"
+      },
+      {
+        "model": "gpt-6-luna",
+        "mode": "raw16",
+        "id": "validation-941"
+      },
+      {
+        "model": "gpt-6-luna",
+        "mode": "prose",
+        "id": "validation-941"
+      },
+      {
+        "model": "gpt-6-luna",
+        "mode": "facts",
+        "id": "validation-941"
+      }
+    ]
+  },
+  {
+    "id": "validation-942",
+    "candidate": "A",
+    "labels": [
+      {
+        "model": "server-gemma4",
+        "mode": "baseline",
+        "id": "validation-942"
+      }
+    ]
+  },
+  {
+    "id": "validation-942",
+    "candidate": "B",
+    "labels": [
+      {
+        "model": "gpt-6-luna",
+        "mode": "raw6",
+        "id": "validation-942"
+      },
+      {
+        "model": "gpt-6-luna",
+        "mode": "prose",
+        "id": "validation-942"
+      }
+    ]
+  },
+  {
+    "id": "validation-942",
+    "candidate": "C",
+    "labels": [
+      {
+        "model": "server-gemma4",
+        "mode": "raw6",
+        "id": "validation-942"
+      },
+      {
+        "model": "server-gemma4",
+        "mode": "raw16",
+        "id": "validation-942"
+      }
+    ]
+  },
+  {
+    "id": "validation-942",
+    "candidate": "D",
+    "labels": [
+      {
+        "model": "gpt-6-luna",
+        "mode": "raw16",
+        "id": "validation-942"
+      }
+    ]
+  },
+  {
+    "id": "validation-942",
+    "candidate": "E",
+    "labels": [
+      {
+        "model": "server-gemma4",
+        "mode": "prose",
+        "id": "validation-942"
+      },
+      {
+        "model": "server-gemma4",
+        "mode": "facts",
+        "id": "validation-942"
+      }
+    ]
+  },
+  {
+    "id": "validation-942",
+    "candidate": "F",
+    "labels": [
+      {
+        "model": "gpt-6-luna",
+        "mode": "facts",
+        "id": "validation-942"
+      },
+      {
+        "model": "gpt-6-luna",
+        "mode": "baseline",
+        "id": "validation-942"
+      }
+    ]
+  },
+  {
+    "id": "validation-943",
+    "candidate": "A",
+    "labels": [
+      {
+        "model": "server-gemma4",
+        "mode": "raw16",
+        "id": "validation-943"
+      }
+    ]
+  },
+  {
+    "id": "validation-943",
+    "candidate": "B",
+    "labels": [
+      {
+        "model": "server-gemma4",
+        "mode": "facts",
+        "id": "validation-943"
+      }
+    ]
+  },
+  {
+    "id": "validation-943",
+    "candidate": "C",
+    "labels": [
+      {
+        "model": "server-gemma4",
+        "mode": "prose",
+        "id": "validation-943"
+      }
+    ]
+  },
+  {
+    "id": "validation-943",
+    "candidate": "D",
+    "labels": [
+      {
+        "model": "gpt-6-luna",
+        "mode": "facts",
+        "id": "validation-943"
+      },
+      {
+        "model": "gpt-6-luna",
+        "mode": "baseline",
+        "id": "validation-943"
+      },
+      {
+        "model": "gpt-6-luna",
+        "mode": "raw6",
+        "id": "validation-943"
+      }
+    ]
+  },
+  {
+    "id": "validation-943",
+    "candidate": "E",
+    "labels": [
+      {
+        "model": "server-gemma4",
+        "mode": "baseline",
+        "id": "validation-943"
+      }
+    ]
+  },
+  {
+    "id": "validation-943",
+    "candidate": "F",
+    "labels": [
+      {
+        "model": "gpt-6-luna",
+        "mode": "raw16",
+        "id": "validation-943"
+      },
+      {
+        "model": "gpt-6-luna",
+        "mode": "prose",
+        "id": "validation-943"
+      }
+    ]
+  },
+  {
+    "id": "validation-943",
+    "candidate": "G",
+    "labels": [
+      {
+        "model": "server-gemma4",
+        "mode": "raw6",
+        "id": "validation-943"
+      }
+    ]
+  },
+  {
+    "id": "validation-944",
+    "candidate": "A",
+    "labels": [
+      {
+        "model": "server-gemma4",
+        "mode": "raw16",
+        "id": "validation-944"
+      }
+    ]
+  },
+  {
+    "id": "validation-944",
+    "candidate": "B",
+    "labels": [
+      {
+        "model": "gpt-6-luna",
+        "mode": "prose",
+        "id": "validation-944"
+      },
+      {
+        "model": "gpt-6-luna",
+        "mode": "facts",
+        "id": "validation-944"
+      },
+      {
+        "model": "gpt-6-luna",
+        "mode": "baseline",
+        "id": "validation-944"
+      },
+      {
+        "model": "gpt-6-luna",
+        "mode": "raw6",
+        "id": "validation-944"
+      },
+      {
+        "model": "gpt-6-luna",
+        "mode": "raw16",
+        "id": "validation-944"
+      }
+    ]
+  },
+  {
+    "id": "validation-944",
+    "candidate": "C",
+    "labels": [
+      {
+        "model": "server-gemma4",
+        "mode": "baseline",
+        "id": "validation-944"
+      }
+    ]
+  },
+  {
+    "id": "validation-944",
+    "candidate": "D",
+    "labels": [
+      {
+        "model": "server-gemma4",
+        "mode": "facts",
+        "id": "validation-944"
+      }
+    ]
+  },
+  {
+    "id": "validation-944",
+    "candidate": "E",
+    "labels": [
+      {
+        "model": "server-gemma4",
+        "mode": "prose",
+        "id": "validation-944"
+      }
+    ]
+  },
+  {
+    "id": "validation-944",
+    "candidate": "F",
+    "labels": [
+      {
+        "model": "server-gemma4",
+        "mode": "raw6",
+        "id": "validation-944"
+      }
+    ]
+  },
+  {
+    "id": "validation-977",
+    "candidate": "A",
+    "labels": [
+      {
+        "model": "server-gemma4",
+        "mode": "baseline",
+        "id": "validation-977"
+      },
+      {
+        "model": "server-gemma4",
+        "mode": "prose",
+        "id": "validation-977"
+      }
+    ]
+  },
+  {
+    "id": "validation-977",
+    "candidate": "B",
+    "labels": [
+      {
+        "model": "server-gemma4",
+        "mode": "facts",
+        "id": "validation-977"
+      },
+      {
+        "model": "server-gemma4",
+        "mode": "raw6",
+        "id": "validation-977"
+      },
+      {
+        "model": "server-gemma4",
+        "mode": "raw16",
+        "id": "validation-977"
+      }
+    ]
+  },
+  {
+    "id": "validation-977",
+    "candidate": "C",
+    "labels": [
+      {
+        "model": "gpt-6-luna",
+        "mode": "facts",
+        "id": "validation-977"
+      }
+    ]
+  },
+  {
+    "id": "validation-977",
+    "candidate": "D",
+    "labels": [
+      {
+        "model": "gpt-6-luna",
+        "mode": "baseline",
+        "id": "validation-977"
+      },
+      {
+        "model": "gpt-6-luna",
+        "mode": "raw6",
+        "id": "validation-977"
+      },
+      {
+        "model": "gpt-6-luna",
+        "mode": "raw16",
+        "id": "validation-977"
+      },
+      {
+        "model": "gpt-6-luna",
+        "mode": "prose",
+        "id": "validation-977"
+      }
+    ]
+  },
+  {
+    "id": "validation-978",
+    "candidate": "A",
+    "labels": [
+      {
+        "model": "server-gemma4",
+        "mode": "raw16",
+        "id": "validation-978"
+      },
+      {
+        "model": "server-gemma4",
+        "mode": "facts",
+        "id": "validation-978"
+      }
+    ]
+  },
+  {
+    "id": "validation-978",
+    "candidate": "B",
+    "labels": [
+      {
+        "model": "server-gemma4",
+        "mode": "prose",
+        "id": "validation-978"
+      },
+      {
+        "model": "gpt-6-luna",
+        "mode": "raw6",
+        "id": "validation-978"
+      },
+      {
+        "model": "gpt-6-luna",
+        "mode": "raw16",
+        "id": "validation-978"
+      },
+      {
+        "model": "gpt-6-luna",
+        "mode": "prose",
+        "id": "validation-978"
+      },
+      {
+        "model": "gpt-6-luna",
+        "mode": "facts",
+        "id": "validation-978"
+      }
+    ]
+  },
+  {
+    "id": "validation-978",
+    "candidate": "C",
+    "labels": [
+      {
+        "model": "server-gemma4",
+        "mode": "baseline",
+        "id": "validation-978"
+      }
+    ]
+  },
+  {
+    "id": "validation-978",
+    "candidate": "D",
+    "labels": [
+      {
+        "model": "server-gemma4",
+        "mode": "raw6",
+        "id": "validation-978"
+      }
+    ]
+  },
+  {
+    "id": "validation-978",
+    "candidate": "E",
+    "labels": [
+      {
+        "model": "gpt-6-luna",
+        "mode": "baseline",
+        "id": "validation-978"
+      }
+    ]
+  },
+  {
+    "id": "validation-979",
+    "candidate": "A",
+    "labels": [
+      {
+        "model": "gpt-6-luna",
+        "mode": "raw6",
+        "id": "validation-979"
+      },
+      {
+        "model": "gpt-6-luna",
+        "mode": "raw16",
+        "id": "validation-979"
+      },
+      {
+        "model": "gpt-6-luna",
+        "mode": "prose",
+        "id": "validation-979"
+      },
+      {
+        "model": "gpt-6-luna",
+        "mode": "facts",
+        "id": "validation-979"
+      },
+      {
+        "model": "gpt-6-luna",
+        "mode": "baseline",
+        "id": "validation-979"
+      }
+    ]
+  },
+  {
+    "id": "validation-979",
+    "candidate": "B",
+    "labels": [
+      {
+        "model": "server-gemma4",
+        "mode": "raw6",
+        "id": "validation-979"
+      },
+      {
+        "model": "server-gemma4",
+        "mode": "raw16",
+        "id": "validation-979"
+      },
+      {
+        "model": "server-gemma4",
+        "mode": "baseline",
+        "id": "validation-979"
+      }
+    ]
+  },
+  {
+    "id": "validation-979",
+    "candidate": "C",
+    "labels": [
+      {
+        "model": "server-gemma4",
+        "mode": "prose",
+        "id": "validation-979"
+      },
+      {
+        "model": "server-gemma4",
+        "mode": "facts",
+        "id": "validation-979"
+      }
+    ]
+  },
+  {
+    "id": "validation-980",
+    "candidate": "A",
+    "labels": [
+      {
+        "model": "server-gemma4",
+        "mode": "raw16",
+        "id": "validation-980"
+      },
+      {
+        "model": "server-gemma4",
+        "mode": "prose",
+        "id": "validation-980"
+      }
+    ]
+  },
+  {
+    "id": "validation-980",
+    "candidate": "B",
+    "labels": [
+      {
+        "model": "server-gemma4",
+        "mode": "raw6",
+        "id": "validation-980"
+      }
+    ]
+  },
+  {
+    "id": "validation-980",
+    "candidate": "C",
+    "labels": [
+      {
+        "model": "gpt-6-luna",
+        "mode": "prose",
+        "id": "validation-980"
+      },
+      {
+        "model": "gpt-6-luna",
+        "mode": "facts",
+        "id": "validation-980"
+      }
+    ]
+  },
+  {
+    "id": "validation-980",
+    "candidate": "D",
+    "labels": [
+      {
+        "model": "gpt-6-luna",
+        "mode": "raw6",
+        "id": "validation-980"
+      }
+    ]
+  },
+  {
+    "id": "validation-980",
+    "candidate": "E",
+    "labels": [
+      {
+        "model": "server-gemma4",
+        "mode": "baseline",
+        "id": "validation-980"
+      }
+    ]
+  },
+  {
+    "id": "validation-980",
+    "candidate": "F",
+    "labels": [
+      {
+        "model": "gpt-6-luna",
+        "mode": "raw16",
+        "id": "validation-980"
+      }
+    ]
+  },
+  {
+    "id": "validation-980",
+    "candidate": "G",
+    "labels": [
+      {
+        "model": "gpt-6-luna",
+        "mode": "baseline",
+        "id": "validation-980"
+      }
+    ]
+  },
+  {
+    "id": "validation-980",
+    "candidate": "H",
+    "labels": [
+      {
+        "model": "server-gemma4",
+        "mode": "facts",
+        "id": "validation-980"
+      }
+    ]
+  },
+  {
+    "id": "validation-1041",
+    "candidate": "A",
+    "labels": [
+      {
+        "model": "gpt-6-luna",
+        "mode": "raw16",
+        "id": "validation-1041"
+      }
+    ]
+  },
+  {
+    "id": "validation-1041",
+    "candidate": "B",
+    "labels": [
+      {
+        "model": "gpt-6-luna",
+        "mode": "baseline",
+        "id": "validation-1041"
+      }
+    ]
+  },
+  {
+    "id": "validation-1041",
+    "candidate": "C",
+    "labels": [
+      {
+        "model": "gpt-6-luna",
+        "mode": "prose",
+        "id": "validation-1041"
+      },
+      {
+        "model": "gpt-6-luna",
+        "mode": "facts",
+        "id": "validation-1041"
+      }
+    ]
+  },
+  {
+    "id": "validation-1041",
+    "candidate": "D",
+    "labels": [
+      {
+        "model": "server-gemma4",
+        "mode": "prose",
+        "id": "validation-1041"
+      },
+      {
+        "model": "server-gemma4",
+        "mode": "facts",
+        "id": "validation-1041"
+      },
+      {
+        "model": "server-gemma4",
+        "mode": "baseline",
+        "id": "validation-1041"
+      },
+      {
+        "model": "server-gemma4",
+        "mode": "raw6",
+        "id": "validation-1041"
+      },
+      {
+        "model": "server-gemma4",
+        "mode": "raw16",
+        "id": "validation-1041"
+      }
+    ]
+  },
+  {
+    "id": "validation-1041",
+    "candidate": "E",
+    "labels": [
+      {
+        "model": "gpt-6-luna",
+        "mode": "raw6",
+        "id": "validation-1041"
+      }
+    ]
+  },
+  {
+    "id": "validation-1042",
+    "candidate": "A",
+    "labels": [
+      {
+        "model": "server-gemma4",
+        "mode": "raw16",
+        "id": "validation-1042"
+      }
+    ]
+  },
+  {
+    "id": "validation-1042",
+    "candidate": "B",
+    "labels": [
+      {
+        "model": "server-gemma4",
+        "mode": "facts",
+        "id": "validation-1042"
+      }
+    ]
+  },
+  {
+    "id": "validation-1042",
+    "candidate": "C",
+    "labels": [
+      {
+        "model": "server-gemma4",
+        "mode": "prose",
+        "id": "validation-1042"
+      }
+    ]
+  },
+  {
+    "id": "validation-1042",
+    "candidate": "D",
+    "labels": [
+      {
+        "model": "gpt-6-luna",
+        "mode": "facts",
+        "id": "validation-1042"
+      },
+      {
+        "model": "gpt-6-luna",
+        "mode": "baseline",
+        "id": "validation-1042"
+      },
+      {
+        "model": "gpt-6-luna",
+        "mode": "raw6",
+        "id": "validation-1042"
+      },
+      {
+        "model": "gpt-6-luna",
+        "mode": "raw16",
+        "id": "validation-1042"
+      },
+      {
+        "model": "gpt-6-luna",
+        "mode": "prose",
+        "id": "validation-1042"
+      }
+    ]
+  },
+  {
+    "id": "validation-1042",
+    "candidate": "E",
+    "labels": [
+      {
+        "model": "server-gemma4",
+        "mode": "raw6",
+        "id": "validation-1042"
+      }
+    ]
+  },
+  {
+    "id": "validation-1042",
+    "candidate": "F",
+    "labels": [
+      {
+        "model": "server-gemma4",
+        "mode": "baseline",
+        "id": "validation-1042"
+      }
+    ]
+  },
+  {
+    "id": "validation-1043",
+    "candidate": "A",
+    "labels": [
+      {
+        "model": "server-gemma4",
+        "mode": "baseline",
+        "id": "validation-1043"
+      }
+    ]
+  },
+  {
+    "id": "validation-1043",
+    "candidate": "B",
+    "labels": [
+      {
+        "model": "server-gemma4",
+        "mode": "prose",
+        "id": "validation-1043"
+      }
+    ]
+  },
+  {
+    "id": "validation-1043",
+    "candidate": "C",
+    "labels": [
+      {
+        "model": "gpt-6-luna",
+        "mode": "baseline",
+        "id": "validation-1043"
+      }
+    ]
+  },
+  {
+    "id": "validation-1043",
+    "candidate": "D",
+    "labels": [
+      {
+        "model": "server-gemma4",
+        "mode": "raw6",
+        "id": "validation-1043"
+      }
+    ]
+  },
+  {
+    "id": "validation-1043",
+    "candidate": "E",
+    "labels": [
+      {
+        "model": "gpt-6-luna",
+        "mode": "raw6",
+        "id": "validation-1043"
+      },
+      {
+        "model": "gpt-6-luna",
+        "mode": "raw16",
+        "id": "validation-1043"
+      },
+      {
+        "model": "gpt-6-luna",
+        "mode": "prose",
+        "id": "validation-1043"
+      },
+      {
+        "model": "gpt-6-luna",
+        "mode": "facts",
+        "id": "validation-1043"
+      }
+    ]
+  },
+  {
+    "id": "validation-1043",
+    "candidate": "F",
+    "labels": [
+      {
+        "model": "server-gemma4",
+        "mode": "raw16",
+        "id": "validation-1043"
+      },
+      {
+        "model": "server-gemma4",
+        "mode": "facts",
+        "id": "validation-1043"
+      }
+    ]
+  },
+  {
+    "id": "validation-1044",
+    "candidate": "A",
+    "labels": [
+      {
+        "model": "server-gemma4",
+        "mode": "prose",
+        "id": "validation-1044"
+      }
+    ]
+  },
+  {
+    "id": "validation-1044",
+    "candidate": "B",
+    "labels": [
+      {
+        "model": "gpt-6-luna",
+        "mode": "raw6",
+        "id": "validation-1044"
+      }
+    ]
+  },
+  {
+    "id": "validation-1044",
+    "candidate": "C",
+    "labels": [
+      {
+        "model": "server-gemma4",
+        "mode": "raw16",
+        "id": "validation-1044"
+      }
+    ]
+  },
+  {
+    "id": "validation-1044",
+    "candidate": "D",
+    "labels": [
+      {
+        "model": "gpt-6-luna",
+        "mode": "prose",
+        "id": "validation-1044"
+      },
+      {
+        "model": "gpt-6-luna",
+        "mode": "facts",
+        "id": "validation-1044"
+      }
+    ]
+  },
+  {
+    "id": "validation-1044",
+    "candidate": "E",
+    "labels": [
+      {
+        "model": "server-gemma4",
+        "mode": "raw6",
+        "id": "validation-1044"
+      },
+      {
+        "model": "server-gemma4",
+        "mode": "facts",
+        "id": "validation-1044"
+      },
+      {
+        "model": "server-gemma4",
+        "mode": "baseline",
+        "id": "validation-1044"
+      },
+      {
+        "model": "gpt-6-luna",
+        "mode": "baseline",
+        "id": "validation-1044"
+      }
+    ]
+  },
+  {
+    "id": "validation-1044",
+    "candidate": "F",
+    "labels": [
+      {
+        "model": "gpt-6-luna",
+        "mode": "raw16",
+        "id": "validation-1044"
+      }
+    ]
+  },
+  {
+    "id": "validation-1425",
+    "candidate": "A",
+    "labels": [
+      {
+        "model": "server-gemma4",
+        "mode": "raw16",
+        "id": "validation-1425"
+      },
+      {
+        "model": "server-gemma4",
+        "mode": "raw6",
+        "id": "validation-1425"
+      }
+    ]
+  },
+  {
+    "id": "validation-1425",
+    "candidate": "B",
+    "labels": [
+      {
+        "model": "gpt-6-luna",
+        "mode": "raw16",
+        "id": "validation-1425"
+      }
+    ]
+  },
+  {
+    "id": "validation-1425",
+    "candidate": "C",
+    "labels": [
+      {
+        "model": "server-gemma4",
+        "mode": "baseline",
+        "id": "validation-1425"
+      }
+    ]
+  },
+  {
+    "id": "validation-1425",
+    "candidate": "D",
+    "labels": [
+      {
+        "model": "server-gemma4",
+        "mode": "prose",
+        "id": "validation-1425"
+      }
+    ]
+  },
+  {
+    "id": "validation-1425",
+    "candidate": "E",
+    "labels": [
+      {
+        "model": "gpt-6-luna",
+        "mode": "prose",
+        "id": "validation-1425"
+      },
+      {
+        "model": "gpt-6-luna",
+        "mode": "facts",
+        "id": "validation-1425"
+      }
+    ]
+  },
+  {
+    "id": "validation-1425",
+    "candidate": "F",
+    "labels": [
+      {
+        "model": "gpt-6-luna",
+        "mode": "raw6",
+        "id": "validation-1425"
+      }
+    ]
+  },
+  {
+    "id": "validation-1425",
+    "candidate": "G",
+    "labels": [
+      {
+        "model": "gpt-6-luna",
+        "mode": "baseline",
+        "id": "validation-1425"
+      }
+    ]
+  },
+  {
+    "id": "validation-1425",
+    "candidate": "H",
+    "labels": [
+      {
+        "model": "server-gemma4",
+        "mode": "facts",
+        "id": "validation-1425"
+      }
+    ]
+  },
+  {
+    "id": "validation-1426",
+    "candidate": "A",
+    "labels": [
+      {
+        "model": "gpt-6-luna",
+        "mode": "facts",
+        "id": "validation-1426"
+      },
+      {
+        "model": "gpt-6-luna",
+        "mode": "baseline",
+        "id": "validation-1426"
+      },
+      {
+        "model": "gpt-6-luna",
+        "mode": "raw6",
+        "id": "validation-1426"
+      },
+      {
+        "model": "gpt-6-luna",
+        "mode": "raw16",
+        "id": "validation-1426"
+      }
+    ]
+  },
+  {
+    "id": "validation-1426",
+    "candidate": "B",
+    "labels": [
+      {
+        "model": "server-gemma4",
+        "mode": "baseline",
+        "id": "validation-1426"
+      }
+    ]
+  },
+  {
+    "id": "validation-1426",
+    "candidate": "C",
+    "labels": [
+      {
+        "model": "server-gemma4",
+        "mode": "prose",
+        "id": "validation-1426"
+      },
+      {
+        "model": "server-gemma4",
+        "mode": "facts",
+        "id": "validation-1426"
+      },
+      {
+        "model": "server-gemma4",
+        "mode": "raw6",
+        "id": "validation-1426"
+      },
+      {
+        "model": "server-gemma4",
+        "mode": "raw16",
+        "id": "validation-1426"
+      }
+    ]
+  },
+  {
+    "id": "validation-1426",
+    "candidate": "D",
+    "labels": [
+      {
+        "model": "gpt-6-luna",
+        "mode": "prose",
+        "id": "validation-1426"
+      }
+    ]
+  },
+  {
+    "id": "validation-1427",
+    "candidate": "A",
+    "labels": [
+      {
+        "model": "gpt-6-luna",
+        "mode": "raw6",
+        "id": "validation-1427"
+      }
+    ]
+  },
+  {
+    "id": "validation-1427",
+    "candidate": "B",
+    "labels": [
+      {
+        "model": "gpt-6-luna",
+        "mode": "prose",
+        "id": "validation-1427"
+      }
+    ]
+  },
+  {
+    "id": "validation-1427",
+    "candidate": "C",
+    "labels": [
+      {
+        "model": "gpt-6-luna",
+        "mode": "baseline",
+        "id": "validation-1427"
+      },
+      {
+        "model": "gpt-6-luna",
+        "mode": "raw16",
+        "id": "validation-1427"
+      }
+    ]
+  },
+  {
+    "id": "validation-1427",
+    "candidate": "D",
+    "labels": [
+      {
+        "model": "server-gemma4",
+        "mode": "raw6",
+        "id": "validation-1427"
+      },
+      {
+        "model": "server-gemma4",
+        "mode": "raw16",
+        "id": "validation-1427"
+      }
+    ]
+  },
+  {
+    "id": "validation-1427",
+    "candidate": "E",
+    "labels": [
+      {
+        "model": "server-gemma4",
+        "mode": "facts",
+        "id": "validation-1427"
+      },
+      {
+        "model": "server-gemma4",
+        "mode": "baseline",
+        "id": "validation-1427"
+      },
+      {
+        "model": "server-gemma4",
+        "mode": "prose",
+        "id": "validation-1427"
+      }
+    ]
+  },
+  {
+    "id": "validation-1427",
+    "candidate": "F",
+    "labels": [
+      {
+        "model": "gpt-6-luna",
+        "mode": "facts",
+        "id": "validation-1427"
+      }
+    ]
+  },
+  {
+    "id": "validation-1428",
+    "candidate": "A",
+    "labels": [
+      {
+        "model": "server-gemma4",
+        "mode": "prose",
+        "id": "validation-1428"
+      }
+    ]
+  },
+  {
+    "id": "validation-1428",
+    "candidate": "B",
+    "labels": [
+      {
+        "model": "server-gemma4",
+        "mode": "raw6",
+        "id": "validation-1428"
+      }
+    ]
+  },
+  {
+    "id": "validation-1428",
+    "candidate": "C",
+    "labels": [
+      {
+        "model": "gpt-6-luna",
+        "mode": "raw16",
+        "id": "validation-1428"
+      }
+    ]
+  },
+  {
+    "id": "validation-1428",
+    "candidate": "D",
+    "labels": [
+      {
+        "model": "server-gemma4",
+        "mode": "raw16",
+        "id": "validation-1428"
+      },
+      {
+        "model": "server-gemma4",
+        "mode": "facts",
+        "id": "validation-1428"
+      }
+    ]
+  },
+  {
+    "id": "validation-1428",
+    "candidate": "E",
+    "labels": [
+      {
+        "model": "gpt-6-luna",
+        "mode": "raw6",
+        "id": "validation-1428"
+      },
+      {
+        "model": "gpt-6-luna",
+        "mode": "facts",
+        "id": "validation-1428"
+      }
+    ]
+  },
+  {
+    "id": "validation-1428",
+    "candidate": "F",
+    "labels": [
+      {
+        "model": "server-gemma4",
+        "mode": "baseline",
+        "id": "validation-1428"
+      }
+    ]
+  },
+  {
+    "id": "validation-1428",
+    "candidate": "G",
+    "labels": [
+      {
+        "model": "gpt-6-luna",
+        "mode": "prose",
+        "id": "validation-1428"
+      }
+    ]
+  },
+  {
+    "id": "validation-1428",
+    "candidate": "H",
+    "labels": [
+      {
+        "model": "gpt-6-luna",
+        "mode": "baseline",
+        "id": "validation-1428"
+      }
+    ]
+  },
+  {
+    "id": "validation-1453",
+    "candidate": "A",
+    "labels": [
+      {
+        "model": "gpt-6-luna",
+        "mode": "baseline",
+        "id": "validation-1453"
+      }
+    ]
+  },
+  {
+    "id": "validation-1453",
+    "candidate": "B",
+    "labels": [
+      {
+        "model": "gpt-6-luna",
+        "mode": "raw16",
+        "id": "validation-1453"
+      }
+    ]
+  },
+  {
+    "id": "validation-1453",
+    "candidate": "C",
+    "labels": [
+      {
+        "model": "gpt-6-luna",
+        "mode": "raw6",
+        "id": "validation-1453"
+      },
+      {
+        "model": "gpt-6-luna",
+        "mode": "prose",
+        "id": "validation-1453"
+      }
+    ]
+  },
+  {
+    "id": "validation-1453",
+    "candidate": "D",
+    "labels": [
+      {
+        "model": "gpt-6-luna",
+        "mode": "facts",
+        "id": "validation-1453"
+      }
+    ]
+  },
+  {
+    "id": "validation-1453",
+    "candidate": "E",
+    "labels": [
+      {
+        "model": "server-gemma4",
+        "mode": "raw16",
+        "id": "validation-1453"
+      },
+      {
+        "model": "server-gemma4",
+        "mode": "prose",
+        "id": "validation-1453"
+      },
+      {
+        "model": "server-gemma4",
+        "mode": "facts",
+        "id": "validation-1453"
+      }
+    ]
+  },
+  {
+    "id": "validation-1453",
+    "candidate": "F",
+    "labels": [
+      {
+        "model": "server-gemma4",
+        "mode": "raw6",
+        "id": "validation-1453"
+      },
+      {
+        "model": "server-gemma4",
+        "mode": "baseline",
+        "id": "validation-1453"
+      }
+    ]
+  },
+  {
+    "id": "validation-1454",
+    "candidate": "A",
+    "labels": [
+      {
+        "model": "server-gemma4",
+        "mode": "raw16",
+        "id": "validation-1454"
+      },
+      {
+        "model": "server-gemma4",
+        "mode": "prose",
+        "id": "validation-1454"
+      },
+      {
+        "model": "server-gemma4",
+        "mode": "facts",
+        "id": "validation-1454"
+      },
+      {
+        "model": "server-gemma4",
+        "mode": "baseline",
+        "id": "validation-1454"
+      },
+      {
+        "model": "server-gemma4",
+        "mode": "raw6",
+        "id": "validation-1454"
+      },
+      {
+        "model": "gpt-6-luna",
+        "mode": "raw16",
+        "id": "validation-1454"
+      },
+      {
+        "model": "gpt-6-luna",
+        "mode": "prose",
+        "id": "validation-1454"
+      },
+      {
+        "model": "gpt-6-luna",
+        "mode": "facts",
+        "id": "validation-1454"
+      },
+      {
+        "model": "gpt-6-luna",
+        "mode": "baseline",
+        "id": "validation-1454"
+      },
+      {
+        "model": "gpt-6-luna",
+        "mode": "raw6",
+        "id": "validation-1454"
+      }
+    ]
+  },
+  {
+    "id": "validation-1455",
+    "candidate": "A",
+    "labels": [
+      {
+        "model": "server-gemma4",
+        "mode": "prose",
+        "id": "validation-1455"
+      },
+      {
+        "model": "server-gemma4",
+        "mode": "facts",
+        "id": "validation-1455"
+      },
+      {
+        "model": "server-gemma4",
+        "mode": "raw6",
+        "id": "validation-1455"
+      },
+      {
+        "model": "server-gemma4",
+        "mode": "raw16",
+        "id": "validation-1455"
+      }
+    ]
+  },
+  {
+    "id": "validation-1455",
+    "candidate": "B",
+    "labels": [
+      {
+        "model": "gpt-6-luna",
+        "mode": "prose",
+        "id": "validation-1455"
+      },
+      {
+        "model": "gpt-6-luna",
+        "mode": "facts",
+        "id": "validation-1455"
+      },
+      {
+        "model": "gpt-6-luna",
+        "mode": "baseline",
+        "id": "validation-1455"
+      },
+      {
+        "model": "gpt-6-luna",
+        "mode": "raw6",
+        "id": "validation-1455"
+      },
+      {
+        "model": "gpt-6-luna",
+        "mode": "raw16",
+        "id": "validation-1455"
+      }
+    ]
+  },
+  {
+    "id": "validation-1455",
+    "candidate": "C",
+    "labels": [
+      {
+        "model": "server-gemma4",
+        "mode": "baseline",
+        "id": "validation-1455"
+      }
+    ]
+  },
+  {
+    "id": "validation-1456",
+    "candidate": "A",
+    "labels": [
+      {
+        "model": "server-gemma4",
+        "mode": "raw16",
+        "id": "validation-1456"
+      },
+      {
+        "model": "server-gemma4",
+        "mode": "prose",
+        "id": "validation-1456"
+      }
+    ]
+  },
+  {
+    "id": "validation-1456",
+    "candidate": "B",
+    "labels": [
+      {
+        "model": "server-gemma4",
+        "mode": "facts",
+        "id": "validation-1456"
+      },
+      {
+        "model": "server-gemma4",
+        "mode": "raw6",
+        "id": "validation-1456"
+      },
+      {
+        "model": "gpt-6-luna",
+        "mode": "facts",
+        "id": "validation-1456"
+      },
+      {
+        "model": "gpt-6-luna",
+        "mode": "raw6",
+        "id": "validation-1456"
+      },
+      {
+        "model": "gpt-6-luna",
+        "mode": "raw16",
+        "id": "validation-1456"
+      },
+      {
+        "model": "gpt-6-luna",
+        "mode": "prose",
+        "id": "validation-1456"
+      }
+    ]
+  },
+  {
+    "id": "validation-1456",
+    "candidate": "C",
+    "labels": [
+      {
+        "model": "server-gemma4",
+        "mode": "baseline",
+        "id": "validation-1456"
+      }
+    ]
+  },
+  {
+    "id": "validation-1456",
+    "candidate": "D",
+    "labels": [
+      {
+        "model": "gpt-6-luna",
+        "mode": "baseline",
+        "id": "validation-1456"
+      }
+    ]
+  }
+]

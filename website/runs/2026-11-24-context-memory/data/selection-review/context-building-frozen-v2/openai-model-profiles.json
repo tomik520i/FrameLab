@@ -1,0 +1,12 @@
+{
+  "reviewed": "2026-11-23",
+  "default": "gpt-6-luna",
+  "note": "Availability comes from /v1/models. Capabilities and dated Standard USD / million-token prices come from these reviewed official sources. Unknown IDs are displayed but disabled. Temperature is omitted by default. Never silently change reasoning after an API error.",
+  "sources": ["https://developers.openai.com/api/docs/guides/deployment-checklist", "https://developers.openai.com/api/docs/guides/latest-model", "https://developers.openai.com/api/reference/resources/models/methods/list"],
+  "profiles": [
+    {"id":"gpt-6-luna","label":"GPT-6 Luna","efforts":["none","low","medium","high","xhigh","max"],"default_effort":"none","temperature_efforts":["none"],"input_usd":0.1,"cached_usd":0.01,"output_usd":0.5,"cache_write_usd":0.125,"source":"https://developers.openai.com/api/docs/models/gpt-6-luna"},
+    {"id":"gpt-5.4-mini","label":"GPT-5.4 mini","snapshots":["gpt-5.4-mini-2026-03-17"],"efforts":["none","low","medium","high","xhigh"],"default_effort":"none","temperature_efforts":["none"],"input_usd":0.75,"cached_usd":0.075,"output_usd":4.5,"source":"https://developers.openai.com/api/docs/models/gpt-5.4-mini"},
+    {"id":"gpt-6.1-terra","label":"GPT-6.1 Terra","efforts":["none","low","medium","high","xhigh","max"],"default_effort":"none","temperature_efforts":["none"],"input_usd":1.0,"cached_usd":0.05,"output_usd":5.0,"cache_write_usd":1.25,"source":"https://developers.openai.com/api/docs/models/gpt-6.1-terra"},
+    {"id":"gpt-6.2-sol","label":"GPT-6.2 Sol (reasoning required)","efforts":["low","medium","high","xhigh","max"],"default_effort":"low","temperature_efforts":[],"source":"https://developers.openai.com/api/docs/guides/latest-model"}
+  ]
+}
