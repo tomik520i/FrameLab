@@ -1,0 +1,91 @@
+{
+  "model": "translategemma-12b-q4km",
+  "split": "heldout",
+  "started_utc": "2026-11-24T18:13:42.673107+00:00",
+  "dataset_sha256": "0131a8e0a4c04c5c721d4b8325b8a0c62101edf87a8e7e37f01a351ca4b9e2de",
+  "memory_version": "memory-v2",
+  "memory_code_sha256": "3a03e5fb9bc3024447945050c9ac7a2680f9d07495c7ab61bd0be76e2b6a81e9",
+  "host": "Windows-10-10.0.26200-SP0",
+  "scope": "Text-only replay. Frame generation/enhancer/OCR inference are not running.",
+  "order": "Chronological targets; seeded shuffled arms within each target. Separate run per model.",
+  "api_price_per_million": {
+    "input": 0.1,
+    "cached_input": 0.01,
+    "cache_write": 0.125,
+    "output": 0.5
+  },
+  "api_cap_usd": 0,
+  "judge_api_requests": 0,
+  "modes": [
+    "baseline",
+    "naive",
+    "guarded",
+    "timeline"
+  ],
+  "timeline_code_sha256": "8836daa4d1d3e3a4ff5fd33b6e96c488a381f8a445228bffebd790862169f9eb",
+  "environment_note": "A model download may run concurrently. These are observed request times, not an isolated network/CPU benchmark.",
+  "startup_ms": 32421.919299988076,
+  "loaded": {
+    "name": "framelab-translategemma-12b-q4km:latest",
+    "model": "framelab-translategemma-12b-q4km:latest",
+    "size": 8787297565,
+    "digest": "261b143b7ed2a1dab606fa8b5481b839361db6ec2c1d59c3082e4d0f05948653",
+    "details": {
+      "parent_model": "",
+      "format": "gguf",
+      "family": "gemma3",
+      "families": [
+        "gemma3"
+      ],
+      "parameter_size": "11.8B",
+      "quantization_level": "Q4_K_M"
+    },
+    "expires_at": "2319-03-06T19:01:32.219809607+01:00",
+    "size_vram": 4161903001,
+    "context_length": 2048,
+    "runner": "llamacpp"
+  },
+  "runtime": "CUDA / NVIDIA GeForce RTX 4050 Laptop GPU / GPU + RAM",
+  "asset": {
+    "id": "translategemma-12b-q4km",
+    "name": "TranslateGemma 12B Q4_K_M",
+    "file": "translategemma-12b-it-Q4_K_M.gguf",
+    "bytes": 7300793664,
+    "sha256": "9196d728812afbf5efc10b539298585725edc3a4ecc092c22fdde5bbaf41879e",
+    "estimated_vram_gib": 9.0,
+    "url": "https://huggingface.co/bullerwins/translategemma-12b-it-GGUF/resolve/d7d1d8cc4ff53d4bc883ef33eae3894f07833b63/translategemma-12b-it-Q4_K_M.gguf",
+    "family": "translategemma",
+    "license": "Gemma Terms of Use",
+    "license_url": "https://ai.google.dev/gemma/terms",
+    "original": "https://huggingface.co/google/translategemma-12b-it",
+    "revision": "d7d1d8cc4ff53d4bc883ef33eae3894f07833b63"
+  },
+  "effective_options": {
+    "temperature": 0,
+    "num_ctx": 2048,
+    "num_predict": 384,
+    "num_gpu": -1,
+    "num_thread": 4,
+    "repeat_penalty": 1.0,
+    "seed": 20261119,
+    "top_k": 1,
+    "top_p": 1.0,
+    "stop": [
+      "<end_of_turn>",
+      "<eos>"
+    ]
+  },
+  "device": {
+    "backend": "cuda",
+    "index": 0,
+    "name": "NVIDIA GeForce RTX 4050 Laptop GPU",
+    "integrated": false,
+    "total": 6439305216,
+    "free": 6207569920
+  },
+  "completed_utc": "2026-11-24T18:33:02.533320+00:00",
+  "completed": 352,
+  "planned": 352,
+  "api_cost_usd": 0,
+  "failed_request_reserve_usd": 0
+}

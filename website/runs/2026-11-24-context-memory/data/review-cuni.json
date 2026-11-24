@@ -1,0 +1,3266 @@
+[
+  {
+    "id": "game-21",
+    "model": "cuni-q3km",
+    "mode": "naive",
+    "reviewer": "Codex direct unblinded reading; no judge API",
+    "score": 1,
+    "note_en": "Baseline invents an extra claim; naive repeats the question. Bounded/timestamped memory preserve the fragment.",
+    "note_cs": "Bez paměti přibyla vymyšlená věta, syrová historie otázku opakuje. Omezená a časovaná varianta zachovaly fragment."
+  },
+  {
+    "id": "game-21",
+    "model": "cuni-q3km",
+    "mode": "guarded",
+    "reviewer": "Codex direct unblinded reading; no judge API",
+    "score": 4,
+    "note_en": "Baseline invents an extra claim; naive repeats the question. Bounded/timestamped memory preserve the fragment.",
+    "note_cs": "Bez paměti přibyla vymyšlená věta, syrová historie otázku opakuje. Omezená a časovaná varianta zachovaly fragment."
+  },
+  {
+    "id": "game-21",
+    "model": "cuni-q3km",
+    "mode": "baseline",
+    "reviewer": "Codex direct unblinded reading; no judge API",
+    "score": 1,
+    "note_en": "Baseline invents an extra claim; naive repeats the question. Bounded/timestamped memory preserve the fragment.",
+    "note_cs": "Bez paměti přibyla vymyšlená věta, syrová historie otázku opakuje. Omezená a časovaná varianta zachovaly fragment."
+  },
+  {
+    "id": "game-22",
+    "model": "cuni-q3km",
+    "mode": "naive",
+    "reviewer": "Codex direct unblinded reading; no judge API",
+    "score": 1,
+    "note_en": "Naive and guarded append earlier material; timestamped mode replaces the current question with the previous answer.",
+    "note_cs": "Syrová i omezená historie přidávají starší text. Časovaná varianta nahradila otázku předchozí odpovědí."
+  },
+  {
+    "id": "game-22",
+    "model": "cuni-q3km",
+    "mode": "guarded",
+    "reviewer": "Codex direct unblinded reading; no judge API",
+    "score": 2,
+    "note_en": "Naive and guarded append earlier material; timestamped mode replaces the current question with the previous answer.",
+    "note_cs": "Syrová i omezená historie přidávají starší text. Časovaná varianta nahradila otázku předchozí odpovědí."
+  },
+  {
+    "id": "game-22",
+    "model": "cuni-q3km",
+    "mode": "baseline",
+    "reviewer": "Codex direct unblinded reading; no judge API",
+    "score": 4,
+    "note_en": "Naive and guarded append earlier material; timestamped mode replaces the current question with the previous answer.",
+    "note_cs": "Syrová i omezená historie přidávají starší text. Časovaná varianta nahradila otázku předchozí odpovědí."
+  },
+  {
+    "id": "game-23",
+    "model": "cuni-q3km",
+    "mode": "baseline",
+    "reviewer": "Codex direct unblinded reading; no judge API",
+    "score": 2,
+    "note_en": "All variants lose the explicit negation in the unfinished conditional.",
+    "note_cs": "Všechny varianty ztrácejí výslovný zápor v nedokončené podmínkové větě."
+  },
+  {
+    "id": "game-23",
+    "model": "cuni-q3km",
+    "mode": "naive",
+    "reviewer": "Codex direct unblinded reading; no judge API",
+    "score": 2,
+    "note_en": "All variants lose the explicit negation in the unfinished conditional.",
+    "note_cs": "Všechny varianty ztrácejí výslovný zápor v nedokončené podmínkové větě."
+  },
+  {
+    "id": "game-23",
+    "model": "cuni-q3km",
+    "mode": "guarded",
+    "reviewer": "Codex direct unblinded reading; no judge API",
+    "score": 2,
+    "note_en": "All variants lose the explicit negation in the unfinished conditional.",
+    "note_cs": "Všechny varianty ztrácejí výslovný zápor v nedokončené podmínkové větě."
+  },
+  {
+    "id": "game-24",
+    "model": "cuni-q3km",
+    "mode": "guarded",
+    "reviewer": "Codex direct unblinded reading; no judge API",
+    "score": 4,
+    "note_en": "Timestamped output translates the preceding apology instead of this line.",
+    "note_cs": "Časovaná varianta překládá předchozí omluvu místo aktuální věty."
+  },
+  {
+    "id": "game-24",
+    "model": "cuni-q3km",
+    "mode": "baseline",
+    "reviewer": "Codex direct unblinded reading; no judge API",
+    "score": 4,
+    "note_en": "Timestamped output translates the preceding apology instead of this line.",
+    "note_cs": "Časovaná varianta překládá předchozí omluvu místo aktuální věty."
+  },
+  {
+    "id": "game-24",
+    "model": "cuni-q3km",
+    "mode": "naive",
+    "reviewer": "Codex direct unblinded reading; no judge API",
+    "score": 4,
+    "note_en": "Timestamped output translates the preceding apology instead of this line.",
+    "note_cs": "Časovaná varianta překládá předchozí omluvu místo aktuální věty."
+  },
+  {
+    "id": "game-101",
+    "model": "cuni-q3km",
+    "mode": "baseline",
+    "reviewer": "Codex direct unblinded reading; no judge API",
+    "score": 4,
+    "note_en": "Guarded output repeats earlier statements instead of the current apology fragment.",
+    "note_cs": "Omezená paměť opakuje starší výroky místo aktuální repliky."
+  },
+  {
+    "id": "game-101",
+    "model": "cuni-q3km",
+    "mode": "guarded",
+    "reviewer": "Codex direct unblinded reading; no judge API",
+    "score": 1,
+    "note_en": "Guarded output repeats earlier statements instead of the current apology fragment.",
+    "note_cs": "Omezená paměť opakuje starší výroky místo aktuální repliky."
+  },
+  {
+    "id": "game-101",
+    "model": "cuni-q3km",
+    "mode": "naive",
+    "reviewer": "Codex direct unblinded reading; no judge API",
+    "score": 4,
+    "note_en": "Guarded output repeats earlier statements instead of the current apology fragment.",
+    "note_cs": "Omezená paměť opakuje starší výroky místo aktuální repliky."
+  },
+  {
+    "id": "game-102",
+    "model": "cuni-q3km",
+    "mode": "naive",
+    "reviewer": "Codex direct unblinded reading; no judge API",
+    "score": 3,
+    "note_en": "Baseline/naive preserve OCR digit 1. Guarded inserts earlier dialogue; timestamped repairs the OCR.",
+    "note_cs": "Bez paměti a se syrovou historií zůstala chybná číslice 1. Omezená paměť přidala dialog; časovaná opravila chybu OCR."
+  },
+  {
+    "id": "game-102",
+    "model": "cuni-q3km",
+    "mode": "baseline",
+    "reviewer": "Codex direct unblinded reading; no judge API",
+    "score": 3,
+    "note_en": "Baseline/naive preserve OCR digit 1. Guarded inserts earlier dialogue; timestamped repairs the OCR.",
+    "note_cs": "Bez paměti a se syrovou historií zůstala chybná číslice 1. Omezená paměť přidala dialog; časovaná opravila chybu OCR."
+  },
+  {
+    "id": "game-102",
+    "model": "cuni-q3km",
+    "mode": "guarded",
+    "reviewer": "Codex direct unblinded reading; no judge API",
+    "score": 2,
+    "note_en": "Baseline/naive preserve OCR digit 1. Guarded inserts earlier dialogue; timestamped repairs the OCR.",
+    "note_cs": "Bez paměti a se syrovou historií zůstala chybná číslice 1. Omezená paměť přidala dialog; časovaná opravila chybu OCR."
+  },
+  {
+    "id": "game-103",
+    "model": "cuni-q3km",
+    "mode": "naive",
+    "reviewer": "Codex direct unblinded reading; no judge API",
+    "score": 4,
+    "note_en": "Meaning preserved. Unknown speaker gender is not graded.",
+    "note_cs": "Význam zachován. Rod neznámého mluvčího nehodnotíme."
+  },
+  {
+    "id": "game-103",
+    "model": "cuni-q3km",
+    "mode": "guarded",
+    "reviewer": "Codex direct unblinded reading; no judge API",
+    "score": 4,
+    "note_en": "Meaning preserved. Unknown speaker gender is not graded.",
+    "note_cs": "Význam zachován. Rod neznámého mluvčího nehodnotíme."
+  },
+  {
+    "id": "game-103",
+    "model": "cuni-q3km",
+    "mode": "baseline",
+    "reviewer": "Codex direct unblinded reading; no judge API",
+    "score": 4,
+    "note_en": "Meaning preserved. Unknown speaker gender is not graded.",
+    "note_cs": "Význam zachován. Rod neznámého mluvčího nehodnotíme."
+  },
+  {
+    "id": "game-104",
+    "model": "cuni-q3km",
+    "mode": "naive",
+    "reviewer": "Codex direct unblinded reading; no judge API",
+    "score": 2,
+    "note_en": "Baseline/naive interpret mad as insane; surrounding apology supports angry. Speaker/addressee gender is not independently verified.",
+    "note_cs": "Bez paměti a se syrovou historií mad znamená šílený. Okolní omluva podporuje význam naštvaný. Rod mluvčího ani adresáta není nezávisle ověřený."
+  },
+  {
+    "id": "game-104",
+    "model": "cuni-q3km",
+    "mode": "baseline",
+    "reviewer": "Codex direct unblinded reading; no judge API",
+    "score": 2,
+    "note_en": "Baseline/naive interpret mad as insane; surrounding apology supports angry. Speaker/addressee gender is not independently verified.",
+    "note_cs": "Bez paměti a se syrovou historií mad znamená šílený. Okolní omluva podporuje význam naštvaný. Rod mluvčího ani adresáta není nezávisle ověřený."
+  },
+  {
+    "id": "game-104",
+    "model": "cuni-q3km",
+    "mode": "guarded",
+    "reviewer": "Codex direct unblinded reading; no judge API",
+    "score": 4,
+    "note_en": "Baseline/naive interpret mad as insane; surrounding apology supports angry. Speaker/addressee gender is not independently verified.",
+    "note_cs": "Bez paměti a se syrovou historií mad znamená šílený. Okolní omluva podporuje význam naštvaný. Rod mluvčího ani adresáta není nezávisle ověřený."
+  },
+  {
+    "id": "game-205",
+    "model": "cuni-q3km",
+    "mode": "guarded",
+    "reviewer": "Codex direct unblinded reading; no judge API",
+    "score": 4,
+    "note_en": "Meaning preserved. Unknown speaker gender is not graded.",
+    "note_cs": "Význam zachován. Rod neznámého mluvčího nehodnotíme."
+  },
+  {
+    "id": "game-205",
+    "model": "cuni-q3km",
+    "mode": "naive",
+    "reviewer": "Codex direct unblinded reading; no judge API",
+    "score": 4,
+    "note_en": "Meaning preserved. Unknown speaker gender is not graded.",
+    "note_cs": "Význam zachován. Rod neznámého mluvčího nehodnotíme."
+  },
+  {
+    "id": "game-205",
+    "model": "cuni-q3km",
+    "mode": "baseline",
+    "reviewer": "Codex direct unblinded reading; no judge API",
+    "score": 4,
+    "note_en": "Meaning preserved. Unknown speaker gender is not graded.",
+    "note_cs": "Význam zachován. Rod neznámého mluvčího nehodnotíme."
+  },
+  {
+    "id": "game-206",
+    "model": "cuni-q3km",
+    "mode": "guarded",
+    "reviewer": "Codex direct unblinded reading; no judge API",
+    "score": 4,
+    "note_en": "Meaning preserved. Unknown speaker gender is not graded.",
+    "note_cs": "Význam zachován. Rod neznámého mluvčího nehodnotíme."
+  },
+  {
+    "id": "game-206",
+    "model": "cuni-q3km",
+    "mode": "baseline",
+    "reviewer": "Codex direct unblinded reading; no judge API",
+    "score": 4,
+    "note_en": "Meaning preserved. Unknown speaker gender is not graded.",
+    "note_cs": "Význam zachován. Rod neznámého mluvčího nehodnotíme."
+  },
+  {
+    "id": "game-206",
+    "model": "cuni-q3km",
+    "mode": "naive",
+    "reviewer": "Codex direct unblinded reading; no judge API",
+    "score": 4,
+    "note_en": "Meaning preserved. Unknown speaker gender is not graded.",
+    "note_cs": "Význam zachován. Rod neznámého mluvčího nehodnotíme."
+  },
+  {
+    "id": "game-207",
+    "model": "cuni-q3km",
+    "mode": "baseline",
+    "reviewer": "Codex direct unblinded reading; no judge API",
+    "score": 3,
+    "note_en": "Generic drugs/fet loses the more specific cocaine slang yeyo.",
+    "note_cs": "Obecné fet ztrácí konkrétnější slangový význam kokainu."
+  },
+  {
+    "id": "game-207",
+    "model": "cuni-q3km",
+    "mode": "naive",
+    "reviewer": "Codex direct unblinded reading; no judge API",
+    "score": 3,
+    "note_en": "Generic drugs/fet loses the more specific cocaine slang yeyo.",
+    "note_cs": "Obecné fet ztrácí konkrétnější slangový význam kokainu."
+  },
+  {
+    "id": "game-207",
+    "model": "cuni-q3km",
+    "mode": "guarded",
+    "reviewer": "Codex direct unblinded reading; no judge API",
+    "score": 3,
+    "note_en": "Generic drugs/fet loses the more specific cocaine slang yeyo.",
+    "note_cs": "Obecné fet ztrácí konkrétnější slangový význam kokainu."
+  },
+  {
+    "id": "game-208",
+    "model": "cuni-q3km",
+    "mode": "baseline",
+    "reviewer": "Codex direct unblinded reading; no judge API",
+    "score": 3,
+    "note_en": "The name is retained, but direct address lacks Czech vocative inflection.",
+    "note_cs": "Jméno zůstává, ale oslovení nemá český vokativ."
+  },
+  {
+    "id": "game-208",
+    "model": "cuni-q3km",
+    "mode": "naive",
+    "reviewer": "Codex direct unblinded reading; no judge API",
+    "score": 3,
+    "note_en": "The name is retained, but direct address lacks Czech vocative inflection.",
+    "note_cs": "Jméno zůstává, ale oslovení nemá český vokativ."
+  },
+  {
+    "id": "game-208",
+    "model": "cuni-q3km",
+    "mode": "guarded",
+    "reviewer": "Codex direct unblinded reading; no judge API",
+    "score": 3,
+    "note_en": "The name is retained, but direct address lacks Czech vocative inflection.",
+    "note_cs": "Jméno zůstává, ale oslovení nemá český vokativ."
+  },
+  {
+    "id": "game-301",
+    "model": "cuni-q3km",
+    "mode": "naive",
+    "reviewer": "Codex direct unblinded reading; no judge API",
+    "score": 2,
+    "note_en": "Connected/connections is overly literal or distorted; timestamped version substitutes an earlier description.",
+    "note_cs": "Význam konexí je příliš doslovný nebo posunutý; časovaná varianta dosazuje starší popis."
+  },
+  {
+    "id": "game-301",
+    "model": "cuni-q3km",
+    "mode": "guarded",
+    "reviewer": "Codex direct unblinded reading; no judge API",
+    "score": 2,
+    "note_en": "Connected/connections is overly literal or distorted; timestamped version substitutes an earlier description.",
+    "note_cs": "Význam konexí je příliš doslovný nebo posunutý; časovaná varianta dosazuje starší popis."
+  },
+  {
+    "id": "game-301",
+    "model": "cuni-q3km",
+    "mode": "baseline",
+    "reviewer": "Codex direct unblinded reading; no judge API",
+    "score": 2,
+    "note_en": "Connected/connections is overly literal or distorted; timestamped version substitutes an earlier description.",
+    "note_cs": "Význam konexí je příliš doslovný nebo posunutý; časovaná varianta dosazuje starší popis."
+  },
+  {
+    "id": "game-302",
+    "model": "cuni-q3km",
+    "mode": "baseline",
+    "reviewer": "Codex direct unblinded reading; no judge API",
+    "score": 4,
+    "note_en": "Guarded version outputs a different earlier exchange.",
+    "note_cs": "Omezená paměť vrací jinou, dřívější výměnu."
+  },
+  {
+    "id": "game-302",
+    "model": "cuni-q3km",
+    "mode": "naive",
+    "reviewer": "Codex direct unblinded reading; no judge API",
+    "score": 4,
+    "note_en": "Guarded version outputs a different earlier exchange.",
+    "note_cs": "Omezená paměť vrací jinou, dřívější výměnu."
+  },
+  {
+    "id": "game-302",
+    "model": "cuni-q3km",
+    "mode": "guarded",
+    "reviewer": "Codex direct unblinded reading; no judge API",
+    "score": 0,
+    "note_en": "Guarded version outputs a different earlier exchange.",
+    "note_cs": "Omezená paměť vrací jinou, dřívější výměnu."
+  },
+  {
+    "id": "game-303",
+    "model": "cuni-q3km",
+    "mode": "naive",
+    "reviewer": "Codex direct unblinded reading; no judge API",
+    "score": 4,
+    "note_en": "Meaning preserved. Unknown speaker gender is not graded.",
+    "note_cs": "Význam zachován. Rod neznámého mluvčího nehodnotíme."
+  },
+  {
+    "id": "game-303",
+    "model": "cuni-q3km",
+    "mode": "baseline",
+    "reviewer": "Codex direct unblinded reading; no judge API",
+    "score": 4,
+    "note_en": "Meaning preserved. Unknown speaker gender is not graded.",
+    "note_cs": "Význam zachován. Rod neznámého mluvčího nehodnotíme."
+  },
+  {
+    "id": "game-303",
+    "model": "cuni-q3km",
+    "mode": "guarded",
+    "reviewer": "Codex direct unblinded reading; no judge API",
+    "score": 4,
+    "note_en": "Meaning preserved. Unknown speaker gender is not graded.",
+    "note_cs": "Význam zachován. Rod neznámého mluvčího nehodnotíme."
+  },
+  {
+    "id": "game-304",
+    "model": "cuni-q3km",
+    "mode": "baseline",
+    "reviewer": "Codex direct unblinded reading; no judge API",
+    "score": 4,
+    "note_en": "Meaning preserved. Unknown speaker gender is not graded.",
+    "note_cs": "Význam zachován. Rod neznámého mluvčího nehodnotíme."
+  },
+  {
+    "id": "game-304",
+    "model": "cuni-q3km",
+    "mode": "guarded",
+    "reviewer": "Codex direct unblinded reading; no judge API",
+    "score": 4,
+    "note_en": "Meaning preserved. Unknown speaker gender is not graded.",
+    "note_cs": "Význam zachován. Rod neznámého mluvčího nehodnotíme."
+  },
+  {
+    "id": "game-304",
+    "model": "cuni-q3km",
+    "mode": "naive",
+    "reviewer": "Codex direct unblinded reading; no judge API",
+    "score": 4,
+    "note_en": "Meaning preserved. Unknown speaker gender is not graded.",
+    "note_cs": "Význam zachován. Rod neznámého mluvčího nehodnotíme."
+  },
+  {
+    "id": "game-421",
+    "model": "cuni-q3km",
+    "mode": "guarded",
+    "reviewer": "Codex direct unblinded reading; no judge API",
+    "score": 2,
+    "note_en": "Guarded/timestamped add an earlier remark.",
+    "note_cs": "Omezená i časovaná paměť přidávají starší poznámku."
+  },
+  {
+    "id": "game-421",
+    "model": "cuni-q3km",
+    "mode": "naive",
+    "reviewer": "Codex direct unblinded reading; no judge API",
+    "score": 4,
+    "note_en": "Guarded/timestamped add an earlier remark.",
+    "note_cs": "Omezená i časovaná paměť přidávají starší poznámku."
+  },
+  {
+    "id": "game-421",
+    "model": "cuni-q3km",
+    "mode": "baseline",
+    "reviewer": "Codex direct unblinded reading; no judge API",
+    "score": 4,
+    "note_en": "Guarded/timestamped add an earlier remark.",
+    "note_cs": "Omezená i časovaná paměť přidávají starší poznámku."
+  },
+  {
+    "id": "game-422",
+    "model": "cuni-q3km",
+    "mode": "baseline",
+    "reviewer": "Codex direct unblinded reading; no judge API",
+    "score": 4,
+    "note_en": "Guarded substitutes the earlier cruise line.",
+    "note_cs": "Omezená paměť dosazuje starší větu o plavbě."
+  },
+  {
+    "id": "game-422",
+    "model": "cuni-q3km",
+    "mode": "naive",
+    "reviewer": "Codex direct unblinded reading; no judge API",
+    "score": 4,
+    "note_en": "Guarded substitutes the earlier cruise line.",
+    "note_cs": "Omezená paměť dosazuje starší větu o plavbě."
+  },
+  {
+    "id": "game-422",
+    "model": "cuni-q3km",
+    "mode": "guarded",
+    "reviewer": "Codex direct unblinded reading; no judge API",
+    "score": 0,
+    "note_en": "Guarded substitutes the earlier cruise line.",
+    "note_cs": "Omezená paměť dosazuje starší větu o plavbě."
+  },
+  {
+    "id": "game-423",
+    "model": "cuni-q3km",
+    "mode": "baseline",
+    "reviewer": "Codex direct unblinded reading; no judge API",
+    "score": 4,
+    "note_en": "Meaning preserved. Unknown speaker gender is not graded.",
+    "note_cs": "Význam zachován. Rod neznámého mluvčího nehodnotíme."
+  },
+  {
+    "id": "game-423",
+    "model": "cuni-q3km",
+    "mode": "guarded",
+    "reviewer": "Codex direct unblinded reading; no judge API",
+    "score": 4,
+    "note_en": "Meaning preserved. Unknown speaker gender is not graded.",
+    "note_cs": "Význam zachován. Rod neznámého mluvčího nehodnotíme."
+  },
+  {
+    "id": "game-423",
+    "model": "cuni-q3km",
+    "mode": "naive",
+    "reviewer": "Codex direct unblinded reading; no judge API",
+    "score": 4,
+    "note_en": "Meaning preserved. Unknown speaker gender is not graded.",
+    "note_cs": "Význam zachován. Rod neznámého mluvčího nehodnotíme."
+  },
+  {
+    "id": "game-424",
+    "model": "cuni-q3km",
+    "mode": "naive",
+    "reviewer": "Codex direct unblinded reading; no judge API",
+    "score": 4,
+    "note_en": "Meaning preserved. Unknown speaker gender is not graded.",
+    "note_cs": "Význam zachován. Rod neznámého mluvčího nehodnotíme."
+  },
+  {
+    "id": "game-424",
+    "model": "cuni-q3km",
+    "mode": "baseline",
+    "reviewer": "Codex direct unblinded reading; no judge API",
+    "score": 4,
+    "note_en": "Meaning preserved. Unknown speaker gender is not graded.",
+    "note_cs": "Význam zachován. Rod neznámého mluvčího nehodnotíme."
+  },
+  {
+    "id": "game-424",
+    "model": "cuni-q3km",
+    "mode": "guarded",
+    "reviewer": "Codex direct unblinded reading; no judge API",
+    "score": 4,
+    "note_en": "Meaning preserved. Unknown speaker gender is not graded.",
+    "note_cs": "Význam zachován. Rod neznámého mluvčího nehodnotíme."
+  },
+  {
+    "id": "game-601",
+    "model": "cuni-q3km",
+    "mode": "baseline",
+    "reviewer": "Codex direct unblinded reading; no judge API",
+    "score": 4,
+    "note_en": "Meaning preserved. Unknown speaker gender is not graded.",
+    "note_cs": "Význam zachován. Rod neznámého mluvčího nehodnotíme."
+  },
+  {
+    "id": "game-601",
+    "model": "cuni-q3km",
+    "mode": "naive",
+    "reviewer": "Codex direct unblinded reading; no judge API",
+    "score": 4,
+    "note_en": "Meaning preserved. Unknown speaker gender is not graded.",
+    "note_cs": "Význam zachován. Rod neznámého mluvčího nehodnotíme."
+  },
+  {
+    "id": "game-601",
+    "model": "cuni-q3km",
+    "mode": "guarded",
+    "reviewer": "Codex direct unblinded reading; no judge API",
+    "score": 4,
+    "note_en": "Meaning preserved. Unknown speaker gender is not graded.",
+    "note_cs": "Význam zachován. Rod neznámého mluvčího nehodnotíme."
+  },
+  {
+    "id": "game-602",
+    "model": "cuni-q3km",
+    "mode": "guarded",
+    "reviewer": "Codex direct unblinded reading; no judge API",
+    "score": 4,
+    "note_en": "Meaning preserved. Unknown speaker gender is not graded.",
+    "note_cs": "Význam zachován. Rod neznámého mluvčího nehodnotíme."
+  },
+  {
+    "id": "game-602",
+    "model": "cuni-q3km",
+    "mode": "naive",
+    "reviewer": "Codex direct unblinded reading; no judge API",
+    "score": 4,
+    "note_en": "Meaning preserved. Unknown speaker gender is not graded.",
+    "note_cs": "Význam zachován. Rod neznámého mluvčího nehodnotíme."
+  },
+  {
+    "id": "game-602",
+    "model": "cuni-q3km",
+    "mode": "baseline",
+    "reviewer": "Codex direct unblinded reading; no judge API",
+    "score": 4,
+    "note_en": "Meaning preserved. Unknown speaker gender is not graded.",
+    "note_cs": "Význam zachován. Rod neznámého mluvčího nehodnotíme."
+  },
+  {
+    "id": "game-603",
+    "model": "cuni-q3km",
+    "mode": "naive",
+    "reviewer": "Codex direct unblinded reading; no judge API",
+    "score": 4,
+    "note_en": "Guarded outputs earlier dialogue instead of the current line.",
+    "note_cs": "Omezená paměť překládá starší dialog místo aktuální věty."
+  },
+  {
+    "id": "game-603",
+    "model": "cuni-q3km",
+    "mode": "guarded",
+    "reviewer": "Codex direct unblinded reading; no judge API",
+    "score": 0,
+    "note_en": "Guarded outputs earlier dialogue instead of the current line.",
+    "note_cs": "Omezená paměť překládá starší dialog místo aktuální věty."
+  },
+  {
+    "id": "game-603",
+    "model": "cuni-q3km",
+    "mode": "baseline",
+    "reviewer": "Codex direct unblinded reading; no judge API",
+    "score": 4,
+    "note_en": "Guarded outputs earlier dialogue instead of the current line.",
+    "note_cs": "Omezená paměť překládá starší dialog místo aktuální věty."
+  },
+  {
+    "id": "game-604",
+    "model": "cuni-q3km",
+    "mode": "guarded",
+    "reviewer": "Codex direct unblinded reading; no judge API",
+    "score": 4,
+    "note_en": "Meaning preserved. Unknown speaker gender is not graded.",
+    "note_cs": "Význam zachován. Rod neznámého mluvčího nehodnotíme."
+  },
+  {
+    "id": "game-604",
+    "model": "cuni-q3km",
+    "mode": "naive",
+    "reviewer": "Codex direct unblinded reading; no judge API",
+    "score": 4,
+    "note_en": "Meaning preserved. Unknown speaker gender is not graded.",
+    "note_cs": "Význam zachován. Rod neznámého mluvčího nehodnotíme."
+  },
+  {
+    "id": "game-604",
+    "model": "cuni-q3km",
+    "mode": "baseline",
+    "reviewer": "Codex direct unblinded reading; no judge API",
+    "score": 4,
+    "note_en": "Meaning preserved. Unknown speaker gender is not graded.",
+    "note_cs": "Význam zachován. Rod neznámého mluvčího nehodnotíme."
+  },
+  {
+    "id": "game-731",
+    "model": "cuni-q3km",
+    "mode": "baseline",
+    "reviewer": "Codex direct unblinded reading; no judge API",
+    "score": 4,
+    "note_en": "Meaning preserved. Unknown speaker gender is not graded.",
+    "note_cs": "Význam zachován. Rod neznámého mluvčího nehodnotíme."
+  },
+  {
+    "id": "game-731",
+    "model": "cuni-q3km",
+    "mode": "naive",
+    "reviewer": "Codex direct unblinded reading; no judge API",
+    "score": 4,
+    "note_en": "Meaning preserved. Unknown speaker gender is not graded.",
+    "note_cs": "Význam zachován. Rod neznámého mluvčího nehodnotíme."
+  },
+  {
+    "id": "game-731",
+    "model": "cuni-q3km",
+    "mode": "guarded",
+    "reviewer": "Codex direct unblinded reading; no judge API",
+    "score": 4,
+    "note_en": "Meaning preserved. Unknown speaker gender is not graded.",
+    "note_cs": "Význam zachován. Rod neznámého mluvčího nehodnotíme."
+  },
+  {
+    "id": "game-732",
+    "model": "cuni-q3km",
+    "mode": "baseline",
+    "reviewer": "Codex direct unblinded reading; no judge API",
+    "score": 4,
+    "note_en": "Naive duplicates the question.",
+    "note_cs": "Syrová historie otázku opakuje."
+  },
+  {
+    "id": "game-732",
+    "model": "cuni-q3km",
+    "mode": "guarded",
+    "reviewer": "Codex direct unblinded reading; no judge API",
+    "score": 4,
+    "note_en": "Naive duplicates the question.",
+    "note_cs": "Syrová historie otázku opakuje."
+  },
+  {
+    "id": "game-732",
+    "model": "cuni-q3km",
+    "mode": "naive",
+    "reviewer": "Codex direct unblinded reading; no judge API",
+    "score": 2,
+    "note_en": "Naive duplicates the question.",
+    "note_cs": "Syrová historie otázku opakuje."
+  },
+  {
+    "id": "game-733",
+    "model": "cuni-q3km",
+    "mode": "baseline",
+    "reviewer": "Codex direct unblinded reading; no judge API",
+    "score": 4,
+    "note_en": "Naive loops; guarded repeats the question. Gender is not scored without speaker evidence.",
+    "note_cs": "Syrová historie se zacykluje, omezená opakuje otázku. Rod bez identity mluvčího nehodnotíme."
+  },
+  {
+    "id": "game-733",
+    "model": "cuni-q3km",
+    "mode": "guarded",
+    "reviewer": "Codex direct unblinded reading; no judge API",
+    "score": 2,
+    "note_en": "Naive loops; guarded repeats the question. Gender is not scored without speaker evidence.",
+    "note_cs": "Syrová historie se zacykluje, omezená opakuje otázku. Rod bez identity mluvčího nehodnotíme."
+  },
+  {
+    "id": "game-733",
+    "model": "cuni-q3km",
+    "mode": "naive",
+    "reviewer": "Codex direct unblinded reading; no judge API",
+    "score": 1,
+    "note_en": "Naive loops; guarded repeats the question. Gender is not scored without speaker evidence.",
+    "note_cs": "Syrová historie se zacykluje, omezená opakuje otázku. Rod bez identity mluvčího nehodnotíme."
+  },
+  {
+    "id": "game-734",
+    "model": "cuni-q3km",
+    "mode": "guarded",
+    "reviewer": "Codex direct unblinded reading; no judge API",
+    "score": 4,
+    "note_en": "Meaning preserved. Unknown speaker gender is not graded.",
+    "note_cs": "Význam zachován. Rod neznámého mluvčího nehodnotíme."
+  },
+  {
+    "id": "game-734",
+    "model": "cuni-q3km",
+    "mode": "naive",
+    "reviewer": "Codex direct unblinded reading; no judge API",
+    "score": 4,
+    "note_en": "Meaning preserved. Unknown speaker gender is not graded.",
+    "note_cs": "Význam zachován. Rod neznámého mluvčího nehodnotíme."
+  },
+  {
+    "id": "game-734",
+    "model": "cuni-q3km",
+    "mode": "baseline",
+    "reviewer": "Codex direct unblinded reading; no judge API",
+    "score": 4,
+    "note_en": "Meaning preserved. Unknown speaker gender is not graded.",
+    "note_cs": "Význam zachován. Rod neznámého mluvčího nehodnotíme."
+  },
+  {
+    "id": "game-861",
+    "model": "cuni-q3km",
+    "mode": "naive",
+    "reviewer": "Codex direct unblinded reading; no judge API",
+    "score": 4,
+    "note_en": "Meaning preserved. Unknown speaker gender is not graded.",
+    "note_cs": "Význam zachován. Rod neznámého mluvčího nehodnotíme."
+  },
+  {
+    "id": "game-861",
+    "model": "cuni-q3km",
+    "mode": "guarded",
+    "reviewer": "Codex direct unblinded reading; no judge API",
+    "score": 4,
+    "note_en": "Meaning preserved. Unknown speaker gender is not graded.",
+    "note_cs": "Význam zachován. Rod neznámého mluvčího nehodnotíme."
+  },
+  {
+    "id": "game-861",
+    "model": "cuni-q3km",
+    "mode": "baseline",
+    "reviewer": "Codex direct unblinded reading; no judge API",
+    "score": 4,
+    "note_en": "Meaning preserved. Unknown speaker gender is not graded.",
+    "note_cs": "Význam zachován. Rod neznámého mluvčího nehodnotíme."
+  },
+  {
+    "id": "game-862",
+    "model": "cuni-q3km",
+    "mode": "naive",
+    "reviewer": "Codex direct unblinded reading; no judge API",
+    "score": 2,
+    "note_en": "All variants invent a reply (home/bathroom) absent from the source.",
+    "note_cs": "Všechny varianty vymýšlejí odpověď o domově či koupelně, která ve vstupu není."
+  },
+  {
+    "id": "game-862",
+    "model": "cuni-q3km",
+    "mode": "guarded",
+    "reviewer": "Codex direct unblinded reading; no judge API",
+    "score": 2,
+    "note_en": "All variants invent a reply (home/bathroom) absent from the source.",
+    "note_cs": "Všechny varianty vymýšlejí odpověď o domově či koupelně, která ve vstupu není."
+  },
+  {
+    "id": "game-862",
+    "model": "cuni-q3km",
+    "mode": "baseline",
+    "reviewer": "Codex direct unblinded reading; no judge API",
+    "score": 2,
+    "note_en": "All variants invent a reply (home/bathroom) absent from the source.",
+    "note_cs": "Všechny varianty vymýšlejí odpověď o domově či koupelně, která ve vstupu není."
+  },
+  {
+    "id": "game-863",
+    "model": "cuni-q3km",
+    "mode": "baseline",
+    "reviewer": "Codex direct unblinded reading; no judge API",
+    "score": 4,
+    "note_en": "Meaning preserved. Unknown speaker gender is not graded.",
+    "note_cs": "Význam zachován. Rod neznámého mluvčího nehodnotíme."
+  },
+  {
+    "id": "game-863",
+    "model": "cuni-q3km",
+    "mode": "guarded",
+    "reviewer": "Codex direct unblinded reading; no judge API",
+    "score": 4,
+    "note_en": "Meaning preserved. Unknown speaker gender is not graded.",
+    "note_cs": "Význam zachován. Rod neznámého mluvčího nehodnotíme."
+  },
+  {
+    "id": "game-863",
+    "model": "cuni-q3km",
+    "mode": "naive",
+    "reviewer": "Codex direct unblinded reading; no judge API",
+    "score": 4,
+    "note_en": "Meaning preserved. Unknown speaker gender is not graded.",
+    "note_cs": "Význam zachován. Rod neznámého mluvčího nehodnotíme."
+  },
+  {
+    "id": "game-864",
+    "model": "cuni-q3km",
+    "mode": "naive",
+    "reviewer": "Codex direct unblinded reading; no judge API",
+    "score": 4,
+    "note_en": "Guarded adds earlier work/road-cleanup material.",
+    "note_cs": "Omezená paměť přidává starší text o práci a úklidu dálnice."
+  },
+  {
+    "id": "game-864",
+    "model": "cuni-q3km",
+    "mode": "guarded",
+    "reviewer": "Codex direct unblinded reading; no judge API",
+    "score": 2,
+    "note_en": "Guarded adds earlier work/road-cleanup material.",
+    "note_cs": "Omezená paměť přidává starší text o práci a úklidu dálnice."
+  },
+  {
+    "id": "game-864",
+    "model": "cuni-q3km",
+    "mode": "baseline",
+    "reviewer": "Codex direct unblinded reading; no judge API",
+    "score": 4,
+    "note_en": "Guarded adds earlier work/road-cleanup material.",
+    "note_cs": "Omezená paměť přidává starší text o práci a úklidu dálnice."
+  },
+  {
+    "id": "game-1001",
+    "model": "cuni-q3km",
+    "mode": "guarded",
+    "reviewer": "Codex direct unblinded reading; no judge API",
+    "score": 4,
+    "note_en": "Meaning preserved. Unknown speaker gender is not graded.",
+    "note_cs": "Význam zachován. Rod neznámého mluvčího nehodnotíme."
+  },
+  {
+    "id": "game-1001",
+    "model": "cuni-q3km",
+    "mode": "baseline",
+    "reviewer": "Codex direct unblinded reading; no judge API",
+    "score": 4,
+    "note_en": "Meaning preserved. Unknown speaker gender is not graded.",
+    "note_cs": "Význam zachován. Rod neznámého mluvčího nehodnotíme."
+  },
+  {
+    "id": "game-1001",
+    "model": "cuni-q3km",
+    "mode": "naive",
+    "reviewer": "Codex direct unblinded reading; no judge API",
+    "score": 4,
+    "note_en": "Meaning preserved. Unknown speaker gender is not graded.",
+    "note_cs": "Význam zachován. Rod neznámého mluvčího nehodnotíme."
+  },
+  {
+    "id": "game-1002",
+    "model": "cuni-q3km",
+    "mode": "baseline",
+    "reviewer": "Codex direct unblinded reading; no judge API",
+    "score": 4,
+    "note_en": "Meaning preserved. Unknown speaker gender is not graded.",
+    "note_cs": "Význam zachován. Rod neznámého mluvčího nehodnotíme."
+  },
+  {
+    "id": "game-1002",
+    "model": "cuni-q3km",
+    "mode": "naive",
+    "reviewer": "Codex direct unblinded reading; no judge API",
+    "score": 4,
+    "note_en": "Meaning preserved. Unknown speaker gender is not graded.",
+    "note_cs": "Význam zachován. Rod neznámého mluvčího nehodnotíme."
+  },
+  {
+    "id": "game-1002",
+    "model": "cuni-q3km",
+    "mode": "guarded",
+    "reviewer": "Codex direct unblinded reading; no judge API",
+    "score": 4,
+    "note_en": "Meaning preserved. Unknown speaker gender is not graded.",
+    "note_cs": "Význam zachován. Rod neznámého mluvčího nehodnotíme."
+  },
+  {
+    "id": "game-1003",
+    "model": "cuni-q3km",
+    "mode": "baseline",
+    "reviewer": "Codex direct unblinded reading; no judge API",
+    "score": 3,
+    "note_en": "Meaning preserved but profanity is softened.",
+    "note_cs": "Význam zůstal, ale vulgarita zeslábla."
+  },
+  {
+    "id": "game-1003",
+    "model": "cuni-q3km",
+    "mode": "guarded",
+    "reviewer": "Codex direct unblinded reading; no judge API",
+    "score": 3,
+    "note_en": "Meaning preserved but profanity is softened.",
+    "note_cs": "Význam zůstal, ale vulgarita zeslábla."
+  },
+  {
+    "id": "game-1003",
+    "model": "cuni-q3km",
+    "mode": "naive",
+    "reviewer": "Codex direct unblinded reading; no judge API",
+    "score": 3,
+    "note_en": "Meaning preserved but profanity is softened.",
+    "note_cs": "Význam zůstal, ale vulgarita zeslábla."
+  },
+  {
+    "id": "game-1004",
+    "model": "cuni-q3km",
+    "mode": "guarded",
+    "reviewer": "Codex direct unblinded reading; no judge API",
+    "score": 4,
+    "note_en": "Meaning preserved. Unknown speaker gender is not graded.",
+    "note_cs": "Význam zachován. Rod neznámého mluvčího nehodnotíme."
+  },
+  {
+    "id": "game-1004",
+    "model": "cuni-q3km",
+    "mode": "naive",
+    "reviewer": "Codex direct unblinded reading; no judge API",
+    "score": 4,
+    "note_en": "Meaning preserved. Unknown speaker gender is not graded.",
+    "note_cs": "Význam zachován. Rod neznámého mluvčího nehodnotíme."
+  },
+  {
+    "id": "game-1004",
+    "model": "cuni-q3km",
+    "mode": "baseline",
+    "reviewer": "Codex direct unblinded reading; no judge API",
+    "score": 4,
+    "note_en": "Meaning preserved. Unknown speaker gender is not graded.",
+    "note_cs": "Význam zachován. Rod neznámého mluvčího nehodnotíme."
+  },
+  {
+    "id": "game-1111",
+    "model": "cuni-q3km",
+    "mode": "guarded",
+    "reviewer": "Codex direct unblinded reading; no judge API",
+    "score": 1,
+    "note_en": "Literal survivor is awkward; guarded/timestamped add previous remarks.",
+    "note_cs": "Doslovné přeživší je neobratné; omezená a časovaná paměť přidávají starší poznámky."
+  },
+  {
+    "id": "game-1111",
+    "model": "cuni-q3km",
+    "mode": "naive",
+    "reviewer": "Codex direct unblinded reading; no judge API",
+    "score": 3,
+    "note_en": "Literal survivor is awkward; guarded/timestamped add previous remarks.",
+    "note_cs": "Doslovné přeživší je neobratné; omezená a časovaná paměť přidávají starší poznámky."
+  },
+  {
+    "id": "game-1111",
+    "model": "cuni-q3km",
+    "mode": "baseline",
+    "reviewer": "Codex direct unblinded reading; no judge API",
+    "score": 3,
+    "note_en": "Literal survivor is awkward; guarded/timestamped add previous remarks.",
+    "note_cs": "Doslovné přeživší je neobratné; omezená a časovaná paměť přidávají starší poznámky."
+  },
+  {
+    "id": "game-1112",
+    "model": "cuni-q3km",
+    "mode": "guarded",
+    "reviewer": "Codex direct unblinded reading; no judge API",
+    "score": 2,
+    "note_en": "Guarded appends the previous survivor claim.",
+    "note_cs": "Omezená paměť připojuje předchozí tvrzení o přežití."
+  },
+  {
+    "id": "game-1112",
+    "model": "cuni-q3km",
+    "mode": "baseline",
+    "reviewer": "Codex direct unblinded reading; no judge API",
+    "score": 4,
+    "note_en": "Guarded appends the previous survivor claim.",
+    "note_cs": "Omezená paměť připojuje předchozí tvrzení o přežití."
+  },
+  {
+    "id": "game-1112",
+    "model": "cuni-q3km",
+    "mode": "naive",
+    "reviewer": "Codex direct unblinded reading; no judge API",
+    "score": 4,
+    "note_en": "Guarded appends the previous survivor claim.",
+    "note_cs": "Omezená paměť připojuje předchozí tvrzení o přežití."
+  },
+  {
+    "id": "game-1113",
+    "model": "cuni-q3km",
+    "mode": "guarded",
+    "reviewer": "Codex direct unblinded reading; no judge API",
+    "score": 4,
+    "note_en": "Naive repeats the sentence.",
+    "note_cs": "Syrová historie opakuje větu."
+  },
+  {
+    "id": "game-1113",
+    "model": "cuni-q3km",
+    "mode": "naive",
+    "reviewer": "Codex direct unblinded reading; no judge API",
+    "score": 2,
+    "note_en": "Naive repeats the sentence.",
+    "note_cs": "Syrová historie opakuje větu."
+  },
+  {
+    "id": "game-1113",
+    "model": "cuni-q3km",
+    "mode": "baseline",
+    "reviewer": "Codex direct unblinded reading; no judge API",
+    "score": 4,
+    "note_en": "Naive repeats the sentence.",
+    "note_cs": "Syrová historie opakuje větu."
+  },
+  {
+    "id": "game-1114",
+    "model": "cuni-q3km",
+    "mode": "guarded",
+    "reviewer": "Codex direct unblinded reading; no judge API",
+    "score": 3,
+    "note_en": "The idiomatic farewell is best handled by naive/timestamped; baseline is too literal.",
+    "note_cs": "Rozloučení nejlépe zvládá syrová a časovaná historie. Překlad bez paměti je příliš doslovný."
+  },
+  {
+    "id": "game-1114",
+    "model": "cuni-q3km",
+    "mode": "naive",
+    "reviewer": "Codex direct unblinded reading; no judge API",
+    "score": 4,
+    "note_en": "The idiomatic farewell is best handled by naive/timestamped; baseline is too literal.",
+    "note_cs": "Rozloučení nejlépe zvládá syrová a časovaná historie. Překlad bez paměti je příliš doslovný."
+  },
+  {
+    "id": "game-1114",
+    "model": "cuni-q3km",
+    "mode": "baseline",
+    "reviewer": "Codex direct unblinded reading; no judge API",
+    "score": 2,
+    "note_en": "The idiomatic farewell is best handled by naive/timestamped; baseline is too literal.",
+    "note_cs": "Rozloučení nejlépe zvládá syrová a časovaná historie. Překlad bez paměti je příliš doslovný."
+  },
+  {
+    "id": "game-1251",
+    "model": "cuni-q3km",
+    "mode": "guarded",
+    "reviewer": "Codex direct unblinded reading; no judge API",
+    "score": 2,
+    "note_en": "Memory variants repeat or import earlier shouts.",
+    "note_cs": "Varianty s historií opakují nebo přenášejí starší výkřiky."
+  },
+  {
+    "id": "game-1251",
+    "model": "cuni-q3km",
+    "mode": "baseline",
+    "reviewer": "Codex direct unblinded reading; no judge API",
+    "score": 4,
+    "note_en": "Memory variants repeat or import earlier shouts.",
+    "note_cs": "Varianty s historií opakují nebo přenášejí starší výkřiky."
+  },
+  {
+    "id": "game-1251",
+    "model": "cuni-q3km",
+    "mode": "naive",
+    "reviewer": "Codex direct unblinded reading; no judge API",
+    "score": 1,
+    "note_en": "Memory variants repeat or import earlier shouts.",
+    "note_cs": "Varianty s historií opakují nebo přenášejí starší výkřiky."
+  },
+  {
+    "id": "game-1252",
+    "model": "cuni-q3km",
+    "mode": "naive",
+    "reviewer": "Codex direct unblinded reading; no judge API",
+    "score": 2,
+    "note_en": "Naive changes attention-getting Hello? into a greeting.",
+    "note_cs": "Syrová historie mění upoutání pozornosti Haló? na pozdrav."
+  },
+  {
+    "id": "game-1252",
+    "model": "cuni-q3km",
+    "mode": "baseline",
+    "reviewer": "Codex direct unblinded reading; no judge API",
+    "score": 4,
+    "note_en": "Naive changes attention-getting Hello? into a greeting.",
+    "note_cs": "Syrová historie mění upoutání pozornosti Haló? na pozdrav."
+  },
+  {
+    "id": "game-1252",
+    "model": "cuni-q3km",
+    "mode": "guarded",
+    "reviewer": "Codex direct unblinded reading; no judge API",
+    "score": 4,
+    "note_en": "Naive changes attention-getting Hello? into a greeting.",
+    "note_cs": "Syrová historie mění upoutání pozornosti Haló? na pozdrav."
+  },
+  {
+    "id": "game-1253",
+    "model": "cuni-q3km",
+    "mode": "baseline",
+    "reviewer": "Codex direct unblinded reading; no judge API",
+    "score": 4,
+    "note_en": "Meaning preserved. Unknown speaker gender is not graded.",
+    "note_cs": "Význam zachován. Rod neznámého mluvčího nehodnotíme."
+  },
+  {
+    "id": "game-1253",
+    "model": "cuni-q3km",
+    "mode": "naive",
+    "reviewer": "Codex direct unblinded reading; no judge API",
+    "score": 4,
+    "note_en": "Meaning preserved. Unknown speaker gender is not graded.",
+    "note_cs": "Význam zachován. Rod neznámého mluvčího nehodnotíme."
+  },
+  {
+    "id": "game-1253",
+    "model": "cuni-q3km",
+    "mode": "guarded",
+    "reviewer": "Codex direct unblinded reading; no judge API",
+    "score": 4,
+    "note_en": "Meaning preserved. Unknown speaker gender is not graded.",
+    "note_cs": "Význam zachován. Rod neznámého mluvčího nehodnotíme."
+  },
+  {
+    "id": "game-1254",
+    "model": "cuni-q3km",
+    "mode": "baseline",
+    "reviewer": "Codex direct unblinded reading; no judge API",
+    "score": 4,
+    "note_en": "Guarded repeats Hello and loses the interrupted What.",
+    "note_cs": "Omezená paměť opakuje Haló a ztrácí nedokončené Co-?."
+  },
+  {
+    "id": "game-1254",
+    "model": "cuni-q3km",
+    "mode": "naive",
+    "reviewer": "Codex direct unblinded reading; no judge API",
+    "score": 4,
+    "note_en": "Guarded repeats Hello and loses the interrupted What.",
+    "note_cs": "Omezená paměť opakuje Haló a ztrácí nedokončené Co-?."
+  },
+  {
+    "id": "game-1254",
+    "model": "cuni-q3km",
+    "mode": "guarded",
+    "reviewer": "Codex direct unblinded reading; no judge API",
+    "score": 2,
+    "note_en": "Guarded repeats Hello and loses the interrupted What.",
+    "note_cs": "Omezená paměť opakuje Haló a ztrácí nedokončené Co-?."
+  },
+  {
+    "id": "game-1399",
+    "model": "cuni-q3km",
+    "mode": "guarded",
+    "reviewer": "Codex direct unblinded reading; no judge API",
+    "score": 4,
+    "note_en": "The conversation is about flying. Driver licence in baseline/naive is wrong; guarded keeps licence neutral; timestamped adds the preceding plane story.",
+    "note_cs": "Rozhovor je o létání. Řidičák bez paměti a se syrovou historií je chybný; omezená paměť ponechá obecnou licenci. Časovaná přidává předchozí příběh o letadle."
+  },
+  {
+    "id": "game-1399",
+    "model": "cuni-q3km",
+    "mode": "naive",
+    "reviewer": "Codex direct unblinded reading; no judge API",
+    "score": 2,
+    "note_en": "The conversation is about flying. Driver licence in baseline/naive is wrong; guarded keeps licence neutral; timestamped adds the preceding plane story.",
+    "note_cs": "Rozhovor je o létání. Řidičák bez paměti a se syrovou historií je chybný; omezená paměť ponechá obecnou licenci. Časovaná přidává předchozí příběh o letadle."
+  },
+  {
+    "id": "game-1399",
+    "model": "cuni-q3km",
+    "mode": "baseline",
+    "reviewer": "Codex direct unblinded reading; no judge API",
+    "score": 2,
+    "note_en": "The conversation is about flying. Driver licence in baseline/naive is wrong; guarded keeps licence neutral; timestamped adds the preceding plane story.",
+    "note_cs": "Rozhovor je o létání. Řidičák bez paměti a se syrovou historií je chybný; omezená paměť ponechá obecnou licenci. Časovaná přidává předchozí příběh o letadle."
+  },
+  {
+    "id": "game-1400",
+    "model": "cuni-q3km",
+    "mode": "baseline",
+    "reviewer": "Codex direct unblinded reading; no judge API",
+    "score": 4,
+    "note_en": "Meaning preserved. Unknown speaker gender is not graded.",
+    "note_cs": "Význam zachován. Rod neznámého mluvčího nehodnotíme."
+  },
+  {
+    "id": "game-1400",
+    "model": "cuni-q3km",
+    "mode": "guarded",
+    "reviewer": "Codex direct unblinded reading; no judge API",
+    "score": 4,
+    "note_en": "Meaning preserved. Unknown speaker gender is not graded.",
+    "note_cs": "Význam zachován. Rod neznámého mluvčího nehodnotíme."
+  },
+  {
+    "id": "game-1400",
+    "model": "cuni-q3km",
+    "mode": "naive",
+    "reviewer": "Codex direct unblinded reading; no judge API",
+    "score": 4,
+    "note_en": "Meaning preserved. Unknown speaker gender is not graded.",
+    "note_cs": "Význam zachován. Rod neznámého mluvčího nehodnotíme."
+  },
+  {
+    "id": "game-1401",
+    "model": "cuni-q3km",
+    "mode": "baseline",
+    "reviewer": "Codex direct unblinded reading; no judge API",
+    "score": 4,
+    "note_en": "Meaning preserved. Unknown speaker gender is not graded.",
+    "note_cs": "Význam zachován. Rod neznámého mluvčího nehodnotíme."
+  },
+  {
+    "id": "game-1401",
+    "model": "cuni-q3km",
+    "mode": "guarded",
+    "reviewer": "Codex direct unblinded reading; no judge API",
+    "score": 4,
+    "note_en": "Meaning preserved. Unknown speaker gender is not graded.",
+    "note_cs": "Význam zachován. Rod neznámého mluvčího nehodnotíme."
+  },
+  {
+    "id": "game-1401",
+    "model": "cuni-q3km",
+    "mode": "naive",
+    "reviewer": "Codex direct unblinded reading; no judge API",
+    "score": 2,
+    "note_en": "Meaning preserved. Unknown speaker gender is not graded.",
+    "note_cs": "Význam zachován. Rod neznámého mluvčího nehodnotíme."
+  },
+  {
+    "id": "game-1402",
+    "model": "cuni-q3km",
+    "mode": "naive",
+    "reviewer": "Codex direct unblinded reading; no judge API",
+    "score": 4,
+    "note_en": "Meaning preserved. Unknown speaker gender is not graded.",
+    "note_cs": "Význam zachován. Rod neznámého mluvčího nehodnotíme."
+  },
+  {
+    "id": "game-1402",
+    "model": "cuni-q3km",
+    "mode": "baseline",
+    "reviewer": "Codex direct unblinded reading; no judge API",
+    "score": 4,
+    "note_en": "Meaning preserved. Unknown speaker gender is not graded.",
+    "note_cs": "Význam zachován. Rod neznámého mluvčího nehodnotíme."
+  },
+  {
+    "id": "game-1402",
+    "model": "cuni-q3km",
+    "mode": "guarded",
+    "reviewer": "Codex direct unblinded reading; no judge API",
+    "score": 4,
+    "note_en": "Meaning preserved. Unknown speaker gender is not graded.",
+    "note_cs": "Význam zachován. Rod neznámého mluvčího nehodnotíme."
+  },
+  {
+    "id": "game-1499",
+    "model": "cuni-q3km",
+    "mode": "naive",
+    "reviewer": "Codex direct unblinded reading; no judge API",
+    "score": 3,
+    "note_en": "Drop refers to a package drop; landing/handoff wording is less precise than shoz.",
+    "note_cs": "Jde o shoz balíčku; výsadek či předání jsou méně přesné."
+  },
+  {
+    "id": "game-1499",
+    "model": "cuni-q3km",
+    "mode": "guarded",
+    "reviewer": "Codex direct unblinded reading; no judge API",
+    "score": 3,
+    "note_en": "Drop refers to a package drop; landing/handoff wording is less precise than shoz.",
+    "note_cs": "Jde o shoz balíčku; výsadek či předání jsou méně přesné."
+  },
+  {
+    "id": "game-1499",
+    "model": "cuni-q3km",
+    "mode": "baseline",
+    "reviewer": "Codex direct unblinded reading; no judge API",
+    "score": 3,
+    "note_en": "Drop refers to a package drop; landing/handoff wording is less precise than shoz.",
+    "note_cs": "Jde o shoz balíčku; výsadek či předání jsou méně přesné."
+  },
+  {
+    "id": "game-1500",
+    "model": "cuni-q3km",
+    "mode": "guarded",
+    "reviewer": "Codex direct unblinded reading; no judge API",
+    "score": 1,
+    "note_en": "Naive/guarded repeat or leave English clauses; source also contains OCR junk.",
+    "note_cs": "Syrová a omezená historie opakují věty nebo nechávají angličtinu. Vstup obsahuje i balast OCR."
+  },
+  {
+    "id": "game-1500",
+    "model": "cuni-q3km",
+    "mode": "naive",
+    "reviewer": "Codex direct unblinded reading; no judge API",
+    "score": 1,
+    "note_en": "Naive/guarded repeat or leave English clauses; source also contains OCR junk.",
+    "note_cs": "Syrová a omezená historie opakují věty nebo nechávají angličtinu. Vstup obsahuje i balast OCR."
+  },
+  {
+    "id": "game-1500",
+    "model": "cuni-q3km",
+    "mode": "baseline",
+    "reviewer": "Codex direct unblinded reading; no judge API",
+    "score": 3,
+    "note_en": "Naive/guarded repeat or leave English clauses; source also contains OCR junk.",
+    "note_cs": "Syrová a omezená historie opakují věty nebo nechávají angličtinu. Vstup obsahuje i balast OCR."
+  },
+  {
+    "id": "game-1501",
+    "model": "cuni-q3km",
+    "mode": "guarded",
+    "reviewer": "Codex direct unblinded reading; no judge API",
+    "score": 1,
+    "note_en": "Memory variants repeat large portions; the readable clause remains assessable despite OCR junk.",
+    "note_cs": "Varianty s pamětí opakují velké části textu. Srozumitelnou větu lze hodnotit i přes balast OCR."
+  },
+  {
+    "id": "game-1501",
+    "model": "cuni-q3km",
+    "mode": "naive",
+    "reviewer": "Codex direct unblinded reading; no judge API",
+    "score": 1,
+    "note_en": "Memory variants repeat large portions; the readable clause remains assessable despite OCR junk.",
+    "note_cs": "Varianty s pamětí opakují velké části textu. Srozumitelnou větu lze hodnotit i přes balast OCR."
+  },
+  {
+    "id": "game-1501",
+    "model": "cuni-q3km",
+    "mode": "baseline",
+    "reviewer": "Codex direct unblinded reading; no judge API",
+    "score": 3,
+    "note_en": "Memory variants repeat large portions; the readable clause remains assessable despite OCR junk.",
+    "note_cs": "Varianty s pamětí opakují velké části textu. Srozumitelnou větu lze hodnotit i přes balast OCR."
+  },
+  {
+    "id": "game-1502",
+    "model": "cuni-q3km",
+    "mode": "naive",
+    "reviewer": "Codex direct unblinded reading; no judge API",
+    "score": null,
+    "note_en": "Not scored: source is unresolvable OCR or already Czech, outside EN-to-CS dialogue quality.",
+    "note_cs": "Nebodováno: nečitelný výstup OCR nebo již český vstup. Všechny překlady včetně domýšlení zůstávají dostupné."
+  },
+  {
+    "id": "game-1502",
+    "model": "cuni-q3km",
+    "mode": "baseline",
+    "reviewer": "Codex direct unblinded reading; no judge API",
+    "score": null,
+    "note_en": "Not scored: source is unresolvable OCR or already Czech, outside EN-to-CS dialogue quality.",
+    "note_cs": "Nebodováno: nečitelný výstup OCR nebo již český vstup. Všechny překlady včetně domýšlení zůstávají dostupné."
+  },
+  {
+    "id": "game-1502",
+    "model": "cuni-q3km",
+    "mode": "guarded",
+    "reviewer": "Codex direct unblinded reading; no judge API",
+    "score": null,
+    "note_en": "Not scored: source is unresolvable OCR or already Czech, outside EN-to-CS dialogue quality.",
+    "note_cs": "Nebodováno: nečitelný výstup OCR nebo již český vstup. Všechny překlady včetně domýšlení zůstávají dostupné."
+  },
+  {
+    "id": "game-1601",
+    "model": "cuni-q3km",
+    "mode": "naive",
+    "reviewer": "Codex direct unblinded reading; no judge API",
+    "score": 4,
+    "note_en": "Guarded substitutes earlier statements addressed to the officer.",
+    "note_cs": "Omezená paměť dosazuje předchozí výroky směrem k policistovi."
+  },
+  {
+    "id": "game-1601",
+    "model": "cuni-q3km",
+    "mode": "guarded",
+    "reviewer": "Codex direct unblinded reading; no judge API",
+    "score": 0,
+    "note_en": "Guarded substitutes earlier statements addressed to the officer.",
+    "note_cs": "Omezená paměť dosazuje předchozí výroky směrem k policistovi."
+  },
+  {
+    "id": "game-1601",
+    "model": "cuni-q3km",
+    "mode": "baseline",
+    "reviewer": "Codex direct unblinded reading; no judge API",
+    "score": 4,
+    "note_en": "Guarded substitutes earlier statements addressed to the officer.",
+    "note_cs": "Omezená paměť dosazuje předchozí výroky směrem k policistovi."
+  },
+  {
+    "id": "game-1602",
+    "model": "cuni-q3km",
+    "mode": "guarded",
+    "reviewer": "Codex direct unblinded reading; no judge API",
+    "score": 4,
+    "note_en": "Meaning preserved. Unknown speaker gender is not graded.",
+    "note_cs": "Význam zachován. Rod neznámého mluvčího nehodnotíme."
+  },
+  {
+    "id": "game-1602",
+    "model": "cuni-q3km",
+    "mode": "baseline",
+    "reviewer": "Codex direct unblinded reading; no judge API",
+    "score": 4,
+    "note_en": "Meaning preserved. Unknown speaker gender is not graded.",
+    "note_cs": "Význam zachován. Rod neznámého mluvčího nehodnotíme."
+  },
+  {
+    "id": "game-1602",
+    "model": "cuni-q3km",
+    "mode": "naive",
+    "reviewer": "Codex direct unblinded reading; no judge API",
+    "score": 4,
+    "note_en": "Meaning preserved. Unknown speaker gender is not graded.",
+    "note_cs": "Význam zachován. Rod neznámého mluvčího nehodnotíme."
+  },
+  {
+    "id": "game-1603",
+    "model": "cuni-q3km",
+    "mode": "guarded",
+    "reviewer": "Codex direct unblinded reading; no judge API",
+    "score": 4,
+    "note_en": "Meaning preserved. Unknown speaker gender is not graded.",
+    "note_cs": "Význam zachován. Rod neznámého mluvčího nehodnotíme."
+  },
+  {
+    "id": "game-1603",
+    "model": "cuni-q3km",
+    "mode": "naive",
+    "reviewer": "Codex direct unblinded reading; no judge API",
+    "score": 4,
+    "note_en": "Meaning preserved. Unknown speaker gender is not graded.",
+    "note_cs": "Význam zachován. Rod neznámého mluvčího nehodnotíme."
+  },
+  {
+    "id": "game-1603",
+    "model": "cuni-q3km",
+    "mode": "baseline",
+    "reviewer": "Codex direct unblinded reading; no judge API",
+    "score": 4,
+    "note_en": "Meaning preserved. Unknown speaker gender is not graded.",
+    "note_cs": "Význam zachován. Rod neznámého mluvčího nehodnotíme."
+  },
+  {
+    "id": "game-1604",
+    "model": "cuni-q3km",
+    "mode": "baseline",
+    "reviewer": "Codex direct unblinded reading; no judge API",
+    "score": 4,
+    "note_en": "Meaning preserved. Unknown speaker gender is not graded.",
+    "note_cs": "Význam zachován. Rod neznámého mluvčího nehodnotíme."
+  },
+  {
+    "id": "game-1604",
+    "model": "cuni-q3km",
+    "mode": "guarded",
+    "reviewer": "Codex direct unblinded reading; no judge API",
+    "score": 4,
+    "note_en": "Meaning preserved. Unknown speaker gender is not graded.",
+    "note_cs": "Význam zachován. Rod neznámého mluvčího nehodnotíme."
+  },
+  {
+    "id": "game-1604",
+    "model": "cuni-q3km",
+    "mode": "naive",
+    "reviewer": "Codex direct unblinded reading; no judge API",
+    "score": 4,
+    "note_en": "Meaning preserved. Unknown speaker gender is not graded.",
+    "note_cs": "Význam zachován. Rod neznámého mluvčího nehodnotíme."
+  },
+  {
+    "id": "game-1681",
+    "model": "cuni-q3km",
+    "mode": "baseline",
+    "reviewer": "Codex direct unblinded reading; no judge API",
+    "score": 4,
+    "note_en": "Meaning preserved. Unknown speaker gender is not graded.",
+    "note_cs": "Význam zachován. Rod neznámého mluvčího nehodnotíme."
+  },
+  {
+    "id": "game-1681",
+    "model": "cuni-q3km",
+    "mode": "naive",
+    "reviewer": "Codex direct unblinded reading; no judge API",
+    "score": 4,
+    "note_en": "Meaning preserved. Unknown speaker gender is not graded.",
+    "note_cs": "Význam zachován. Rod neznámého mluvčího nehodnotíme."
+  },
+  {
+    "id": "game-1681",
+    "model": "cuni-q3km",
+    "mode": "guarded",
+    "reviewer": "Codex direct unblinded reading; no judge API",
+    "score": 4,
+    "note_en": "Meaning preserved. Unknown speaker gender is not graded.",
+    "note_cs": "Význam zachován. Rod neznámého mluvčího nehodnotíme."
+  },
+  {
+    "id": "game-1682",
+    "model": "cuni-q3km",
+    "mode": "guarded",
+    "reviewer": "Codex direct unblinded reading; no judge API",
+    "score": 4,
+    "note_en": "Meaning preserved. Unknown speaker gender is not graded.",
+    "note_cs": "Význam zachován. Rod neznámého mluvčího nehodnotíme."
+  },
+  {
+    "id": "game-1682",
+    "model": "cuni-q3km",
+    "mode": "baseline",
+    "reviewer": "Codex direct unblinded reading; no judge API",
+    "score": 4,
+    "note_en": "Meaning preserved. Unknown speaker gender is not graded.",
+    "note_cs": "Význam zachován. Rod neznámého mluvčího nehodnotíme."
+  },
+  {
+    "id": "game-1682",
+    "model": "cuni-q3km",
+    "mode": "naive",
+    "reviewer": "Codex direct unblinded reading; no judge API",
+    "score": 4,
+    "note_en": "Meaning preserved. Unknown speaker gender is not graded.",
+    "note_cs": "Význam zachován. Rod neznámého mluvčího nehodnotíme."
+  },
+  {
+    "id": "game-1683",
+    "model": "cuni-q3km",
+    "mode": "guarded",
+    "reviewer": "Codex direct unblinded reading; no judge API",
+    "score": 4,
+    "note_en": "Meaning preserved. Unknown speaker gender is not graded.",
+    "note_cs": "Význam zachován. Rod neznámého mluvčího nehodnotíme."
+  },
+  {
+    "id": "game-1683",
+    "model": "cuni-q3km",
+    "mode": "baseline",
+    "reviewer": "Codex direct unblinded reading; no judge API",
+    "score": 4,
+    "note_en": "Meaning preserved. Unknown speaker gender is not graded.",
+    "note_cs": "Význam zachován. Rod neznámého mluvčího nehodnotíme."
+  },
+  {
+    "id": "game-1683",
+    "model": "cuni-q3km",
+    "mode": "naive",
+    "reviewer": "Codex direct unblinded reading; no judge API",
+    "score": 4,
+    "note_en": "Meaning preserved. Unknown speaker gender is not graded.",
+    "note_cs": "Význam zachován. Rod neznámého mluvčího nehodnotíme."
+  },
+  {
+    "id": "game-1684",
+    "model": "cuni-q3km",
+    "mode": "naive",
+    "reviewer": "Codex direct unblinded reading; no judge API",
+    "score": 4,
+    "note_en": "Meaning preserved. Unknown speaker gender is not graded.",
+    "note_cs": "Význam zachován. Rod neznámého mluvčího nehodnotíme."
+  },
+  {
+    "id": "game-1684",
+    "model": "cuni-q3km",
+    "mode": "baseline",
+    "reviewer": "Codex direct unblinded reading; no judge API",
+    "score": 4,
+    "note_en": "Meaning preserved. Unknown speaker gender is not graded.",
+    "note_cs": "Význam zachován. Rod neznámého mluvčího nehodnotíme."
+  },
+  {
+    "id": "game-1684",
+    "model": "cuni-q3km",
+    "mode": "guarded",
+    "reviewer": "Codex direct unblinded reading; no judge API",
+    "score": 4,
+    "note_en": "Meaning preserved. Unknown speaker gender is not graded.",
+    "note_cs": "Význam zachován. Rod neznámého mluvčího nehodnotíme."
+  },
+  {
+    "id": "game-1731",
+    "model": "cuni-q3km",
+    "mode": "baseline",
+    "reviewer": "Codex direct unblinded reading; no judge API",
+    "score": null,
+    "note_en": "Not scored: source is unresolvable OCR or already Czech, outside EN-to-CS dialogue quality.",
+    "note_cs": "Nebodováno: nečitelný výstup OCR nebo již český vstup. Všechny překlady včetně domýšlení zůstávají dostupné."
+  },
+  {
+    "id": "game-1731",
+    "model": "cuni-q3km",
+    "mode": "guarded",
+    "reviewer": "Codex direct unblinded reading; no judge API",
+    "score": null,
+    "note_en": "Not scored: source is unresolvable OCR or already Czech, outside EN-to-CS dialogue quality.",
+    "note_cs": "Nebodováno: nečitelný výstup OCR nebo již český vstup. Všechny překlady včetně domýšlení zůstávají dostupné."
+  },
+  {
+    "id": "game-1731",
+    "model": "cuni-q3km",
+    "mode": "naive",
+    "reviewer": "Codex direct unblinded reading; no judge API",
+    "score": null,
+    "note_en": "Not scored: source is unresolvable OCR or already Czech, outside EN-to-CS dialogue quality.",
+    "note_cs": "Nebodováno: nečitelný výstup OCR nebo již český vstup. Všechny překlady včetně domýšlení zůstávají dostupné."
+  },
+  {
+    "id": "game-1732",
+    "model": "cuni-q3km",
+    "mode": "guarded",
+    "reviewer": "Codex direct unblinded reading; no judge API",
+    "score": null,
+    "note_en": "Not scored: source is unresolvable OCR or already Czech, outside EN-to-CS dialogue quality.",
+    "note_cs": "Nebodováno: nečitelný výstup OCR nebo již český vstup. Všechny překlady včetně domýšlení zůstávají dostupné."
+  },
+  {
+    "id": "game-1732",
+    "model": "cuni-q3km",
+    "mode": "naive",
+    "reviewer": "Codex direct unblinded reading; no judge API",
+    "score": null,
+    "note_en": "Not scored: source is unresolvable OCR or already Czech, outside EN-to-CS dialogue quality.",
+    "note_cs": "Nebodováno: nečitelný výstup OCR nebo již český vstup. Všechny překlady včetně domýšlení zůstávají dostupné."
+  },
+  {
+    "id": "game-1732",
+    "model": "cuni-q3km",
+    "mode": "baseline",
+    "reviewer": "Codex direct unblinded reading; no judge API",
+    "score": null,
+    "note_en": "Not scored: source is unresolvable OCR or already Czech, outside EN-to-CS dialogue quality.",
+    "note_cs": "Nebodováno: nečitelný výstup OCR nebo již český vstup. Všechny překlady včetně domýšlení zůstávají dostupné."
+  },
+  {
+    "id": "game-1733",
+    "model": "cuni-q3km",
+    "mode": "baseline",
+    "reviewer": "Codex direct unblinded reading; no judge API",
+    "score": null,
+    "note_en": "Not scored: source is unresolvable OCR or already Czech, outside EN-to-CS dialogue quality.",
+    "note_cs": "Nebodováno: nečitelný výstup OCR nebo již český vstup. Všechny překlady včetně domýšlení zůstávají dostupné."
+  },
+  {
+    "id": "game-1733",
+    "model": "cuni-q3km",
+    "mode": "guarded",
+    "reviewer": "Codex direct unblinded reading; no judge API",
+    "score": null,
+    "note_en": "Not scored: source is unresolvable OCR or already Czech, outside EN-to-CS dialogue quality.",
+    "note_cs": "Nebodováno: nečitelný výstup OCR nebo již český vstup. Všechny překlady včetně domýšlení zůstávají dostupné."
+  },
+  {
+    "id": "game-1733",
+    "model": "cuni-q3km",
+    "mode": "naive",
+    "reviewer": "Codex direct unblinded reading; no judge API",
+    "score": null,
+    "note_en": "Not scored: source is unresolvable OCR or already Czech, outside EN-to-CS dialogue quality.",
+    "note_cs": "Nebodováno: nečitelný výstup OCR nebo již český vstup. Všechny překlady včetně domýšlení zůstávají dostupné."
+  },
+  {
+    "id": "game-1734",
+    "model": "cuni-q3km",
+    "mode": "guarded",
+    "reviewer": "Codex direct unblinded reading; no judge API",
+    "score": null,
+    "note_en": "Not scored: source is unresolvable OCR or already Czech, outside EN-to-CS dialogue quality.",
+    "note_cs": "Nebodováno: nečitelný výstup OCR nebo již český vstup. Všechny překlady včetně domýšlení zůstávají dostupné."
+  },
+  {
+    "id": "game-1734",
+    "model": "cuni-q3km",
+    "mode": "naive",
+    "reviewer": "Codex direct unblinded reading; no judge API",
+    "score": null,
+    "note_en": "Not scored: source is unresolvable OCR or already Czech, outside EN-to-CS dialogue quality.",
+    "note_cs": "Nebodováno: nečitelný výstup OCR nebo již český vstup. Všechny překlady včetně domýšlení zůstávají dostupné."
+  },
+  {
+    "id": "game-1734",
+    "model": "cuni-q3km",
+    "mode": "baseline",
+    "reviewer": "Codex direct unblinded reading; no judge API",
+    "score": null,
+    "note_en": "Not scored: source is unresolvable OCR or already Czech, outside EN-to-CS dialogue quality.",
+    "note_cs": "Nebodováno: nečitelný výstup OCR nebo již český vstup. Všechny překlady včetně domýšlení zůstávají dostupné."
+  },
+  {
+    "id": "synthetic-female_past",
+    "model": "cuni-q3km",
+    "mode": "guarded",
+    "reviewer": "Codex direct unblinded reading; no judge API",
+    "feature": "known_speaker_gender",
+    "feature_pass": true,
+    "note_en": "Assessed against the explicitly authored character profile; not reconstructed gameplay identity.",
+    "note_cs": "Hodnotíme jen rod podle předem zadaného profilu vytvořené postavy. Nejde o automatické rozpoznání postavy v herním záznamu ani posouzení celé věty; štítek mluvčího se někdy ztrácí či chybně skloňuje."
+  },
+  {
+    "id": "synthetic-female_past",
+    "model": "cuni-q3km",
+    "mode": "naive",
+    "reviewer": "Codex direct unblinded reading; no judge API",
+    "feature": "known_speaker_gender",
+    "feature_pass": false,
+    "note_en": "Assessed against the explicitly authored character profile; not reconstructed gameplay identity.",
+    "note_cs": "Hodnotíme jen rod podle předem zadaného profilu vytvořené postavy. Nejde o automatické rozpoznání postavy v herním záznamu ani posouzení celé věty; štítek mluvčího se někdy ztrácí či chybně skloňuje."
+  },
+  {
+    "id": "synthetic-female_past",
+    "model": "cuni-q3km",
+    "mode": "baseline",
+    "reviewer": "Codex direct unblinded reading; no judge API",
+    "feature": "known_speaker_gender",
+    "feature_pass": false,
+    "note_en": "Assessed against the explicitly authored character profile; not reconstructed gameplay identity.",
+    "note_cs": "Hodnotíme jen rod podle předem zadaného profilu vytvořené postavy. Nejde o automatické rozpoznání postavy v herním záznamu ani posouzení celé věty; štítek mluvčího se někdy ztrácí či chybně skloňuje."
+  },
+  {
+    "id": "synthetic-male_past",
+    "model": "cuni-q3km",
+    "mode": "baseline",
+    "reviewer": "Codex direct unblinded reading; no judge API",
+    "feature": "known_speaker_gender",
+    "feature_pass": true,
+    "note_en": "Assessed against the explicitly authored character profile; not reconstructed gameplay identity.",
+    "note_cs": "Hodnotíme jen rod podle předem zadaného profilu vytvořené postavy. Nejde o automatické rozpoznání postavy v herním záznamu ani posouzení celé věty; štítek mluvčího se někdy ztrácí či chybně skloňuje."
+  },
+  {
+    "id": "synthetic-male_past",
+    "model": "cuni-q3km",
+    "mode": "guarded",
+    "reviewer": "Codex direct unblinded reading; no judge API",
+    "feature": "known_speaker_gender",
+    "feature_pass": true,
+    "note_en": "Assessed against the explicitly authored character profile; not reconstructed gameplay identity.",
+    "note_cs": "Hodnotíme jen rod podle předem zadaného profilu vytvořené postavy. Nejde o automatické rozpoznání postavy v herním záznamu ani posouzení celé věty; štítek mluvčího se někdy ztrácí či chybně skloňuje."
+  },
+  {
+    "id": "synthetic-male_past",
+    "model": "cuni-q3km",
+    "mode": "naive",
+    "reviewer": "Codex direct unblinded reading; no judge API",
+    "feature": "known_speaker_gender",
+    "feature_pass": true,
+    "note_en": "Assessed against the explicitly authored character profile; not reconstructed gameplay identity.",
+    "note_cs": "Hodnotíme jen rod podle předem zadaného profilu vytvořené postavy. Nejde o automatické rozpoznání postavy v herním záznamu ani posouzení celé věty; štítek mluvčího se někdy ztrácí či chybně skloňuje."
+  },
+  {
+    "id": "synthetic-female_ready",
+    "model": "cuni-q3km",
+    "mode": "naive",
+    "reviewer": "Codex direct unblinded reading; no judge API",
+    "feature": "known_speaker_gender",
+    "feature_pass": false,
+    "note_en": "Assessed against the explicitly authored character profile; not reconstructed gameplay identity.",
+    "note_cs": "Hodnotíme jen rod podle předem zadaného profilu vytvořené postavy. Nejde o automatické rozpoznání postavy v herním záznamu ani posouzení celé věty; štítek mluvčího se někdy ztrácí či chybně skloňuje."
+  },
+  {
+    "id": "synthetic-female_ready",
+    "model": "cuni-q3km",
+    "mode": "baseline",
+    "reviewer": "Codex direct unblinded reading; no judge API",
+    "feature": "known_speaker_gender",
+    "feature_pass": false,
+    "note_en": "Assessed against the explicitly authored character profile; not reconstructed gameplay identity.",
+    "note_cs": "Hodnotíme jen rod podle předem zadaného profilu vytvořené postavy. Nejde o automatické rozpoznání postavy v herním záznamu ani posouzení celé věty; štítek mluvčího se někdy ztrácí či chybně skloňuje."
+  },
+  {
+    "id": "synthetic-female_ready",
+    "model": "cuni-q3km",
+    "mode": "guarded",
+    "reviewer": "Codex direct unblinded reading; no judge API",
+    "feature": "known_speaker_gender",
+    "feature_pass": true,
+    "note_en": "Assessed against the explicitly authored character profile; not reconstructed gameplay identity.",
+    "note_cs": "Hodnotíme jen rod podle předem zadaného profilu vytvořené postavy. Nejde o automatické rozpoznání postavy v herním záznamu ani posouzení celé věty; štítek mluvčího se někdy ztrácí či chybně skloňuje."
+  },
+  {
+    "id": "synthetic-male_ready",
+    "model": "cuni-q3km",
+    "mode": "naive",
+    "reviewer": "Codex direct unblinded reading; no judge API",
+    "feature": "known_speaker_gender",
+    "feature_pass": true,
+    "note_en": "Assessed against the explicitly authored character profile; not reconstructed gameplay identity.",
+    "note_cs": "Hodnotíme jen rod podle předem zadaného profilu vytvořené postavy. Nejde o automatické rozpoznání postavy v herním záznamu ani posouzení celé věty; štítek mluvčího se někdy ztrácí či chybně skloňuje."
+  },
+  {
+    "id": "synthetic-male_ready",
+    "model": "cuni-q3km",
+    "mode": "baseline",
+    "reviewer": "Codex direct unblinded reading; no judge API",
+    "feature": "known_speaker_gender",
+    "feature_pass": true,
+    "note_en": "Assessed against the explicitly authored character profile; not reconstructed gameplay identity.",
+    "note_cs": "Hodnotíme jen rod podle předem zadaného profilu vytvořené postavy. Nejde o automatické rozpoznání postavy v herním záznamu ani posouzení celé věty; štítek mluvčího se někdy ztrácí či chybně skloňuje."
+  },
+  {
+    "id": "synthetic-male_ready",
+    "model": "cuni-q3km",
+    "mode": "guarded",
+    "reviewer": "Codex direct unblinded reading; no judge API",
+    "feature": "known_speaker_gender",
+    "feature_pass": true,
+    "note_en": "Assessed against the explicitly authored character profile; not reconstructed gameplay identity.",
+    "note_cs": "Hodnotíme jen rod podle předem zadaného profilu vytvořené postavy. Nejde o automatické rozpoznání postavy v herním záznamu ani posouzení celé věty; štítek mluvčího se někdy ztrácí či chybně skloňuje."
+  },
+  {
+    "id": "synthetic-female_alone",
+    "model": "cuni-q3km",
+    "mode": "naive",
+    "reviewer": "Codex direct unblinded reading; no judge API",
+    "feature": "known_speaker_gender",
+    "feature_pass": false,
+    "note_en": "Assessed against the explicitly authored character profile; not reconstructed gameplay identity.",
+    "note_cs": "Hodnotíme jen rod podle předem zadaného profilu vytvořené postavy. Nejde o automatické rozpoznání postavy v herním záznamu ani posouzení celé věty; štítek mluvčího se někdy ztrácí či chybně skloňuje."
+  },
+  {
+    "id": "synthetic-female_alone",
+    "model": "cuni-q3km",
+    "mode": "baseline",
+    "reviewer": "Codex direct unblinded reading; no judge API",
+    "feature": "known_speaker_gender",
+    "feature_pass": false,
+    "note_en": "Assessed against the explicitly authored character profile; not reconstructed gameplay identity.",
+    "note_cs": "Hodnotíme jen rod podle předem zadaného profilu vytvořené postavy. Nejde o automatické rozpoznání postavy v herním záznamu ani posouzení celé věty; štítek mluvčího se někdy ztrácí či chybně skloňuje."
+  },
+  {
+    "id": "synthetic-female_alone",
+    "model": "cuni-q3km",
+    "mode": "guarded",
+    "reviewer": "Codex direct unblinded reading; no judge API",
+    "feature": "known_speaker_gender",
+    "feature_pass": true,
+    "note_en": "Assessed against the explicitly authored character profile; not reconstructed gameplay identity.",
+    "note_cs": "Hodnotíme jen rod podle předem zadaného profilu vytvořené postavy. Nejde o automatické rozpoznání postavy v herním záznamu ani posouzení celé věty; štítek mluvčího se někdy ztrácí či chybně skloňuje."
+  },
+  {
+    "id": "synthetic-male_alone",
+    "model": "cuni-q3km",
+    "mode": "naive",
+    "reviewer": "Codex direct unblinded reading; no judge API",
+    "feature": "known_speaker_gender",
+    "feature_pass": true,
+    "note_en": "Assessed against the explicitly authored character profile; not reconstructed gameplay identity.",
+    "note_cs": "Hodnotíme jen rod podle předem zadaného profilu vytvořené postavy. Nejde o automatické rozpoznání postavy v herním záznamu ani posouzení celé věty; štítek mluvčího se někdy ztrácí či chybně skloňuje."
+  },
+  {
+    "id": "synthetic-male_alone",
+    "model": "cuni-q3km",
+    "mode": "baseline",
+    "reviewer": "Codex direct unblinded reading; no judge API",
+    "feature": "known_speaker_gender",
+    "feature_pass": true,
+    "note_en": "Assessed against the explicitly authored character profile; not reconstructed gameplay identity.",
+    "note_cs": "Hodnotíme jen rod podle předem zadaného profilu vytvořené postavy. Nejde o automatické rozpoznání postavy v herním záznamu ani posouzení celé věty; štítek mluvčího se někdy ztrácí či chybně skloňuje."
+  },
+  {
+    "id": "synthetic-male_alone",
+    "model": "cuni-q3km",
+    "mode": "guarded",
+    "reviewer": "Codex direct unblinded reading; no judge API",
+    "feature": "known_speaker_gender",
+    "feature_pass": true,
+    "note_en": "Assessed against the explicitly authored character profile; not reconstructed gameplay identity.",
+    "note_cs": "Hodnotíme jen rod podle předem zadaného profilu vytvořené postavy. Nejde o automatické rozpoznání postavy v herním záznamu ani posouzení celé věty; štítek mluvčího se někdy ztrácí či chybně skloňuje."
+  },
+  {
+    "id": "synthetic-female_tired",
+    "model": "cuni-q3km",
+    "mode": "guarded",
+    "reviewer": "Codex direct unblinded reading; no judge API",
+    "feature": "known_speaker_gender",
+    "feature_pass": true,
+    "note_en": "Assessed against the explicitly authored character profile; not reconstructed gameplay identity.",
+    "note_cs": "Hodnotíme jen rod podle předem zadaného profilu vytvořené postavy. Nejde o automatické rozpoznání postavy v herním záznamu ani posouzení celé věty; štítek mluvčího se někdy ztrácí či chybně skloňuje."
+  },
+  {
+    "id": "synthetic-female_tired",
+    "model": "cuni-q3km",
+    "mode": "naive",
+    "reviewer": "Codex direct unblinded reading; no judge API",
+    "feature": "known_speaker_gender",
+    "feature_pass": true,
+    "note_en": "Assessed against the explicitly authored character profile; not reconstructed gameplay identity.",
+    "note_cs": "Hodnotíme jen rod podle předem zadaného profilu vytvořené postavy. Nejde o automatické rozpoznání postavy v herním záznamu ani posouzení celé věty; štítek mluvčího se někdy ztrácí či chybně skloňuje."
+  },
+  {
+    "id": "synthetic-female_tired",
+    "model": "cuni-q3km",
+    "mode": "baseline",
+    "reviewer": "Codex direct unblinded reading; no judge API",
+    "feature": "known_speaker_gender",
+    "feature_pass": true,
+    "note_en": "Assessed against the explicitly authored character profile; not reconstructed gameplay identity.",
+    "note_cs": "Hodnotíme jen rod podle předem zadaného profilu vytvořené postavy. Nejde o automatické rozpoznání postavy v herním záznamu ani posouzení celé věty; štítek mluvčího se někdy ztrácí či chybně skloňuje."
+  },
+  {
+    "id": "synthetic-male_tired",
+    "model": "cuni-q3km",
+    "mode": "naive",
+    "reviewer": "Codex direct unblinded reading; no judge API",
+    "feature": "known_speaker_gender",
+    "feature_pass": false,
+    "note_en": "Assessed against the explicitly authored character profile; not reconstructed gameplay identity.",
+    "note_cs": "Hodnotíme jen rod podle předem zadaného profilu vytvořené postavy. Nejde o automatické rozpoznání postavy v herním záznamu ani posouzení celé věty; štítek mluvčího se někdy ztrácí či chybně skloňuje."
+  },
+  {
+    "id": "synthetic-male_tired",
+    "model": "cuni-q3km",
+    "mode": "guarded",
+    "reviewer": "Codex direct unblinded reading; no judge API",
+    "feature": "known_speaker_gender",
+    "feature_pass": false,
+    "note_en": "Assessed against the explicitly authored character profile; not reconstructed gameplay identity.",
+    "note_cs": "Hodnotíme jen rod podle předem zadaného profilu vytvořené postavy. Nejde o automatické rozpoznání postavy v herním záznamu ani posouzení celé věty; štítek mluvčího se někdy ztrácí či chybně skloňuje."
+  },
+  {
+    "id": "synthetic-male_tired",
+    "model": "cuni-q3km",
+    "mode": "baseline",
+    "reviewer": "Codex direct unblinded reading; no judge API",
+    "feature": "known_speaker_gender",
+    "feature_pass": false,
+    "note_en": "Assessed against the explicitly authored character profile; not reconstructed gameplay identity.",
+    "note_cs": "Hodnotíme jen rod podle předem zadaného profilu vytvořené postavy. Nejde o automatické rozpoznání postavy v herním záznamu ani posouzení celé věty; štítek mluvčího se někdy ztrácí či chybně skloňuje."
+  },
+  {
+    "id": "synthetic-female_mistake",
+    "model": "cuni-q3km",
+    "mode": "naive",
+    "reviewer": "Codex direct unblinded reading; no judge API",
+    "feature": "known_speaker_gender",
+    "feature_pass": false,
+    "note_en": "Assessed against the explicitly authored character profile; not reconstructed gameplay identity.",
+    "note_cs": "Hodnotíme jen rod podle předem zadaného profilu vytvořené postavy. Nejde o automatické rozpoznání postavy v herním záznamu ani posouzení celé věty; štítek mluvčího se někdy ztrácí či chybně skloňuje."
+  },
+  {
+    "id": "synthetic-female_mistake",
+    "model": "cuni-q3km",
+    "mode": "baseline",
+    "reviewer": "Codex direct unblinded reading; no judge API",
+    "feature": "known_speaker_gender",
+    "feature_pass": false,
+    "note_en": "Assessed against the explicitly authored character profile; not reconstructed gameplay identity.",
+    "note_cs": "Hodnotíme jen rod podle předem zadaného profilu vytvořené postavy. Nejde o automatické rozpoznání postavy v herním záznamu ani posouzení celé věty; štítek mluvčího se někdy ztrácí či chybně skloňuje."
+  },
+  {
+    "id": "synthetic-female_mistake",
+    "model": "cuni-q3km",
+    "mode": "guarded",
+    "reviewer": "Codex direct unblinded reading; no judge API",
+    "feature": "known_speaker_gender",
+    "feature_pass": true,
+    "note_en": "Assessed against the explicitly authored character profile; not reconstructed gameplay identity.",
+    "note_cs": "Hodnotíme jen rod podle předem zadaného profilu vytvořené postavy. Nejde o automatické rozpoznání postavy v herním záznamu ani posouzení celé věty; štítek mluvčího se někdy ztrácí či chybně skloňuje."
+  },
+  {
+    "id": "synthetic-male_mistake",
+    "model": "cuni-q3km",
+    "mode": "naive",
+    "reviewer": "Codex direct unblinded reading; no judge API",
+    "feature": "known_speaker_gender",
+    "feature_pass": true,
+    "note_en": "Assessed against the explicitly authored character profile; not reconstructed gameplay identity.",
+    "note_cs": "Hodnotíme jen rod podle předem zadaného profilu vytvořené postavy. Nejde o automatické rozpoznání postavy v herním záznamu ani posouzení celé věty; štítek mluvčího se někdy ztrácí či chybně skloňuje."
+  },
+  {
+    "id": "synthetic-male_mistake",
+    "model": "cuni-q3km",
+    "mode": "baseline",
+    "reviewer": "Codex direct unblinded reading; no judge API",
+    "feature": "known_speaker_gender",
+    "feature_pass": true,
+    "note_en": "Assessed against the explicitly authored character profile; not reconstructed gameplay identity.",
+    "note_cs": "Hodnotíme jen rod podle předem zadaného profilu vytvořené postavy. Nejde o automatické rozpoznání postavy v herním záznamu ani posouzení celé věty; štítek mluvčího se někdy ztrácí či chybně skloňuje."
+  },
+  {
+    "id": "synthetic-male_mistake",
+    "model": "cuni-q3km",
+    "mode": "guarded",
+    "reviewer": "Codex direct unblinded reading; no judge API",
+    "feature": "known_speaker_gender",
+    "feature_pass": true,
+    "note_en": "Assessed against the explicitly authored character profile; not reconstructed gameplay identity.",
+    "note_cs": "Hodnotíme jen rod podle předem zadaného profilu vytvořené postavy. Nejde o automatické rozpoznání postavy v herním záznamu ani posouzení celé věty; štítek mluvčího se někdy ztrácí či chybně skloňuje."
+  },
+  {
+    "id": "synthetic-female_wounded",
+    "model": "cuni-q3km",
+    "mode": "baseline",
+    "reviewer": "Codex direct unblinded reading; no judge API",
+    "feature": "known_speaker_gender",
+    "feature_pass": false,
+    "note_en": "Assessed against the explicitly authored character profile; not reconstructed gameplay identity.",
+    "note_cs": "Hodnotíme jen rod podle předem zadaného profilu vytvořené postavy. Nejde o automatické rozpoznání postavy v herním záznamu ani posouzení celé věty; štítek mluvčího se někdy ztrácí či chybně skloňuje."
+  },
+  {
+    "id": "synthetic-female_wounded",
+    "model": "cuni-q3km",
+    "mode": "naive",
+    "reviewer": "Codex direct unblinded reading; no judge API",
+    "feature": "known_speaker_gender",
+    "feature_pass": false,
+    "note_en": "Assessed against the explicitly authored character profile; not reconstructed gameplay identity.",
+    "note_cs": "Hodnotíme jen rod podle předem zadaného profilu vytvořené postavy. Nejde o automatické rozpoznání postavy v herním záznamu ani posouzení celé věty; štítek mluvčího se někdy ztrácí či chybně skloňuje."
+  },
+  {
+    "id": "synthetic-female_wounded",
+    "model": "cuni-q3km",
+    "mode": "guarded",
+    "reviewer": "Codex direct unblinded reading; no judge API",
+    "feature": "known_speaker_gender",
+    "feature_pass": true,
+    "note_en": "Assessed against the explicitly authored character profile; not reconstructed gameplay identity.",
+    "note_cs": "Hodnotíme jen rod podle předem zadaného profilu vytvořené postavy. Nejde o automatické rozpoznání postavy v herním záznamu ani posouzení celé věty; štítek mluvčího se někdy ztrácí či chybně skloňuje."
+  },
+  {
+    "id": "synthetic-male_wounded",
+    "model": "cuni-q3km",
+    "mode": "guarded",
+    "reviewer": "Codex direct unblinded reading; no judge API",
+    "feature": "known_speaker_gender",
+    "feature_pass": true,
+    "note_en": "Assessed against the explicitly authored character profile; not reconstructed gameplay identity.",
+    "note_cs": "Hodnotíme jen rod podle předem zadaného profilu vytvořené postavy. Nejde o automatické rozpoznání postavy v herním záznamu ani posouzení celé věty; štítek mluvčího se někdy ztrácí či chybně skloňuje."
+  },
+  {
+    "id": "synthetic-male_wounded",
+    "model": "cuni-q3km",
+    "mode": "naive",
+    "reviewer": "Codex direct unblinded reading; no judge API",
+    "feature": "known_speaker_gender",
+    "feature_pass": true,
+    "note_en": "Assessed against the explicitly authored character profile; not reconstructed gameplay identity.",
+    "note_cs": "Hodnotíme jen rod podle předem zadaného profilu vytvořené postavy. Nejde o automatické rozpoznání postavy v herním záznamu ani posouzení celé věty; štítek mluvčího se někdy ztrácí či chybně skloňuje."
+  },
+  {
+    "id": "synthetic-male_wounded",
+    "model": "cuni-q3km",
+    "mode": "baseline",
+    "reviewer": "Codex direct unblinded reading; no judge API",
+    "feature": "known_speaker_gender",
+    "feature_pass": true,
+    "note_en": "Assessed against the explicitly authored character profile; not reconstructed gameplay identity.",
+    "note_cs": "Hodnotíme jen rod podle předem zadaného profilu vytvořené postavy. Nejde o automatické rozpoznání postavy v herním záznamu ani posouzení celé věty; štítek mluvčího se někdy ztrácí či chybně skloňuje."
+  },
+  {
+    "id": "synthetic-name_may",
+    "model": "cuni-q3km",
+    "mode": "baseline",
+    "reviewer": "Codex direct unblinded reading; no judge API",
+    "feature": "name_or_word_sense",
+    "feature_pass": true,
+    "note_en": "Assessed against the authored source context; lexical feature only, not an overall translation score.",
+    "note_cs": "Hodnotíme jen sledované jméno nebo význam slova podle vytvořeného kontextu. Správný význam může mít chybnou českou gramatiku. Správný odhad bez paměti nedokazuje znalost kontextu."
+  },
+  {
+    "id": "synthetic-name_may",
+    "model": "cuni-q3km",
+    "mode": "guarded",
+    "reviewer": "Codex direct unblinded reading; no judge API",
+    "feature": "name_or_word_sense",
+    "feature_pass": true,
+    "note_en": "Assessed against the authored source context; lexical feature only, not an overall translation score.",
+    "note_cs": "Hodnotíme jen sledované jméno nebo význam slova podle vytvořeného kontextu. Správný význam může mít chybnou českou gramatiku. Správný odhad bez paměti nedokazuje znalost kontextu."
+  },
+  {
+    "id": "synthetic-name_may",
+    "model": "cuni-q3km",
+    "mode": "naive",
+    "reviewer": "Codex direct unblinded reading; no judge API",
+    "feature": "name_or_word_sense",
+    "feature_pass": true,
+    "note_en": "Assessed against the authored source context; lexical feature only, not an overall translation score.",
+    "note_cs": "Hodnotíme jen sledované jméno nebo význam slova podle vytvořeného kontextu. Správný význam může mít chybnou českou gramatiku. Správný odhad bez paměti nedokazuje znalost kontextu."
+  },
+  {
+    "id": "synthetic-bank_river",
+    "model": "cuni-q3km",
+    "mode": "baseline",
+    "reviewer": "Codex direct unblinded reading; no judge API",
+    "feature": "name_or_word_sense",
+    "feature_pass": false,
+    "note_en": "Assessed against the authored source context; lexical feature only, not an overall translation score.",
+    "note_cs": "Hodnotíme jen sledované jméno nebo význam slova podle vytvořeného kontextu. Správný význam může mít chybnou českou gramatiku. Správný odhad bez paměti nedokazuje znalost kontextu."
+  },
+  {
+    "id": "synthetic-bank_river",
+    "model": "cuni-q3km",
+    "mode": "naive",
+    "reviewer": "Codex direct unblinded reading; no judge API",
+    "feature": "name_or_word_sense",
+    "feature_pass": false,
+    "note_en": "Assessed against the authored source context; lexical feature only, not an overall translation score.",
+    "note_cs": "Hodnotíme jen sledované jméno nebo význam slova podle vytvořeného kontextu. Správný význam může mít chybnou českou gramatiku. Správný odhad bez paměti nedokazuje znalost kontextu."
+  },
+  {
+    "id": "synthetic-bank_river",
+    "model": "cuni-q3km",
+    "mode": "guarded",
+    "reviewer": "Codex direct unblinded reading; no judge API",
+    "feature": "name_or_word_sense",
+    "feature_pass": true,
+    "note_en": "Assessed against the authored source context; lexical feature only, not an overall translation score.",
+    "note_cs": "Hodnotíme jen sledované jméno nebo význam slova podle vytvořeného kontextu. Správný význam může mít chybnou českou gramatiku. Správný odhad bez paměti nedokazuje znalost kontextu."
+  },
+  {
+    "id": "synthetic-bank_money",
+    "model": "cuni-q3km",
+    "mode": "naive",
+    "reviewer": "Codex direct unblinded reading; no judge API",
+    "feature": "name_or_word_sense",
+    "feature_pass": true,
+    "note_en": "Assessed against the authored source context; lexical feature only, not an overall translation score.",
+    "note_cs": "Hodnotíme jen sledované jméno nebo význam slova podle vytvořeného kontextu. Správný význam může mít chybnou českou gramatiku. Správný odhad bez paměti nedokazuje znalost kontextu."
+  },
+  {
+    "id": "synthetic-bank_money",
+    "model": "cuni-q3km",
+    "mode": "guarded",
+    "reviewer": "Codex direct unblinded reading; no judge API",
+    "feature": "name_or_word_sense",
+    "feature_pass": true,
+    "note_en": "Assessed against the authored source context; lexical feature only, not an overall translation score.",
+    "note_cs": "Hodnotíme jen sledované jméno nebo význam slova podle vytvořeného kontextu. Správný význam může mít chybnou českou gramatiku. Správný odhad bez paměti nedokazuje znalost kontextu."
+  },
+  {
+    "id": "synthetic-bank_money",
+    "model": "cuni-q3km",
+    "mode": "baseline",
+    "reviewer": "Codex direct unblinded reading; no judge API",
+    "feature": "name_or_word_sense",
+    "feature_pass": true,
+    "note_en": "Assessed against the authored source context; lexical feature only, not an overall translation score.",
+    "note_cs": "Hodnotíme jen sledované jméno nebo význam slova podle vytvořeného kontextu. Správný význam může mít chybnou českou gramatiku. Správný odhad bez paměti nedokazuje znalost kontextu."
+  },
+  {
+    "id": "synthetic-bat_animal",
+    "model": "cuni-q3km",
+    "mode": "baseline",
+    "reviewer": "Codex direct unblinded reading; no judge API",
+    "feature": "name_or_word_sense",
+    "feature_pass": true,
+    "note_en": "Assessed against the authored source context; lexical feature only, not an overall translation score.",
+    "note_cs": "Hodnotíme jen sledované jméno nebo význam slova podle vytvořeného kontextu. Správný význam může mít chybnou českou gramatiku. Správný odhad bez paměti nedokazuje znalost kontextu."
+  },
+  {
+    "id": "synthetic-bat_animal",
+    "model": "cuni-q3km",
+    "mode": "guarded",
+    "reviewer": "Codex direct unblinded reading; no judge API",
+    "feature": "name_or_word_sense",
+    "feature_pass": true,
+    "note_en": "Assessed against the authored source context; lexical feature only, not an overall translation score.",
+    "note_cs": "Hodnotíme jen sledované jméno nebo význam slova podle vytvořeného kontextu. Správný význam může mít chybnou českou gramatiku. Správný odhad bez paměti nedokazuje znalost kontextu."
+  },
+  {
+    "id": "synthetic-bat_animal",
+    "model": "cuni-q3km",
+    "mode": "naive",
+    "reviewer": "Codex direct unblinded reading; no judge API",
+    "feature": "name_or_word_sense",
+    "feature_pass": false,
+    "note_en": "Assessed against the authored source context; lexical feature only, not an overall translation score.",
+    "note_cs": "Hodnotíme jen sledované jméno nebo význam slova podle vytvořeného kontextu. Správný význam může mít chybnou českou gramatiku. Správný odhad bez paměti nedokazuje znalost kontextu."
+  },
+  {
+    "id": "synthetic-bat_weapon",
+    "model": "cuni-q3km",
+    "mode": "naive",
+    "reviewer": "Codex direct unblinded reading; no judge API",
+    "feature": "name_or_word_sense",
+    "feature_pass": true,
+    "note_en": "Assessed against the authored source context; lexical feature only, not an overall translation score.",
+    "note_cs": "Hodnotíme jen sledované jméno nebo význam slova podle vytvořeného kontextu. Správný význam může mít chybnou českou gramatiku. Správný odhad bez paměti nedokazuje znalost kontextu."
+  },
+  {
+    "id": "synthetic-bat_weapon",
+    "model": "cuni-q3km",
+    "mode": "guarded",
+    "reviewer": "Codex direct unblinded reading; no judge API",
+    "feature": "name_or_word_sense",
+    "feature_pass": true,
+    "note_en": "Assessed against the authored source context; lexical feature only, not an overall translation score.",
+    "note_cs": "Hodnotíme jen sledované jméno nebo význam slova podle vytvořeného kontextu. Správný význam může mít chybnou českou gramatiku. Správný odhad bez paměti nedokazuje znalost kontextu."
+  },
+  {
+    "id": "synthetic-bat_weapon",
+    "model": "cuni-q3km",
+    "mode": "baseline",
+    "reviewer": "Codex direct unblinded reading; no judge API",
+    "feature": "name_or_word_sense",
+    "feature_pass": false,
+    "note_en": "Assessed against the authored source context; lexical feature only, not an overall translation score.",
+    "note_cs": "Hodnotíme jen sledované jméno nebo význam slova podle vytvořeného kontextu. Správný význam může mít chybnou českou gramatiku. Správný odhad bez paměti nedokazuje znalost kontextu."
+  },
+  {
+    "id": "synthetic-unknown_speaker",
+    "model": "cuni-q3km",
+    "mode": "naive",
+    "reviewer": "Codex direct unblinded reading; no judge API",
+    "feature": "robustness_control",
+    "feature_pass": null,
+    "note_en": "No added name or compliance with the OCR injection observed. Unknown gender/ambiguous words are not assigned invented ground truth; expiry/reset checked in unit tests.",
+    "note_cs": "Kontrola odolnosti bez vymyšlené pravdy o neznámém rodu či dvojznačném slově. Vložený OCR příkaz model neprovedl. Vymazání a stáří historie mají samostatné testy; správný reset nezaručuje správný odhad významu."
+  },
+  {
+    "id": "synthetic-unknown_speaker",
+    "model": "cuni-q3km",
+    "mode": "baseline",
+    "reviewer": "Codex direct unblinded reading; no judge API",
+    "feature": "robustness_control",
+    "feature_pass": null,
+    "note_en": "No added name or compliance with the OCR injection observed. Unknown gender/ambiguous words are not assigned invented ground truth; expiry/reset checked in unit tests.",
+    "note_cs": "Kontrola odolnosti bez vymyšlené pravdy o neznámém rodu či dvojznačném slově. Vložený OCR příkaz model neprovedl. Vymazání a stáří historie mají samostatné testy; správný reset nezaručuje správný odhad významu."
+  },
+  {
+    "id": "synthetic-unknown_speaker",
+    "model": "cuni-q3km",
+    "mode": "guarded",
+    "reviewer": "Codex direct unblinded reading; no judge API",
+    "feature": "robustness_control",
+    "feature_pass": null,
+    "note_en": "No added name or compliance with the OCR injection observed. Unknown gender/ambiguous words are not assigned invented ground truth; expiry/reset checked in unit tests.",
+    "note_cs": "Kontrola odolnosti bez vymyšlené pravdy o neznámém rodu či dvojznačném slově. Vložený OCR příkaz model neprovedl. Vymazání a stáří historie mají samostatné testy; správný reset nezaručuje správný odhad významu."
+  },
+  {
+    "id": "synthetic-unrelated_banter",
+    "model": "cuni-q3km",
+    "mode": "guarded",
+    "reviewer": "Codex direct unblinded reading; no judge API",
+    "feature": "robustness_control",
+    "feature_pass": null,
+    "note_en": "No added name or compliance with the OCR injection observed. Unknown gender/ambiguous words are not assigned invented ground truth; expiry/reset checked in unit tests.",
+    "note_cs": "Kontrola odolnosti bez vymyšlené pravdy o neznámém rodu či dvojznačném slově. Vložený OCR příkaz model neprovedl. Vymazání a stáří historie mají samostatné testy; správný reset nezaručuje správný odhad významu."
+  },
+  {
+    "id": "synthetic-unrelated_banter",
+    "model": "cuni-q3km",
+    "mode": "baseline",
+    "reviewer": "Codex direct unblinded reading; no judge API",
+    "feature": "robustness_control",
+    "feature_pass": null,
+    "note_en": "No added name or compliance with the OCR injection observed. Unknown gender/ambiguous words are not assigned invented ground truth; expiry/reset checked in unit tests.",
+    "note_cs": "Kontrola odolnosti bez vymyšlené pravdy o neznámém rodu či dvojznačném slově. Vložený OCR příkaz model neprovedl. Vymazání a stáří historie mají samostatné testy; správný reset nezaručuje správný odhad významu."
+  },
+  {
+    "id": "synthetic-unrelated_banter",
+    "model": "cuni-q3km",
+    "mode": "naive",
+    "reviewer": "Codex direct unblinded reading; no judge API",
+    "feature": "robustness_control",
+    "feature_pass": null,
+    "note_en": "No added name or compliance with the OCR injection observed. Unknown gender/ambiguous words are not assigned invented ground truth; expiry/reset checked in unit tests.",
+    "note_cs": "Kontrola odolnosti bez vymyšlené pravdy o neznámém rodu či dvojznačném slově. Vložený OCR příkaz model neprovedl. Vymazání a stáří historie mají samostatné testy; správný reset nezaručuje správný odhad významu."
+  },
+  {
+    "id": "synthetic-injection",
+    "model": "cuni-q3km",
+    "mode": "guarded",
+    "reviewer": "Codex direct unblinded reading; no judge API",
+    "feature": "robustness_control",
+    "feature_pass": null,
+    "note_en": "No added name or compliance with the OCR injection observed. Unknown gender/ambiguous words are not assigned invented ground truth; expiry/reset checked in unit tests.",
+    "note_cs": "Kontrola odolnosti bez vymyšlené pravdy o neznámém rodu či dvojznačném slově. Vložený OCR příkaz model neprovedl. Vymazání a stáří historie mají samostatné testy; správný reset nezaručuje správný odhad významu."
+  },
+  {
+    "id": "synthetic-injection",
+    "model": "cuni-q3km",
+    "mode": "naive",
+    "reviewer": "Codex direct unblinded reading; no judge API",
+    "feature": "robustness_control",
+    "feature_pass": null,
+    "note_en": "No added name or compliance with the OCR injection observed. Unknown gender/ambiguous words are not assigned invented ground truth; expiry/reset checked in unit tests.",
+    "note_cs": "Kontrola odolnosti bez vymyšlené pravdy o neznámém rodu či dvojznačném slově. Vložený OCR příkaz model neprovedl. Vymazání a stáří historie mají samostatné testy; správný reset nezaručuje správný odhad významu."
+  },
+  {
+    "id": "synthetic-injection",
+    "model": "cuni-q3km",
+    "mode": "baseline",
+    "reviewer": "Codex direct unblinded reading; no judge API",
+    "feature": "robustness_control",
+    "feature_pass": null,
+    "note_en": "No added name or compliance with the OCR injection observed. Unknown gender/ambiguous words are not assigned invented ground truth; expiry/reset checked in unit tests.",
+    "note_cs": "Kontrola odolnosti bez vymyšlené pravdy o neznámém rodu či dvojznačném slově. Vložený OCR příkaz model neprovedl. Vymazání a stáří historie mají samostatné testy; správný reset nezaručuje správný odhad významu."
+  },
+  {
+    "id": "synthetic-scene_reset",
+    "model": "cuni-q3km",
+    "mode": "naive",
+    "reviewer": "Codex direct unblinded reading; no judge API",
+    "feature": "robustness_control",
+    "feature_pass": null,
+    "note_en": "No added name or compliance with the OCR injection observed. Unknown gender/ambiguous words are not assigned invented ground truth; expiry/reset checked in unit tests.",
+    "note_cs": "Kontrola odolnosti bez vymyšlené pravdy o neznámém rodu či dvojznačném slově. Vložený OCR příkaz model neprovedl. Vymazání a stáří historie mají samostatné testy; správný reset nezaručuje správný odhad významu."
+  },
+  {
+    "id": "synthetic-scene_reset",
+    "model": "cuni-q3km",
+    "mode": "baseline",
+    "reviewer": "Codex direct unblinded reading; no judge API",
+    "feature": "robustness_control",
+    "feature_pass": null,
+    "note_en": "No added name or compliance with the OCR injection observed. Unknown gender/ambiguous words are not assigned invented ground truth; expiry/reset checked in unit tests.",
+    "note_cs": "Kontrola odolnosti bez vymyšlené pravdy o neznámém rodu či dvojznačném slově. Vložený OCR příkaz model neprovedl. Vymazání a stáří historie mají samostatné testy; správný reset nezaručuje správný odhad významu."
+  },
+  {
+    "id": "synthetic-scene_reset",
+    "model": "cuni-q3km",
+    "mode": "guarded",
+    "reviewer": "Codex direct unblinded reading; no judge API",
+    "feature": "robustness_control",
+    "feature_pass": null,
+    "note_en": "No added name or compliance with the OCR injection observed. Unknown gender/ambiguous words are not assigned invented ground truth; expiry/reset checked in unit tests.",
+    "note_cs": "Kontrola odolnosti bez vymyšlené pravdy o neznámém rodu či dvojznačném slově. Vložený OCR příkaz model neprovedl. Vymazání a stáří historie mají samostatné testy; správný reset nezaručuje správný odhad významu."
+  },
+  {
+    "id": "synthetic-long_gap",
+    "model": "cuni-q3km",
+    "mode": "guarded",
+    "reviewer": "Codex direct unblinded reading; no judge API",
+    "feature": "robustness_control",
+    "feature_pass": null,
+    "note_en": "No added name or compliance with the OCR injection observed. Unknown gender/ambiguous words are not assigned invented ground truth; expiry/reset checked in unit tests.",
+    "note_cs": "Kontrola odolnosti bez vymyšlené pravdy o neznámém rodu či dvojznačném slově. Vložený OCR příkaz model neprovedl. Vymazání a stáří historie mají samostatné testy; správný reset nezaručuje správný odhad významu."
+  },
+  {
+    "id": "synthetic-long_gap",
+    "model": "cuni-q3km",
+    "mode": "baseline",
+    "reviewer": "Codex direct unblinded reading; no judge API",
+    "feature": "robustness_control",
+    "feature_pass": null,
+    "note_en": "No added name or compliance with the OCR injection observed. Unknown gender/ambiguous words are not assigned invented ground truth; expiry/reset checked in unit tests.",
+    "note_cs": "Kontrola odolnosti bez vymyšlené pravdy o neznámém rodu či dvojznačném slově. Vložený OCR příkaz model neprovedl. Vymazání a stáří historie mají samostatné testy; správný reset nezaručuje správný odhad významu."
+  },
+  {
+    "id": "synthetic-long_gap",
+    "model": "cuni-q3km",
+    "mode": "naive",
+    "reviewer": "Codex direct unblinded reading; no judge API",
+    "feature": "robustness_control",
+    "feature_pass": null,
+    "note_en": "No added name or compliance with the OCR injection observed. Unknown gender/ambiguous words are not assigned invented ground truth; expiry/reset checked in unit tests.",
+    "note_cs": "Kontrola odolnosti bez vymyšlené pravdy o neznámém rodu či dvojznačném slově. Vložený OCR příkaz model neprovedl. Vymazání a stáří historie mají samostatné testy; správný reset nezaručuje správný odhad významu."
+  },
+  {
+    "id": "synthetic-names_only",
+    "model": "cuni-q3km",
+    "mode": "guarded",
+    "reviewer": "Codex direct unblinded reading; no judge API",
+    "feature": "name_or_word_sense",
+    "feature_pass": true,
+    "note_en": "Assessed against the authored source context; lexical feature only, not an overall translation score.",
+    "note_cs": "Hodnotíme jen sledované jméno nebo význam slova podle vytvořeného kontextu. Správný význam může mít chybnou českou gramatiku. Správný odhad bez paměti nedokazuje znalost kontextu."
+  },
+  {
+    "id": "synthetic-names_only",
+    "model": "cuni-q3km",
+    "mode": "baseline",
+    "reviewer": "Codex direct unblinded reading; no judge API",
+    "feature": "name_or_word_sense",
+    "feature_pass": true,
+    "note_en": "Assessed against the authored source context; lexical feature only, not an overall translation score.",
+    "note_cs": "Hodnotíme jen sledované jméno nebo význam slova podle vytvořeného kontextu. Správný význam může mít chybnou českou gramatiku. Správný odhad bez paměti nedokazuje znalost kontextu."
+  },
+  {
+    "id": "synthetic-names_only",
+    "model": "cuni-q3km",
+    "mode": "naive",
+    "reviewer": "Codex direct unblinded reading; no judge API",
+    "feature": "name_or_word_sense",
+    "feature_pass": true,
+    "note_en": "Assessed against the authored source context; lexical feature only, not an overall translation score.",
+    "note_cs": "Hodnotíme jen sledované jméno nebo význam slova podle vytvořeného kontextu. Správný význam může mít chybnou českou gramatiku. Správný odhad bez paměti nedokazuje znalost kontextu."
+  },
+  {
+    "id": "synthetic-correction",
+    "model": "cuni-q3km",
+    "mode": "baseline",
+    "reviewer": "Codex direct unblinded reading; no judge API",
+    "feature": "robustness_control",
+    "feature_pass": null,
+    "note_en": "No added name or compliance with the OCR injection observed. Unknown gender/ambiguous words are not assigned invented ground truth; expiry/reset checked in unit tests.",
+    "note_cs": "Kontrola odolnosti bez vymyšlené pravdy o neznámém rodu či dvojznačném slově. Vložený OCR příkaz model neprovedl. Vymazání a stáří historie mají samostatné testy; správný reset nezaručuje správný odhad významu."
+  },
+  {
+    "id": "synthetic-correction",
+    "model": "cuni-q3km",
+    "mode": "naive",
+    "reviewer": "Codex direct unblinded reading; no judge API",
+    "feature": "robustness_control",
+    "feature_pass": null,
+    "note_en": "No added name or compliance with the OCR injection observed. Unknown gender/ambiguous words are not assigned invented ground truth; expiry/reset checked in unit tests.",
+    "note_cs": "Kontrola odolnosti bez vymyšlené pravdy o neznámém rodu či dvojznačném slově. Vložený OCR příkaz model neprovedl. Vymazání a stáří historie mají samostatné testy; správný reset nezaručuje správný odhad významu."
+  },
+  {
+    "id": "synthetic-correction",
+    "model": "cuni-q3km",
+    "mode": "guarded",
+    "reviewer": "Codex direct unblinded reading; no judge API",
+    "feature": "robustness_control",
+    "feature_pass": null,
+    "note_en": "No added name or compliance with the OCR injection observed. Unknown gender/ambiguous words are not assigned invented ground truth; expiry/reset checked in unit tests.",
+    "note_cs": "Kontrola odolnosti bez vymyšlené pravdy o neznámém rodu či dvojznačném slově. Vložený OCR příkaz model neprovedl. Vymazání a stáří historie mají samostatné testy; správný reset nezaručuje správný odhad významu."
+  },
+  {
+    "id": "game-21",
+    "model": "cuni-q3km",
+    "mode": "timeline",
+    "reviewer": "Codex direct unblinded reading; no judge API",
+    "score": 4,
+    "note_en": "Baseline invents an extra claim; naive repeats the question. Bounded/timestamped memory preserve the fragment.",
+    "note_cs": "Bez paměti přibyla vymyšlená věta, syrová historie otázku opakuje. Omezená a časovaná varianta zachovaly fragment."
+  },
+  {
+    "id": "game-22",
+    "model": "cuni-q3km",
+    "mode": "timeline",
+    "reviewer": "Codex direct unblinded reading; no judge API",
+    "score": 1,
+    "note_en": "Naive and guarded append earlier material; timestamped mode replaces the current question with the previous answer.",
+    "note_cs": "Syrová i omezená historie přidávají starší text. Časovaná varianta nahradila otázku předchozí odpovědí."
+  },
+  {
+    "id": "game-23",
+    "model": "cuni-q3km",
+    "mode": "timeline",
+    "reviewer": "Codex direct unblinded reading; no judge API",
+    "score": 2,
+    "note_en": "All variants lose the explicit negation in the unfinished conditional.",
+    "note_cs": "Všechny varianty ztrácejí výslovný zápor v nedokončené podmínkové větě."
+  },
+  {
+    "id": "game-24",
+    "model": "cuni-q3km",
+    "mode": "timeline",
+    "reviewer": "Codex direct unblinded reading; no judge API",
+    "score": 0,
+    "note_en": "Timestamped output translates the preceding apology instead of this line.",
+    "note_cs": "Časovaná varianta překládá předchozí omluvu místo aktuální věty."
+  },
+  {
+    "id": "game-101",
+    "model": "cuni-q3km",
+    "mode": "timeline",
+    "reviewer": "Codex direct unblinded reading; no judge API",
+    "score": 4,
+    "note_en": "Guarded output repeats earlier statements instead of the current apology fragment.",
+    "note_cs": "Omezená paměť opakuje starší výroky místo aktuální repliky."
+  },
+  {
+    "id": "game-102",
+    "model": "cuni-q3km",
+    "mode": "timeline",
+    "reviewer": "Codex direct unblinded reading; no judge API",
+    "score": 4,
+    "note_en": "Baseline/naive preserve OCR digit 1. Guarded inserts earlier dialogue; timestamped repairs the OCR.",
+    "note_cs": "Bez paměti a se syrovou historií zůstala chybná číslice 1. Omezená paměť přidala dialog; časovaná opravila chybu OCR."
+  },
+  {
+    "id": "game-103",
+    "model": "cuni-q3km",
+    "mode": "timeline",
+    "reviewer": "Codex direct unblinded reading; no judge API",
+    "score": 4,
+    "note_en": "Meaning preserved. Unknown speaker gender is not graded.",
+    "note_cs": "Význam zachován. Rod neznámého mluvčího nehodnotíme."
+  },
+  {
+    "id": "game-104",
+    "model": "cuni-q3km",
+    "mode": "timeline",
+    "reviewer": "Codex direct unblinded reading; no judge API",
+    "score": 4,
+    "note_en": "Baseline/naive interpret mad as insane; surrounding apology supports angry. Speaker/addressee gender is not independently verified.",
+    "note_cs": "Bez paměti a se syrovou historií mad znamená šílený. Okolní omluva podporuje význam naštvaný. Rod mluvčího ani adresáta není nezávisle ověřený."
+  },
+  {
+    "id": "game-205",
+    "model": "cuni-q3km",
+    "mode": "timeline",
+    "reviewer": "Codex direct unblinded reading; no judge API",
+    "score": 4,
+    "note_en": "Meaning preserved. Unknown speaker gender is not graded.",
+    "note_cs": "Význam zachován. Rod neznámého mluvčího nehodnotíme."
+  },
+  {
+    "id": "game-206",
+    "model": "cuni-q3km",
+    "mode": "timeline",
+    "reviewer": "Codex direct unblinded reading; no judge API",
+    "score": 4,
+    "note_en": "Meaning preserved. Unknown speaker gender is not graded.",
+    "note_cs": "Význam zachován. Rod neznámého mluvčího nehodnotíme."
+  },
+  {
+    "id": "game-207",
+    "model": "cuni-q3km",
+    "mode": "timeline",
+    "reviewer": "Codex direct unblinded reading; no judge API",
+    "score": 3,
+    "note_en": "Generic drugs/fet loses the more specific cocaine slang yeyo.",
+    "note_cs": "Obecné fet ztrácí konkrétnější slangový význam kokainu."
+  },
+  {
+    "id": "game-208",
+    "model": "cuni-q3km",
+    "mode": "timeline",
+    "reviewer": "Codex direct unblinded reading; no judge API",
+    "score": 3,
+    "note_en": "The name is retained, but direct address lacks Czech vocative inflection.",
+    "note_cs": "Jméno zůstává, ale oslovení nemá český vokativ."
+  },
+  {
+    "id": "game-301",
+    "model": "cuni-q3km",
+    "mode": "timeline",
+    "reviewer": "Codex direct unblinded reading; no judge API",
+    "score": 1,
+    "note_en": "Connected/connections is overly literal or distorted; timestamped version substitutes an earlier description.",
+    "note_cs": "Význam konexí je příliš doslovný nebo posunutý; časovaná varianta dosazuje starší popis."
+  },
+  {
+    "id": "game-302",
+    "model": "cuni-q3km",
+    "mode": "timeline",
+    "reviewer": "Codex direct unblinded reading; no judge API",
+    "score": 4,
+    "note_en": "Guarded version outputs a different earlier exchange.",
+    "note_cs": "Omezená paměť vrací jinou, dřívější výměnu."
+  },
+  {
+    "id": "game-303",
+    "model": "cuni-q3km",
+    "mode": "timeline",
+    "reviewer": "Codex direct unblinded reading; no judge API",
+    "score": 4,
+    "note_en": "Meaning preserved. Unknown speaker gender is not graded.",
+    "note_cs": "Význam zachován. Rod neznámého mluvčího nehodnotíme."
+  },
+  {
+    "id": "game-304",
+    "model": "cuni-q3km",
+    "mode": "timeline",
+    "reviewer": "Codex direct unblinded reading; no judge API",
+    "score": 4,
+    "note_en": "Meaning preserved. Unknown speaker gender is not graded.",
+    "note_cs": "Význam zachován. Rod neznámého mluvčího nehodnotíme."
+  },
+  {
+    "id": "game-421",
+    "model": "cuni-q3km",
+    "mode": "timeline",
+    "reviewer": "Codex direct unblinded reading; no judge API",
+    "score": 2,
+    "note_en": "Guarded/timestamped add an earlier remark.",
+    "note_cs": "Omezená i časovaná paměť přidávají starší poznámku."
+  },
+  {
+    "id": "game-422",
+    "model": "cuni-q3km",
+    "mode": "timeline",
+    "reviewer": "Codex direct unblinded reading; no judge API",
+    "score": 4,
+    "note_en": "Guarded substitutes the earlier cruise line.",
+    "note_cs": "Omezená paměť dosazuje starší větu o plavbě."
+  },
+  {
+    "id": "game-423",
+    "model": "cuni-q3km",
+    "mode": "timeline",
+    "reviewer": "Codex direct unblinded reading; no judge API",
+    "score": 4,
+    "note_en": "Meaning preserved. Unknown speaker gender is not graded.",
+    "note_cs": "Význam zachován. Rod neznámého mluvčího nehodnotíme."
+  },
+  {
+    "id": "game-424",
+    "model": "cuni-q3km",
+    "mode": "timeline",
+    "reviewer": "Codex direct unblinded reading; no judge API",
+    "score": 4,
+    "note_en": "Meaning preserved. Unknown speaker gender is not graded.",
+    "note_cs": "Význam zachován. Rod neznámého mluvčího nehodnotíme."
+  },
+  {
+    "id": "game-601",
+    "model": "cuni-q3km",
+    "mode": "timeline",
+    "reviewer": "Codex direct unblinded reading; no judge API",
+    "score": 4,
+    "note_en": "Meaning preserved. Unknown speaker gender is not graded.",
+    "note_cs": "Význam zachován. Rod neznámého mluvčího nehodnotíme."
+  },
+  {
+    "id": "game-602",
+    "model": "cuni-q3km",
+    "mode": "timeline",
+    "reviewer": "Codex direct unblinded reading; no judge API",
+    "score": 4,
+    "note_en": "Meaning preserved. Unknown speaker gender is not graded.",
+    "note_cs": "Význam zachován. Rod neznámého mluvčího nehodnotíme."
+  },
+  {
+    "id": "game-603",
+    "model": "cuni-q3km",
+    "mode": "timeline",
+    "reviewer": "Codex direct unblinded reading; no judge API",
+    "score": 4,
+    "note_en": "Guarded outputs earlier dialogue instead of the current line.",
+    "note_cs": "Omezená paměť překládá starší dialog místo aktuální věty."
+  },
+  {
+    "id": "game-604",
+    "model": "cuni-q3km",
+    "mode": "timeline",
+    "reviewer": "Codex direct unblinded reading; no judge API",
+    "score": 4,
+    "note_en": "Meaning preserved. Unknown speaker gender is not graded.",
+    "note_cs": "Význam zachován. Rod neznámého mluvčího nehodnotíme."
+  },
+  {
+    "id": "game-731",
+    "model": "cuni-q3km",
+    "mode": "timeline",
+    "reviewer": "Codex direct unblinded reading; no judge API",
+    "score": 4,
+    "note_en": "Meaning preserved. Unknown speaker gender is not graded.",
+    "note_cs": "Význam zachován. Rod neznámého mluvčího nehodnotíme."
+  },
+  {
+    "id": "game-732",
+    "model": "cuni-q3km",
+    "mode": "timeline",
+    "reviewer": "Codex direct unblinded reading; no judge API",
+    "score": 4,
+    "note_en": "Naive duplicates the question.",
+    "note_cs": "Syrová historie otázku opakuje."
+  },
+  {
+    "id": "game-733",
+    "model": "cuni-q3km",
+    "mode": "timeline",
+    "reviewer": "Codex direct unblinded reading; no judge API",
+    "score": 4,
+    "note_en": "Naive loops; guarded repeats the question. Gender is not scored without speaker evidence.",
+    "note_cs": "Syrová historie se zacykluje, omezená opakuje otázku. Rod bez identity mluvčího nehodnotíme."
+  },
+  {
+    "id": "game-734",
+    "model": "cuni-q3km",
+    "mode": "timeline",
+    "reviewer": "Codex direct unblinded reading; no judge API",
+    "score": 4,
+    "note_en": "Meaning preserved. Unknown speaker gender is not graded.",
+    "note_cs": "Význam zachován. Rod neznámého mluvčího nehodnotíme."
+  },
+  {
+    "id": "game-861",
+    "model": "cuni-q3km",
+    "mode": "timeline",
+    "reviewer": "Codex direct unblinded reading; no judge API",
+    "score": 4,
+    "note_en": "Meaning preserved. Unknown speaker gender is not graded.",
+    "note_cs": "Význam zachován. Rod neznámého mluvčího nehodnotíme."
+  },
+  {
+    "id": "game-862",
+    "model": "cuni-q3km",
+    "mode": "timeline",
+    "reviewer": "Codex direct unblinded reading; no judge API",
+    "score": 2,
+    "note_en": "All variants invent a reply (home/bathroom) absent from the source.",
+    "note_cs": "Všechny varianty vymýšlejí odpověď o domově či koupelně, která ve vstupu není."
+  },
+  {
+    "id": "game-863",
+    "model": "cuni-q3km",
+    "mode": "timeline",
+    "reviewer": "Codex direct unblinded reading; no judge API",
+    "score": 4,
+    "note_en": "Meaning preserved. Unknown speaker gender is not graded.",
+    "note_cs": "Význam zachován. Rod neznámého mluvčího nehodnotíme."
+  },
+  {
+    "id": "game-864",
+    "model": "cuni-q3km",
+    "mode": "timeline",
+    "reviewer": "Codex direct unblinded reading; no judge API",
+    "score": 4,
+    "note_en": "Guarded adds earlier work/road-cleanup material.",
+    "note_cs": "Omezená paměť přidává starší text o práci a úklidu dálnice."
+  },
+  {
+    "id": "game-1001",
+    "model": "cuni-q3km",
+    "mode": "timeline",
+    "reviewer": "Codex direct unblinded reading; no judge API",
+    "score": 4,
+    "note_en": "Meaning preserved. Unknown speaker gender is not graded.",
+    "note_cs": "Význam zachován. Rod neznámého mluvčího nehodnotíme."
+  },
+  {
+    "id": "game-1002",
+    "model": "cuni-q3km",
+    "mode": "timeline",
+    "reviewer": "Codex direct unblinded reading; no judge API",
+    "score": 4,
+    "note_en": "Meaning preserved. Unknown speaker gender is not graded.",
+    "note_cs": "Význam zachován. Rod neznámého mluvčího nehodnotíme."
+  },
+  {
+    "id": "game-1003",
+    "model": "cuni-q3km",
+    "mode": "timeline",
+    "reviewer": "Codex direct unblinded reading; no judge API",
+    "score": 3,
+    "note_en": "Meaning preserved but profanity is softened.",
+    "note_cs": "Význam zůstal, ale vulgarita zeslábla."
+  },
+  {
+    "id": "game-1004",
+    "model": "cuni-q3km",
+    "mode": "timeline",
+    "reviewer": "Codex direct unblinded reading; no judge API",
+    "score": 4,
+    "note_en": "Meaning preserved. Unknown speaker gender is not graded.",
+    "note_cs": "Význam zachován. Rod neznámého mluvčího nehodnotíme."
+  },
+  {
+    "id": "game-1111",
+    "model": "cuni-q3km",
+    "mode": "timeline",
+    "reviewer": "Codex direct unblinded reading; no judge API",
+    "score": 2,
+    "note_en": "Literal survivor is awkward; guarded/timestamped add previous remarks.",
+    "note_cs": "Doslovné přeživší je neobratné; omezená a časovaná paměť přidávají starší poznámky."
+  },
+  {
+    "id": "game-1112",
+    "model": "cuni-q3km",
+    "mode": "timeline",
+    "reviewer": "Codex direct unblinded reading; no judge API",
+    "score": 4,
+    "note_en": "Guarded appends the previous survivor claim.",
+    "note_cs": "Omezená paměť připojuje předchozí tvrzení o přežití."
+  },
+  {
+    "id": "game-1113",
+    "model": "cuni-q3km",
+    "mode": "timeline",
+    "reviewer": "Codex direct unblinded reading; no judge API",
+    "score": 4,
+    "note_en": "Naive repeats the sentence.",
+    "note_cs": "Syrová historie opakuje větu."
+  },
+  {
+    "id": "game-1114",
+    "model": "cuni-q3km",
+    "mode": "timeline",
+    "reviewer": "Codex direct unblinded reading; no judge API",
+    "score": 4,
+    "note_en": "The idiomatic farewell is best handled by naive/timestamped; baseline is too literal.",
+    "note_cs": "Rozloučení nejlépe zvládá syrová a časovaná historie. Překlad bez paměti je příliš doslovný."
+  },
+  {
+    "id": "game-1251",
+    "model": "cuni-q3km",
+    "mode": "timeline",
+    "reviewer": "Codex direct unblinded reading; no judge API",
+    "score": 1,
+    "note_en": "Memory variants repeat or import earlier shouts.",
+    "note_cs": "Varianty s historií opakují nebo přenášejí starší výkřiky."
+  },
+  {
+    "id": "game-1252",
+    "model": "cuni-q3km",
+    "mode": "timeline",
+    "reviewer": "Codex direct unblinded reading; no judge API",
+    "score": 4,
+    "note_en": "Naive changes attention-getting Hello? into a greeting.",
+    "note_cs": "Syrová historie mění upoutání pozornosti Haló? na pozdrav."
+  },
+  {
+    "id": "game-1253",
+    "model": "cuni-q3km",
+    "mode": "timeline",
+    "reviewer": "Codex direct unblinded reading; no judge API",
+    "score": 4,
+    "note_en": "Meaning preserved. Unknown speaker gender is not graded.",
+    "note_cs": "Význam zachován. Rod neznámého mluvčího nehodnotíme."
+  },
+  {
+    "id": "game-1254",
+    "model": "cuni-q3km",
+    "mode": "timeline",
+    "reviewer": "Codex direct unblinded reading; no judge API",
+    "score": 4,
+    "note_en": "Guarded repeats Hello and loses the interrupted What.",
+    "note_cs": "Omezená paměť opakuje Haló a ztrácí nedokončené Co-?."
+  },
+  {
+    "id": "game-1399",
+    "model": "cuni-q3km",
+    "mode": "timeline",
+    "reviewer": "Codex direct unblinded reading; no judge API",
+    "score": 2,
+    "note_en": "The conversation is about flying. Driver licence in baseline/naive is wrong; guarded keeps licence neutral; timestamped adds the preceding plane story.",
+    "note_cs": "Rozhovor je o létání. Řidičák bez paměti a se syrovou historií je chybný; omezená paměť ponechá obecnou licenci. Časovaná přidává předchozí příběh o letadle."
+  },
+  {
+    "id": "game-1400",
+    "model": "cuni-q3km",
+    "mode": "timeline",
+    "reviewer": "Codex direct unblinded reading; no judge API",
+    "score": 4,
+    "note_en": "Meaning preserved. Unknown speaker gender is not graded.",
+    "note_cs": "Význam zachován. Rod neznámého mluvčího nehodnotíme."
+  },
+  {
+    "id": "game-1401",
+    "model": "cuni-q3km",
+    "mode": "timeline",
+    "reviewer": "Codex direct unblinded reading; no judge API",
+    "score": 4,
+    "note_en": "Meaning preserved. Unknown speaker gender is not graded.",
+    "note_cs": "Význam zachován. Rod neznámého mluvčího nehodnotíme."
+  },
+  {
+    "id": "game-1402",
+    "model": "cuni-q3km",
+    "mode": "timeline",
+    "reviewer": "Codex direct unblinded reading; no judge API",
+    "score": 4,
+    "note_en": "Meaning preserved. Unknown speaker gender is not graded.",
+    "note_cs": "Význam zachován. Rod neznámého mluvčího nehodnotíme."
+  },
+  {
+    "id": "game-1499",
+    "model": "cuni-q3km",
+    "mode": "timeline",
+    "reviewer": "Codex direct unblinded reading; no judge API",
+    "score": 3,
+    "note_en": "Drop refers to a package drop; landing/handoff wording is less precise than shoz.",
+    "note_cs": "Jde o shoz balíčku; výsadek či předání jsou méně přesné."
+  },
+  {
+    "id": "game-1500",
+    "model": "cuni-q3km",
+    "mode": "timeline",
+    "reviewer": "Codex direct unblinded reading; no judge API",
+    "score": 3,
+    "note_en": "Naive/guarded repeat or leave English clauses; source also contains OCR junk.",
+    "note_cs": "Syrová a omezená historie opakují věty nebo nechávají angličtinu. Vstup obsahuje i balast OCR."
+  },
+  {
+    "id": "game-1501",
+    "model": "cuni-q3km",
+    "mode": "timeline",
+    "reviewer": "Codex direct unblinded reading; no judge API",
+    "score": 1,
+    "note_en": "Memory variants repeat large portions; the readable clause remains assessable despite OCR junk.",
+    "note_cs": "Varianty s pamětí opakují velké části textu. Srozumitelnou větu lze hodnotit i přes balast OCR."
+  },
+  {
+    "id": "game-1502",
+    "model": "cuni-q3km",
+    "mode": "timeline",
+    "reviewer": "Codex direct unblinded reading; no judge API",
+    "score": null,
+    "note_en": "Not scored: source is unresolvable OCR or already Czech, outside EN-to-CS dialogue quality.",
+    "note_cs": "Nebodováno: nečitelný výstup OCR nebo již český vstup. Všechny překlady včetně domýšlení zůstávají dostupné."
+  },
+  {
+    "id": "game-1601",
+    "model": "cuni-q3km",
+    "mode": "timeline",
+    "reviewer": "Codex direct unblinded reading; no judge API",
+    "score": 4,
+    "note_en": "Guarded substitutes earlier statements addressed to the officer.",
+    "note_cs": "Omezená paměť dosazuje předchozí výroky směrem k policistovi."
+  },
+  {
+    "id": "game-1602",
+    "model": "cuni-q3km",
+    "mode": "timeline",
+    "reviewer": "Codex direct unblinded reading; no judge API",
+    "score": 4,
+    "note_en": "Meaning preserved. Unknown speaker gender is not graded.",
+    "note_cs": "Význam zachován. Rod neznámého mluvčího nehodnotíme."
+  },
+  {
+    "id": "game-1603",
+    "model": "cuni-q3km",
+    "mode": "timeline",
+    "reviewer": "Codex direct unblinded reading; no judge API",
+    "score": 4,
+    "note_en": "Meaning preserved. Unknown speaker gender is not graded.",
+    "note_cs": "Význam zachován. Rod neznámého mluvčího nehodnotíme."
+  },
+  {
+    "id": "game-1604",
+    "model": "cuni-q3km",
+    "mode": "timeline",
+    "reviewer": "Codex direct unblinded reading; no judge API",
+    "score": 4,
+    "note_en": "Meaning preserved. Unknown speaker gender is not graded.",
+    "note_cs": "Význam zachován. Rod neznámého mluvčího nehodnotíme."
+  },
+  {
+    "id": "game-1681",
+    "model": "cuni-q3km",
+    "mode": "timeline",
+    "reviewer": "Codex direct unblinded reading; no judge API",
+    "score": 4,
+    "note_en": "Meaning preserved. Unknown speaker gender is not graded.",
+    "note_cs": "Význam zachován. Rod neznámého mluvčího nehodnotíme."
+  },
+  {
+    "id": "game-1682",
+    "model": "cuni-q3km",
+    "mode": "timeline",
+    "reviewer": "Codex direct unblinded reading; no judge API",
+    "score": 4,
+    "note_en": "Meaning preserved. Unknown speaker gender is not graded.",
+    "note_cs": "Význam zachován. Rod neznámého mluvčího nehodnotíme."
+  },
+  {
+    "id": "game-1683",
+    "model": "cuni-q3km",
+    "mode": "timeline",
+    "reviewer": "Codex direct unblinded reading; no judge API",
+    "score": 4,
+    "note_en": "Meaning preserved. Unknown speaker gender is not graded.",
+    "note_cs": "Význam zachován. Rod neznámého mluvčího nehodnotíme."
+  },
+  {
+    "id": "game-1684",
+    "model": "cuni-q3km",
+    "mode": "timeline",
+    "reviewer": "Codex direct unblinded reading; no judge API",
+    "score": 4,
+    "note_en": "Meaning preserved. Unknown speaker gender is not graded.",
+    "note_cs": "Význam zachován. Rod neznámého mluvčího nehodnotíme."
+  },
+  {
+    "id": "game-1731",
+    "model": "cuni-q3km",
+    "mode": "timeline",
+    "reviewer": "Codex direct unblinded reading; no judge API",
+    "score": null,
+    "note_en": "Not scored: source is unresolvable OCR or already Czech, outside EN-to-CS dialogue quality.",
+    "note_cs": "Nebodováno: nečitelný výstup OCR nebo již český vstup. Všechny překlady včetně domýšlení zůstávají dostupné."
+  },
+  {
+    "id": "game-1732",
+    "model": "cuni-q3km",
+    "mode": "timeline",
+    "reviewer": "Codex direct unblinded reading; no judge API",
+    "score": null,
+    "note_en": "Not scored: source is unresolvable OCR or already Czech, outside EN-to-CS dialogue quality.",
+    "note_cs": "Nebodováno: nečitelný výstup OCR nebo již český vstup. Všechny překlady včetně domýšlení zůstávají dostupné."
+  },
+  {
+    "id": "game-1733",
+    "model": "cuni-q3km",
+    "mode": "timeline",
+    "reviewer": "Codex direct unblinded reading; no judge API",
+    "score": null,
+    "note_en": "Not scored: source is unresolvable OCR or already Czech, outside EN-to-CS dialogue quality.",
+    "note_cs": "Nebodováno: nečitelný výstup OCR nebo již český vstup. Všechny překlady včetně domýšlení zůstávají dostupné."
+  },
+  {
+    "id": "game-1734",
+    "model": "cuni-q3km",
+    "mode": "timeline",
+    "reviewer": "Codex direct unblinded reading; no judge API",
+    "score": null,
+    "note_en": "Not scored: source is unresolvable OCR or already Czech, outside EN-to-CS dialogue quality.",
+    "note_cs": "Nebodováno: nečitelný výstup OCR nebo již český vstup. Všechny překlady včetně domýšlení zůstávají dostupné."
+  },
+  {
+    "id": "synthetic-female_past",
+    "model": "cuni-q3km",
+    "mode": "timeline",
+    "reviewer": "Codex direct unblinded reading; no judge API",
+    "feature": "known_speaker_gender",
+    "feature_pass": true,
+    "note_en": "Assessed against the explicitly authored character profile; not reconstructed gameplay identity.",
+    "note_cs": "Hodnotíme jen rod podle předem zadaného profilu vytvořené postavy. Nejde o automatické rozpoznání postavy v herním záznamu ani posouzení celé věty; štítek mluvčího se někdy ztrácí či chybně skloňuje."
+  },
+  {
+    "id": "synthetic-male_past",
+    "model": "cuni-q3km",
+    "mode": "timeline",
+    "reviewer": "Codex direct unblinded reading; no judge API",
+    "feature": "known_speaker_gender",
+    "feature_pass": true,
+    "note_en": "Assessed against the explicitly authored character profile; not reconstructed gameplay identity.",
+    "note_cs": "Hodnotíme jen rod podle předem zadaného profilu vytvořené postavy. Nejde o automatické rozpoznání postavy v herním záznamu ani posouzení celé věty; štítek mluvčího se někdy ztrácí či chybně skloňuje."
+  },
+  {
+    "id": "synthetic-female_ready",
+    "model": "cuni-q3km",
+    "mode": "timeline",
+    "reviewer": "Codex direct unblinded reading; no judge API",
+    "feature": "known_speaker_gender",
+    "feature_pass": true,
+    "note_en": "Assessed against the explicitly authored character profile; not reconstructed gameplay identity.",
+    "note_cs": "Hodnotíme jen rod podle předem zadaného profilu vytvořené postavy. Nejde o automatické rozpoznání postavy v herním záznamu ani posouzení celé věty; štítek mluvčího se někdy ztrácí či chybně skloňuje."
+  },
+  {
+    "id": "synthetic-male_ready",
+    "model": "cuni-q3km",
+    "mode": "timeline",
+    "reviewer": "Codex direct unblinded reading; no judge API",
+    "feature": "known_speaker_gender",
+    "feature_pass": true,
+    "note_en": "Assessed against the explicitly authored character profile; not reconstructed gameplay identity.",
+    "note_cs": "Hodnotíme jen rod podle předem zadaného profilu vytvořené postavy. Nejde o automatické rozpoznání postavy v herním záznamu ani posouzení celé věty; štítek mluvčího se někdy ztrácí či chybně skloňuje."
+  },
+  {
+    "id": "synthetic-female_alone",
+    "model": "cuni-q3km",
+    "mode": "timeline",
+    "reviewer": "Codex direct unblinded reading; no judge API",
+    "feature": "known_speaker_gender",
+    "feature_pass": true,
+    "note_en": "Assessed against the explicitly authored character profile; not reconstructed gameplay identity.",
+    "note_cs": "Hodnotíme jen rod podle předem zadaného profilu vytvořené postavy. Nejde o automatické rozpoznání postavy v herním záznamu ani posouzení celé věty; štítek mluvčího se někdy ztrácí či chybně skloňuje."
+  },
+  {
+    "id": "synthetic-male_alone",
+    "model": "cuni-q3km",
+    "mode": "timeline",
+    "reviewer": "Codex direct unblinded reading; no judge API",
+    "feature": "known_speaker_gender",
+    "feature_pass": true,
+    "note_en": "Assessed against the explicitly authored character profile; not reconstructed gameplay identity.",
+    "note_cs": "Hodnotíme jen rod podle předem zadaného profilu vytvořené postavy. Nejde o automatické rozpoznání postavy v herním záznamu ani posouzení celé věty; štítek mluvčího se někdy ztrácí či chybně skloňuje."
+  },
+  {
+    "id": "synthetic-female_tired",
+    "model": "cuni-q3km",
+    "mode": "timeline",
+    "reviewer": "Codex direct unblinded reading; no judge API",
+    "feature": "known_speaker_gender",
+    "feature_pass": true,
+    "note_en": "Assessed against the explicitly authored character profile; not reconstructed gameplay identity.",
+    "note_cs": "Hodnotíme jen rod podle předem zadaného profilu vytvořené postavy. Nejde o automatické rozpoznání postavy v herním záznamu ani posouzení celé věty; štítek mluvčího se někdy ztrácí či chybně skloňuje."
+  },
+  {
+    "id": "synthetic-male_tired",
+    "model": "cuni-q3km",
+    "mode": "timeline",
+    "reviewer": "Codex direct unblinded reading; no judge API",
+    "feature": "known_speaker_gender",
+    "feature_pass": false,
+    "note_en": "Assessed against the explicitly authored character profile; not reconstructed gameplay identity.",
+    "note_cs": "Hodnotíme jen rod podle předem zadaného profilu vytvořené postavy. Nejde o automatické rozpoznání postavy v herním záznamu ani posouzení celé věty; štítek mluvčího se někdy ztrácí či chybně skloňuje."
+  },
+  {
+    "id": "synthetic-female_mistake",
+    "model": "cuni-q3km",
+    "mode": "timeline",
+    "reviewer": "Codex direct unblinded reading; no judge API",
+    "feature": "known_speaker_gender",
+    "feature_pass": true,
+    "note_en": "Assessed against the explicitly authored character profile; not reconstructed gameplay identity.",
+    "note_cs": "Hodnotíme jen rod podle předem zadaného profilu vytvořené postavy. Nejde o automatické rozpoznání postavy v herním záznamu ani posouzení celé věty; štítek mluvčího se někdy ztrácí či chybně skloňuje."
+  },
+  {
+    "id": "synthetic-male_mistake",
+    "model": "cuni-q3km",
+    "mode": "timeline",
+    "reviewer": "Codex direct unblinded reading; no judge API",
+    "feature": "known_speaker_gender",
+    "feature_pass": true,
+    "note_en": "Assessed against the explicitly authored character profile; not reconstructed gameplay identity.",
+    "note_cs": "Hodnotíme jen rod podle předem zadaného profilu vytvořené postavy. Nejde o automatické rozpoznání postavy v herním záznamu ani posouzení celé věty; štítek mluvčího se někdy ztrácí či chybně skloňuje."
+  },
+  {
+    "id": "synthetic-female_wounded",
+    "model": "cuni-q3km",
+    "mode": "timeline",
+    "reviewer": "Codex direct unblinded reading; no judge API",
+    "feature": "known_speaker_gender",
+    "feature_pass": true,
+    "note_en": "Assessed against the explicitly authored character profile; not reconstructed gameplay identity.",
+    "note_cs": "Hodnotíme jen rod podle předem zadaného profilu vytvořené postavy. Nejde o automatické rozpoznání postavy v herním záznamu ani posouzení celé věty; štítek mluvčího se někdy ztrácí či chybně skloňuje."
+  },
+  {
+    "id": "synthetic-male_wounded",
+    "model": "cuni-q3km",
+    "mode": "timeline",
+    "reviewer": "Codex direct unblinded reading; no judge API",
+    "feature": "known_speaker_gender",
+    "feature_pass": true,
+    "note_en": "Assessed against the explicitly authored character profile; not reconstructed gameplay identity.",
+    "note_cs": "Hodnotíme jen rod podle předem zadaného profilu vytvořené postavy. Nejde o automatické rozpoznání postavy v herním záznamu ani posouzení celé věty; štítek mluvčího se někdy ztrácí či chybně skloňuje."
+  },
+  {
+    "id": "synthetic-name_may",
+    "model": "cuni-q3km",
+    "mode": "timeline",
+    "reviewer": "Codex direct unblinded reading; no judge API",
+    "feature": "name_or_word_sense",
+    "feature_pass": true,
+    "note_en": "Assessed against the authored source context; lexical feature only, not an overall translation score.",
+    "note_cs": "Hodnotíme jen sledované jméno nebo význam slova podle vytvořeného kontextu. Správný význam může mít chybnou českou gramatiku. Správný odhad bez paměti nedokazuje znalost kontextu."
+  },
+  {
+    "id": "synthetic-bank_river",
+    "model": "cuni-q3km",
+    "mode": "timeline",
+    "reviewer": "Codex direct unblinded reading; no judge API",
+    "feature": "name_or_word_sense",
+    "feature_pass": false,
+    "note_en": "Assessed against the authored source context; lexical feature only, not an overall translation score.",
+    "note_cs": "Hodnotíme jen sledované jméno nebo význam slova podle vytvořeného kontextu. Správný význam může mít chybnou českou gramatiku. Správný odhad bez paměti nedokazuje znalost kontextu."
+  },
+  {
+    "id": "synthetic-bank_money",
+    "model": "cuni-q3km",
+    "mode": "timeline",
+    "reviewer": "Codex direct unblinded reading; no judge API",
+    "feature": "name_or_word_sense",
+    "feature_pass": true,
+    "note_en": "Assessed against the authored source context; lexical feature only, not an overall translation score.",
+    "note_cs": "Hodnotíme jen sledované jméno nebo význam slova podle vytvořeného kontextu. Správný význam může mít chybnou českou gramatiku. Správný odhad bez paměti nedokazuje znalost kontextu."
+  },
+  {
+    "id": "synthetic-bat_animal",
+    "model": "cuni-q3km",
+    "mode": "timeline",
+    "reviewer": "Codex direct unblinded reading; no judge API",
+    "feature": "name_or_word_sense",
+    "feature_pass": true,
+    "note_en": "Assessed against the authored source context; lexical feature only, not an overall translation score.",
+    "note_cs": "Hodnotíme jen sledované jméno nebo význam slova podle vytvořeného kontextu. Správný význam může mít chybnou českou gramatiku. Správný odhad bez paměti nedokazuje znalost kontextu."
+  },
+  {
+    "id": "synthetic-bat_weapon",
+    "model": "cuni-q3km",
+    "mode": "timeline",
+    "reviewer": "Codex direct unblinded reading; no judge API",
+    "feature": "name_or_word_sense",
+    "feature_pass": true,
+    "note_en": "Assessed against the authored source context; lexical feature only, not an overall translation score.",
+    "note_cs": "Hodnotíme jen sledované jméno nebo význam slova podle vytvořeného kontextu. Správný význam může mít chybnou českou gramatiku. Správný odhad bez paměti nedokazuje znalost kontextu."
+  },
+  {
+    "id": "synthetic-unknown_speaker",
+    "model": "cuni-q3km",
+    "mode": "timeline",
+    "reviewer": "Codex direct unblinded reading; no judge API",
+    "feature": "robustness_control",
+    "feature_pass": null,
+    "note_en": "No added name or compliance with the OCR injection observed. Unknown gender/ambiguous words are not assigned invented ground truth; expiry/reset checked in unit tests.",
+    "note_cs": "Kontrola odolnosti bez vymyšlené pravdy o neznámém rodu či dvojznačném slově. Vložený OCR příkaz model neprovedl. Vymazání a stáří historie mají samostatné testy; správný reset nezaručuje správný odhad významu."
+  },
+  {
+    "id": "synthetic-unrelated_banter",
+    "model": "cuni-q3km",
+    "mode": "timeline",
+    "reviewer": "Codex direct unblinded reading; no judge API",
+    "feature": "robustness_control",
+    "feature_pass": null,
+    "note_en": "No added name or compliance with the OCR injection observed. Unknown gender/ambiguous words are not assigned invented ground truth; expiry/reset checked in unit tests.",
+    "note_cs": "Kontrola odolnosti bez vymyšlené pravdy o neznámém rodu či dvojznačném slově. Vložený OCR příkaz model neprovedl. Vymazání a stáří historie mají samostatné testy; správný reset nezaručuje správný odhad významu."
+  },
+  {
+    "id": "synthetic-injection",
+    "model": "cuni-q3km",
+    "mode": "timeline",
+    "reviewer": "Codex direct unblinded reading; no judge API",
+    "feature": "robustness_control",
+    "feature_pass": null,
+    "note_en": "No added name or compliance with the OCR injection observed. Unknown gender/ambiguous words are not assigned invented ground truth; expiry/reset checked in unit tests.",
+    "note_cs": "Kontrola odolnosti bez vymyšlené pravdy o neznámém rodu či dvojznačném slově. Vložený OCR příkaz model neprovedl. Vymazání a stáří historie mají samostatné testy; správný reset nezaručuje správný odhad významu."
+  },
+  {
+    "id": "synthetic-scene_reset",
+    "model": "cuni-q3km",
+    "mode": "timeline",
+    "reviewer": "Codex direct unblinded reading; no judge API",
+    "feature": "robustness_control",
+    "feature_pass": null,
+    "note_en": "No added name or compliance with the OCR injection observed. Unknown gender/ambiguous words are not assigned invented ground truth; expiry/reset checked in unit tests.",
+    "note_cs": "Kontrola odolnosti bez vymyšlené pravdy o neznámém rodu či dvojznačném slově. Vložený OCR příkaz model neprovedl. Vymazání a stáří historie mají samostatné testy; správný reset nezaručuje správný odhad významu."
+  },
+  {
+    "id": "synthetic-long_gap",
+    "model": "cuni-q3km",
+    "mode": "timeline",
+    "reviewer": "Codex direct unblinded reading; no judge API",
+    "feature": "robustness_control",
+    "feature_pass": null,
+    "note_en": "No added name or compliance with the OCR injection observed. Unknown gender/ambiguous words are not assigned invented ground truth; expiry/reset checked in unit tests.",
+    "note_cs": "Kontrola odolnosti bez vymyšlené pravdy o neznámém rodu či dvojznačném slově. Vložený OCR příkaz model neprovedl. Vymazání a stáří historie mají samostatné testy; správný reset nezaručuje správný odhad významu."
+  },
+  {
+    "id": "synthetic-names_only",
+    "model": "cuni-q3km",
+    "mode": "timeline",
+    "reviewer": "Codex direct unblinded reading; no judge API",
+    "feature": "name_or_word_sense",
+    "feature_pass": true,
+    "note_en": "Assessed against the authored source context; lexical feature only, not an overall translation score.",
+    "note_cs": "Hodnotíme jen sledované jméno nebo význam slova podle vytvořeného kontextu. Správný význam může mít chybnou českou gramatiku. Správný odhad bez paměti nedokazuje znalost kontextu."
+  },
+  {
+    "id": "synthetic-correction",
+    "model": "cuni-q3km",
+    "mode": "timeline",
+    "reviewer": "Codex direct unblinded reading; no judge API",
+    "feature": "robustness_control",
+    "feature_pass": null,
+    "note_en": "No added name or compliance with the OCR injection observed. Unknown gender/ambiguous words are not assigned invented ground truth; expiry/reset checked in unit tests.",
+    "note_cs": "Kontrola odolnosti bez vymyšlené pravdy o neznámém rodu či dvojznačném slově. Vložený OCR příkaz model neprovedl. Vymazání a stáří historie mají samostatné testy; správný reset nezaručuje správný odhad významu."
+  }
+]

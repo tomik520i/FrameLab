@@ -36,8 +36,17 @@ struct SubtitleSettings {
  std::string sourceLanguage="en",targetLanguage="cs";
  float holdSeconds=1.2f,lingerSeconds=3.f;
  bool joinFragments=true;
+ bool conversationMemory=false; // opt-in source-only history, shared by all LLM providers
+ bool useConversationMemory()const{return conversationMemory&&(provider!=0||model!=0);}
  int contentFilter=2; // 0 off, 1 obvious noise/plates, 2 conservative model-assisted EN filter
- int provider=0; // 0 local, 1 optional OpenAI BYOK; local model selection is retained
+ bool selectedMemory=false; // same-model selection of earlier original evidence; experimental
+ bool useSelectedMemory()const{return useConversationMemory()&&selectedMemory&&(provider!=0||model>=4);}
+ int provider=0; // 0 local, 1 OpenAI BYOK, 2 user-configured AI endpoint
+ std::string customUrl="http://localhost:8080/v1",customProtocol="openai",customModel,customParameters="{}",customInstruction;
+ int customTimeout=30,customMaxTokens=256;
+ bool customTemperatureEnabled=false;float customTemperature=0;
+ unsigned customKeyRevision=0; // credentials remain in the endpoint-specific Windows vault
+ std::string contextTrace; // explicit diagnostic CLI only; never persisted
  std::string apiModel="gpt-6-luna",apiEffort="none";
  bool apiTemperatureEnabled=false;
  float apiTemperature=0;
@@ -56,7 +65,7 @@ struct SubtitlePerformance {
  double ocrQueueMs=0,translationMs=0,translationQueueMs=0,displayLatencyMs=0,modelLoadMs=0;
  bool ocrBusy=false,translationBusy=false;
 };
-struct SubtitleSnapshot {std::string source,translated,displaySource,status,filterBackend,computeDescription;float milliseconds=0,ocrMilliseconds=0,confidence=0;double observedAt=0,displayedAt=0,expiresAt=0;uint64_t generation=0;int activeModel=-1,pending=0;bool loading=false;SubtitlePerformance performance;std::vector<SubtitleOcrLine> ocrLines;unsigned sourceHeight=0;bool inspected=false;};
+struct SubtitleSnapshot {std::string source,translated,displaySource,status,filterBackend,computeDescription,contextStatus,contextDetails;float milliseconds=0,ocrMilliseconds=0,confidence=0;double observedAt=0,displayedAt=0,expiresAt=0;uint64_t generation=0;int activeModel=-1,pending=0;bool loading=false;SubtitlePerformance performance;std::vector<SubtitleOcrLine> ocrLines;unsigned sourceHeight=0;bool inspected=false;};
 class Diagnostics;
 class SubtitleTranslator {
 public:

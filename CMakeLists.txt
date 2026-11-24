@@ -43,7 +43,7 @@ add_executable(subtitle_filter_pipeline_test tests/subtitle_filter_pipeline.cpp 
 target_include_directories(subtitle_filter_pipeline_test PRIVATE src)
 target_compile_definitions(subtitle_filter_pipeline_test PRIVATE WIN32_LEAN_AND_MEAN NOMINMAX UNICODE _UNICODE)
 target_compile_options(subtitle_filter_pipeline_test PRIVATE /W3 /EHsc /utf-8)
-target_link_libraries(subtitle_filter_pipeline_test PRIVATE windowsapp)
+target_link_libraries(subtitle_filter_pipeline_test PRIVATE windowsapp winhttp)
 target_compile_definitions(FrameLab PRIVATE WIN32_LEAN_AND_MEAN NOMINMAX UNICODE _UNICODE)
 target_compile_options(FrameLab PRIVATE /W3 /EHsc /utf-8 /MP)
 target_link_libraries(FrameLab PRIVATE FrameLabRife d3d11 dxgi d3dcompiler quartz strmiids ole32 oleaut32 setupapi propsys mmdevapi winmm shell32 comdlg32 mf mfplat mfreadwrite mfuuid windowsapp dwmapi)

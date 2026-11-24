@@ -110,7 +110,7 @@ def available_models(key):
         and isinstance(r.get('id'), str) and re.fullmatch(r'[A-Za-z0-9_.:\-]{1,160}',r['id'])
         and (not r.get('shutdown_date') or str(r['shutdown_date']) > date.today().isoformat())})
 
-def build_request(model, source, target, text, *, effort='none', temperature=None, filtering=True):
+def build_request(model, source, target, text, *, effort='none', temperature=None, filtering=True, context=None):
     from subtitle_languages import languages
     langs = languages()
     if source not in langs or target not in langs or source == target:
@@ -138,6 +138,10 @@ def build_request(model, source, target, text, *, effort='none', temperature=Non
         if effort not in p['temperature_efforts'] or not 0 <= temperature <= 2:
             raise ApiError('Temperature is unavailable with this model/reasoning combination.')
         result['temperature'] = temperature
+    if context is not None:
+        from subtitle_context import CONTEXT_GUIDANCE
+        result['input'][0]['content']+=' '+CONTEXT_GUIDANCE+' Keep the required translate/text JSON response format.'
+        result['input'][1]['content']=json.dumps({'current_text':text,'context':context},ensure_ascii=False)
     return result
 
 def parse_response(response):
@@ -165,9 +169,9 @@ class OpenAiTranslator:
         self.last_usage={}
         self.usage_log=usage_log
         build_request(model,source,target,'validation',effort=effort,temperature=temperature,filtering=filtering)
-    def translate(self, text):
+    def translate(self, text, context=None):
         payload=build_request(self.model,self.source,self.target,text,effort=self.effort,
-                              temperature=self.temperature,filtering=self.filtering)
+                              temperature=self.temperature,filtering=self.filtering,context=context)
         self.last_usage={}
         response=request('responses',self.key,payload)
         self.last_usage=response.get('usage',{})
@@ -182,3 +186,19 @@ class OpenAiTranslator:
             except OSError:pass
         value,_=parse_response(response)
         return value['text'] if value['translate'] else 'FRAMELAB_SKIP_V1:api_non_dialogue'
+
+    def generate_memory(self,instruction,data):
+        # Start from the model-aware translation request so reasoning/temperature
+        # support follows the selected model's existing capability rules.
+        payload=build_request(self.model,self.source,self.target,'memory',effort=self.effort,temperature=self.temperature,filtering=False)
+        payload.pop('text',None)
+        payload['max_output_tokens']=256
+        payload['input']=[dict(role='developer',content=instruction),dict(role='user',content=json.dumps(data,ensure_ascii=False))]
+        response=request('responses',self.key,payload)
+        usage=response.get('usage',{})
+        if self.usage_log is not None:
+            import time
+            path=Path(self.usage_log);path.parent.mkdir(parents=True,exist_ok=True)
+            with path.open('a',encoding='utf-8') as out:out.write(json.dumps(dict(utc=time.strftime('%Y-%m-%dT%H:%M:%SZ',time.gmtime()),model=self.model,task='memory',usage=usage))+'\n')
+        if response.get('status')!='completed':raise ApiError('Memory response incomplete; recent history remains available.')
+        return ''.join(x.get('text','') for item in response.get('output',[]) if item.get('type')=='message' for x in item.get('content',[]) if x.get('type')=='output_text').strip()

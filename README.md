@@ -1,5 +1,7 @@
 # FrameLab
 
+**Development preview.19 (source only):** optional custom OpenAI-compatible/Ollama servers and experimental conversation memory. The selected model can retain original dialogue in the background; it defaults off and can worsen translations. [Actual OCR → display pilot](https://opicebot.cz/framelab/runs/2026-11-24-context-memory/live.html?lang=en) · [Method and limitations](docs/CONTEXT-LIVE-VALIDATION.md) · [Custom server setup](https://opicebot.cz/framelab/guide/custom-ai-en.html). Public download below remains preview.18; the planned 25 Czech + 50 multilingual context demonstrations are not complete.
+
 **Preview.17:** RIFE / DirectML for suitable non-NVIDIA GPUs, repaired Optical Flow, 40 language choices and TranslateGemma downloads. [Hardware and setup](docs/GPU-BACKENDS.md) · [Multilingual guide](docs/MULTILINGUAL.en.md) · [Measured results](docs/release-preview17.md).
 
 **Preview.18:** CUNI and TranslateGemma can select CUDA, Vulkan or CPU, with an independent translation GPU and optional GPU + RAM placement. Vulkan was exercised on Intel UHD and RTX 4050; AMD hardware remains untested. [Setup and measured limits](docs/local-translation-compute.cs.md).

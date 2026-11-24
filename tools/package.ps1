@@ -45,7 +45,7 @@ foreach ($sample in 'action.mp4','gta.mp4','ocr-demo.mp4','action.source.json','
 if ($Translation) {
  Copy-PublicComponent $TranslationDirectory "$stage/app/translation"
  Copy-Item 'docs/openai-model-profiles.json' "$stage/app/translation/"
- Copy-Item 'tools/translate_worker.py','tools/subtitle_models.py','tools/subtitle_model_manager.py','tools/subtitle_compute.py','tools/subtitle_gpu.py','tools/openai_translation.py','tools/subtitle_filter.py','tools/subtitle_entities.py' "$stage/app/translation/"
+ Copy-Item 'tools/translate_worker.py','tools/subtitle_models.py','tools/subtitle_model_manager.py','tools/subtitle_compute.py','tools/subtitle_gpu.py','tools/translation_memory.py','tools/translation_timeline.py','tools/subtitle_context.py','tools/subtitle_evidence_memory.py','tools/custom_ai_translation.py','tools/openai_translation.py','tools/subtitle_filter.py','tools/subtitle_entities.py' "$stage/app/translation/"
  Copy-Item 'docs/subtitle-models.json' "$stage/app/translation/"
 }
 if ($Complete) {

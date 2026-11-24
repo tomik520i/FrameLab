@@ -1,0 +1,266 @@
+{
+  "started_utc": "2026-11-24T18:39:49.079227+00:00",
+  "cases": [
+    {
+      "id": "game-603",
+      "source": "Know what? I should check on them."
+    },
+    {
+      "id": "game-422",
+      "source": "Almost the halfway point!"
+    },
+    {
+      "id": "game-1602",
+      "source": "Okay..."
+    },
+    {
+      "id": "game-1001",
+      "source": "The computer won't even let me get you an account,"
+    },
+    {
+      "id": "game-421",
+      "source": "Yep, day twelve of a twenty-eight day and night cruise."
+    },
+    {
+      "id": "game-23",
+      "source": "Damn, man, brother, I am sorry. If I'd have known I wouldn't have just..."
+    },
+    {
+      "id": "game-1002",
+      "source": "The computer won't even let me get you an account, much less one of our mortgage products."
+    },
+    {
+      "id": "game-21",
+      "source": "Oh. You too? Yeah. From the beginning"
+    },
+    {
+      "id": "game-1400",
+      "source": "Donnie?"
+    },
+    {
+      "id": "game-1254",
+      "source": "Idiot! Hello? Wha-?"
+    },
+    {
+      "id": "game-303",
+      "source": "Why? Why, Lu?"
+    },
+    {
+      "id": "game-1500",
+      "source": "Alright, we're approaching the drop. You ready with one of those packages? Pa"
+    },
+    {
+      "id": "game-1402",
+      "source": "Yeah, well."
+    },
+    {
+      "id": "game-302",
+      "source": "What- they're comin' here?"
+    },
+    {
+      "id": "game-301",
+      "source": "Oh, the guy who's connected to some connected people?"
+    },
+    {
+      "id": "game-1603",
+      "source": "Hop in."
+    },
+    {
+      "id": "game-734",
+      "source": "Yeah. I'm ready."
+    },
+    {
+      "id": "game-1003",
+      "source": "Are you bullshittin' me? We need an account."
+    },
+    {
+      "id": "game-1113",
+      "source": "Okay. I'II do that."
+    },
+    {
+      "id": "game-602",
+      "source": "Where are your rich friends?"
+    },
+    {
+      "id": "game-864",
+      "source": "Want a lift?"
+    },
+    {
+      "id": "game-1251",
+      "source": "Hey. you! move it! Hello?"
+    },
+    {
+      "id": "game-205",
+      "source": "Hey, barkeep, three beers!"
+    },
+    {
+      "id": "game-101",
+      "source": "Yes, you're the dad. I- I should have said."
+    },
+    {
+      "id": "game-1111",
+      "source": "I got it all figured out. I am a survivor, hoss."
+    },
+    {
+      "id": "game-1252",
+      "source": "Hello?"
+    },
+    {
+      "id": "game-1399",
+      "source": "I still technically don't have a license, so..."
+    },
+    {
+      "id": "game-604",
+      "source": "Just put it on their tab!"
+    },
+    {
+      "id": "game-1604",
+      "source": "What? Where am I going?"
+    },
+    {
+      "id": "game-1114",
+      "source": "Later, tater."
+    },
+    {
+      "id": "game-862",
+      "source": "Where you goin'?"
+    },
+    {
+      "id": "game-601",
+      "source": "Okay, girl. You know, I like the guy, but I'm just offering."
+    },
+    {
+      "id": "game-208",
+      "source": "Here she is. Lucia, this is Cal."
+    },
+    {
+      "id": "game-1682",
+      "source": "Yeah, you should do it."
+    },
+    {
+      "id": "game-1401",
+      "source": "Sorry I asked."
+    },
+    {
+      "id": "game-1004",
+      "source": "I'm sorry. I can't do that."
+    },
+    {
+      "id": "game-1601",
+      "source": "Yeah. Yes, sir."
+    },
+    {
+      "id": "game-732",
+      "source": "Yeah, are you ready?"
+    },
+    {
+      "id": "game-206",
+      "source": "And we're gonna be flush, too."
+    },
+    {
+      "id": "game-102",
+      "source": "1 am sorry."
+    },
+    {
+      "id": "game-424",
+      "source": "How's your mom?"
+    },
+    {
+      "id": "game-863",
+      "source": "Work detail. Highway cleanup."
+    },
+    {
+      "id": "game-1501",
+      "source": "Alright, we're approaching the drop. Pa You ready with one of those packages? ug"
+    },
+    {
+      "id": "game-1253",
+      "source": "Idiot!"
+    },
+    {
+      "id": "game-1681",
+      "source": "Meditate?"
+    },
+    {
+      "id": "game-1684",
+      "source": "Helps clear your mind."
+    },
+    {
+      "id": "game-304",
+      "source": "'Cause they're gonna help us!"
+    },
+    {
+      "id": "game-22",
+      "source": "Oh. You too?"
+    },
+    {
+      "id": "game-731",
+      "source": "Are you ready for this?"
+    },
+    {
+      "id": "game-423",
+      "source": "You enjoy it."
+    }
+  ],
+  "dataset_sha256": "0131a8e0a4c04c5c721d4b8325b8a0c62101edf87a8e7e37f01a351ca4b9e2de",
+  "order": "Pairs interleaved; server first on 25 pairs, OpenAI first on 25. Random seeded source selection. No parallel inference.",
+  "setup": "EN-CS; current caption only; no OCR/FG/NR; temperature 0; thinking off; 256 output tokens; both 12-second timeout. Existing FrameLab adapters: OpenAI Responses JSON versus server Chat Completions plain text. Measures full request, not GPU-only speed.",
+  "server_config": {
+    "url": "http://192.168.1.175:8080/v1",
+    "protocol": "openai",
+    "model": "/home/tomik520i/local_llm/model/gemma4-heretic/gemma-4-26B-A4B-it-ultra-uncensored-heretic-Q5_K_S.gguf",
+    "timeout_s": 12,
+    "max_tokens": 256,
+    "temperature": 0,
+    "parameters": {
+      "chat_template_kwargs": {
+        "enable_thinking": false
+      },
+      "reasoning_budget": 0
+    },
+    "instruction": ""
+  },
+  "api_model": "gpt-6-luna",
+  "api_cap_usd": 0.02,
+  "judge_calls": 0,
+  "completed_utc": "2026-11-24T18:41:34.287100+00:00",
+  "completed": 100,
+  "api_cost_usd": 0.0012788999999999995,
+  "failed_request_reserve_usd": 0,
+  "summary": {
+    "server": {
+      "latency_ms": {
+        "n": 50,
+        "median": 415.45090009458363,
+        "p95": 689.9912999942899,
+        "mean": 465.1490540150553,
+        "min": 297.40789998322725,
+        "max": 1367.5537998788059
+      },
+      "errors": 0
+    },
+    "openai": {
+      "latency_ms": {
+        "n": 50,
+        "median": 1485.1051500299945,
+        "p95": 2449.506999924779,
+        "mean": 1628.2653339905664,
+        "min": 1072.5775000173599,
+        "max": 3027.2975999396294
+      },
+      "errors": 0
+    }
+  },
+  "pair_wins": {
+    "server": 50,
+    "openai": 0
+  },
+  "paired_speed_ratio": {
+    "n": 50,
+    "median": 3.5096670515879107,
+    "p95": 6.663842823561513,
+    "mean": 3.7693765086649353,
+    "min": 1.3392970809913463,
+    "max": 7.771786209045674
+  }
+}

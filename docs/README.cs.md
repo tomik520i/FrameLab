@@ -1,5 +1,7 @@
 # FrameLab — česky
 
+**Vývojové preview.19 (zatím zdrojové kódy):** vlastní OpenAI-compatible/Ollama server a volitelná paměť rozhovoru. Vybraný model sám vybírá původní repliky na pozadí. Výchozí stav je vypnuto a některé překlady může zhoršit. [Pilot přes skutečné OCR a zobrazení](https://opicebot.cz/framelab/runs/2026-11-24-context-memory/live.html?lang=cs) · [Metoda a omezení](CONTEXT-LIVE-VALIDATION.md) · [Návod k serveru](https://opicebot.cz/framelab/guide/custom-ai.html). Veřejný ZIP zůstává preview.18; plánovaných 25 českých a 50 vícejazyčných kontextových ukázek ještě hotových není.
+
 **Preview.17:** RIFE / DirectML i pro vhodné GPU jiných výrobců, opravený Optical Flow, 40 jazykových voleb a stažení TranslateGemma v aplikaci. [GPU a nastavení](GPU-BACKENDS.md) · [Vícejazyčné titulky](MULTILINGUAL.md) · [Výsledky](release-preview17.md).
 
 Obraz ze střihovky nebo videa → GPU → monitor. Generování snímků, volitelný enhancer a lokální vícejazyčné titulky.

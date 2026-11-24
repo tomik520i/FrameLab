@@ -1,0 +1,3266 @@
+[
+  {
+    "id": "game-21",
+    "model": "translategemma-12b-q4km",
+    "mode": "timeline",
+    "reviewer": "Codex direct unblinded reading; no judge API",
+    "score": 4,
+    "note_en": "Meaning preserved. Unknown speaker gender is not graded.",
+    "note_cs": "Význam zachován. Rod neznámého mluvčího nehodnotíme."
+  },
+  {
+    "id": "game-21",
+    "model": "translategemma-12b-q4km",
+    "mode": "baseline",
+    "reviewer": "Codex direct unblinded reading; no judge API",
+    "score": 4,
+    "note_en": "Meaning preserved. Unknown speaker gender is not graded.",
+    "note_cs": "Význam zachován. Rod neznámého mluvčího nehodnotíme."
+  },
+  {
+    "id": "game-21",
+    "model": "translategemma-12b-q4km",
+    "mode": "guarded",
+    "reviewer": "Codex direct unblinded reading; no judge API",
+    "score": 4,
+    "note_en": "Meaning preserved. Unknown speaker gender is not graded.",
+    "note_cs": "Význam zachován. Rod neznámého mluvčího nehodnotíme."
+  },
+  {
+    "id": "game-21",
+    "model": "translategemma-12b-q4km",
+    "mode": "naive",
+    "reviewer": "Codex direct unblinded reading; no judge API",
+    "score": 4,
+    "note_en": "Meaning preserved. Unknown speaker gender is not graded.",
+    "note_cs": "Význam zachován. Rod neznámého mluvčího nehodnotíme."
+  },
+  {
+    "id": "game-22",
+    "model": "translategemma-12b-q4km",
+    "mode": "naive",
+    "reviewer": "Codex direct unblinded reading; no judge API",
+    "score": 4,
+    "note_en": "Meaning preserved. Unknown speaker gender is not graded.",
+    "note_cs": "Význam zachován. Rod neznámého mluvčího nehodnotíme."
+  },
+  {
+    "id": "game-22",
+    "model": "translategemma-12b-q4km",
+    "mode": "timeline",
+    "reviewer": "Codex direct unblinded reading; no judge API",
+    "score": 4,
+    "note_en": "Meaning preserved. Unknown speaker gender is not graded.",
+    "note_cs": "Význam zachován. Rod neznámého mluvčího nehodnotíme."
+  },
+  {
+    "id": "game-22",
+    "model": "translategemma-12b-q4km",
+    "mode": "guarded",
+    "reviewer": "Codex direct unblinded reading; no judge API",
+    "score": 4,
+    "note_en": "Meaning preserved. Unknown speaker gender is not graded.",
+    "note_cs": "Význam zachován. Rod neznámého mluvčího nehodnotíme."
+  },
+  {
+    "id": "game-22",
+    "model": "translategemma-12b-q4km",
+    "mode": "baseline",
+    "reviewer": "Codex direct unblinded reading; no judge API",
+    "score": 4,
+    "note_en": "Meaning preserved. Unknown speaker gender is not graded.",
+    "note_cs": "Význam zachován. Rod neznámého mluvčího nehodnotíme."
+  },
+  {
+    "id": "game-23",
+    "model": "translategemma-12b-q4km",
+    "mode": "guarded",
+    "reviewer": "Codex direct unblinded reading; no judge API",
+    "score": 2,
+    "note_en": "All variants lose the explicit negation in the unfinished conditional.",
+    "note_cs": "Ve všech variantách se ztrácí výslovný zápor v nedokončené podmínce."
+  },
+  {
+    "id": "game-23",
+    "model": "translategemma-12b-q4km",
+    "mode": "baseline",
+    "reviewer": "Codex direct unblinded reading; no judge API",
+    "score": 2,
+    "note_en": "All variants lose the explicit negation in the unfinished conditional.",
+    "note_cs": "Ve všech variantách se ztrácí výslovný zápor v nedokončené podmínce."
+  },
+  {
+    "id": "game-23",
+    "model": "translategemma-12b-q4km",
+    "mode": "naive",
+    "reviewer": "Codex direct unblinded reading; no judge API",
+    "score": 2,
+    "note_en": "All variants lose the explicit negation in the unfinished conditional.",
+    "note_cs": "Ve všech variantách se ztrácí výslovný zápor v nedokončené podmínce."
+  },
+  {
+    "id": "game-23",
+    "model": "translategemma-12b-q4km",
+    "mode": "timeline",
+    "reviewer": "Codex direct unblinded reading; no judge API",
+    "score": 2,
+    "note_en": "All variants lose the explicit negation in the unfinished conditional.",
+    "note_cs": "Ve všech variantách se ztrácí výslovný zápor v nedokončené podmínce."
+  },
+  {
+    "id": "game-24",
+    "model": "translategemma-12b-q4km",
+    "mode": "guarded",
+    "reviewer": "Codex direct unblinded reading; no judge API",
+    "score": 4,
+    "note_en": "Meaning preserved. Unknown speaker gender is not graded.",
+    "note_cs": "Význam zachován. Rod neznámého mluvčího nehodnotíme."
+  },
+  {
+    "id": "game-24",
+    "model": "translategemma-12b-q4km",
+    "mode": "baseline",
+    "reviewer": "Codex direct unblinded reading; no judge API",
+    "score": 4,
+    "note_en": "Meaning preserved. Unknown speaker gender is not graded.",
+    "note_cs": "Význam zachován. Rod neznámého mluvčího nehodnotíme."
+  },
+  {
+    "id": "game-24",
+    "model": "translategemma-12b-q4km",
+    "mode": "naive",
+    "reviewer": "Codex direct unblinded reading; no judge API",
+    "score": 4,
+    "note_en": "Meaning preserved. Unknown speaker gender is not graded.",
+    "note_cs": "Význam zachován. Rod neznámého mluvčího nehodnotíme."
+  },
+  {
+    "id": "game-24",
+    "model": "translategemma-12b-q4km",
+    "mode": "timeline",
+    "reviewer": "Codex direct unblinded reading; no judge API",
+    "score": 4,
+    "note_en": "Meaning preserved. Unknown speaker gender is not graded.",
+    "note_cs": "Význam zachován. Rod neznámého mluvčího nehodnotíme."
+  },
+  {
+    "id": "game-101",
+    "model": "translategemma-12b-q4km",
+    "mode": "naive",
+    "reviewer": "Codex direct unblinded reading; no judge API",
+    "score": 4,
+    "note_en": "Meaning preserved. Unknown speaker gender is not graded.",
+    "note_cs": "Význam zachován. Rod neznámého mluvčího nehodnotíme."
+  },
+  {
+    "id": "game-101",
+    "model": "translategemma-12b-q4km",
+    "mode": "timeline",
+    "reviewer": "Codex direct unblinded reading; no judge API",
+    "score": 4,
+    "note_en": "Meaning preserved. Unknown speaker gender is not graded.",
+    "note_cs": "Význam zachován. Rod neznámého mluvčího nehodnotíme."
+  },
+  {
+    "id": "game-101",
+    "model": "translategemma-12b-q4km",
+    "mode": "guarded",
+    "reviewer": "Codex direct unblinded reading; no judge API",
+    "score": 4,
+    "note_en": "Meaning preserved. Unknown speaker gender is not graded.",
+    "note_cs": "Význam zachován. Rod neznámého mluvčího nehodnotíme."
+  },
+  {
+    "id": "game-101",
+    "model": "translategemma-12b-q4km",
+    "mode": "baseline",
+    "reviewer": "Codex direct unblinded reading; no judge API",
+    "score": 4,
+    "note_en": "Meaning preserved. Unknown speaker gender is not graded.",
+    "note_cs": "Význam zachován. Rod neznámého mluvčího nehodnotíme."
+  },
+  {
+    "id": "game-102",
+    "model": "translategemma-12b-q4km",
+    "mode": "guarded",
+    "reviewer": "Codex direct unblinded reading; no judge API",
+    "score": 4,
+    "note_en": "Meaning preserved. Unknown speaker gender is not graded.",
+    "note_cs": "Význam zachován. Rod neznámého mluvčího nehodnotíme."
+  },
+  {
+    "id": "game-102",
+    "model": "translategemma-12b-q4km",
+    "mode": "naive",
+    "reviewer": "Codex direct unblinded reading; no judge API",
+    "score": 4,
+    "note_en": "Meaning preserved. Unknown speaker gender is not graded.",
+    "note_cs": "Význam zachován. Rod neznámého mluvčího nehodnotíme."
+  },
+  {
+    "id": "game-102",
+    "model": "translategemma-12b-q4km",
+    "mode": "timeline",
+    "reviewer": "Codex direct unblinded reading; no judge API",
+    "score": 4,
+    "note_en": "Meaning preserved. Unknown speaker gender is not graded.",
+    "note_cs": "Význam zachován. Rod neznámého mluvčího nehodnotíme."
+  },
+  {
+    "id": "game-102",
+    "model": "translategemma-12b-q4km",
+    "mode": "baseline",
+    "reviewer": "Codex direct unblinded reading; no judge API",
+    "score": 4,
+    "note_en": "Meaning preserved. Unknown speaker gender is not graded.",
+    "note_cs": "Význam zachován. Rod neznámého mluvčího nehodnotíme."
+  },
+  {
+    "id": "game-103",
+    "model": "translategemma-12b-q4km",
+    "mode": "timeline",
+    "reviewer": "Codex direct unblinded reading; no judge API",
+    "score": 4,
+    "note_en": "Meaning preserved. Unknown speaker gender is not graded.",
+    "note_cs": "Význam zachován. Rod neznámého mluvčího nehodnotíme."
+  },
+  {
+    "id": "game-103",
+    "model": "translategemma-12b-q4km",
+    "mode": "naive",
+    "reviewer": "Codex direct unblinded reading; no judge API",
+    "score": 4,
+    "note_en": "Meaning preserved. Unknown speaker gender is not graded.",
+    "note_cs": "Význam zachován. Rod neznámého mluvčího nehodnotíme."
+  },
+  {
+    "id": "game-103",
+    "model": "translategemma-12b-q4km",
+    "mode": "baseline",
+    "reviewer": "Codex direct unblinded reading; no judge API",
+    "score": 4,
+    "note_en": "Meaning preserved. Unknown speaker gender is not graded.",
+    "note_cs": "Význam zachován. Rod neznámého mluvčího nehodnotíme."
+  },
+  {
+    "id": "game-103",
+    "model": "translategemma-12b-q4km",
+    "mode": "guarded",
+    "reviewer": "Codex direct unblinded reading; no judge API",
+    "score": 4,
+    "note_en": "Meaning preserved. Unknown speaker gender is not graded.",
+    "note_cs": "Význam zachován. Rod neznámého mluvčího nehodnotíme."
+  },
+  {
+    "id": "game-104",
+    "model": "translategemma-12b-q4km",
+    "mode": "naive",
+    "reviewer": "Codex direct unblinded reading; no judge API",
+    "score": 2,
+    "note_en": "All variants read mad as insane, even though the preceding apology supports angry.",
+    "note_cs": "Všechny varianty vykládají mad jako šílený, i když předchozí omluva podporuje význam naštvaný."
+  },
+  {
+    "id": "game-104",
+    "model": "translategemma-12b-q4km",
+    "mode": "timeline",
+    "reviewer": "Codex direct unblinded reading; no judge API",
+    "score": 2,
+    "note_en": "All variants read mad as insane, even though the preceding apology supports angry.",
+    "note_cs": "Všechny varianty vykládají mad jako šílený, i když předchozí omluva podporuje význam naštvaný."
+  },
+  {
+    "id": "game-104",
+    "model": "translategemma-12b-q4km",
+    "mode": "baseline",
+    "reviewer": "Codex direct unblinded reading; no judge API",
+    "score": 2,
+    "note_en": "All variants read mad as insane, even though the preceding apology supports angry.",
+    "note_cs": "Všechny varianty vykládají mad jako šílený, i když předchozí omluva podporuje význam naštvaný."
+  },
+  {
+    "id": "game-104",
+    "model": "translategemma-12b-q4km",
+    "mode": "guarded",
+    "reviewer": "Codex direct unblinded reading; no judge API",
+    "score": 2,
+    "note_en": "All variants read mad as insane, even though the preceding apology supports angry.",
+    "note_cs": "Všechny varianty vykládají mad jako šílený, i když předchozí omluva podporuje význam naštvaný."
+  },
+  {
+    "id": "game-205",
+    "model": "translategemma-12b-q4km",
+    "mode": "naive",
+    "reviewer": "Codex direct unblinded reading; no judge API",
+    "score": 2,
+    "note_en": "Baseline/timestamped keep the barkeeper; raw says hospodari, bounded uses malformed obsluhu and changes the greeting.",
+    "note_cs": "Bez paměti a s časy je hospodský správně. Syrová historie dává hospodáři, omezená chybný tvar obsluhu a mění pozdrav."
+  },
+  {
+    "id": "game-205",
+    "model": "translategemma-12b-q4km",
+    "mode": "baseline",
+    "reviewer": "Codex direct unblinded reading; no judge API",
+    "score": 4,
+    "note_en": "Baseline/timestamped keep the barkeeper; raw says hospodari, bounded uses malformed obsluhu and changes the greeting.",
+    "note_cs": "Bez paměti a s časy je hospodský správně. Syrová historie dává hospodáři, omezená chybný tvar obsluhu a mění pozdrav."
+  },
+  {
+    "id": "game-205",
+    "model": "translategemma-12b-q4km",
+    "mode": "timeline",
+    "reviewer": "Codex direct unblinded reading; no judge API",
+    "score": 4,
+    "note_en": "Baseline/timestamped keep the barkeeper; raw says hospodari, bounded uses malformed obsluhu and changes the greeting.",
+    "note_cs": "Bez paměti a s časy je hospodský správně. Syrová historie dává hospodáři, omezená chybný tvar obsluhu a mění pozdrav."
+  },
+  {
+    "id": "game-205",
+    "model": "translategemma-12b-q4km",
+    "mode": "guarded",
+    "reviewer": "Codex direct unblinded reading; no judge API",
+    "score": 2,
+    "note_en": "Baseline/timestamped keep the barkeeper; raw says hospodari, bounded uses malformed obsluhu and changes the greeting.",
+    "note_cs": "Bez paměti a s časy je hospodský správně. Syrová historie dává hospodáři, omezená chybný tvar obsluhu a mění pozdrav."
+  },
+  {
+    "id": "game-206",
+    "model": "translategemma-12b-q4km",
+    "mode": "baseline",
+    "reviewer": "Codex direct unblinded reading; no judge API",
+    "score": 4,
+    "note_en": "Baseline is natural; history variants add the awkward A mysleno construction. Money meaning remains.",
+    "note_cs": "Bez paměti je věta přirozená; historie přidává neobratné A myšleno. Význam dostatku peněz zůstává."
+  },
+  {
+    "id": "game-206",
+    "model": "translategemma-12b-q4km",
+    "mode": "naive",
+    "reviewer": "Codex direct unblinded reading; no judge API",
+    "score": 3,
+    "note_en": "Baseline is natural; history variants add the awkward A mysleno construction. Money meaning remains.",
+    "note_cs": "Bez paměti je věta přirozená; historie přidává neobratné A myšleno. Význam dostatku peněz zůstává."
+  },
+  {
+    "id": "game-206",
+    "model": "translategemma-12b-q4km",
+    "mode": "guarded",
+    "reviewer": "Codex direct unblinded reading; no judge API",
+    "score": 3,
+    "note_en": "Baseline is natural; history variants add the awkward A mysleno construction. Money meaning remains.",
+    "note_cs": "Bez paměti je věta přirozená; historie přidává neobratné A myšleno. Význam dostatku peněz zůstává."
+  },
+  {
+    "id": "game-206",
+    "model": "translategemma-12b-q4km",
+    "mode": "timeline",
+    "reviewer": "Codex direct unblinded reading; no judge API",
+    "score": 3,
+    "note_en": "Baseline is natural; history variants add the awkward A mysleno construction. Money meaning remains.",
+    "note_cs": "Bez paměti je věta přirozená; historie přidává neobratné A myšleno. Význam dostatku peněz zůstává."
+  },
+  {
+    "id": "game-207",
+    "model": "translategemma-12b-q4km",
+    "mode": "baseline",
+    "reviewer": "Codex direct unblinded reading; no judge API",
+    "score": 3,
+    "note_en": "Generic drug loses cocaine slang; the profanity is also softened.",
+    "note_cs": "Obecná droga ztrácí slangový význam kokainu; vulgarita je také oslabená."
+  },
+  {
+    "id": "game-207",
+    "model": "translategemma-12b-q4km",
+    "mode": "guarded",
+    "reviewer": "Codex direct unblinded reading; no judge API",
+    "score": 3,
+    "note_en": "Generic drug loses cocaine slang; the profanity is also softened.",
+    "note_cs": "Obecná droga ztrácí slangový význam kokainu; vulgarita je také oslabená."
+  },
+  {
+    "id": "game-207",
+    "model": "translategemma-12b-q4km",
+    "mode": "timeline",
+    "reviewer": "Codex direct unblinded reading; no judge API",
+    "score": 3,
+    "note_en": "Generic drug loses cocaine slang; the profanity is also softened.",
+    "note_cs": "Obecná droga ztrácí slangový význam kokainu; vulgarita je také oslabená."
+  },
+  {
+    "id": "game-207",
+    "model": "translategemma-12b-q4km",
+    "mode": "naive",
+    "reviewer": "Codex direct unblinded reading; no judge API",
+    "score": 3,
+    "note_en": "Generic drug loses cocaine slang; the profanity is also softened.",
+    "note_cs": "Obecná droga ztrácí slangový význam kokainu; vulgarita je také oslabená."
+  },
+  {
+    "id": "game-208",
+    "model": "translategemma-12b-q4km",
+    "mode": "timeline",
+    "reviewer": "Codex direct unblinded reading; no judge API",
+    "score": 3,
+    "note_en": "The vocative/name becomes Lucii or Lucie rather than Lucio.",
+    "note_cs": "Oslovení se mění na Lucii nebo Lucie místo Lucio."
+  },
+  {
+    "id": "game-208",
+    "model": "translategemma-12b-q4km",
+    "mode": "baseline",
+    "reviewer": "Codex direct unblinded reading; no judge API",
+    "score": 3,
+    "note_en": "The vocative/name becomes Lucii or Lucie rather than Lucio.",
+    "note_cs": "Oslovení se mění na Lucii nebo Lucie místo Lucio."
+  },
+  {
+    "id": "game-208",
+    "model": "translategemma-12b-q4km",
+    "mode": "naive",
+    "reviewer": "Codex direct unblinded reading; no judge API",
+    "score": 3,
+    "note_en": "The vocative/name becomes Lucii or Lucie rather than Lucio.",
+    "note_cs": "Oslovení se mění na Lucii nebo Lucie místo Lucio."
+  },
+  {
+    "id": "game-208",
+    "model": "translategemma-12b-q4km",
+    "mode": "guarded",
+    "reviewer": "Codex direct unblinded reading; no judge API",
+    "score": 3,
+    "note_en": "The vocative/name becomes Lucii or Lucie rather than Lucio.",
+    "note_cs": "Oslovení se mění na Lucii nebo Lucie místo Lucio."
+  },
+  {
+    "id": "game-301",
+    "model": "translategemma-12b-q4km",
+    "mode": "timeline",
+    "reviewer": "Codex direct unblinded reading; no judge API",
+    "score": 4,
+    "note_en": "Meaning preserved. Unknown speaker gender is not graded.",
+    "note_cs": "Význam zachován. Rod neznámého mluvčího nehodnotíme."
+  },
+  {
+    "id": "game-301",
+    "model": "translategemma-12b-q4km",
+    "mode": "naive",
+    "reviewer": "Codex direct unblinded reading; no judge API",
+    "score": 4,
+    "note_en": "Meaning preserved. Unknown speaker gender is not graded.",
+    "note_cs": "Význam zachován. Rod neznámého mluvčího nehodnotíme."
+  },
+  {
+    "id": "game-301",
+    "model": "translategemma-12b-q4km",
+    "mode": "baseline",
+    "reviewer": "Codex direct unblinded reading; no judge API",
+    "score": 4,
+    "note_en": "Meaning preserved. Unknown speaker gender is not graded.",
+    "note_cs": "Význam zachován. Rod neznámého mluvčího nehodnotíme."
+  },
+  {
+    "id": "game-301",
+    "model": "translategemma-12b-q4km",
+    "mode": "guarded",
+    "reviewer": "Codex direct unblinded reading; no judge API",
+    "score": 4,
+    "note_en": "Meaning preserved. Unknown speaker gender is not graded.",
+    "note_cs": "Význam zachován. Rod neznámého mluvčího nehodnotíme."
+  },
+  {
+    "id": "game-302",
+    "model": "translategemma-12b-q4km",
+    "mode": "naive",
+    "reviewer": "Codex direct unblinded reading; no judge API",
+    "score": 4,
+    "note_en": "Meaning preserved. Unknown speaker gender is not graded.",
+    "note_cs": "Význam zachován. Rod neznámého mluvčího nehodnotíme."
+  },
+  {
+    "id": "game-302",
+    "model": "translategemma-12b-q4km",
+    "mode": "guarded",
+    "reviewer": "Codex direct unblinded reading; no judge API",
+    "score": 4,
+    "note_en": "Meaning preserved. Unknown speaker gender is not graded.",
+    "note_cs": "Význam zachován. Rod neznámého mluvčího nehodnotíme."
+  },
+  {
+    "id": "game-302",
+    "model": "translategemma-12b-q4km",
+    "mode": "timeline",
+    "reviewer": "Codex direct unblinded reading; no judge API",
+    "score": 4,
+    "note_en": "Meaning preserved. Unknown speaker gender is not graded.",
+    "note_cs": "Význam zachován. Rod neznámého mluvčího nehodnotíme."
+  },
+  {
+    "id": "game-302",
+    "model": "translategemma-12b-q4km",
+    "mode": "baseline",
+    "reviewer": "Codex direct unblinded reading; no judge API",
+    "score": 4,
+    "note_en": "Meaning preserved. Unknown speaker gender is not graded.",
+    "note_cs": "Význam zachován. Rod neznámého mluvčího nehodnotíme."
+  },
+  {
+    "id": "game-303",
+    "model": "translategemma-12b-q4km",
+    "mode": "baseline",
+    "reviewer": "Codex direct unblinded reading; no judge API",
+    "score": 4,
+    "note_en": "Meaning preserved. Unknown speaker gender is not graded.",
+    "note_cs": "Význam zachován. Rod neznámého mluvčího nehodnotíme."
+  },
+  {
+    "id": "game-303",
+    "model": "translategemma-12b-q4km",
+    "mode": "naive",
+    "reviewer": "Codex direct unblinded reading; no judge API",
+    "score": 4,
+    "note_en": "Meaning preserved. Unknown speaker gender is not graded.",
+    "note_cs": "Význam zachován. Rod neznámého mluvčího nehodnotíme."
+  },
+  {
+    "id": "game-303",
+    "model": "translategemma-12b-q4km",
+    "mode": "timeline",
+    "reviewer": "Codex direct unblinded reading; no judge API",
+    "score": 4,
+    "note_en": "Meaning preserved. Unknown speaker gender is not graded.",
+    "note_cs": "Význam zachován. Rod neznámého mluvčího nehodnotíme."
+  },
+  {
+    "id": "game-303",
+    "model": "translategemma-12b-q4km",
+    "mode": "guarded",
+    "reviewer": "Codex direct unblinded reading; no judge API",
+    "score": 4,
+    "note_en": "Meaning preserved. Unknown speaker gender is not graded.",
+    "note_cs": "Význam zachován. Rod neznámého mluvčího nehodnotíme."
+  },
+  {
+    "id": "game-304",
+    "model": "translategemma-12b-q4km",
+    "mode": "baseline",
+    "reviewer": "Codex direct unblinded reading; no judge API",
+    "score": 4,
+    "note_en": "Meaning preserved. Unknown speaker gender is not graded.",
+    "note_cs": "Význam zachován. Rod neznámého mluvčího nehodnotíme."
+  },
+  {
+    "id": "game-304",
+    "model": "translategemma-12b-q4km",
+    "mode": "guarded",
+    "reviewer": "Codex direct unblinded reading; no judge API",
+    "score": 4,
+    "note_en": "Meaning preserved. Unknown speaker gender is not graded.",
+    "note_cs": "Význam zachován. Rod neznámého mluvčího nehodnotíme."
+  },
+  {
+    "id": "game-304",
+    "model": "translategemma-12b-q4km",
+    "mode": "naive",
+    "reviewer": "Codex direct unblinded reading; no judge API",
+    "score": 4,
+    "note_en": "Meaning preserved. Unknown speaker gender is not graded.",
+    "note_cs": "Význam zachován. Rod neznámého mluvčího nehodnotíme."
+  },
+  {
+    "id": "game-304",
+    "model": "translategemma-12b-q4km",
+    "mode": "timeline",
+    "reviewer": "Codex direct unblinded reading; no judge API",
+    "score": 4,
+    "note_en": "Meaning preserved. Unknown speaker gender is not graded.",
+    "note_cs": "Význam zachován. Rod neznámého mluvčího nehodnotíme."
+  },
+  {
+    "id": "game-421",
+    "model": "translategemma-12b-q4km",
+    "mode": "guarded",
+    "reviewer": "Codex direct unblinded reading; no judge API",
+    "score": 2,
+    "note_en": "Raw history preserves 28 days with awkward grammar. Other arms invent malformed duration words such as dvacetiosmifakove/dvacetiosmifaremni.",
+    "note_cs": "Syrová historie zachová 28 dní s neobratnou gramatikou. Ostatní varianty tvoří chybné označení délky, například dvacetiosmifákové či dvacetiosmifaremní."
+  },
+  {
+    "id": "game-421",
+    "model": "translategemma-12b-q4km",
+    "mode": "naive",
+    "reviewer": "Codex direct unblinded reading; no judge API",
+    "score": 3,
+    "note_en": "Raw history preserves 28 days with awkward grammar. Other arms invent malformed duration words such as dvacetiosmifakove/dvacetiosmifaremni.",
+    "note_cs": "Syrová historie zachová 28 dní s neobratnou gramatikou. Ostatní varianty tvoří chybné označení délky, například dvacetiosmifákové či dvacetiosmifaremní."
+  },
+  {
+    "id": "game-421",
+    "model": "translategemma-12b-q4km",
+    "mode": "baseline",
+    "reviewer": "Codex direct unblinded reading; no judge API",
+    "score": 2,
+    "note_en": "Raw history preserves 28 days with awkward grammar. Other arms invent malformed duration words such as dvacetiosmifakove/dvacetiosmifaremni.",
+    "note_cs": "Syrová historie zachová 28 dní s neobratnou gramatikou. Ostatní varianty tvoří chybné označení délky, například dvacetiosmifákové či dvacetiosmifaremní."
+  },
+  {
+    "id": "game-421",
+    "model": "translategemma-12b-q4km",
+    "mode": "timeline",
+    "reviewer": "Codex direct unblinded reading; no judge API",
+    "score": 2,
+    "note_en": "Raw history preserves 28 days with awkward grammar. Other arms invent malformed duration words such as dvacetiosmifakove/dvacetiosmifaremni.",
+    "note_cs": "Syrová historie zachová 28 dní s neobratnou gramatikou. Ostatní varianty tvoří chybné označení délky, například dvacetiosmifákové či dvacetiosmifaremní."
+  },
+  {
+    "id": "game-422",
+    "model": "translategemma-12b-q4km",
+    "mode": "timeline",
+    "reviewer": "Codex direct unblinded reading; no judge API",
+    "score": 4,
+    "note_en": "Meaning preserved. Unknown speaker gender is not graded.",
+    "note_cs": "Význam zachován. Rod neznámého mluvčího nehodnotíme."
+  },
+  {
+    "id": "game-422",
+    "model": "translategemma-12b-q4km",
+    "mode": "guarded",
+    "reviewer": "Codex direct unblinded reading; no judge API",
+    "score": 4,
+    "note_en": "Meaning preserved. Unknown speaker gender is not graded.",
+    "note_cs": "Význam zachován. Rod neznámého mluvčího nehodnotíme."
+  },
+  {
+    "id": "game-422",
+    "model": "translategemma-12b-q4km",
+    "mode": "baseline",
+    "reviewer": "Codex direct unblinded reading; no judge API",
+    "score": 4,
+    "note_en": "Meaning preserved. Unknown speaker gender is not graded.",
+    "note_cs": "Význam zachován. Rod neznámého mluvčího nehodnotíme."
+  },
+  {
+    "id": "game-422",
+    "model": "translategemma-12b-q4km",
+    "mode": "naive",
+    "reviewer": "Codex direct unblinded reading; no judge API",
+    "score": 4,
+    "note_en": "Meaning preserved. Unknown speaker gender is not graded.",
+    "note_cs": "Význam zachován. Rod neznámého mluvčího nehodnotíme."
+  },
+  {
+    "id": "game-423",
+    "model": "translategemma-12b-q4km",
+    "mode": "baseline",
+    "reviewer": "Codex direct unblinded reading; no judge API",
+    "score": 2,
+    "note_en": "Baseline changes the wish/imperative into an indicative statement. Context restores the wish.",
+    "note_cs": "Bez paměti se přání mění na oznamovací větu. Kontext obnoví přání Užijte si to."
+  },
+  {
+    "id": "game-423",
+    "model": "translategemma-12b-q4km",
+    "mode": "guarded",
+    "reviewer": "Codex direct unblinded reading; no judge API",
+    "score": 4,
+    "note_en": "Baseline changes the wish/imperative into an indicative statement. Context restores the wish.",
+    "note_cs": "Bez paměti se přání mění na oznamovací větu. Kontext obnoví přání Užijte si to."
+  },
+  {
+    "id": "game-423",
+    "model": "translategemma-12b-q4km",
+    "mode": "timeline",
+    "reviewer": "Codex direct unblinded reading; no judge API",
+    "score": 4,
+    "note_en": "Baseline changes the wish/imperative into an indicative statement. Context restores the wish.",
+    "note_cs": "Bez paměti se přání mění na oznamovací větu. Kontext obnoví přání Užijte si to."
+  },
+  {
+    "id": "game-423",
+    "model": "translategemma-12b-q4km",
+    "mode": "naive",
+    "reviewer": "Codex direct unblinded reading; no judge API",
+    "score": 4,
+    "note_en": "Baseline changes the wish/imperative into an indicative statement. Context restores the wish.",
+    "note_cs": "Bez paměti se přání mění na oznamovací větu. Kontext obnoví přání Užijte si to."
+  },
+  {
+    "id": "game-424",
+    "model": "translategemma-12b-q4km",
+    "mode": "timeline",
+    "reviewer": "Codex direct unblinded reading; no judge API",
+    "score": 4,
+    "note_en": "Meaning preserved. Unknown speaker gender is not graded.",
+    "note_cs": "Význam zachován. Rod neznámého mluvčího nehodnotíme."
+  },
+  {
+    "id": "game-424",
+    "model": "translategemma-12b-q4km",
+    "mode": "baseline",
+    "reviewer": "Codex direct unblinded reading; no judge API",
+    "score": 4,
+    "note_en": "Meaning preserved. Unknown speaker gender is not graded.",
+    "note_cs": "Význam zachován. Rod neznámého mluvčího nehodnotíme."
+  },
+  {
+    "id": "game-424",
+    "model": "translategemma-12b-q4km",
+    "mode": "guarded",
+    "reviewer": "Codex direct unblinded reading; no judge API",
+    "score": 4,
+    "note_en": "Meaning preserved. Unknown speaker gender is not graded.",
+    "note_cs": "Význam zachován. Rod neznámého mluvčího nehodnotíme."
+  },
+  {
+    "id": "game-424",
+    "model": "translategemma-12b-q4km",
+    "mode": "naive",
+    "reviewer": "Codex direct unblinded reading; no judge API",
+    "score": 4,
+    "note_en": "Meaning preserved. Unknown speaker gender is not graded.",
+    "note_cs": "Význam zachován. Rod neznámého mluvčího nehodnotíme."
+  },
+  {
+    "id": "game-601",
+    "model": "translategemma-12b-q4km",
+    "mode": "guarded",
+    "reviewer": "Codex direct unblinded reading; no judge API",
+    "score": 4,
+    "note_en": "Baseline changes offering into merely telling; context retains offering. Unknown gender is not scored.",
+    "note_cs": "Bez paměti se nabídka mění na pouhé říkání; kontext nabídku zachová. Neznámý rod nehodnotíme."
+  },
+  {
+    "id": "game-601",
+    "model": "translategemma-12b-q4km",
+    "mode": "naive",
+    "reviewer": "Codex direct unblinded reading; no judge API",
+    "score": 4,
+    "note_en": "Baseline changes offering into merely telling; context retains offering. Unknown gender is not scored.",
+    "note_cs": "Bez paměti se nabídka mění na pouhé říkání; kontext nabídku zachová. Neznámý rod nehodnotíme."
+  },
+  {
+    "id": "game-601",
+    "model": "translategemma-12b-q4km",
+    "mode": "baseline",
+    "reviewer": "Codex direct unblinded reading; no judge API",
+    "score": 3,
+    "note_en": "Baseline changes offering into merely telling; context retains offering. Unknown gender is not scored.",
+    "note_cs": "Bez paměti se nabídka mění na pouhé říkání; kontext nabídku zachová. Neznámý rod nehodnotíme."
+  },
+  {
+    "id": "game-601",
+    "model": "translategemma-12b-q4km",
+    "mode": "timeline",
+    "reviewer": "Codex direct unblinded reading; no judge API",
+    "score": 4,
+    "note_en": "Baseline changes offering into merely telling; context retains offering. Unknown gender is not scored.",
+    "note_cs": "Bez paměti se nabídka mění na pouhé říkání; kontext nabídku zachová. Neznámý rod nehodnotíme."
+  },
+  {
+    "id": "game-602",
+    "model": "translategemma-12b-q4km",
+    "mode": "guarded",
+    "reviewer": "Codex direct unblinded reading; no judge API",
+    "score": 4,
+    "note_en": "Meaning preserved. Unknown speaker gender is not graded.",
+    "note_cs": "Význam zachován. Rod neznámého mluvčího nehodnotíme."
+  },
+  {
+    "id": "game-602",
+    "model": "translategemma-12b-q4km",
+    "mode": "baseline",
+    "reviewer": "Codex direct unblinded reading; no judge API",
+    "score": 4,
+    "note_en": "Meaning preserved. Unknown speaker gender is not graded.",
+    "note_cs": "Význam zachován. Rod neznámého mluvčího nehodnotíme."
+  },
+  {
+    "id": "game-602",
+    "model": "translategemma-12b-q4km",
+    "mode": "naive",
+    "reviewer": "Codex direct unblinded reading; no judge API",
+    "score": 4,
+    "note_en": "Meaning preserved. Unknown speaker gender is not graded.",
+    "note_cs": "Význam zachován. Rod neznámého mluvčího nehodnotíme."
+  },
+  {
+    "id": "game-602",
+    "model": "translategemma-12b-q4km",
+    "mode": "timeline",
+    "reviewer": "Codex direct unblinded reading; no judge API",
+    "score": 4,
+    "note_en": "Meaning preserved. Unknown speaker gender is not graded.",
+    "note_cs": "Význam zachován. Rod neznámého mluvčího nehodnotíme."
+  },
+  {
+    "id": "game-603",
+    "model": "translategemma-12b-q4km",
+    "mode": "guarded",
+    "reviewer": "Codex direct unblinded reading; no judge API",
+    "score": 4,
+    "note_en": "Meaning preserved. Unknown speaker gender is not graded.",
+    "note_cs": "Význam zachován. Rod neznámého mluvčího nehodnotíme."
+  },
+  {
+    "id": "game-603",
+    "model": "translategemma-12b-q4km",
+    "mode": "naive",
+    "reviewer": "Codex direct unblinded reading; no judge API",
+    "score": 4,
+    "note_en": "Meaning preserved. Unknown speaker gender is not graded.",
+    "note_cs": "Význam zachován. Rod neznámého mluvčího nehodnotíme."
+  },
+  {
+    "id": "game-603",
+    "model": "translategemma-12b-q4km",
+    "mode": "baseline",
+    "reviewer": "Codex direct unblinded reading; no judge API",
+    "score": 4,
+    "note_en": "Meaning preserved. Unknown speaker gender is not graded.",
+    "note_cs": "Význam zachován. Rod neznámého mluvčího nehodnotíme."
+  },
+  {
+    "id": "game-603",
+    "model": "translategemma-12b-q4km",
+    "mode": "timeline",
+    "reviewer": "Codex direct unblinded reading; no judge API",
+    "score": 4,
+    "note_en": "Meaning preserved. Unknown speaker gender is not graded.",
+    "note_cs": "Význam zachován. Rod neznámého mluvčího nehodnotíme."
+  },
+  {
+    "id": "game-604",
+    "model": "translategemma-12b-q4km",
+    "mode": "naive",
+    "reviewer": "Codex direct unblinded reading; no judge API",
+    "score": 4,
+    "note_en": "Meaning preserved. Unknown speaker gender is not graded.",
+    "note_cs": "Význam zachován. Rod neznámého mluvčího nehodnotíme."
+  },
+  {
+    "id": "game-604",
+    "model": "translategemma-12b-q4km",
+    "mode": "baseline",
+    "reviewer": "Codex direct unblinded reading; no judge API",
+    "score": 4,
+    "note_en": "Meaning preserved. Unknown speaker gender is not graded.",
+    "note_cs": "Význam zachován. Rod neznámého mluvčího nehodnotíme."
+  },
+  {
+    "id": "game-604",
+    "model": "translategemma-12b-q4km",
+    "mode": "guarded",
+    "reviewer": "Codex direct unblinded reading; no judge API",
+    "score": 4,
+    "note_en": "Meaning preserved. Unknown speaker gender is not graded.",
+    "note_cs": "Význam zachován. Rod neznámého mluvčího nehodnotíme."
+  },
+  {
+    "id": "game-604",
+    "model": "translategemma-12b-q4km",
+    "mode": "timeline",
+    "reviewer": "Codex direct unblinded reading; no judge API",
+    "score": 4,
+    "note_en": "Meaning preserved. Unknown speaker gender is not graded.",
+    "note_cs": "Význam zachován. Rod neznámého mluvčího nehodnotíme."
+  },
+  {
+    "id": "game-731",
+    "model": "translategemma-12b-q4km",
+    "mode": "guarded",
+    "reviewer": "Codex direct unblinded reading; no judge API",
+    "score": 4,
+    "note_en": "Meaning preserved. Unknown speaker gender is not graded.",
+    "note_cs": "Význam zachován. Rod neznámého mluvčího nehodnotíme."
+  },
+  {
+    "id": "game-731",
+    "model": "translategemma-12b-q4km",
+    "mode": "timeline",
+    "reviewer": "Codex direct unblinded reading; no judge API",
+    "score": 4,
+    "note_en": "Meaning preserved. Unknown speaker gender is not graded.",
+    "note_cs": "Význam zachován. Rod neznámého mluvčího nehodnotíme."
+  },
+  {
+    "id": "game-731",
+    "model": "translategemma-12b-q4km",
+    "mode": "naive",
+    "reviewer": "Codex direct unblinded reading; no judge API",
+    "score": 4,
+    "note_en": "Meaning preserved. Unknown speaker gender is not graded.",
+    "note_cs": "Význam zachován. Rod neznámého mluvčího nehodnotíme."
+  },
+  {
+    "id": "game-731",
+    "model": "translategemma-12b-q4km",
+    "mode": "baseline",
+    "reviewer": "Codex direct unblinded reading; no judge API",
+    "score": 4,
+    "note_en": "Meaning preserved. Unknown speaker gender is not graded.",
+    "note_cs": "Význam zachován. Rod neznámého mluvčího nehodnotíme."
+  },
+  {
+    "id": "game-732",
+    "model": "translategemma-12b-q4km",
+    "mode": "timeline",
+    "reviewer": "Codex direct unblinded reading; no judge API",
+    "score": 4,
+    "note_en": "Meaning preserved. Unknown speaker gender is not graded.",
+    "note_cs": "Význam zachován. Rod neznámého mluvčího nehodnotíme."
+  },
+  {
+    "id": "game-732",
+    "model": "translategemma-12b-q4km",
+    "mode": "baseline",
+    "reviewer": "Codex direct unblinded reading; no judge API",
+    "score": 4,
+    "note_en": "Meaning preserved. Unknown speaker gender is not graded.",
+    "note_cs": "Význam zachován. Rod neznámého mluvčího nehodnotíme."
+  },
+  {
+    "id": "game-732",
+    "model": "translategemma-12b-q4km",
+    "mode": "naive",
+    "reviewer": "Codex direct unblinded reading; no judge API",
+    "score": 4,
+    "note_en": "Meaning preserved. Unknown speaker gender is not graded.",
+    "note_cs": "Význam zachován. Rod neznámého mluvčího nehodnotíme."
+  },
+  {
+    "id": "game-732",
+    "model": "translategemma-12b-q4km",
+    "mode": "guarded",
+    "reviewer": "Codex direct unblinded reading; no judge API",
+    "score": 4,
+    "note_en": "Meaning preserved. Unknown speaker gender is not graded.",
+    "note_cs": "Význam zachován. Rod neznámého mluvčího nehodnotíme."
+  },
+  {
+    "id": "game-733",
+    "model": "translategemma-12b-q4km",
+    "mode": "baseline",
+    "reviewer": "Codex direct unblinded reading; no judge API",
+    "score": 4,
+    "note_en": "Meaning preserved. Unknown speaker gender is not graded.",
+    "note_cs": "Význam zachován. Rod neznámého mluvčího nehodnotíme."
+  },
+  {
+    "id": "game-733",
+    "model": "translategemma-12b-q4km",
+    "mode": "timeline",
+    "reviewer": "Codex direct unblinded reading; no judge API",
+    "score": 4,
+    "note_en": "Meaning preserved. Unknown speaker gender is not graded.",
+    "note_cs": "Význam zachován. Rod neznámého mluvčího nehodnotíme."
+  },
+  {
+    "id": "game-733",
+    "model": "translategemma-12b-q4km",
+    "mode": "guarded",
+    "reviewer": "Codex direct unblinded reading; no judge API",
+    "score": 4,
+    "note_en": "Meaning preserved. Unknown speaker gender is not graded.",
+    "note_cs": "Význam zachován. Rod neznámého mluvčího nehodnotíme."
+  },
+  {
+    "id": "game-733",
+    "model": "translategemma-12b-q4km",
+    "mode": "naive",
+    "reviewer": "Codex direct unblinded reading; no judge API",
+    "score": 4,
+    "note_en": "Meaning preserved. Unknown speaker gender is not graded.",
+    "note_cs": "Význam zachován. Rod neznámého mluvčího nehodnotíme."
+  },
+  {
+    "id": "game-734",
+    "model": "translategemma-12b-q4km",
+    "mode": "timeline",
+    "reviewer": "Codex direct unblinded reading; no judge API",
+    "score": 4,
+    "note_en": "Baseline/raw print a literal gender alternative pripraven/a. Bounded/timestamped are fluent; an unknown gender itself is not graded.",
+    "note_cs": "Bez paměti a se syrovou historií se zobrazí alternativa připraven/a. Omezená a časovaná varianta jsou plynulé; samotný neznámý rod nebodujeme."
+  },
+  {
+    "id": "game-734",
+    "model": "translategemma-12b-q4km",
+    "mode": "naive",
+    "reviewer": "Codex direct unblinded reading; no judge API",
+    "score": 3,
+    "note_en": "Baseline/raw print a literal gender alternative pripraven/a. Bounded/timestamped are fluent; an unknown gender itself is not graded.",
+    "note_cs": "Bez paměti a se syrovou historií se zobrazí alternativa připraven/a. Omezená a časovaná varianta jsou plynulé; samotný neznámý rod nebodujeme."
+  },
+  {
+    "id": "game-734",
+    "model": "translategemma-12b-q4km",
+    "mode": "baseline",
+    "reviewer": "Codex direct unblinded reading; no judge API",
+    "score": 3,
+    "note_en": "Baseline/raw print a literal gender alternative pripraven/a. Bounded/timestamped are fluent; an unknown gender itself is not graded.",
+    "note_cs": "Bez paměti a se syrovou historií se zobrazí alternativa připraven/a. Omezená a časovaná varianta jsou plynulé; samotný neznámý rod nebodujeme."
+  },
+  {
+    "id": "game-734",
+    "model": "translategemma-12b-q4km",
+    "mode": "guarded",
+    "reviewer": "Codex direct unblinded reading; no judge API",
+    "score": 4,
+    "note_en": "Baseline/raw print a literal gender alternative pripraven/a. Bounded/timestamped are fluent; an unknown gender itself is not graded.",
+    "note_cs": "Bez paměti a se syrovou historií se zobrazí alternativa připraven/a. Omezená a časovaná varianta jsou plynulé; samotný neznámý rod nebodujeme."
+  },
+  {
+    "id": "game-861",
+    "model": "translategemma-12b-q4km",
+    "mode": "baseline",
+    "reviewer": "Codex direct unblinded reading; no judge API",
+    "score": 4,
+    "note_en": "Meaning preserved. Unknown speaker gender is not graded.",
+    "note_cs": "Význam zachován. Rod neznámého mluvčího nehodnotíme."
+  },
+  {
+    "id": "game-861",
+    "model": "translategemma-12b-q4km",
+    "mode": "guarded",
+    "reviewer": "Codex direct unblinded reading; no judge API",
+    "score": 4,
+    "note_en": "Meaning preserved. Unknown speaker gender is not graded.",
+    "note_cs": "Význam zachován. Rod neznámého mluvčího nehodnotíme."
+  },
+  {
+    "id": "game-861",
+    "model": "translategemma-12b-q4km",
+    "mode": "naive",
+    "reviewer": "Codex direct unblinded reading; no judge API",
+    "score": 4,
+    "note_en": "Meaning preserved. Unknown speaker gender is not graded.",
+    "note_cs": "Význam zachován. Rod neznámého mluvčího nehodnotíme."
+  },
+  {
+    "id": "game-861",
+    "model": "translategemma-12b-q4km",
+    "mode": "timeline",
+    "reviewer": "Codex direct unblinded reading; no judge API",
+    "score": 4,
+    "note_en": "Meaning preserved. Unknown speaker gender is not graded.",
+    "note_cs": "Význam zachován. Rod neznámého mluvčího nehodnotíme."
+  },
+  {
+    "id": "game-862",
+    "model": "translategemma-12b-q4km",
+    "mode": "naive",
+    "reviewer": "Codex direct unblinded reading; no judge API",
+    "score": 4,
+    "note_en": "Meaning preserved. Unknown speaker gender is not graded.",
+    "note_cs": "Význam zachován. Rod neznámého mluvčího nehodnotíme."
+  },
+  {
+    "id": "game-862",
+    "model": "translategemma-12b-q4km",
+    "mode": "baseline",
+    "reviewer": "Codex direct unblinded reading; no judge API",
+    "score": 4,
+    "note_en": "Meaning preserved. Unknown speaker gender is not graded.",
+    "note_cs": "Význam zachován. Rod neznámého mluvčího nehodnotíme."
+  },
+  {
+    "id": "game-862",
+    "model": "translategemma-12b-q4km",
+    "mode": "timeline",
+    "reviewer": "Codex direct unblinded reading; no judge API",
+    "score": 4,
+    "note_en": "Meaning preserved. Unknown speaker gender is not graded.",
+    "note_cs": "Význam zachován. Rod neznámého mluvčího nehodnotíme."
+  },
+  {
+    "id": "game-862",
+    "model": "translategemma-12b-q4km",
+    "mode": "guarded",
+    "reviewer": "Codex direct unblinded reading; no judge API",
+    "score": 4,
+    "note_en": "Meaning preserved. Unknown speaker gender is not graded.",
+    "note_cs": "Význam zachován. Rod neznámého mluvčího nehodnotíme."
+  },
+  {
+    "id": "game-863",
+    "model": "translategemma-12b-q4km",
+    "mode": "naive",
+    "reviewer": "Codex direct unblinded reading; no judge API",
+    "score": 4,
+    "note_en": "Baseline omits the assigned work-party sense. History expresses public-service/penal work, consistent with the preceding prison context.",
+    "note_cs": "Bez paměti se ztrácí význam přidělené pracovní čety. Historie vyjádří veřejně prospěšnou práci či trest, v souladu s předchozím vězeňským kontextem."
+  },
+  {
+    "id": "game-863",
+    "model": "translategemma-12b-q4km",
+    "mode": "guarded",
+    "reviewer": "Codex direct unblinded reading; no judge API",
+    "score": 4,
+    "note_en": "Baseline omits the assigned work-party sense. History expresses public-service/penal work, consistent with the preceding prison context.",
+    "note_cs": "Bez paměti se ztrácí význam přidělené pracovní čety. Historie vyjádří veřejně prospěšnou práci či trest, v souladu s předchozím vězeňským kontextem."
+  },
+  {
+    "id": "game-863",
+    "model": "translategemma-12b-q4km",
+    "mode": "timeline",
+    "reviewer": "Codex direct unblinded reading; no judge API",
+    "score": 4,
+    "note_en": "Baseline omits the assigned work-party sense. History expresses public-service/penal work, consistent with the preceding prison context.",
+    "note_cs": "Bez paměti se ztrácí význam přidělené pracovní čety. Historie vyjádří veřejně prospěšnou práci či trest, v souladu s předchozím vězeňským kontextem."
+  },
+  {
+    "id": "game-863",
+    "model": "translategemma-12b-q4km",
+    "mode": "baseline",
+    "reviewer": "Codex direct unblinded reading; no judge API",
+    "score": 3,
+    "note_en": "Baseline omits the assigned work-party sense. History expresses public-service/penal work, consistent with the preceding prison context.",
+    "note_cs": "Bez paměti se ztrácí význam přidělené pracovní čety. Historie vyjádří veřejně prospěšnou práci či trest, v souladu s předchozím vězeňským kontextem."
+  },
+  {
+    "id": "game-864",
+    "model": "translategemma-12b-q4km",
+    "mode": "timeline",
+    "reviewer": "Codex direct unblinded reading; no judge API",
+    "score": 4,
+    "note_en": "Meaning preserved. Unknown speaker gender is not graded.",
+    "note_cs": "Význam zachován. Rod neznámého mluvčího nehodnotíme."
+  },
+  {
+    "id": "game-864",
+    "model": "translategemma-12b-q4km",
+    "mode": "naive",
+    "reviewer": "Codex direct unblinded reading; no judge API",
+    "score": 4,
+    "note_en": "Meaning preserved. Unknown speaker gender is not graded.",
+    "note_cs": "Význam zachován. Rod neznámého mluvčího nehodnotíme."
+  },
+  {
+    "id": "game-864",
+    "model": "translategemma-12b-q4km",
+    "mode": "baseline",
+    "reviewer": "Codex direct unblinded reading; no judge API",
+    "score": 4,
+    "note_en": "Meaning preserved. Unknown speaker gender is not graded.",
+    "note_cs": "Význam zachován. Rod neznámého mluvčího nehodnotíme."
+  },
+  {
+    "id": "game-864",
+    "model": "translategemma-12b-q4km",
+    "mode": "guarded",
+    "reviewer": "Codex direct unblinded reading; no judge API",
+    "score": 4,
+    "note_en": "Meaning preserved. Unknown speaker gender is not graded.",
+    "note_cs": "Význam zachován. Rod neznámého mluvčího nehodnotíme."
+  },
+  {
+    "id": "game-1001",
+    "model": "translategemma-12b-q4km",
+    "mode": "naive",
+    "reviewer": "Codex direct unblinded reading; no judge API",
+    "score": 4,
+    "note_en": "Meaning preserved. Unknown speaker gender is not graded.",
+    "note_cs": "Význam zachován. Rod neznámého mluvčího nehodnotíme."
+  },
+  {
+    "id": "game-1001",
+    "model": "translategemma-12b-q4km",
+    "mode": "guarded",
+    "reviewer": "Codex direct unblinded reading; no judge API",
+    "score": 4,
+    "note_en": "Meaning preserved. Unknown speaker gender is not graded.",
+    "note_cs": "Význam zachován. Rod neznámého mluvčího nehodnotíme."
+  },
+  {
+    "id": "game-1001",
+    "model": "translategemma-12b-q4km",
+    "mode": "timeline",
+    "reviewer": "Codex direct unblinded reading; no judge API",
+    "score": 4,
+    "note_en": "Meaning preserved. Unknown speaker gender is not graded.",
+    "note_cs": "Význam zachován. Rod neznámého mluvčího nehodnotíme."
+  },
+  {
+    "id": "game-1001",
+    "model": "translategemma-12b-q4km",
+    "mode": "baseline",
+    "reviewer": "Codex direct unblinded reading; no judge API",
+    "score": 4,
+    "note_en": "Meaning preserved. Unknown speaker gender is not graded.",
+    "note_cs": "Význam zachován. Rod neznámého mluvčího nehodnotíme."
+  },
+  {
+    "id": "game-1002",
+    "model": "translategemma-12b-q4km",
+    "mode": "naive",
+    "reviewer": "Codex direct unblinded reading; no judge API",
+    "score": 4,
+    "note_en": "Meaning preserved. Unknown speaker gender is not graded.",
+    "note_cs": "Význam zachován. Rod neznámého mluvčího nehodnotíme."
+  },
+  {
+    "id": "game-1002",
+    "model": "translategemma-12b-q4km",
+    "mode": "guarded",
+    "reviewer": "Codex direct unblinded reading; no judge API",
+    "score": 4,
+    "note_en": "Meaning preserved. Unknown speaker gender is not graded.",
+    "note_cs": "Význam zachován. Rod neznámého mluvčího nehodnotíme."
+  },
+  {
+    "id": "game-1002",
+    "model": "translategemma-12b-q4km",
+    "mode": "baseline",
+    "reviewer": "Codex direct unblinded reading; no judge API",
+    "score": 4,
+    "note_en": "Meaning preserved. Unknown speaker gender is not graded.",
+    "note_cs": "Význam zachován. Rod neznámého mluvčího nehodnotíme."
+  },
+  {
+    "id": "game-1002",
+    "model": "translategemma-12b-q4km",
+    "mode": "timeline",
+    "reviewer": "Codex direct unblinded reading; no judge API",
+    "score": 4,
+    "note_en": "Meaning preserved. Unknown speaker gender is not graded.",
+    "note_cs": "Význam zachován. Rod neznámého mluvčího nehodnotíme."
+  },
+  {
+    "id": "game-1003",
+    "model": "translategemma-12b-q4km",
+    "mode": "baseline",
+    "reviewer": "Codex direct unblinded reading; no judge API",
+    "score": 2,
+    "note_en": "The accusation of being lied to is lost in every arm; baseline/raw even reverse who is speaking seriously.",
+    "note_cs": "Ve všech variantách se ztrácí podezření z lhaní. Bez paměti a se syrovou historií se navíc obrací, kdo mluví vážně."
+  },
+  {
+    "id": "game-1003",
+    "model": "translategemma-12b-q4km",
+    "mode": "timeline",
+    "reviewer": "Codex direct unblinded reading; no judge API",
+    "score": 2,
+    "note_en": "The accusation of being lied to is lost in every arm; baseline/raw even reverse who is speaking seriously.",
+    "note_cs": "Ve všech variantách se ztrácí podezření z lhaní. Bez paměti a se syrovou historií se navíc obrací, kdo mluví vážně."
+  },
+  {
+    "id": "game-1003",
+    "model": "translategemma-12b-q4km",
+    "mode": "naive",
+    "reviewer": "Codex direct unblinded reading; no judge API",
+    "score": 2,
+    "note_en": "The accusation of being lied to is lost in every arm; baseline/raw even reverse who is speaking seriously.",
+    "note_cs": "Ve všech variantách se ztrácí podezření z lhaní. Bez paměti a se syrovou historií se navíc obrací, kdo mluví vážně."
+  },
+  {
+    "id": "game-1003",
+    "model": "translategemma-12b-q4km",
+    "mode": "guarded",
+    "reviewer": "Codex direct unblinded reading; no judge API",
+    "score": 2,
+    "note_en": "The accusation of being lied to is lost in every arm; baseline/raw even reverse who is speaking seriously.",
+    "note_cs": "Ve všech variantách se ztrácí podezření z lhaní. Bez paměti a se syrovou historií se navíc obrací, kdo mluví vážně."
+  },
+  {
+    "id": "game-1004",
+    "model": "translategemma-12b-q4km",
+    "mode": "guarded",
+    "reviewer": "Codex direct unblinded reading; no judge API",
+    "score": 4,
+    "note_en": "Meaning preserved. Unknown speaker gender is not graded.",
+    "note_cs": "Význam zachován. Rod neznámého mluvčího nehodnotíme."
+  },
+  {
+    "id": "game-1004",
+    "model": "translategemma-12b-q4km",
+    "mode": "baseline",
+    "reviewer": "Codex direct unblinded reading; no judge API",
+    "score": 4,
+    "note_en": "Meaning preserved. Unknown speaker gender is not graded.",
+    "note_cs": "Význam zachován. Rod neznámého mluvčího nehodnotíme."
+  },
+  {
+    "id": "game-1004",
+    "model": "translategemma-12b-q4km",
+    "mode": "naive",
+    "reviewer": "Codex direct unblinded reading; no judge API",
+    "score": 4,
+    "note_en": "Meaning preserved. Unknown speaker gender is not graded.",
+    "note_cs": "Význam zachován. Rod neznámého mluvčího nehodnotíme."
+  },
+  {
+    "id": "game-1004",
+    "model": "translategemma-12b-q4km",
+    "mode": "timeline",
+    "reviewer": "Codex direct unblinded reading; no judge API",
+    "score": 4,
+    "note_en": "Meaning preserved. Unknown speaker gender is not graded.",
+    "note_cs": "Význam zachován. Rod neznámého mluvčího nehodnotíme."
+  },
+  {
+    "id": "game-1111",
+    "model": "translategemma-12b-q4km",
+    "mode": "naive",
+    "reviewer": "Codex direct unblinded reading; no judge API",
+    "score": 4,
+    "note_en": "Meaning preserved. Unknown speaker gender is not graded.",
+    "note_cs": "Význam zachován. Rod neznámého mluvčího nehodnotíme."
+  },
+  {
+    "id": "game-1111",
+    "model": "translategemma-12b-q4km",
+    "mode": "guarded",
+    "reviewer": "Codex direct unblinded reading; no judge API",
+    "score": 4,
+    "note_en": "Meaning preserved. Unknown speaker gender is not graded.",
+    "note_cs": "Význam zachován. Rod neznámého mluvčího nehodnotíme."
+  },
+  {
+    "id": "game-1111",
+    "model": "translategemma-12b-q4km",
+    "mode": "baseline",
+    "reviewer": "Codex direct unblinded reading; no judge API",
+    "score": 4,
+    "note_en": "Meaning preserved. Unknown speaker gender is not graded.",
+    "note_cs": "Význam zachován. Rod neznámého mluvčího nehodnotíme."
+  },
+  {
+    "id": "game-1111",
+    "model": "translategemma-12b-q4km",
+    "mode": "timeline",
+    "reviewer": "Codex direct unblinded reading; no judge API",
+    "score": 4,
+    "note_en": "Meaning preserved. Unknown speaker gender is not graded.",
+    "note_cs": "Význam zachován. Rod neznámého mluvčího nehodnotíme."
+  },
+  {
+    "id": "game-1112",
+    "model": "translategemma-12b-q4km",
+    "mode": "guarded",
+    "reviewer": "Codex direct unblinded reading; no judge API",
+    "score": 4,
+    "note_en": "Bounded keeps the playing-a-hand metaphor naturally; other variants use an awkward single-card formulation.",
+    "note_cs": "Omezená paměť zachovává herní metaforu přirozeně; ostatní varianty mají neobratnou formulaci s jednou kartou."
+  },
+  {
+    "id": "game-1112",
+    "model": "translategemma-12b-q4km",
+    "mode": "baseline",
+    "reviewer": "Codex direct unblinded reading; no judge API",
+    "score": 3,
+    "note_en": "Bounded keeps the playing-a-hand metaphor naturally; other variants use an awkward single-card formulation.",
+    "note_cs": "Omezená paměť zachovává herní metaforu přirozeně; ostatní varianty mají neobratnou formulaci s jednou kartou."
+  },
+  {
+    "id": "game-1112",
+    "model": "translategemma-12b-q4km",
+    "mode": "naive",
+    "reviewer": "Codex direct unblinded reading; no judge API",
+    "score": 3,
+    "note_en": "Bounded keeps the playing-a-hand metaphor naturally; other variants use an awkward single-card formulation.",
+    "note_cs": "Omezená paměť zachovává herní metaforu přirozeně; ostatní varianty mají neobratnou formulaci s jednou kartou."
+  },
+  {
+    "id": "game-1112",
+    "model": "translategemma-12b-q4km",
+    "mode": "timeline",
+    "reviewer": "Codex direct unblinded reading; no judge API",
+    "score": 3,
+    "note_en": "Bounded keeps the playing-a-hand metaphor naturally; other variants use an awkward single-card formulation.",
+    "note_cs": "Omezená paměť zachovává herní metaforu přirozeně; ostatní varianty mají neobratnou formulaci s jednou kartou."
+  },
+  {
+    "id": "game-1113",
+    "model": "translategemma-12b-q4km",
+    "mode": "baseline",
+    "reviewer": "Codex direct unblinded reading; no judge API",
+    "score": 4,
+    "note_en": "Meaning preserved. Unknown speaker gender is not graded.",
+    "note_cs": "Význam zachován. Rod neznámého mluvčího nehodnotíme."
+  },
+  {
+    "id": "game-1113",
+    "model": "translategemma-12b-q4km",
+    "mode": "timeline",
+    "reviewer": "Codex direct unblinded reading; no judge API",
+    "score": 4,
+    "note_en": "Meaning preserved. Unknown speaker gender is not graded.",
+    "note_cs": "Význam zachován. Rod neznámého mluvčího nehodnotíme."
+  },
+  {
+    "id": "game-1113",
+    "model": "translategemma-12b-q4km",
+    "mode": "naive",
+    "reviewer": "Codex direct unblinded reading; no judge API",
+    "score": 4,
+    "note_en": "Meaning preserved. Unknown speaker gender is not graded.",
+    "note_cs": "Význam zachován. Rod neznámého mluvčího nehodnotíme."
+  },
+  {
+    "id": "game-1113",
+    "model": "translategemma-12b-q4km",
+    "mode": "guarded",
+    "reviewer": "Codex direct unblinded reading; no judge API",
+    "score": 4,
+    "note_en": "Meaning preserved. Unknown speaker gender is not graded.",
+    "note_cs": "Význam zachován. Rod neznámého mluvčího nehodnotíme."
+  },
+  {
+    "id": "game-1114",
+    "model": "translategemma-12b-q4km",
+    "mode": "guarded",
+    "reviewer": "Codex direct unblinded reading; no judge API",
+    "score": 4,
+    "note_en": "Baseline/raw give a literal Pozdeji, ahoj; bounded/timestamped convey the farewell naturally.",
+    "note_cs": "Bez paměti a se syrovou historií je rozloučení doslovné Později, ahoj; ostatní varianty vystihnou rozloučení přirozeněji."
+  },
+  {
+    "id": "game-1114",
+    "model": "translategemma-12b-q4km",
+    "mode": "timeline",
+    "reviewer": "Codex direct unblinded reading; no judge API",
+    "score": 4,
+    "note_en": "Baseline/raw give a literal Pozdeji, ahoj; bounded/timestamped convey the farewell naturally.",
+    "note_cs": "Bez paměti a se syrovou historií je rozloučení doslovné Později, ahoj; ostatní varianty vystihnou rozloučení přirozeněji."
+  },
+  {
+    "id": "game-1114",
+    "model": "translategemma-12b-q4km",
+    "mode": "naive",
+    "reviewer": "Codex direct unblinded reading; no judge API",
+    "score": 3,
+    "note_en": "Baseline/raw give a literal Pozdeji, ahoj; bounded/timestamped convey the farewell naturally.",
+    "note_cs": "Bez paměti a se syrovou historií je rozloučení doslovné Později, ahoj; ostatní varianty vystihnou rozloučení přirozeněji."
+  },
+  {
+    "id": "game-1114",
+    "model": "translategemma-12b-q4km",
+    "mode": "baseline",
+    "reviewer": "Codex direct unblinded reading; no judge API",
+    "score": 3,
+    "note_en": "Baseline/raw give a literal Pozdeji, ahoj; bounded/timestamped convey the farewell naturally.",
+    "note_cs": "Bez paměti a se syrovou historií je rozloučení doslovné Později, ahoj; ostatní varianty vystihnou rozloučení přirozeněji."
+  },
+  {
+    "id": "game-1251",
+    "model": "translategemma-12b-q4km",
+    "mode": "baseline",
+    "reviewer": "Codex direct unblinded reading; no judge API",
+    "score": 2,
+    "note_en": "Baseline confuses attention-getting calls with greetings and uses a literal movement command. Context improves the command but still greets at Hello.",
+    "note_cs": "Bez paměti se volání o pozornost mění na pozdravy a příkaz k pohybu je doslovný. Kontext příkaz zlepší, ale Hello stále překládá jako pozdrav."
+  },
+  {
+    "id": "game-1251",
+    "model": "translategemma-12b-q4km",
+    "mode": "guarded",
+    "reviewer": "Codex direct unblinded reading; no judge API",
+    "score": 3,
+    "note_en": "Baseline confuses attention-getting calls with greetings and uses a literal movement command. Context improves the command but still greets at Hello.",
+    "note_cs": "Bez paměti se volání o pozornost mění na pozdravy a příkaz k pohybu je doslovný. Kontext příkaz zlepší, ale Hello stále překládá jako pozdrav."
+  },
+  {
+    "id": "game-1251",
+    "model": "translategemma-12b-q4km",
+    "mode": "naive",
+    "reviewer": "Codex direct unblinded reading; no judge API",
+    "score": 3,
+    "note_en": "Baseline confuses attention-getting calls with greetings and uses a literal movement command. Context improves the command but still greets at Hello.",
+    "note_cs": "Bez paměti se volání o pozornost mění na pozdravy a příkaz k pohybu je doslovný. Kontext příkaz zlepší, ale Hello stále překládá jako pozdrav."
+  },
+  {
+    "id": "game-1251",
+    "model": "translategemma-12b-q4km",
+    "mode": "timeline",
+    "reviewer": "Codex direct unblinded reading; no judge API",
+    "score": 3,
+    "note_en": "Baseline confuses attention-getting calls with greetings and uses a literal movement command. Context improves the command but still greets at Hello.",
+    "note_cs": "Bez paměti se volání o pozornost mění na pozdravy a příkaz k pohybu je doslovný. Kontext příkaz zlepší, ale Hello stále překládá jako pozdrav."
+  },
+  {
+    "id": "game-1252",
+    "model": "translategemma-12b-q4km",
+    "mode": "naive",
+    "reviewer": "Codex direct unblinded reading; no judge API",
+    "score": 4,
+    "note_en": "Baseline displays two alternatives. All history arms give a single suitable attention call.",
+    "note_cs": "Bez paměti se zobrazí dvě alternativy. Všechny historie dají jediné vhodné Haló?."
+  },
+  {
+    "id": "game-1252",
+    "model": "translategemma-12b-q4km",
+    "mode": "timeline",
+    "reviewer": "Codex direct unblinded reading; no judge API",
+    "score": 4,
+    "note_en": "Baseline displays two alternatives. All history arms give a single suitable attention call.",
+    "note_cs": "Bez paměti se zobrazí dvě alternativy. Všechny historie dají jediné vhodné Haló?."
+  },
+  {
+    "id": "game-1252",
+    "model": "translategemma-12b-q4km",
+    "mode": "guarded",
+    "reviewer": "Codex direct unblinded reading; no judge API",
+    "score": 4,
+    "note_en": "Baseline displays two alternatives. All history arms give a single suitable attention call.",
+    "note_cs": "Bez paměti se zobrazí dvě alternativy. Všechny historie dají jediné vhodné Haló?."
+  },
+  {
+    "id": "game-1252",
+    "model": "translategemma-12b-q4km",
+    "mode": "baseline",
+    "reviewer": "Codex direct unblinded reading; no judge API",
+    "score": 3,
+    "note_en": "Baseline displays two alternatives. All history arms give a single suitable attention call.",
+    "note_cs": "Bez paměti se zobrazí dvě alternativy. Všechny historie dají jediné vhodné Haló?."
+  },
+  {
+    "id": "game-1253",
+    "model": "translategemma-12b-q4km",
+    "mode": "timeline",
+    "reviewer": "Codex direct unblinded reading; no judge API",
+    "score": 4,
+    "note_en": "Meaning preserved. Unknown speaker gender is not graded.",
+    "note_cs": "Význam zachován. Rod neznámého mluvčího nehodnotíme."
+  },
+  {
+    "id": "game-1253",
+    "model": "translategemma-12b-q4km",
+    "mode": "baseline",
+    "reviewer": "Codex direct unblinded reading; no judge API",
+    "score": 4,
+    "note_en": "Meaning preserved. Unknown speaker gender is not graded.",
+    "note_cs": "Význam zachován. Rod neznámého mluvčího nehodnotíme."
+  },
+  {
+    "id": "game-1253",
+    "model": "translategemma-12b-q4km",
+    "mode": "guarded",
+    "reviewer": "Codex direct unblinded reading; no judge API",
+    "score": 4,
+    "note_en": "Meaning preserved. Unknown speaker gender is not graded.",
+    "note_cs": "Význam zachován. Rod neznámého mluvčího nehodnotíme."
+  },
+  {
+    "id": "game-1253",
+    "model": "translategemma-12b-q4km",
+    "mode": "naive",
+    "reviewer": "Codex direct unblinded reading; no judge API",
+    "score": 4,
+    "note_en": "Meaning preserved. Unknown speaker gender is not graded.",
+    "note_cs": "Význam zachován. Rod neznámého mluvčího nehodnotíme."
+  },
+  {
+    "id": "game-1254",
+    "model": "translategemma-12b-q4km",
+    "mode": "baseline",
+    "reviewer": "Codex direct unblinded reading; no judge API",
+    "score": 4,
+    "note_en": "Bounded/timestamped change the attention call into a greeting. Baseline/raw preserve it.",
+    "note_cs": "Omezená a časovaná paměť mění volání o pozornost na pozdrav. Bez paměti a se syrovou historií zůstává Haló?."
+  },
+  {
+    "id": "game-1254",
+    "model": "translategemma-12b-q4km",
+    "mode": "timeline",
+    "reviewer": "Codex direct unblinded reading; no judge API",
+    "score": 3,
+    "note_en": "Bounded/timestamped change the attention call into a greeting. Baseline/raw preserve it.",
+    "note_cs": "Omezená a časovaná paměť mění volání o pozornost na pozdrav. Bez paměti a se syrovou historií zůstává Haló?."
+  },
+  {
+    "id": "game-1254",
+    "model": "translategemma-12b-q4km",
+    "mode": "guarded",
+    "reviewer": "Codex direct unblinded reading; no judge API",
+    "score": 3,
+    "note_en": "Bounded/timestamped change the attention call into a greeting. Baseline/raw preserve it.",
+    "note_cs": "Omezená a časovaná paměť mění volání o pozornost na pozdrav. Bez paměti a se syrovou historií zůstává Haló?."
+  },
+  {
+    "id": "game-1254",
+    "model": "translategemma-12b-q4km",
+    "mode": "naive",
+    "reviewer": "Codex direct unblinded reading; no judge API",
+    "score": 4,
+    "note_en": "Bounded/timestamped change the attention call into a greeting. Baseline/raw preserve it.",
+    "note_cs": "Omezená a časovaná paměť mění volání o pozornost na pozdrav. Bez paměti a se syrovou historií zůstává Haló?."
+  },
+  {
+    "id": "game-1399",
+    "model": "translategemma-12b-q4km",
+    "mode": "timeline",
+    "reviewer": "Codex direct unblinded reading; no judge API",
+    "score": 4,
+    "note_en": "Meaning preserved. Unknown speaker gender is not graded.",
+    "note_cs": "Význam zachován. Rod neznámého mluvčího nehodnotíme."
+  },
+  {
+    "id": "game-1399",
+    "model": "translategemma-12b-q4km",
+    "mode": "guarded",
+    "reviewer": "Codex direct unblinded reading; no judge API",
+    "score": 4,
+    "note_en": "Meaning preserved. Unknown speaker gender is not graded.",
+    "note_cs": "Význam zachován. Rod neznámého mluvčího nehodnotíme."
+  },
+  {
+    "id": "game-1399",
+    "model": "translategemma-12b-q4km",
+    "mode": "baseline",
+    "reviewer": "Codex direct unblinded reading; no judge API",
+    "score": 4,
+    "note_en": "Meaning preserved. Unknown speaker gender is not graded.",
+    "note_cs": "Význam zachován. Rod neznámého mluvčího nehodnotíme."
+  },
+  {
+    "id": "game-1399",
+    "model": "translategemma-12b-q4km",
+    "mode": "naive",
+    "reviewer": "Codex direct unblinded reading; no judge API",
+    "score": 4,
+    "note_en": "Meaning preserved. Unknown speaker gender is not graded.",
+    "note_cs": "Význam zachován. Rod neznámého mluvčího nehodnotíme."
+  },
+  {
+    "id": "game-1400",
+    "model": "translategemma-12b-q4km",
+    "mode": "timeline",
+    "reviewer": "Codex direct unblinded reading; no judge API",
+    "score": 4,
+    "note_en": "Meaning preserved. Unknown speaker gender is not graded.",
+    "note_cs": "Význam zachován. Rod neznámého mluvčího nehodnotíme."
+  },
+  {
+    "id": "game-1400",
+    "model": "translategemma-12b-q4km",
+    "mode": "naive",
+    "reviewer": "Codex direct unblinded reading; no judge API",
+    "score": 4,
+    "note_en": "Meaning preserved. Unknown speaker gender is not graded.",
+    "note_cs": "Význam zachován. Rod neznámého mluvčího nehodnotíme."
+  },
+  {
+    "id": "game-1400",
+    "model": "translategemma-12b-q4km",
+    "mode": "guarded",
+    "reviewer": "Codex direct unblinded reading; no judge API",
+    "score": 4,
+    "note_en": "Meaning preserved. Unknown speaker gender is not graded.",
+    "note_cs": "Význam zachován. Rod neznámého mluvčího nehodnotíme."
+  },
+  {
+    "id": "game-1400",
+    "model": "translategemma-12b-q4km",
+    "mode": "baseline",
+    "reviewer": "Codex direct unblinded reading; no judge API",
+    "score": 4,
+    "note_en": "Meaning preserved. Unknown speaker gender is not graded.",
+    "note_cs": "Význam zachován. Rod neznámého mluvčího nehodnotíme."
+  },
+  {
+    "id": "game-1401",
+    "model": "translategemma-12b-q4km",
+    "mode": "timeline",
+    "reviewer": "Codex direct unblinded reading; no judge API",
+    "score": 4,
+    "note_en": "Meaning preserved. Unknown speaker gender is not graded.",
+    "note_cs": "Význam zachován. Rod neznámého mluvčího nehodnotíme."
+  },
+  {
+    "id": "game-1401",
+    "model": "translategemma-12b-q4km",
+    "mode": "naive",
+    "reviewer": "Codex direct unblinded reading; no judge API",
+    "score": 4,
+    "note_en": "Meaning preserved. Unknown speaker gender is not graded.",
+    "note_cs": "Význam zachován. Rod neznámého mluvčího nehodnotíme."
+  },
+  {
+    "id": "game-1401",
+    "model": "translategemma-12b-q4km",
+    "mode": "guarded",
+    "reviewer": "Codex direct unblinded reading; no judge API",
+    "score": 4,
+    "note_en": "Meaning preserved. Unknown speaker gender is not graded.",
+    "note_cs": "Význam zachován. Rod neznámého mluvčího nehodnotíme."
+  },
+  {
+    "id": "game-1401",
+    "model": "translategemma-12b-q4km",
+    "mode": "baseline",
+    "reviewer": "Codex direct unblinded reading; no judge API",
+    "score": 4,
+    "note_en": "Meaning preserved. Unknown speaker gender is not graded.",
+    "note_cs": "Význam zachován. Rod neznámého mluvčího nehodnotíme."
+  },
+  {
+    "id": "game-1402",
+    "model": "translategemma-12b-q4km",
+    "mode": "baseline",
+    "reviewer": "Codex direct unblinded reading; no judge API",
+    "score": 3,
+    "note_en": "Filler is shifted into No vite/No vlastne or rendered awkwardly as Ano, no.",
+    "note_cs": "Výplňová hláška se posouvá na No, víte či No, vlastně, nebo je neobratně přeložena Ano, no."
+  },
+  {
+    "id": "game-1402",
+    "model": "translategemma-12b-q4km",
+    "mode": "guarded",
+    "reviewer": "Codex direct unblinded reading; no judge API",
+    "score": 3,
+    "note_en": "Filler is shifted into No vite/No vlastne or rendered awkwardly as Ano, no.",
+    "note_cs": "Výplňová hláška se posouvá na No, víte či No, vlastně, nebo je neobratně přeložena Ano, no."
+  },
+  {
+    "id": "game-1402",
+    "model": "translategemma-12b-q4km",
+    "mode": "naive",
+    "reviewer": "Codex direct unblinded reading; no judge API",
+    "score": 3,
+    "note_en": "Filler is shifted into No vite/No vlastne or rendered awkwardly as Ano, no.",
+    "note_cs": "Výplňová hláška se posouvá na No, víte či No, vlastně, nebo je neobratně přeložena Ano, no."
+  },
+  {
+    "id": "game-1402",
+    "model": "translategemma-12b-q4km",
+    "mode": "timeline",
+    "reviewer": "Codex direct unblinded reading; no judge API",
+    "score": 3,
+    "note_en": "Filler is shifted into No vite/No vlastne or rendered awkwardly as Ano, no.",
+    "note_cs": "Výplňová hláška se posouvá na No, víte či No, vlastně, nebo je neobratně přeložena Ano, no."
+  },
+  {
+    "id": "game-1499",
+    "model": "translategemma-12b-q4km",
+    "mode": "guarded",
+    "reviewer": "Codex direct unblinded reading; no judge API",
+    "score": 4,
+    "note_en": "Baseline/raw use an imprecise/malformed drop term. Bounded preserves readiness with one package. Timestamped asks whether they brought multiple packages instead.",
+    "note_cs": "Bez paměti a se syrovou historií je místo shozu označeno nepřesně a chybným tvarem. Omezená paměť zachová připravenost s jedním balíčkem; časovaná se ptá, zda mají více balíčků u sebe."
+  },
+  {
+    "id": "game-1499",
+    "model": "translategemma-12b-q4km",
+    "mode": "timeline",
+    "reviewer": "Codex direct unblinded reading; no judge API",
+    "score": 2,
+    "note_en": "Baseline/raw use an imprecise/malformed drop term. Bounded preserves readiness with one package. Timestamped asks whether they brought multiple packages instead.",
+    "note_cs": "Bez paměti a se syrovou historií je místo shozu označeno nepřesně a chybným tvarem. Omezená paměť zachová připravenost s jedním balíčkem; časovaná se ptá, zda mají více balíčků u sebe."
+  },
+  {
+    "id": "game-1499",
+    "model": "translategemma-12b-q4km",
+    "mode": "baseline",
+    "reviewer": "Codex direct unblinded reading; no judge API",
+    "score": 3,
+    "note_en": "Baseline/raw use an imprecise/malformed drop term. Bounded preserves readiness with one package. Timestamped asks whether they brought multiple packages instead.",
+    "note_cs": "Bez paměti a se syrovou historií je místo shozu označeno nepřesně a chybným tvarem. Omezená paměť zachová připravenost s jedním balíčkem; časovaná se ptá, zda mají více balíčků u sebe."
+  },
+  {
+    "id": "game-1499",
+    "model": "translategemma-12b-q4km",
+    "mode": "naive",
+    "reviewer": "Codex direct unblinded reading; no judge API",
+    "score": 3,
+    "note_en": "Baseline/raw use an imprecise/malformed drop term. Bounded preserves readiness with one package. Timestamped asks whether they brought multiple packages instead.",
+    "note_cs": "Bez paměti a se syrovou historií je místo shozu označeno nepřesně a chybným tvarem. Omezená paměť zachová připravenost s jedním balíčkem; časovaná se ptá, zda mají více balíčků u sebe."
+  },
+  {
+    "id": "game-1500",
+    "model": "translategemma-12b-q4km",
+    "mode": "naive",
+    "reviewer": "Codex direct unblinded reading; no judge API",
+    "score": 3,
+    "note_en": "Readable sentence scored despite OCR Pa. Bounded changes the drop into an exchange and loses the single-package readiness question; timestamped also shifts readiness to possession.",
+    "note_cs": "Srozumitelnou větu hodnotíme i přes OCR Pa. Omezená paměť mění shoz na výměnu a ztrácí připravenost s jedním balíčkem; časovaná také mění připravenost na vlastnictví."
+  },
+  {
+    "id": "game-1500",
+    "model": "translategemma-12b-q4km",
+    "mode": "timeline",
+    "reviewer": "Codex direct unblinded reading; no judge API",
+    "score": 3,
+    "note_en": "Readable sentence scored despite OCR Pa. Bounded changes the drop into an exchange and loses the single-package readiness question; timestamped also shifts readiness to possession.",
+    "note_cs": "Srozumitelnou větu hodnotíme i přes OCR Pa. Omezená paměť mění shoz na výměnu a ztrácí připravenost s jedním balíčkem; časovaná také mění připravenost na vlastnictví."
+  },
+  {
+    "id": "game-1500",
+    "model": "translategemma-12b-q4km",
+    "mode": "baseline",
+    "reviewer": "Codex direct unblinded reading; no judge API",
+    "score": 3,
+    "note_en": "Readable sentence scored despite OCR Pa. Bounded changes the drop into an exchange and loses the single-package readiness question; timestamped also shifts readiness to possession.",
+    "note_cs": "Srozumitelnou větu hodnotíme i přes OCR Pa. Omezená paměť mění shoz na výměnu a ztrácí připravenost s jedním balíčkem; časovaná také mění připravenost na vlastnictví."
+  },
+  {
+    "id": "game-1500",
+    "model": "translategemma-12b-q4km",
+    "mode": "guarded",
+    "reviewer": "Codex direct unblinded reading; no judge API",
+    "score": 2,
+    "note_en": "Readable sentence scored despite OCR Pa. Bounded changes the drop into an exchange and loses the single-package readiness question; timestamped also shifts readiness to possession.",
+    "note_cs": "Srozumitelnou větu hodnotíme i přes OCR Pa. Omezená paměť mění shoz na výměnu a ztrácí připravenost s jedním balíčkem; časovaná také mění připravenost na vlastnictví."
+  },
+  {
+    "id": "game-1501",
+    "model": "translategemma-12b-q4km",
+    "mode": "guarded",
+    "reviewer": "Codex direct unblinded reading; no judge API",
+    "score": 3,
+    "note_en": "Timestamped best preserves the readable drop/readiness sentence; other arms have an imprecise/malformed drop term. OCR fragments themselves are not scored.",
+    "note_cs": "Časovaná varianta nejlépe zachová srozumitelnou větu o shozu a připravenosti; ostatní mají nepřesný či chybný výraz pro shoz. Samotné fragmenty OCR nebodujeme."
+  },
+  {
+    "id": "game-1501",
+    "model": "translategemma-12b-q4km",
+    "mode": "baseline",
+    "reviewer": "Codex direct unblinded reading; no judge API",
+    "score": 3,
+    "note_en": "Timestamped best preserves the readable drop/readiness sentence; other arms have an imprecise/malformed drop term. OCR fragments themselves are not scored.",
+    "note_cs": "Časovaná varianta nejlépe zachová srozumitelnou větu o shozu a připravenosti; ostatní mají nepřesný či chybný výraz pro shoz. Samotné fragmenty OCR nebodujeme."
+  },
+  {
+    "id": "game-1501",
+    "model": "translategemma-12b-q4km",
+    "mode": "timeline",
+    "reviewer": "Codex direct unblinded reading; no judge API",
+    "score": 4,
+    "note_en": "Timestamped best preserves the readable drop/readiness sentence; other arms have an imprecise/malformed drop term. OCR fragments themselves are not scored.",
+    "note_cs": "Časovaná varianta nejlépe zachová srozumitelnou větu o shozu a připravenosti; ostatní mají nepřesný či chybný výraz pro shoz. Samotné fragmenty OCR nebodujeme."
+  },
+  {
+    "id": "game-1501",
+    "model": "translategemma-12b-q4km",
+    "mode": "naive",
+    "reviewer": "Codex direct unblinded reading; no judge API",
+    "score": 3,
+    "note_en": "Timestamped best preserves the readable drop/readiness sentence; other arms have an imprecise/malformed drop term. OCR fragments themselves are not scored.",
+    "note_cs": "Časovaná varianta nejlépe zachová srozumitelnou větu o shozu a připravenosti; ostatní mají nepřesný či chybný výraz pro shoz. Samotné fragmenty OCR nebodujeme."
+  },
+  {
+    "id": "game-1502",
+    "model": "translategemma-12b-q4km",
+    "mode": "guarded",
+    "reviewer": "Codex direct unblinded reading; no judge API",
+    "score": null,
+    "note_en": "Not scored: corrupted OCR or already Czech. Outputs retained, including a request for clarification on Pa ug.",
+    "note_cs": "Nebodováno: nečitelný vstup OCR nebo již čeština. Výstupy zůstávají dostupné, včetně žádosti o vysvětlení Pa ug."
+  },
+  {
+    "id": "game-1502",
+    "model": "translategemma-12b-q4km",
+    "mode": "timeline",
+    "reviewer": "Codex direct unblinded reading; no judge API",
+    "score": null,
+    "note_en": "Not scored: corrupted OCR or already Czech. Outputs retained, including a request for clarification on Pa ug.",
+    "note_cs": "Nebodováno: nečitelný vstup OCR nebo již čeština. Výstupy zůstávají dostupné, včetně žádosti o vysvětlení Pa ug."
+  },
+  {
+    "id": "game-1502",
+    "model": "translategemma-12b-q4km",
+    "mode": "naive",
+    "reviewer": "Codex direct unblinded reading; no judge API",
+    "score": null,
+    "note_en": "Not scored: corrupted OCR or already Czech. Outputs retained, including a request for clarification on Pa ug.",
+    "note_cs": "Nebodováno: nečitelný vstup OCR nebo již čeština. Výstupy zůstávají dostupné, včetně žádosti o vysvětlení Pa ug."
+  },
+  {
+    "id": "game-1502",
+    "model": "translategemma-12b-q4km",
+    "mode": "baseline",
+    "reviewer": "Codex direct unblinded reading; no judge API",
+    "score": null,
+    "note_en": "Not scored: corrupted OCR or already Czech. Outputs retained, including a request for clarification on Pa ug.",
+    "note_cs": "Nebodováno: nečitelný vstup OCR nebo již čeština. Výstupy zůstávají dostupné, včetně žádosti o vysvětlení Pa ug."
+  },
+  {
+    "id": "game-1601",
+    "model": "translategemma-12b-q4km",
+    "mode": "guarded",
+    "reviewer": "Codex direct unblinded reading; no judge API",
+    "score": 4,
+    "note_en": "Meaning preserved. Unknown speaker gender is not graded.",
+    "note_cs": "Význam zachován. Rod neznámého mluvčího nehodnotíme."
+  },
+  {
+    "id": "game-1601",
+    "model": "translategemma-12b-q4km",
+    "mode": "naive",
+    "reviewer": "Codex direct unblinded reading; no judge API",
+    "score": 4,
+    "note_en": "Meaning preserved. Unknown speaker gender is not graded.",
+    "note_cs": "Význam zachován. Rod neznámého mluvčího nehodnotíme."
+  },
+  {
+    "id": "game-1601",
+    "model": "translategemma-12b-q4km",
+    "mode": "baseline",
+    "reviewer": "Codex direct unblinded reading; no judge API",
+    "score": 4,
+    "note_en": "Meaning preserved. Unknown speaker gender is not graded.",
+    "note_cs": "Význam zachován. Rod neznámého mluvčího nehodnotíme."
+  },
+  {
+    "id": "game-1601",
+    "model": "translategemma-12b-q4km",
+    "mode": "timeline",
+    "reviewer": "Codex direct unblinded reading; no judge API",
+    "score": 4,
+    "note_en": "Meaning preserved. Unknown speaker gender is not graded.",
+    "note_cs": "Význam zachován. Rod neznámého mluvčího nehodnotíme."
+  },
+  {
+    "id": "game-1602",
+    "model": "translategemma-12b-q4km",
+    "mode": "timeline",
+    "reviewer": "Codex direct unblinded reading; no judge API",
+    "score": 4,
+    "note_en": "Meaning preserved. Unknown speaker gender is not graded.",
+    "note_cs": "Význam zachován. Rod neznámého mluvčího nehodnotíme."
+  },
+  {
+    "id": "game-1602",
+    "model": "translategemma-12b-q4km",
+    "mode": "naive",
+    "reviewer": "Codex direct unblinded reading; no judge API",
+    "score": 4,
+    "note_en": "Meaning preserved. Unknown speaker gender is not graded.",
+    "note_cs": "Význam zachován. Rod neznámého mluvčího nehodnotíme."
+  },
+  {
+    "id": "game-1602",
+    "model": "translategemma-12b-q4km",
+    "mode": "guarded",
+    "reviewer": "Codex direct unblinded reading; no judge API",
+    "score": 4,
+    "note_en": "Meaning preserved. Unknown speaker gender is not graded.",
+    "note_cs": "Význam zachován. Rod neznámého mluvčího nehodnotíme."
+  },
+  {
+    "id": "game-1602",
+    "model": "translategemma-12b-q4km",
+    "mode": "baseline",
+    "reviewer": "Codex direct unblinded reading; no judge API",
+    "score": 4,
+    "note_en": "Meaning preserved. Unknown speaker gender is not graded.",
+    "note_cs": "Význam zachován. Rod neznámého mluvčího nehodnotíme."
+  },
+  {
+    "id": "game-1603",
+    "model": "translategemma-12b-q4km",
+    "mode": "baseline",
+    "reviewer": "Codex direct unblinded reading; no judge API",
+    "score": 4,
+    "note_en": "Baseline says get in a vehicle; history changes it to enter, losing the car-entry sense.",
+    "note_cs": "Bez paměti je správně Nastupte. Historie mění nástup do auta na Vstupte a ztrácí tento význam."
+  },
+  {
+    "id": "game-1603",
+    "model": "translategemma-12b-q4km",
+    "mode": "timeline",
+    "reviewer": "Codex direct unblinded reading; no judge API",
+    "score": 2,
+    "note_en": "Baseline says get in a vehicle; history changes it to enter, losing the car-entry sense.",
+    "note_cs": "Bez paměti je správně Nastupte. Historie mění nástup do auta na Vstupte a ztrácí tento význam."
+  },
+  {
+    "id": "game-1603",
+    "model": "translategemma-12b-q4km",
+    "mode": "guarded",
+    "reviewer": "Codex direct unblinded reading; no judge API",
+    "score": 2,
+    "note_en": "Baseline says get in a vehicle; history changes it to enter, losing the car-entry sense.",
+    "note_cs": "Bez paměti je správně Nastupte. Historie mění nástup do auta na Vstupte a ztrácí tento význam."
+  },
+  {
+    "id": "game-1603",
+    "model": "translategemma-12b-q4km",
+    "mode": "naive",
+    "reviewer": "Codex direct unblinded reading; no judge API",
+    "score": 2,
+    "note_en": "Baseline says get in a vehicle; history changes it to enter, losing the car-entry sense.",
+    "note_cs": "Bez paměti je správně Nastupte. Historie mění nástup do auta na Vstupte a ztrácí tento význam."
+  },
+  {
+    "id": "game-1604",
+    "model": "translategemma-12b-q4km",
+    "mode": "guarded",
+    "reviewer": "Codex direct unblinded reading; no judge API",
+    "score": 4,
+    "note_en": "Meaning preserved. Unknown speaker gender is not graded.",
+    "note_cs": "Význam zachován. Rod neznámého mluvčího nehodnotíme."
+  },
+  {
+    "id": "game-1604",
+    "model": "translategemma-12b-q4km",
+    "mode": "baseline",
+    "reviewer": "Codex direct unblinded reading; no judge API",
+    "score": 4,
+    "note_en": "Meaning preserved. Unknown speaker gender is not graded.",
+    "note_cs": "Význam zachován. Rod neznámého mluvčího nehodnotíme."
+  },
+  {
+    "id": "game-1604",
+    "model": "translategemma-12b-q4km",
+    "mode": "naive",
+    "reviewer": "Codex direct unblinded reading; no judge API",
+    "score": 4,
+    "note_en": "Meaning preserved. Unknown speaker gender is not graded.",
+    "note_cs": "Význam zachován. Rod neznámého mluvčího nehodnotíme."
+  },
+  {
+    "id": "game-1604",
+    "model": "translategemma-12b-q4km",
+    "mode": "timeline",
+    "reviewer": "Codex direct unblinded reading; no judge API",
+    "score": 4,
+    "note_en": "Meaning preserved. Unknown speaker gender is not graded.",
+    "note_cs": "Význam zachován. Rod neznámého mluvčího nehodnotíme."
+  },
+  {
+    "id": "game-1681",
+    "model": "translategemma-12b-q4km",
+    "mode": "timeline",
+    "reviewer": "Codex direct unblinded reading; no judge API",
+    "score": 4,
+    "note_en": "Meaning preserved. Unknown speaker gender is not graded.",
+    "note_cs": "Význam zachován. Rod neznámého mluvčího nehodnotíme."
+  },
+  {
+    "id": "game-1681",
+    "model": "translategemma-12b-q4km",
+    "mode": "baseline",
+    "reviewer": "Codex direct unblinded reading; no judge API",
+    "score": 4,
+    "note_en": "Meaning preserved. Unknown speaker gender is not graded.",
+    "note_cs": "Význam zachován. Rod neznámého mluvčího nehodnotíme."
+  },
+  {
+    "id": "game-1681",
+    "model": "translategemma-12b-q4km",
+    "mode": "guarded",
+    "reviewer": "Codex direct unblinded reading; no judge API",
+    "score": 4,
+    "note_en": "Meaning preserved. Unknown speaker gender is not graded.",
+    "note_cs": "Význam zachován. Rod neznámého mluvčího nehodnotíme."
+  },
+  {
+    "id": "game-1681",
+    "model": "translategemma-12b-q4km",
+    "mode": "naive",
+    "reviewer": "Codex direct unblinded reading; no judge API",
+    "score": 4,
+    "note_en": "Meaning preserved. Unknown speaker gender is not graded.",
+    "note_cs": "Význam zachován. Rod neznámého mluvčího nehodnotíme."
+  },
+  {
+    "id": "game-1682",
+    "model": "translategemma-12b-q4km",
+    "mode": "guarded",
+    "reviewer": "Codex direct unblinded reading; no judge API",
+    "score": 4,
+    "note_en": "Meaning preserved. Unknown speaker gender is not graded.",
+    "note_cs": "Význam zachován. Rod neznámého mluvčího nehodnotíme."
+  },
+  {
+    "id": "game-1682",
+    "model": "translategemma-12b-q4km",
+    "mode": "timeline",
+    "reviewer": "Codex direct unblinded reading; no judge API",
+    "score": 4,
+    "note_en": "Meaning preserved. Unknown speaker gender is not graded.",
+    "note_cs": "Význam zachován. Rod neznámého mluvčího nehodnotíme."
+  },
+  {
+    "id": "game-1682",
+    "model": "translategemma-12b-q4km",
+    "mode": "baseline",
+    "reviewer": "Codex direct unblinded reading; no judge API",
+    "score": 4,
+    "note_en": "Meaning preserved. Unknown speaker gender is not graded.",
+    "note_cs": "Význam zachován. Rod neznámého mluvčího nehodnotíme."
+  },
+  {
+    "id": "game-1682",
+    "model": "translategemma-12b-q4km",
+    "mode": "naive",
+    "reviewer": "Codex direct unblinded reading; no judge API",
+    "score": 4,
+    "note_en": "Meaning preserved. Unknown speaker gender is not graded.",
+    "note_cs": "Význam zachován. Rod neznámého mluvčího nehodnotíme."
+  },
+  {
+    "id": "game-1683",
+    "model": "translategemma-12b-q4km",
+    "mode": "baseline",
+    "reviewer": "Codex direct unblinded reading; no judge API",
+    "score": 4,
+    "note_en": "Meaning preserved. Unknown speaker gender is not graded.",
+    "note_cs": "Význam zachován. Rod neznámého mluvčího nehodnotíme."
+  },
+  {
+    "id": "game-1683",
+    "model": "translategemma-12b-q4km",
+    "mode": "timeline",
+    "reviewer": "Codex direct unblinded reading; no judge API",
+    "score": 4,
+    "note_en": "Meaning preserved. Unknown speaker gender is not graded.",
+    "note_cs": "Význam zachován. Rod neznámého mluvčího nehodnotíme."
+  },
+  {
+    "id": "game-1683",
+    "model": "translategemma-12b-q4km",
+    "mode": "guarded",
+    "reviewer": "Codex direct unblinded reading; no judge API",
+    "score": 4,
+    "note_en": "Meaning preserved. Unknown speaker gender is not graded.",
+    "note_cs": "Význam zachován. Rod neznámého mluvčího nehodnotíme."
+  },
+  {
+    "id": "game-1683",
+    "model": "translategemma-12b-q4km",
+    "mode": "naive",
+    "reviewer": "Codex direct unblinded reading; no judge API",
+    "score": 4,
+    "note_en": "Meaning preserved. Unknown speaker gender is not graded.",
+    "note_cs": "Význam zachován. Rod neznámého mluvčího nehodnotíme."
+  },
+  {
+    "id": "game-1684",
+    "model": "translategemma-12b-q4km",
+    "mode": "timeline",
+    "reviewer": "Codex direct unblinded reading; no judge API",
+    "score": 4,
+    "note_en": "Meaning preserved. Unknown speaker gender is not graded.",
+    "note_cs": "Význam zachován. Rod neznámého mluvčího nehodnotíme."
+  },
+  {
+    "id": "game-1684",
+    "model": "translategemma-12b-q4km",
+    "mode": "baseline",
+    "reviewer": "Codex direct unblinded reading; no judge API",
+    "score": 4,
+    "note_en": "Meaning preserved. Unknown speaker gender is not graded.",
+    "note_cs": "Význam zachován. Rod neznámého mluvčího nehodnotíme."
+  },
+  {
+    "id": "game-1684",
+    "model": "translategemma-12b-q4km",
+    "mode": "naive",
+    "reviewer": "Codex direct unblinded reading; no judge API",
+    "score": 4,
+    "note_en": "Meaning preserved. Unknown speaker gender is not graded.",
+    "note_cs": "Význam zachován. Rod neznámého mluvčího nehodnotíme."
+  },
+  {
+    "id": "game-1684",
+    "model": "translategemma-12b-q4km",
+    "mode": "guarded",
+    "reviewer": "Codex direct unblinded reading; no judge API",
+    "score": 4,
+    "note_en": "Meaning preserved. Unknown speaker gender is not graded.",
+    "note_cs": "Význam zachován. Rod neznámého mluvčího nehodnotíme."
+  },
+  {
+    "id": "game-1731",
+    "model": "translategemma-12b-q4km",
+    "mode": "naive",
+    "reviewer": "Codex direct unblinded reading; no judge API",
+    "score": null,
+    "note_en": "Not scored: corrupted OCR or already Czech. Outputs retained, including a request for clarification on Pa ug.",
+    "note_cs": "Nebodováno: nečitelný vstup OCR nebo již čeština. Výstupy zůstávají dostupné, včetně žádosti o vysvětlení Pa ug."
+  },
+  {
+    "id": "game-1731",
+    "model": "translategemma-12b-q4km",
+    "mode": "timeline",
+    "reviewer": "Codex direct unblinded reading; no judge API",
+    "score": null,
+    "note_en": "Not scored: corrupted OCR or already Czech. Outputs retained, including a request for clarification on Pa ug.",
+    "note_cs": "Nebodováno: nečitelný vstup OCR nebo již čeština. Výstupy zůstávají dostupné, včetně žádosti o vysvětlení Pa ug."
+  },
+  {
+    "id": "game-1731",
+    "model": "translategemma-12b-q4km",
+    "mode": "baseline",
+    "reviewer": "Codex direct unblinded reading; no judge API",
+    "score": null,
+    "note_en": "Not scored: corrupted OCR or already Czech. Outputs retained, including a request for clarification on Pa ug.",
+    "note_cs": "Nebodováno: nečitelný vstup OCR nebo již čeština. Výstupy zůstávají dostupné, včetně žádosti o vysvětlení Pa ug."
+  },
+  {
+    "id": "game-1731",
+    "model": "translategemma-12b-q4km",
+    "mode": "guarded",
+    "reviewer": "Codex direct unblinded reading; no judge API",
+    "score": null,
+    "note_en": "Not scored: corrupted OCR or already Czech. Outputs retained, including a request for clarification on Pa ug.",
+    "note_cs": "Nebodováno: nečitelný vstup OCR nebo již čeština. Výstupy zůstávají dostupné, včetně žádosti o vysvětlení Pa ug."
+  },
+  {
+    "id": "game-1732",
+    "model": "translategemma-12b-q4km",
+    "mode": "baseline",
+    "reviewer": "Codex direct unblinded reading; no judge API",
+    "score": null,
+    "note_en": "Not scored: corrupted OCR or already Czech. Outputs retained, including a request for clarification on Pa ug.",
+    "note_cs": "Nebodováno: nečitelný vstup OCR nebo již čeština. Výstupy zůstávají dostupné, včetně žádosti o vysvětlení Pa ug."
+  },
+  {
+    "id": "game-1732",
+    "model": "translategemma-12b-q4km",
+    "mode": "naive",
+    "reviewer": "Codex direct unblinded reading; no judge API",
+    "score": null,
+    "note_en": "Not scored: corrupted OCR or already Czech. Outputs retained, including a request for clarification on Pa ug.",
+    "note_cs": "Nebodováno: nečitelný vstup OCR nebo již čeština. Výstupy zůstávají dostupné, včetně žádosti o vysvětlení Pa ug."
+  },
+  {
+    "id": "game-1732",
+    "model": "translategemma-12b-q4km",
+    "mode": "guarded",
+    "reviewer": "Codex direct unblinded reading; no judge API",
+    "score": null,
+    "note_en": "Not scored: corrupted OCR or already Czech. Outputs retained, including a request for clarification on Pa ug.",
+    "note_cs": "Nebodováno: nečitelný vstup OCR nebo již čeština. Výstupy zůstávají dostupné, včetně žádosti o vysvětlení Pa ug."
+  },
+  {
+    "id": "game-1732",
+    "model": "translategemma-12b-q4km",
+    "mode": "timeline",
+    "reviewer": "Codex direct unblinded reading; no judge API",
+    "score": null,
+    "note_en": "Not scored: corrupted OCR or already Czech. Outputs retained, including a request for clarification on Pa ug.",
+    "note_cs": "Nebodováno: nečitelný vstup OCR nebo již čeština. Výstupy zůstávají dostupné, včetně žádosti o vysvětlení Pa ug."
+  },
+  {
+    "id": "game-1733",
+    "model": "translategemma-12b-q4km",
+    "mode": "baseline",
+    "reviewer": "Codex direct unblinded reading; no judge API",
+    "score": null,
+    "note_en": "Not scored: corrupted OCR or already Czech. Outputs retained, including a request for clarification on Pa ug.",
+    "note_cs": "Nebodováno: nečitelný vstup OCR nebo již čeština. Výstupy zůstávají dostupné, včetně žádosti o vysvětlení Pa ug."
+  },
+  {
+    "id": "game-1733",
+    "model": "translategemma-12b-q4km",
+    "mode": "timeline",
+    "reviewer": "Codex direct unblinded reading; no judge API",
+    "score": null,
+    "note_en": "Not scored: corrupted OCR or already Czech. Outputs retained, including a request for clarification on Pa ug.",
+    "note_cs": "Nebodováno: nečitelný vstup OCR nebo již čeština. Výstupy zůstávají dostupné, včetně žádosti o vysvětlení Pa ug."
+  },
+  {
+    "id": "game-1733",
+    "model": "translategemma-12b-q4km",
+    "mode": "naive",
+    "reviewer": "Codex direct unblinded reading; no judge API",
+    "score": null,
+    "note_en": "Not scored: corrupted OCR or already Czech. Outputs retained, including a request for clarification on Pa ug.",
+    "note_cs": "Nebodováno: nečitelný vstup OCR nebo již čeština. Výstupy zůstávají dostupné, včetně žádosti o vysvětlení Pa ug."
+  },
+  {
+    "id": "game-1733",
+    "model": "translategemma-12b-q4km",
+    "mode": "guarded",
+    "reviewer": "Codex direct unblinded reading; no judge API",
+    "score": null,
+    "note_en": "Not scored: corrupted OCR or already Czech. Outputs retained, including a request for clarification on Pa ug.",
+    "note_cs": "Nebodováno: nečitelný vstup OCR nebo již čeština. Výstupy zůstávají dostupné, včetně žádosti o vysvětlení Pa ug."
+  },
+  {
+    "id": "game-1734",
+    "model": "translategemma-12b-q4km",
+    "mode": "baseline",
+    "reviewer": "Codex direct unblinded reading; no judge API",
+    "score": null,
+    "note_en": "Not scored: corrupted OCR or already Czech. Outputs retained, including a request for clarification on Pa ug.",
+    "note_cs": "Nebodováno: nečitelný vstup OCR nebo již čeština. Výstupy zůstávají dostupné, včetně žádosti o vysvětlení Pa ug."
+  },
+  {
+    "id": "game-1734",
+    "model": "translategemma-12b-q4km",
+    "mode": "guarded",
+    "reviewer": "Codex direct unblinded reading; no judge API",
+    "score": null,
+    "note_en": "Not scored: corrupted OCR or already Czech. Outputs retained, including a request for clarification on Pa ug.",
+    "note_cs": "Nebodováno: nečitelný vstup OCR nebo již čeština. Výstupy zůstávají dostupné, včetně žádosti o vysvětlení Pa ug."
+  },
+  {
+    "id": "game-1734",
+    "model": "translategemma-12b-q4km",
+    "mode": "timeline",
+    "reviewer": "Codex direct unblinded reading; no judge API",
+    "score": null,
+    "note_en": "Not scored: corrupted OCR or already Czech. Outputs retained, including a request for clarification on Pa ug.",
+    "note_cs": "Nebodováno: nečitelný vstup OCR nebo již čeština. Výstupy zůstávají dostupné, včetně žádosti o vysvětlení Pa ug."
+  },
+  {
+    "id": "game-1734",
+    "model": "translategemma-12b-q4km",
+    "mode": "naive",
+    "reviewer": "Codex direct unblinded reading; no judge API",
+    "score": null,
+    "note_en": "Not scored: corrupted OCR or already Czech. Outputs retained, including a request for clarification on Pa ug.",
+    "note_cs": "Nebodováno: nečitelný vstup OCR nebo již čeština. Výstupy zůstávají dostupné, včetně žádosti o vysvětlení Pa ug."
+  },
+  {
+    "id": "synthetic-female_past",
+    "model": "translategemma-12b-q4km",
+    "mode": "timeline",
+    "reviewer": "Codex direct unblinded reading; no judge API",
+    "feature": "known_speaker_gender",
+    "feature_pass": true,
+    "note_en": "Known simulator gender only, not automatic character recognition. Baseline Robin prints both gender alternatives, so neither is a resolved-gender pass.",
+    "note_cs": "Jen rod předem zadané vytvořené postavy, nikoli automatické rozpoznání. Bez paměti Robin vypisuje obě rodové alternativy; ani jedna tak není splněným jednoznačným rodem."
+  },
+  {
+    "id": "synthetic-female_past",
+    "model": "translategemma-12b-q4km",
+    "mode": "naive",
+    "reviewer": "Codex direct unblinded reading; no judge API",
+    "feature": "known_speaker_gender",
+    "feature_pass": false,
+    "note_en": "Known simulator gender only, not automatic character recognition. Baseline Robin prints both gender alternatives, so neither is a resolved-gender pass.",
+    "note_cs": "Jen rod předem zadané vytvořené postavy, nikoli automatické rozpoznání. Bez paměti Robin vypisuje obě rodové alternativy; ani jedna tak není splněným jednoznačným rodem."
+  },
+  {
+    "id": "synthetic-female_past",
+    "model": "translategemma-12b-q4km",
+    "mode": "guarded",
+    "reviewer": "Codex direct unblinded reading; no judge API",
+    "feature": "known_speaker_gender",
+    "feature_pass": true,
+    "note_en": "Known simulator gender only, not automatic character recognition. Baseline Robin prints both gender alternatives, so neither is a resolved-gender pass.",
+    "note_cs": "Jen rod předem zadané vytvořené postavy, nikoli automatické rozpoznání. Bez paměti Robin vypisuje obě rodové alternativy; ani jedna tak není splněným jednoznačným rodem."
+  },
+  {
+    "id": "synthetic-female_past",
+    "model": "translategemma-12b-q4km",
+    "mode": "baseline",
+    "reviewer": "Codex direct unblinded reading; no judge API",
+    "feature": "known_speaker_gender",
+    "feature_pass": false,
+    "note_en": "Known simulator gender only, not automatic character recognition. Baseline Robin prints both gender alternatives, so neither is a resolved-gender pass.",
+    "note_cs": "Jen rod předem zadané vytvořené postavy, nikoli automatické rozpoznání. Bez paměti Robin vypisuje obě rodové alternativy; ani jedna tak není splněným jednoznačným rodem."
+  },
+  {
+    "id": "synthetic-male_past",
+    "model": "translategemma-12b-q4km",
+    "mode": "timeline",
+    "reviewer": "Codex direct unblinded reading; no judge API",
+    "feature": "known_speaker_gender",
+    "feature_pass": true,
+    "note_en": "Known simulator gender only, not automatic character recognition. Baseline Robin prints both gender alternatives, so neither is a resolved-gender pass.",
+    "note_cs": "Jen rod předem zadané vytvořené postavy, nikoli automatické rozpoznání. Bez paměti Robin vypisuje obě rodové alternativy; ani jedna tak není splněným jednoznačným rodem."
+  },
+  {
+    "id": "synthetic-male_past",
+    "model": "translategemma-12b-q4km",
+    "mode": "naive",
+    "reviewer": "Codex direct unblinded reading; no judge API",
+    "feature": "known_speaker_gender",
+    "feature_pass": true,
+    "note_en": "Known simulator gender only, not automatic character recognition. Baseline Robin prints both gender alternatives, so neither is a resolved-gender pass.",
+    "note_cs": "Jen rod předem zadané vytvořené postavy, nikoli automatické rozpoznání. Bez paměti Robin vypisuje obě rodové alternativy; ani jedna tak není splněným jednoznačným rodem."
+  },
+  {
+    "id": "synthetic-male_past",
+    "model": "translategemma-12b-q4km",
+    "mode": "guarded",
+    "reviewer": "Codex direct unblinded reading; no judge API",
+    "feature": "known_speaker_gender",
+    "feature_pass": true,
+    "note_en": "Known simulator gender only, not automatic character recognition. Baseline Robin prints both gender alternatives, so neither is a resolved-gender pass.",
+    "note_cs": "Jen rod předem zadané vytvořené postavy, nikoli automatické rozpoznání. Bez paměti Robin vypisuje obě rodové alternativy; ani jedna tak není splněným jednoznačným rodem."
+  },
+  {
+    "id": "synthetic-male_past",
+    "model": "translategemma-12b-q4km",
+    "mode": "baseline",
+    "reviewer": "Codex direct unblinded reading; no judge API",
+    "feature": "known_speaker_gender",
+    "feature_pass": true,
+    "note_en": "Known simulator gender only, not automatic character recognition. Baseline Robin prints both gender alternatives, so neither is a resolved-gender pass.",
+    "note_cs": "Jen rod předem zadané vytvořené postavy, nikoli automatické rozpoznání. Bez paměti Robin vypisuje obě rodové alternativy; ani jedna tak není splněným jednoznačným rodem."
+  },
+  {
+    "id": "synthetic-female_ready",
+    "model": "translategemma-12b-q4km",
+    "mode": "baseline",
+    "reviewer": "Codex direct unblinded reading; no judge API",
+    "feature": "known_speaker_gender",
+    "feature_pass": false,
+    "note_en": "Known simulator gender only, not automatic character recognition. Baseline Robin prints both gender alternatives, so neither is a resolved-gender pass.",
+    "note_cs": "Jen rod předem zadané vytvořené postavy, nikoli automatické rozpoznání. Bez paměti Robin vypisuje obě rodové alternativy; ani jedna tak není splněným jednoznačným rodem."
+  },
+  {
+    "id": "synthetic-female_ready",
+    "model": "translategemma-12b-q4km",
+    "mode": "timeline",
+    "reviewer": "Codex direct unblinded reading; no judge API",
+    "feature": "known_speaker_gender",
+    "feature_pass": true,
+    "note_en": "Known simulator gender only, not automatic character recognition. Baseline Robin prints both gender alternatives, so neither is a resolved-gender pass.",
+    "note_cs": "Jen rod předem zadané vytvořené postavy, nikoli automatické rozpoznání. Bez paměti Robin vypisuje obě rodové alternativy; ani jedna tak není splněným jednoznačným rodem."
+  },
+  {
+    "id": "synthetic-female_ready",
+    "model": "translategemma-12b-q4km",
+    "mode": "guarded",
+    "reviewer": "Codex direct unblinded reading; no judge API",
+    "feature": "known_speaker_gender",
+    "feature_pass": true,
+    "note_en": "Known simulator gender only, not automatic character recognition. Baseline Robin prints both gender alternatives, so neither is a resolved-gender pass.",
+    "note_cs": "Jen rod předem zadané vytvořené postavy, nikoli automatické rozpoznání. Bez paměti Robin vypisuje obě rodové alternativy; ani jedna tak není splněným jednoznačným rodem."
+  },
+  {
+    "id": "synthetic-female_ready",
+    "model": "translategemma-12b-q4km",
+    "mode": "naive",
+    "reviewer": "Codex direct unblinded reading; no judge API",
+    "feature": "known_speaker_gender",
+    "feature_pass": false,
+    "note_en": "Known simulator gender only, not automatic character recognition. Baseline Robin prints both gender alternatives, so neither is a resolved-gender pass.",
+    "note_cs": "Jen rod předem zadané vytvořené postavy, nikoli automatické rozpoznání. Bez paměti Robin vypisuje obě rodové alternativy; ani jedna tak není splněným jednoznačným rodem."
+  },
+  {
+    "id": "synthetic-male_ready",
+    "model": "translategemma-12b-q4km",
+    "mode": "timeline",
+    "reviewer": "Codex direct unblinded reading; no judge API",
+    "feature": "known_speaker_gender",
+    "feature_pass": true,
+    "note_en": "Known simulator gender only, not automatic character recognition. Baseline Robin prints both gender alternatives, so neither is a resolved-gender pass.",
+    "note_cs": "Jen rod předem zadané vytvořené postavy, nikoli automatické rozpoznání. Bez paměti Robin vypisuje obě rodové alternativy; ani jedna tak není splněným jednoznačným rodem."
+  },
+  {
+    "id": "synthetic-male_ready",
+    "model": "translategemma-12b-q4km",
+    "mode": "guarded",
+    "reviewer": "Codex direct unblinded reading; no judge API",
+    "feature": "known_speaker_gender",
+    "feature_pass": true,
+    "note_en": "Known simulator gender only, not automatic character recognition. Baseline Robin prints both gender alternatives, so neither is a resolved-gender pass.",
+    "note_cs": "Jen rod předem zadané vytvořené postavy, nikoli automatické rozpoznání. Bez paměti Robin vypisuje obě rodové alternativy; ani jedna tak není splněným jednoznačným rodem."
+  },
+  {
+    "id": "synthetic-male_ready",
+    "model": "translategemma-12b-q4km",
+    "mode": "naive",
+    "reviewer": "Codex direct unblinded reading; no judge API",
+    "feature": "known_speaker_gender",
+    "feature_pass": true,
+    "note_en": "Known simulator gender only, not automatic character recognition. Baseline Robin prints both gender alternatives, so neither is a resolved-gender pass.",
+    "note_cs": "Jen rod předem zadané vytvořené postavy, nikoli automatické rozpoznání. Bez paměti Robin vypisuje obě rodové alternativy; ani jedna tak není splněným jednoznačným rodem."
+  },
+  {
+    "id": "synthetic-male_ready",
+    "model": "translategemma-12b-q4km",
+    "mode": "baseline",
+    "reviewer": "Codex direct unblinded reading; no judge API",
+    "feature": "known_speaker_gender",
+    "feature_pass": true,
+    "note_en": "Known simulator gender only, not automatic character recognition. Baseline Robin prints both gender alternatives, so neither is a resolved-gender pass.",
+    "note_cs": "Jen rod předem zadané vytvořené postavy, nikoli automatické rozpoznání. Bez paměti Robin vypisuje obě rodové alternativy; ani jedna tak není splněným jednoznačným rodem."
+  },
+  {
+    "id": "synthetic-female_alone",
+    "model": "translategemma-12b-q4km",
+    "mode": "baseline",
+    "reviewer": "Codex direct unblinded reading; no judge API",
+    "feature": "known_speaker_gender",
+    "feature_pass": false,
+    "note_en": "Known simulator gender only, not automatic character recognition. Baseline Robin prints both gender alternatives, so neither is a resolved-gender pass.",
+    "note_cs": "Jen rod předem zadané vytvořené postavy, nikoli automatické rozpoznání. Bez paměti Robin vypisuje obě rodové alternativy; ani jedna tak není splněným jednoznačným rodem."
+  },
+  {
+    "id": "synthetic-female_alone",
+    "model": "translategemma-12b-q4km",
+    "mode": "timeline",
+    "reviewer": "Codex direct unblinded reading; no judge API",
+    "feature": "known_speaker_gender",
+    "feature_pass": true,
+    "note_en": "Known simulator gender only, not automatic character recognition. Baseline Robin prints both gender alternatives, so neither is a resolved-gender pass.",
+    "note_cs": "Jen rod předem zadané vytvořené postavy, nikoli automatické rozpoznání. Bez paměti Robin vypisuje obě rodové alternativy; ani jedna tak není splněným jednoznačným rodem."
+  },
+  {
+    "id": "synthetic-female_alone",
+    "model": "translategemma-12b-q4km",
+    "mode": "naive",
+    "reviewer": "Codex direct unblinded reading; no judge API",
+    "feature": "known_speaker_gender",
+    "feature_pass": false,
+    "note_en": "Known simulator gender only, not automatic character recognition. Baseline Robin prints both gender alternatives, so neither is a resolved-gender pass.",
+    "note_cs": "Jen rod předem zadané vytvořené postavy, nikoli automatické rozpoznání. Bez paměti Robin vypisuje obě rodové alternativy; ani jedna tak není splněným jednoznačným rodem."
+  },
+  {
+    "id": "synthetic-female_alone",
+    "model": "translategemma-12b-q4km",
+    "mode": "guarded",
+    "reviewer": "Codex direct unblinded reading; no judge API",
+    "feature": "known_speaker_gender",
+    "feature_pass": true,
+    "note_en": "Known simulator gender only, not automatic character recognition. Baseline Robin prints both gender alternatives, so neither is a resolved-gender pass.",
+    "note_cs": "Jen rod předem zadané vytvořené postavy, nikoli automatické rozpoznání. Bez paměti Robin vypisuje obě rodové alternativy; ani jedna tak není splněným jednoznačným rodem."
+  },
+  {
+    "id": "synthetic-male_alone",
+    "model": "translategemma-12b-q4km",
+    "mode": "naive",
+    "reviewer": "Codex direct unblinded reading; no judge API",
+    "feature": "known_speaker_gender",
+    "feature_pass": true,
+    "note_en": "Known simulator gender only, not automatic character recognition. Baseline Robin prints both gender alternatives, so neither is a resolved-gender pass.",
+    "note_cs": "Jen rod předem zadané vytvořené postavy, nikoli automatické rozpoznání. Bez paměti Robin vypisuje obě rodové alternativy; ani jedna tak není splněným jednoznačným rodem."
+  },
+  {
+    "id": "synthetic-male_alone",
+    "model": "translategemma-12b-q4km",
+    "mode": "baseline",
+    "reviewer": "Codex direct unblinded reading; no judge API",
+    "feature": "known_speaker_gender",
+    "feature_pass": true,
+    "note_en": "Known simulator gender only, not automatic character recognition. Baseline Robin prints both gender alternatives, so neither is a resolved-gender pass.",
+    "note_cs": "Jen rod předem zadané vytvořené postavy, nikoli automatické rozpoznání. Bez paměti Robin vypisuje obě rodové alternativy; ani jedna tak není splněným jednoznačným rodem."
+  },
+  {
+    "id": "synthetic-male_alone",
+    "model": "translategemma-12b-q4km",
+    "mode": "timeline",
+    "reviewer": "Codex direct unblinded reading; no judge API",
+    "feature": "known_speaker_gender",
+    "feature_pass": true,
+    "note_en": "Known simulator gender only, not automatic character recognition. Baseline Robin prints both gender alternatives, so neither is a resolved-gender pass.",
+    "note_cs": "Jen rod předem zadané vytvořené postavy, nikoli automatické rozpoznání. Bez paměti Robin vypisuje obě rodové alternativy; ani jedna tak není splněným jednoznačným rodem."
+  },
+  {
+    "id": "synthetic-male_alone",
+    "model": "translategemma-12b-q4km",
+    "mode": "guarded",
+    "reviewer": "Codex direct unblinded reading; no judge API",
+    "feature": "known_speaker_gender",
+    "feature_pass": true,
+    "note_en": "Known simulator gender only, not automatic character recognition. Baseline Robin prints both gender alternatives, so neither is a resolved-gender pass.",
+    "note_cs": "Jen rod předem zadané vytvořené postavy, nikoli automatické rozpoznání. Bez paměti Robin vypisuje obě rodové alternativy; ani jedna tak není splněným jednoznačným rodem."
+  },
+  {
+    "id": "synthetic-female_tired",
+    "model": "translategemma-12b-q4km",
+    "mode": "baseline",
+    "reviewer": "Codex direct unblinded reading; no judge API",
+    "feature": "known_speaker_gender",
+    "feature_pass": false,
+    "note_en": "Known simulator gender only, not automatic character recognition. Baseline Robin prints both gender alternatives, so neither is a resolved-gender pass.",
+    "note_cs": "Jen rod předem zadané vytvořené postavy, nikoli automatické rozpoznání. Bez paměti Robin vypisuje obě rodové alternativy; ani jedna tak není splněným jednoznačným rodem."
+  },
+  {
+    "id": "synthetic-female_tired",
+    "model": "translategemma-12b-q4km",
+    "mode": "timeline",
+    "reviewer": "Codex direct unblinded reading; no judge API",
+    "feature": "known_speaker_gender",
+    "feature_pass": true,
+    "note_en": "Known simulator gender only, not automatic character recognition. Baseline Robin prints both gender alternatives, so neither is a resolved-gender pass.",
+    "note_cs": "Jen rod předem zadané vytvořené postavy, nikoli automatické rozpoznání. Bez paměti Robin vypisuje obě rodové alternativy; ani jedna tak není splněným jednoznačným rodem."
+  },
+  {
+    "id": "synthetic-female_tired",
+    "model": "translategemma-12b-q4km",
+    "mode": "naive",
+    "reviewer": "Codex direct unblinded reading; no judge API",
+    "feature": "known_speaker_gender",
+    "feature_pass": false,
+    "note_en": "Known simulator gender only, not automatic character recognition. Baseline Robin prints both gender alternatives, so neither is a resolved-gender pass.",
+    "note_cs": "Jen rod předem zadané vytvořené postavy, nikoli automatické rozpoznání. Bez paměti Robin vypisuje obě rodové alternativy; ani jedna tak není splněným jednoznačným rodem."
+  },
+  {
+    "id": "synthetic-female_tired",
+    "model": "translategemma-12b-q4km",
+    "mode": "guarded",
+    "reviewer": "Codex direct unblinded reading; no judge API",
+    "feature": "known_speaker_gender",
+    "feature_pass": true,
+    "note_en": "Known simulator gender only, not automatic character recognition. Baseline Robin prints both gender alternatives, so neither is a resolved-gender pass.",
+    "note_cs": "Jen rod předem zadané vytvořené postavy, nikoli automatické rozpoznání. Bez paměti Robin vypisuje obě rodové alternativy; ani jedna tak není splněným jednoznačným rodem."
+  },
+  {
+    "id": "synthetic-male_tired",
+    "model": "translategemma-12b-q4km",
+    "mode": "guarded",
+    "reviewer": "Codex direct unblinded reading; no judge API",
+    "feature": "known_speaker_gender",
+    "feature_pass": true,
+    "note_en": "Known simulator gender only, not automatic character recognition. Baseline Robin prints both gender alternatives, so neither is a resolved-gender pass.",
+    "note_cs": "Jen rod předem zadané vytvořené postavy, nikoli automatické rozpoznání. Bez paměti Robin vypisuje obě rodové alternativy; ani jedna tak není splněným jednoznačným rodem."
+  },
+  {
+    "id": "synthetic-male_tired",
+    "model": "translategemma-12b-q4km",
+    "mode": "timeline",
+    "reviewer": "Codex direct unblinded reading; no judge API",
+    "feature": "known_speaker_gender",
+    "feature_pass": true,
+    "note_en": "Known simulator gender only, not automatic character recognition. Baseline Robin prints both gender alternatives, so neither is a resolved-gender pass.",
+    "note_cs": "Jen rod předem zadané vytvořené postavy, nikoli automatické rozpoznání. Bez paměti Robin vypisuje obě rodové alternativy; ani jedna tak není splněným jednoznačným rodem."
+  },
+  {
+    "id": "synthetic-male_tired",
+    "model": "translategemma-12b-q4km",
+    "mode": "naive",
+    "reviewer": "Codex direct unblinded reading; no judge API",
+    "feature": "known_speaker_gender",
+    "feature_pass": true,
+    "note_en": "Known simulator gender only, not automatic character recognition. Baseline Robin prints both gender alternatives, so neither is a resolved-gender pass.",
+    "note_cs": "Jen rod předem zadané vytvořené postavy, nikoli automatické rozpoznání. Bez paměti Robin vypisuje obě rodové alternativy; ani jedna tak není splněným jednoznačným rodem."
+  },
+  {
+    "id": "synthetic-male_tired",
+    "model": "translategemma-12b-q4km",
+    "mode": "baseline",
+    "reviewer": "Codex direct unblinded reading; no judge API",
+    "feature": "known_speaker_gender",
+    "feature_pass": false,
+    "note_en": "Known simulator gender only, not automatic character recognition. Baseline Robin prints both gender alternatives, so neither is a resolved-gender pass.",
+    "note_cs": "Jen rod předem zadané vytvořené postavy, nikoli automatické rozpoznání. Bez paměti Robin vypisuje obě rodové alternativy; ani jedna tak není splněným jednoznačným rodem."
+  },
+  {
+    "id": "synthetic-female_mistake",
+    "model": "translategemma-12b-q4km",
+    "mode": "guarded",
+    "reviewer": "Codex direct unblinded reading; no judge API",
+    "feature": "known_speaker_gender",
+    "feature_pass": true,
+    "note_en": "Known simulator gender only, not automatic character recognition. Baseline Robin prints both gender alternatives, so neither is a resolved-gender pass.",
+    "note_cs": "Jen rod předem zadané vytvořené postavy, nikoli automatické rozpoznání. Bez paměti Robin vypisuje obě rodové alternativy; ani jedna tak není splněným jednoznačným rodem."
+  },
+  {
+    "id": "synthetic-female_mistake",
+    "model": "translategemma-12b-q4km",
+    "mode": "naive",
+    "reviewer": "Codex direct unblinded reading; no judge API",
+    "feature": "known_speaker_gender",
+    "feature_pass": true,
+    "note_en": "Known simulator gender only, not automatic character recognition. Baseline Robin prints both gender alternatives, so neither is a resolved-gender pass.",
+    "note_cs": "Jen rod předem zadané vytvořené postavy, nikoli automatické rozpoznání. Bez paměti Robin vypisuje obě rodové alternativy; ani jedna tak není splněným jednoznačným rodem."
+  },
+  {
+    "id": "synthetic-female_mistake",
+    "model": "translategemma-12b-q4km",
+    "mode": "baseline",
+    "reviewer": "Codex direct unblinded reading; no judge API",
+    "feature": "known_speaker_gender",
+    "feature_pass": false,
+    "note_en": "Known simulator gender only, not automatic character recognition. Baseline Robin prints both gender alternatives, so neither is a resolved-gender pass.",
+    "note_cs": "Jen rod předem zadané vytvořené postavy, nikoli automatické rozpoznání. Bez paměti Robin vypisuje obě rodové alternativy; ani jedna tak není splněným jednoznačným rodem."
+  },
+  {
+    "id": "synthetic-female_mistake",
+    "model": "translategemma-12b-q4km",
+    "mode": "timeline",
+    "reviewer": "Codex direct unblinded reading; no judge API",
+    "feature": "known_speaker_gender",
+    "feature_pass": true,
+    "note_en": "Known simulator gender only, not automatic character recognition. Baseline Robin prints both gender alternatives, so neither is a resolved-gender pass.",
+    "note_cs": "Jen rod předem zadané vytvořené postavy, nikoli automatické rozpoznání. Bez paměti Robin vypisuje obě rodové alternativy; ani jedna tak není splněným jednoznačným rodem."
+  },
+  {
+    "id": "synthetic-male_mistake",
+    "model": "translategemma-12b-q4km",
+    "mode": "baseline",
+    "reviewer": "Codex direct unblinded reading; no judge API",
+    "feature": "known_speaker_gender",
+    "feature_pass": true,
+    "note_en": "Known simulator gender only, not automatic character recognition. Baseline Robin prints both gender alternatives, so neither is a resolved-gender pass.",
+    "note_cs": "Jen rod předem zadané vytvořené postavy, nikoli automatické rozpoznání. Bez paměti Robin vypisuje obě rodové alternativy; ani jedna tak není splněným jednoznačným rodem."
+  },
+  {
+    "id": "synthetic-male_mistake",
+    "model": "translategemma-12b-q4km",
+    "mode": "timeline",
+    "reviewer": "Codex direct unblinded reading; no judge API",
+    "feature": "known_speaker_gender",
+    "feature_pass": true,
+    "note_en": "Known simulator gender only, not automatic character recognition. Baseline Robin prints both gender alternatives, so neither is a resolved-gender pass.",
+    "note_cs": "Jen rod předem zadané vytvořené postavy, nikoli automatické rozpoznání. Bez paměti Robin vypisuje obě rodové alternativy; ani jedna tak není splněným jednoznačným rodem."
+  },
+  {
+    "id": "synthetic-male_mistake",
+    "model": "translategemma-12b-q4km",
+    "mode": "naive",
+    "reviewer": "Codex direct unblinded reading; no judge API",
+    "feature": "known_speaker_gender",
+    "feature_pass": true,
+    "note_en": "Known simulator gender only, not automatic character recognition. Baseline Robin prints both gender alternatives, so neither is a resolved-gender pass.",
+    "note_cs": "Jen rod předem zadané vytvořené postavy, nikoli automatické rozpoznání. Bez paměti Robin vypisuje obě rodové alternativy; ani jedna tak není splněným jednoznačným rodem."
+  },
+  {
+    "id": "synthetic-male_mistake",
+    "model": "translategemma-12b-q4km",
+    "mode": "guarded",
+    "reviewer": "Codex direct unblinded reading; no judge API",
+    "feature": "known_speaker_gender",
+    "feature_pass": true,
+    "note_en": "Known simulator gender only, not automatic character recognition. Baseline Robin prints both gender alternatives, so neither is a resolved-gender pass.",
+    "note_cs": "Jen rod předem zadané vytvořené postavy, nikoli automatické rozpoznání. Bez paměti Robin vypisuje obě rodové alternativy; ani jedna tak není splněným jednoznačným rodem."
+  },
+  {
+    "id": "synthetic-female_wounded",
+    "model": "translategemma-12b-q4km",
+    "mode": "baseline",
+    "reviewer": "Codex direct unblinded reading; no judge API",
+    "feature": "known_speaker_gender",
+    "feature_pass": false,
+    "note_en": "Known simulator gender only, not automatic character recognition. Baseline Robin prints both gender alternatives, so neither is a resolved-gender pass.",
+    "note_cs": "Jen rod předem zadané vytvořené postavy, nikoli automatické rozpoznání. Bez paměti Robin vypisuje obě rodové alternativy; ani jedna tak není splněným jednoznačným rodem."
+  },
+  {
+    "id": "synthetic-female_wounded",
+    "model": "translategemma-12b-q4km",
+    "mode": "naive",
+    "reviewer": "Codex direct unblinded reading; no judge API",
+    "feature": "known_speaker_gender",
+    "feature_pass": false,
+    "note_en": "Known simulator gender only, not automatic character recognition. Baseline Robin prints both gender alternatives, so neither is a resolved-gender pass.",
+    "note_cs": "Jen rod předem zadané vytvořené postavy, nikoli automatické rozpoznání. Bez paměti Robin vypisuje obě rodové alternativy; ani jedna tak není splněným jednoznačným rodem."
+  },
+  {
+    "id": "synthetic-female_wounded",
+    "model": "translategemma-12b-q4km",
+    "mode": "guarded",
+    "reviewer": "Codex direct unblinded reading; no judge API",
+    "feature": "known_speaker_gender",
+    "feature_pass": true,
+    "note_en": "Known simulator gender only, not automatic character recognition. Baseline Robin prints both gender alternatives, so neither is a resolved-gender pass.",
+    "note_cs": "Jen rod předem zadané vytvořené postavy, nikoli automatické rozpoznání. Bez paměti Robin vypisuje obě rodové alternativy; ani jedna tak není splněným jednoznačným rodem."
+  },
+  {
+    "id": "synthetic-female_wounded",
+    "model": "translategemma-12b-q4km",
+    "mode": "timeline",
+    "reviewer": "Codex direct unblinded reading; no judge API",
+    "feature": "known_speaker_gender",
+    "feature_pass": true,
+    "note_en": "Known simulator gender only, not automatic character recognition. Baseline Robin prints both gender alternatives, so neither is a resolved-gender pass.",
+    "note_cs": "Jen rod předem zadané vytvořené postavy, nikoli automatické rozpoznání. Bez paměti Robin vypisuje obě rodové alternativy; ani jedna tak není splněným jednoznačným rodem."
+  },
+  {
+    "id": "synthetic-male_wounded",
+    "model": "translategemma-12b-q4km",
+    "mode": "guarded",
+    "reviewer": "Codex direct unblinded reading; no judge API",
+    "feature": "known_speaker_gender",
+    "feature_pass": true,
+    "note_en": "Known simulator gender only, not automatic character recognition. Baseline Robin prints both gender alternatives, so neither is a resolved-gender pass.",
+    "note_cs": "Jen rod předem zadané vytvořené postavy, nikoli automatické rozpoznání. Bez paměti Robin vypisuje obě rodové alternativy; ani jedna tak není splněným jednoznačným rodem."
+  },
+  {
+    "id": "synthetic-male_wounded",
+    "model": "translategemma-12b-q4km",
+    "mode": "timeline",
+    "reviewer": "Codex direct unblinded reading; no judge API",
+    "feature": "known_speaker_gender",
+    "feature_pass": true,
+    "note_en": "Known simulator gender only, not automatic character recognition. Baseline Robin prints both gender alternatives, so neither is a resolved-gender pass.",
+    "note_cs": "Jen rod předem zadané vytvořené postavy, nikoli automatické rozpoznání. Bez paměti Robin vypisuje obě rodové alternativy; ani jedna tak není splněným jednoznačným rodem."
+  },
+  {
+    "id": "synthetic-male_wounded",
+    "model": "translategemma-12b-q4km",
+    "mode": "naive",
+    "reviewer": "Codex direct unblinded reading; no judge API",
+    "feature": "known_speaker_gender",
+    "feature_pass": true,
+    "note_en": "Known simulator gender only, not automatic character recognition. Baseline Robin prints both gender alternatives, so neither is a resolved-gender pass.",
+    "note_cs": "Jen rod předem zadané vytvořené postavy, nikoli automatické rozpoznání. Bez paměti Robin vypisuje obě rodové alternativy; ani jedna tak není splněným jednoznačným rodem."
+  },
+  {
+    "id": "synthetic-male_wounded",
+    "model": "translategemma-12b-q4km",
+    "mode": "baseline",
+    "reviewer": "Codex direct unblinded reading; no judge API",
+    "feature": "known_speaker_gender",
+    "feature_pass": true,
+    "note_en": "Known simulator gender only, not automatic character recognition. Baseline Robin prints both gender alternatives, so neither is a resolved-gender pass.",
+    "note_cs": "Jen rod předem zadané vytvořené postavy, nikoli automatické rozpoznání. Bez paměti Robin vypisuje obě rodové alternativy; ani jedna tak není splněným jednoznačným rodem."
+  },
+  {
+    "id": "synthetic-name_may",
+    "model": "translategemma-12b-q4km",
+    "mode": "naive",
+    "reviewer": "Codex direct unblinded reading; no judge API",
+    "feature": "name_or_word_sense",
+    "feature_pass": true,
+    "note_en": "Word/name feature only. Bounded/timestamped correctly use river bank and a bat weapon. Baseline names_only changes May to Majo. Full-sentence grammar is separate.",
+    "note_cs": "Jen sledovaný význam či jméno. Omezená a časovaná historie správně použijí břeh a pálku. Bez paměti se v names_only mění May na Majo. Nejde o hodnocení gramatiky celé věty."
+  },
+  {
+    "id": "synthetic-name_may",
+    "model": "translategemma-12b-q4km",
+    "mode": "baseline",
+    "reviewer": "Codex direct unblinded reading; no judge API",
+    "feature": "name_or_word_sense",
+    "feature_pass": true,
+    "note_en": "Word/name feature only. Bounded/timestamped correctly use river bank and a bat weapon. Baseline names_only changes May to Majo. Full-sentence grammar is separate.",
+    "note_cs": "Jen sledovaný význam či jméno. Omezená a časovaná historie správně použijí břeh a pálku. Bez paměti se v names_only mění May na Majo. Nejde o hodnocení gramatiky celé věty."
+  },
+  {
+    "id": "synthetic-name_may",
+    "model": "translategemma-12b-q4km",
+    "mode": "timeline",
+    "reviewer": "Codex direct unblinded reading; no judge API",
+    "feature": "name_or_word_sense",
+    "feature_pass": true,
+    "note_en": "Word/name feature only. Bounded/timestamped correctly use river bank and a bat weapon. Baseline names_only changes May to Majo. Full-sentence grammar is separate.",
+    "note_cs": "Jen sledovaný význam či jméno. Omezená a časovaná historie správně použijí břeh a pálku. Bez paměti se v names_only mění May na Majo. Nejde o hodnocení gramatiky celé věty."
+  },
+  {
+    "id": "synthetic-name_may",
+    "model": "translategemma-12b-q4km",
+    "mode": "guarded",
+    "reviewer": "Codex direct unblinded reading; no judge API",
+    "feature": "name_or_word_sense",
+    "feature_pass": true,
+    "note_en": "Word/name feature only. Bounded/timestamped correctly use river bank and a bat weapon. Baseline names_only changes May to Majo. Full-sentence grammar is separate.",
+    "note_cs": "Jen sledovaný význam či jméno. Omezená a časovaná historie správně použijí břeh a pálku. Bez paměti se v names_only mění May na Majo. Nejde o hodnocení gramatiky celé věty."
+  },
+  {
+    "id": "synthetic-bank_river",
+    "model": "translategemma-12b-q4km",
+    "mode": "guarded",
+    "reviewer": "Codex direct unblinded reading; no judge API",
+    "feature": "name_or_word_sense",
+    "feature_pass": true,
+    "note_en": "Word/name feature only. Bounded/timestamped correctly use river bank and a bat weapon. Baseline names_only changes May to Majo. Full-sentence grammar is separate.",
+    "note_cs": "Jen sledovaný význam či jméno. Omezená a časovaná historie správně použijí břeh a pálku. Bez paměti se v names_only mění May na Majo. Nejde o hodnocení gramatiky celé věty."
+  },
+  {
+    "id": "synthetic-bank_river",
+    "model": "translategemma-12b-q4km",
+    "mode": "naive",
+    "reviewer": "Codex direct unblinded reading; no judge API",
+    "feature": "name_or_word_sense",
+    "feature_pass": false,
+    "note_en": "Word/name feature only. Bounded/timestamped correctly use river bank and a bat weapon. Baseline names_only changes May to Majo. Full-sentence grammar is separate.",
+    "note_cs": "Jen sledovaný význam či jméno. Omezená a časovaná historie správně použijí břeh a pálku. Bez paměti se v names_only mění May na Majo. Nejde o hodnocení gramatiky celé věty."
+  },
+  {
+    "id": "synthetic-bank_river",
+    "model": "translategemma-12b-q4km",
+    "mode": "baseline",
+    "reviewer": "Codex direct unblinded reading; no judge API",
+    "feature": "name_or_word_sense",
+    "feature_pass": false,
+    "note_en": "Word/name feature only. Bounded/timestamped correctly use river bank and a bat weapon. Baseline names_only changes May to Majo. Full-sentence grammar is separate.",
+    "note_cs": "Jen sledovaný význam či jméno. Omezená a časovaná historie správně použijí břeh a pálku. Bez paměti se v names_only mění May na Majo. Nejde o hodnocení gramatiky celé věty."
+  },
+  {
+    "id": "synthetic-bank_river",
+    "model": "translategemma-12b-q4km",
+    "mode": "timeline",
+    "reviewer": "Codex direct unblinded reading; no judge API",
+    "feature": "name_or_word_sense",
+    "feature_pass": true,
+    "note_en": "Word/name feature only. Bounded/timestamped correctly use river bank and a bat weapon. Baseline names_only changes May to Majo. Full-sentence grammar is separate.",
+    "note_cs": "Jen sledovaný význam či jméno. Omezená a časovaná historie správně použijí břeh a pálku. Bez paměti se v names_only mění May na Majo. Nejde o hodnocení gramatiky celé věty."
+  },
+  {
+    "id": "synthetic-bank_money",
+    "model": "translategemma-12b-q4km",
+    "mode": "timeline",
+    "reviewer": "Codex direct unblinded reading; no judge API",
+    "feature": "name_or_word_sense",
+    "feature_pass": true,
+    "note_en": "Word/name feature only. Bounded/timestamped correctly use river bank and a bat weapon. Baseline names_only changes May to Majo. Full-sentence grammar is separate.",
+    "note_cs": "Jen sledovaný význam či jméno. Omezená a časovaná historie správně použijí břeh a pálku. Bez paměti se v names_only mění May na Majo. Nejde o hodnocení gramatiky celé věty."
+  },
+  {
+    "id": "synthetic-bank_money",
+    "model": "translategemma-12b-q4km",
+    "mode": "naive",
+    "reviewer": "Codex direct unblinded reading; no judge API",
+    "feature": "name_or_word_sense",
+    "feature_pass": true,
+    "note_en": "Word/name feature only. Bounded/timestamped correctly use river bank and a bat weapon. Baseline names_only changes May to Majo. Full-sentence grammar is separate.",
+    "note_cs": "Jen sledovaný význam či jméno. Omezená a časovaná historie správně použijí břeh a pálku. Bez paměti se v names_only mění May na Majo. Nejde o hodnocení gramatiky celé věty."
+  },
+  {
+    "id": "synthetic-bank_money",
+    "model": "translategemma-12b-q4km",
+    "mode": "guarded",
+    "reviewer": "Codex direct unblinded reading; no judge API",
+    "feature": "name_or_word_sense",
+    "feature_pass": true,
+    "note_en": "Word/name feature only. Bounded/timestamped correctly use river bank and a bat weapon. Baseline names_only changes May to Majo. Full-sentence grammar is separate.",
+    "note_cs": "Jen sledovaný význam či jméno. Omezená a časovaná historie správně použijí břeh a pálku. Bez paměti se v names_only mění May na Majo. Nejde o hodnocení gramatiky celé věty."
+  },
+  {
+    "id": "synthetic-bank_money",
+    "model": "translategemma-12b-q4km",
+    "mode": "baseline",
+    "reviewer": "Codex direct unblinded reading; no judge API",
+    "feature": "name_or_word_sense",
+    "feature_pass": true,
+    "note_en": "Word/name feature only. Bounded/timestamped correctly use river bank and a bat weapon. Baseline names_only changes May to Majo. Full-sentence grammar is separate.",
+    "note_cs": "Jen sledovaný význam či jméno. Omezená a časovaná historie správně použijí břeh a pálku. Bez paměti se v names_only mění May na Majo. Nejde o hodnocení gramatiky celé věty."
+  },
+  {
+    "id": "synthetic-bat_animal",
+    "model": "translategemma-12b-q4km",
+    "mode": "guarded",
+    "reviewer": "Codex direct unblinded reading; no judge API",
+    "feature": "name_or_word_sense",
+    "feature_pass": true,
+    "note_en": "Word/name feature only. Bounded/timestamped correctly use river bank and a bat weapon. Baseline names_only changes May to Majo. Full-sentence grammar is separate.",
+    "note_cs": "Jen sledovaný význam či jméno. Omezená a časovaná historie správně použijí břeh a pálku. Bez paměti se v names_only mění May na Majo. Nejde o hodnocení gramatiky celé věty."
+  },
+  {
+    "id": "synthetic-bat_animal",
+    "model": "translategemma-12b-q4km",
+    "mode": "baseline",
+    "reviewer": "Codex direct unblinded reading; no judge API",
+    "feature": "name_or_word_sense",
+    "feature_pass": true,
+    "note_en": "Word/name feature only. Bounded/timestamped correctly use river bank and a bat weapon. Baseline names_only changes May to Majo. Full-sentence grammar is separate.",
+    "note_cs": "Jen sledovaný význam či jméno. Omezená a časovaná historie správně použijí břeh a pálku. Bez paměti se v names_only mění May na Majo. Nejde o hodnocení gramatiky celé věty."
+  },
+  {
+    "id": "synthetic-bat_animal",
+    "model": "translategemma-12b-q4km",
+    "mode": "naive",
+    "reviewer": "Codex direct unblinded reading; no judge API",
+    "feature": "name_or_word_sense",
+    "feature_pass": true,
+    "note_en": "Word/name feature only. Bounded/timestamped correctly use river bank and a bat weapon. Baseline names_only changes May to Majo. Full-sentence grammar is separate.",
+    "note_cs": "Jen sledovaný význam či jméno. Omezená a časovaná historie správně použijí břeh a pálku. Bez paměti se v names_only mění May na Majo. Nejde o hodnocení gramatiky celé věty."
+  },
+  {
+    "id": "synthetic-bat_animal",
+    "model": "translategemma-12b-q4km",
+    "mode": "timeline",
+    "reviewer": "Codex direct unblinded reading; no judge API",
+    "feature": "name_or_word_sense",
+    "feature_pass": true,
+    "note_en": "Word/name feature only. Bounded/timestamped correctly use river bank and a bat weapon. Baseline names_only changes May to Majo. Full-sentence grammar is separate.",
+    "note_cs": "Jen sledovaný význam či jméno. Omezená a časovaná historie správně použijí břeh a pálku. Bez paměti se v names_only mění May na Majo. Nejde o hodnocení gramatiky celé věty."
+  },
+  {
+    "id": "synthetic-bat_weapon",
+    "model": "translategemma-12b-q4km",
+    "mode": "guarded",
+    "reviewer": "Codex direct unblinded reading; no judge API",
+    "feature": "name_or_word_sense",
+    "feature_pass": true,
+    "note_en": "Word/name feature only. Bounded/timestamped correctly use river bank and a bat weapon. Baseline names_only changes May to Majo. Full-sentence grammar is separate.",
+    "note_cs": "Jen sledovaný význam či jméno. Omezená a časovaná historie správně použijí břeh a pálku. Bez paměti se v names_only mění May na Majo. Nejde o hodnocení gramatiky celé věty."
+  },
+  {
+    "id": "synthetic-bat_weapon",
+    "model": "translategemma-12b-q4km",
+    "mode": "baseline",
+    "reviewer": "Codex direct unblinded reading; no judge API",
+    "feature": "name_or_word_sense",
+    "feature_pass": false,
+    "note_en": "Word/name feature only. Bounded/timestamped correctly use river bank and a bat weapon. Baseline names_only changes May to Majo. Full-sentence grammar is separate.",
+    "note_cs": "Jen sledovaný význam či jméno. Omezená a časovaná historie správně použijí břeh a pálku. Bez paměti se v names_only mění May na Majo. Nejde o hodnocení gramatiky celé věty."
+  },
+  {
+    "id": "synthetic-bat_weapon",
+    "model": "translategemma-12b-q4km",
+    "mode": "timeline",
+    "reviewer": "Codex direct unblinded reading; no judge API",
+    "feature": "name_or_word_sense",
+    "feature_pass": true,
+    "note_en": "Word/name feature only. Bounded/timestamped correctly use river bank and a bat weapon. Baseline names_only changes May to Majo. Full-sentence grammar is separate.",
+    "note_cs": "Jen sledovaný význam či jméno. Omezená a časovaná historie správně použijí břeh a pálku. Bez paměti se v names_only mění May na Majo. Nejde o hodnocení gramatiky celé věty."
+  },
+  {
+    "id": "synthetic-bat_weapon",
+    "model": "translategemma-12b-q4km",
+    "mode": "naive",
+    "reviewer": "Codex direct unblinded reading; no judge API",
+    "feature": "name_or_word_sense",
+    "feature_pass": false,
+    "note_en": "Word/name feature only. Bounded/timestamped correctly use river bank and a bat weapon. Baseline names_only changes May to Majo. Full-sentence grammar is separate.",
+    "note_cs": "Jen sledovaný význam či jméno. Omezená a časovaná historie správně použijí břeh a pálku. Bez paměti se v names_only mění May na Majo. Nejde o hodnocení gramatiky celé věty."
+  },
+  {
+    "id": "synthetic-unknown_speaker",
+    "model": "translategemma-12b-q4km",
+    "mode": "baseline",
+    "reviewer": "Codex direct unblinded reading; no judge API",
+    "feature": "robustness_control",
+    "feature_pass": null,
+    "note_en": "No invented truth for unknown speaker gender or an ambiguous word. The OCR injection was not followed. Reset/expiry have separate deterministic tests.",
+    "note_cs": "Nevymýšlíme pravdu o neznámém rodu nebo dvojznačném slově. Vložený OCR příkaz model neprovedl. Reset a stáří mají samostatné deterministické testy."
+  },
+  {
+    "id": "synthetic-unknown_speaker",
+    "model": "translategemma-12b-q4km",
+    "mode": "naive",
+    "reviewer": "Codex direct unblinded reading; no judge API",
+    "feature": "robustness_control",
+    "feature_pass": null,
+    "note_en": "No invented truth for unknown speaker gender or an ambiguous word. The OCR injection was not followed. Reset/expiry have separate deterministic tests.",
+    "note_cs": "Nevymýšlíme pravdu o neznámém rodu nebo dvojznačném slově. Vložený OCR příkaz model neprovedl. Reset a stáří mají samostatné deterministické testy."
+  },
+  {
+    "id": "synthetic-unknown_speaker",
+    "model": "translategemma-12b-q4km",
+    "mode": "guarded",
+    "reviewer": "Codex direct unblinded reading; no judge API",
+    "feature": "robustness_control",
+    "feature_pass": null,
+    "note_en": "No invented truth for unknown speaker gender or an ambiguous word. The OCR injection was not followed. Reset/expiry have separate deterministic tests.",
+    "note_cs": "Nevymýšlíme pravdu o neznámém rodu nebo dvojznačném slově. Vložený OCR příkaz model neprovedl. Reset a stáří mají samostatné deterministické testy."
+  },
+  {
+    "id": "synthetic-unknown_speaker",
+    "model": "translategemma-12b-q4km",
+    "mode": "timeline",
+    "reviewer": "Codex direct unblinded reading; no judge API",
+    "feature": "robustness_control",
+    "feature_pass": null,
+    "note_en": "No invented truth for unknown speaker gender or an ambiguous word. The OCR injection was not followed. Reset/expiry have separate deterministic tests.",
+    "note_cs": "Nevymýšlíme pravdu o neznámém rodu nebo dvojznačném slově. Vložený OCR příkaz model neprovedl. Reset a stáří mají samostatné deterministické testy."
+  },
+  {
+    "id": "synthetic-unrelated_banter",
+    "model": "translategemma-12b-q4km",
+    "mode": "naive",
+    "reviewer": "Codex direct unblinded reading; no judge API",
+    "feature": "robustness_control",
+    "feature_pass": null,
+    "note_en": "No invented truth for unknown speaker gender or an ambiguous word. The OCR injection was not followed. Reset/expiry have separate deterministic tests.",
+    "note_cs": "Nevymýšlíme pravdu o neznámém rodu nebo dvojznačném slově. Vložený OCR příkaz model neprovedl. Reset a stáří mají samostatné deterministické testy."
+  },
+  {
+    "id": "synthetic-unrelated_banter",
+    "model": "translategemma-12b-q4km",
+    "mode": "baseline",
+    "reviewer": "Codex direct unblinded reading; no judge API",
+    "feature": "robustness_control",
+    "feature_pass": null,
+    "note_en": "No invented truth for unknown speaker gender or an ambiguous word. The OCR injection was not followed. Reset/expiry have separate deterministic tests.",
+    "note_cs": "Nevymýšlíme pravdu o neznámém rodu nebo dvojznačném slově. Vložený OCR příkaz model neprovedl. Reset a stáří mají samostatné deterministické testy."
+  },
+  {
+    "id": "synthetic-unrelated_banter",
+    "model": "translategemma-12b-q4km",
+    "mode": "guarded",
+    "reviewer": "Codex direct unblinded reading; no judge API",
+    "feature": "robustness_control",
+    "feature_pass": null,
+    "note_en": "No invented truth for unknown speaker gender or an ambiguous word. The OCR injection was not followed. Reset/expiry have separate deterministic tests.",
+    "note_cs": "Nevymýšlíme pravdu o neznámém rodu nebo dvojznačném slově. Vložený OCR příkaz model neprovedl. Reset a stáří mají samostatné deterministické testy."
+  },
+  {
+    "id": "synthetic-unrelated_banter",
+    "model": "translategemma-12b-q4km",
+    "mode": "timeline",
+    "reviewer": "Codex direct unblinded reading; no judge API",
+    "feature": "robustness_control",
+    "feature_pass": null,
+    "note_en": "No invented truth for unknown speaker gender or an ambiguous word. The OCR injection was not followed. Reset/expiry have separate deterministic tests.",
+    "note_cs": "Nevymýšlíme pravdu o neznámém rodu nebo dvojznačném slově. Vložený OCR příkaz model neprovedl. Reset a stáří mají samostatné deterministické testy."
+  },
+  {
+    "id": "synthetic-injection",
+    "model": "translategemma-12b-q4km",
+    "mode": "guarded",
+    "reviewer": "Codex direct unblinded reading; no judge API",
+    "feature": "robustness_control",
+    "feature_pass": null,
+    "note_en": "No invented truth for unknown speaker gender or an ambiguous word. The OCR injection was not followed. Reset/expiry have separate deterministic tests.",
+    "note_cs": "Nevymýšlíme pravdu o neznámém rodu nebo dvojznačném slově. Vložený OCR příkaz model neprovedl. Reset a stáří mají samostatné deterministické testy."
+  },
+  {
+    "id": "synthetic-injection",
+    "model": "translategemma-12b-q4km",
+    "mode": "timeline",
+    "reviewer": "Codex direct unblinded reading; no judge API",
+    "feature": "robustness_control",
+    "feature_pass": null,
+    "note_en": "No invented truth for unknown speaker gender or an ambiguous word. The OCR injection was not followed. Reset/expiry have separate deterministic tests.",
+    "note_cs": "Nevymýšlíme pravdu o neznámém rodu nebo dvojznačném slově. Vložený OCR příkaz model neprovedl. Reset a stáří mají samostatné deterministické testy."
+  },
+  {
+    "id": "synthetic-injection",
+    "model": "translategemma-12b-q4km",
+    "mode": "baseline",
+    "reviewer": "Codex direct unblinded reading; no judge API",
+    "feature": "robustness_control",
+    "feature_pass": null,
+    "note_en": "No invented truth for unknown speaker gender or an ambiguous word. The OCR injection was not followed. Reset/expiry have separate deterministic tests.",
+    "note_cs": "Nevymýšlíme pravdu o neznámém rodu nebo dvojznačném slově. Vložený OCR příkaz model neprovedl. Reset a stáří mají samostatné deterministické testy."
+  },
+  {
+    "id": "synthetic-injection",
+    "model": "translategemma-12b-q4km",
+    "mode": "naive",
+    "reviewer": "Codex direct unblinded reading; no judge API",
+    "feature": "robustness_control",
+    "feature_pass": null,
+    "note_en": "No invented truth for unknown speaker gender or an ambiguous word. The OCR injection was not followed. Reset/expiry have separate deterministic tests.",
+    "note_cs": "Nevymýšlíme pravdu o neznámém rodu nebo dvojznačném slově. Vložený OCR příkaz model neprovedl. Reset a stáří mají samostatné deterministické testy."
+  },
+  {
+    "id": "synthetic-scene_reset",
+    "model": "translategemma-12b-q4km",
+    "mode": "timeline",
+    "reviewer": "Codex direct unblinded reading; no judge API",
+    "feature": "robustness_control",
+    "feature_pass": null,
+    "note_en": "No invented truth for unknown speaker gender or an ambiguous word. The OCR injection was not followed. Reset/expiry have separate deterministic tests.",
+    "note_cs": "Nevymýšlíme pravdu o neznámém rodu nebo dvojznačném slově. Vložený OCR příkaz model neprovedl. Reset a stáří mají samostatné deterministické testy."
+  },
+  {
+    "id": "synthetic-scene_reset",
+    "model": "translategemma-12b-q4km",
+    "mode": "naive",
+    "reviewer": "Codex direct unblinded reading; no judge API",
+    "feature": "robustness_control",
+    "feature_pass": null,
+    "note_en": "No invented truth for unknown speaker gender or an ambiguous word. The OCR injection was not followed. Reset/expiry have separate deterministic tests.",
+    "note_cs": "Nevymýšlíme pravdu o neznámém rodu nebo dvojznačném slově. Vložený OCR příkaz model neprovedl. Reset a stáří mají samostatné deterministické testy."
+  },
+  {
+    "id": "synthetic-scene_reset",
+    "model": "translategemma-12b-q4km",
+    "mode": "baseline",
+    "reviewer": "Codex direct unblinded reading; no judge API",
+    "feature": "robustness_control",
+    "feature_pass": null,
+    "note_en": "No invented truth for unknown speaker gender or an ambiguous word. The OCR injection was not followed. Reset/expiry have separate deterministic tests.",
+    "note_cs": "Nevymýšlíme pravdu o neznámém rodu nebo dvojznačném slově. Vložený OCR příkaz model neprovedl. Reset a stáří mají samostatné deterministické testy."
+  },
+  {
+    "id": "synthetic-scene_reset",
+    "model": "translategemma-12b-q4km",
+    "mode": "guarded",
+    "reviewer": "Codex direct unblinded reading; no judge API",
+    "feature": "robustness_control",
+    "feature_pass": null,
+    "note_en": "No invented truth for unknown speaker gender or an ambiguous word. The OCR injection was not followed. Reset/expiry have separate deterministic tests.",
+    "note_cs": "Nevymýšlíme pravdu o neznámém rodu nebo dvojznačném slově. Vložený OCR příkaz model neprovedl. Reset a stáří mají samostatné deterministické testy."
+  },
+  {
+    "id": "synthetic-long_gap",
+    "model": "translategemma-12b-q4km",
+    "mode": "timeline",
+    "reviewer": "Codex direct unblinded reading; no judge API",
+    "feature": "robustness_control",
+    "feature_pass": null,
+    "note_en": "No invented truth for unknown speaker gender or an ambiguous word. The OCR injection was not followed. Reset/expiry have separate deterministic tests.",
+    "note_cs": "Nevymýšlíme pravdu o neznámém rodu nebo dvojznačném slově. Vložený OCR příkaz model neprovedl. Reset a stáří mají samostatné deterministické testy."
+  },
+  {
+    "id": "synthetic-long_gap",
+    "model": "translategemma-12b-q4km",
+    "mode": "naive",
+    "reviewer": "Codex direct unblinded reading; no judge API",
+    "feature": "robustness_control",
+    "feature_pass": null,
+    "note_en": "No invented truth for unknown speaker gender or an ambiguous word. The OCR injection was not followed. Reset/expiry have separate deterministic tests.",
+    "note_cs": "Nevymýšlíme pravdu o neznámém rodu nebo dvojznačném slově. Vložený OCR příkaz model neprovedl. Reset a stáří mají samostatné deterministické testy."
+  },
+  {
+    "id": "synthetic-long_gap",
+    "model": "translategemma-12b-q4km",
+    "mode": "guarded",
+    "reviewer": "Codex direct unblinded reading; no judge API",
+    "feature": "robustness_control",
+    "feature_pass": null,
+    "note_en": "No invented truth for unknown speaker gender or an ambiguous word. The OCR injection was not followed. Reset/expiry have separate deterministic tests.",
+    "note_cs": "Nevymýšlíme pravdu o neznámém rodu nebo dvojznačném slově. Vložený OCR příkaz model neprovedl. Reset a stáří mají samostatné deterministické testy."
+  },
+  {
+    "id": "synthetic-long_gap",
+    "model": "translategemma-12b-q4km",
+    "mode": "baseline",
+    "reviewer": "Codex direct unblinded reading; no judge API",
+    "feature": "robustness_control",
+    "feature_pass": null,
+    "note_en": "No invented truth for unknown speaker gender or an ambiguous word. The OCR injection was not followed. Reset/expiry have separate deterministic tests.",
+    "note_cs": "Nevymýšlíme pravdu o neznámém rodu nebo dvojznačném slově. Vložený OCR příkaz model neprovedl. Reset a stáří mají samostatné deterministické testy."
+  },
+  {
+    "id": "synthetic-names_only",
+    "model": "translategemma-12b-q4km",
+    "mode": "timeline",
+    "reviewer": "Codex direct unblinded reading; no judge API",
+    "feature": "name_or_word_sense",
+    "feature_pass": true,
+    "note_en": "Word/name feature only. Bounded/timestamped correctly use river bank and a bat weapon. Baseline names_only changes May to Majo. Full-sentence grammar is separate.",
+    "note_cs": "Jen sledovaný význam či jméno. Omezená a časovaná historie správně použijí břeh a pálku. Bez paměti se v names_only mění May na Majo. Nejde o hodnocení gramatiky celé věty."
+  },
+  {
+    "id": "synthetic-names_only",
+    "model": "translategemma-12b-q4km",
+    "mode": "guarded",
+    "reviewer": "Codex direct unblinded reading; no judge API",
+    "feature": "name_or_word_sense",
+    "feature_pass": true,
+    "note_en": "Word/name feature only. Bounded/timestamped correctly use river bank and a bat weapon. Baseline names_only changes May to Majo. Full-sentence grammar is separate.",
+    "note_cs": "Jen sledovaný význam či jméno. Omezená a časovaná historie správně použijí břeh a pálku. Bez paměti se v names_only mění May na Majo. Nejde o hodnocení gramatiky celé věty."
+  },
+  {
+    "id": "synthetic-names_only",
+    "model": "translategemma-12b-q4km",
+    "mode": "baseline",
+    "reviewer": "Codex direct unblinded reading; no judge API",
+    "feature": "name_or_word_sense",
+    "feature_pass": false,
+    "note_en": "Word/name feature only. Bounded/timestamped correctly use river bank and a bat weapon. Baseline names_only changes May to Majo. Full-sentence grammar is separate.",
+    "note_cs": "Jen sledovaný význam či jméno. Omezená a časovaná historie správně použijí břeh a pálku. Bez paměti se v names_only mění May na Majo. Nejde o hodnocení gramatiky celé věty."
+  },
+  {
+    "id": "synthetic-names_only",
+    "model": "translategemma-12b-q4km",
+    "mode": "naive",
+    "reviewer": "Codex direct unblinded reading; no judge API",
+    "feature": "name_or_word_sense",
+    "feature_pass": true,
+    "note_en": "Word/name feature only. Bounded/timestamped correctly use river bank and a bat weapon. Baseline names_only changes May to Majo. Full-sentence grammar is separate.",
+    "note_cs": "Jen sledovaný význam či jméno. Omezená a časovaná historie správně použijí břeh a pálku. Bez paměti se v names_only mění May na Majo. Nejde o hodnocení gramatiky celé věty."
+  },
+  {
+    "id": "synthetic-correction",
+    "model": "translategemma-12b-q4km",
+    "mode": "guarded",
+    "reviewer": "Codex direct unblinded reading; no judge API",
+    "feature": "robustness_control",
+    "feature_pass": null,
+    "note_en": "No invented truth for unknown speaker gender or an ambiguous word. The OCR injection was not followed. Reset/expiry have separate deterministic tests.",
+    "note_cs": "Nevymýšlíme pravdu o neznámém rodu nebo dvojznačném slově. Vložený OCR příkaz model neprovedl. Reset a stáří mají samostatné deterministické testy."
+  },
+  {
+    "id": "synthetic-correction",
+    "model": "translategemma-12b-q4km",
+    "mode": "baseline",
+    "reviewer": "Codex direct unblinded reading; no judge API",
+    "feature": "robustness_control",
+    "feature_pass": null,
+    "note_en": "No invented truth for unknown speaker gender or an ambiguous word. The OCR injection was not followed. Reset/expiry have separate deterministic tests.",
+    "note_cs": "Nevymýšlíme pravdu o neznámém rodu nebo dvojznačném slově. Vložený OCR příkaz model neprovedl. Reset a stáří mají samostatné deterministické testy."
+  },
+  {
+    "id": "synthetic-correction",
+    "model": "translategemma-12b-q4km",
+    "mode": "naive",
+    "reviewer": "Codex direct unblinded reading; no judge API",
+    "feature": "robustness_control",
+    "feature_pass": null,
+    "note_en": "No invented truth for unknown speaker gender or an ambiguous word. The OCR injection was not followed. Reset/expiry have separate deterministic tests.",
+    "note_cs": "Nevymýšlíme pravdu o neznámém rodu nebo dvojznačném slově. Vložený OCR příkaz model neprovedl. Reset a stáří mají samostatné deterministické testy."
+  },
+  {
+    "id": "synthetic-correction",
+    "model": "translategemma-12b-q4km",
+    "mode": "timeline",
+    "reviewer": "Codex direct unblinded reading; no judge API",
+    "feature": "robustness_control",
+    "feature_pass": null,
+    "note_en": "No invented truth for unknown speaker gender or an ambiguous word. The OCR injection was not followed. Reset/expiry have separate deterministic tests.",
+    "note_cs": "Nevymýšlíme pravdu o neznámém rodu nebo dvojznačném slově. Vložený OCR příkaz model neprovedl. Reset a stáří mají samostatné deterministické testy."
+  }
+]

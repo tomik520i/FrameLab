@@ -123,19 +123,34 @@ class GpuTranslator:
         options['num_gpu']=0 if compute=='cpu' else -1 if getattr(self,'allow_offload',False) else 99
         return options
 
-    def translate(self, text, timeout=None):
+    def translate(self, text, timeout=None, context=None):
         if timeout is None:timeout=25 if getattr(self,'compute','cuda')=='cuda' else 120
         gemma = getattr(self, 'gemma', False)
         options = self.options()
         if gemma:
             options.update(stop=['<end_of_turn>', '<eos>'], num_predict=384, top_k=1, top_p=1.0)
         prompt = gemma_prompt(text,self.source,self.target) if gemma else PROMPT.replace('{text}', text)
+        if context is not None:
+            from translation_timeline import temporal_prompt
+            prompt=temporal_prompt('translategemma' if gemma else 'cuni',text,context,self.source,self.target)
         result = self.api('/api/generate', dict(model=self.name, prompt=prompt,
                          raw=True, stream=False, keep_alive=-1, options=options), timeout=timeout)
         self.last_metrics={k:result.get(k) for k in ('total_duration','load_duration','prompt_eval_count','prompt_eval_duration','eval_count','eval_duration','done_reason')}
         if result.get('done_reason') == 'length':
             raise RuntimeError('Translation exceeded the token limit; shorten the OCR region.')
         return result.get('response', '').strip()
+
+    def generate_memory(self,instruction,data):
+        if not self.gemma:raise ValueError('This specialized model cannot build scene memory.')
+        # Translation-specific Gemma models are experimental here. Their own
+        # model is used, with normal turn delimiters and no external summarizer.
+        content=instruction+'\n'+json.dumps(data,ensure_ascii=False)
+        for token in ('<start_of_turn>','<end_of_turn>','<bos>','<eos>'):content=content.replace(token,token.replace('<','‹').replace('>','›'))
+        prompt='<start_of_turn>user\n'+content+'<end_of_turn>\n<start_of_turn>model\n'
+        options=dict(self.options(),num_predict=256,top_k=1,top_p=1.,stop=['<end_of_turn>','<eos>'])
+        result=self.api('/api/generate',dict(model=self.name,prompt=prompt,raw=True,stream=False,keep_alive=-1,options=options),timeout=90)
+        if result.get('done_reason')=='length':raise RuntimeError('Memory exceeded its token limit')
+        return result.get('response','').strip()
 
     def close(self):
         if self.process:

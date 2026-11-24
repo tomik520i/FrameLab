@@ -1,0 +1,48 @@
+{
+  "model": "server-gemma4-26b-a4b-q5ks",
+  "split": "heldout",
+  "started_utc": "2026-11-24T17:52:40.528434+00:00",
+  "dataset_sha256": "0131a8e0a4c04c5c721d4b8325b8a0c62101edf87a8e7e37f01a351ca4b9e2de",
+  "memory_version": "memory-v2",
+  "memory_code_sha256": "3a03e5fb9bc3024447945050c9ac7a2680f9d07495c7ab61bd0be76e2b6a81e9",
+  "host": "Windows-10-10.0.26200-SP0",
+  "scope": "Remote server, text-only API replay. Inference runs outside the laptop; existing server configuration is not changed.",
+  "order": "Chronological targets; seeded shuffled arms within each target. Separate run per model.",
+  "api_price_per_million": {
+    "input": 0.1,
+    "cached_input": 0.01,
+    "cache_write": 0.125,
+    "output": 0.5
+  },
+  "api_cap_usd": 0,
+  "judge_api_requests": 0,
+  "modes": [
+    "baseline",
+    "naive",
+    "guarded",
+    "timeline"
+  ],
+  "timeline_code_sha256": "8836daa4d1d3e3a4ff5fd33b6e96c488a381f8a445228bffebd790862169f9eb",
+  "environment_note": "A model download may run concurrently. These are observed request times, not an isolated network/CPU benchmark.",
+  "server_config": {
+    "url": "http://192.168.1.175:8080/v1",
+    "protocol": "openai",
+    "model": "/home/tomik520i/local_llm/model/gemma4-heretic/gemma-4-26B-A4B-it-ultra-uncensored-heretic-Q5_K_S.gguf",
+    "timeout_s": 90,
+    "max_tokens": 256,
+    "temperature": 0,
+    "parameters": {
+      "chat_template_kwargs": {
+        "enable_thinking": false
+      },
+      "reasoning_budget": 0
+    },
+    "instruction": ""
+  },
+  "custom_client_sha256": "5981618ade857c740d28a9ccc7d12194d890fdbbe0477af4aaff1586758eb600",
+  "completed_utc": "2026-11-24T17:59:39.584981+00:00",
+  "completed": 352,
+  "planned": 352,
+  "api_cost_usd": 0,
+  "failed_request_reserve_usd": 0
+}

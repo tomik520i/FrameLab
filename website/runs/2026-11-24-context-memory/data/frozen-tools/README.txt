@@ -1,0 +1,1 @@
+Frozen benchmark code used on 2026-11-24. Keep JSON catalogs beside these scripts. Prompts and source snapshots also appear in the raw outputs. Application code may evolve separately. / Zmrazeny kod testu; katalogy JSON ponechte vedle skriptu. Presne prompty a zdrojova historie jsou i v surovych vystupech. Aplikacni kod se muze vyvijet samostatne.

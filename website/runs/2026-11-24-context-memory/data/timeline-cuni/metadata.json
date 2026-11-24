@@ -1,0 +1,77 @@
+{
+  "model": "cuni-q3km",
+  "split": "heldout",
+  "started_utc": "2026-11-24T17:36:31.099647+00:00",
+  "dataset_sha256": "0131a8e0a4c04c5c721d4b8325b8a0c62101edf87a8e7e37f01a351ca4b9e2de",
+  "memory_version": "memory-v2",
+  "memory_code_sha256": "3a03e5fb9bc3024447945050c9ac7a2680f9d07495c7ab61bd0be76e2b6a81e9",
+  "host": "Windows-10-10.0.26200-SP0",
+  "scope": "Text-only replay. Frame generation/enhancer/OCR inference are not running.",
+  "order": "Chronological targets; seeded shuffled arms within each target. Separate run per model.",
+  "api_price_per_million": {
+    "input": 0.1,
+    "cached_input": 0.01,
+    "cache_write": 0.125,
+    "output": 0.5
+  },
+  "api_cap_usd": 0,
+  "judge_api_requests": 0,
+  "startup_ms": 13597.843299852684,
+  "loaded": {
+    "name": "framelab-cuni-q3km:latest",
+    "model": "framelab-cuni-q3km:latest",
+    "size": 3854104001,
+    "digest": "14d34e333bc5b0cc6158372c11590a58b1457a19cbcdf50466e8c2fd8298f1aa",
+    "details": {
+      "parent_model": "",
+      "format": "gguf",
+      "family": "llama",
+      "families": [
+        "llama"
+      ],
+      "parameter_size": "7.2B",
+      "quantization_level": "Q3_K_M"
+    },
+    "expires_at": "2319-03-06T18:24:01.721201307+01:00",
+    "size_vram": 3854104001,
+    "context_length": 2048,
+    "runner": "llamacpp"
+  },
+  "runtime": "CUDA / NVIDIA GeForce RTX 4050 Laptop GPU / full GPU",
+  "asset": {
+    "id": "cuni-q3km",
+    "name": "CUNI-MH 7B Q3_K_M",
+    "file": "CUNI-MH.Q3_K_M.gguf",
+    "bytes": 3518986560,
+    "sha256": "4e2c3440516a5340e261f96b664994f79be8835523fd496c1821b31d3a02893f",
+    "estimated_vram_gib": 4.4,
+    "url": "https://huggingface.co/RichardErkhov/wmt24-cuni_-_CUNI-MH-gguf/resolve/ebc7f2c321087d423cbed4079b80e63d89e4ac8c/CUNI-MH.Q3_K_M.gguf"
+  },
+  "effective_options": {
+    "temperature": 0,
+    "num_ctx": 2048,
+    "num_predict": 256,
+    "num_gpu": 99,
+    "num_thread": 4,
+    "repeat_penalty": 1.0,
+    "seed": 20261119,
+    "top_k": 20,
+    "top_p": 0.6,
+    "stop": [
+      "\n"
+    ]
+  },
+  "device": {
+    "backend": "cuda",
+    "index": 0,
+    "name": "NVIDIA GeForce RTX 4050 Laptop GPU",
+    "integrated": false,
+    "total": 6439305216,
+    "free": 6207569920
+  },
+  "completed_utc": "2026-11-24T17:37:27.784895+00:00",
+  "completed": 88,
+  "planned": 88,
+  "api_cost_usd": 0,
+  "failed_request_reserve_usd": 0
+}

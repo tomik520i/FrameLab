@@ -1,0 +1,72 @@
+{
+  "cpu": {
+    "CPU(s):": "64",
+    "Model name:": "Genuine Intel(R) CPU 0000%@",
+    "Core(s) per socket:": "32",
+    "Socket(s):": "1"
+  },
+  "gpu": "NVIDIA GeForce RTX 3090, 24576, 22546",
+  "checked_utc": "2026-11-24T18:29:38.785512+00:00",
+  "note": "Read-only environment snapshot after the translation run; memory is the existing server allocation, not per-request incremental usage.",
+  "server": {
+    "model_path": "/home/tomik520i/local_llm/model/gemma4-heretic/gemma-4-26B-A4B-it-ultra-uncensored-heretic-Q5_K_S.gguf",
+    "total_slots": 1,
+    "default_generation_settings": {
+      "params": {
+        "seed": 4294967295,
+        "temperature": 0.6000000238418579,
+        "dynatemp_range": 0.0,
+        "dynatemp_exponent": 1.0,
+        "top_k": 64,
+        "top_p": 0.949999988079071,
+        "min_p": 0.05000000074505806,
+        "top_n_sigma": -1.0,
+        "xtc_probability": 0.0,
+        "xtc_threshold": 0.10000000149011612,
+        "typical_p": 1.0,
+        "repeat_last_n": 64,
+        "repeat_penalty": 1.0,
+        "presence_penalty": 0.0,
+        "frequency_penalty": 0.0,
+        "dry_multiplier": 0.0,
+        "dry_base": 1.75,
+        "dry_allowed_length": 2,
+        "dry_penalty_last_n": 64,
+        "mirostat": 0,
+        "mirostat_tau": 5.0,
+        "mirostat_eta": 0.10000000149011612,
+        "adaptive_target": -1.0,
+        "adaptive_decay": 0.8999999761581421,
+        "max_tokens": -1,
+        "n_predict": -1,
+        "n_keep": 0,
+        "n_discard": 0,
+        "ignore_eos": false,
+        "stream": false,
+        "n_probs": 0,
+        "min_keep": 0,
+        "chat_format": "Content-only",
+        "reasoning_format": "none",
+        "reasoning_in_content": false,
+        "generation_prompt": "",
+        "samplers": [
+          "penalties",
+          "dry",
+          "top_n_sigma",
+          "top_k",
+          "typ_p",
+          "top_p",
+          "min_p",
+          "xtc",
+          "temperature"
+        ],
+        "speculative.types": "none",
+        "timings_per_token": false,
+        "post_sampling_probs": false,
+        "backend_sampling": false,
+        "lora": []
+      },
+      "n_ctx": 214272
+    }
+  }
+}

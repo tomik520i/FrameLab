@@ -15,7 +15,7 @@ def validate_pair(backend,source,target):
         raise ValueError('Unknown subtitle language')
     if source==target:
         raise ValueError('Choose different source and target languages')
-    if backend!='openai' and not backend.startswith('translategemma-') and (source,target)!=('en','cs'):
+    if backend not in ('openai','custom') and not backend.startswith('translategemma-') and (source,target)!=('en','cs'):
         raise ValueError('OPUS-MT and CUNI support English > Czech only. Select TranslateGemma for this language pair.')
 
 def gemma_prompt(text,source,target):

@@ -4,15 +4,15 @@ import argparse
 import json
 import struct
 import sys
-import unicodedata
 import os
+import time
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 
 
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument('--model', type=Path, required=True)
-    parser.add_argument('--backend', choices=['openai','cpu', 'cuni-q3km', 'cuni-q8', 'cuni-q5km', 'translategemma-4b-q4km', 'translategemma-4b-q8', 'translategemma-12b-q4km'], default='cpu')
+    parser.add_argument('--backend', choices=['openai','custom','cpu', 'cuni-q3km', 'cuni-q8', 'cuni-q5km', 'translategemma-4b-q4km', 'translategemma-4b-q8', 'translategemma-12b-q4km'], default='cpu')
     parser.add_argument('--api-model',default='gpt-6-luna')
     parser.add_argument('--api-effort',default='none')
     parser.add_argument('--api-temperature',type=float)
@@ -22,6 +22,10 @@ def main():
     parser.add_argument('--compute',choices=('auto','cuda','vulkan','cpu'),default='auto')
     parser.add_argument('--device',default='')
     parser.add_argument('--allow-offload',action='store_true')
+    parser.add_argument('--context-history',action='store_true')
+    parser.add_argument('--custom-config-stdin',action='store_true')
+    parser.add_argument('--context-selected',action='store_true')
+    parser.add_argument('--context-trace',type=Path)
     args = parser.parse_args()
     # Search only the sibling, bundled redistributable directory on Windows.
     runtime = Path(__file__).resolve().parents[1] / 'runtime'
@@ -46,9 +50,17 @@ def main():
     try:
         from subtitle_languages import validate_pair
         validate_pair(args.backend,args.source,args.target)
+        if args.context_history and args.backend=='cpu':raise ValueError('OPUS-MT does not support conversation history.')
+        if args.context_selected and (not args.context_history or args.backend=='cpu' or args.backend.startswith('cuni-')):raise ValueError('Selected memory requires history and an instruction-following model.')
         if args.backend == 'openai':
             from openai_translation import OpenAiTranslator
             cloud=OpenAiTranslator(args.api_model,args.source,args.target,args.api_effort,args.api_temperature,args.content_filter==2,usage_log=runtime.parent/'logs/openai-usage.jsonl')
+        elif args.backend == 'custom':
+            if not args.custom_config_stdin:raise ValueError('Custom provider requires framed configuration.')
+            length,=struct.unpack('<I',exact(4))
+            if length>65536:raise ValueError('Custom configuration too large')
+            from custom_ai_translation import CustomTranslator
+            cloud=CustomTranslator(json.loads(exact(length).decode('utf-8')),args.source,args.target,args.content_filter==2)
         elif args.backend == 'cpu':
             import ctranslate2
             import sentencepiece
@@ -64,7 +76,23 @@ def main():
     except Exception as exc:
         send('ERROR: ' + str(exc))
         return
-    from subtitle_filter import ContentFilter,REQUEST_PREFIX,SKIP_PREFIX
+    from subtitle_filter import ContentFilter,SKIP_PREFIX
+    from subtitle_context import ContextPolicy,decode_request
+    history=ContextPolicy() if args.context_history else None
+    if args.context_selected:
+        from subtitle_evidence_memory import EvidenceMemory
+        history=EvidenceMemory((cloud or gpu).generate_memory)
+    def trace(value):
+        if args.context_trace is not None:
+            args.context_trace.parent.mkdir(parents=True,exist_ok=True)
+            with args.context_trace.open('a',encoding='utf-8') as log:log.write(json.dumps(value,ensure_ascii=False)+'\n')
+    def reply(text,caption,context,started):
+        if history is None:send(text);return
+        status=getattr(history,'status','Recent original dialogue')
+        details='\n'.join(f"[{r['seconds_since_ocr_observation']:.0f}s] {r['source']}" for r in (context or {}).get('history',[]))
+        audit=getattr(history,'audit',{})
+        trace(dict(event_id=caption.event_id,generation=caption.generation,time_s=caption.time_s,source=caption.observed,translation=text,context=context,memory=audit,worker_ms=(time.perf_counter()-started)*1000,status=status))
+        send('FRAMELAB_CONTEXT_RESULT_V1\n'+json.dumps(dict(text=text,status=status,details=details),ensure_ascii=False))
     entities=None
     if args.content_filter==2 and args.source=='en' and not cloud:
         try:
@@ -78,23 +106,22 @@ def main():
             length, = struct.unpack('<I', exact(4))
             if length > 16384:
                 raise ValueError('Input exceeds subtitle limit')
-            text = unicodedata.normalize('NFKC', exact(length).decode('utf-8'))
-            observed=text
-            if args.content_filter and text.startswith(REQUEST_PREFIX):
-                payload=json.loads(text[len(REQUEST_PREFIX):]);text=payload['text'];observed=payload['observed']
-                if not isinstance(text,str) or not isinstance(observed,str):raise ValueError('Invalid filter request')
-            if len(text.encode('utf-8'))>4096 or len(observed.encode('utf-8'))>4096:raise ValueError('Input exceeds subtitle limit')
+            caption=decode_request(exact(length).decode('utf-8'),filtering=bool(args.content_filter),history=history is not None)
+            started=time.perf_counter()
+            text,observed=caption.text,caption.observed
             decision,reason=content_filter.before(observed)
             if decision=='SKIP':
+                trace(dict(event_id=caption.event_id,time_s=caption.time_s,source=observed,filtered=reason))
                 send(SKIP_PREFIX+reason)
                 continue
+            context=history.prepare(caption) if history is not None else None
             if cloud:
-                translated=cloud.translate(text)
+                translated=cloud.translate(text,context=context)
                 if translated.startswith(SKIP_PREFIX):
-                    send(translated)
+                    reply(translated,caption,context,started)
                     continue
             elif gpu:
-                translated=gpu.translate(text)
+                translated=gpu.translate(text,context=context)
             else:
                 tokens = source.encode(text, out_type=str)
                 # Marian exports can add EOS inside CTranslate2. Add it here
@@ -105,8 +132,12 @@ def main():
                                                repetition_penalty=1.1)[0].hypotheses[0]
                 translated=target.decode(result)
             decision,reason=content_filter.after(observed,translated)
-            send(SKIP_PREFIX+reason if decision=='SKIP' else translated)
+            if history is not None and decision!='SKIP':history.remember(caption)
+            if history is None:
+                trace(dict(event_id=caption.event_id,time_s=caption.time_s,source=observed,translation=translated,context=None,worker_ms=(time.perf_counter()-started)*1000))
+            reply(SKIP_PREFIX+reason if decision=='SKIP' else translated,caption,context,started)
         except EOFError:
+            if args.context_selected:history.close()
             if gpu:
                 gpu.close()
             return

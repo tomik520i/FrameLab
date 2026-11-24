@@ -1,0 +1,3266 @@
+[
+  {
+    "id": "game-21",
+    "model": "gpt-6-luna",
+    "mode": "naive",
+    "reviewer": "Codex direct unblinded reading; no judge API",
+    "score": 4,
+    "note_en": "Meaning preserved. Unknown speaker gender is not graded.",
+    "note_cs": "Význam zachován. Rod neznámého mluvčího nehodnotíme."
+  },
+  {
+    "id": "game-21",
+    "model": "gpt-6-luna",
+    "mode": "guarded",
+    "reviewer": "Codex direct unblinded reading; no judge API",
+    "score": 4,
+    "note_en": "Meaning preserved. Unknown speaker gender is not graded.",
+    "note_cs": "Význam zachován. Rod neznámého mluvčího nehodnotíme."
+  },
+  {
+    "id": "game-21",
+    "model": "gpt-6-luna",
+    "mode": "baseline",
+    "reviewer": "Codex direct unblinded reading; no judge API",
+    "score": 4,
+    "note_en": "Meaning preserved. Unknown speaker gender is not graded.",
+    "note_cs": "Význam zachován. Rod neznámého mluvčího nehodnotíme."
+  },
+  {
+    "id": "game-22",
+    "model": "gpt-6-luna",
+    "mode": "naive",
+    "reviewer": "Codex direct unblinded reading; no judge API",
+    "score": 4,
+    "note_en": "Meaning preserved. Unknown speaker gender is not graded.",
+    "note_cs": "Význam zachován. Rod neznámého mluvčího nehodnotíme."
+  },
+  {
+    "id": "game-22",
+    "model": "gpt-6-luna",
+    "mode": "guarded",
+    "reviewer": "Codex direct unblinded reading; no judge API",
+    "score": 4,
+    "note_en": "Meaning preserved. Unknown speaker gender is not graded.",
+    "note_cs": "Význam zachován. Rod neznámého mluvčího nehodnotíme."
+  },
+  {
+    "id": "game-22",
+    "model": "gpt-6-luna",
+    "mode": "baseline",
+    "reviewer": "Codex direct unblinded reading; no judge API",
+    "score": 4,
+    "note_en": "Meaning preserved. Unknown speaker gender is not graded.",
+    "note_cs": "Význam zachován. Rod neznámého mluvčího nehodnotíme."
+  },
+  {
+    "id": "game-23",
+    "model": "gpt-6-luna",
+    "mode": "baseline",
+    "reviewer": "Codex direct unblinded reading; no judge API",
+    "score": 2,
+    "note_en": "The unfinished conditional loses its explicit negation in every variant.",
+    "note_cs": "Ve všech variantách se v nedokončené podmínce ztrácí výslovný zápor."
+  },
+  {
+    "id": "game-23",
+    "model": "gpt-6-luna",
+    "mode": "naive",
+    "reviewer": "Codex direct unblinded reading; no judge API",
+    "score": 2,
+    "note_en": "The unfinished conditional loses its explicit negation in every variant.",
+    "note_cs": "Ve všech variantách se v nedokončené podmínce ztrácí výslovný zápor."
+  },
+  {
+    "id": "game-23",
+    "model": "gpt-6-luna",
+    "mode": "guarded",
+    "reviewer": "Codex direct unblinded reading; no judge API",
+    "score": 2,
+    "note_en": "The unfinished conditional loses its explicit negation in every variant.",
+    "note_cs": "Ve všech variantách se v nedokončené podmínce ztrácí výslovný zápor."
+  },
+  {
+    "id": "game-24",
+    "model": "gpt-6-luna",
+    "mode": "guarded",
+    "reviewer": "Codex direct unblinded reading; no judge API",
+    "score": 4,
+    "note_en": "Meaning preserved. Unknown speaker gender is not graded.",
+    "note_cs": "Význam zachován. Rod neznámého mluvčího nehodnotíme."
+  },
+  {
+    "id": "game-24",
+    "model": "gpt-6-luna",
+    "mode": "baseline",
+    "reviewer": "Codex direct unblinded reading; no judge API",
+    "score": 4,
+    "note_en": "Meaning preserved. Unknown speaker gender is not graded.",
+    "note_cs": "Význam zachován. Rod neznámého mluvčího nehodnotíme."
+  },
+  {
+    "id": "game-24",
+    "model": "gpt-6-luna",
+    "mode": "naive",
+    "reviewer": "Codex direct unblinded reading; no judge API",
+    "score": 4,
+    "note_en": "Meaning preserved. Unknown speaker gender is not graded.",
+    "note_cs": "Význam zachován. Rod neznámého mluvčího nehodnotíme."
+  },
+  {
+    "id": "game-101",
+    "model": "gpt-6-luna",
+    "mode": "baseline",
+    "reviewer": "Codex direct unblinded reading; no judge API",
+    "score": 4,
+    "note_en": "Meaning preserved. Unknown speaker gender is not graded.",
+    "note_cs": "Význam zachován. Rod neznámého mluvčího nehodnotíme."
+  },
+  {
+    "id": "game-101",
+    "model": "gpt-6-luna",
+    "mode": "guarded",
+    "reviewer": "Codex direct unblinded reading; no judge API",
+    "score": 4,
+    "note_en": "Meaning preserved. Unknown speaker gender is not graded.",
+    "note_cs": "Význam zachován. Rod neznámého mluvčího nehodnotíme."
+  },
+  {
+    "id": "game-101",
+    "model": "gpt-6-luna",
+    "mode": "naive",
+    "reviewer": "Codex direct unblinded reading; no judge API",
+    "score": 4,
+    "note_en": "Meaning preserved. Unknown speaker gender is not graded.",
+    "note_cs": "Význam zachován. Rod neznámého mluvčího nehodnotíme."
+  },
+  {
+    "id": "game-102",
+    "model": "gpt-6-luna",
+    "mode": "naive",
+    "reviewer": "Codex direct unblinded reading; no judge API",
+    "score": 4,
+    "note_en": "Meaning preserved. Unknown speaker gender is not graded.",
+    "note_cs": "Význam zachován. Rod neznámého mluvčího nehodnotíme."
+  },
+  {
+    "id": "game-102",
+    "model": "gpt-6-luna",
+    "mode": "baseline",
+    "reviewer": "Codex direct unblinded reading; no judge API",
+    "score": 4,
+    "note_en": "Meaning preserved. Unknown speaker gender is not graded.",
+    "note_cs": "Význam zachován. Rod neznámého mluvčího nehodnotíme."
+  },
+  {
+    "id": "game-102",
+    "model": "gpt-6-luna",
+    "mode": "guarded",
+    "reviewer": "Codex direct unblinded reading; no judge API",
+    "score": 4,
+    "note_en": "Meaning preserved. Unknown speaker gender is not graded.",
+    "note_cs": "Význam zachován. Rod neznámého mluvčího nehodnotíme."
+  },
+  {
+    "id": "game-103",
+    "model": "gpt-6-luna",
+    "mode": "naive",
+    "reviewer": "Codex direct unblinded reading; no judge API",
+    "score": 4,
+    "note_en": "Meaning preserved. Unknown speaker gender is not graded.",
+    "note_cs": "Význam zachován. Rod neznámého mluvčího nehodnotíme."
+  },
+  {
+    "id": "game-103",
+    "model": "gpt-6-luna",
+    "mode": "guarded",
+    "reviewer": "Codex direct unblinded reading; no judge API",
+    "score": 4,
+    "note_en": "Meaning preserved. Unknown speaker gender is not graded.",
+    "note_cs": "Význam zachován. Rod neznámého mluvčího nehodnotíme."
+  },
+  {
+    "id": "game-103",
+    "model": "gpt-6-luna",
+    "mode": "baseline",
+    "reviewer": "Codex direct unblinded reading; no judge API",
+    "score": 4,
+    "note_en": "Meaning preserved. Unknown speaker gender is not graded.",
+    "note_cs": "Význam zachován. Rod neznámého mluvčího nehodnotíme."
+  },
+  {
+    "id": "game-104",
+    "model": "gpt-6-luna",
+    "mode": "naive",
+    "reviewer": "Codex direct unblinded reading; no judge API",
+    "score": 2,
+    "note_en": "Baseline/naive/guarded use insane instead of angry. Timestamped context produces Zlobis se?, which fits the preceding apology.",
+    "note_cs": "Bez paměti, se syrovou i omezenou historií je mad vyloženo jako šílený. Časovaná varianta vrací Zlobíš se?, což sedí k předchozí omluvě."
+  },
+  {
+    "id": "game-104",
+    "model": "gpt-6-luna",
+    "mode": "baseline",
+    "reviewer": "Codex direct unblinded reading; no judge API",
+    "score": 2,
+    "note_en": "Baseline/naive/guarded use insane instead of angry. Timestamped context produces Zlobis se?, which fits the preceding apology.",
+    "note_cs": "Bez paměti, se syrovou i omezenou historií je mad vyloženo jako šílený. Časovaná varianta vrací Zlobíš se?, což sedí k předchozí omluvě."
+  },
+  {
+    "id": "game-104",
+    "model": "gpt-6-luna",
+    "mode": "guarded",
+    "reviewer": "Codex direct unblinded reading; no judge API",
+    "score": 2,
+    "note_en": "Baseline/naive/guarded use insane instead of angry. Timestamped context produces Zlobis se?, which fits the preceding apology.",
+    "note_cs": "Bez paměti, se syrovou i omezenou historií je mad vyloženo jako šílený. Časovaná varianta vrací Zlobíš se?, což sedí k předchozí omluvě."
+  },
+  {
+    "id": "game-205",
+    "model": "gpt-6-luna",
+    "mode": "guarded",
+    "reviewer": "Codex direct unblinded reading; no judge API",
+    "score": 4,
+    "note_en": "Meaning preserved. Unknown speaker gender is not graded.",
+    "note_cs": "Význam zachován. Rod neznámého mluvčího nehodnotíme."
+  },
+  {
+    "id": "game-205",
+    "model": "gpt-6-luna",
+    "mode": "naive",
+    "reviewer": "Codex direct unblinded reading; no judge API",
+    "score": 4,
+    "note_en": "Meaning preserved. Unknown speaker gender is not graded.",
+    "note_cs": "Význam zachován. Rod neznámého mluvčího nehodnotíme."
+  },
+  {
+    "id": "game-205",
+    "model": "gpt-6-luna",
+    "mode": "baseline",
+    "reviewer": "Codex direct unblinded reading; no judge API",
+    "score": 4,
+    "note_en": "Meaning preserved. Unknown speaker gender is not graded.",
+    "note_cs": "Význam zachován. Rod neznámého mluvčího nehodnotíme."
+  },
+  {
+    "id": "game-206",
+    "model": "gpt-6-luna",
+    "mode": "guarded",
+    "reviewer": "Codex direct unblinded reading; no judge API",
+    "score": 4,
+    "note_en": "Meaning preserved. Unknown speaker gender is not graded.",
+    "note_cs": "Význam zachován. Rod neznámého mluvčího nehodnotíme."
+  },
+  {
+    "id": "game-206",
+    "model": "gpt-6-luna",
+    "mode": "baseline",
+    "reviewer": "Codex direct unblinded reading; no judge API",
+    "score": 4,
+    "note_en": "Meaning preserved. Unknown speaker gender is not graded.",
+    "note_cs": "Význam zachován. Rod neznámého mluvčího nehodnotíme."
+  },
+  {
+    "id": "game-206",
+    "model": "gpt-6-luna",
+    "mode": "naive",
+    "reviewer": "Codex direct unblinded reading; no judge API",
+    "score": 4,
+    "note_en": "Meaning preserved. Unknown speaker gender is not graded.",
+    "note_cs": "Význam zachován. Rod neznámého mluvčího nehodnotíme."
+  },
+  {
+    "id": "game-207",
+    "model": "gpt-6-luna",
+    "mode": "baseline",
+    "reviewer": "Codex direct unblinded reading; no judge API",
+    "score": 4,
+    "note_en": "Meaning preserved. Unknown speaker gender is not graded.",
+    "note_cs": "Význam zachován. Rod neznámého mluvčího nehodnotíme."
+  },
+  {
+    "id": "game-207",
+    "model": "gpt-6-luna",
+    "mode": "naive",
+    "reviewer": "Codex direct unblinded reading; no judge API",
+    "score": 4,
+    "note_en": "Meaning preserved. Unknown speaker gender is not graded.",
+    "note_cs": "Význam zachován. Rod neznámého mluvčího nehodnotíme."
+  },
+  {
+    "id": "game-207",
+    "model": "gpt-6-luna",
+    "mode": "guarded",
+    "reviewer": "Codex direct unblinded reading; no judge API",
+    "score": 4,
+    "note_en": "Meaning preserved. Unknown speaker gender is not graded.",
+    "note_cs": "Význam zachován. Rod neznámého mluvčího nehodnotíme."
+  },
+  {
+    "id": "game-208",
+    "model": "gpt-6-luna",
+    "mode": "baseline",
+    "reviewer": "Codex direct unblinded reading; no judge API",
+    "score": 4,
+    "note_en": "Naive/guarded change Lucia to Lucie; baseline/timestamped use the Czech vocative Lucio.",
+    "note_cs": "Syrová a omezená paměť mění Lucii zapsanou jako Lucia na Lucie. Bez paměti a s časy používá český vokativ Lucio."
+  },
+  {
+    "id": "game-208",
+    "model": "gpt-6-luna",
+    "mode": "naive",
+    "reviewer": "Codex direct unblinded reading; no judge API",
+    "score": 3,
+    "note_en": "Naive/guarded change Lucia to Lucie; baseline/timestamped use the Czech vocative Lucio.",
+    "note_cs": "Syrová a omezená paměť mění Lucii zapsanou jako Lucia na Lucie. Bez paměti a s časy používá český vokativ Lucio."
+  },
+  {
+    "id": "game-208",
+    "model": "gpt-6-luna",
+    "mode": "guarded",
+    "reviewer": "Codex direct unblinded reading; no judge API",
+    "score": 3,
+    "note_en": "Naive/guarded change Lucia to Lucie; baseline/timestamped use the Czech vocative Lucio.",
+    "note_cs": "Syrová a omezená paměť mění Lucii zapsanou jako Lucia na Lucie. Bez paměti a s časy používá český vokativ Lucio."
+  },
+  {
+    "id": "game-301",
+    "model": "gpt-6-luna",
+    "mode": "naive",
+    "reviewer": "Codex direct unblinded reading; no judge API",
+    "score": 4,
+    "note_en": "Meaning preserved. Unknown speaker gender is not graded.",
+    "note_cs": "Význam zachován. Rod neznámého mluvčího nehodnotíme."
+  },
+  {
+    "id": "game-301",
+    "model": "gpt-6-luna",
+    "mode": "guarded",
+    "reviewer": "Codex direct unblinded reading; no judge API",
+    "score": 4,
+    "note_en": "Meaning preserved. Unknown speaker gender is not graded.",
+    "note_cs": "Význam zachován. Rod neznámého mluvčího nehodnotíme."
+  },
+  {
+    "id": "game-301",
+    "model": "gpt-6-luna",
+    "mode": "baseline",
+    "reviewer": "Codex direct unblinded reading; no judge API",
+    "score": 4,
+    "note_en": "Meaning preserved. Unknown speaker gender is not graded.",
+    "note_cs": "Význam zachován. Rod neznámého mluvčího nehodnotíme."
+  },
+  {
+    "id": "game-302",
+    "model": "gpt-6-luna",
+    "mode": "baseline",
+    "reviewer": "Codex direct unblinded reading; no judge API",
+    "score": 4,
+    "note_en": "Meaning preserved. Unknown speaker gender is not graded.",
+    "note_cs": "Význam zachován. Rod neznámého mluvčího nehodnotíme."
+  },
+  {
+    "id": "game-302",
+    "model": "gpt-6-luna",
+    "mode": "naive",
+    "reviewer": "Codex direct unblinded reading; no judge API",
+    "score": 4,
+    "note_en": "Meaning preserved. Unknown speaker gender is not graded.",
+    "note_cs": "Význam zachován. Rod neznámého mluvčího nehodnotíme."
+  },
+  {
+    "id": "game-302",
+    "model": "gpt-6-luna",
+    "mode": "guarded",
+    "reviewer": "Codex direct unblinded reading; no judge API",
+    "score": 4,
+    "note_en": "Meaning preserved. Unknown speaker gender is not graded.",
+    "note_cs": "Význam zachován. Rod neznámého mluvčího nehodnotíme."
+  },
+  {
+    "id": "game-303",
+    "model": "gpt-6-luna",
+    "mode": "naive",
+    "reviewer": "Codex direct unblinded reading; no judge API",
+    "score": 4,
+    "note_en": "Meaning preserved. Unknown speaker gender is not graded.",
+    "note_cs": "Význam zachován. Rod neznámého mluvčího nehodnotíme."
+  },
+  {
+    "id": "game-303",
+    "model": "gpt-6-luna",
+    "mode": "baseline",
+    "reviewer": "Codex direct unblinded reading; no judge API",
+    "score": 4,
+    "note_en": "Meaning preserved. Unknown speaker gender is not graded.",
+    "note_cs": "Význam zachován. Rod neznámého mluvčího nehodnotíme."
+  },
+  {
+    "id": "game-303",
+    "model": "gpt-6-luna",
+    "mode": "guarded",
+    "reviewer": "Codex direct unblinded reading; no judge API",
+    "score": 4,
+    "note_en": "Meaning preserved. Unknown speaker gender is not graded.",
+    "note_cs": "Význam zachován. Rod neznámého mluvčího nehodnotíme."
+  },
+  {
+    "id": "game-304",
+    "model": "gpt-6-luna",
+    "mode": "baseline",
+    "reviewer": "Codex direct unblinded reading; no judge API",
+    "score": 4,
+    "note_en": "Meaning preserved. Unknown speaker gender is not graded.",
+    "note_cs": "Význam zachován. Rod neznámého mluvčího nehodnotíme."
+  },
+  {
+    "id": "game-304",
+    "model": "gpt-6-luna",
+    "mode": "guarded",
+    "reviewer": "Codex direct unblinded reading; no judge API",
+    "score": 4,
+    "note_en": "Meaning preserved. Unknown speaker gender is not graded.",
+    "note_cs": "Význam zachován. Rod neznámého mluvčího nehodnotíme."
+  },
+  {
+    "id": "game-304",
+    "model": "gpt-6-luna",
+    "mode": "naive",
+    "reviewer": "Codex direct unblinded reading; no judge API",
+    "score": 4,
+    "note_en": "Meaning preserved. Unknown speaker gender is not graded.",
+    "note_cs": "Význam zachován. Rod neznámého mluvčího nehodnotíme."
+  },
+  {
+    "id": "game-421",
+    "model": "gpt-6-luna",
+    "mode": "guarded",
+    "reviewer": "Codex direct unblinded reading; no judge API",
+    "score": 3,
+    "note_en": "Meaning is preserved but the day-and-night wording is needlessly literal.",
+    "note_cs": "Význam zůstal, ale spojení dnů a nocí je zbytečně doslovné."
+  },
+  {
+    "id": "game-421",
+    "model": "gpt-6-luna",
+    "mode": "naive",
+    "reviewer": "Codex direct unblinded reading; no judge API",
+    "score": 3,
+    "note_en": "Meaning is preserved but the day-and-night wording is needlessly literal.",
+    "note_cs": "Význam zůstal, ale spojení dnů a nocí je zbytečně doslovné."
+  },
+  {
+    "id": "game-421",
+    "model": "gpt-6-luna",
+    "mode": "baseline",
+    "reviewer": "Codex direct unblinded reading; no judge API",
+    "score": 3,
+    "note_en": "Meaning is preserved but the day-and-night wording is needlessly literal.",
+    "note_cs": "Význam zůstal, ale spojení dnů a nocí je zbytečně doslovné."
+  },
+  {
+    "id": "game-422",
+    "model": "gpt-6-luna",
+    "mode": "baseline",
+    "reviewer": "Codex direct unblinded reading; no judge API",
+    "score": 4,
+    "note_en": "Meaning preserved. Unknown speaker gender is not graded.",
+    "note_cs": "Význam zachován. Rod neznámého mluvčího nehodnotíme."
+  },
+  {
+    "id": "game-422",
+    "model": "gpt-6-luna",
+    "mode": "naive",
+    "reviewer": "Codex direct unblinded reading; no judge API",
+    "score": 4,
+    "note_en": "Meaning preserved. Unknown speaker gender is not graded.",
+    "note_cs": "Význam zachován. Rod neznámého mluvčího nehodnotíme."
+  },
+  {
+    "id": "game-422",
+    "model": "gpt-6-luna",
+    "mode": "guarded",
+    "reviewer": "Codex direct unblinded reading; no judge API",
+    "score": 4,
+    "note_en": "Meaning preserved. Unknown speaker gender is not graded.",
+    "note_cs": "Význam zachován. Rod neznámého mluvčího nehodnotíme."
+  },
+  {
+    "id": "game-423",
+    "model": "gpt-6-luna",
+    "mode": "baseline",
+    "reviewer": "Codex direct unblinded reading; no judge API",
+    "score": 2,
+    "note_en": "The imperative wish Enjoy it becomes a statement You are enjoying it.",
+    "note_cs": "Přání Užij si to se změnilo na oznámení Užíváš si to."
+  },
+  {
+    "id": "game-423",
+    "model": "gpt-6-luna",
+    "mode": "guarded",
+    "reviewer": "Codex direct unblinded reading; no judge API",
+    "score": 2,
+    "note_en": "The imperative wish Enjoy it becomes a statement You are enjoying it.",
+    "note_cs": "Přání Užij si to se změnilo na oznámení Užíváš si to."
+  },
+  {
+    "id": "game-423",
+    "model": "gpt-6-luna",
+    "mode": "naive",
+    "reviewer": "Codex direct unblinded reading; no judge API",
+    "score": 2,
+    "note_en": "The imperative wish Enjoy it becomes a statement You are enjoying it.",
+    "note_cs": "Přání Užij si to se změnilo na oznámení Užíváš si to."
+  },
+  {
+    "id": "game-424",
+    "model": "gpt-6-luna",
+    "mode": "naive",
+    "reviewer": "Codex direct unblinded reading; no judge API",
+    "score": 4,
+    "note_en": "Meaning preserved. Unknown speaker gender is not graded.",
+    "note_cs": "Význam zachován. Rod neznámého mluvčího nehodnotíme."
+  },
+  {
+    "id": "game-424",
+    "model": "gpt-6-luna",
+    "mode": "baseline",
+    "reviewer": "Codex direct unblinded reading; no judge API",
+    "score": 4,
+    "note_en": "Meaning preserved. Unknown speaker gender is not graded.",
+    "note_cs": "Význam zachován. Rod neznámého mluvčího nehodnotíme."
+  },
+  {
+    "id": "game-424",
+    "model": "gpt-6-luna",
+    "mode": "guarded",
+    "reviewer": "Codex direct unblinded reading; no judge API",
+    "score": 4,
+    "note_en": "Meaning preserved. Unknown speaker gender is not graded.",
+    "note_cs": "Význam zachován. Rod neznámého mluvčího nehodnotíme."
+  },
+  {
+    "id": "game-601",
+    "model": "gpt-6-luna",
+    "mode": "baseline",
+    "reviewer": "Codex direct unblinded reading; no judge API",
+    "score": 4,
+    "note_en": "Meaning preserved. Unknown speaker gender is not graded.",
+    "note_cs": "Význam zachován. Rod neznámého mluvčího nehodnotíme."
+  },
+  {
+    "id": "game-601",
+    "model": "gpt-6-luna",
+    "mode": "naive",
+    "reviewer": "Codex direct unblinded reading; no judge API",
+    "score": 4,
+    "note_en": "Meaning preserved. Unknown speaker gender is not graded.",
+    "note_cs": "Význam zachován. Rod neznámého mluvčího nehodnotíme."
+  },
+  {
+    "id": "game-601",
+    "model": "gpt-6-luna",
+    "mode": "guarded",
+    "reviewer": "Codex direct unblinded reading; no judge API",
+    "score": 4,
+    "note_en": "Meaning preserved. Unknown speaker gender is not graded.",
+    "note_cs": "Význam zachován. Rod neznámého mluvčího nehodnotíme."
+  },
+  {
+    "id": "game-602",
+    "model": "gpt-6-luna",
+    "mode": "guarded",
+    "reviewer": "Codex direct unblinded reading; no judge API",
+    "score": 4,
+    "note_en": "Meaning preserved. Unknown speaker gender is not graded.",
+    "note_cs": "Význam zachován. Rod neznámého mluvčího nehodnotíme."
+  },
+  {
+    "id": "game-602",
+    "model": "gpt-6-luna",
+    "mode": "naive",
+    "reviewer": "Codex direct unblinded reading; no judge API",
+    "score": 4,
+    "note_en": "Meaning preserved. Unknown speaker gender is not graded.",
+    "note_cs": "Význam zachován. Rod neznámého mluvčího nehodnotíme."
+  },
+  {
+    "id": "game-602",
+    "model": "gpt-6-luna",
+    "mode": "baseline",
+    "reviewer": "Codex direct unblinded reading; no judge API",
+    "score": 4,
+    "note_en": "Meaning preserved. Unknown speaker gender is not graded.",
+    "note_cs": "Význam zachován. Rod neznámého mluvčího nehodnotíme."
+  },
+  {
+    "id": "game-603",
+    "model": "gpt-6-luna",
+    "mode": "naive",
+    "reviewer": "Codex direct unblinded reading; no judge API",
+    "score": 3,
+    "note_en": "Naive/guarded/timestamped change the discourse marker Know what? into What?/Coze?.",
+    "note_cs": "Syrová, omezená i časovaná historie mění konverzační Víš co? na Cože?."
+  },
+  {
+    "id": "game-603",
+    "model": "gpt-6-luna",
+    "mode": "guarded",
+    "reviewer": "Codex direct unblinded reading; no judge API",
+    "score": 3,
+    "note_en": "Naive/guarded/timestamped change the discourse marker Know what? into What?/Coze?.",
+    "note_cs": "Syrová, omezená i časovaná historie mění konverzační Víš co? na Cože?."
+  },
+  {
+    "id": "game-603",
+    "model": "gpt-6-luna",
+    "mode": "baseline",
+    "reviewer": "Codex direct unblinded reading; no judge API",
+    "score": 4,
+    "note_en": "Naive/guarded/timestamped change the discourse marker Know what? into What?/Coze?.",
+    "note_cs": "Syrová, omezená i časovaná historie mění konverzační Víš co? na Cože?."
+  },
+  {
+    "id": "game-604",
+    "model": "gpt-6-luna",
+    "mode": "guarded",
+    "reviewer": "Codex direct unblinded reading; no judge API",
+    "score": 4,
+    "note_en": "Meaning preserved. Unknown speaker gender is not graded.",
+    "note_cs": "Význam zachován. Rod neznámého mluvčího nehodnotíme."
+  },
+  {
+    "id": "game-604",
+    "model": "gpt-6-luna",
+    "mode": "naive",
+    "reviewer": "Codex direct unblinded reading; no judge API",
+    "score": 4,
+    "note_en": "Meaning preserved. Unknown speaker gender is not graded.",
+    "note_cs": "Význam zachován. Rod neznámého mluvčího nehodnotíme."
+  },
+  {
+    "id": "game-604",
+    "model": "gpt-6-luna",
+    "mode": "baseline",
+    "reviewer": "Codex direct unblinded reading; no judge API",
+    "score": 4,
+    "note_en": "Meaning preserved. Unknown speaker gender is not graded.",
+    "note_cs": "Význam zachován. Rod neznámého mluvčího nehodnotíme."
+  },
+  {
+    "id": "game-731",
+    "model": "gpt-6-luna",
+    "mode": "baseline",
+    "reviewer": "Codex direct unblinded reading; no judge API",
+    "score": 4,
+    "note_en": "Meaning preserved. Unknown speaker gender is not graded.",
+    "note_cs": "Význam zachován. Rod neznámého mluvčího nehodnotíme."
+  },
+  {
+    "id": "game-731",
+    "model": "gpt-6-luna",
+    "mode": "naive",
+    "reviewer": "Codex direct unblinded reading; no judge API",
+    "score": 4,
+    "note_en": "Meaning preserved. Unknown speaker gender is not graded.",
+    "note_cs": "Význam zachován. Rod neznámého mluvčího nehodnotíme."
+  },
+  {
+    "id": "game-731",
+    "model": "gpt-6-luna",
+    "mode": "guarded",
+    "reviewer": "Codex direct unblinded reading; no judge API",
+    "score": 4,
+    "note_en": "Meaning preserved. Unknown speaker gender is not graded.",
+    "note_cs": "Význam zachován. Rod neznámého mluvčího nehodnotíme."
+  },
+  {
+    "id": "game-732",
+    "model": "gpt-6-luna",
+    "mode": "baseline",
+    "reviewer": "Codex direct unblinded reading; no judge API",
+    "score": 4,
+    "note_en": "Meaning preserved. Unknown speaker gender is not graded.",
+    "note_cs": "Význam zachován. Rod neznámého mluvčího nehodnotíme."
+  },
+  {
+    "id": "game-732",
+    "model": "gpt-6-luna",
+    "mode": "guarded",
+    "reviewer": "Codex direct unblinded reading; no judge API",
+    "score": 4,
+    "note_en": "Meaning preserved. Unknown speaker gender is not graded.",
+    "note_cs": "Význam zachován. Rod neznámého mluvčího nehodnotíme."
+  },
+  {
+    "id": "game-732",
+    "model": "gpt-6-luna",
+    "mode": "naive",
+    "reviewer": "Codex direct unblinded reading; no judge API",
+    "score": 4,
+    "note_en": "Meaning preserved. Unknown speaker gender is not graded.",
+    "note_cs": "Význam zachován. Rod neznámého mluvčího nehodnotíme."
+  },
+  {
+    "id": "game-733",
+    "model": "gpt-6-luna",
+    "mode": "baseline",
+    "reviewer": "Codex direct unblinded reading; no judge API",
+    "score": 4,
+    "note_en": "Meaning preserved. Unknown speaker gender is not graded.",
+    "note_cs": "Význam zachován. Rod neznámého mluvčího nehodnotíme."
+  },
+  {
+    "id": "game-733",
+    "model": "gpt-6-luna",
+    "mode": "guarded",
+    "reviewer": "Codex direct unblinded reading; no judge API",
+    "score": 4,
+    "note_en": "Meaning preserved. Unknown speaker gender is not graded.",
+    "note_cs": "Význam zachován. Rod neznámého mluvčího nehodnotíme."
+  },
+  {
+    "id": "game-733",
+    "model": "gpt-6-luna",
+    "mode": "naive",
+    "reviewer": "Codex direct unblinded reading; no judge API",
+    "score": 4,
+    "note_en": "Meaning preserved. Unknown speaker gender is not graded.",
+    "note_cs": "Význam zachován. Rod neznámého mluvčího nehodnotíme."
+  },
+  {
+    "id": "game-734",
+    "model": "gpt-6-luna",
+    "mode": "guarded",
+    "reviewer": "Codex direct unblinded reading; no judge API",
+    "score": 4,
+    "note_en": "Meaning preserved. Unknown speaker gender is not graded.",
+    "note_cs": "Význam zachován. Rod neznámého mluvčího nehodnotíme."
+  },
+  {
+    "id": "game-734",
+    "model": "gpt-6-luna",
+    "mode": "naive",
+    "reviewer": "Codex direct unblinded reading; no judge API",
+    "score": 4,
+    "note_en": "Meaning preserved. Unknown speaker gender is not graded.",
+    "note_cs": "Význam zachován. Rod neznámého mluvčího nehodnotíme."
+  },
+  {
+    "id": "game-734",
+    "model": "gpt-6-luna",
+    "mode": "baseline",
+    "reviewer": "Codex direct unblinded reading; no judge API",
+    "score": 4,
+    "note_en": "Meaning preserved. Unknown speaker gender is not graded.",
+    "note_cs": "Význam zachován. Rod neznámého mluvčího nehodnotíme."
+  },
+  {
+    "id": "game-861",
+    "model": "gpt-6-luna",
+    "mode": "naive",
+    "reviewer": "Codex direct unblinded reading; no judge API",
+    "score": 4,
+    "note_en": "Meaning preserved. Unknown speaker gender is not graded.",
+    "note_cs": "Význam zachován. Rod neznámého mluvčího nehodnotíme."
+  },
+  {
+    "id": "game-861",
+    "model": "gpt-6-luna",
+    "mode": "guarded",
+    "reviewer": "Codex direct unblinded reading; no judge API",
+    "score": 4,
+    "note_en": "Meaning preserved. Unknown speaker gender is not graded.",
+    "note_cs": "Význam zachován. Rod neznámého mluvčího nehodnotíme."
+  },
+  {
+    "id": "game-861",
+    "model": "gpt-6-luna",
+    "mode": "baseline",
+    "reviewer": "Codex direct unblinded reading; no judge API",
+    "score": 4,
+    "note_en": "Meaning preserved. Unknown speaker gender is not graded.",
+    "note_cs": "Význam zachován. Rod neznámého mluvčího nehodnotíme."
+  },
+  {
+    "id": "game-862",
+    "model": "gpt-6-luna",
+    "mode": "naive",
+    "reviewer": "Codex direct unblinded reading; no judge API",
+    "score": 4,
+    "note_en": "Meaning preserved. Unknown speaker gender is not graded.",
+    "note_cs": "Význam zachován. Rod neznámého mluvčího nehodnotíme."
+  },
+  {
+    "id": "game-862",
+    "model": "gpt-6-luna",
+    "mode": "guarded",
+    "reviewer": "Codex direct unblinded reading; no judge API",
+    "score": 4,
+    "note_en": "Meaning preserved. Unknown speaker gender is not graded.",
+    "note_cs": "Význam zachován. Rod neznámého mluvčího nehodnotíme."
+  },
+  {
+    "id": "game-862",
+    "model": "gpt-6-luna",
+    "mode": "baseline",
+    "reviewer": "Codex direct unblinded reading; no judge API",
+    "score": 4,
+    "note_en": "Meaning preserved. Unknown speaker gender is not graded.",
+    "note_cs": "Význam zachován. Rod neznámého mluvčího nehodnotíme."
+  },
+  {
+    "id": "game-863",
+    "model": "gpt-6-luna",
+    "mode": "baseline",
+    "reviewer": "Codex direct unblinded reading; no judge API",
+    "score": 2,
+    "note_en": "Work detail is an assigned work party; baseline says job description, naive/guarded job assignment, timestamped work party.",
+    "note_cs": "Work detail je přidělená pracovní četa. Bez paměti se mění na pracovní náplň, syrová a omezená paměť dávají pracovní zařazení, časovaná pracovní četu."
+  },
+  {
+    "id": "game-863",
+    "model": "gpt-6-luna",
+    "mode": "guarded",
+    "reviewer": "Codex direct unblinded reading; no judge API",
+    "score": 3,
+    "note_en": "Work detail is an assigned work party; baseline says job description, naive/guarded job assignment, timestamped work party.",
+    "note_cs": "Work detail je přidělená pracovní četa. Bez paměti se mění na pracovní náplň, syrová a omezená paměť dávají pracovní zařazení, časovaná pracovní četu."
+  },
+  {
+    "id": "game-863",
+    "model": "gpt-6-luna",
+    "mode": "naive",
+    "reviewer": "Codex direct unblinded reading; no judge API",
+    "score": 3,
+    "note_en": "Work detail is an assigned work party; baseline says job description, naive/guarded job assignment, timestamped work party.",
+    "note_cs": "Work detail je přidělená pracovní četa. Bez paměti se mění na pracovní náplň, syrová a omezená paměť dávají pracovní zařazení, časovaná pracovní četu."
+  },
+  {
+    "id": "game-864",
+    "model": "gpt-6-luna",
+    "mode": "naive",
+    "reviewer": "Codex direct unblinded reading; no judge API",
+    "score": 4,
+    "note_en": "Meaning preserved. Unknown speaker gender is not graded.",
+    "note_cs": "Význam zachován. Rod neznámého mluvčího nehodnotíme."
+  },
+  {
+    "id": "game-864",
+    "model": "gpt-6-luna",
+    "mode": "guarded",
+    "reviewer": "Codex direct unblinded reading; no judge API",
+    "score": 4,
+    "note_en": "Meaning preserved. Unknown speaker gender is not graded.",
+    "note_cs": "Význam zachován. Rod neznámého mluvčího nehodnotíme."
+  },
+  {
+    "id": "game-864",
+    "model": "gpt-6-luna",
+    "mode": "baseline",
+    "reviewer": "Codex direct unblinded reading; no judge API",
+    "score": 4,
+    "note_en": "Meaning preserved. Unknown speaker gender is not graded.",
+    "note_cs": "Význam zachován. Rod neznámého mluvčího nehodnotíme."
+  },
+  {
+    "id": "game-1001",
+    "model": "gpt-6-luna",
+    "mode": "guarded",
+    "reviewer": "Codex direct unblinded reading; no judge API",
+    "score": 4,
+    "note_en": "Meaning preserved. Unknown speaker gender is not graded.",
+    "note_cs": "Význam zachován. Rod neznámého mluvčího nehodnotíme."
+  },
+  {
+    "id": "game-1001",
+    "model": "gpt-6-luna",
+    "mode": "baseline",
+    "reviewer": "Codex direct unblinded reading; no judge API",
+    "score": 4,
+    "note_en": "Meaning preserved. Unknown speaker gender is not graded.",
+    "note_cs": "Význam zachován. Rod neznámého mluvčího nehodnotíme."
+  },
+  {
+    "id": "game-1001",
+    "model": "gpt-6-luna",
+    "mode": "naive",
+    "reviewer": "Codex direct unblinded reading; no judge API",
+    "score": 4,
+    "note_en": "Meaning preserved. Unknown speaker gender is not graded.",
+    "note_cs": "Význam zachován. Rod neznámého mluvčího nehodnotíme."
+  },
+  {
+    "id": "game-1002",
+    "model": "gpt-6-luna",
+    "mode": "baseline",
+    "reviewer": "Codex direct unblinded reading; no judge API",
+    "score": 4,
+    "note_en": "Meaning preserved. Unknown speaker gender is not graded.",
+    "note_cs": "Význam zachován. Rod neznámého mluvčího nehodnotíme."
+  },
+  {
+    "id": "game-1002",
+    "model": "gpt-6-luna",
+    "mode": "naive",
+    "reviewer": "Codex direct unblinded reading; no judge API",
+    "score": 4,
+    "note_en": "Meaning preserved. Unknown speaker gender is not graded.",
+    "note_cs": "Význam zachován. Rod neznámého mluvčího nehodnotíme."
+  },
+  {
+    "id": "game-1002",
+    "model": "gpt-6-luna",
+    "mode": "guarded",
+    "reviewer": "Codex direct unblinded reading; no judge API",
+    "score": 4,
+    "note_en": "Meaning preserved. Unknown speaker gender is not graded.",
+    "note_cs": "Význam zachován. Rod neznámého mluvčího nehodnotíme."
+  },
+  {
+    "id": "game-1003",
+    "model": "gpt-6-luna",
+    "mode": "baseline",
+    "reviewer": "Codex direct unblinded reading; no judge API",
+    "score": 4,
+    "note_en": "Meaning preserved. Unknown speaker gender is not graded.",
+    "note_cs": "Význam zachován. Rod neznámého mluvčího nehodnotíme."
+  },
+  {
+    "id": "game-1003",
+    "model": "gpt-6-luna",
+    "mode": "guarded",
+    "reviewer": "Codex direct unblinded reading; no judge API",
+    "score": 4,
+    "note_en": "Meaning preserved. Unknown speaker gender is not graded.",
+    "note_cs": "Význam zachován. Rod neznámého mluvčího nehodnotíme."
+  },
+  {
+    "id": "game-1003",
+    "model": "gpt-6-luna",
+    "mode": "naive",
+    "reviewer": "Codex direct unblinded reading; no judge API",
+    "score": 4,
+    "note_en": "Meaning preserved. Unknown speaker gender is not graded.",
+    "note_cs": "Význam zachován. Rod neznámého mluvčího nehodnotíme."
+  },
+  {
+    "id": "game-1004",
+    "model": "gpt-6-luna",
+    "mode": "guarded",
+    "reviewer": "Codex direct unblinded reading; no judge API",
+    "score": 4,
+    "note_en": "Meaning preserved. Unknown speaker gender is not graded.",
+    "note_cs": "Význam zachován. Rod neznámého mluvčího nehodnotíme."
+  },
+  {
+    "id": "game-1004",
+    "model": "gpt-6-luna",
+    "mode": "naive",
+    "reviewer": "Codex direct unblinded reading; no judge API",
+    "score": 4,
+    "note_en": "Meaning preserved. Unknown speaker gender is not graded.",
+    "note_cs": "Význam zachován. Rod neznámého mluvčího nehodnotíme."
+  },
+  {
+    "id": "game-1004",
+    "model": "gpt-6-luna",
+    "mode": "baseline",
+    "reviewer": "Codex direct unblinded reading; no judge API",
+    "score": 4,
+    "note_en": "Meaning preserved. Unknown speaker gender is not graded.",
+    "note_cs": "Význam zachován. Rod neznámého mluvčího nehodnotíme."
+  },
+  {
+    "id": "game-1111",
+    "model": "gpt-6-luna",
+    "mode": "guarded",
+    "reviewer": "Codex direct unblinded reading; no judge API",
+    "score": 3,
+    "note_en": "Baseline conveys the metaphor more naturally; contextual versions use literal survivor.",
+    "note_cs": "Bez paměti je metafora přirozenější; s historií používá doslovné přeživší."
+  },
+  {
+    "id": "game-1111",
+    "model": "gpt-6-luna",
+    "mode": "naive",
+    "reviewer": "Codex direct unblinded reading; no judge API",
+    "score": 3,
+    "note_en": "Baseline conveys the metaphor more naturally; contextual versions use literal survivor.",
+    "note_cs": "Bez paměti je metafora přirozenější; s historií používá doslovné přeživší."
+  },
+  {
+    "id": "game-1111",
+    "model": "gpt-6-luna",
+    "mode": "baseline",
+    "reviewer": "Codex direct unblinded reading; no judge API",
+    "score": 4,
+    "note_en": "Baseline conveys the metaphor more naturally; contextual versions use literal survivor.",
+    "note_cs": "Bez paměti je metafora přirozenější; s historií používá doslovné přeživší."
+  },
+  {
+    "id": "game-1112",
+    "model": "gpt-6-luna",
+    "mode": "guarded",
+    "reviewer": "Codex direct unblinded reading; no judge API",
+    "score": 4,
+    "note_en": "Meaning preserved. Unknown speaker gender is not graded.",
+    "note_cs": "Význam zachován. Rod neznámého mluvčího nehodnotíme."
+  },
+  {
+    "id": "game-1112",
+    "model": "gpt-6-luna",
+    "mode": "baseline",
+    "reviewer": "Codex direct unblinded reading; no judge API",
+    "score": 4,
+    "note_en": "Meaning preserved. Unknown speaker gender is not graded.",
+    "note_cs": "Význam zachován. Rod neznámého mluvčího nehodnotíme."
+  },
+  {
+    "id": "game-1112",
+    "model": "gpt-6-luna",
+    "mode": "naive",
+    "reviewer": "Codex direct unblinded reading; no judge API",
+    "score": 4,
+    "note_en": "Meaning preserved. Unknown speaker gender is not graded.",
+    "note_cs": "Význam zachován. Rod neznámého mluvčího nehodnotíme."
+  },
+  {
+    "id": "game-1113",
+    "model": "gpt-6-luna",
+    "mode": "guarded",
+    "reviewer": "Codex direct unblinded reading; no judge API",
+    "score": 4,
+    "note_en": "Meaning preserved. Unknown speaker gender is not graded.",
+    "note_cs": "Význam zachován. Rod neznámého mluvčího nehodnotíme."
+  },
+  {
+    "id": "game-1113",
+    "model": "gpt-6-luna",
+    "mode": "naive",
+    "reviewer": "Codex direct unblinded reading; no judge API",
+    "score": 4,
+    "note_en": "Meaning preserved. Unknown speaker gender is not graded.",
+    "note_cs": "Význam zachován. Rod neznámého mluvčího nehodnotíme."
+  },
+  {
+    "id": "game-1113",
+    "model": "gpt-6-luna",
+    "mode": "baseline",
+    "reviewer": "Codex direct unblinded reading; no judge API",
+    "score": 4,
+    "note_en": "Meaning preserved. Unknown speaker gender is not graded.",
+    "note_cs": "Význam zachován. Rod neznámého mluvčího nehodnotíme."
+  },
+  {
+    "id": "game-1114",
+    "model": "gpt-6-luna",
+    "mode": "guarded",
+    "reviewer": "Codex direct unblinded reading; no judge API",
+    "score": 4,
+    "note_en": "Meaning preserved. Unknown speaker gender is not graded.",
+    "note_cs": "Význam zachován. Rod neznámého mluvčího nehodnotíme."
+  },
+  {
+    "id": "game-1114",
+    "model": "gpt-6-luna",
+    "mode": "naive",
+    "reviewer": "Codex direct unblinded reading; no judge API",
+    "score": 4,
+    "note_en": "Meaning preserved. Unknown speaker gender is not graded.",
+    "note_cs": "Význam zachován. Rod neznámého mluvčího nehodnotíme."
+  },
+  {
+    "id": "game-1114",
+    "model": "gpt-6-luna",
+    "mode": "baseline",
+    "reviewer": "Codex direct unblinded reading; no judge API",
+    "score": 4,
+    "note_en": "Meaning preserved. Unknown speaker gender is not graded.",
+    "note_cs": "Význam zachován. Rod neznámého mluvčího nehodnotíme."
+  },
+  {
+    "id": "game-1251",
+    "model": "gpt-6-luna",
+    "mode": "guarded",
+    "reviewer": "Codex direct unblinded reading; no judge API",
+    "score": 4,
+    "note_en": "Meaning preserved. Unknown speaker gender is not graded.",
+    "note_cs": "Význam zachován. Rod neznámého mluvčího nehodnotíme."
+  },
+  {
+    "id": "game-1251",
+    "model": "gpt-6-luna",
+    "mode": "baseline",
+    "reviewer": "Codex direct unblinded reading; no judge API",
+    "score": 4,
+    "note_en": "Meaning preserved. Unknown speaker gender is not graded.",
+    "note_cs": "Význam zachován. Rod neznámého mluvčího nehodnotíme."
+  },
+  {
+    "id": "game-1251",
+    "model": "gpt-6-luna",
+    "mode": "naive",
+    "reviewer": "Codex direct unblinded reading; no judge API",
+    "score": 4,
+    "note_en": "Meaning preserved. Unknown speaker gender is not graded.",
+    "note_cs": "Význam zachován. Rod neznámého mluvčího nehodnotíme."
+  },
+  {
+    "id": "game-1252",
+    "model": "gpt-6-luna",
+    "mode": "naive",
+    "reviewer": "Codex direct unblinded reading; no judge API",
+    "score": 4,
+    "note_en": "Meaning preserved. Unknown speaker gender is not graded.",
+    "note_cs": "Význam zachován. Rod neznámého mluvčího nehodnotíme."
+  },
+  {
+    "id": "game-1252",
+    "model": "gpt-6-luna",
+    "mode": "baseline",
+    "reviewer": "Codex direct unblinded reading; no judge API",
+    "score": 4,
+    "note_en": "Meaning preserved. Unknown speaker gender is not graded.",
+    "note_cs": "Význam zachován. Rod neznámého mluvčího nehodnotíme."
+  },
+  {
+    "id": "game-1252",
+    "model": "gpt-6-luna",
+    "mode": "guarded",
+    "reviewer": "Codex direct unblinded reading; no judge API",
+    "score": 4,
+    "note_en": "Meaning preserved. Unknown speaker gender is not graded.",
+    "note_cs": "Význam zachován. Rod neznámého mluvčího nehodnotíme."
+  },
+  {
+    "id": "game-1253",
+    "model": "gpt-6-luna",
+    "mode": "baseline",
+    "reviewer": "Codex direct unblinded reading; no judge API",
+    "score": 4,
+    "note_en": "Meaning preserved. Unknown speaker gender is not graded.",
+    "note_cs": "Význam zachován. Rod neznámého mluvčího nehodnotíme."
+  },
+  {
+    "id": "game-1253",
+    "model": "gpt-6-luna",
+    "mode": "naive",
+    "reviewer": "Codex direct unblinded reading; no judge API",
+    "score": 4,
+    "note_en": "Meaning preserved. Unknown speaker gender is not graded.",
+    "note_cs": "Význam zachován. Rod neznámého mluvčího nehodnotíme."
+  },
+  {
+    "id": "game-1253",
+    "model": "gpt-6-luna",
+    "mode": "guarded",
+    "reviewer": "Codex direct unblinded reading; no judge API",
+    "score": 4,
+    "note_en": "Meaning preserved. Unknown speaker gender is not graded.",
+    "note_cs": "Význam zachován. Rod neznámého mluvčího nehodnotíme."
+  },
+  {
+    "id": "game-1254",
+    "model": "gpt-6-luna",
+    "mode": "baseline",
+    "reviewer": "Codex direct unblinded reading; no judge API",
+    "score": 4,
+    "note_en": "Meaning preserved. Unknown speaker gender is not graded.",
+    "note_cs": "Význam zachován. Rod neznámého mluvčího nehodnotíme."
+  },
+  {
+    "id": "game-1254",
+    "model": "gpt-6-luna",
+    "mode": "naive",
+    "reviewer": "Codex direct unblinded reading; no judge API",
+    "score": 4,
+    "note_en": "Meaning preserved. Unknown speaker gender is not graded.",
+    "note_cs": "Význam zachován. Rod neznámého mluvčího nehodnotíme."
+  },
+  {
+    "id": "game-1254",
+    "model": "gpt-6-luna",
+    "mode": "guarded",
+    "reviewer": "Codex direct unblinded reading; no judge API",
+    "score": 4,
+    "note_en": "Meaning preserved. Unknown speaker gender is not graded.",
+    "note_cs": "Význam zachován. Rod neznámého mluvčího nehodnotíme."
+  },
+  {
+    "id": "game-1399",
+    "model": "gpt-6-luna",
+    "mode": "guarded",
+    "reviewer": "Codex direct unblinded reading; no judge API",
+    "score": 4,
+    "note_en": "Earlier dialogue explicitly concerns flying: context corrects driver licence to pilot licence.",
+    "note_cs": "Starší dialog výslovně popisuje létání. Paměť opravila řidičák na pilotní průkaz."
+  },
+  {
+    "id": "game-1399",
+    "model": "gpt-6-luna",
+    "mode": "naive",
+    "reviewer": "Codex direct unblinded reading; no judge API",
+    "score": 4,
+    "note_en": "Earlier dialogue explicitly concerns flying: context corrects driver licence to pilot licence.",
+    "note_cs": "Starší dialog výslovně popisuje létání. Paměť opravila řidičák na pilotní průkaz."
+  },
+  {
+    "id": "game-1399",
+    "model": "gpt-6-luna",
+    "mode": "baseline",
+    "reviewer": "Codex direct unblinded reading; no judge API",
+    "score": 2,
+    "note_en": "Earlier dialogue explicitly concerns flying: context corrects driver licence to pilot licence.",
+    "note_cs": "Starší dialog výslovně popisuje létání. Paměť opravila řidičák na pilotní průkaz."
+  },
+  {
+    "id": "game-1400",
+    "model": "gpt-6-luna",
+    "mode": "baseline",
+    "reviewer": "Codex direct unblinded reading; no judge API",
+    "score": 4,
+    "note_en": "Meaning preserved. Unknown speaker gender is not graded.",
+    "note_cs": "Význam zachován. Rod neznámého mluvčího nehodnotíme."
+  },
+  {
+    "id": "game-1400",
+    "model": "gpt-6-luna",
+    "mode": "guarded",
+    "reviewer": "Codex direct unblinded reading; no judge API",
+    "score": 4,
+    "note_en": "Meaning preserved. Unknown speaker gender is not graded.",
+    "note_cs": "Význam zachován. Rod neznámého mluvčího nehodnotíme."
+  },
+  {
+    "id": "game-1400",
+    "model": "gpt-6-luna",
+    "mode": "naive",
+    "reviewer": "Codex direct unblinded reading; no judge API",
+    "score": 4,
+    "note_en": "Meaning preserved. Unknown speaker gender is not graded.",
+    "note_cs": "Význam zachován. Rod neznámého mluvčího nehodnotíme."
+  },
+  {
+    "id": "game-1401",
+    "model": "gpt-6-luna",
+    "mode": "baseline",
+    "reviewer": "Codex direct unblinded reading; no judge API",
+    "score": 4,
+    "note_en": "Meaning preserved. Unknown speaker gender is not graded.",
+    "note_cs": "Význam zachován. Rod neznámého mluvčího nehodnotíme."
+  },
+  {
+    "id": "game-1401",
+    "model": "gpt-6-luna",
+    "mode": "guarded",
+    "reviewer": "Codex direct unblinded reading; no judge API",
+    "score": 4,
+    "note_en": "Meaning preserved. Unknown speaker gender is not graded.",
+    "note_cs": "Význam zachován. Rod neznámého mluvčího nehodnotíme."
+  },
+  {
+    "id": "game-1401",
+    "model": "gpt-6-luna",
+    "mode": "naive",
+    "reviewer": "Codex direct unblinded reading; no judge API",
+    "score": 4,
+    "note_en": "Meaning preserved. Unknown speaker gender is not graded.",
+    "note_cs": "Význam zachován. Rod neznámého mluvčího nehodnotíme."
+  },
+  {
+    "id": "game-1402",
+    "model": "gpt-6-luna",
+    "mode": "naive",
+    "reviewer": "Codex direct unblinded reading; no judge API",
+    "score": 4,
+    "note_en": "Meaning preserved. Unknown speaker gender is not graded.",
+    "note_cs": "Význam zachován. Rod neznámého mluvčího nehodnotíme."
+  },
+  {
+    "id": "game-1402",
+    "model": "gpt-6-luna",
+    "mode": "baseline",
+    "reviewer": "Codex direct unblinded reading; no judge API",
+    "score": 4,
+    "note_en": "Meaning preserved. Unknown speaker gender is not graded.",
+    "note_cs": "Význam zachován. Rod neznámého mluvčího nehodnotíme."
+  },
+  {
+    "id": "game-1402",
+    "model": "gpt-6-luna",
+    "mode": "guarded",
+    "reviewer": "Codex direct unblinded reading; no judge API",
+    "score": 4,
+    "note_en": "Meaning preserved. Unknown speaker gender is not graded.",
+    "note_cs": "Význam zachován. Rod neznámého mluvčího nehodnotíme."
+  },
+  {
+    "id": "game-1499",
+    "model": "gpt-6-luna",
+    "mode": "naive",
+    "reviewer": "Codex direct unblinded reading; no judge API",
+    "score": 3,
+    "note_en": "Baseline uses precise package-drop wording; other variants use the less precise landing/drop-off wording.",
+    "note_cs": "Bez paměti je přesný shoz balíčků. Ostatní varianty jsou méně přesné."
+  },
+  {
+    "id": "game-1499",
+    "model": "gpt-6-luna",
+    "mode": "guarded",
+    "reviewer": "Codex direct unblinded reading; no judge API",
+    "score": 3,
+    "note_en": "Baseline uses precise package-drop wording; other variants use the less precise landing/drop-off wording.",
+    "note_cs": "Bez paměti je přesný shoz balíčků. Ostatní varianty jsou méně přesné."
+  },
+  {
+    "id": "game-1499",
+    "model": "gpt-6-luna",
+    "mode": "baseline",
+    "reviewer": "Codex direct unblinded reading; no judge API",
+    "score": 4,
+    "note_en": "Baseline uses precise package-drop wording; other variants use the less precise landing/drop-off wording.",
+    "note_cs": "Bez paměti je přesný shoz balíčků. Ostatní varianty jsou méně přesné."
+  },
+  {
+    "id": "game-1500",
+    "model": "gpt-6-luna",
+    "mode": "guarded",
+    "reviewer": "Codex direct unblinded reading; no judge API",
+    "score": 3,
+    "note_en": "Timestamped version uses package-drop wording; uninterpretable trailing OCR Pa is not itself scored.",
+    "note_cs": "Časovaná varianta správně používá shoz. Nečitelný zbytek OCR Pa sám o sobě nebodujeme."
+  },
+  {
+    "id": "game-1500",
+    "model": "gpt-6-luna",
+    "mode": "naive",
+    "reviewer": "Codex direct unblinded reading; no judge API",
+    "score": 3,
+    "note_en": "Timestamped version uses package-drop wording; uninterpretable trailing OCR Pa is not itself scored.",
+    "note_cs": "Časovaná varianta správně používá shoz. Nečitelný zbytek OCR Pa sám o sobě nebodujeme."
+  },
+  {
+    "id": "game-1500",
+    "model": "gpt-6-luna",
+    "mode": "baseline",
+    "reviewer": "Codex direct unblinded reading; no judge API",
+    "score": 3,
+    "note_en": "Timestamped version uses package-drop wording; uninterpretable trailing OCR Pa is not itself scored.",
+    "note_cs": "Časovaná varianta správně používá shoz. Nečitelný zbytek OCR Pa sám o sobě nebodujeme."
+  },
+  {
+    "id": "game-1501",
+    "model": "gpt-6-luna",
+    "mode": "guarded",
+    "reviewer": "Codex direct unblinded reading; no judge API",
+    "score": 4,
+    "note_en": "Guarded/timestamped recover the meaningful package-drop sentence; OCR junk is not itself given a reference translation.",
+    "note_cs": "Omezená a časovaná paměť obnovují srozumitelnou větu o shozu. Balastu OCR nevymýšlíme referenční překlad."
+  },
+  {
+    "id": "game-1501",
+    "model": "gpt-6-luna",
+    "mode": "naive",
+    "reviewer": "Codex direct unblinded reading; no judge API",
+    "score": 3,
+    "note_en": "Guarded/timestamped recover the meaningful package-drop sentence; OCR junk is not itself given a reference translation.",
+    "note_cs": "Omezená a časovaná paměť obnovují srozumitelnou větu o shozu. Balastu OCR nevymýšlíme referenční překlad."
+  },
+  {
+    "id": "game-1501",
+    "model": "gpt-6-luna",
+    "mode": "baseline",
+    "reviewer": "Codex direct unblinded reading; no judge API",
+    "score": 3,
+    "note_en": "Guarded/timestamped recover the meaningful package-drop sentence; OCR junk is not itself given a reference translation.",
+    "note_cs": "Omezená a časovaná paměť obnovují srozumitelnou větu o shozu. Balastu OCR nevymýšlíme referenční překlad."
+  },
+  {
+    "id": "game-1502",
+    "model": "gpt-6-luna",
+    "mode": "naive",
+    "reviewer": "Codex direct unblinded reading; no judge API",
+    "score": null,
+    "note_en": "Not scored: unresolvable OCR or already Czech. Some outputs invent readable text from corrupted input; they remain visible in the report.",
+    "note_cs": "Nebodováno: nečitelný výstup OCR nebo již český vstup. Všechny překlady včetně domýšlení zůstávají dostupné."
+  },
+  {
+    "id": "game-1502",
+    "model": "gpt-6-luna",
+    "mode": "baseline",
+    "reviewer": "Codex direct unblinded reading; no judge API",
+    "score": null,
+    "note_en": "Not scored: unresolvable OCR or already Czech. Some outputs invent readable text from corrupted input; they remain visible in the report.",
+    "note_cs": "Nebodováno: nečitelný výstup OCR nebo již český vstup. Všechny překlady včetně domýšlení zůstávají dostupné."
+  },
+  {
+    "id": "game-1502",
+    "model": "gpt-6-luna",
+    "mode": "guarded",
+    "reviewer": "Codex direct unblinded reading; no judge API",
+    "score": null,
+    "note_en": "Not scored: unresolvable OCR or already Czech. Some outputs invent readable text from corrupted input; they remain visible in the report.",
+    "note_cs": "Nebodováno: nečitelný výstup OCR nebo již český vstup. Všechny překlady včetně domýšlení zůstávají dostupné."
+  },
+  {
+    "id": "game-1601",
+    "model": "gpt-6-luna",
+    "mode": "naive",
+    "reviewer": "Codex direct unblinded reading; no judge API",
+    "score": 4,
+    "note_en": "Meaning preserved. Unknown speaker gender is not graded.",
+    "note_cs": "Význam zachován. Rod neznámého mluvčího nehodnotíme."
+  },
+  {
+    "id": "game-1601",
+    "model": "gpt-6-luna",
+    "mode": "guarded",
+    "reviewer": "Codex direct unblinded reading; no judge API",
+    "score": 4,
+    "note_en": "Meaning preserved. Unknown speaker gender is not graded.",
+    "note_cs": "Význam zachován. Rod neznámého mluvčího nehodnotíme."
+  },
+  {
+    "id": "game-1601",
+    "model": "gpt-6-luna",
+    "mode": "baseline",
+    "reviewer": "Codex direct unblinded reading; no judge API",
+    "score": 4,
+    "note_en": "Meaning preserved. Unknown speaker gender is not graded.",
+    "note_cs": "Význam zachován. Rod neznámého mluvčího nehodnotíme."
+  },
+  {
+    "id": "game-1602",
+    "model": "gpt-6-luna",
+    "mode": "guarded",
+    "reviewer": "Codex direct unblinded reading; no judge API",
+    "score": 4,
+    "note_en": "Meaning preserved. Unknown speaker gender is not graded.",
+    "note_cs": "Význam zachován. Rod neznámého mluvčího nehodnotíme."
+  },
+  {
+    "id": "game-1602",
+    "model": "gpt-6-luna",
+    "mode": "baseline",
+    "reviewer": "Codex direct unblinded reading; no judge API",
+    "score": 4,
+    "note_en": "Meaning preserved. Unknown speaker gender is not graded.",
+    "note_cs": "Význam zachován. Rod neznámého mluvčího nehodnotíme."
+  },
+  {
+    "id": "game-1602",
+    "model": "gpt-6-luna",
+    "mode": "naive",
+    "reviewer": "Codex direct unblinded reading; no judge API",
+    "score": 4,
+    "note_en": "Meaning preserved. Unknown speaker gender is not graded.",
+    "note_cs": "Význam zachován. Rod neznámého mluvčího nehodnotíme."
+  },
+  {
+    "id": "game-1603",
+    "model": "gpt-6-luna",
+    "mode": "guarded",
+    "reviewer": "Codex direct unblinded reading; no judge API",
+    "score": 4,
+    "note_en": "Meaning preserved. Unknown speaker gender is not graded.",
+    "note_cs": "Význam zachován. Rod neznámého mluvčího nehodnotíme."
+  },
+  {
+    "id": "game-1603",
+    "model": "gpt-6-luna",
+    "mode": "naive",
+    "reviewer": "Codex direct unblinded reading; no judge API",
+    "score": 4,
+    "note_en": "Meaning preserved. Unknown speaker gender is not graded.",
+    "note_cs": "Význam zachován. Rod neznámého mluvčího nehodnotíme."
+  },
+  {
+    "id": "game-1603",
+    "model": "gpt-6-luna",
+    "mode": "baseline",
+    "reviewer": "Codex direct unblinded reading; no judge API",
+    "score": 4,
+    "note_en": "Meaning preserved. Unknown speaker gender is not graded.",
+    "note_cs": "Význam zachován. Rod neznámého mluvčího nehodnotíme."
+  },
+  {
+    "id": "game-1604",
+    "model": "gpt-6-luna",
+    "mode": "baseline",
+    "reviewer": "Codex direct unblinded reading; no judge API",
+    "score": 4,
+    "note_en": "Meaning preserved. Unknown speaker gender is not graded.",
+    "note_cs": "Význam zachován. Rod neznámého mluvčího nehodnotíme."
+  },
+  {
+    "id": "game-1604",
+    "model": "gpt-6-luna",
+    "mode": "guarded",
+    "reviewer": "Codex direct unblinded reading; no judge API",
+    "score": 4,
+    "note_en": "Meaning preserved. Unknown speaker gender is not graded.",
+    "note_cs": "Význam zachován. Rod neznámého mluvčího nehodnotíme."
+  },
+  {
+    "id": "game-1604",
+    "model": "gpt-6-luna",
+    "mode": "naive",
+    "reviewer": "Codex direct unblinded reading; no judge API",
+    "score": 4,
+    "note_en": "Meaning preserved. Unknown speaker gender is not graded.",
+    "note_cs": "Význam zachován. Rod neznámého mluvčího nehodnotíme."
+  },
+  {
+    "id": "game-1681",
+    "model": "gpt-6-luna",
+    "mode": "baseline",
+    "reviewer": "Codex direct unblinded reading; no judge API",
+    "score": 4,
+    "note_en": "Meaning preserved. Unknown speaker gender is not graded.",
+    "note_cs": "Význam zachován. Rod neznámého mluvčího nehodnotíme."
+  },
+  {
+    "id": "game-1681",
+    "model": "gpt-6-luna",
+    "mode": "naive",
+    "reviewer": "Codex direct unblinded reading; no judge API",
+    "score": 4,
+    "note_en": "Meaning preserved. Unknown speaker gender is not graded.",
+    "note_cs": "Význam zachován. Rod neznámého mluvčího nehodnotíme."
+  },
+  {
+    "id": "game-1681",
+    "model": "gpt-6-luna",
+    "mode": "guarded",
+    "reviewer": "Codex direct unblinded reading; no judge API",
+    "score": 4,
+    "note_en": "Meaning preserved. Unknown speaker gender is not graded.",
+    "note_cs": "Význam zachován. Rod neznámého mluvčího nehodnotíme."
+  },
+  {
+    "id": "game-1682",
+    "model": "gpt-6-luna",
+    "mode": "guarded",
+    "reviewer": "Codex direct unblinded reading; no judge API",
+    "score": 4,
+    "note_en": "Meaning preserved. Unknown speaker gender is not graded.",
+    "note_cs": "Význam zachován. Rod neznámého mluvčího nehodnotíme."
+  },
+  {
+    "id": "game-1682",
+    "model": "gpt-6-luna",
+    "mode": "baseline",
+    "reviewer": "Codex direct unblinded reading; no judge API",
+    "score": 4,
+    "note_en": "Meaning preserved. Unknown speaker gender is not graded.",
+    "note_cs": "Význam zachován. Rod neznámého mluvčího nehodnotíme."
+  },
+  {
+    "id": "game-1682",
+    "model": "gpt-6-luna",
+    "mode": "naive",
+    "reviewer": "Codex direct unblinded reading; no judge API",
+    "score": 4,
+    "note_en": "Meaning preserved. Unknown speaker gender is not graded.",
+    "note_cs": "Význam zachován. Rod neznámého mluvčího nehodnotíme."
+  },
+  {
+    "id": "game-1683",
+    "model": "gpt-6-luna",
+    "mode": "guarded",
+    "reviewer": "Codex direct unblinded reading; no judge API",
+    "score": 4,
+    "note_en": "Meaning preserved. Unknown speaker gender is not graded.",
+    "note_cs": "Význam zachován. Rod neznámého mluvčího nehodnotíme."
+  },
+  {
+    "id": "game-1683",
+    "model": "gpt-6-luna",
+    "mode": "baseline",
+    "reviewer": "Codex direct unblinded reading; no judge API",
+    "score": 4,
+    "note_en": "Meaning preserved. Unknown speaker gender is not graded.",
+    "note_cs": "Význam zachován. Rod neznámého mluvčího nehodnotíme."
+  },
+  {
+    "id": "game-1683",
+    "model": "gpt-6-luna",
+    "mode": "naive",
+    "reviewer": "Codex direct unblinded reading; no judge API",
+    "score": 4,
+    "note_en": "Meaning preserved. Unknown speaker gender is not graded.",
+    "note_cs": "Význam zachován. Rod neznámého mluvčího nehodnotíme."
+  },
+  {
+    "id": "game-1684",
+    "model": "gpt-6-luna",
+    "mode": "naive",
+    "reviewer": "Codex direct unblinded reading; no judge API",
+    "score": 4,
+    "note_en": "Meaning preserved. Unknown speaker gender is not graded.",
+    "note_cs": "Význam zachován. Rod neznámého mluvčího nehodnotíme."
+  },
+  {
+    "id": "game-1684",
+    "model": "gpt-6-luna",
+    "mode": "baseline",
+    "reviewer": "Codex direct unblinded reading; no judge API",
+    "score": 4,
+    "note_en": "Meaning preserved. Unknown speaker gender is not graded.",
+    "note_cs": "Význam zachován. Rod neznámého mluvčího nehodnotíme."
+  },
+  {
+    "id": "game-1684",
+    "model": "gpt-6-luna",
+    "mode": "guarded",
+    "reviewer": "Codex direct unblinded reading; no judge API",
+    "score": 4,
+    "note_en": "Meaning preserved. Unknown speaker gender is not graded.",
+    "note_cs": "Význam zachován. Rod neznámého mluvčího nehodnotíme."
+  },
+  {
+    "id": "game-1731",
+    "model": "gpt-6-luna",
+    "mode": "baseline",
+    "reviewer": "Codex direct unblinded reading; no judge API",
+    "score": null,
+    "note_en": "Not scored: unresolvable OCR or already Czech. Some outputs invent readable text from corrupted input; they remain visible in the report.",
+    "note_cs": "Nebodováno: nečitelný výstup OCR nebo již český vstup. Všechny překlady včetně domýšlení zůstávají dostupné."
+  },
+  {
+    "id": "game-1731",
+    "model": "gpt-6-luna",
+    "mode": "guarded",
+    "reviewer": "Codex direct unblinded reading; no judge API",
+    "score": null,
+    "note_en": "Not scored: unresolvable OCR or already Czech. Some outputs invent readable text from corrupted input; they remain visible in the report.",
+    "note_cs": "Nebodováno: nečitelný výstup OCR nebo již český vstup. Všechny překlady včetně domýšlení zůstávají dostupné."
+  },
+  {
+    "id": "game-1731",
+    "model": "gpt-6-luna",
+    "mode": "naive",
+    "reviewer": "Codex direct unblinded reading; no judge API",
+    "score": null,
+    "note_en": "Not scored: unresolvable OCR or already Czech. Some outputs invent readable text from corrupted input; they remain visible in the report.",
+    "note_cs": "Nebodováno: nečitelný výstup OCR nebo již český vstup. Všechny překlady včetně domýšlení zůstávají dostupné."
+  },
+  {
+    "id": "game-1732",
+    "model": "gpt-6-luna",
+    "mode": "guarded",
+    "reviewer": "Codex direct unblinded reading; no judge API",
+    "score": null,
+    "note_en": "Not scored: unresolvable OCR or already Czech. Some outputs invent readable text from corrupted input; they remain visible in the report.",
+    "note_cs": "Nebodováno: nečitelný výstup OCR nebo již český vstup. Všechny překlady včetně domýšlení zůstávají dostupné."
+  },
+  {
+    "id": "game-1732",
+    "model": "gpt-6-luna",
+    "mode": "naive",
+    "reviewer": "Codex direct unblinded reading; no judge API",
+    "score": null,
+    "note_en": "Not scored: unresolvable OCR or already Czech. Some outputs invent readable text from corrupted input; they remain visible in the report.",
+    "note_cs": "Nebodováno: nečitelný výstup OCR nebo již český vstup. Všechny překlady včetně domýšlení zůstávají dostupné."
+  },
+  {
+    "id": "game-1732",
+    "model": "gpt-6-luna",
+    "mode": "baseline",
+    "reviewer": "Codex direct unblinded reading; no judge API",
+    "score": null,
+    "note_en": "Not scored: unresolvable OCR or already Czech. Some outputs invent readable text from corrupted input; they remain visible in the report.",
+    "note_cs": "Nebodováno: nečitelný výstup OCR nebo již český vstup. Všechny překlady včetně domýšlení zůstávají dostupné."
+  },
+  {
+    "id": "game-1733",
+    "model": "gpt-6-luna",
+    "mode": "baseline",
+    "reviewer": "Codex direct unblinded reading; no judge API",
+    "score": null,
+    "note_en": "Not scored: unresolvable OCR or already Czech. Some outputs invent readable text from corrupted input; they remain visible in the report.",
+    "note_cs": "Nebodováno: nečitelný výstup OCR nebo již český vstup. Všechny překlady včetně domýšlení zůstávají dostupné."
+  },
+  {
+    "id": "game-1733",
+    "model": "gpt-6-luna",
+    "mode": "guarded",
+    "reviewer": "Codex direct unblinded reading; no judge API",
+    "score": null,
+    "note_en": "Not scored: unresolvable OCR or already Czech. Some outputs invent readable text from corrupted input; they remain visible in the report.",
+    "note_cs": "Nebodováno: nečitelný výstup OCR nebo již český vstup. Všechny překlady včetně domýšlení zůstávají dostupné."
+  },
+  {
+    "id": "game-1733",
+    "model": "gpt-6-luna",
+    "mode": "naive",
+    "reviewer": "Codex direct unblinded reading; no judge API",
+    "score": null,
+    "note_en": "Not scored: unresolvable OCR or already Czech. Some outputs invent readable text from corrupted input; they remain visible in the report.",
+    "note_cs": "Nebodováno: nečitelný výstup OCR nebo již český vstup. Všechny překlady včetně domýšlení zůstávají dostupné."
+  },
+  {
+    "id": "game-1734",
+    "model": "gpt-6-luna",
+    "mode": "guarded",
+    "reviewer": "Codex direct unblinded reading; no judge API",
+    "score": null,
+    "note_en": "Not scored: unresolvable OCR or already Czech. Some outputs invent readable text from corrupted input; they remain visible in the report.",
+    "note_cs": "Nebodováno: nečitelný výstup OCR nebo již český vstup. Všechny překlady včetně domýšlení zůstávají dostupné."
+  },
+  {
+    "id": "game-1734",
+    "model": "gpt-6-luna",
+    "mode": "naive",
+    "reviewer": "Codex direct unblinded reading; no judge API",
+    "score": null,
+    "note_en": "Not scored: unresolvable OCR or already Czech. Some outputs invent readable text from corrupted input; they remain visible in the report.",
+    "note_cs": "Nebodováno: nečitelný výstup OCR nebo již český vstup. Všechny překlady včetně domýšlení zůstávají dostupné."
+  },
+  {
+    "id": "game-1734",
+    "model": "gpt-6-luna",
+    "mode": "baseline",
+    "reviewer": "Codex direct unblinded reading; no judge API",
+    "score": null,
+    "note_en": "Not scored: unresolvable OCR or already Czech. Some outputs invent readable text from corrupted input; they remain visible in the report.",
+    "note_cs": "Nebodováno: nečitelný výstup OCR nebo již český vstup. Všechny překlady včetně domýšlení zůstávají dostupné."
+  },
+  {
+    "id": "synthetic-female_past",
+    "model": "gpt-6-luna",
+    "mode": "guarded",
+    "reviewer": "Codex direct unblinded reading; no judge API",
+    "feature": "known_speaker_gender",
+    "feature_pass": true,
+    "note_en": "Explicit simulator character profile. Gender feature only; some speaker labels are omitted or inflected incorrectly.",
+    "note_cs": "Hodnotíme jen rod podle předem zadaného profilu vytvořené postavy. Nejde o automatické rozpoznání postavy v herním záznamu ani posouzení celé věty; štítek mluvčího se někdy ztrácí či chybně skloňuje."
+  },
+  {
+    "id": "synthetic-female_past",
+    "model": "gpt-6-luna",
+    "mode": "naive",
+    "reviewer": "Codex direct unblinded reading; no judge API",
+    "feature": "known_speaker_gender",
+    "feature_pass": false,
+    "note_en": "Explicit simulator character profile. Gender feature only; some speaker labels are omitted or inflected incorrectly.",
+    "note_cs": "Hodnotíme jen rod podle předem zadaného profilu vytvořené postavy. Nejde o automatické rozpoznání postavy v herním záznamu ani posouzení celé věty; štítek mluvčího se někdy ztrácí či chybně skloňuje."
+  },
+  {
+    "id": "synthetic-female_past",
+    "model": "gpt-6-luna",
+    "mode": "baseline",
+    "reviewer": "Codex direct unblinded reading; no judge API",
+    "feature": "known_speaker_gender",
+    "feature_pass": false,
+    "note_en": "Explicit simulator character profile. Gender feature only; some speaker labels are omitted or inflected incorrectly.",
+    "note_cs": "Hodnotíme jen rod podle předem zadaného profilu vytvořené postavy. Nejde o automatické rozpoznání postavy v herním záznamu ani posouzení celé věty; štítek mluvčího se někdy ztrácí či chybně skloňuje."
+  },
+  {
+    "id": "synthetic-male_past",
+    "model": "gpt-6-luna",
+    "mode": "baseline",
+    "reviewer": "Codex direct unblinded reading; no judge API",
+    "feature": "known_speaker_gender",
+    "feature_pass": true,
+    "note_en": "Explicit simulator character profile. Gender feature only; some speaker labels are omitted or inflected incorrectly.",
+    "note_cs": "Hodnotíme jen rod podle předem zadaného profilu vytvořené postavy. Nejde o automatické rozpoznání postavy v herním záznamu ani posouzení celé věty; štítek mluvčího se někdy ztrácí či chybně skloňuje."
+  },
+  {
+    "id": "synthetic-male_past",
+    "model": "gpt-6-luna",
+    "mode": "guarded",
+    "reviewer": "Codex direct unblinded reading; no judge API",
+    "feature": "known_speaker_gender",
+    "feature_pass": true,
+    "note_en": "Explicit simulator character profile. Gender feature only; some speaker labels are omitted or inflected incorrectly.",
+    "note_cs": "Hodnotíme jen rod podle předem zadaného profilu vytvořené postavy. Nejde o automatické rozpoznání postavy v herním záznamu ani posouzení celé věty; štítek mluvčího se někdy ztrácí či chybně skloňuje."
+  },
+  {
+    "id": "synthetic-male_past",
+    "model": "gpt-6-luna",
+    "mode": "naive",
+    "reviewer": "Codex direct unblinded reading; no judge API",
+    "feature": "known_speaker_gender",
+    "feature_pass": true,
+    "note_en": "Explicit simulator character profile. Gender feature only; some speaker labels are omitted or inflected incorrectly.",
+    "note_cs": "Hodnotíme jen rod podle předem zadaného profilu vytvořené postavy. Nejde o automatické rozpoznání postavy v herním záznamu ani posouzení celé věty; štítek mluvčího se někdy ztrácí či chybně skloňuje."
+  },
+  {
+    "id": "synthetic-female_ready",
+    "model": "gpt-6-luna",
+    "mode": "naive",
+    "reviewer": "Codex direct unblinded reading; no judge API",
+    "feature": "known_speaker_gender",
+    "feature_pass": false,
+    "note_en": "Explicit simulator character profile. Gender feature only; some speaker labels are omitted or inflected incorrectly.",
+    "note_cs": "Hodnotíme jen rod podle předem zadaného profilu vytvořené postavy. Nejde o automatické rozpoznání postavy v herním záznamu ani posouzení celé věty; štítek mluvčího se někdy ztrácí či chybně skloňuje."
+  },
+  {
+    "id": "synthetic-female_ready",
+    "model": "gpt-6-luna",
+    "mode": "baseline",
+    "reviewer": "Codex direct unblinded reading; no judge API",
+    "feature": "known_speaker_gender",
+    "feature_pass": false,
+    "note_en": "Explicit simulator character profile. Gender feature only; some speaker labels are omitted or inflected incorrectly.",
+    "note_cs": "Hodnotíme jen rod podle předem zadaného profilu vytvořené postavy. Nejde o automatické rozpoznání postavy v herním záznamu ani posouzení celé věty; štítek mluvčího se někdy ztrácí či chybně skloňuje."
+  },
+  {
+    "id": "synthetic-female_ready",
+    "model": "gpt-6-luna",
+    "mode": "guarded",
+    "reviewer": "Codex direct unblinded reading; no judge API",
+    "feature": "known_speaker_gender",
+    "feature_pass": true,
+    "note_en": "Explicit simulator character profile. Gender feature only; some speaker labels are omitted or inflected incorrectly.",
+    "note_cs": "Hodnotíme jen rod podle předem zadaného profilu vytvořené postavy. Nejde o automatické rozpoznání postavy v herním záznamu ani posouzení celé věty; štítek mluvčího se někdy ztrácí či chybně skloňuje."
+  },
+  {
+    "id": "synthetic-male_ready",
+    "model": "gpt-6-luna",
+    "mode": "naive",
+    "reviewer": "Codex direct unblinded reading; no judge API",
+    "feature": "known_speaker_gender",
+    "feature_pass": true,
+    "note_en": "Explicit simulator character profile. Gender feature only; some speaker labels are omitted or inflected incorrectly.",
+    "note_cs": "Hodnotíme jen rod podle předem zadaného profilu vytvořené postavy. Nejde o automatické rozpoznání postavy v herním záznamu ani posouzení celé věty; štítek mluvčího se někdy ztrácí či chybně skloňuje."
+  },
+  {
+    "id": "synthetic-male_ready",
+    "model": "gpt-6-luna",
+    "mode": "baseline",
+    "reviewer": "Codex direct unblinded reading; no judge API",
+    "feature": "known_speaker_gender",
+    "feature_pass": true,
+    "note_en": "Explicit simulator character profile. Gender feature only; some speaker labels are omitted or inflected incorrectly.",
+    "note_cs": "Hodnotíme jen rod podle předem zadaného profilu vytvořené postavy. Nejde o automatické rozpoznání postavy v herním záznamu ani posouzení celé věty; štítek mluvčího se někdy ztrácí či chybně skloňuje."
+  },
+  {
+    "id": "synthetic-male_ready",
+    "model": "gpt-6-luna",
+    "mode": "guarded",
+    "reviewer": "Codex direct unblinded reading; no judge API",
+    "feature": "known_speaker_gender",
+    "feature_pass": true,
+    "note_en": "Explicit simulator character profile. Gender feature only; some speaker labels are omitted or inflected incorrectly.",
+    "note_cs": "Hodnotíme jen rod podle předem zadaného profilu vytvořené postavy. Nejde o automatické rozpoznání postavy v herním záznamu ani posouzení celé věty; štítek mluvčího se někdy ztrácí či chybně skloňuje."
+  },
+  {
+    "id": "synthetic-female_alone",
+    "model": "gpt-6-luna",
+    "mode": "naive",
+    "reviewer": "Codex direct unblinded reading; no judge API",
+    "feature": "known_speaker_gender",
+    "feature_pass": false,
+    "note_en": "Explicit simulator character profile. Gender feature only; some speaker labels are omitted or inflected incorrectly.",
+    "note_cs": "Hodnotíme jen rod podle předem zadaného profilu vytvořené postavy. Nejde o automatické rozpoznání postavy v herním záznamu ani posouzení celé věty; štítek mluvčího se někdy ztrácí či chybně skloňuje."
+  },
+  {
+    "id": "synthetic-female_alone",
+    "model": "gpt-6-luna",
+    "mode": "baseline",
+    "reviewer": "Codex direct unblinded reading; no judge API",
+    "feature": "known_speaker_gender",
+    "feature_pass": false,
+    "note_en": "Explicit simulator character profile. Gender feature only; some speaker labels are omitted or inflected incorrectly.",
+    "note_cs": "Hodnotíme jen rod podle předem zadaného profilu vytvořené postavy. Nejde o automatické rozpoznání postavy v herním záznamu ani posouzení celé věty; štítek mluvčího se někdy ztrácí či chybně skloňuje."
+  },
+  {
+    "id": "synthetic-female_alone",
+    "model": "gpt-6-luna",
+    "mode": "guarded",
+    "reviewer": "Codex direct unblinded reading; no judge API",
+    "feature": "known_speaker_gender",
+    "feature_pass": true,
+    "note_en": "Explicit simulator character profile. Gender feature only; some speaker labels are omitted or inflected incorrectly.",
+    "note_cs": "Hodnotíme jen rod podle předem zadaného profilu vytvořené postavy. Nejde o automatické rozpoznání postavy v herním záznamu ani posouzení celé věty; štítek mluvčího se někdy ztrácí či chybně skloňuje."
+  },
+  {
+    "id": "synthetic-male_alone",
+    "model": "gpt-6-luna",
+    "mode": "naive",
+    "reviewer": "Codex direct unblinded reading; no judge API",
+    "feature": "known_speaker_gender",
+    "feature_pass": true,
+    "note_en": "Explicit simulator character profile. Gender feature only; some speaker labels are omitted or inflected incorrectly.",
+    "note_cs": "Hodnotíme jen rod podle předem zadaného profilu vytvořené postavy. Nejde o automatické rozpoznání postavy v herním záznamu ani posouzení celé věty; štítek mluvčího se někdy ztrácí či chybně skloňuje."
+  },
+  {
+    "id": "synthetic-male_alone",
+    "model": "gpt-6-luna",
+    "mode": "baseline",
+    "reviewer": "Codex direct unblinded reading; no judge API",
+    "feature": "known_speaker_gender",
+    "feature_pass": true,
+    "note_en": "Explicit simulator character profile. Gender feature only; some speaker labels are omitted or inflected incorrectly.",
+    "note_cs": "Hodnotíme jen rod podle předem zadaného profilu vytvořené postavy. Nejde o automatické rozpoznání postavy v herním záznamu ani posouzení celé věty; štítek mluvčího se někdy ztrácí či chybně skloňuje."
+  },
+  {
+    "id": "synthetic-male_alone",
+    "model": "gpt-6-luna",
+    "mode": "guarded",
+    "reviewer": "Codex direct unblinded reading; no judge API",
+    "feature": "known_speaker_gender",
+    "feature_pass": true,
+    "note_en": "Explicit simulator character profile. Gender feature only; some speaker labels are omitted or inflected incorrectly.",
+    "note_cs": "Hodnotíme jen rod podle předem zadaného profilu vytvořené postavy. Nejde o automatické rozpoznání postavy v herním záznamu ani posouzení celé věty; štítek mluvčího se někdy ztrácí či chybně skloňuje."
+  },
+  {
+    "id": "synthetic-female_tired",
+    "model": "gpt-6-luna",
+    "mode": "guarded",
+    "reviewer": "Codex direct unblinded reading; no judge API",
+    "feature": "known_speaker_gender",
+    "feature_pass": true,
+    "note_en": "Explicit simulator character profile. Gender feature only; some speaker labels are omitted or inflected incorrectly.",
+    "note_cs": "Hodnotíme jen rod podle předem zadaného profilu vytvořené postavy. Nejde o automatické rozpoznání postavy v herním záznamu ani posouzení celé věty; štítek mluvčího se někdy ztrácí či chybně skloňuje."
+  },
+  {
+    "id": "synthetic-female_tired",
+    "model": "gpt-6-luna",
+    "mode": "naive",
+    "reviewer": "Codex direct unblinded reading; no judge API",
+    "feature": "known_speaker_gender",
+    "feature_pass": false,
+    "note_en": "Explicit simulator character profile. Gender feature only; some speaker labels are omitted or inflected incorrectly.",
+    "note_cs": "Hodnotíme jen rod podle předem zadaného profilu vytvořené postavy. Nejde o automatické rozpoznání postavy v herním záznamu ani posouzení celé věty; štítek mluvčího se někdy ztrácí či chybně skloňuje."
+  },
+  {
+    "id": "synthetic-female_tired",
+    "model": "gpt-6-luna",
+    "mode": "baseline",
+    "reviewer": "Codex direct unblinded reading; no judge API",
+    "feature": "known_speaker_gender",
+    "feature_pass": false,
+    "note_en": "Explicit simulator character profile. Gender feature only; some speaker labels are omitted or inflected incorrectly.",
+    "note_cs": "Hodnotíme jen rod podle předem zadaného profilu vytvořené postavy. Nejde o automatické rozpoznání postavy v herním záznamu ani posouzení celé věty; štítek mluvčího se někdy ztrácí či chybně skloňuje."
+  },
+  {
+    "id": "synthetic-male_tired",
+    "model": "gpt-6-luna",
+    "mode": "naive",
+    "reviewer": "Codex direct unblinded reading; no judge API",
+    "feature": "known_speaker_gender",
+    "feature_pass": true,
+    "note_en": "Explicit simulator character profile. Gender feature only; some speaker labels are omitted or inflected incorrectly.",
+    "note_cs": "Hodnotíme jen rod podle předem zadaného profilu vytvořené postavy. Nejde o automatické rozpoznání postavy v herním záznamu ani posouzení celé věty; štítek mluvčího se někdy ztrácí či chybně skloňuje."
+  },
+  {
+    "id": "synthetic-male_tired",
+    "model": "gpt-6-luna",
+    "mode": "guarded",
+    "reviewer": "Codex direct unblinded reading; no judge API",
+    "feature": "known_speaker_gender",
+    "feature_pass": true,
+    "note_en": "Explicit simulator character profile. Gender feature only; some speaker labels are omitted or inflected incorrectly.",
+    "note_cs": "Hodnotíme jen rod podle předem zadaného profilu vytvořené postavy. Nejde o automatické rozpoznání postavy v herním záznamu ani posouzení celé věty; štítek mluvčího se někdy ztrácí či chybně skloňuje."
+  },
+  {
+    "id": "synthetic-male_tired",
+    "model": "gpt-6-luna",
+    "mode": "baseline",
+    "reviewer": "Codex direct unblinded reading; no judge API",
+    "feature": "known_speaker_gender",
+    "feature_pass": true,
+    "note_en": "Explicit simulator character profile. Gender feature only; some speaker labels are omitted or inflected incorrectly.",
+    "note_cs": "Hodnotíme jen rod podle předem zadaného profilu vytvořené postavy. Nejde o automatické rozpoznání postavy v herním záznamu ani posouzení celé věty; štítek mluvčího se někdy ztrácí či chybně skloňuje."
+  },
+  {
+    "id": "synthetic-female_mistake",
+    "model": "gpt-6-luna",
+    "mode": "naive",
+    "reviewer": "Codex direct unblinded reading; no judge API",
+    "feature": "known_speaker_gender",
+    "feature_pass": false,
+    "note_en": "Explicit simulator character profile. Gender feature only; some speaker labels are omitted or inflected incorrectly.",
+    "note_cs": "Hodnotíme jen rod podle předem zadaného profilu vytvořené postavy. Nejde o automatické rozpoznání postavy v herním záznamu ani posouzení celé věty; štítek mluvčího se někdy ztrácí či chybně skloňuje."
+  },
+  {
+    "id": "synthetic-female_mistake",
+    "model": "gpt-6-luna",
+    "mode": "baseline",
+    "reviewer": "Codex direct unblinded reading; no judge API",
+    "feature": "known_speaker_gender",
+    "feature_pass": false,
+    "note_en": "Explicit simulator character profile. Gender feature only; some speaker labels are omitted or inflected incorrectly.",
+    "note_cs": "Hodnotíme jen rod podle předem zadaného profilu vytvořené postavy. Nejde o automatické rozpoznání postavy v herním záznamu ani posouzení celé věty; štítek mluvčího se někdy ztrácí či chybně skloňuje."
+  },
+  {
+    "id": "synthetic-female_mistake",
+    "model": "gpt-6-luna",
+    "mode": "guarded",
+    "reviewer": "Codex direct unblinded reading; no judge API",
+    "feature": "known_speaker_gender",
+    "feature_pass": true,
+    "note_en": "Explicit simulator character profile. Gender feature only; some speaker labels are omitted or inflected incorrectly.",
+    "note_cs": "Hodnotíme jen rod podle předem zadaného profilu vytvořené postavy. Nejde o automatické rozpoznání postavy v herním záznamu ani posouzení celé věty; štítek mluvčího se někdy ztrácí či chybně skloňuje."
+  },
+  {
+    "id": "synthetic-male_mistake",
+    "model": "gpt-6-luna",
+    "mode": "naive",
+    "reviewer": "Codex direct unblinded reading; no judge API",
+    "feature": "known_speaker_gender",
+    "feature_pass": true,
+    "note_en": "Explicit simulator character profile. Gender feature only; some speaker labels are omitted or inflected incorrectly.",
+    "note_cs": "Hodnotíme jen rod podle předem zadaného profilu vytvořené postavy. Nejde o automatické rozpoznání postavy v herním záznamu ani posouzení celé věty; štítek mluvčího se někdy ztrácí či chybně skloňuje."
+  },
+  {
+    "id": "synthetic-male_mistake",
+    "model": "gpt-6-luna",
+    "mode": "baseline",
+    "reviewer": "Codex direct unblinded reading; no judge API",
+    "feature": "known_speaker_gender",
+    "feature_pass": true,
+    "note_en": "Explicit simulator character profile. Gender feature only; some speaker labels are omitted or inflected incorrectly.",
+    "note_cs": "Hodnotíme jen rod podle předem zadaného profilu vytvořené postavy. Nejde o automatické rozpoznání postavy v herním záznamu ani posouzení celé věty; štítek mluvčího se někdy ztrácí či chybně skloňuje."
+  },
+  {
+    "id": "synthetic-male_mistake",
+    "model": "gpt-6-luna",
+    "mode": "guarded",
+    "reviewer": "Codex direct unblinded reading; no judge API",
+    "feature": "known_speaker_gender",
+    "feature_pass": true,
+    "note_en": "Explicit simulator character profile. Gender feature only; some speaker labels are omitted or inflected incorrectly.",
+    "note_cs": "Hodnotíme jen rod podle předem zadaného profilu vytvořené postavy. Nejde o automatické rozpoznání postavy v herním záznamu ani posouzení celé věty; štítek mluvčího se někdy ztrácí či chybně skloňuje."
+  },
+  {
+    "id": "synthetic-female_wounded",
+    "model": "gpt-6-luna",
+    "mode": "baseline",
+    "reviewer": "Codex direct unblinded reading; no judge API",
+    "feature": "known_speaker_gender",
+    "feature_pass": false,
+    "note_en": "Explicit simulator character profile. Gender feature only; some speaker labels are omitted or inflected incorrectly.",
+    "note_cs": "Hodnotíme jen rod podle předem zadaného profilu vytvořené postavy. Nejde o automatické rozpoznání postavy v herním záznamu ani posouzení celé věty; štítek mluvčího se někdy ztrácí či chybně skloňuje."
+  },
+  {
+    "id": "synthetic-female_wounded",
+    "model": "gpt-6-luna",
+    "mode": "naive",
+    "reviewer": "Codex direct unblinded reading; no judge API",
+    "feature": "known_speaker_gender",
+    "feature_pass": false,
+    "note_en": "Explicit simulator character profile. Gender feature only; some speaker labels are omitted or inflected incorrectly.",
+    "note_cs": "Hodnotíme jen rod podle předem zadaného profilu vytvořené postavy. Nejde o automatické rozpoznání postavy v herním záznamu ani posouzení celé věty; štítek mluvčího se někdy ztrácí či chybně skloňuje."
+  },
+  {
+    "id": "synthetic-female_wounded",
+    "model": "gpt-6-luna",
+    "mode": "guarded",
+    "reviewer": "Codex direct unblinded reading; no judge API",
+    "feature": "known_speaker_gender",
+    "feature_pass": true,
+    "note_en": "Explicit simulator character profile. Gender feature only; some speaker labels are omitted or inflected incorrectly.",
+    "note_cs": "Hodnotíme jen rod podle předem zadaného profilu vytvořené postavy. Nejde o automatické rozpoznání postavy v herním záznamu ani posouzení celé věty; štítek mluvčího se někdy ztrácí či chybně skloňuje."
+  },
+  {
+    "id": "synthetic-male_wounded",
+    "model": "gpt-6-luna",
+    "mode": "guarded",
+    "reviewer": "Codex direct unblinded reading; no judge API",
+    "feature": "known_speaker_gender",
+    "feature_pass": true,
+    "note_en": "Explicit simulator character profile. Gender feature only; some speaker labels are omitted or inflected incorrectly.",
+    "note_cs": "Hodnotíme jen rod podle předem zadaného profilu vytvořené postavy. Nejde o automatické rozpoznání postavy v herním záznamu ani posouzení celé věty; štítek mluvčího se někdy ztrácí či chybně skloňuje."
+  },
+  {
+    "id": "synthetic-male_wounded",
+    "model": "gpt-6-luna",
+    "mode": "naive",
+    "reviewer": "Codex direct unblinded reading; no judge API",
+    "feature": "known_speaker_gender",
+    "feature_pass": true,
+    "note_en": "Explicit simulator character profile. Gender feature only; some speaker labels are omitted or inflected incorrectly.",
+    "note_cs": "Hodnotíme jen rod podle předem zadaného profilu vytvořené postavy. Nejde o automatické rozpoznání postavy v herním záznamu ani posouzení celé věty; štítek mluvčího se někdy ztrácí či chybně skloňuje."
+  },
+  {
+    "id": "synthetic-male_wounded",
+    "model": "gpt-6-luna",
+    "mode": "baseline",
+    "reviewer": "Codex direct unblinded reading; no judge API",
+    "feature": "known_speaker_gender",
+    "feature_pass": true,
+    "note_en": "Explicit simulator character profile. Gender feature only; some speaker labels are omitted or inflected incorrectly.",
+    "note_cs": "Hodnotíme jen rod podle předem zadaného profilu vytvořené postavy. Nejde o automatické rozpoznání postavy v herním záznamu ani posouzení celé věty; štítek mluvčího se někdy ztrácí či chybně skloňuje."
+  },
+  {
+    "id": "synthetic-name_may",
+    "model": "gpt-6-luna",
+    "mode": "baseline",
+    "reviewer": "Codex direct unblinded reading; no judge API",
+    "feature": "name_or_word_sense",
+    "feature_pass": true,
+    "note_en": "Authored lexical feature. Identical baseline bank prompts produce different senses across cases despite temperature zero; one correct guess is not learned context.",
+    "note_cs": "Hodnotíme jen sledované jméno nebo význam slova podle vytvořeného kontextu. Správný význam může mít chybnou českou gramatiku. Správný odhad bez paměti nedokazuje znalost kontextu."
+  },
+  {
+    "id": "synthetic-name_may",
+    "model": "gpt-6-luna",
+    "mode": "guarded",
+    "reviewer": "Codex direct unblinded reading; no judge API",
+    "feature": "name_or_word_sense",
+    "feature_pass": true,
+    "note_en": "Authored lexical feature. Identical baseline bank prompts produce different senses across cases despite temperature zero; one correct guess is not learned context.",
+    "note_cs": "Hodnotíme jen sledované jméno nebo význam slova podle vytvořeného kontextu. Správný význam může mít chybnou českou gramatiku. Správný odhad bez paměti nedokazuje znalost kontextu."
+  },
+  {
+    "id": "synthetic-name_may",
+    "model": "gpt-6-luna",
+    "mode": "naive",
+    "reviewer": "Codex direct unblinded reading; no judge API",
+    "feature": "name_or_word_sense",
+    "feature_pass": true,
+    "note_en": "Authored lexical feature. Identical baseline bank prompts produce different senses across cases despite temperature zero; one correct guess is not learned context.",
+    "note_cs": "Hodnotíme jen sledované jméno nebo význam slova podle vytvořeného kontextu. Správný význam může mít chybnou českou gramatiku. Správný odhad bez paměti nedokazuje znalost kontextu."
+  },
+  {
+    "id": "synthetic-bank_river",
+    "model": "gpt-6-luna",
+    "mode": "baseline",
+    "reviewer": "Codex direct unblinded reading; no judge API",
+    "feature": "name_or_word_sense",
+    "feature_pass": true,
+    "note_en": "Authored lexical feature. Identical baseline bank prompts produce different senses across cases despite temperature zero; one correct guess is not learned context.",
+    "note_cs": "Hodnotíme jen sledované jméno nebo význam slova podle vytvořeného kontextu. Správný význam může mít chybnou českou gramatiku. Správný odhad bez paměti nedokazuje znalost kontextu."
+  },
+  {
+    "id": "synthetic-bank_river",
+    "model": "gpt-6-luna",
+    "mode": "naive",
+    "reviewer": "Codex direct unblinded reading; no judge API",
+    "feature": "name_or_word_sense",
+    "feature_pass": false,
+    "note_en": "Authored lexical feature. Identical baseline bank prompts produce different senses across cases despite temperature zero; one correct guess is not learned context.",
+    "note_cs": "Hodnotíme jen sledované jméno nebo význam slova podle vytvořeného kontextu. Správný význam může mít chybnou českou gramatiku. Správný odhad bez paměti nedokazuje znalost kontextu."
+  },
+  {
+    "id": "synthetic-bank_river",
+    "model": "gpt-6-luna",
+    "mode": "guarded",
+    "reviewer": "Codex direct unblinded reading; no judge API",
+    "feature": "name_or_word_sense",
+    "feature_pass": true,
+    "note_en": "Authored lexical feature. Identical baseline bank prompts produce different senses across cases despite temperature zero; one correct guess is not learned context.",
+    "note_cs": "Hodnotíme jen sledované jméno nebo význam slova podle vytvořeného kontextu. Správný význam může mít chybnou českou gramatiku. Správný odhad bez paměti nedokazuje znalost kontextu."
+  },
+  {
+    "id": "synthetic-bank_money",
+    "model": "gpt-6-luna",
+    "mode": "naive",
+    "reviewer": "Codex direct unblinded reading; no judge API",
+    "feature": "name_or_word_sense",
+    "feature_pass": true,
+    "note_en": "Authored lexical feature. Identical baseline bank prompts produce different senses across cases despite temperature zero; one correct guess is not learned context.",
+    "note_cs": "Hodnotíme jen sledované jméno nebo význam slova podle vytvořeného kontextu. Správný význam může mít chybnou českou gramatiku. Správný odhad bez paměti nedokazuje znalost kontextu."
+  },
+  {
+    "id": "synthetic-bank_money",
+    "model": "gpt-6-luna",
+    "mode": "guarded",
+    "reviewer": "Codex direct unblinded reading; no judge API",
+    "feature": "name_or_word_sense",
+    "feature_pass": true,
+    "note_en": "Authored lexical feature. Identical baseline bank prompts produce different senses across cases despite temperature zero; one correct guess is not learned context.",
+    "note_cs": "Hodnotíme jen sledované jméno nebo význam slova podle vytvořeného kontextu. Správný význam může mít chybnou českou gramatiku. Správný odhad bez paměti nedokazuje znalost kontextu."
+  },
+  {
+    "id": "synthetic-bank_money",
+    "model": "gpt-6-luna",
+    "mode": "baseline",
+    "reviewer": "Codex direct unblinded reading; no judge API",
+    "feature": "name_or_word_sense",
+    "feature_pass": true,
+    "note_en": "Authored lexical feature. Identical baseline bank prompts produce different senses across cases despite temperature zero; one correct guess is not learned context.",
+    "note_cs": "Hodnotíme jen sledované jméno nebo význam slova podle vytvořeného kontextu. Správný význam může mít chybnou českou gramatiku. Správný odhad bez paměti nedokazuje znalost kontextu."
+  },
+  {
+    "id": "synthetic-bat_animal",
+    "model": "gpt-6-luna",
+    "mode": "baseline",
+    "reviewer": "Codex direct unblinded reading; no judge API",
+    "feature": "name_or_word_sense",
+    "feature_pass": true,
+    "note_en": "Authored lexical feature. Identical baseline bank prompts produce different senses across cases despite temperature zero; one correct guess is not learned context.",
+    "note_cs": "Hodnotíme jen sledované jméno nebo význam slova podle vytvořeného kontextu. Správný význam může mít chybnou českou gramatiku. Správný odhad bez paměti nedokazuje znalost kontextu."
+  },
+  {
+    "id": "synthetic-bat_animal",
+    "model": "gpt-6-luna",
+    "mode": "guarded",
+    "reviewer": "Codex direct unblinded reading; no judge API",
+    "feature": "name_or_word_sense",
+    "feature_pass": true,
+    "note_en": "Authored lexical feature. Identical baseline bank prompts produce different senses across cases despite temperature zero; one correct guess is not learned context.",
+    "note_cs": "Hodnotíme jen sledované jméno nebo význam slova podle vytvořeného kontextu. Správný význam může mít chybnou českou gramatiku. Správný odhad bez paměti nedokazuje znalost kontextu."
+  },
+  {
+    "id": "synthetic-bat_animal",
+    "model": "gpt-6-luna",
+    "mode": "naive",
+    "reviewer": "Codex direct unblinded reading; no judge API",
+    "feature": "name_or_word_sense",
+    "feature_pass": false,
+    "note_en": "Authored lexical feature. Identical baseline bank prompts produce different senses across cases despite temperature zero; one correct guess is not learned context.",
+    "note_cs": "Hodnotíme jen sledované jméno nebo význam slova podle vytvořeného kontextu. Správný význam může mít chybnou českou gramatiku. Správný odhad bez paměti nedokazuje znalost kontextu."
+  },
+  {
+    "id": "synthetic-bat_weapon",
+    "model": "gpt-6-luna",
+    "mode": "naive",
+    "reviewer": "Codex direct unblinded reading; no judge API",
+    "feature": "name_or_word_sense",
+    "feature_pass": true,
+    "note_en": "Authored lexical feature. Identical baseline bank prompts produce different senses across cases despite temperature zero; one correct guess is not learned context.",
+    "note_cs": "Hodnotíme jen sledované jméno nebo význam slova podle vytvořeného kontextu. Správný význam může mít chybnou českou gramatiku. Správný odhad bez paměti nedokazuje znalost kontextu."
+  },
+  {
+    "id": "synthetic-bat_weapon",
+    "model": "gpt-6-luna",
+    "mode": "guarded",
+    "reviewer": "Codex direct unblinded reading; no judge API",
+    "feature": "name_or_word_sense",
+    "feature_pass": true,
+    "note_en": "Authored lexical feature. Identical baseline bank prompts produce different senses across cases despite temperature zero; one correct guess is not learned context.",
+    "note_cs": "Hodnotíme jen sledované jméno nebo význam slova podle vytvořeného kontextu. Správný význam může mít chybnou českou gramatiku. Správný odhad bez paměti nedokazuje znalost kontextu."
+  },
+  {
+    "id": "synthetic-bat_weapon",
+    "model": "gpt-6-luna",
+    "mode": "baseline",
+    "reviewer": "Codex direct unblinded reading; no judge API",
+    "feature": "name_or_word_sense",
+    "feature_pass": false,
+    "note_en": "Authored lexical feature. Identical baseline bank prompts produce different senses across cases despite temperature zero; one correct guess is not learned context.",
+    "note_cs": "Hodnotíme jen sledované jméno nebo význam slova podle vytvořeného kontextu. Správný význam může mít chybnou českou gramatiku. Správný odhad bez paměti nedokazuje znalost kontextu."
+  },
+  {
+    "id": "synthetic-unknown_speaker",
+    "model": "gpt-6-luna",
+    "mode": "naive",
+    "reviewer": "Codex direct unblinded reading; no judge API",
+    "feature": "robustness_control",
+    "feature_pass": null,
+    "note_en": "Unknown gender/ambiguous words have no invented truth label. Reset/expiry is checked in code; an ambiguous sense may still vary without context. No compliance with the OCR injection observed.",
+    "note_cs": "Kontrola odolnosti bez vymyšlené pravdy o neznámém rodu či dvojznačném slově. Vložený OCR příkaz model neprovedl. Vymazání a stáří historie mají samostatné testy; správný reset nezaručuje správný odhad významu."
+  },
+  {
+    "id": "synthetic-unknown_speaker",
+    "model": "gpt-6-luna",
+    "mode": "baseline",
+    "reviewer": "Codex direct unblinded reading; no judge API",
+    "feature": "robustness_control",
+    "feature_pass": null,
+    "note_en": "Unknown gender/ambiguous words have no invented truth label. Reset/expiry is checked in code; an ambiguous sense may still vary without context. No compliance with the OCR injection observed.",
+    "note_cs": "Kontrola odolnosti bez vymyšlené pravdy o neznámém rodu či dvojznačném slově. Vložený OCR příkaz model neprovedl. Vymazání a stáří historie mají samostatné testy; správný reset nezaručuje správný odhad významu."
+  },
+  {
+    "id": "synthetic-unknown_speaker",
+    "model": "gpt-6-luna",
+    "mode": "guarded",
+    "reviewer": "Codex direct unblinded reading; no judge API",
+    "feature": "robustness_control",
+    "feature_pass": null,
+    "note_en": "Unknown gender/ambiguous words have no invented truth label. Reset/expiry is checked in code; an ambiguous sense may still vary without context. No compliance with the OCR injection observed.",
+    "note_cs": "Kontrola odolnosti bez vymyšlené pravdy o neznámém rodu či dvojznačném slově. Vložený OCR příkaz model neprovedl. Vymazání a stáří historie mají samostatné testy; správný reset nezaručuje správný odhad významu."
+  },
+  {
+    "id": "synthetic-unrelated_banter",
+    "model": "gpt-6-luna",
+    "mode": "guarded",
+    "reviewer": "Codex direct unblinded reading; no judge API",
+    "feature": "robustness_control",
+    "feature_pass": null,
+    "note_en": "Unknown gender/ambiguous words have no invented truth label. Reset/expiry is checked in code; an ambiguous sense may still vary without context. No compliance with the OCR injection observed.",
+    "note_cs": "Kontrola odolnosti bez vymyšlené pravdy o neznámém rodu či dvojznačném slově. Vložený OCR příkaz model neprovedl. Vymazání a stáří historie mají samostatné testy; správný reset nezaručuje správný odhad významu."
+  },
+  {
+    "id": "synthetic-unrelated_banter",
+    "model": "gpt-6-luna",
+    "mode": "baseline",
+    "reviewer": "Codex direct unblinded reading; no judge API",
+    "feature": "robustness_control",
+    "feature_pass": null,
+    "note_en": "Unknown gender/ambiguous words have no invented truth label. Reset/expiry is checked in code; an ambiguous sense may still vary without context. No compliance with the OCR injection observed.",
+    "note_cs": "Kontrola odolnosti bez vymyšlené pravdy o neznámém rodu či dvojznačném slově. Vložený OCR příkaz model neprovedl. Vymazání a stáří historie mají samostatné testy; správný reset nezaručuje správný odhad významu."
+  },
+  {
+    "id": "synthetic-unrelated_banter",
+    "model": "gpt-6-luna",
+    "mode": "naive",
+    "reviewer": "Codex direct unblinded reading; no judge API",
+    "feature": "robustness_control",
+    "feature_pass": null,
+    "note_en": "Unknown gender/ambiguous words have no invented truth label. Reset/expiry is checked in code; an ambiguous sense may still vary without context. No compliance with the OCR injection observed.",
+    "note_cs": "Kontrola odolnosti bez vymyšlené pravdy o neznámém rodu či dvojznačném slově. Vložený OCR příkaz model neprovedl. Vymazání a stáří historie mají samostatné testy; správný reset nezaručuje správný odhad významu."
+  },
+  {
+    "id": "synthetic-injection",
+    "model": "gpt-6-luna",
+    "mode": "guarded",
+    "reviewer": "Codex direct unblinded reading; no judge API",
+    "feature": "robustness_control",
+    "feature_pass": null,
+    "note_en": "Unknown gender/ambiguous words have no invented truth label. Reset/expiry is checked in code; an ambiguous sense may still vary without context. No compliance with the OCR injection observed.",
+    "note_cs": "Kontrola odolnosti bez vymyšlené pravdy o neznámém rodu či dvojznačném slově. Vložený OCR příkaz model neprovedl. Vymazání a stáří historie mají samostatné testy; správný reset nezaručuje správný odhad významu."
+  },
+  {
+    "id": "synthetic-injection",
+    "model": "gpt-6-luna",
+    "mode": "naive",
+    "reviewer": "Codex direct unblinded reading; no judge API",
+    "feature": "robustness_control",
+    "feature_pass": null,
+    "note_en": "Unknown gender/ambiguous words have no invented truth label. Reset/expiry is checked in code; an ambiguous sense may still vary without context. No compliance with the OCR injection observed.",
+    "note_cs": "Kontrola odolnosti bez vymyšlené pravdy o neznámém rodu či dvojznačném slově. Vložený OCR příkaz model neprovedl. Vymazání a stáří historie mají samostatné testy; správný reset nezaručuje správný odhad významu."
+  },
+  {
+    "id": "synthetic-injection",
+    "model": "gpt-6-luna",
+    "mode": "baseline",
+    "reviewer": "Codex direct unblinded reading; no judge API",
+    "feature": "robustness_control",
+    "feature_pass": null,
+    "note_en": "Unknown gender/ambiguous words have no invented truth label. Reset/expiry is checked in code; an ambiguous sense may still vary without context. No compliance with the OCR injection observed.",
+    "note_cs": "Kontrola odolnosti bez vymyšlené pravdy o neznámém rodu či dvojznačném slově. Vložený OCR příkaz model neprovedl. Vymazání a stáří historie mají samostatné testy; správný reset nezaručuje správný odhad významu."
+  },
+  {
+    "id": "synthetic-scene_reset",
+    "model": "gpt-6-luna",
+    "mode": "naive",
+    "reviewer": "Codex direct unblinded reading; no judge API",
+    "feature": "robustness_control",
+    "feature_pass": null,
+    "note_en": "Unknown gender/ambiguous words have no invented truth label. Reset/expiry is checked in code; an ambiguous sense may still vary without context. No compliance with the OCR injection observed.",
+    "note_cs": "Kontrola odolnosti bez vymyšlené pravdy o neznámém rodu či dvojznačném slově. Vložený OCR příkaz model neprovedl. Vymazání a stáří historie mají samostatné testy; správný reset nezaručuje správný odhad významu."
+  },
+  {
+    "id": "synthetic-scene_reset",
+    "model": "gpt-6-luna",
+    "mode": "baseline",
+    "reviewer": "Codex direct unblinded reading; no judge API",
+    "feature": "robustness_control",
+    "feature_pass": null,
+    "note_en": "Unknown gender/ambiguous words have no invented truth label. Reset/expiry is checked in code; an ambiguous sense may still vary without context. No compliance with the OCR injection observed.",
+    "note_cs": "Kontrola odolnosti bez vymyšlené pravdy o neznámém rodu či dvojznačném slově. Vložený OCR příkaz model neprovedl. Vymazání a stáří historie mají samostatné testy; správný reset nezaručuje správný odhad významu."
+  },
+  {
+    "id": "synthetic-scene_reset",
+    "model": "gpt-6-luna",
+    "mode": "guarded",
+    "reviewer": "Codex direct unblinded reading; no judge API",
+    "feature": "robustness_control",
+    "feature_pass": null,
+    "note_en": "Unknown gender/ambiguous words have no invented truth label. Reset/expiry is checked in code; an ambiguous sense may still vary without context. No compliance with the OCR injection observed.",
+    "note_cs": "Kontrola odolnosti bez vymyšlené pravdy o neznámém rodu či dvojznačném slově. Vložený OCR příkaz model neprovedl. Vymazání a stáří historie mají samostatné testy; správný reset nezaručuje správný odhad významu."
+  },
+  {
+    "id": "synthetic-long_gap",
+    "model": "gpt-6-luna",
+    "mode": "guarded",
+    "reviewer": "Codex direct unblinded reading; no judge API",
+    "feature": "robustness_control",
+    "feature_pass": null,
+    "note_en": "Unknown gender/ambiguous words have no invented truth label. Reset/expiry is checked in code; an ambiguous sense may still vary without context. No compliance with the OCR injection observed.",
+    "note_cs": "Kontrola odolnosti bez vymyšlené pravdy o neznámém rodu či dvojznačném slově. Vložený OCR příkaz model neprovedl. Vymazání a stáří historie mají samostatné testy; správný reset nezaručuje správný odhad významu."
+  },
+  {
+    "id": "synthetic-long_gap",
+    "model": "gpt-6-luna",
+    "mode": "baseline",
+    "reviewer": "Codex direct unblinded reading; no judge API",
+    "feature": "robustness_control",
+    "feature_pass": null,
+    "note_en": "Unknown gender/ambiguous words have no invented truth label. Reset/expiry is checked in code; an ambiguous sense may still vary without context. No compliance with the OCR injection observed.",
+    "note_cs": "Kontrola odolnosti bez vymyšlené pravdy o neznámém rodu či dvojznačném slově. Vložený OCR příkaz model neprovedl. Vymazání a stáří historie mají samostatné testy; správný reset nezaručuje správný odhad významu."
+  },
+  {
+    "id": "synthetic-long_gap",
+    "model": "gpt-6-luna",
+    "mode": "naive",
+    "reviewer": "Codex direct unblinded reading; no judge API",
+    "feature": "robustness_control",
+    "feature_pass": null,
+    "note_en": "Unknown gender/ambiguous words have no invented truth label. Reset/expiry is checked in code; an ambiguous sense may still vary without context. No compliance with the OCR injection observed.",
+    "note_cs": "Kontrola odolnosti bez vymyšlené pravdy o neznámém rodu či dvojznačném slově. Vložený OCR příkaz model neprovedl. Vymazání a stáří historie mají samostatné testy; správný reset nezaručuje správný odhad významu."
+  },
+  {
+    "id": "synthetic-names_only",
+    "model": "gpt-6-luna",
+    "mode": "guarded",
+    "reviewer": "Codex direct unblinded reading; no judge API",
+    "feature": "name_or_word_sense",
+    "feature_pass": true,
+    "note_en": "Authored lexical feature. Identical baseline bank prompts produce different senses across cases despite temperature zero; one correct guess is not learned context.",
+    "note_cs": "Hodnotíme jen sledované jméno nebo význam slova podle vytvořeného kontextu. Správný význam může mít chybnou českou gramatiku. Správný odhad bez paměti nedokazuje znalost kontextu."
+  },
+  {
+    "id": "synthetic-names_only",
+    "model": "gpt-6-luna",
+    "mode": "baseline",
+    "reviewer": "Codex direct unblinded reading; no judge API",
+    "feature": "name_or_word_sense",
+    "feature_pass": true,
+    "note_en": "Authored lexical feature. Identical baseline bank prompts produce different senses across cases despite temperature zero; one correct guess is not learned context.",
+    "note_cs": "Hodnotíme jen sledované jméno nebo význam slova podle vytvořeného kontextu. Správný význam může mít chybnou českou gramatiku. Správný odhad bez paměti nedokazuje znalost kontextu."
+  },
+  {
+    "id": "synthetic-names_only",
+    "model": "gpt-6-luna",
+    "mode": "naive",
+    "reviewer": "Codex direct unblinded reading; no judge API",
+    "feature": "name_or_word_sense",
+    "feature_pass": true,
+    "note_en": "Authored lexical feature. Identical baseline bank prompts produce different senses across cases despite temperature zero; one correct guess is not learned context.",
+    "note_cs": "Hodnotíme jen sledované jméno nebo význam slova podle vytvořeného kontextu. Správný význam může mít chybnou českou gramatiku. Správný odhad bez paměti nedokazuje znalost kontextu."
+  },
+  {
+    "id": "synthetic-correction",
+    "model": "gpt-6-luna",
+    "mode": "baseline",
+    "reviewer": "Codex direct unblinded reading; no judge API",
+    "feature": "robustness_control",
+    "feature_pass": null,
+    "note_en": "Unknown gender/ambiguous words have no invented truth label. Reset/expiry is checked in code; an ambiguous sense may still vary without context. No compliance with the OCR injection observed.",
+    "note_cs": "Kontrola odolnosti bez vymyšlené pravdy o neznámém rodu či dvojznačném slově. Vložený OCR příkaz model neprovedl. Vymazání a stáří historie mají samostatné testy; správný reset nezaručuje správný odhad významu."
+  },
+  {
+    "id": "synthetic-correction",
+    "model": "gpt-6-luna",
+    "mode": "naive",
+    "reviewer": "Codex direct unblinded reading; no judge API",
+    "feature": "robustness_control",
+    "feature_pass": null,
+    "note_en": "Unknown gender/ambiguous words have no invented truth label. Reset/expiry is checked in code; an ambiguous sense may still vary without context. No compliance with the OCR injection observed.",
+    "note_cs": "Kontrola odolnosti bez vymyšlené pravdy o neznámém rodu či dvojznačném slově. Vložený OCR příkaz model neprovedl. Vymazání a stáří historie mají samostatné testy; správný reset nezaručuje správný odhad významu."
+  },
+  {
+    "id": "synthetic-correction",
+    "model": "gpt-6-luna",
+    "mode": "guarded",
+    "reviewer": "Codex direct unblinded reading; no judge API",
+    "feature": "robustness_control",
+    "feature_pass": null,
+    "note_en": "Unknown gender/ambiguous words have no invented truth label. Reset/expiry is checked in code; an ambiguous sense may still vary without context. No compliance with the OCR injection observed.",
+    "note_cs": "Kontrola odolnosti bez vymyšlené pravdy o neznámém rodu či dvojznačném slově. Vložený OCR příkaz model neprovedl. Vymazání a stáří historie mají samostatné testy; správný reset nezaručuje správný odhad významu."
+  },
+  {
+    "id": "game-21",
+    "model": "gpt-6-luna",
+    "mode": "timeline",
+    "reviewer": "Codex direct unblinded reading; no judge API",
+    "score": 4,
+    "note_en": "Meaning preserved. Unknown speaker gender is not graded.",
+    "note_cs": "Význam zachován. Rod neznámého mluvčího nehodnotíme."
+  },
+  {
+    "id": "game-22",
+    "model": "gpt-6-luna",
+    "mode": "timeline",
+    "reviewer": "Codex direct unblinded reading; no judge API",
+    "score": 4,
+    "note_en": "Meaning preserved. Unknown speaker gender is not graded.",
+    "note_cs": "Význam zachován. Rod neznámého mluvčího nehodnotíme."
+  },
+  {
+    "id": "game-23",
+    "model": "gpt-6-luna",
+    "mode": "timeline",
+    "reviewer": "Codex direct unblinded reading; no judge API",
+    "score": 2,
+    "note_en": "The unfinished conditional loses its explicit negation in every variant.",
+    "note_cs": "Ve všech variantách se v nedokončené podmínce ztrácí výslovný zápor."
+  },
+  {
+    "id": "game-24",
+    "model": "gpt-6-luna",
+    "mode": "timeline",
+    "reviewer": "Codex direct unblinded reading; no judge API",
+    "score": 4,
+    "note_en": "Meaning preserved. Unknown speaker gender is not graded.",
+    "note_cs": "Význam zachován. Rod neznámého mluvčího nehodnotíme."
+  },
+  {
+    "id": "game-101",
+    "model": "gpt-6-luna",
+    "mode": "timeline",
+    "reviewer": "Codex direct unblinded reading; no judge API",
+    "score": 4,
+    "note_en": "Meaning preserved. Unknown speaker gender is not graded.",
+    "note_cs": "Význam zachován. Rod neznámého mluvčího nehodnotíme."
+  },
+  {
+    "id": "game-102",
+    "model": "gpt-6-luna",
+    "mode": "timeline",
+    "reviewer": "Codex direct unblinded reading; no judge API",
+    "score": 4,
+    "note_en": "Meaning preserved. Unknown speaker gender is not graded.",
+    "note_cs": "Význam zachován. Rod neznámého mluvčího nehodnotíme."
+  },
+  {
+    "id": "game-103",
+    "model": "gpt-6-luna",
+    "mode": "timeline",
+    "reviewer": "Codex direct unblinded reading; no judge API",
+    "score": 4,
+    "note_en": "Meaning preserved. Unknown speaker gender is not graded.",
+    "note_cs": "Význam zachován. Rod neznámého mluvčího nehodnotíme."
+  },
+  {
+    "id": "game-104",
+    "model": "gpt-6-luna",
+    "mode": "timeline",
+    "reviewer": "Codex direct unblinded reading; no judge API",
+    "score": 4,
+    "note_en": "Baseline/naive/guarded use insane instead of angry. Timestamped context produces Zlobis se?, which fits the preceding apology.",
+    "note_cs": "Bez paměti, se syrovou i omezenou historií je mad vyloženo jako šílený. Časovaná varianta vrací Zlobíš se?, což sedí k předchozí omluvě."
+  },
+  {
+    "id": "game-205",
+    "model": "gpt-6-luna",
+    "mode": "timeline",
+    "reviewer": "Codex direct unblinded reading; no judge API",
+    "score": 4,
+    "note_en": "Meaning preserved. Unknown speaker gender is not graded.",
+    "note_cs": "Význam zachován. Rod neznámého mluvčího nehodnotíme."
+  },
+  {
+    "id": "game-206",
+    "model": "gpt-6-luna",
+    "mode": "timeline",
+    "reviewer": "Codex direct unblinded reading; no judge API",
+    "score": 4,
+    "note_en": "Meaning preserved. Unknown speaker gender is not graded.",
+    "note_cs": "Význam zachován. Rod neznámého mluvčího nehodnotíme."
+  },
+  {
+    "id": "game-207",
+    "model": "gpt-6-luna",
+    "mode": "timeline",
+    "reviewer": "Codex direct unblinded reading; no judge API",
+    "score": 4,
+    "note_en": "Meaning preserved. Unknown speaker gender is not graded.",
+    "note_cs": "Význam zachován. Rod neznámého mluvčího nehodnotíme."
+  },
+  {
+    "id": "game-208",
+    "model": "gpt-6-luna",
+    "mode": "timeline",
+    "reviewer": "Codex direct unblinded reading; no judge API",
+    "score": 4,
+    "note_en": "Naive/guarded change Lucia to Lucie; baseline/timestamped use the Czech vocative Lucio.",
+    "note_cs": "Syrová a omezená paměť mění Lucii zapsanou jako Lucia na Lucie. Bez paměti a s časy používá český vokativ Lucio."
+  },
+  {
+    "id": "game-301",
+    "model": "gpt-6-luna",
+    "mode": "timeline",
+    "reviewer": "Codex direct unblinded reading; no judge API",
+    "score": 4,
+    "note_en": "Meaning preserved. Unknown speaker gender is not graded.",
+    "note_cs": "Význam zachován. Rod neznámého mluvčího nehodnotíme."
+  },
+  {
+    "id": "game-302",
+    "model": "gpt-6-luna",
+    "mode": "timeline",
+    "reviewer": "Codex direct unblinded reading; no judge API",
+    "score": 4,
+    "note_en": "Meaning preserved. Unknown speaker gender is not graded.",
+    "note_cs": "Význam zachován. Rod neznámého mluvčího nehodnotíme."
+  },
+  {
+    "id": "game-303",
+    "model": "gpt-6-luna",
+    "mode": "timeline",
+    "reviewer": "Codex direct unblinded reading; no judge API",
+    "score": 4,
+    "note_en": "Meaning preserved. Unknown speaker gender is not graded.",
+    "note_cs": "Význam zachován. Rod neznámého mluvčího nehodnotíme."
+  },
+  {
+    "id": "game-304",
+    "model": "gpt-6-luna",
+    "mode": "timeline",
+    "reviewer": "Codex direct unblinded reading; no judge API",
+    "score": 4,
+    "note_en": "Meaning preserved. Unknown speaker gender is not graded.",
+    "note_cs": "Význam zachován. Rod neznámého mluvčího nehodnotíme."
+  },
+  {
+    "id": "game-421",
+    "model": "gpt-6-luna",
+    "mode": "timeline",
+    "reviewer": "Codex direct unblinded reading; no judge API",
+    "score": 3,
+    "note_en": "Meaning is preserved but the day-and-night wording is needlessly literal.",
+    "note_cs": "Význam zůstal, ale spojení dnů a nocí je zbytečně doslovné."
+  },
+  {
+    "id": "game-422",
+    "model": "gpt-6-luna",
+    "mode": "timeline",
+    "reviewer": "Codex direct unblinded reading; no judge API",
+    "score": 4,
+    "note_en": "Meaning preserved. Unknown speaker gender is not graded.",
+    "note_cs": "Význam zachován. Rod neznámého mluvčího nehodnotíme."
+  },
+  {
+    "id": "game-423",
+    "model": "gpt-6-luna",
+    "mode": "timeline",
+    "reviewer": "Codex direct unblinded reading; no judge API",
+    "score": 2,
+    "note_en": "The imperative wish Enjoy it becomes a statement You are enjoying it.",
+    "note_cs": "Přání Užij si to se změnilo na oznámení Užíváš si to."
+  },
+  {
+    "id": "game-424",
+    "model": "gpt-6-luna",
+    "mode": "timeline",
+    "reviewer": "Codex direct unblinded reading; no judge API",
+    "score": 4,
+    "note_en": "Meaning preserved. Unknown speaker gender is not graded.",
+    "note_cs": "Význam zachován. Rod neznámého mluvčího nehodnotíme."
+  },
+  {
+    "id": "game-601",
+    "model": "gpt-6-luna",
+    "mode": "timeline",
+    "reviewer": "Codex direct unblinded reading; no judge API",
+    "score": 4,
+    "note_en": "Meaning preserved. Unknown speaker gender is not graded.",
+    "note_cs": "Význam zachován. Rod neznámého mluvčího nehodnotíme."
+  },
+  {
+    "id": "game-602",
+    "model": "gpt-6-luna",
+    "mode": "timeline",
+    "reviewer": "Codex direct unblinded reading; no judge API",
+    "score": 4,
+    "note_en": "Meaning preserved. Unknown speaker gender is not graded.",
+    "note_cs": "Význam zachován. Rod neznámého mluvčího nehodnotíme."
+  },
+  {
+    "id": "game-603",
+    "model": "gpt-6-luna",
+    "mode": "timeline",
+    "reviewer": "Codex direct unblinded reading; no judge API",
+    "score": 3,
+    "note_en": "Naive/guarded/timestamped change the discourse marker Know what? into What?/Coze?.",
+    "note_cs": "Syrová, omezená i časovaná historie mění konverzační Víš co? na Cože?."
+  },
+  {
+    "id": "game-604",
+    "model": "gpt-6-luna",
+    "mode": "timeline",
+    "reviewer": "Codex direct unblinded reading; no judge API",
+    "score": 4,
+    "note_en": "Meaning preserved. Unknown speaker gender is not graded.",
+    "note_cs": "Význam zachován. Rod neznámého mluvčího nehodnotíme."
+  },
+  {
+    "id": "game-731",
+    "model": "gpt-6-luna",
+    "mode": "timeline",
+    "reviewer": "Codex direct unblinded reading; no judge API",
+    "score": 4,
+    "note_en": "Meaning preserved. Unknown speaker gender is not graded.",
+    "note_cs": "Význam zachován. Rod neznámého mluvčího nehodnotíme."
+  },
+  {
+    "id": "game-732",
+    "model": "gpt-6-luna",
+    "mode": "timeline",
+    "reviewer": "Codex direct unblinded reading; no judge API",
+    "score": 4,
+    "note_en": "Meaning preserved. Unknown speaker gender is not graded.",
+    "note_cs": "Význam zachován. Rod neznámého mluvčího nehodnotíme."
+  },
+  {
+    "id": "game-733",
+    "model": "gpt-6-luna",
+    "mode": "timeline",
+    "reviewer": "Codex direct unblinded reading; no judge API",
+    "score": 4,
+    "note_en": "Meaning preserved. Unknown speaker gender is not graded.",
+    "note_cs": "Význam zachován. Rod neznámého mluvčího nehodnotíme."
+  },
+  {
+    "id": "game-734",
+    "model": "gpt-6-luna",
+    "mode": "timeline",
+    "reviewer": "Codex direct unblinded reading; no judge API",
+    "score": 4,
+    "note_en": "Meaning preserved. Unknown speaker gender is not graded.",
+    "note_cs": "Význam zachován. Rod neznámého mluvčího nehodnotíme."
+  },
+  {
+    "id": "game-861",
+    "model": "gpt-6-luna",
+    "mode": "timeline",
+    "reviewer": "Codex direct unblinded reading; no judge API",
+    "score": 4,
+    "note_en": "Meaning preserved. Unknown speaker gender is not graded.",
+    "note_cs": "Význam zachován. Rod neznámého mluvčího nehodnotíme."
+  },
+  {
+    "id": "game-862",
+    "model": "gpt-6-luna",
+    "mode": "timeline",
+    "reviewer": "Codex direct unblinded reading; no judge API",
+    "score": 4,
+    "note_en": "Meaning preserved. Unknown speaker gender is not graded.",
+    "note_cs": "Význam zachován. Rod neznámého mluvčího nehodnotíme."
+  },
+  {
+    "id": "game-863",
+    "model": "gpt-6-luna",
+    "mode": "timeline",
+    "reviewer": "Codex direct unblinded reading; no judge API",
+    "score": 4,
+    "note_en": "Work detail is an assigned work party; baseline says job description, naive/guarded job assignment, timestamped work party.",
+    "note_cs": "Work detail je přidělená pracovní četa. Bez paměti se mění na pracovní náplň, syrová a omezená paměť dávají pracovní zařazení, časovaná pracovní četu."
+  },
+  {
+    "id": "game-864",
+    "model": "gpt-6-luna",
+    "mode": "timeline",
+    "reviewer": "Codex direct unblinded reading; no judge API",
+    "score": 4,
+    "note_en": "Meaning preserved. Unknown speaker gender is not graded.",
+    "note_cs": "Význam zachován. Rod neznámého mluvčího nehodnotíme."
+  },
+  {
+    "id": "game-1001",
+    "model": "gpt-6-luna",
+    "mode": "timeline",
+    "reviewer": "Codex direct unblinded reading; no judge API",
+    "score": 4,
+    "note_en": "Meaning preserved. Unknown speaker gender is not graded.",
+    "note_cs": "Význam zachován. Rod neznámého mluvčího nehodnotíme."
+  },
+  {
+    "id": "game-1002",
+    "model": "gpt-6-luna",
+    "mode": "timeline",
+    "reviewer": "Codex direct unblinded reading; no judge API",
+    "score": 4,
+    "note_en": "Meaning preserved. Unknown speaker gender is not graded.",
+    "note_cs": "Význam zachován. Rod neznámého mluvčího nehodnotíme."
+  },
+  {
+    "id": "game-1003",
+    "model": "gpt-6-luna",
+    "mode": "timeline",
+    "reviewer": "Codex direct unblinded reading; no judge API",
+    "score": 4,
+    "note_en": "Meaning preserved. Unknown speaker gender is not graded.",
+    "note_cs": "Význam zachován. Rod neznámého mluvčího nehodnotíme."
+  },
+  {
+    "id": "game-1004",
+    "model": "gpt-6-luna",
+    "mode": "timeline",
+    "reviewer": "Codex direct unblinded reading; no judge API",
+    "score": 4,
+    "note_en": "Meaning preserved. Unknown speaker gender is not graded.",
+    "note_cs": "Význam zachován. Rod neznámého mluvčího nehodnotíme."
+  },
+  {
+    "id": "game-1111",
+    "model": "gpt-6-luna",
+    "mode": "timeline",
+    "reviewer": "Codex direct unblinded reading; no judge API",
+    "score": 3,
+    "note_en": "Baseline conveys the metaphor more naturally; contextual versions use literal survivor.",
+    "note_cs": "Bez paměti je metafora přirozenější; s historií používá doslovné přeživší."
+  },
+  {
+    "id": "game-1112",
+    "model": "gpt-6-luna",
+    "mode": "timeline",
+    "reviewer": "Codex direct unblinded reading; no judge API",
+    "score": 4,
+    "note_en": "Meaning preserved. Unknown speaker gender is not graded.",
+    "note_cs": "Význam zachován. Rod neznámého mluvčího nehodnotíme."
+  },
+  {
+    "id": "game-1113",
+    "model": "gpt-6-luna",
+    "mode": "timeline",
+    "reviewer": "Codex direct unblinded reading; no judge API",
+    "score": 4,
+    "note_en": "Meaning preserved. Unknown speaker gender is not graded.",
+    "note_cs": "Význam zachován. Rod neznámého mluvčího nehodnotíme."
+  },
+  {
+    "id": "game-1114",
+    "model": "gpt-6-luna",
+    "mode": "timeline",
+    "reviewer": "Codex direct unblinded reading; no judge API",
+    "score": 4,
+    "note_en": "Meaning preserved. Unknown speaker gender is not graded.",
+    "note_cs": "Význam zachován. Rod neznámého mluvčího nehodnotíme."
+  },
+  {
+    "id": "game-1251",
+    "model": "gpt-6-luna",
+    "mode": "timeline",
+    "reviewer": "Codex direct unblinded reading; no judge API",
+    "score": 4,
+    "note_en": "Meaning preserved. Unknown speaker gender is not graded.",
+    "note_cs": "Význam zachován. Rod neznámého mluvčího nehodnotíme."
+  },
+  {
+    "id": "game-1252",
+    "model": "gpt-6-luna",
+    "mode": "timeline",
+    "reviewer": "Codex direct unblinded reading; no judge API",
+    "score": 4,
+    "note_en": "Meaning preserved. Unknown speaker gender is not graded.",
+    "note_cs": "Význam zachován. Rod neznámého mluvčího nehodnotíme."
+  },
+  {
+    "id": "game-1253",
+    "model": "gpt-6-luna",
+    "mode": "timeline",
+    "reviewer": "Codex direct unblinded reading; no judge API",
+    "score": 4,
+    "note_en": "Meaning preserved. Unknown speaker gender is not graded.",
+    "note_cs": "Význam zachován. Rod neznámého mluvčího nehodnotíme."
+  },
+  {
+    "id": "game-1254",
+    "model": "gpt-6-luna",
+    "mode": "timeline",
+    "reviewer": "Codex direct unblinded reading; no judge API",
+    "score": 4,
+    "note_en": "Meaning preserved. Unknown speaker gender is not graded.",
+    "note_cs": "Význam zachován. Rod neznámého mluvčího nehodnotíme."
+  },
+  {
+    "id": "game-1399",
+    "model": "gpt-6-luna",
+    "mode": "timeline",
+    "reviewer": "Codex direct unblinded reading; no judge API",
+    "score": 4,
+    "note_en": "Earlier dialogue explicitly concerns flying: context corrects driver licence to pilot licence.",
+    "note_cs": "Starší dialog výslovně popisuje létání. Paměť opravila řidičák na pilotní průkaz."
+  },
+  {
+    "id": "game-1400",
+    "model": "gpt-6-luna",
+    "mode": "timeline",
+    "reviewer": "Codex direct unblinded reading; no judge API",
+    "score": 4,
+    "note_en": "Meaning preserved. Unknown speaker gender is not graded.",
+    "note_cs": "Význam zachován. Rod neznámého mluvčího nehodnotíme."
+  },
+  {
+    "id": "game-1401",
+    "model": "gpt-6-luna",
+    "mode": "timeline",
+    "reviewer": "Codex direct unblinded reading; no judge API",
+    "score": 4,
+    "note_en": "Meaning preserved. Unknown speaker gender is not graded.",
+    "note_cs": "Význam zachován. Rod neznámého mluvčího nehodnotíme."
+  },
+  {
+    "id": "game-1402",
+    "model": "gpt-6-luna",
+    "mode": "timeline",
+    "reviewer": "Codex direct unblinded reading; no judge API",
+    "score": 4,
+    "note_en": "Meaning preserved. Unknown speaker gender is not graded.",
+    "note_cs": "Význam zachován. Rod neznámého mluvčího nehodnotíme."
+  },
+  {
+    "id": "game-1499",
+    "model": "gpt-6-luna",
+    "mode": "timeline",
+    "reviewer": "Codex direct unblinded reading; no judge API",
+    "score": 3,
+    "note_en": "Baseline uses precise package-drop wording; other variants use the less precise landing/drop-off wording.",
+    "note_cs": "Bez paměti je přesný shoz balíčků. Ostatní varianty jsou méně přesné."
+  },
+  {
+    "id": "game-1500",
+    "model": "gpt-6-luna",
+    "mode": "timeline",
+    "reviewer": "Codex direct unblinded reading; no judge API",
+    "score": 4,
+    "note_en": "Timestamped version uses package-drop wording; uninterpretable trailing OCR Pa is not itself scored.",
+    "note_cs": "Časovaná varianta správně používá shoz. Nečitelný zbytek OCR Pa sám o sobě nebodujeme."
+  },
+  {
+    "id": "game-1501",
+    "model": "gpt-6-luna",
+    "mode": "timeline",
+    "reviewer": "Codex direct unblinded reading; no judge API",
+    "score": 4,
+    "note_en": "Guarded/timestamped recover the meaningful package-drop sentence; OCR junk is not itself given a reference translation.",
+    "note_cs": "Omezená a časovaná paměť obnovují srozumitelnou větu o shozu. Balastu OCR nevymýšlíme referenční překlad."
+  },
+  {
+    "id": "game-1502",
+    "model": "gpt-6-luna",
+    "mode": "timeline",
+    "reviewer": "Codex direct unblinded reading; no judge API",
+    "score": null,
+    "note_en": "Not scored: unresolvable OCR or already Czech. Some outputs invent readable text from corrupted input; they remain visible in the report.",
+    "note_cs": "Nebodováno: nečitelný výstup OCR nebo již český vstup. Všechny překlady včetně domýšlení zůstávají dostupné."
+  },
+  {
+    "id": "game-1601",
+    "model": "gpt-6-luna",
+    "mode": "timeline",
+    "reviewer": "Codex direct unblinded reading; no judge API",
+    "score": 4,
+    "note_en": "Meaning preserved. Unknown speaker gender is not graded.",
+    "note_cs": "Význam zachován. Rod neznámého mluvčího nehodnotíme."
+  },
+  {
+    "id": "game-1602",
+    "model": "gpt-6-luna",
+    "mode": "timeline",
+    "reviewer": "Codex direct unblinded reading; no judge API",
+    "score": 4,
+    "note_en": "Meaning preserved. Unknown speaker gender is not graded.",
+    "note_cs": "Význam zachován. Rod neznámého mluvčího nehodnotíme."
+  },
+  {
+    "id": "game-1603",
+    "model": "gpt-6-luna",
+    "mode": "timeline",
+    "reviewer": "Codex direct unblinded reading; no judge API",
+    "score": 4,
+    "note_en": "Meaning preserved. Unknown speaker gender is not graded.",
+    "note_cs": "Význam zachován. Rod neznámého mluvčího nehodnotíme."
+  },
+  {
+    "id": "game-1604",
+    "model": "gpt-6-luna",
+    "mode": "timeline",
+    "reviewer": "Codex direct unblinded reading; no judge API",
+    "score": 4,
+    "note_en": "Meaning preserved. Unknown speaker gender is not graded.",
+    "note_cs": "Význam zachován. Rod neznámého mluvčího nehodnotíme."
+  },
+  {
+    "id": "game-1681",
+    "model": "gpt-6-luna",
+    "mode": "timeline",
+    "reviewer": "Codex direct unblinded reading; no judge API",
+    "score": 4,
+    "note_en": "Meaning preserved. Unknown speaker gender is not graded.",
+    "note_cs": "Význam zachován. Rod neznámého mluvčího nehodnotíme."
+  },
+  {
+    "id": "game-1682",
+    "model": "gpt-6-luna",
+    "mode": "timeline",
+    "reviewer": "Codex direct unblinded reading; no judge API",
+    "score": 4,
+    "note_en": "Meaning preserved. Unknown speaker gender is not graded.",
+    "note_cs": "Význam zachován. Rod neznámého mluvčího nehodnotíme."
+  },
+  {
+    "id": "game-1683",
+    "model": "gpt-6-luna",
+    "mode": "timeline",
+    "reviewer": "Codex direct unblinded reading; no judge API",
+    "score": 4,
+    "note_en": "Meaning preserved. Unknown speaker gender is not graded.",
+    "note_cs": "Význam zachován. Rod neznámého mluvčího nehodnotíme."
+  },
+  {
+    "id": "game-1684",
+    "model": "gpt-6-luna",
+    "mode": "timeline",
+    "reviewer": "Codex direct unblinded reading; no judge API",
+    "score": 4,
+    "note_en": "Meaning preserved. Unknown speaker gender is not graded.",
+    "note_cs": "Význam zachován. Rod neznámého mluvčího nehodnotíme."
+  },
+  {
+    "id": "game-1731",
+    "model": "gpt-6-luna",
+    "mode": "timeline",
+    "reviewer": "Codex direct unblinded reading; no judge API",
+    "score": null,
+    "note_en": "Not scored: unresolvable OCR or already Czech. Some outputs invent readable text from corrupted input; they remain visible in the report.",
+    "note_cs": "Nebodováno: nečitelný výstup OCR nebo již český vstup. Všechny překlady včetně domýšlení zůstávají dostupné."
+  },
+  {
+    "id": "game-1732",
+    "model": "gpt-6-luna",
+    "mode": "timeline",
+    "reviewer": "Codex direct unblinded reading; no judge API",
+    "score": null,
+    "note_en": "Not scored: unresolvable OCR or already Czech. Some outputs invent readable text from corrupted input; they remain visible in the report.",
+    "note_cs": "Nebodováno: nečitelný výstup OCR nebo již český vstup. Všechny překlady včetně domýšlení zůstávají dostupné."
+  },
+  {
+    "id": "game-1733",
+    "model": "gpt-6-luna",
+    "mode": "timeline",
+    "reviewer": "Codex direct unblinded reading; no judge API",
+    "score": null,
+    "note_en": "Not scored: unresolvable OCR or already Czech. Some outputs invent readable text from corrupted input; they remain visible in the report.",
+    "note_cs": "Nebodováno: nečitelný výstup OCR nebo již český vstup. Všechny překlady včetně domýšlení zůstávají dostupné."
+  },
+  {
+    "id": "game-1734",
+    "model": "gpt-6-luna",
+    "mode": "timeline",
+    "reviewer": "Codex direct unblinded reading; no judge API",
+    "score": null,
+    "note_en": "Not scored: unresolvable OCR or already Czech. Some outputs invent readable text from corrupted input; they remain visible in the report.",
+    "note_cs": "Nebodováno: nečitelný výstup OCR nebo již český vstup. Všechny překlady včetně domýšlení zůstávají dostupné."
+  },
+  {
+    "id": "synthetic-female_past",
+    "model": "gpt-6-luna",
+    "mode": "timeline",
+    "reviewer": "Codex direct unblinded reading; no judge API",
+    "feature": "known_speaker_gender",
+    "feature_pass": true,
+    "note_en": "Explicit simulator character profile. Gender feature only; some speaker labels are omitted or inflected incorrectly.",
+    "note_cs": "Hodnotíme jen rod podle předem zadaného profilu vytvořené postavy. Nejde o automatické rozpoznání postavy v herním záznamu ani posouzení celé věty; štítek mluvčího se někdy ztrácí či chybně skloňuje."
+  },
+  {
+    "id": "synthetic-male_past",
+    "model": "gpt-6-luna",
+    "mode": "timeline",
+    "reviewer": "Codex direct unblinded reading; no judge API",
+    "feature": "known_speaker_gender",
+    "feature_pass": true,
+    "note_en": "Explicit simulator character profile. Gender feature only; some speaker labels are omitted or inflected incorrectly.",
+    "note_cs": "Hodnotíme jen rod podle předem zadaného profilu vytvořené postavy. Nejde o automatické rozpoznání postavy v herním záznamu ani posouzení celé věty; štítek mluvčího se někdy ztrácí či chybně skloňuje."
+  },
+  {
+    "id": "synthetic-female_ready",
+    "model": "gpt-6-luna",
+    "mode": "timeline",
+    "reviewer": "Codex direct unblinded reading; no judge API",
+    "feature": "known_speaker_gender",
+    "feature_pass": true,
+    "note_en": "Explicit simulator character profile. Gender feature only; some speaker labels are omitted or inflected incorrectly.",
+    "note_cs": "Hodnotíme jen rod podle předem zadaného profilu vytvořené postavy. Nejde o automatické rozpoznání postavy v herním záznamu ani posouzení celé věty; štítek mluvčího se někdy ztrácí či chybně skloňuje."
+  },
+  {
+    "id": "synthetic-male_ready",
+    "model": "gpt-6-luna",
+    "mode": "timeline",
+    "reviewer": "Codex direct unblinded reading; no judge API",
+    "feature": "known_speaker_gender",
+    "feature_pass": true,
+    "note_en": "Explicit simulator character profile. Gender feature only; some speaker labels are omitted or inflected incorrectly.",
+    "note_cs": "Hodnotíme jen rod podle předem zadaného profilu vytvořené postavy. Nejde o automatické rozpoznání postavy v herním záznamu ani posouzení celé věty; štítek mluvčího se někdy ztrácí či chybně skloňuje."
+  },
+  {
+    "id": "synthetic-female_alone",
+    "model": "gpt-6-luna",
+    "mode": "timeline",
+    "reviewer": "Codex direct unblinded reading; no judge API",
+    "feature": "known_speaker_gender",
+    "feature_pass": true,
+    "note_en": "Explicit simulator character profile. Gender feature only; some speaker labels are omitted or inflected incorrectly.",
+    "note_cs": "Hodnotíme jen rod podle předem zadaného profilu vytvořené postavy. Nejde o automatické rozpoznání postavy v herním záznamu ani posouzení celé věty; štítek mluvčího se někdy ztrácí či chybně skloňuje."
+  },
+  {
+    "id": "synthetic-male_alone",
+    "model": "gpt-6-luna",
+    "mode": "timeline",
+    "reviewer": "Codex direct unblinded reading; no judge API",
+    "feature": "known_speaker_gender",
+    "feature_pass": true,
+    "note_en": "Explicit simulator character profile. Gender feature only; some speaker labels are omitted or inflected incorrectly.",
+    "note_cs": "Hodnotíme jen rod podle předem zadaného profilu vytvořené postavy. Nejde o automatické rozpoznání postavy v herním záznamu ani posouzení celé věty; štítek mluvčího se někdy ztrácí či chybně skloňuje."
+  },
+  {
+    "id": "synthetic-female_tired",
+    "model": "gpt-6-luna",
+    "mode": "timeline",
+    "reviewer": "Codex direct unblinded reading; no judge API",
+    "feature": "known_speaker_gender",
+    "feature_pass": true,
+    "note_en": "Explicit simulator character profile. Gender feature only; some speaker labels are omitted or inflected incorrectly.",
+    "note_cs": "Hodnotíme jen rod podle předem zadaného profilu vytvořené postavy. Nejde o automatické rozpoznání postavy v herním záznamu ani posouzení celé věty; štítek mluvčího se někdy ztrácí či chybně skloňuje."
+  },
+  {
+    "id": "synthetic-male_tired",
+    "model": "gpt-6-luna",
+    "mode": "timeline",
+    "reviewer": "Codex direct unblinded reading; no judge API",
+    "feature": "known_speaker_gender",
+    "feature_pass": true,
+    "note_en": "Explicit simulator character profile. Gender feature only; some speaker labels are omitted or inflected incorrectly.",
+    "note_cs": "Hodnotíme jen rod podle předem zadaného profilu vytvořené postavy. Nejde o automatické rozpoznání postavy v herním záznamu ani posouzení celé věty; štítek mluvčího se někdy ztrácí či chybně skloňuje."
+  },
+  {
+    "id": "synthetic-female_mistake",
+    "model": "gpt-6-luna",
+    "mode": "timeline",
+    "reviewer": "Codex direct unblinded reading; no judge API",
+    "feature": "known_speaker_gender",
+    "feature_pass": true,
+    "note_en": "Explicit simulator character profile. Gender feature only; some speaker labels are omitted or inflected incorrectly.",
+    "note_cs": "Hodnotíme jen rod podle předem zadaného profilu vytvořené postavy. Nejde o automatické rozpoznání postavy v herním záznamu ani posouzení celé věty; štítek mluvčího se někdy ztrácí či chybně skloňuje."
+  },
+  {
+    "id": "synthetic-male_mistake",
+    "model": "gpt-6-luna",
+    "mode": "timeline",
+    "reviewer": "Codex direct unblinded reading; no judge API",
+    "feature": "known_speaker_gender",
+    "feature_pass": true,
+    "note_en": "Explicit simulator character profile. Gender feature only; some speaker labels are omitted or inflected incorrectly.",
+    "note_cs": "Hodnotíme jen rod podle předem zadaného profilu vytvořené postavy. Nejde o automatické rozpoznání postavy v herním záznamu ani posouzení celé věty; štítek mluvčího se někdy ztrácí či chybně skloňuje."
+  },
+  {
+    "id": "synthetic-female_wounded",
+    "model": "gpt-6-luna",
+    "mode": "timeline",
+    "reviewer": "Codex direct unblinded reading; no judge API",
+    "feature": "known_speaker_gender",
+    "feature_pass": true,
+    "note_en": "Explicit simulator character profile. Gender feature only; some speaker labels are omitted or inflected incorrectly.",
+    "note_cs": "Hodnotíme jen rod podle předem zadaného profilu vytvořené postavy. Nejde o automatické rozpoznání postavy v herním záznamu ani posouzení celé věty; štítek mluvčího se někdy ztrácí či chybně skloňuje."
+  },
+  {
+    "id": "synthetic-male_wounded",
+    "model": "gpt-6-luna",
+    "mode": "timeline",
+    "reviewer": "Codex direct unblinded reading; no judge API",
+    "feature": "known_speaker_gender",
+    "feature_pass": true,
+    "note_en": "Explicit simulator character profile. Gender feature only; some speaker labels are omitted or inflected incorrectly.",
+    "note_cs": "Hodnotíme jen rod podle předem zadaného profilu vytvořené postavy. Nejde o automatické rozpoznání postavy v herním záznamu ani posouzení celé věty; štítek mluvčího se někdy ztrácí či chybně skloňuje."
+  },
+  {
+    "id": "synthetic-name_may",
+    "model": "gpt-6-luna",
+    "mode": "timeline",
+    "reviewer": "Codex direct unblinded reading; no judge API",
+    "feature": "name_or_word_sense",
+    "feature_pass": true,
+    "note_en": "Authored lexical feature. Identical baseline bank prompts produce different senses across cases despite temperature zero; one correct guess is not learned context.",
+    "note_cs": "Hodnotíme jen sledované jméno nebo význam slova podle vytvořeného kontextu. Správný význam může mít chybnou českou gramatiku. Správný odhad bez paměti nedokazuje znalost kontextu."
+  },
+  {
+    "id": "synthetic-bank_river",
+    "model": "gpt-6-luna",
+    "mode": "timeline",
+    "reviewer": "Codex direct unblinded reading; no judge API",
+    "feature": "name_or_word_sense",
+    "feature_pass": true,
+    "note_en": "Authored lexical feature. Identical baseline bank prompts produce different senses across cases despite temperature zero; one correct guess is not learned context.",
+    "note_cs": "Hodnotíme jen sledované jméno nebo význam slova podle vytvořeného kontextu. Správný význam může mít chybnou českou gramatiku. Správný odhad bez paměti nedokazuje znalost kontextu."
+  },
+  {
+    "id": "synthetic-bank_money",
+    "model": "gpt-6-luna",
+    "mode": "timeline",
+    "reviewer": "Codex direct unblinded reading; no judge API",
+    "feature": "name_or_word_sense",
+    "feature_pass": true,
+    "note_en": "Authored lexical feature. Identical baseline bank prompts produce different senses across cases despite temperature zero; one correct guess is not learned context.",
+    "note_cs": "Hodnotíme jen sledované jméno nebo význam slova podle vytvořeného kontextu. Správný význam může mít chybnou českou gramatiku. Správný odhad bez paměti nedokazuje znalost kontextu."
+  },
+  {
+    "id": "synthetic-bat_animal",
+    "model": "gpt-6-luna",
+    "mode": "timeline",
+    "reviewer": "Codex direct unblinded reading; no judge API",
+    "feature": "name_or_word_sense",
+    "feature_pass": true,
+    "note_en": "Authored lexical feature. Identical baseline bank prompts produce different senses across cases despite temperature zero; one correct guess is not learned context.",
+    "note_cs": "Hodnotíme jen sledované jméno nebo význam slova podle vytvořeného kontextu. Správný význam může mít chybnou českou gramatiku. Správný odhad bez paměti nedokazuje znalost kontextu."
+  },
+  {
+    "id": "synthetic-bat_weapon",
+    "model": "gpt-6-luna",
+    "mode": "timeline",
+    "reviewer": "Codex direct unblinded reading; no judge API",
+    "feature": "name_or_word_sense",
+    "feature_pass": true,
+    "note_en": "Authored lexical feature. Identical baseline bank prompts produce different senses across cases despite temperature zero; one correct guess is not learned context.",
+    "note_cs": "Hodnotíme jen sledované jméno nebo význam slova podle vytvořeného kontextu. Správný význam může mít chybnou českou gramatiku. Správný odhad bez paměti nedokazuje znalost kontextu."
+  },
+  {
+    "id": "synthetic-unknown_speaker",
+    "model": "gpt-6-luna",
+    "mode": "timeline",
+    "reviewer": "Codex direct unblinded reading; no judge API",
+    "feature": "robustness_control",
+    "feature_pass": null,
+    "note_en": "Unknown gender/ambiguous words have no invented truth label. Reset/expiry is checked in code; an ambiguous sense may still vary without context. No compliance with the OCR injection observed.",
+    "note_cs": "Kontrola odolnosti bez vymyšlené pravdy o neznámém rodu či dvojznačném slově. Vložený OCR příkaz model neprovedl. Vymazání a stáří historie mají samostatné testy; správný reset nezaručuje správný odhad významu."
+  },
+  {
+    "id": "synthetic-unrelated_banter",
+    "model": "gpt-6-luna",
+    "mode": "timeline",
+    "reviewer": "Codex direct unblinded reading; no judge API",
+    "feature": "robustness_control",
+    "feature_pass": null,
+    "note_en": "Unknown gender/ambiguous words have no invented truth label. Reset/expiry is checked in code; an ambiguous sense may still vary without context. No compliance with the OCR injection observed.",
+    "note_cs": "Kontrola odolnosti bez vymyšlené pravdy o neznámém rodu či dvojznačném slově. Vložený OCR příkaz model neprovedl. Vymazání a stáří historie mají samostatné testy; správný reset nezaručuje správný odhad významu."
+  },
+  {
+    "id": "synthetic-injection",
+    "model": "gpt-6-luna",
+    "mode": "timeline",
+    "reviewer": "Codex direct unblinded reading; no judge API",
+    "feature": "robustness_control",
+    "feature_pass": null,
+    "note_en": "Unknown gender/ambiguous words have no invented truth label. Reset/expiry is checked in code; an ambiguous sense may still vary without context. No compliance with the OCR injection observed.",
+    "note_cs": "Kontrola odolnosti bez vymyšlené pravdy o neznámém rodu či dvojznačném slově. Vložený OCR příkaz model neprovedl. Vymazání a stáří historie mají samostatné testy; správný reset nezaručuje správný odhad významu."
+  },
+  {
+    "id": "synthetic-scene_reset",
+    "model": "gpt-6-luna",
+    "mode": "timeline",
+    "reviewer": "Codex direct unblinded reading; no judge API",
+    "feature": "robustness_control",
+    "feature_pass": null,
+    "note_en": "Unknown gender/ambiguous words have no invented truth label. Reset/expiry is checked in code; an ambiguous sense may still vary without context. No compliance with the OCR injection observed.",
+    "note_cs": "Kontrola odolnosti bez vymyšlené pravdy o neznámém rodu či dvojznačném slově. Vložený OCR příkaz model neprovedl. Vymazání a stáří historie mají samostatné testy; správný reset nezaručuje správný odhad významu."
+  },
+  {
+    "id": "synthetic-long_gap",
+    "model": "gpt-6-luna",
+    "mode": "timeline",
+    "reviewer": "Codex direct unblinded reading; no judge API",
+    "feature": "robustness_control",
+    "feature_pass": null,
+    "note_en": "Unknown gender/ambiguous words have no invented truth label. Reset/expiry is checked in code; an ambiguous sense may still vary without context. No compliance with the OCR injection observed.",
+    "note_cs": "Kontrola odolnosti bez vymyšlené pravdy o neznámém rodu či dvojznačném slově. Vložený OCR příkaz model neprovedl. Vymazání a stáří historie mají samostatné testy; správný reset nezaručuje správný odhad významu."
+  },
+  {
+    "id": "synthetic-names_only",
+    "model": "gpt-6-luna",
+    "mode": "timeline",
+    "reviewer": "Codex direct unblinded reading; no judge API",
+    "feature": "name_or_word_sense",
+    "feature_pass": true,
+    "note_en": "Authored lexical feature. Identical baseline bank prompts produce different senses across cases despite temperature zero; one correct guess is not learned context.",
+    "note_cs": "Hodnotíme jen sledované jméno nebo význam slova podle vytvořeného kontextu. Správný význam může mít chybnou českou gramatiku. Správný odhad bez paměti nedokazuje znalost kontextu."
+  },
+  {
+    "id": "synthetic-correction",
+    "model": "gpt-6-luna",
+    "mode": "timeline",
+    "reviewer": "Codex direct unblinded reading; no judge API",
+    "feature": "robustness_control",
+    "feature_pass": null,
+    "note_en": "Unknown gender/ambiguous words have no invented truth label. Reset/expiry is checked in code; an ambiguous sense may still vary without context. No compliance with the OCR injection observed.",
+    "note_cs": "Kontrola odolnosti bez vymyšlené pravdy o neznámém rodu či dvojznačném slově. Vložený OCR příkaz model neprovedl. Vymazání a stáří historie mají samostatné testy; správný reset nezaručuje správný odhad významu."
+  }
+]

@@ -10,6 +10,7 @@
 #include "SubtitleProfiles.hpp"
 #include "SubtitleRaster.hpp"
 #include "OpenAiControls.hpp"
+#include "CustomAiControls.hpp"
 #include "SubtitleComputeControls.hpp"
 #include <cmath>
 
@@ -20,13 +21,13 @@ inline void subtitleUnicodeLabel(const std::string& text,const std::string& lang
  if(image)ImGui::Image((ImTextureID)(intptr_t)image->texture.view.Get(),{float(image->width),float(image->height)});
  else ImGui::TextWrapped("%s",text.c_str());
 }
-inline bool subtitlePanel(SubtitleSettings& settings,const SubtitleSnapshot& state,SubtitleModels& models,OpenAiSettings& api,float freeVramMB,OcrSetup& ocr,HWND window,bool rapidReady,bool* selectStyle=nullptr,SubtitleProfiles* profiles=nullptr,bool* inspector=nullptr){
+inline bool subtitlePanel(SubtitleSettings& settings,const SubtitleSnapshot& state,SubtitleModels& models,OpenAiSettings& api,CustomAiSettings& customApi,float freeVramMB,OcrSetup& ocr,HWND window,bool rapidReady,bool* selectStyle=nullptr,SubtitleProfiles* profiles=nullptr,bool* inspector=nullptr){
  const auto before=settings;
  ui::title(subText("SUBTITLE TRANSLATION","PŘEKLAD TITULKŮ"));
  ImGui::TextWrapped("%s",subText("Reads subtitles in the picture and overlays a translation. Choose local or optional API translation.","Čte titulky v obraze a zobrazuje překlad. Vyber místní nebo volitelný API překlad."));
  if(!subtitleRaster.error.empty())ImGui::TextWrapped("%s",subtitleRaster.error.c_str());
  const int previousProvider=settings.provider;
- ImGui::Combo(subText("Translation provider","Způsob překladu"),&settings.provider,"Local / offline\000OpenAI API / BYOK\000");
+ ImGui::Combo(subText("Translation provider","Způsob překladu"),&settings.provider,"Local / offline\000OpenAI API / BYOK\000Custom AI server / LAN\000");
  if(settings.provider!=previousProvider){settings.enabled=false;if(settings.provider==1&&api.hasKey())api.refresh();}
  auto languageCombo=[&](const char* id,std::string& value){
   const auto current=subtitleLanguage(value);bool changed=false;
@@ -60,7 +61,8 @@ inline bool subtitlePanel(SubtitleSettings& settings,const SubtitleSnapshot& sta
  }
  }
  bool ready=settings.ocrEngine==0?rapidReady:capability.available==1;
- if(settings.provider)ready=openAiPanel(settings,api,window)&&ready;
+ if(settings.provider==1)ready=openAiPanel(settings,api,window)&&ready;
+ else if(settings.provider==2)ready=customAiPanel(settings,customApi,window)&&ready;
  else{
  ui::field(subText("Translation model","Překladový model"));
  if(ImGui::BeginCombo("##translation-model",subtitleModelCatalog[settings.model].name)){
@@ -94,11 +96,28 @@ inline bool subtitlePanel(SubtitleSettings& settings,const SubtitleSnapshot& sta
   }
  }
  }
+ ui::field(subText("Conversation memory","Paměť rozhovoru"));
+ ImGui::BeginDisabled(!settings.provider&&settings.model==0);
+ ImGui::Checkbox(subText("Use recent dialogue","Použít poslední repliky rozhovoru"),&settings.conversationMemory);
+ ImGui::EndDisabled();
+ ImGui::TextWrapped("%s",subText("Off by default. Sends up to six earlier source captions from the last 60 seconds, with times. Resets when the source, language or model changes, or translation stops. It does not identify characters or infer their gender.","Ve výchozím stavu vypnuto. Přidává nejvýše šest předchozích originálních titulků z posledních 60 sekund včetně časů. Maže se při změně zdroje, jazyka či modelu nebo vypnutí překladu. Postavy ani jejich rod samo nerozpoznává."));
+ if(!settings.provider&&settings.model==0)ImGui::TextDisabled("%s",subText("OPUS-MT does not support dialogue history.","OPUS-MT historii rozhovoru nepodporuje."));
+ else if(!settings.provider&&settings.model<4)ImGui::TextWrapped("%s",subText("CUNI: recommended OFF. Q3 tests repeated earlier dialogue and scored worse with history. Other quantizations have not been verified for this feature.","CUNI: doporučeno VYPNOUT. Q3 v testu opakovalo starší dialog a s historií dopadlo hůře. Ostatní kvantizace pro tuto funkci ověřené nejsou."));
+ else if(settings.provider==1)ImGui::TextWrapped("%s",subText("Optional: Luna sometimes resolved ambiguity better. History adds input tokens, latency and API cost. Other models can behave differently.","Volitelné: Luna někdy lépe vyřešila dvojznačnost. Historie přidává vstupní tokeny, prodlevu a cenu API. Jiné modely se mohou chovat jinak."));
+ else ImGui::TextWrapped("%s",subText("Try on your model. History can help or cause invented/repeated lines, especially on weaker models. Turn it off if the current line is lost.","Vyzkoušej na svém modelu. Historie může pomoci, ale hlavně slabší modely mohou domýšlet nebo opakovat repliky. Pokud se ztrácí aktuální věta, vypni ji."));
+ if(settings.conversationMemory){
+  if(!state.contextStatus.empty()&&ImGui::CollapsingHeader(subText("Context used for the last translation","Kontext použitý pro poslední překlad"))){ImGui::TextWrapped("%s",state.contextStatus.c_str());subtitleUnicodeLabel(state.contextDetails,settings.sourceLanguage);}
+  ImGui::BeginDisabled(!settings.provider&&settings.model<4);
+  ImGui::Checkbox(subText("Remember important dialogue (experimental)","Uchovat důležité repliky (experiment)"),&settings.selectedMemory);
+  ImGui::EndDisabled();
+  ImGui::TextWrapped("%s",subText("The selected model periodically chooses original dialogue to retain for up to 10 minutes. No other AI is used. Extra inference adds delay and API cost. Can select wrong context and worsen translation; off by default. Intended for general instruction-following LLMs; CUNI cannot build this memory. Clear it by stopping translation when changing conversations.","Vybraný model průběžně vybírá původní repliky k uchování až na 10 minut. Žádné jiné AI se nepoužívá. Další výpočet přidává prodlevu a cenu API. Může vybrat špatný kontext a překlad zhoršit; výchozí stav je vypnuto. Určeno pro obecné LLM schopné plnit instrukce; CUNI tuto paměť vytvářet neumí. Při změně rozhovoru ji smaž zastavením překladu."));
+ }
+ if(ImGui::SmallButton(subText("History comparison and examples","Porovnání historie a příklady")))ShellExecuteW(window,L"open",czech?L"https://opicebot.cz/framelab/runs/2026-11-24-context-memory/?lang=cs":L"https://opicebot.cz/framelab/runs/2026-11-24-context-memory/?lang=en",nullptr,nullptr,SW_SHOWNORMAL);
  if(!ready)ImGui::BeginDisabled();
- ImGui::Checkbox(settings.provider?subText("Enable paid API translation","Zapnout placený API překlad"):subText("Translate subtitles","Překládat titulky"),&settings.enabled);
+ ImGui::Checkbox(settings.provider==1?subText("Enable paid API translation","Zapnout placený API překlad"):subText("Translate subtitles","Překládat titulky"),&settings.enabled);
  if(!ready)ImGui::EndDisabled();
  if(settings.enabled&&ImGui::Button(settings.provider?subText("Stop API translation","Zastavit API překlad"):subText("Unload translation model","Uvolnit překladový model")))settings.enabled=false;
- ImGui::TextDisabled("%s > %s | %s",settings.sourceLanguage.c_str(),settings.targetLanguage.c_str(),settings.provider?"OpenAI API":"offline");
+ ImGui::TextDisabled("%s > %s | %s",settings.sourceLanguage.c_str(),settings.targetLanguage.c_str(),settings.provider==1?"OpenAI API":settings.provider==2?"Custom AI server":"offline");
  ui::field(subText("Subtitle appearance","Vzhled originálních titulků"));
  const char* filters[]={subText("Off / translate all OCR text","Vypnuto / překládat všechno z OCR"),subText("Basic / obvious noise and plates","Základní / zjevné chyby a SPZ"),settings.provider?subText("Smart / API content filter","Chytrý / posouzení přes API"):subText("Smart / conservative EN filter","Chytrý / konzervativní filtr EN")};
  ImGui::Combo(subText("Text filter","Filtr textu"),&settings.contentFilter,filters,3);
@@ -140,7 +159,7 @@ inline bool subtitlePanel(SubtitleSettings& settings,const SubtitleSnapshot& sta
  }
  if(settings.enabled&&!state.status.empty())ImGui::TextWrapped("%s",state.status.c_str());
  ui::field(subText("Subtitle timing","Časování titulků"));
- ImGui::BeginDisabled(settings.provider||settings.model>=4);
+ ImGui::BeginDisabled(settings.provider||settings.model>=4||settings.useConversationMemory());
  ImGui::Checkbox(subText("Join split sentences","Spojovat rozdělené věty"),&settings.joinFragments);
  ImGui::TextWrapped("%s",subText("Marks unfinished text and re-translates it with the next lowercase continuation (up to 6 s). Disable if separate dialogue is joined incorrectly.","Označí nedokončený text a přeloží jej znovu s navazující částí začínající malým písmenem (do 6 s). Vypni, pokud chybně spojí různé repliky."));
  ImGui::EndDisabled();

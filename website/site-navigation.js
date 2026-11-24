@@ -10,6 +10,7 @@ const groups=[
   ['Obraz před a po','Before & after','showcase/#enhancer','enhancer NR kvalita image'],
   ['Generované snímky','Generated frames','showcase/#evidence','RIFE VFG optical flow FPS video'],
   ['Překlady mezi jazyky','Translations across languages','runs/2026-11-24-language-lab/','Japanese Czech čeština japonština Gemma'],
+  ['Paměť rozhovoru','Conversation memory','runs/2026-11-24-context-memory/','history context kontext časy CUNI Luna Gemma server'],
   ['500 překladů EN → CS','500 EN → CS translations','runs/2026-11-23-direct-review/','CUNI OpenAI OPUS skóre quality']]],
  ['Výsledky měření','Test results',[
   ['Přehled výsledků','Results overview','results/','FPS odezva latency score měření'],
@@ -19,6 +20,7 @@ const groups=[
  ['Návody a pomoc','Guides & help',[
   ['Všechny návody','All guides','help/','help podpora instalace'],
   ['Titulky a modely','Subtitles & models','guide/subtitles-en.html','GPU překlad translation'],
+  ['Vlastní AI server (vývoj)','Custom AI server (development)','guide/custom-ai-en.html','LAN custom API llama.cpp Ollama memory'],
   ['Remote Play a okno hry','Remote Play & game windows','guide/remote-subtitles-en.html','PS Xbox API overlay'],
   ['Čistý fullscreen','Clean fullscreen','guide/fullscreen-en.html','F11 display monitor'],
   ['Licence a volitelné soubory','Licenses & optional files','licenses/','NVIDIA DLL license']]]

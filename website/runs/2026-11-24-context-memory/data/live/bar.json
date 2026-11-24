@@ -1,0 +1,196 @@
+{
+  "scope": "Authored conversation burned into gameplay pixels. Actual app must OCR it; no transcript injection. Mixed dialogue/HUD/plate; topic reversal; 2-second filler tests drops. Background is a repeated existing GTA sample, not the original dialogue scene.",
+  "rows": [
+    {
+      "id": "bar-1",
+      "phase": "opening",
+      "text": "We are at a bar, talking about a woman who keeps flirting.",
+      "start": 6.0,
+      "end": 11.0
+    },
+    {
+      "id": "bar-2",
+      "phase": "opening",
+      "text": "The bartender calls that woman a hoe.",
+      "start": 11.0,
+      "end": 16.0
+    },
+    {
+      "id": "bar-3",
+      "phase": "target-immediate",
+      "text": "Get that hoe out of here.",
+      "start": 16.0,
+      "end": 21.0
+    },
+    {
+      "id": "bar-4",
+      "phase": "filler",
+      "text": "Did you hear that noise?",
+      "start": 21.0,
+      "end": 23.0
+    },
+    {
+      "id": "bar-5",
+      "phase": "filler",
+      "text": "It is probably nothing.",
+      "start": 23.0,
+      "end": 25.0
+    },
+    {
+      "id": "bar-6",
+      "phase": "filler",
+      "text": "I could use a coffee.",
+      "start": 25.0,
+      "end": 27.0
+    },
+    {
+      "id": "bar-7",
+      "phase": "filler",
+      "text": "We should keep moving.",
+      "start": 27.0,
+      "end": 29.0
+    },
+    {
+      "id": "bar-8",
+      "phase": "filler",
+      "text": "The weather is getting worse.",
+      "start": 29.0,
+      "end": 31.0
+    },
+    {
+      "id": "bar-9",
+      "phase": "filler",
+      "text": "Wait, I dropped my keys.",
+      "start": 31.0,
+      "end": 33.0
+    },
+    {
+      "id": "bar-10",
+      "phase": "filler",
+      "text": "Do you remember that song?",
+      "start": 33.0,
+      "end": 35.0
+    },
+    {
+      "id": "bar-11",
+      "phase": "filler",
+      "text": "Not really.",
+      "start": 35.0,
+      "end": 37.0
+    },
+    {
+      "id": "bar-12",
+      "phase": "filler",
+      "text": "My phone is almost dead.",
+      "start": 37.0,
+      "end": 39.0
+    },
+    {
+      "id": "bar-13",
+      "phase": "filler",
+      "text": "There is a light upstairs.",
+      "start": 39.0,
+      "end": 41.0
+    },
+    {
+      "id": "bar-14",
+      "phase": "filler",
+      "text": "AB 123 CD",
+      "start": 41.0,
+      "end": 43.0
+    },
+    {
+      "id": "bar-15",
+      "phase": "filler",
+      "text": "CLOSE",
+      "start": 43.0,
+      "end": 45.0
+    },
+    {
+      "id": "bar-16",
+      "phase": "filler",
+      "text": "Did you lock the door?",
+      "start": 45.0,
+      "end": 47.0
+    },
+    {
+      "id": "bar-17",
+      "phase": "filler",
+      "text": "Yes, twice.",
+      "start": 47.0,
+      "end": 49.0
+    },
+    {
+      "id": "bar-18",
+      "phase": "filler",
+      "text": "That was a long day.",
+      "start": 49.0,
+      "end": 51.0
+    },
+    {
+      "id": "bar-19",
+      "phase": "filler",
+      "text": "I know what you mean.",
+      "start": 51.0,
+      "end": 53.0
+    },
+    {
+      "id": "bar-20",
+      "phase": "filler",
+      "text": "We should hurry.",
+      "start": 53.0,
+      "end": 55.0
+    },
+    {
+      "id": "bar-21",
+      "phase": "filler",
+      "text": "Give me a moment.",
+      "start": 55.0,
+      "end": 57.0
+    },
+    {
+      "id": "bar-22",
+      "phase": "filler",
+      "text": "Do you have any water?",
+      "start": 57.0,
+      "end": 59.0
+    },
+    {
+      "id": "bar-23",
+      "phase": "filler",
+      "text": "There is a bottle in my bag.",
+      "start": 59.0,
+      "end": 61.0
+    },
+    {
+      "id": "bar-24",
+      "phase": "target-delayed",
+      "text": "Get that hoe out of here.",
+      "start": 61.0,
+      "end": 67.0
+    },
+    {
+      "id": "bar-25",
+      "phase": "correction",
+      "text": "We are now clearing weeds in the vegetable garden.",
+      "start": 67.0,
+      "end": 72.0
+    },
+    {
+      "id": "bar-26",
+      "phase": "correction",
+      "text": "The gardener left a hoe beside the kitchen door.",
+      "start": 72.0,
+      "end": 77.0
+    },
+    {
+      "id": "bar-27",
+      "phase": "target-corrected",
+      "text": "Get that hoe out of here.",
+      "start": 77.0,
+      "end": 83.0
+    }
+  ],
+  "duration_s": 86.0,
+  "sha256": "eb1e369a1bdca305666381402e2cf5ab4627fbd17e582de1e3a579fea95129fc"
+}

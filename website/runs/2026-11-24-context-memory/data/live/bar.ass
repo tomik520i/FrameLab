@@ -1,0 +1,36 @@
+[Script Info]
+ScriptType: v4.00+
+PlayResX: 1280
+PlayResY: 720
+[V4+ Styles]
+Format: Name, Fontname, Fontsize, PrimaryColour, SecondaryColour, OutlineColour, BackColour, Bold, Italic, Underline, StrikeOut, ScaleX, ScaleY, Spacing, Angle, BorderStyle, Outline, Shadow, Alignment, MarginL, MarginR, MarginV, Encoding
+Style: Default,Arial,30,&H00FFFFFF,&H00FFFFFF,&H00000000,&H00000000,0,0,0,0,100,100,0,0,1,2,0,2,120,120,100,1
+[Events]
+Format: Layer, Start, End, Style, Name, MarginL, MarginR, MarginV, Effect, Text
+Dialogue: 0,0:00:06.00,0:00:11.00,Default,,0,0,0,,We are at a bar, talking about a woman who keeps flirting.
+Dialogue: 0,0:00:11.00,0:00:16.00,Default,,0,0,0,,The bartender calls that woman a hoe.
+Dialogue: 0,0:00:16.00,0:00:21.00,Default,,0,0,0,,Get that hoe out of here.
+Dialogue: 0,0:00:21.00,0:00:23.00,Default,,0,0,0,,Did you hear that noise?
+Dialogue: 0,0:00:23.00,0:00:25.00,Default,,0,0,0,,It is probably nothing.
+Dialogue: 0,0:00:25.00,0:00:27.00,Default,,0,0,0,,I could use a coffee.
+Dialogue: 0,0:00:27.00,0:00:29.00,Default,,0,0,0,,We should keep moving.
+Dialogue: 0,0:00:29.00,0:00:31.00,Default,,0,0,0,,The weather is getting worse.
+Dialogue: 0,0:00:31.00,0:00:33.00,Default,,0,0,0,,Wait, I dropped my keys.
+Dialogue: 0,0:00:33.00,0:00:35.00,Default,,0,0,0,,Do you remember that song?
+Dialogue: 0,0:00:35.00,0:00:37.00,Default,,0,0,0,,Not really.
+Dialogue: 0,0:00:37.00,0:00:39.00,Default,,0,0,0,,My phone is almost dead.
+Dialogue: 0,0:00:39.00,0:00:41.00,Default,,0,0,0,,There is a light upstairs.
+Dialogue: 0,0:00:41.00,0:00:43.00,Default,,0,0,0,,AB 123 CD
+Dialogue: 0,0:00:43.00,0:00:45.00,Default,,0,0,0,,CLOSE
+Dialogue: 0,0:00:45.00,0:00:47.00,Default,,0,0,0,,Did you lock the door?
+Dialogue: 0,0:00:47.00,0:00:49.00,Default,,0,0,0,,Yes, twice.
+Dialogue: 0,0:00:49.00,0:00:51.00,Default,,0,0,0,,That was a long day.
+Dialogue: 0,0:00:51.00,0:00:53.00,Default,,0,0,0,,I know what you mean.
+Dialogue: 0,0:00:53.00,0:00:55.00,Default,,0,0,0,,We should hurry.
+Dialogue: 0,0:00:55.00,0:00:57.00,Default,,0,0,0,,Give me a moment.
+Dialogue: 0,0:00:57.00,0:00:59.00,Default,,0,0,0,,Do you have any water?
+Dialogue: 0,0:00:59.00,0:01:01.00,Default,,0,0,0,,There is a bottle in my bag.
+Dialogue: 0,0:01:01.00,0:01:07.00,Default,,0,0,0,,Get that hoe out of here.
+Dialogue: 0,0:01:07.00,0:01:12.00,Default,,0,0,0,,We are now clearing weeds in the vegetable garden.
+Dialogue: 0,0:01:12.00,0:01:17.00,Default,,0,0,0,,The gardener left a hoe beside the kitchen door.
+Dialogue: 0,0:01:17.00,0:01:23.00,Default,,0,0,0,,Get that hoe out of here.

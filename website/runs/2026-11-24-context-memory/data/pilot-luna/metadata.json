@@ -1,0 +1,24 @@
+{
+  "model": "gpt-6-luna",
+  "split": "pilot",
+  "started_utc": "2026-11-24T17:30:09.360926+00:00",
+  "dataset_sha256": "7d2c0bfd8ff375fd77a7e7e581d81e61d5ded053412f060e09b8007d31a7416b",
+  "memory_version": "memory-v1",
+  "memory_code_sha256": "e51890058996a4e39059053213b7be7d6ce0b68a23fca908a24034aee353e975",
+  "host": "Windows-10-10.0.26200-SP0",
+  "scope": "Text-only replay. Frame generation/enhancer/OCR inference are not running.",
+  "order": "Chronological targets; seeded shuffled arms within each target. Separate run per model.",
+  "api_price_per_million": {
+    "input": 0.1,
+    "cached_input": 0.01,
+    "cache_write": 0.125,
+    "output": 0.5
+  },
+  "api_cap_usd": 0.2,
+  "judge_api_requests": 0,
+  "completed_utc": "2026-11-24T17:30:48.776631+00:00",
+  "completed": 18,
+  "planned": 18,
+  "api_cost_usd": 0.0007373000000000002,
+  "failed_request_reserve_usd": 0
+}

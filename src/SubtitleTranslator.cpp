@@ -1,4 +1,5 @@
 #include "SubtitleTranslator.hpp"
+#include "CustomAiSettings.hpp"
 #include "SubtitleLanguages.hpp"
 #include "SubtitleModels.hpp"
 #include "Diagnostics.hpp"
@@ -36,6 +37,7 @@ void lifecycle(const std::filesystem::path& app,const char* kind,const std::stri
 }
 struct Handle {HANDLE value=nullptr;~Handle(){if(value&&value!=INVALID_HANDLE_VALUE)CloseHandle(value);}operator HANDLE()const{return value;}};
 struct TranslationProcess {
+ std::string contextStatus,contextDetails;
  Handle process,input,output,errors,job;
  ~TranslationProcess(){if(process&&WaitForSingleObject(process,0)==WAIT_TIMEOUT){TerminateProcess(process,0);WaitForSingleObject(process,2000);}}
  void launch(const std::filesystem::path& app,int model,const std::wstring& mapping=L"",const std::string& source="en",const std::string& target="cs",int contentFilter=0,const SubtitleSettings* settings=nullptr){
@@ -43,7 +45,7 @@ struct TranslationProcess {
   // other's pipes/log handles: that can hide an exit and block log reopening.
   static std::mutex launchMutex;std::lock_guard launchLock(launchMutex);
   std::filesystem::create_directories(app/L"logs");
-  const bool ocr=!mapping.empty(),cloud=settings&&settings->provider==1;const auto base=app/(ocr?L"ocr":L"translation"),python=app/L"translation"/L"python"/L"python.exe",script=base/(ocr?L"ocr_worker.py":L"translate_worker.py");
+  const bool ocr=!mapping.empty(),cloud=settings&&settings->provider!=0;const auto base=app/(ocr?L"ocr":L"translation"),python=app/L"translation"/L"python"/L"python.exe",script=base/(ocr?L"ocr_worker.py":L"translate_worker.py");
   if(!std::filesystem::is_regular_file(python)||!std::filesystem::is_regular_file(script)||(!ocr&&!cloud&&model==0&&!std::filesystem::is_regular_file(base/L"model"/L"model.bin")))throw std::runtime_error("Local OCR / translation files missing. Extract the complete package.");
   SECURITY_ATTRIBUTES sa{sizeof(sa),nullptr,TRUE};Handle childInput,childOutput;
   if(!CreatePipe(&childInput.value,&input.value,&sa,4096)||!CreatePipe(&output.value,&childOutput.value,&sa,4096))throw std::runtime_error("Subtitle pipe creation failed");
@@ -61,12 +63,16 @@ struct TranslationProcess {
   HANDLE inherited[]{childInput.value,childOutput.value,errors.value};
   if(!UpdateProcThreadAttribute(extended.lpAttributeList,0,PROC_THREAD_ATTRIBUTE_HANDLE_LIST,inherited,sizeof(inherited),nullptr,nullptr))throw std::runtime_error("Subtitle handle-list configuration failed");
   PROCESS_INFORMATION pi{};std::wstring command=L"\""+python.wstring()+L"\" -B -I \""+script.wstring()+L"\" ";
-  command+=ocr?L"--mapping \""+mapping+L"\" --style-protocol":L"--model \""+(base/L"model").wstring()+L"\" --backend "+winrt::to_hstring(cloud?"openai":subtitleModelCatalog.at(model).id).c_str();
-  if(cloud){command+=L" --api-model "+std::wstring(winrt::to_hstring(settings->apiModel))+L" --api-effort "+std::wstring(winrt::to_hstring(settings->apiEffort));if(settings->apiTemperatureEnabled)command+=L" --api-temperature "+std::to_wstring(settings->apiTemperature);}
+  command+=ocr?L"--mapping \""+mapping+L"\" --style-protocol":L"--model \""+(base/L"model").wstring()+L"\" --backend "+winrt::to_hstring(cloud?(settings->provider==1?"openai":"custom"):subtitleModelCatalog.at(model).id).c_str();
+  if(cloud&&settings->provider==1){command+=L" --api-model "+std::wstring(winrt::to_hstring(settings->apiModel))+L" --api-effort "+std::wstring(winrt::to_hstring(settings->apiEffort));if(settings->apiTemperatureEnabled)command+=L" --api-temperature "+std::to_wstring(settings->apiTemperature);}
   if(!subtitleLanguage(source)||!subtitleLanguage(target))throw std::runtime_error("Unknown subtitle language");
   command+=ocr?L" --language "+std::wstring(winrt::to_hstring(source)):L" --source "+std::wstring(winrt::to_hstring(source))+L" --target "+std::wstring(winrt::to_hstring(target));
   job.value=CreateJobObjectW(nullptr,nullptr);JOBOBJECT_EXTENDED_LIMIT_INFORMATION limits{};limits.BasicLimitInformation.LimitFlags=JOB_OBJECT_LIMIT_KILL_ON_JOB_CLOSE;
   if(!ocr)command+=L" --content-filter "+std::to_wstring(contentFilter);
+  if(!ocr&&settings&&settings->useConversationMemory())command+=L" --context-history";
+  if(!ocr&&settings&&settings->useSelectedMemory())command+=L" --context-selected";
+  if(!ocr&&settings&&!settings->contextTrace.empty())command+=L" --context-trace \""+std::wstring(winrt::to_hstring(settings->contextTrace))+L"\"";
+  if(!ocr&&cloud&&settings->provider==2)command+=L" --custom-config-stdin";
   if(!ocr&&!cloud&&settings){command+=L" --compute "+std::wstring(winrt::to_hstring(settings->computeBackend));if(!settings->computeDevice.empty())command+=L" --device "+std::wstring(winrt::to_hstring(settings->computeDevice));if(settings->allowCpuOffload)command+=L" --allow-offload";}
   if(!job||!SetInformationJobObject(job,JobObjectExtendedLimitInformation,&limits,sizeof(limits)))throw std::runtime_error("Subtitle process isolation failed");
   if(!CreateProcessW(python.c_str(),command.data(),nullptr,nullptr,TRUE,CREATE_NO_WINDOW|CREATE_SUSPENDED|EXTENDED_STARTUPINFO_PRESENT,nullptr,base.c_str(),&si,&pi))throw std::runtime_error("Local translation process failed to start");
@@ -74,6 +80,11 @@ struct TranslationProcess {
   process.value=pi.hProcess;
   if(!AssignProcessToJobObject(job,process)){TerminateProcess(process,1);CloseHandle(pi.hThread);throw std::runtime_error("Subtitle child process isolation failed");}
   ResumeThread(pi.hThread);CloseHandle(pi.hThread);
+  if(!ocr&&cloud&&settings->provider==2){
+   auto config=CustomAiSettings::config(*settings);if(config.size()>65536)throw std::runtime_error("Server configuration too large");
+   uint32_t length=uint32_t(config.size());std::vector<unsigned char> message(length+4);memcpy(message.data(),&length,4);memcpy(message.data()+4,config.data(),length);DWORD sent=0;
+   if(!WriteFile(input,message.data(),DWORD(message.size()),&sent,nullptr)||sent!=message.size())throw std::runtime_error("Server configuration transfer failed");
+  }
  }
  void readExact(void* data,DWORD length,const std::function<bool()>& cancelled,double timeout){
   auto p=static_cast<unsigned char*>(data);const double deadline=clockSeconds()+timeout;
@@ -83,7 +94,13 @@ struct TranslationProcess {
  std::string translate(const std::string& text,const std::function<bool()>& cancelled){
   uint32_t length=uint32_t(text.size());std::vector<unsigned char> message(length+4);memcpy(message.data(),&length,4);memcpy(message.data()+4,text.data(),length);DWORD sent=0;
   if(!WriteFile(input,message.data(),DWORD(message.size()),&sent,nullptr)||sent!=message.size())throw std::runtime_error("Translation request failed");
-  auto result=receive(cancelled);if(result.starts_with("ERROR:"))throw std::runtime_error(result);return result;
+  auto result=receive(cancelled);if(result.starts_with("ERROR:"))throw std::runtime_error(result);
+  constexpr std::string_view prefix="FRAMELAB_CONTEXT_RESULT_V1\n";
+  if(result.starts_with(prefix)){
+   try{auto value=winrt::Windows::Data::Json::JsonObject::Parse(winrt::to_hstring(result.substr(prefix.size())));contextStatus=winrt::to_string(value.GetNamedString(L"status"));contextDetails=winrt::to_string(value.GetNamedString(L"details"));result=winrt::to_string(value.GetNamedString(L"text"));}
+   catch(...){throw std::runtime_error("Invalid context response from subtitle worker");}
+  }
+  return result;
  }
 };
 struct OcrProcess:TranslationProcess {
@@ -211,7 +228,7 @@ struct SubtitleTranslator::Impl {
      if(selected.provider==0&&!subtitlePairSupported(selected.model,selected.sourceLanguage,selected.targetLanguage))throw std::runtime_error("Selected model does not support this language pair");
      const bool recovering=retry.failures>0;lifecycle(app,recovering?"model_retry":"model_loading",{},retry.failures+1);
      process.reset();activeModel=-1;cache.clear();order.clear();sentences.clear();
-     {std::lock_guard lock(mutex);loading=true;modelError.clear();result.status=selected.provider?"Preparing OpenAI API translation...":"Loading and warming local translation model...";}
+     {std::lock_guard lock(mutex);loading=true;modelError.clear();result.status=selected.provider==2?"Connecting to custom AI server...":selected.provider==1?"Preparing OpenAI API translation...":"Loading and warming local translation model...";}
      const auto loadingStarted=clockSeconds();process=std::make_unique<TranslationProcess>();process->launch(app,selected.model,L"",selected.sourceLanguage,selected.targetLanguage,selected.contentFilter,&selected);
      const auto ready=process->receive(cancelled,240);if(ready!="READY"&&ready!="READY FILTER=ner"&&!ready.starts_with("READY COMPUTE=")&&!ready.starts_with("READY FILTER=ner COMPUTE="))throw std::runtime_error(ready);
      loadedModel=selected.model;loadedSource=selected.sourceLanguage;loadedTarget=selected.targetLanguage;
@@ -219,19 +236,23 @@ struct SubtitleTranslator::Impl {
      activeModel=loadedModel;
      // A cold model load can outlive the subtitle queue. Re-observe even an
      // unchanged on-screen line after every load, including a language switch.
-     {std::lock_guard lock(mutex);if(modelEpoch==epoch){retry.loaded(clockSeconds());++translationRecovery;loading=false;perf.modelLoadMs=(clockSeconds()-loadingStarted)*1000;event("model_ready",{{"model",double(loadedModel)},{"load_ms",perf.modelLoadMs}});lifecycle(app,recovering?"model_recovered":"model_ready",{},retry.failures+1);result.status=selected.provider?"OpenAI API ready (paid text translation)":"Local model ready";result.filterBackend=selected.provider?"openai":ready.starts_with("READY FILTER=ner")?"ner":"basic";auto compute=ready.find(" COMPUTE=");result.computeDescription=compute==std::string::npos?(selected.provider?"OpenAI API":"OPUS-MT / CPU"):ready.substr(compute+9);}}
+     {std::lock_guard lock(mutex);if(modelEpoch==epoch){retry.loaded(clockSeconds());++translationRecovery;loading=false;perf.modelLoadMs=(clockSeconds()-loadingStarted)*1000;event("model_ready",{{"model",double(loadedModel)},{"load_ms",perf.modelLoadMs}});lifecycle(app,recovering?"model_recovered":"model_ready",{},retry.failures+1);result.status=selected.provider==2?"Custom AI server ready":selected.provider==1?"OpenAI API ready (paid text translation)":"Local model ready";result.filterBackend=selected.provider==2?"custom":selected.provider==1?"openai":ready.starts_with("READY FILTER=ner")?"ner":"basic";auto compute=ready.find(" COMPUTE=");result.computeDescription=compute==std::string::npos?(selected.provider==2?"Custom AI server":selected.provider==1?"OpenAI API":"OPUS-MT / CPU"):ready.substr(compute+9);}}
     }
     if(text.source.empty())continue;
     {std::lock_guard lock(mutex);if(text.generation!=generation||!freshLocked(clockSeconds(),text.time,text.source)){++perf.translationDrops;event("translation_expired",{{"job_id",double(text.id)}});continue;}perf.translationBusy=true;perf.translationQueueMs=(clockSeconds()-text.queuedAt)*1000;}
-    const auto input=(selected.provider||selected.model>=4)?SubtitleSentence::Prepared{text.source,text.source,false}:sentences.prepare(text.source,text.time,text.generation,selected.joinFragments);
+    const bool useHistory=selected.useConversationMemory();
+    const auto input=(selected.provider||selected.model>=4||useHistory)?SubtitleSentence::Prepared{text.source,text.source,false}:sentences.prepare(text.source,text.time,text.generation,selected.joinFragments);
     const auto start=clockSeconds();std::string translated;bool cacheHit=false;
     const auto key=selected.contentFilter?text.source+"\n"+input.request:input.request;
-    if(auto found=cache.find(key);found!=cache.end()){translated=found->second;cacheHit=true;}
+    if(auto found=cache.find(key);!useHistory&&found!=cache.end()){translated=found->second;cacheHit=true;}
     else{
-     const auto request=selected.contentFilter?"FRAMELAB_REQUEST_V1\n{\"text\":"+Diagnostics::quote(input.request)+",\"observed\":"+Diagnostics::quote(text.source)+"}":input.request;
+     const auto request=useHistory?"FRAMELAB_CONTEXT_V1\n{\"text\":"+Diagnostics::quote(input.request)+",\"observed\":"+Diagnostics::quote(text.source)+",\"time_s\":"+std::to_string(text.time)+",\"generation\":"+std::to_string(text.generation)+",\"event_id\":"+Diagnostics::quote(std::to_string(text.id))+"}":selected.contentFilter?"FRAMELAB_REQUEST_V1\n{\"text\":"+Diagnostics::quote(input.request)+",\"observed\":"+Diagnostics::quote(text.source)+"}":input.request;
      translated=process->translate(request,cancelled);
-     if(cache.size()>=128){cache.erase(order.front());order.pop_front();}
-     cache[key]=translated;order.push_back(key);
+     {std::lock_guard lock(mutex);if(text.generation==generation&&modelEpoch==epoch){result.contextStatus=process->contextStatus;result.contextDetails=process->contextDetails;}}
+     if(!useHistory){
+      if(cache.size()>=128){cache.erase(order.front());order.pop_front();}
+      cache[key]=translated;order.push_back(key);
+     }
     }
     retry.reset();
     if(translated.starts_with("FRAMELAB_SKIP_V1:")){
@@ -248,7 +269,7 @@ SubtitleTranslator::SubtitleTranslator(const std::filesystem::path& app):impl(st
 SubtitleTranslator::~SubtitleTranslator()=default;
 void SubtitleTranslator::configure(SubtitleSettings settings){
  settings.sanitize();std::lock_guard lock(impl->mutex);const auto& previous=impl->settings;
- const bool modelChanged=settings.computeBackend!=previous.computeBackend||settings.computeDevice!=previous.computeDevice||settings.allowCpuOffload!=previous.allowCpuOffload||settings.provider!=previous.provider||settings.apiModel!=previous.apiModel||settings.apiEffort!=previous.apiEffort||settings.apiTemperatureEnabled!=previous.apiTemperatureEnabled||settings.apiTemperature!=previous.apiTemperature||settings.apiKeyRevision!=previous.apiKeyRevision||settings.enabled!=previous.enabled||settings.model!=previous.model||settings.sourceLanguage!=previous.sourceLanguage||settings.targetLanguage!=previous.targetLanguage||settings.contentFilter!=previous.contentFilter||!impl->modelError.empty();
+ const bool modelChanged=settings.selectedMemory!=previous.selectedMemory||settings.contextTrace!=previous.contextTrace||settings.customUrl!=previous.customUrl||settings.customProtocol!=previous.customProtocol||settings.customModel!=previous.customModel||settings.customParameters!=previous.customParameters||settings.customInstruction!=previous.customInstruction||settings.customTimeout!=previous.customTimeout||settings.customMaxTokens!=previous.customMaxTokens||settings.customTemperatureEnabled!=previous.customTemperatureEnabled||settings.customTemperature!=previous.customTemperature||settings.customKeyRevision!=previous.customKeyRevision||settings.conversationMemory!=previous.conversationMemory||settings.computeBackend!=previous.computeBackend||settings.computeDevice!=previous.computeDevice||settings.allowCpuOffload!=previous.allowCpuOffload||settings.provider!=previous.provider||settings.apiModel!=previous.apiModel||settings.apiEffort!=previous.apiEffort||settings.apiTemperatureEnabled!=previous.apiTemperatureEnabled||settings.apiTemperature!=previous.apiTemperature||settings.apiKeyRevision!=previous.apiKeyRevision||settings.enabled!=previous.enabled||settings.model!=previous.model||settings.sourceLanguage!=previous.sourceLanguage||settings.targetLanguage!=previous.targetLanguage||settings.contentFilter!=previous.contentFilter||!impl->modelError.empty();
  const bool ocrChanged=settings.enabled!=previous.enabled||settings.ocrEngine!=previous.ocrEngine||settings.sourceLanguage!=previous.sourceLanguage||!impl->ocrError.empty();
  const bool sourceChanged=modelChanged||ocrChanged||settings.joinFragments!=previous.joinFragments||settings.left!=previous.left||settings.top!=previous.top||settings.right!=previous.right||settings.bottom!=previous.bottom||settings.intervalMs!=previous.intervalMs||settings.style!=previous.style;
  if(modelChanged){++impl->modelEpoch;impl->modelError.clear();impl->result.filterBackend.clear();impl->result.computeDescription.clear();}if(ocrChanged)++impl->ocrEpoch;
