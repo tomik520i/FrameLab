@@ -6,9 +6,9 @@
 
 ## 1. Stáhni a rozbal FrameLab
 
-1. **[Stáhnout FrameLab preview.16 pro Windows x64](https://github.com/tomik520i/FrameLab/releases/download/v0.2.0-preview.16/FrameLab-0.2.0-preview.16-windows-x64-full.zip)**. Přesná velikost je na [stránce stahování](https://opicebot.cz/framelab/#download).
+1. **[Stáhnout FrameLab preview.19 pro Windows x64](https://github.com/tomik520i/FrameLab/releases/download/v0.2.0-preview.19/FrameLab-0.2.0-preview.19-windows-x64-full.zip)**. Přesná velikost je na [stránce stahování](https://opicebot.cz/framelab/#download).
 2. Pravé tlačítko na ZIP → **Extrahovat vše** → nová složka například na Ploše. Nepracuj uvnitř ZIPu. Počítej přibližně se 4 GB volného místa pro oba stažené archivy, rozbalení a import.
-3. Otevři **1 - Spustit FrameLab.cmd**. V kartě **Vstup** vyzkoušej CS:GO nebo Spider-Mana. Frame generation i titulky lze používat hned, NR ještě čeká na externí soubory. Pro OCR může Windows vyžadovat doinstalování anglického rozpoznávání textu; postup je v [základním návodu](https://opicebot.cz/framelab/guide/).
+3. Otevři **1 - Spustit FrameLab.cmd**. V kartě **Vstup** vyzkoušej CS:GO nebo GTA. Frame generation i titulky lze používat hned, NR ještě čeká na externí soubory. Neuronové OCR je přibalené a funguje offline; další postup je v [základním návodu](https://opicebot.cz/framelab/guide/).
 
 ## 2. Stáhni přesný externí balík
 
@@ -35,7 +35,7 @@
 
 | Problém | Co udělat |
 | --- | --- |
-| Nemám kartu AI / NR | Máš preview.10 nebo starší build bez podpory NR. Stáhni celý preview.16; samotné přidání DLL do preview.10 nestačí. |
+| Nemám kartu AI / NR | Máš preview.10 nebo starší build bez podpory NR. Stáhni celý preview.19; samotné přidání DLL do preview.10 nestačí. |
 | Kontrolní součet nesouhlasí | Stáhni přesný NVIDIA ZIP 2.1.9 bez dodatku. Zkontroluj dokončené stahování. Průvodce úmyslně nepřijímá neznámé verze. |
 | Soubor se používá / přístup odepřen | Ukonči všechny své instance FrameLabu a zkus import znovu. Celá složka musí být zapisovatelná. |
 | Průvodce je zablokovaný správcem | Neměň zásady počítače. Se souhlasem správce rozbal přesný externí ZIP a použij ruční cesty níže. |
@@ -57,6 +57,6 @@ Každý průchod dostává plný výsledek předchozího a má vlastní historii
 Více průchodů potřebuje více výkonu i VRAM a může zesílit artefakty. Zkus dva při stejném limitu 720p a stejné síle. Při propadu výstupních FPS vrať jeden nebo sniž výpočetní rozlišení. Původní a ShortFuse profil se mohou lišit. Starší NR porovnání na webu používají **jeden průchod**, nejsou tedy důkazem kvality více průchodů.
 
 
-## Volitelné Eco (preview.16)
+## Volitelné Eco (preview.19)
 
 V **AI / NR** zapni **Úsporně: enhancer před frame genem (experiment)**. NR běží na zdrojových snímcích před interpolací a při aktivním FG může počítat méně obrazů. Samostatná neupravená reference spotřebuje další VRAM; může přibýt latence a jiné artefakty. Standard zůstává výchozí. Další úsporu přinese nižší AI limit nebo méně průchodů, síla jen mění prolnutí. [Aktuální screenshot a postup](https://opicebot.cz/framelab/guide/visual.html#nr) · [Měření a omezení](NR_ECO.md).
