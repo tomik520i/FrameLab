@@ -1,0 +1,115 @@
+{
+  "source_language": "en",
+  "rows": [
+    {
+      "index": 0,
+      "phase": "setup_a",
+      "text": "The luggage is still in the back of the car.",
+      "start": 3.0,
+      "end": 6.0
+    },
+    {
+      "index": 1,
+      "phase": "setup_a",
+      "text": "Unlock the rear storage compartment.",
+      "start": 6.0,
+      "end": 9.0
+    },
+    {
+      "index": 2,
+      "phase": "target_a",
+      "text": "Open the trunk.",
+      "start": 9.0,
+      "end": 13.0
+    },
+    {
+      "index": 3,
+      "phase": "filler",
+      "text": "Did you hear that?",
+      "start": 13.0,
+      "end": 14.25
+    },
+    {
+      "index": 4,
+      "phase": "filler",
+      "text": "It was probably the wind.",
+      "start": 14.25,
+      "end": 15.5
+    },
+    {
+      "index": 5,
+      "phase": "filler",
+      "text": "My boots are soaked.",
+      "start": 15.5,
+      "end": 16.75
+    },
+    {
+      "index": 6,
+      "phase": "filler",
+      "text": "AB 123 CD",
+      "start": 16.75,
+      "end": 18.0
+    },
+    {
+      "index": 7,
+      "phase": "filler",
+      "text": "We should keep moving.",
+      "start": 18.0,
+      "end": 19.25
+    },
+    {
+      "index": 8,
+      "phase": "filler",
+      "text": "CLOSE",
+      "start": 19.25,
+      "end": 20.5
+    },
+    {
+      "index": 9,
+      "phase": "filler",
+      "text": "Wait a moment.",
+      "start": 20.5,
+      "end": 21.75
+    },
+    {
+      "index": 10,
+      "phase": "filler",
+      "text": "I left my bag upstairs.",
+      "start": 21.75,
+      "end": 23.0
+    },
+    {
+      "index": 11,
+      "phase": "target_a_delayed",
+      "text": "Open the trunk.",
+      "start": 23.0,
+      "end": 27.0
+    },
+    {
+      "index": 12,
+      "phase": "setup_b",
+      "text": "In the attic there is an old wooden chest.",
+      "start": 27.0,
+      "end": 30.0
+    },
+    {
+      "index": 13,
+      "phase": "setup_b",
+      "text": "Grandmother kept her letters inside that chest.",
+      "start": 30.0,
+      "end": 33.0
+    },
+    {
+      "index": 14,
+      "phase": "target_b",
+      "text": "Open the trunk.",
+      "start": 33.0,
+      "end": 38.0
+    }
+  ],
+  "duration_s": 41.0,
+  "font": "Arial",
+  "encoder": "h264_nvenc-p4-cq20",
+  "sha256": "788fc84ea3576af973c429130704d3e66f254f9b9a009bfdf7079b44c5b1fa13",
+  "background_sha256": "f786a86cc51dc1610dc644d016f8f5fa5df455fd955483170a4b8473a783bb10"
+}

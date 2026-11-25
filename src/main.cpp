@@ -221,6 +221,15 @@ int WINAPI wWinMain(HINSTANCE instance,HINSTANCE,LPWSTR cmd,int){
   if(argumentValues){for(int i=1;i<argumentCount;++i)arguments.emplace_back(argumentValues[i]);LocalFree(argumentValues);}
   auto argument=[&](const wchar_t* key,std::wstring fallback=L""){for(size_t i=0;i+1<arguments.size();++i)if(arguments[i]==key)return arguments[i+1];return fallback;};
   const auto previewPath=argument(L"--ui-preview");
+  // Explicit diagnostic export of this app's actual rendered backbuffer.
+  // Unlike UI preview mode, this keeps the normal visible presentation loop.
+  const auto captionProofDir=argument(L"--caption-proof-dir");
+  std::vector<double> captionProofTimes;size_t captionProofNext=0;
+  if(!captionProofDir.empty()){
+   std::wistringstream values(argument(L"--caption-proof-times"));std::wstring value;
+   while(std::getline(values,value,L',')){const double v=std::stod(value);if(!std::isfinite(v)||v<0||v>3600||captionProofTimes.size()>=64)throw std::runtime_error("Invalid caption proof time");captionProofTimes.push_back(v);}
+   std::sort(captionProofTimes.begin(),captionProofTimes.end());std::filesystem::create_directories(captionProofDir);
+  }
   const bool uiPreview=!previewPath.empty()||args.find(L"--verify-recording")!=std::wstring::npos;
   LiveSession resume;if(LiveSession::shouldResume(arguments)&&!uiPreview)resume.load(root/L"runtime-session.txt");
   const int previewTab=uiPreview?std::clamp(_wtoi(argument(L"--preview-tab",L"0").c_str()),0,8):-1;
@@ -432,6 +441,7 @@ int WINAPI wWinMain(HINSTANCE instance,HINSTANCE,LPWSTR cmd,int){
   if(!argument(L"--capture-window").empty()){
    auto hwnd=reinterpret_cast<HWND>(std::stoull(argument(L"--capture-window"),nullptr,0));GetWindowThreadProcessId(hwnd,&selectedPcProcess);selectedPcWindow=hwnd;pcWindowName="Test window";startPcCapture(hwnd);
   }else if(!argument(L"--file").empty())startLocalVideo(argument(L"--file"));else if(!argument(L"--replay-recording").empty())startRecordedReplay();else if(args.find(L"--sample")!=std::wstring::npos||!argument(L"--video").empty())startSample(argument(L"--video"));else if(demoRequested)startDemo();else if(captureRequested)startCapture();else if(!resume.valid&&args.find(L"--welcome")!=std::wstring::npos)startSample(root/L"samples"/L"gta.mp4");
+  if(!uiPreview&&args.find(L"--fullscreen-output")!=std::wstring::npos&&!fullscreen)SendMessageW(window,WM_KEYDOWN,VK_F11,0);
   if(args.find(L"--fullscreen-stats")!=std::wstring::npos)fullscreenStats=true;
   log("FrameLab started GPU="+std::string(gpu.name)+" quality="+std::to_string(quality)+" vsync="+std::to_string(vsync));
   if(!argument(L"--debug-seconds").empty()){debugDuration=std::clamp(_wtoi(argument(L"--debug-seconds").c_str()),5,900);debugText=args.find(L"--debug-text")!=std::wstring::npos;startDebug();}
@@ -903,6 +913,10 @@ int WINAPI wWinMain(HINSTANCE instance,HINSTANCE,LPWSTR cmd,int){
     }
    }catch(const std::exception& e){analysis.finish(std::string("Output recording failed: ")+e.what());log(e.what());}}
    g.begin();ImGui_ImplDX11_RenderDrawData(ImGui::GetDrawData());
+   const double proofPosition=isLocalVideo?localSnapshot.position:t-start;bool proofTaken=false;double proofMs=0;
+   if(captionProofNext<captionProofTimes.size()&&proofPosition>=captionProofTimes[captionProofNext]){
+    const double began=now();saveUiPreview(g,std::filesystem::path(captionProofDir)/(std::to_wstring(captionProofNext)+L".bmp"));proofMs=(now()-began)*1000;proofTaken=true;
+   }
    if(uiPreview&&t-start>=previewDelay){
     if(!previewPath.empty())saveUiPreview(g,previewPath);auto caption=subtitles.snapshot();
     std::ofstream(root/L"logs"/L"subtitle-preview.txt")<<caption.status<<'\n'<<caption.source<<'\n'<<caption.translated<<'\n';
@@ -914,6 +928,11 @@ int WINAPI wWinMain(HINSTANCE instance,HINSTANCE,LPWSTR cmd,int){
     running=false;
    }
    auto presentStarted=now();auto hr=g.present(inSizeMove?false:vsync);presentationPermit=false;
+   if(proofTaken){
+    const bool hasCaption=subtitleSettings.enabled&&!visibleCaption.translated.empty()&&captionTime<visibleCaption.expiresAt;
+    diagnostics.event("caption_proof",{{"proof_index",double(captionProofNext)},{"video_s",proofPosition},{"readback_ms",proofMs},{"present_success",double(hr==S_OK)},{"caption_visible",double(hasCaption)}},hasCaption?visibleCaption.displaySource:std::string{},hasCaption?visibleCaption.translated:std::string{});
+    ++captionProofNext;
+   }
    lastDraw=now();presentCpuMs+=(lastDraw-presentStarted)*1000;if(hr==DXGI_STATUS_OCCLUDED)++occludedPresents;
    if(hr==S_OK&&!recordedOutput.empty())analysis.output(lastDraw,recordedOutput);
    if(hr==S_OK&&diagnostics.frames()){const double contentInterval=newContent&&lastContentAt>0?(lastDraw-lastContentAt)*1000:0;diagnostics.frame({{"new_content",double(newContent)},{"generated",double(displayedGenerated)},{"frame_id",double(displayedId)},{"source_a",double(displayedA)},{"source_b",double(displayedB)},{"phase",displayedPosition},{"content_interval_ms",contentInterval},{"present_cpu_ms",(lastDraw-presentStarted)*1000},{"callback_to_present_ms",displayed?(lastDraw-displaySourceTime)*1000:-1},{"queue",double(readyImages.size())}});if(newContent)lastContentAt=lastDraw;}

@@ -23,3 +23,7 @@ __pycache__/
 *.pyc
 /website/country-data/runtime-config.json
 /website/runs/2026-11-22-rife/comparison-assets/*.png
+# Large unmodified evidence is served on the website; manifests stay in Git.
+/website/runs/2026-11-24-context75/data/
+/website/runs/2026-11-24-context75/reproduction.zip
+/website/runs/2026-11-24-context75/progress.json

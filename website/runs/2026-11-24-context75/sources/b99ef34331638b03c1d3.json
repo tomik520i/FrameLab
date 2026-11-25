@@ -1,0 +1,115 @@
+{
+  "source_language": "de",
+  "rows": [
+    {
+      "index": 0,
+      "phase": "setup_a",
+      "text": "Der Schlüssel steckt in der Tür fest.",
+      "start": 3.0,
+      "end": 6.0
+    },
+    {
+      "index": 1,
+      "phase": "setup_a",
+      "text": "Der Schließmechanismus lässt sich nicht mehr drehen.",
+      "start": 6.0,
+      "end": 9.0
+    },
+    {
+      "index": 2,
+      "phase": "target_a",
+      "text": "Das Schloss ist beschädigt.",
+      "start": 9.0,
+      "end": 13.0
+    },
+    {
+      "index": 3,
+      "phase": "filler",
+      "text": "Hast du das gehört?",
+      "start": 13.0,
+      "end": 14.25
+    },
+    {
+      "index": 4,
+      "phase": "filler",
+      "text": "Das war wohl der Wind.",
+      "start": 14.25,
+      "end": 15.5
+    },
+    {
+      "index": 5,
+      "phase": "filler",
+      "text": "Meine Stiefel sind nass.",
+      "start": 15.5,
+      "end": 16.75
+    },
+    {
+      "index": 6,
+      "phase": "filler",
+      "text": "AB 123 CD",
+      "start": 16.75,
+      "end": 18.0
+    },
+    {
+      "index": 7,
+      "phase": "filler",
+      "text": "Wir sollten weitergehen.",
+      "start": 18.0,
+      "end": 19.25
+    },
+    {
+      "index": 8,
+      "phase": "filler",
+      "text": "SCHLIESSEN",
+      "start": 19.25,
+      "end": 20.5
+    },
+    {
+      "index": 9,
+      "phase": "filler",
+      "text": "Warte einen Moment.",
+      "start": 20.5,
+      "end": 21.75
+    },
+    {
+      "index": 10,
+      "phase": "filler",
+      "text": "Meine Tasche liegt oben.",
+      "start": 21.75,
+      "end": 23.0
+    },
+    {
+      "index": 11,
+      "phase": "target_a_delayed",
+      "text": "Das Schloss ist beschädigt.",
+      "start": 23.0,
+      "end": 27.0
+    },
+    {
+      "index": 12,
+      "phase": "setup_b",
+      "text": "Jetzt besichtigen wir den früheren Königssitz.",
+      "start": 27.0,
+      "end": 30.0
+    },
+    {
+      "index": 13,
+      "phase": "setup_b",
+      "text": "Das Dach über dem großen Saal ist eingestürzt.",
+      "start": 30.0,
+      "end": 33.0
+    },
+    {
+      "index": 14,
+      "phase": "target_b",
+      "text": "Das Schloss ist beschädigt.",
+      "start": 33.0,
+      "end": 38.0
+    }
+  ],
+  "duration_s": 41.0,
+  "font": "Arial",
+  "encoder": "h264_nvenc-p4-cq20",
+  "sha256": "66888c124ac2fde04e62888fc415ef342ed5d32be39716d66778709b59e20761",
+  "background_sha256": "f786a86cc51dc1610dc644d016f8f5fa5df455fd955483170a4b8473a783bb10"
+}

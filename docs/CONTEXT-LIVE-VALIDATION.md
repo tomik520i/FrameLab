@@ -1,15 +1,19 @@
 # Context memory: live validation / Ověření v běžící aplikaci
 
+The follow-up **75-scene actual-app study is complete**: 300 runs and 900 original framebuffer proofs. [Interactive CS/EN results](https://opicebot.cz/framelab/runs/2026-11-24-context75/) · [Protocol](CONTEXT75-PROTOCOL.md). The earlier pilot below remains preserved.
+
+Navazující **test 75 scén v aplikaci je dokončený**: 300 běhů a 900 původních obrazových důkazů. Původní pilot níže zůstává zachovaný.
+
 ## Scope / Rozsah
 
 **Development experiment, default OFF. This is not a released quality guarantee.**
-The requested 25 Czech and 50 multilingual examples must be collected only after
-the method works through the actual FrameLab pipeline. Standalone prompt triples
-are preliminary diagnostics, not those final demonstrations.
+The follow-up 25 Czech and 50 multilingual examples use the actual FrameLab
+pipeline. Standalone prompt triples remain preliminary diagnostics, not substitutes
+for those application demonstrations.
 
 **Vývojový experiment, výchozí stav VYPNUTO. Nejde o záruku kvality vydané verze.**
-Požadovaných 25 českých a 50 vícejazyčných ukázek má vzniknout až z ověřené funkce
-v aplikaci. Samostatné trojice promptů jsou pouze předběžná diagnostika.
+Navazujících 25 českých a 50 vícejazyčných ukázek používá skutečnou cestu aplikací.
+Samostatné trojice promptů zůstávají pouze předběžnou diagnostikou.
 
 ## What the candidate does / Co zkoušená metoda dělá
 

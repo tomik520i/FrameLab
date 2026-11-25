@@ -1,0 +1,2397 @@
+{
+  "created_utc": "2026-11-25T01:40:13.598073+00:00",
+  "runs": 300,
+  "arms": {
+    "openai-off": {
+      "runs": 75,
+      "targets": 225,
+      "first_correct": 136,
+      "first_correct_on_time": 134,
+      "proof_correct": 134,
+      "proof_notes": {
+        "neutral": 26,
+        "ok": 103,
+        "missing": 3,
+        "wrong_sense": 80,
+        "previous_line": 3,
+        "wrong_gender": 3,
+        "wrong_action": 1,
+        "partial": 1,
+        "grammar": 4,
+        "awkward": 1
+      },
+      "ocr_targets_with_no_exact_read": 6,
+      "ocr_targets_never_observed": 0,
+      "ocr_errors_during_scene": [],
+      "ocr_errors_after_scene": [
+        {
+          "run": "008-multi-en-es-charge-openai-off",
+          "video_s": 42.20165799998
+        },
+        {
+          "run": "011-multi-ja-en-sensei-openai-off",
+          "video_s": 42.21479209984
+        },
+        {
+          "run": "014-czech-en-cs-shot-openai-off",
+          "video_s": 42.26330040019
+        },
+        {
+          "run": "017-multi-en-es-pitch-openai-off",
+          "video_s": 42.20456120003
+        },
+        {
+          "run": "027-czech-en-cs-mouse-openai-off",
+          "video_s": 42.16114299995999
+        },
+        {
+          "run": "030-multi-en-de-pitch-openai-off",
+          "video_s": 42.21926179988
+        },
+        {
+          "run": "033-multi-de-en-leiter-openai-off",
+          "video_s": 42.20404690007
+        },
+        {
+          "run": "040-czech-en-cs-bow-openai-off",
+          "video_s": 42.247223200099995
+        },
+        {
+          "run": "043-czech-en-cs-date-openai-off",
+          "video_s": 42.23808229983
+        },
+        {
+          "run": "046-multi-ja-en-one-more-openai-off",
+          "video_s": 42.20182250013001
+        },
+        {
+          "run": "049-multi-en-de-bank-openai-off",
+          "video_s": 42.227068200059996
+        },
+        {
+          "run": "056-multi-en-fr-bat-openai-off",
+          "video_s": 42.2579828002
+        },
+        {
+          "run": "059-multi-de-en-schloss-openai-off",
+          "video_s": 42.1793938
+        },
+        {
+          "run": "062-czech-en-cs-light-openai-off",
+          "video_s": 42.178858599989994
+        },
+        {
+          "run": "065-multi-cs-ja-pero-openai-off",
+          "video_s": 42.28295510002
+        },
+        {
+          "run": "072-multi-ja-en-code-openai-off",
+          "video_s": 42.21694929984
+        },
+        {
+          "run": "078-multi-ja-en-kakete-openai-off",
+          "video_s": 42.189286799870004
+        },
+        {
+          "run": "081-multi-de-en-bank-openai-off",
+          "video_s": 42.21712509988
+        },
+        {
+          "run": "097-czech-en-cs-charge-openai-off",
+          "video_s": 42.207241000020005
+        },
+        {
+          "run": "104-multi-ja-en-tape-openai-off",
+          "video_s": 42.2546532
+        },
+        {
+          "run": "107-multi-fr-en-manche-openai-off",
+          "video_s": 42.19319879996001
+        },
+        {
+          "run": "113-multi-ja-cs-kakete-openai-off",
+          "video_s": 42.18812259997
+        },
+        {
+          "run": "120-multi-en-de-bat-openai-off",
+          "video_s": 42.20671490007
+        },
+        {
+          "run": "123-czech-en-cs-jam-openai-off",
+          "video_s": 42.22004000005
+        },
+        {
+          "run": "136-multi-es-en-planta-openai-off",
+          "video_s": 42.24528909995
+        },
+        {
+          "run": "139-multi-en-fr-seal-openai-off",
+          "video_s": 42.20770909979
+        },
+        {
+          "run": "142-multi-es-en-banco-openai-off",
+          "video_s": 42.2220630001
+        },
+        {
+          "run": "145-multi-en-es-bat-openai-off",
+          "video_s": 42.2304904
+        },
+        {
+          "run": "152-multi-es-en-vela-openai-off",
+          "video_s": 42.199681800140006
+        },
+        {
+          "run": "155-multi-es-en-cola-openai-off",
+          "video_s": 42.24808070007
+        },
+        {
+          "run": "161-multi-en-de-charge-openai-off",
+          "video_s": 42.24828020004
+        },
+        {
+          "run": "168-czech-en-cs-bat-openai-off",
+          "video_s": 42.20089749986
+        },
+        {
+          "run": "171-czech-en-cs-case-openai-off",
+          "video_s": 42.190580699929995
+        },
+        {
+          "run": "174-multi-en-ja-seal-openai-off",
+          "video_s": 42.227304299960004
+        },
+        {
+          "run": "177-czech-en-cs-trunk-openai-off",
+          "video_s": 42.237889699780006
+        },
+        {
+          "run": "187-multi-en-es-bank-openai-off",
+          "video_s": 42.18733599996
+        },
+        {
+          "run": "190-multi-ja-cs-tape-openai-off",
+          "video_s": 42.230304699979996
+        },
+        {
+          "run": "200-multi-fr-en-vol-openai-off",
+          "video_s": 42.15627309993
+        },
+        {
+          "run": "206-multi-fr-en-piece-openai-off",
+          "video_s": 42.21611479998
+        },
+        {
+          "run": "209-czech-en-cs-port-openai-off",
+          "video_s": 42.19473780003
+        },
+        {
+          "run": "216-czech-en-cs-pitch-openai-off",
+          "video_s": 42.239005100110006
+        },
+        {
+          "run": "219-multi-en-ja-bank-openai-off",
+          "video_s": 42.23730610010999
+        },
+        {
+          "run": "222-czech-en-cs-bank-openai-off",
+          "video_s": 42.23456819988
+        },
+        {
+          "run": "232-multi-cs-ja-list-openai-off",
+          "video_s": 42.23450150001
+        },
+        {
+          "run": "235-multi-en-fr-pitch-openai-off",
+          "video_s": 42.19696860002
+        },
+        {
+          "run": "238-czech-en-cs-hoe-openai-off",
+          "video_s": 42.23550330009
+        },
+        {
+          "run": "248-multi-en-fr-bank-openai-off",
+          "video_s": 42.20554040014
+        },
+        {
+          "run": "251-czech-en-cs-draft-openai-off",
+          "video_s": 42.23092260008
+        },
+        {
+          "run": "254-czech-en-cs-spring-openai-off",
+          "video_s": 42.20402339991
+        },
+        {
+          "run": "257-multi-en-fr-charge-openai-off",
+          "video_s": 42.1764088001
+        },
+        {
+          "run": "264-multi-es-en-gato-openai-off",
+          "video_s": 42.19230999989
+        },
+        {
+          "run": "267-multi-en-de-seal-openai-off",
+          "video_s": 42.201928299929996
+        },
+        {
+          "run": "270-multi-en-ja-bat-openai-off",
+          "video_s": 42.21480270001
+        },
+        {
+          "run": "283-czech-en-cs-nail-openai-off",
+          "video_s": 42.21999689991
+        },
+        {
+          "run": "286-czech-en-cs-ash-name-openai-off",
+          "video_s": 42.17631950018
+        },
+        {
+          "run": "296-multi-ja-cs-sensei-openai-off",
+          "video_s": 42.23545249998
+        },
+        {
+          "run": "299-czech-en-cs-crane-openai-off",
+          "video_s": 42.18556859999
+        }
+      ],
+      "plate": {
+        "intervals": 75,
+        "ocr_seen": 75,
+        "displayed": 0
+      },
+      "ui_label": {
+        "intervals": 75,
+        "ocr_seen": 75,
+        "displayed": 74
+      },
+      "topic_b_cue_presence": [
+        {
+          "run": "001-czech-en-cs-unchanged-openai-off",
+          "both_verbatim_topic_b_lines_in_first_request": false
+        },
+        {
+          "run": "008-multi-en-es-charge-openai-off",
+          "both_verbatim_topic_b_lines_in_first_request": false
+        },
+        {
+          "run": "011-multi-ja-en-sensei-openai-off",
+          "both_verbatim_topic_b_lines_in_first_request": false
+        },
+        {
+          "run": "014-czech-en-cs-shot-openai-off",
+          "both_verbatim_topic_b_lines_in_first_request": false
+        },
+        {
+          "run": "017-multi-en-es-pitch-openai-off",
+          "both_verbatim_topic_b_lines_in_first_request": false
+        },
+        {
+          "run": "024-multi-ja-cs-one-more-openai-off",
+          "both_verbatim_topic_b_lines_in_first_request": false
+        },
+        {
+          "run": "027-czech-en-cs-mouse-openai-off",
+          "both_verbatim_topic_b_lines_in_first_request": false
+        },
+        {
+          "run": "030-multi-en-de-pitch-openai-off",
+          "both_verbatim_topic_b_lines_in_first_request": false
+        },
+        {
+          "run": "033-multi-de-en-leiter-openai-off",
+          "both_verbatim_topic_b_lines_in_first_request": false
+        },
+        {
+          "run": "040-czech-en-cs-bow-openai-off",
+          "both_verbatim_topic_b_lines_in_first_request": false
+        },
+        {
+          "run": "043-czech-en-cs-date-openai-off",
+          "both_verbatim_topic_b_lines_in_first_request": false
+        },
+        {
+          "run": "046-multi-ja-en-one-more-openai-off",
+          "both_verbatim_topic_b_lines_in_first_request": false
+        },
+        {
+          "run": "049-multi-en-de-bank-openai-off",
+          "both_verbatim_topic_b_lines_in_first_request": false
+        },
+        {
+          "run": "056-multi-en-fr-bat-openai-off",
+          "both_verbatim_topic_b_lines_in_first_request": false
+        },
+        {
+          "run": "059-multi-de-en-schloss-openai-off",
+          "both_verbatim_topic_b_lines_in_first_request": false
+        },
+        {
+          "run": "062-czech-en-cs-light-openai-off",
+          "both_verbatim_topic_b_lines_in_first_request": false
+        },
+        {
+          "run": "065-multi-cs-ja-pero-openai-off",
+          "both_verbatim_topic_b_lines_in_first_request": false
+        },
+        {
+          "run": "072-multi-ja-en-code-openai-off",
+          "both_verbatim_topic_b_lines_in_first_request": false
+        },
+        {
+          "run": "075-multi-en-ja-charge-openai-off",
+          "both_verbatim_topic_b_lines_in_first_request": false
+        },
+        {
+          "run": "078-multi-ja-en-kakete-openai-off",
+          "both_verbatim_topic_b_lines_in_first_request": false
+        },
+        {
+          "run": "081-multi-de-en-bank-openai-off",
+          "both_verbatim_topic_b_lines_in_first_request": false
+        },
+        {
+          "run": "088-multi-fr-en-avocat-openai-off",
+          "both_verbatim_topic_b_lines_in_first_request": false
+        },
+        {
+          "run": "091-multi-fr-en-livre-openai-off",
+          "both_verbatim_topic_b_lines_in_first_request": false
+        },
+        {
+          "run": "094-czech-en-cs-club-openai-off",
+          "both_verbatim_topic_b_lines_in_first_request": false
+        },
+        {
+          "run": "097-czech-en-cs-charge-openai-off",
+          "both_verbatim_topic_b_lines_in_first_request": false
+        },
+        {
+          "run": "104-multi-ja-en-tape-openai-off",
+          "both_verbatim_topic_b_lines_in_first_request": false
+        },
+        {
+          "run": "107-multi-fr-en-manche-openai-off",
+          "both_verbatim_topic_b_lines_in_first_request": false
+        },
+        {
+          "run": "110-multi-de-en-gericht-openai-off",
+          "both_verbatim_topic_b_lines_in_first_request": false
+        },
+        {
+          "run": "113-multi-ja-cs-kakete-openai-off",
+          "both_verbatim_topic_b_lines_in_first_request": false
+        },
+        {
+          "run": "120-multi-en-de-bat-openai-off",
+          "both_verbatim_topic_b_lines_in_first_request": false
+        },
+        {
+          "run": "123-czech-en-cs-jam-openai-off",
+          "both_verbatim_topic_b_lines_in_first_request": false
+        },
+        {
+          "run": "126-czech-en-cs-match-openai-off",
+          "both_verbatim_topic_b_lines_in_first_request": false
+        },
+        {
+          "run": "129-czech-en-cs-alex-gender-openai-off",
+          "both_verbatim_topic_b_lines_in_first_request": false
+        },
+        {
+          "run": "136-multi-es-en-planta-openai-off",
+          "both_verbatim_topic_b_lines_in_first_request": false
+        },
+        {
+          "run": "139-multi-en-fr-seal-openai-off",
+          "both_verbatim_topic_b_lines_in_first_request": false
+        },
+        {
+          "run": "142-multi-es-en-banco-openai-off",
+          "both_verbatim_topic_b_lines_in_first_request": false
+        },
+        {
+          "run": "145-multi-en-es-bat-openai-off",
+          "both_verbatim_topic_b_lines_in_first_request": false
+        },
+        {
+          "run": "152-multi-es-en-vela-openai-off",
+          "both_verbatim_topic_b_lines_in_first_request": false
+        },
+        {
+          "run": "155-multi-es-en-cola-openai-off",
+          "both_verbatim_topic_b_lines_in_first_request": false
+        },
+        {
+          "run": "158-multi-cs-ja-zamek-openai-off",
+          "both_verbatim_topic_b_lines_in_first_request": false
+        },
+        {
+          "run": "161-multi-en-de-charge-openai-off",
+          "both_verbatim_topic_b_lines_in_first_request": false
+        },
+        {
+          "run": "168-czech-en-cs-bat-openai-off",
+          "both_verbatim_topic_b_lines_in_first_request": false
+        },
+        {
+          "run": "171-czech-en-cs-case-openai-off",
+          "both_verbatim_topic_b_lines_in_first_request": false
+        },
+        {
+          "run": "174-multi-en-ja-seal-openai-off",
+          "both_verbatim_topic_b_lines_in_first_request": false
+        },
+        {
+          "run": "177-czech-en-cs-trunk-openai-off",
+          "both_verbatim_topic_b_lines_in_first_request": false
+        },
+        {
+          "run": "184-czech-en-cs-seal-openai-off",
+          "both_verbatim_topic_b_lines_in_first_request": false
+        },
+        {
+          "run": "187-multi-en-es-bank-openai-off",
+          "both_verbatim_topic_b_lines_in_first_request": false
+        },
+        {
+          "run": "190-multi-ja-cs-tape-openai-off",
+          "both_verbatim_topic_b_lines_in_first_request": false
+        },
+        {
+          "run": "193-multi-cs-ja-kolej-openai-off",
+          "both_verbatim_topic_b_lines_in_first_request": false
+        },
+        {
+          "run": "200-multi-fr-en-vol-openai-off",
+          "both_verbatim_topic_b_lines_in_first_request": false
+        },
+        {
+          "run": "203-multi-de-en-kiefer-openai-off",
+          "both_verbatim_topic_b_lines_in_first_request": false
+        },
+        {
+          "run": "206-multi-fr-en-piece-openai-off",
+          "both_verbatim_topic_b_lines_in_first_request": false
+        },
+        {
+          "run": "209-czech-en-cs-port-openai-off",
+          "both_verbatim_topic_b_lines_in_first_request": false
+        },
+        {
+          "run": "216-czech-en-cs-pitch-openai-off",
+          "both_verbatim_topic_b_lines_in_first_request": false
+        },
+        {
+          "run": "219-multi-en-ja-bank-openai-off",
+          "both_verbatim_topic_b_lines_in_first_request": false
+        },
+        {
+          "run": "222-czech-en-cs-bank-openai-off",
+          "both_verbatim_topic_b_lines_in_first_request": false
+        },
+        {
+          "run": "225-czech-en-cs-mole-openai-off",
+          "both_verbatim_topic_b_lines_in_first_request": false
+        },
+        {
+          "run": "232-multi-cs-ja-list-openai-off",
+          "both_verbatim_topic_b_lines_in_first_request": false
+        },
+        {
+          "run": "235-multi-en-fr-pitch-openai-off",
+          "both_verbatim_topic_b_lines_in_first_request": false
+        },
+        {
+          "run": "238-czech-en-cs-hoe-openai-off",
+          "both_verbatim_topic_b_lines_in_first_request": false
+        },
+        {
+          "run": "241-multi-cs-ja-koruna-openai-off",
+          "both_verbatim_topic_b_lines_in_first_request": false
+        },
+        {
+          "run": "248-multi-en-fr-bank-openai-off",
+          "both_verbatim_topic_b_lines_in_first_request": false
+        },
+        {
+          "run": "251-czech-en-cs-draft-openai-off",
+          "both_verbatim_topic_b_lines_in_first_request": false
+        },
+        {
+          "run": "254-czech-en-cs-spring-openai-off",
+          "both_verbatim_topic_b_lines_in_first_request": false
+        },
+        {
+          "run": "257-multi-en-fr-charge-openai-off",
+          "both_verbatim_topic_b_lines_in_first_request": false
+        },
+        {
+          "run": "264-multi-es-en-gato-openai-off",
+          "both_verbatim_topic_b_lines_in_first_request": false
+        },
+        {
+          "run": "267-multi-en-de-seal-openai-off",
+          "both_verbatim_topic_b_lines_in_first_request": false
+        },
+        {
+          "run": "270-multi-en-ja-bat-openai-off",
+          "both_verbatim_topic_b_lines_in_first_request": false
+        },
+        {
+          "run": "273-multi-en-ja-pitch-openai-off",
+          "both_verbatim_topic_b_lines_in_first_request": false
+        },
+        {
+          "run": "280-multi-en-es-seal-openai-off",
+          "both_verbatim_topic_b_lines_in_first_request": false
+        },
+        {
+          "run": "283-czech-en-cs-nail-openai-off",
+          "both_verbatim_topic_b_lines_in_first_request": false
+        },
+        {
+          "run": "286-czech-en-cs-ash-name-openai-off",
+          "both_verbatim_topic_b_lines_in_first_request": false
+        },
+        {
+          "run": "289-multi-ja-cs-code-openai-off",
+          "both_verbatim_topic_b_lines_in_first_request": false
+        },
+        {
+          "run": "296-multi-ja-cs-sensei-openai-off",
+          "both_verbatim_topic_b_lines_in_first_request": false
+        },
+        {
+          "run": "299-czech-en-cs-crane-openai-off",
+          "both_verbatim_topic_b_lines_in_first_request": false
+        }
+      ],
+      "memory_errors": [],
+      "readback_ms": {
+        "n": 225,
+        "p50": 21.292,
+        "p95": 31.921,
+        "mean": 22.537,
+        "max": 51.903
+      },
+      "timing_anchor_spread_ms": {
+        "n": 75,
+        "p50": 0.433,
+        "p95": 7.75,
+        "mean": 2.063,
+        "max": 7.984
+      }
+    },
+    "openai-selected": {
+      "runs": 75,
+      "targets": 225,
+      "first_correct": 165,
+      "first_correct_on_time": 163,
+      "proof_correct": 162,
+      "proof_notes": {
+        "neutral": 25,
+        "ok": 134,
+        "wrong_sense": 53,
+        "previous_line": 4,
+        "missing": 1,
+        "wrong_gender": 2,
+        "grammar": 2,
+        "partial": 3,
+        "awkward": 1
+      },
+      "ocr_targets_with_no_exact_read": 6,
+      "ocr_targets_never_observed": 0,
+      "ocr_errors_during_scene": [],
+      "ocr_errors_after_scene": [
+        {
+          "run": "002-czech-en-cs-unchanged-openai-selected",
+          "video_s": 42.21519310012
+        },
+        {
+          "run": "012-multi-ja-en-sensei-openai-selected",
+          "video_s": 42.21402459993
+        },
+        {
+          "run": "015-czech-en-cs-shot-openai-selected",
+          "video_s": 42.24412330002
+        },
+        {
+          "run": "018-multi-en-es-pitch-openai-selected",
+          "video_s": 42.21269320003999
+        },
+        {
+          "run": "021-multi-ja-cs-one-more-openai-selected",
+          "video_s": 42.2152050001
+        },
+        {
+          "run": "028-czech-en-cs-mouse-openai-selected",
+          "video_s": 42.176452299939996
+        },
+        {
+          "run": "031-multi-en-de-pitch-openai-selected",
+          "video_s": 42.230469699909996
+        },
+        {
+          "run": "034-multi-de-en-leiter-openai-selected",
+          "video_s": 42.178842299959996
+        },
+        {
+          "run": "037-czech-en-cs-bow-openai-selected",
+          "video_s": 42.20472240013
+        },
+        {
+          "run": "044-czech-en-cs-date-openai-selected",
+          "video_s": 42.224807200010005
+        },
+        {
+          "run": "050-multi-en-de-bank-openai-selected",
+          "video_s": 42.2137462
+        },
+        {
+          "run": "053-multi-en-fr-bat-openai-selected",
+          "video_s": 42.216230499939996
+        },
+        {
+          "run": "060-multi-de-en-schloss-openai-selected",
+          "video_s": 42.17196529995
+        },
+        {
+          "run": "063-czech-en-cs-light-openai-selected",
+          "video_s": 42.20219820001
+        },
+        {
+          "run": "066-multi-cs-ja-pero-openai-selected",
+          "video_s": 42.19666689992
+        },
+        {
+          "run": "069-multi-ja-en-code-openai-selected",
+          "video_s": 42.17389850007
+        },
+        {
+          "run": "082-multi-de-en-bank-openai-selected",
+          "video_s": 42.221047899860004
+        },
+        {
+          "run": "092-multi-fr-en-livre-openai-selected",
+          "video_s": 42.22733229995
+        },
+        {
+          "run": "095-czech-en-cs-club-openai-selected",
+          "video_s": 42.225678600029994
+        },
+        {
+          "run": "098-czech-en-cs-charge-openai-selected",
+          "video_s": 42.21937510014
+        },
+        {
+          "run": "111-multi-de-en-gericht-openai-selected",
+          "video_s": 42.19282919985
+        },
+        {
+          "run": "114-multi-ja-cs-kakete-openai-selected",
+          "video_s": 42.252330299920004
+        },
+        {
+          "run": "117-multi-en-de-bat-openai-selected",
+          "video_s": 42.21448779995001
+        },
+        {
+          "run": "127-czech-en-cs-match-openai-selected",
+          "video_s": 42.23297889997
+        },
+        {
+          "run": "130-czech-en-cs-alex-gender-openai-selected",
+          "video_s": 42.19551619992001
+        },
+        {
+          "run": "133-multi-es-en-planta-openai-selected",
+          "video_s": 42.17563740008
+        },
+        {
+          "run": "140-multi-en-fr-seal-openai-selected",
+          "video_s": 42.22463840003999
+        },
+        {
+          "run": "143-multi-es-en-banco-openai-selected",
+          "video_s": 42.21192190021001
+        },
+        {
+          "run": "149-multi-es-en-vela-openai-selected",
+          "video_s": 42.17347149988
+        },
+        {
+          "run": "156-multi-es-en-cola-openai-selected",
+          "video_s": 42.21488239984
+        },
+        {
+          "run": "159-multi-cs-ja-zamek-openai-selected",
+          "video_s": 42.22736580003
+        },
+        {
+          "run": "162-multi-en-de-charge-openai-selected",
+          "video_s": 42.215652000169996
+        },
+        {
+          "run": "178-czech-en-cs-trunk-openai-selected",
+          "video_s": 42.224085099910006
+        },
+        {
+          "run": "188-multi-en-es-bank-openai-selected",
+          "video_s": 42.255915200050005
+        },
+        {
+          "run": "191-multi-ja-cs-tape-openai-selected",
+          "video_s": 42.203271799949995
+        },
+        {
+          "run": "194-multi-cs-ja-kolej-openai-selected",
+          "video_s": 42.2218826998
+        },
+        {
+          "run": "197-multi-fr-en-vol-openai-selected",
+          "video_s": 42.24763350002
+        },
+        {
+          "run": "204-multi-de-en-kiefer-openai-selected",
+          "video_s": 42.20899930005999
+        },
+        {
+          "run": "207-multi-fr-en-piece-openai-selected",
+          "video_s": 42.196944500090005
+        },
+        {
+          "run": "210-czech-en-cs-port-openai-selected",
+          "video_s": 42.174692800209996
+        },
+        {
+          "run": "213-czech-en-cs-pitch-openai-selected",
+          "video_s": 42.191823399819995
+        },
+        {
+          "run": "220-multi-en-ja-bank-openai-selected",
+          "video_s": 42.19766849991999
+        },
+        {
+          "run": "223-czech-en-cs-bank-openai-selected",
+          "video_s": 42.245836100110004
+        },
+        {
+          "run": "226-czech-en-cs-mole-openai-selected",
+          "video_s": 42.23603550009
+        },
+        {
+          "run": "229-multi-cs-ja-list-openai-selected",
+          "video_s": 42.187189199879995
+        },
+        {
+          "run": "236-multi-en-fr-pitch-openai-selected",
+          "video_s": 42.23096460014
+        },
+        {
+          "run": "239-czech-en-cs-hoe-openai-selected",
+          "video_s": 42.212307499779996
+        },
+        {
+          "run": "242-multi-cs-ja-koruna-openai-selected",
+          "video_s": 42.22767129997
+        },
+        {
+          "run": "245-multi-en-fr-bank-openai-selected",
+          "video_s": 42.23589270008
+        },
+        {
+          "run": "252-czech-en-cs-draft-openai-selected",
+          "video_s": 42.23103059982
+        },
+        {
+          "run": "258-multi-en-fr-charge-openai-selected",
+          "video_s": 42.184946899959996
+        },
+        {
+          "run": "261-multi-es-en-gato-openai-selected",
+          "video_s": 42.2089236001
+        },
+        {
+          "run": "268-multi-en-de-seal-openai-selected",
+          "video_s": 42.217076299969996
+        },
+        {
+          "run": "271-multi-en-ja-bat-openai-selected",
+          "video_s": 42.2277315999
+        },
+        {
+          "run": "274-multi-en-ja-pitch-openai-selected",
+          "video_s": 42.21866669998
+        },
+        {
+          "run": "284-czech-en-cs-nail-openai-selected",
+          "video_s": 42.211075700049996
+        },
+        {
+          "run": "287-czech-en-cs-ash-name-openai-selected",
+          "video_s": 42.16351840003
+        },
+        {
+          "run": "290-multi-ja-cs-code-openai-selected",
+          "video_s": 42.2266382001
+        },
+        {
+          "run": "300-czech-en-cs-crane-openai-selected",
+          "video_s": 42.19278410002
+        }
+      ],
+      "plate": {
+        "intervals": 75,
+        "ocr_seen": 75,
+        "displayed": 0
+      },
+      "ui_label": {
+        "intervals": 75,
+        "ocr_seen": 75,
+        "displayed": 31
+      },
+      "topic_b_cue_presence": [
+        {
+          "run": "002-czech-en-cs-unchanged-openai-selected",
+          "both_verbatim_topic_b_lines_in_first_request": true
+        },
+        {
+          "run": "005-multi-en-es-charge-openai-selected",
+          "both_verbatim_topic_b_lines_in_first_request": true
+        },
+        {
+          "run": "012-multi-ja-en-sensei-openai-selected",
+          "both_verbatim_topic_b_lines_in_first_request": true
+        },
+        {
+          "run": "015-czech-en-cs-shot-openai-selected",
+          "both_verbatim_topic_b_lines_in_first_request": true
+        },
+        {
+          "run": "018-multi-en-es-pitch-openai-selected",
+          "both_verbatim_topic_b_lines_in_first_request": true
+        },
+        {
+          "run": "021-multi-ja-cs-one-more-openai-selected",
+          "both_verbatim_topic_b_lines_in_first_request": false
+        },
+        {
+          "run": "028-czech-en-cs-mouse-openai-selected",
+          "both_verbatim_topic_b_lines_in_first_request": true
+        },
+        {
+          "run": "031-multi-en-de-pitch-openai-selected",
+          "both_verbatim_topic_b_lines_in_first_request": true
+        },
+        {
+          "run": "034-multi-de-en-leiter-openai-selected",
+          "both_verbatim_topic_b_lines_in_first_request": true
+        },
+        {
+          "run": "037-czech-en-cs-bow-openai-selected",
+          "both_verbatim_topic_b_lines_in_first_request": true
+        },
+        {
+          "run": "044-czech-en-cs-date-openai-selected",
+          "both_verbatim_topic_b_lines_in_first_request": true
+        },
+        {
+          "run": "047-multi-ja-en-one-more-openai-selected",
+          "both_verbatim_topic_b_lines_in_first_request": false
+        },
+        {
+          "run": "050-multi-en-de-bank-openai-selected",
+          "both_verbatim_topic_b_lines_in_first_request": true
+        },
+        {
+          "run": "053-multi-en-fr-bat-openai-selected",
+          "both_verbatim_topic_b_lines_in_first_request": true
+        },
+        {
+          "run": "060-multi-de-en-schloss-openai-selected",
+          "both_verbatim_topic_b_lines_in_first_request": true
+        },
+        {
+          "run": "063-czech-en-cs-light-openai-selected",
+          "both_verbatim_topic_b_lines_in_first_request": true
+        },
+        {
+          "run": "066-multi-cs-ja-pero-openai-selected",
+          "both_verbatim_topic_b_lines_in_first_request": false
+        },
+        {
+          "run": "069-multi-ja-en-code-openai-selected",
+          "both_verbatim_topic_b_lines_in_first_request": true
+        },
+        {
+          "run": "076-multi-en-ja-charge-openai-selected",
+          "both_verbatim_topic_b_lines_in_first_request": true
+        },
+        {
+          "run": "079-multi-ja-en-kakete-openai-selected",
+          "both_verbatim_topic_b_lines_in_first_request": true
+        },
+        {
+          "run": "082-multi-de-en-bank-openai-selected",
+          "both_verbatim_topic_b_lines_in_first_request": true
+        },
+        {
+          "run": "085-multi-fr-en-avocat-openai-selected",
+          "both_verbatim_topic_b_lines_in_first_request": true
+        },
+        {
+          "run": "092-multi-fr-en-livre-openai-selected",
+          "both_verbatim_topic_b_lines_in_first_request": true
+        },
+        {
+          "run": "095-czech-en-cs-club-openai-selected",
+          "both_verbatim_topic_b_lines_in_first_request": true
+        },
+        {
+          "run": "098-czech-en-cs-charge-openai-selected",
+          "both_verbatim_topic_b_lines_in_first_request": true
+        },
+        {
+          "run": "101-multi-ja-en-tape-openai-selected",
+          "both_verbatim_topic_b_lines_in_first_request": true
+        },
+        {
+          "run": "108-multi-fr-en-manche-openai-selected",
+          "both_verbatim_topic_b_lines_in_first_request": true
+        },
+        {
+          "run": "111-multi-de-en-gericht-openai-selected",
+          "both_verbatim_topic_b_lines_in_first_request": true
+        },
+        {
+          "run": "114-multi-ja-cs-kakete-openai-selected",
+          "both_verbatim_topic_b_lines_in_first_request": true
+        },
+        {
+          "run": "117-multi-en-de-bat-openai-selected",
+          "both_verbatim_topic_b_lines_in_first_request": true
+        },
+        {
+          "run": "124-czech-en-cs-jam-openai-selected",
+          "both_verbatim_topic_b_lines_in_first_request": true
+        },
+        {
+          "run": "127-czech-en-cs-match-openai-selected",
+          "both_verbatim_topic_b_lines_in_first_request": true
+        },
+        {
+          "run": "130-czech-en-cs-alex-gender-openai-selected",
+          "both_verbatim_topic_b_lines_in_first_request": true
+        },
+        {
+          "run": "133-multi-es-en-planta-openai-selected",
+          "both_verbatim_topic_b_lines_in_first_request": true
+        },
+        {
+          "run": "140-multi-en-fr-seal-openai-selected",
+          "both_verbatim_topic_b_lines_in_first_request": true
+        },
+        {
+          "run": "143-multi-es-en-banco-openai-selected",
+          "both_verbatim_topic_b_lines_in_first_request": true
+        },
+        {
+          "run": "146-multi-en-es-bat-openai-selected",
+          "both_verbatim_topic_b_lines_in_first_request": true
+        },
+        {
+          "run": "149-multi-es-en-vela-openai-selected",
+          "both_verbatim_topic_b_lines_in_first_request": true
+        },
+        {
+          "run": "156-multi-es-en-cola-openai-selected",
+          "both_verbatim_topic_b_lines_in_first_request": true
+        },
+        {
+          "run": "159-multi-cs-ja-zamek-openai-selected",
+          "both_verbatim_topic_b_lines_in_first_request": false
+        },
+        {
+          "run": "162-multi-en-de-charge-openai-selected",
+          "both_verbatim_topic_b_lines_in_first_request": true
+        },
+        {
+          "run": "165-czech-en-cs-bat-openai-selected",
+          "both_verbatim_topic_b_lines_in_first_request": true
+        },
+        {
+          "run": "172-czech-en-cs-case-openai-selected",
+          "both_verbatim_topic_b_lines_in_first_request": true
+        },
+        {
+          "run": "175-multi-en-ja-seal-openai-selected",
+          "both_verbatim_topic_b_lines_in_first_request": true
+        },
+        {
+          "run": "178-czech-en-cs-trunk-openai-selected",
+          "both_verbatim_topic_b_lines_in_first_request": true
+        },
+        {
+          "run": "181-czech-en-cs-seal-openai-selected",
+          "both_verbatim_topic_b_lines_in_first_request": true
+        },
+        {
+          "run": "188-multi-en-es-bank-openai-selected",
+          "both_verbatim_topic_b_lines_in_first_request": true
+        },
+        {
+          "run": "191-multi-ja-cs-tape-openai-selected",
+          "both_verbatim_topic_b_lines_in_first_request": true
+        },
+        {
+          "run": "194-multi-cs-ja-kolej-openai-selected",
+          "both_verbatim_topic_b_lines_in_first_request": false
+        },
+        {
+          "run": "197-multi-fr-en-vol-openai-selected",
+          "both_verbatim_topic_b_lines_in_first_request": true
+        },
+        {
+          "run": "204-multi-de-en-kiefer-openai-selected",
+          "both_verbatim_topic_b_lines_in_first_request": true
+        },
+        {
+          "run": "207-multi-fr-en-piece-openai-selected",
+          "both_verbatim_topic_b_lines_in_first_request": true
+        },
+        {
+          "run": "210-czech-en-cs-port-openai-selected",
+          "both_verbatim_topic_b_lines_in_first_request": true
+        },
+        {
+          "run": "213-czech-en-cs-pitch-openai-selected",
+          "both_verbatim_topic_b_lines_in_first_request": true
+        },
+        {
+          "run": "220-multi-en-ja-bank-openai-selected",
+          "both_verbatim_topic_b_lines_in_first_request": true
+        },
+        {
+          "run": "223-czech-en-cs-bank-openai-selected",
+          "both_verbatim_topic_b_lines_in_first_request": true
+        },
+        {
+          "run": "226-czech-en-cs-mole-openai-selected",
+          "both_verbatim_topic_b_lines_in_first_request": true
+        },
+        {
+          "run": "229-multi-cs-ja-list-openai-selected",
+          "both_verbatim_topic_b_lines_in_first_request": false
+        },
+        {
+          "run": "236-multi-en-fr-pitch-openai-selected",
+          "both_verbatim_topic_b_lines_in_first_request": true
+        },
+        {
+          "run": "239-czech-en-cs-hoe-openai-selected",
+          "both_verbatim_topic_b_lines_in_first_request": true
+        },
+        {
+          "run": "242-multi-cs-ja-koruna-openai-selected",
+          "both_verbatim_topic_b_lines_in_first_request": false
+        },
+        {
+          "run": "245-multi-en-fr-bank-openai-selected",
+          "both_verbatim_topic_b_lines_in_first_request": true
+        },
+        {
+          "run": "252-czech-en-cs-draft-openai-selected",
+          "both_verbatim_topic_b_lines_in_first_request": true
+        },
+        {
+          "run": "255-czech-en-cs-spring-openai-selected",
+          "both_verbatim_topic_b_lines_in_first_request": true
+        },
+        {
+          "run": "258-multi-en-fr-charge-openai-selected",
+          "both_verbatim_topic_b_lines_in_first_request": true
+        },
+        {
+          "run": "261-multi-es-en-gato-openai-selected",
+          "both_verbatim_topic_b_lines_in_first_request": true
+        },
+        {
+          "run": "268-multi-en-de-seal-openai-selected",
+          "both_verbatim_topic_b_lines_in_first_request": true
+        },
+        {
+          "run": "271-multi-en-ja-bat-openai-selected",
+          "both_verbatim_topic_b_lines_in_first_request": true
+        },
+        {
+          "run": "274-multi-en-ja-pitch-openai-selected",
+          "both_verbatim_topic_b_lines_in_first_request": true
+        },
+        {
+          "run": "277-multi-en-es-seal-openai-selected",
+          "both_verbatim_topic_b_lines_in_first_request": true
+        },
+        {
+          "run": "284-czech-en-cs-nail-openai-selected",
+          "both_verbatim_topic_b_lines_in_first_request": true
+        },
+        {
+          "run": "287-czech-en-cs-ash-name-openai-selected",
+          "both_verbatim_topic_b_lines_in_first_request": true
+        },
+        {
+          "run": "290-multi-ja-cs-code-openai-selected",
+          "both_verbatim_topic_b_lines_in_first_request": true
+        },
+        {
+          "run": "293-multi-ja-cs-sensei-openai-selected",
+          "both_verbatim_topic_b_lines_in_first_request": true
+        },
+        {
+          "run": "300-czech-en-cs-crane-openai-selected",
+          "both_verbatim_topic_b_lines_in_first_request": true
+        }
+      ],
+      "memory_errors": [],
+      "readback_ms": {
+        "n": 225,
+        "p50": 21.68,
+        "p95": 35.562,
+        "mean": 23.212,
+        "max": 48.981
+      },
+      "timing_anchor_spread_ms": {
+        "n": 75,
+        "p50": 0.494,
+        "p95": 8.182,
+        "mean": 2.558,
+        "max": 12.117
+      }
+    },
+    "custom-off": {
+      "runs": 75,
+      "targets": 225,
+      "first_correct": 127,
+      "first_correct_on_time": 127,
+      "proof_correct": 127,
+      "proof_notes": {
+        "neutral": 23,
+        "ok": 87,
+        "wrong_sense": 81,
+        "wrong_gender": 3,
+        "missing": 3,
+        "awkward": 10,
+        "added": 1,
+        "partial": 7,
+        "grammar": 7,
+        "untranslated": 3
+      },
+      "ocr_targets_with_no_exact_read": 6,
+      "ocr_targets_never_observed": 0,
+      "ocr_errors_during_scene": [],
+      "ocr_errors_after_scene": [
+        {
+          "run": "003-czech-en-cs-unchanged-custom-off",
+          "video_s": 42.29782070019
+        },
+        {
+          "run": "006-multi-en-es-charge-custom-off",
+          "video_s": 42.18344209996
+        },
+        {
+          "run": "009-multi-ja-en-sensei-custom-off",
+          "video_s": 42.20710689995
+        },
+        {
+          "run": "016-czech-en-cs-shot-custom-off",
+          "video_s": 42.18349509999
+        },
+        {
+          "run": "019-multi-en-es-pitch-custom-off",
+          "video_s": 42.210334199920005
+        },
+        {
+          "run": "022-multi-ja-cs-one-more-custom-off",
+          "video_s": 42.20914829999
+        },
+        {
+          "run": "025-czech-en-cs-mouse-custom-off",
+          "video_s": 42.178359899979995
+        },
+        {
+          "run": "032-multi-en-de-pitch-custom-off",
+          "video_s": 42.216449199939994
+        },
+        {
+          "run": "035-multi-de-en-leiter-custom-off",
+          "video_s": 42.199256699989995
+        },
+        {
+          "run": "041-czech-en-cs-date-custom-off",
+          "video_s": 42.21915090014
+        },
+        {
+          "run": "048-multi-ja-en-one-more-custom-off",
+          "video_s": 42.155793300060004
+        },
+        {
+          "run": "051-multi-en-de-bank-custom-off",
+          "video_s": 42.21851119999
+        },
+        {
+          "run": "054-multi-en-fr-bat-custom-off",
+          "video_s": 42.17327369995
+        },
+        {
+          "run": "057-multi-de-en-schloss-custom-off",
+          "video_s": 42.21758760011
+        },
+        {
+          "run": "064-czech-en-cs-light-custom-off",
+          "video_s": 42.226517100100004
+        },
+        {
+          "run": "067-multi-cs-ja-pero-custom-off",
+          "video_s": 42.219732299970005
+        },
+        {
+          "run": "070-multi-ja-en-code-custom-off",
+          "video_s": 42.215181499829995
+        },
+        {
+          "run": "073-multi-en-ja-charge-custom-off",
+          "video_s": 42.19773210005
+        },
+        {
+          "run": "080-multi-ja-en-kakete-custom-off",
+          "video_s": 42.22928189998
+        },
+        {
+          "run": "083-multi-de-en-bank-custom-off",
+          "video_s": 42.23764960004
+        },
+        {
+          "run": "086-multi-fr-en-avocat-custom-off",
+          "video_s": 42.240582899850004
+        },
+        {
+          "run": "089-multi-fr-en-livre-custom-off",
+          "video_s": 42.22446709999999
+        },
+        {
+          "run": "096-czech-en-cs-club-custom-off",
+          "video_s": 42.23564519994
+        },
+        {
+          "run": "099-czech-en-cs-charge-custom-off",
+          "video_s": 42.189119699840006
+        },
+        {
+          "run": "102-multi-ja-en-tape-custom-off",
+          "video_s": 42.20853909996
+        },
+        {
+          "run": "105-multi-fr-en-manche-custom-off",
+          "video_s": 42.21159419986
+        },
+        {
+          "run": "112-multi-de-en-gericht-custom-off",
+          "video_s": 42.208344399910004
+        },
+        {
+          "run": "115-multi-ja-cs-kakete-custom-off",
+          "video_s": 42.22194330013
+        },
+        {
+          "run": "118-multi-en-de-bat-custom-off",
+          "video_s": 42.20880010004
+        },
+        {
+          "run": "121-czech-en-cs-jam-custom-off",
+          "video_s": 42.180147599819996
+        },
+        {
+          "run": "128-czech-en-cs-match-custom-off",
+          "video_s": 42.22500340006
+        },
+        {
+          "run": "131-czech-en-cs-alex-gender-custom-off",
+          "video_s": 42.24948330012
+        },
+        {
+          "run": "134-multi-es-en-planta-custom-off",
+          "video_s": 42.22673780017
+        },
+        {
+          "run": "137-multi-en-fr-seal-custom-off",
+          "video_s": 42.26811950003
+        },
+        {
+          "run": "147-multi-en-es-bat-custom-off",
+          "video_s": 42.223377000000006
+        },
+        {
+          "run": "150-multi-es-en-vela-custom-off",
+          "video_s": 42.21182189998
+        },
+        {
+          "run": "153-multi-es-en-cola-custom-off",
+          "video_s": 42.22081480013
+        },
+        {
+          "run": "160-multi-cs-ja-zamek-custom-off",
+          "video_s": 42.16937139989
+        },
+        {
+          "run": "166-czech-en-cs-bat-custom-off",
+          "video_s": 42.2038677
+        },
+        {
+          "run": "169-czech-en-cs-case-custom-off",
+          "video_s": 42.20813479992
+        },
+        {
+          "run": "176-multi-en-ja-seal-custom-off",
+          "video_s": 42.17213329985
+        },
+        {
+          "run": "179-czech-en-cs-trunk-custom-off",
+          "video_s": 42.2368157999
+        },
+        {
+          "run": "182-czech-en-cs-seal-custom-off",
+          "video_s": 42.20342689994
+        },
+        {
+          "run": "185-multi-en-es-bank-custom-off",
+          "video_s": 42.19873109988
+        },
+        {
+          "run": "192-multi-ja-cs-tape-custom-off",
+          "video_s": 42.204820000059996
+        },
+        {
+          "run": "195-multi-cs-ja-kolej-custom-off",
+          "video_s": 42.21426000015
+        },
+        {
+          "run": "198-multi-fr-en-vol-custom-off",
+          "video_s": 42.21868490002
+        },
+        {
+          "run": "208-multi-fr-en-piece-custom-off",
+          "video_s": 42.26095240001
+        },
+        {
+          "run": "211-czech-en-cs-port-custom-off",
+          "video_s": 42.22682280002
+        },
+        {
+          "run": "214-czech-en-cs-pitch-custom-off",
+          "video_s": 42.2051898
+        },
+        {
+          "run": "217-multi-en-ja-bank-custom-off",
+          "video_s": 42.20857880006999
+        },
+        {
+          "run": "224-czech-en-cs-bank-custom-off",
+          "video_s": 42.18593990009
+        },
+        {
+          "run": "227-czech-en-cs-mole-custom-off",
+          "video_s": 42.174753399960004
+        },
+        {
+          "run": "230-multi-cs-ja-list-custom-off",
+          "video_s": 42.196562599969994
+        },
+        {
+          "run": "233-multi-en-fr-pitch-custom-off",
+          "video_s": 42.221849599870005
+        },
+        {
+          "run": "240-czech-en-cs-hoe-custom-off",
+          "video_s": 42.224282000020004
+        },
+        {
+          "run": "243-multi-cs-ja-koruna-custom-off",
+          "video_s": 42.228541299919996
+        },
+        {
+          "run": "246-multi-en-fr-bank-custom-off",
+          "video_s": 42.231194599940004
+        },
+        {
+          "run": "249-czech-en-cs-draft-custom-off",
+          "video_s": 42.21446639982
+        },
+        {
+          "run": "256-czech-en-cs-spring-custom-off",
+          "video_s": 42.181155100039994
+        },
+        {
+          "run": "259-multi-en-fr-charge-custom-off",
+          "video_s": 42.17141500007
+        },
+        {
+          "run": "262-multi-es-en-gato-custom-off",
+          "video_s": 42.172023799870004
+        },
+        {
+          "run": "265-multi-en-de-seal-custom-off",
+          "video_s": 42.226547400049995
+        },
+        {
+          "run": "272-multi-en-ja-bat-custom-off",
+          "video_s": 42.15943950001999
+        },
+        {
+          "run": "278-multi-en-es-seal-custom-off",
+          "video_s": 42.237959199849996
+        },
+        {
+          "run": "281-czech-en-cs-nail-custom-off",
+          "video_s": 42.224263800029995
+        },
+        {
+          "run": "291-multi-ja-cs-code-custom-off",
+          "video_s": 42.20673449996
+        },
+        {
+          "run": "294-multi-ja-cs-sensei-custom-off",
+          "video_s": 42.230592400030005
+        }
+      ],
+      "plate": {
+        "intervals": 75,
+        "ocr_seen": 75,
+        "displayed": 0
+      },
+      "ui_label": {
+        "intervals": 75,
+        "ocr_seen": 75,
+        "displayed": 74
+      },
+      "topic_b_cue_presence": [
+        {
+          "run": "003-czech-en-cs-unchanged-custom-off",
+          "both_verbatim_topic_b_lines_in_first_request": false
+        },
+        {
+          "run": "006-multi-en-es-charge-custom-off",
+          "both_verbatim_topic_b_lines_in_first_request": false
+        },
+        {
+          "run": "009-multi-ja-en-sensei-custom-off",
+          "both_verbatim_topic_b_lines_in_first_request": false
+        },
+        {
+          "run": "016-czech-en-cs-shot-custom-off",
+          "both_verbatim_topic_b_lines_in_first_request": false
+        },
+        {
+          "run": "019-multi-en-es-pitch-custom-off",
+          "both_verbatim_topic_b_lines_in_first_request": false
+        },
+        {
+          "run": "022-multi-ja-cs-one-more-custom-off",
+          "both_verbatim_topic_b_lines_in_first_request": false
+        },
+        {
+          "run": "025-czech-en-cs-mouse-custom-off",
+          "both_verbatim_topic_b_lines_in_first_request": false
+        },
+        {
+          "run": "032-multi-en-de-pitch-custom-off",
+          "both_verbatim_topic_b_lines_in_first_request": false
+        },
+        {
+          "run": "035-multi-de-en-leiter-custom-off",
+          "both_verbatim_topic_b_lines_in_first_request": false
+        },
+        {
+          "run": "038-czech-en-cs-bow-custom-off",
+          "both_verbatim_topic_b_lines_in_first_request": false
+        },
+        {
+          "run": "041-czech-en-cs-date-custom-off",
+          "both_verbatim_topic_b_lines_in_first_request": false
+        },
+        {
+          "run": "048-multi-ja-en-one-more-custom-off",
+          "both_verbatim_topic_b_lines_in_first_request": false
+        },
+        {
+          "run": "051-multi-en-de-bank-custom-off",
+          "both_verbatim_topic_b_lines_in_first_request": false
+        },
+        {
+          "run": "054-multi-en-fr-bat-custom-off",
+          "both_verbatim_topic_b_lines_in_first_request": false
+        },
+        {
+          "run": "057-multi-de-en-schloss-custom-off",
+          "both_verbatim_topic_b_lines_in_first_request": false
+        },
+        {
+          "run": "064-czech-en-cs-light-custom-off",
+          "both_verbatim_topic_b_lines_in_first_request": false
+        },
+        {
+          "run": "067-multi-cs-ja-pero-custom-off",
+          "both_verbatim_topic_b_lines_in_first_request": false
+        },
+        {
+          "run": "070-multi-ja-en-code-custom-off",
+          "both_verbatim_topic_b_lines_in_first_request": false
+        },
+        {
+          "run": "073-multi-en-ja-charge-custom-off",
+          "both_verbatim_topic_b_lines_in_first_request": false
+        },
+        {
+          "run": "080-multi-ja-en-kakete-custom-off",
+          "both_verbatim_topic_b_lines_in_first_request": false
+        },
+        {
+          "run": "083-multi-de-en-bank-custom-off",
+          "both_verbatim_topic_b_lines_in_first_request": false
+        },
+        {
+          "run": "086-multi-fr-en-avocat-custom-off",
+          "both_verbatim_topic_b_lines_in_first_request": false
+        },
+        {
+          "run": "089-multi-fr-en-livre-custom-off",
+          "both_verbatim_topic_b_lines_in_first_request": false
+        },
+        {
+          "run": "096-czech-en-cs-club-custom-off",
+          "both_verbatim_topic_b_lines_in_first_request": false
+        },
+        {
+          "run": "099-czech-en-cs-charge-custom-off",
+          "both_verbatim_topic_b_lines_in_first_request": false
+        },
+        {
+          "run": "102-multi-ja-en-tape-custom-off",
+          "both_verbatim_topic_b_lines_in_first_request": false
+        },
+        {
+          "run": "105-multi-fr-en-manche-custom-off",
+          "both_verbatim_topic_b_lines_in_first_request": false
+        },
+        {
+          "run": "112-multi-de-en-gericht-custom-off",
+          "both_verbatim_topic_b_lines_in_first_request": false
+        },
+        {
+          "run": "115-multi-ja-cs-kakete-custom-off",
+          "both_verbatim_topic_b_lines_in_first_request": false
+        },
+        {
+          "run": "118-multi-en-de-bat-custom-off",
+          "both_verbatim_topic_b_lines_in_first_request": false
+        },
+        {
+          "run": "121-czech-en-cs-jam-custom-off",
+          "both_verbatim_topic_b_lines_in_first_request": false
+        },
+        {
+          "run": "128-czech-en-cs-match-custom-off",
+          "both_verbatim_topic_b_lines_in_first_request": false
+        },
+        {
+          "run": "131-czech-en-cs-alex-gender-custom-off",
+          "both_verbatim_topic_b_lines_in_first_request": false
+        },
+        {
+          "run": "134-multi-es-en-planta-custom-off",
+          "both_verbatim_topic_b_lines_in_first_request": false
+        },
+        {
+          "run": "137-multi-en-fr-seal-custom-off",
+          "both_verbatim_topic_b_lines_in_first_request": false
+        },
+        {
+          "run": "144-multi-es-en-banco-custom-off",
+          "both_verbatim_topic_b_lines_in_first_request": false
+        },
+        {
+          "run": "147-multi-en-es-bat-custom-off",
+          "both_verbatim_topic_b_lines_in_first_request": false
+        },
+        {
+          "run": "150-multi-es-en-vela-custom-off",
+          "both_verbatim_topic_b_lines_in_first_request": false
+        },
+        {
+          "run": "153-multi-es-en-cola-custom-off",
+          "both_verbatim_topic_b_lines_in_first_request": false
+        },
+        {
+          "run": "160-multi-cs-ja-zamek-custom-off",
+          "both_verbatim_topic_b_lines_in_first_request": false
+        },
+        {
+          "run": "163-multi-en-de-charge-custom-off",
+          "both_verbatim_topic_b_lines_in_first_request": false
+        },
+        {
+          "run": "166-czech-en-cs-bat-custom-off",
+          "both_verbatim_topic_b_lines_in_first_request": false
+        },
+        {
+          "run": "169-czech-en-cs-case-custom-off",
+          "both_verbatim_topic_b_lines_in_first_request": false
+        },
+        {
+          "run": "176-multi-en-ja-seal-custom-off",
+          "both_verbatim_topic_b_lines_in_first_request": false
+        },
+        {
+          "run": "179-czech-en-cs-trunk-custom-off",
+          "both_verbatim_topic_b_lines_in_first_request": false
+        },
+        {
+          "run": "182-czech-en-cs-seal-custom-off",
+          "both_verbatim_topic_b_lines_in_first_request": false
+        },
+        {
+          "run": "185-multi-en-es-bank-custom-off",
+          "both_verbatim_topic_b_lines_in_first_request": false
+        },
+        {
+          "run": "192-multi-ja-cs-tape-custom-off",
+          "both_verbatim_topic_b_lines_in_first_request": false
+        },
+        {
+          "run": "195-multi-cs-ja-kolej-custom-off",
+          "both_verbatim_topic_b_lines_in_first_request": false
+        },
+        {
+          "run": "198-multi-fr-en-vol-custom-off",
+          "both_verbatim_topic_b_lines_in_first_request": false
+        },
+        {
+          "run": "201-multi-de-en-kiefer-custom-off",
+          "both_verbatim_topic_b_lines_in_first_request": false
+        },
+        {
+          "run": "208-multi-fr-en-piece-custom-off",
+          "both_verbatim_topic_b_lines_in_first_request": false
+        },
+        {
+          "run": "211-czech-en-cs-port-custom-off",
+          "both_verbatim_topic_b_lines_in_first_request": false
+        },
+        {
+          "run": "214-czech-en-cs-pitch-custom-off",
+          "both_verbatim_topic_b_lines_in_first_request": false
+        },
+        {
+          "run": "217-multi-en-ja-bank-custom-off",
+          "both_verbatim_topic_b_lines_in_first_request": false
+        },
+        {
+          "run": "224-czech-en-cs-bank-custom-off",
+          "both_verbatim_topic_b_lines_in_first_request": false
+        },
+        {
+          "run": "227-czech-en-cs-mole-custom-off",
+          "both_verbatim_topic_b_lines_in_first_request": false
+        },
+        {
+          "run": "230-multi-cs-ja-list-custom-off",
+          "both_verbatim_topic_b_lines_in_first_request": false
+        },
+        {
+          "run": "233-multi-en-fr-pitch-custom-off",
+          "both_verbatim_topic_b_lines_in_first_request": false
+        },
+        {
+          "run": "240-czech-en-cs-hoe-custom-off",
+          "both_verbatim_topic_b_lines_in_first_request": false
+        },
+        {
+          "run": "243-multi-cs-ja-koruna-custom-off",
+          "both_verbatim_topic_b_lines_in_first_request": false
+        },
+        {
+          "run": "246-multi-en-fr-bank-custom-off",
+          "both_verbatim_topic_b_lines_in_first_request": false
+        },
+        {
+          "run": "249-czech-en-cs-draft-custom-off",
+          "both_verbatim_topic_b_lines_in_first_request": false
+        },
+        {
+          "run": "256-czech-en-cs-spring-custom-off",
+          "both_verbatim_topic_b_lines_in_first_request": false
+        },
+        {
+          "run": "259-multi-en-fr-charge-custom-off",
+          "both_verbatim_topic_b_lines_in_first_request": false
+        },
+        {
+          "run": "262-multi-es-en-gato-custom-off",
+          "both_verbatim_topic_b_lines_in_first_request": false
+        },
+        {
+          "run": "265-multi-en-de-seal-custom-off",
+          "both_verbatim_topic_b_lines_in_first_request": false
+        },
+        {
+          "run": "272-multi-en-ja-bat-custom-off",
+          "both_verbatim_topic_b_lines_in_first_request": false
+        },
+        {
+          "run": "275-multi-en-ja-pitch-custom-off",
+          "both_verbatim_topic_b_lines_in_first_request": false
+        },
+        {
+          "run": "278-multi-en-es-seal-custom-off",
+          "both_verbatim_topic_b_lines_in_first_request": false
+        },
+        {
+          "run": "281-czech-en-cs-nail-custom-off",
+          "both_verbatim_topic_b_lines_in_first_request": false
+        },
+        {
+          "run": "288-czech-en-cs-ash-name-custom-off",
+          "both_verbatim_topic_b_lines_in_first_request": false
+        },
+        {
+          "run": "291-multi-ja-cs-code-custom-off",
+          "both_verbatim_topic_b_lines_in_first_request": false
+        },
+        {
+          "run": "294-multi-ja-cs-sensei-custom-off",
+          "both_verbatim_topic_b_lines_in_first_request": false
+        },
+        {
+          "run": "297-czech-en-cs-crane-custom-off",
+          "both_verbatim_topic_b_lines_in_first_request": false
+        }
+      ],
+      "memory_errors": [],
+      "readback_ms": {
+        "n": 225,
+        "p50": 20.994,
+        "p95": 31.917,
+        "mean": 22.552,
+        "max": 48.408
+      },
+      "timing_anchor_spread_ms": {
+        "n": 75,
+        "p50": 0.498,
+        "p95": 8.041,
+        "mean": 2.365,
+        "max": 9.123
+      }
+    },
+    "custom-selected": {
+      "runs": 75,
+      "targets": 225,
+      "first_correct": 170,
+      "first_correct_on_time": 170,
+      "proof_correct": 170,
+      "proof_notes": {
+        "neutral": 25,
+        "ok": 133,
+        "wrong_sense": 47,
+        "grammar": 6,
+        "awkward": 6,
+        "partial": 3,
+        "untranslated": 5
+      },
+      "ocr_targets_with_no_exact_read": 7,
+      "ocr_targets_never_observed": 0,
+      "ocr_errors_during_scene": [],
+      "ocr_errors_after_scene": [
+        {
+          "run": "004-czech-en-cs-unchanged-custom-selected",
+          "video_s": 42.19698890013
+        },
+        {
+          "run": "007-multi-en-es-charge-custom-selected",
+          "video_s": 42.218762400020005
+        },
+        {
+          "run": "010-multi-ja-en-sensei-custom-selected",
+          "video_s": 42.18819409983
+        },
+        {
+          "run": "020-multi-en-es-pitch-custom-selected",
+          "video_s": 42.22053900014
+        },
+        {
+          "run": "026-czech-en-cs-mouse-custom-selected",
+          "video_s": 42.16605759999
+        },
+        {
+          "run": "036-multi-de-en-leiter-custom-selected",
+          "video_s": 42.187399500039994
+        },
+        {
+          "run": "039-czech-en-cs-bow-custom-selected",
+          "video_s": 42.18033590017
+        },
+        {
+          "run": "042-czech-en-cs-date-custom-selected",
+          "video_s": 42.20393129987
+        },
+        {
+          "run": "045-multi-ja-en-one-more-custom-selected",
+          "video_s": 42.232496300120005
+        },
+        {
+          "run": "052-multi-en-de-bank-custom-selected",
+          "video_s": 42.18780330008
+        },
+        {
+          "run": "058-multi-de-en-schloss-custom-selected",
+          "video_s": 42.20184060005
+        },
+        {
+          "run": "068-multi-cs-ja-pero-custom-selected",
+          "video_s": 42.26050079998
+        },
+        {
+          "run": "071-multi-ja-en-code-custom-selected",
+          "video_s": 42.21560710014
+        },
+        {
+          "run": "074-multi-en-ja-charge-custom-selected",
+          "video_s": 42.2154043001
+        },
+        {
+          "run": "077-multi-ja-en-kakete-custom-selected",
+          "video_s": 42.229706599889994
+        },
+        {
+          "run": "084-multi-de-en-bank-custom-selected",
+          "video_s": 42.22819919994
+        },
+        {
+          "run": "087-multi-fr-en-avocat-custom-selected",
+          "video_s": 42.194299699869994
+        },
+        {
+          "run": "090-multi-fr-en-livre-custom-selected",
+          "video_s": 42.22456200002
+        },
+        {
+          "run": "093-czech-en-cs-club-custom-selected",
+          "video_s": 42.23752070002
+        },
+        {
+          "run": "106-multi-fr-en-manche-custom-selected",
+          "video_s": 42.211792099810005
+        },
+        {
+          "run": "109-multi-de-en-gericht-custom-selected",
+          "video_s": 42.2019467
+        },
+        {
+          "run": "116-multi-ja-cs-kakete-custom-selected",
+          "video_s": 42.18485439997
+        },
+        {
+          "run": "119-multi-en-de-bat-custom-selected",
+          "video_s": 42.25362010005001
+        },
+        {
+          "run": "125-czech-en-cs-match-custom-selected",
+          "video_s": 42.2594732999
+        },
+        {
+          "run": "132-czech-en-cs-alex-gender-custom-selected",
+          "video_s": 42.2118189999
+        },
+        {
+          "run": "135-multi-es-en-planta-custom-selected",
+          "video_s": 42.20044500014001
+        },
+        {
+          "run": "138-multi-en-fr-seal-custom-selected",
+          "video_s": 42.23178550022
+        },
+        {
+          "run": "148-multi-en-es-bat-custom-selected",
+          "video_s": 42.198093800100004
+        },
+        {
+          "run": "151-multi-es-en-vela-custom-selected",
+          "video_s": 42.21623779995
+        },
+        {
+          "run": "154-multi-es-en-cola-custom-selected",
+          "video_s": 42.200031499889995
+        },
+        {
+          "run": "157-multi-cs-ja-zamek-custom-selected",
+          "video_s": 42.26263259995999
+        },
+        {
+          "run": "164-multi-en-de-charge-custom-selected",
+          "video_s": 42.247018899859995
+        },
+        {
+          "run": "167-czech-en-cs-bat-custom-selected",
+          "video_s": 42.21298440009
+        },
+        {
+          "run": "170-czech-en-cs-case-custom-selected",
+          "video_s": 42.19191339988
+        },
+        {
+          "run": "173-multi-en-ja-seal-custom-selected",
+          "video_s": 42.207435899989996
+        },
+        {
+          "run": "180-czech-en-cs-trunk-custom-selected",
+          "video_s": 42.1923605
+        },
+        {
+          "run": "183-czech-en-cs-seal-custom-selected",
+          "video_s": 42.16600279998
+        },
+        {
+          "run": "189-multi-ja-cs-tape-custom-selected",
+          "video_s": 42.16312640012
+        },
+        {
+          "run": "199-multi-fr-en-vol-custom-selected",
+          "video_s": 42.19871760004
+        },
+        {
+          "run": "202-multi-de-en-kiefer-custom-selected",
+          "video_s": 42.20380629993
+        },
+        {
+          "run": "205-multi-fr-en-piece-custom-selected",
+          "video_s": 42.21830809993
+        },
+        {
+          "run": "212-czech-en-cs-port-custom-selected",
+          "video_s": 42.19278450016
+        },
+        {
+          "run": "215-czech-en-cs-pitch-custom-selected",
+          "video_s": 42.24103240009
+        },
+        {
+          "run": "218-multi-en-ja-bank-custom-selected",
+          "video_s": 42.24029419994999
+        },
+        {
+          "run": "228-czech-en-cs-mole-custom-selected",
+          "video_s": 42.19707729996
+        },
+        {
+          "run": "231-multi-cs-ja-list-custom-selected",
+          "video_s": 42.196733300039995
+        },
+        {
+          "run": "237-czech-en-cs-hoe-custom-selected",
+          "video_s": 42.22443230017
+        },
+        {
+          "run": "244-multi-cs-ja-koruna-custom-selected",
+          "video_s": 42.21092590008
+        },
+        {
+          "run": "247-multi-en-fr-bank-custom-selected",
+          "video_s": 42.1659722999
+        },
+        {
+          "run": "260-multi-en-fr-charge-custom-selected",
+          "video_s": 42.16728160016
+        },
+        {
+          "run": "263-multi-es-en-gato-custom-selected",
+          "video_s": 42.24376429997
+        },
+        {
+          "run": "266-multi-en-de-seal-custom-selected",
+          "video_s": 42.2078428999
+        },
+        {
+          "run": "269-multi-en-ja-bat-custom-selected",
+          "video_s": 42.19123549992
+        },
+        {
+          "run": "276-multi-en-ja-pitch-custom-selected",
+          "video_s": 42.186388699910005
+        },
+        {
+          "run": "282-czech-en-cs-nail-custom-selected",
+          "video_s": 42.21258879999
+        },
+        {
+          "run": "285-czech-en-cs-ash-name-custom-selected",
+          "video_s": 42.20895070014
+        },
+        {
+          "run": "292-multi-ja-cs-code-custom-selected",
+          "video_s": 42.21132419995
+        },
+        {
+          "run": "295-multi-ja-cs-sensei-custom-selected",
+          "video_s": 42.19424999991
+        },
+        {
+          "run": "298-czech-en-cs-crane-custom-selected",
+          "video_s": 42.17980819995
+        }
+      ],
+      "plate": {
+        "intervals": 75,
+        "ocr_seen": 75,
+        "displayed": 0
+      },
+      "ui_label": {
+        "intervals": 75,
+        "ocr_seen": 75,
+        "displayed": 75
+      },
+      "topic_b_cue_presence": [
+        {
+          "run": "004-czech-en-cs-unchanged-custom-selected",
+          "both_verbatim_topic_b_lines_in_first_request": true
+        },
+        {
+          "run": "007-multi-en-es-charge-custom-selected",
+          "both_verbatim_topic_b_lines_in_first_request": true
+        },
+        {
+          "run": "010-multi-ja-en-sensei-custom-selected",
+          "both_verbatim_topic_b_lines_in_first_request": true
+        },
+        {
+          "run": "013-czech-en-cs-shot-custom-selected",
+          "both_verbatim_topic_b_lines_in_first_request": true
+        },
+        {
+          "run": "020-multi-en-es-pitch-custom-selected",
+          "both_verbatim_topic_b_lines_in_first_request": true
+        },
+        {
+          "run": "023-multi-ja-cs-one-more-custom-selected",
+          "both_verbatim_topic_b_lines_in_first_request": false
+        },
+        {
+          "run": "026-czech-en-cs-mouse-custom-selected",
+          "both_verbatim_topic_b_lines_in_first_request": true
+        },
+        {
+          "run": "029-multi-en-de-pitch-custom-selected",
+          "both_verbatim_topic_b_lines_in_first_request": true
+        },
+        {
+          "run": "036-multi-de-en-leiter-custom-selected",
+          "both_verbatim_topic_b_lines_in_first_request": true
+        },
+        {
+          "run": "039-czech-en-cs-bow-custom-selected",
+          "both_verbatim_topic_b_lines_in_first_request": true
+        },
+        {
+          "run": "042-czech-en-cs-date-custom-selected",
+          "both_verbatim_topic_b_lines_in_first_request": true
+        },
+        {
+          "run": "045-multi-ja-en-one-more-custom-selected",
+          "both_verbatim_topic_b_lines_in_first_request": false
+        },
+        {
+          "run": "052-multi-en-de-bank-custom-selected",
+          "both_verbatim_topic_b_lines_in_first_request": true
+        },
+        {
+          "run": "055-multi-en-fr-bat-custom-selected",
+          "both_verbatim_topic_b_lines_in_first_request": true
+        },
+        {
+          "run": "058-multi-de-en-schloss-custom-selected",
+          "both_verbatim_topic_b_lines_in_first_request": true
+        },
+        {
+          "run": "061-czech-en-cs-light-custom-selected",
+          "both_verbatim_topic_b_lines_in_first_request": true
+        },
+        {
+          "run": "068-multi-cs-ja-pero-custom-selected",
+          "both_verbatim_topic_b_lines_in_first_request": false
+        },
+        {
+          "run": "071-multi-ja-en-code-custom-selected",
+          "both_verbatim_topic_b_lines_in_first_request": true
+        },
+        {
+          "run": "074-multi-en-ja-charge-custom-selected",
+          "both_verbatim_topic_b_lines_in_first_request": true
+        },
+        {
+          "run": "077-multi-ja-en-kakete-custom-selected",
+          "both_verbatim_topic_b_lines_in_first_request": true
+        },
+        {
+          "run": "084-multi-de-en-bank-custom-selected",
+          "both_verbatim_topic_b_lines_in_first_request": true
+        },
+        {
+          "run": "087-multi-fr-en-avocat-custom-selected",
+          "both_verbatim_topic_b_lines_in_first_request": true
+        },
+        {
+          "run": "090-multi-fr-en-livre-custom-selected",
+          "both_verbatim_topic_b_lines_in_first_request": true
+        },
+        {
+          "run": "093-czech-en-cs-club-custom-selected",
+          "both_verbatim_topic_b_lines_in_first_request": true
+        },
+        {
+          "run": "100-czech-en-cs-charge-custom-selected",
+          "both_verbatim_topic_b_lines_in_first_request": true
+        },
+        {
+          "run": "103-multi-ja-en-tape-custom-selected",
+          "both_verbatim_topic_b_lines_in_first_request": true
+        },
+        {
+          "run": "106-multi-fr-en-manche-custom-selected",
+          "both_verbatim_topic_b_lines_in_first_request": true
+        },
+        {
+          "run": "109-multi-de-en-gericht-custom-selected",
+          "both_verbatim_topic_b_lines_in_first_request": true
+        },
+        {
+          "run": "116-multi-ja-cs-kakete-custom-selected",
+          "both_verbatim_topic_b_lines_in_first_request": true
+        },
+        {
+          "run": "119-multi-en-de-bat-custom-selected",
+          "both_verbatim_topic_b_lines_in_first_request": true
+        },
+        {
+          "run": "122-czech-en-cs-jam-custom-selected",
+          "both_verbatim_topic_b_lines_in_first_request": true
+        },
+        {
+          "run": "125-czech-en-cs-match-custom-selected",
+          "both_verbatim_topic_b_lines_in_first_request": true
+        },
+        {
+          "run": "132-czech-en-cs-alex-gender-custom-selected",
+          "both_verbatim_topic_b_lines_in_first_request": true
+        },
+        {
+          "run": "135-multi-es-en-planta-custom-selected",
+          "both_verbatim_topic_b_lines_in_first_request": true
+        },
+        {
+          "run": "138-multi-en-fr-seal-custom-selected",
+          "both_verbatim_topic_b_lines_in_first_request": true
+        },
+        {
+          "run": "141-multi-es-en-banco-custom-selected",
+          "both_verbatim_topic_b_lines_in_first_request": true
+        },
+        {
+          "run": "148-multi-en-es-bat-custom-selected",
+          "both_verbatim_topic_b_lines_in_first_request": true
+        },
+        {
+          "run": "151-multi-es-en-vela-custom-selected",
+          "both_verbatim_topic_b_lines_in_first_request": true
+        },
+        {
+          "run": "154-multi-es-en-cola-custom-selected",
+          "both_verbatim_topic_b_lines_in_first_request": true
+        },
+        {
+          "run": "157-multi-cs-ja-zamek-custom-selected",
+          "both_verbatim_topic_b_lines_in_first_request": false
+        },
+        {
+          "run": "164-multi-en-de-charge-custom-selected",
+          "both_verbatim_topic_b_lines_in_first_request": true
+        },
+        {
+          "run": "167-czech-en-cs-bat-custom-selected",
+          "both_verbatim_topic_b_lines_in_first_request": true
+        },
+        {
+          "run": "170-czech-en-cs-case-custom-selected",
+          "both_verbatim_topic_b_lines_in_first_request": true
+        },
+        {
+          "run": "173-multi-en-ja-seal-custom-selected",
+          "both_verbatim_topic_b_lines_in_first_request": true
+        },
+        {
+          "run": "180-czech-en-cs-trunk-custom-selected",
+          "both_verbatim_topic_b_lines_in_first_request": true
+        },
+        {
+          "run": "183-czech-en-cs-seal-custom-selected",
+          "both_verbatim_topic_b_lines_in_first_request": true
+        },
+        {
+          "run": "186-multi-en-es-bank-custom-selected",
+          "both_verbatim_topic_b_lines_in_first_request": true
+        },
+        {
+          "run": "189-multi-ja-cs-tape-custom-selected",
+          "both_verbatim_topic_b_lines_in_first_request": true
+        },
+        {
+          "run": "196-multi-cs-ja-kolej-custom-selected",
+          "both_verbatim_topic_b_lines_in_first_request": false
+        },
+        {
+          "run": "199-multi-fr-en-vol-custom-selected",
+          "both_verbatim_topic_b_lines_in_first_request": true
+        },
+        {
+          "run": "202-multi-de-en-kiefer-custom-selected",
+          "both_verbatim_topic_b_lines_in_first_request": true
+        },
+        {
+          "run": "205-multi-fr-en-piece-custom-selected",
+          "both_verbatim_topic_b_lines_in_first_request": true
+        },
+        {
+          "run": "212-czech-en-cs-port-custom-selected",
+          "both_verbatim_topic_b_lines_in_first_request": true
+        },
+        {
+          "run": "215-czech-en-cs-pitch-custom-selected",
+          "both_verbatim_topic_b_lines_in_first_request": true
+        },
+        {
+          "run": "218-multi-en-ja-bank-custom-selected",
+          "both_verbatim_topic_b_lines_in_first_request": true
+        },
+        {
+          "run": "221-czech-en-cs-bank-custom-selected",
+          "both_verbatim_topic_b_lines_in_first_request": true
+        },
+        {
+          "run": "228-czech-en-cs-mole-custom-selected",
+          "both_verbatim_topic_b_lines_in_first_request": true
+        },
+        {
+          "run": "231-multi-cs-ja-list-custom-selected",
+          "both_verbatim_topic_b_lines_in_first_request": false
+        },
+        {
+          "run": "234-multi-en-fr-pitch-custom-selected",
+          "both_verbatim_topic_b_lines_in_first_request": true
+        },
+        {
+          "run": "237-czech-en-cs-hoe-custom-selected",
+          "both_verbatim_topic_b_lines_in_first_request": true
+        },
+        {
+          "run": "244-multi-cs-ja-koruna-custom-selected",
+          "both_verbatim_topic_b_lines_in_first_request": false
+        },
+        {
+          "run": "247-multi-en-fr-bank-custom-selected",
+          "both_verbatim_topic_b_lines_in_first_request": true
+        },
+        {
+          "run": "250-czech-en-cs-draft-custom-selected",
+          "both_verbatim_topic_b_lines_in_first_request": true
+        },
+        {
+          "run": "253-czech-en-cs-spring-custom-selected",
+          "both_verbatim_topic_b_lines_in_first_request": true
+        },
+        {
+          "run": "260-multi-en-fr-charge-custom-selected",
+          "both_verbatim_topic_b_lines_in_first_request": true
+        },
+        {
+          "run": "263-multi-es-en-gato-custom-selected",
+          "both_verbatim_topic_b_lines_in_first_request": true
+        },
+        {
+          "run": "266-multi-en-de-seal-custom-selected",
+          "both_verbatim_topic_b_lines_in_first_request": true
+        },
+        {
+          "run": "269-multi-en-ja-bat-custom-selected",
+          "both_verbatim_topic_b_lines_in_first_request": true
+        },
+        {
+          "run": "276-multi-en-ja-pitch-custom-selected",
+          "both_verbatim_topic_b_lines_in_first_request": true
+        },
+        {
+          "run": "279-multi-en-es-seal-custom-selected",
+          "both_verbatim_topic_b_lines_in_first_request": true
+        },
+        {
+          "run": "282-czech-en-cs-nail-custom-selected",
+          "both_verbatim_topic_b_lines_in_first_request": true
+        },
+        {
+          "run": "285-czech-en-cs-ash-name-custom-selected",
+          "both_verbatim_topic_b_lines_in_first_request": true
+        },
+        {
+          "run": "292-multi-ja-cs-code-custom-selected",
+          "both_verbatim_topic_b_lines_in_first_request": true
+        },
+        {
+          "run": "295-multi-ja-cs-sensei-custom-selected",
+          "both_verbatim_topic_b_lines_in_first_request": true
+        },
+        {
+          "run": "298-czech-en-cs-crane-custom-selected",
+          "both_verbatim_topic_b_lines_in_first_request": true
+        }
+      ],
+      "memory_errors": [
+        {
+          "run": "116-multi-ja-cs-kakete-custom-selected",
+          "error": "Memory cites unknown observation"
+        }
+      ],
+      "readback_ms": {
+        "n": 225,
+        "p50": 21.78,
+        "p95": 35.729,
+        "mean": 23.246,
+        "max": 47.855
+      },
+      "timing_anchor_spread_ms": {
+        "n": 75,
+        "p50": 0.571,
+        "p95": 8.01,
+        "mean": 2.536,
+        "max": 9.481
+      }
+    }
+  },
+  "auxiliary_activity": [
+    {
+      "activity": "First interim evidence publication; LAN upload and hashing may affect concurrent latency. No further evidence upload planned during main batch.",
+      "start_utc": "2026-11-24T21:58:48Z",
+      "end_utc": "2026-11-24T22:00:06.702921+00:00"
+    }
+  ],
+  "notes": [
+    "Semantic results use direct Codex judgements, never keyword or reference matching.",
+    "OCR exact-read diagnostics normalize Unicode, case and punctuation; they are not semantic accuracy.",
+    "UI labels can be legitimate commands; their translation is not automatically a false positive.",
+    "Post-scene OCR errors are separated because shutdown cancellation can raise them.",
+    "Both topic cues present checks verbatim normalized OCR only; a miss does not establish that no equivalent context was supplied."
+  ]
+}

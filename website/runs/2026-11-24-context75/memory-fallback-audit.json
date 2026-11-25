@@ -1,0 +1,15 @@
+{
+  "run": "116-multi-ja-cs-kakete-custom-selected",
+  "error_message": "Memory cites unknown observation",
+  "evidence_counts": [
+    1,
+    5
+  ],
+  "allowed_per_fact": 4,
+  "unknown_ids": [],
+  "detected_at_video_s": 27.35211869997,
+  "source_caption": "この曲の最初の部分を聴き逃した。",
+  "target_b_after_fallback": "Pusť to znovu.",
+  "explanation_cs": "Model uvedl pět existujících citací u jednoho tvrzení, ale parser dovoluje nejvýše čtyři. Hlášení unknown observation je nepřesné; žádné ID zde není neznámé. Dlouhá paměť se zastavila a titulek B se přeložil s krátkou historií. Tento úspěch B nelze přičítat vybraným dlouhodobým replikám.",
+  "explanation_en": "The model supplied five existing citations for one fact, while the parser permits at most four. The unknown observation message is imprecise; no ID here is unknown. Long memory stopped and target B was translated with recent-history fallback. That B success cannot be attributed to selected long-term evidence."
+}

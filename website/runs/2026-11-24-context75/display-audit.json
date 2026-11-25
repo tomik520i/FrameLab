@@ -1,0 +1,81 @@
+{
+  "run": "005-multi-en-es-charge-openai-selected",
+  "framebuffer_sizes": [
+    {
+      "width": 1920,
+      "height": 1080,
+      "count": 898
+    },
+    {
+      "width": 1462,
+      "height": 853,
+      "count": 2
+    }
+  ],
+  "affected_proofs": [
+    1,
+    2
+  ],
+  "all_900_png_hashes_match_indexes": true,
+  "all_900_png_hashes_match_public_manifest": true,
+  "remaining_299_runs_all_samples_fullscreen": true,
+  "primary_includes_run": true,
+  "sensitivity": {
+    "luna_memory_on_all": {
+      "runs": 75,
+      "targets": 225,
+      "correct": 162,
+      "percent": 72.0,
+      "capture_to_display_ms": {
+        "n": 225,
+        "p50": 1794.766,
+        "p95": 2479.441,
+        "mean": 1861.036,
+        "max": 4399.884
+      },
+      "output_fps": {
+        "n": 75,
+        "p50": 59.47,
+        "p95": 59.656,
+        "mean": 59.391,
+        "max": 59.666
+      },
+      "gpu_percent": {
+        "n": 75,
+        "p50": 39.897,
+        "p95": 40.429,
+        "mean": 39.849,
+        "max": 40.59
+      }
+    },
+    "luna_memory_on_without_run005": {
+      "runs": 74,
+      "targets": 222,
+      "correct": 160,
+      "percent": 72.07207207207207,
+      "capture_to_display_ms": {
+        "n": 222,
+        "p50": 1790.543,
+        "p95": 2486.033,
+        "mean": 1860.002,
+        "max": 4399.884
+      },
+      "output_fps": {
+        "n": 74,
+        "p50": 59.472,
+        "p95": 59.656,
+        "mean": 59.399,
+        "max": 59.666
+      },
+      "gpu_percent": {
+        "n": 74,
+        "p50": 39.897,
+        "p95": 40.432,
+        "mean": 39.844,
+        "max": 40.59
+      }
+    }
+  },
+  "explanation_cs": "Tento běh začal ve fullscreenu, ale poslední dva důkazní snímky jsou z okna 1462 × 853 s nastavením aplikace. Příčina přepnutí není v logu doložená. Oba titulky jsou čitelné; frame gen i NR dál běžely. Výsledek zůstává započítaný, obrázky nejsou oříznuté ani zvětšené. Ostatních 299 běhů má všechny vzorky v režimu fullscreen.",
+  "explanation_en": "This run started fullscreen, but the final two proof images show a 1462 × 853 application window with settings. The log does not establish why it switched. Both captions remain readable; frame generation and NR continued. The result is retained and images are neither cropped nor enlarged. All samples from the other 299 runs are fullscreen."
+}

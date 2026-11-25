@@ -11,6 +11,7 @@ const groups=[
   ['Generované snímky','Generated frames','showcase/#evidence','RIFE VFG optical flow FPS video'],
   ['Překlady mezi jazyky','Translations across languages','runs/2026-11-24-language-lab/','Japanese Czech čeština japonština Gemma'],
   ['Paměť rozhovoru','Conversation memory','runs/2026-11-24-context-memory/','history context kontext časy CUNI Luna Gemma server'],
+  ['75 scén v aplikaci: paměť a chyby','75 in-app scenes: memory & failures','runs/2026-11-24-context75/','context OCR filler latency Japanese čeština japonština 300'],
   ['500 překladů EN → CS','500 EN → CS translations','runs/2026-11-23-direct-review/','CUNI OpenAI OPUS skóre quality']]],
  ['Výsledky měření','Test results',[
   ['Přehled výsledků','Results overview','results/','FPS odezva latency score měření'],

@@ -1,0 +1,81 @@
+{
+  "overlapping_runs": [
+    "016-czech-en-cs-shot-custom-off",
+    "017-multi-en-es-pitch-openai-off",
+    "018-multi-en-es-pitch-openai-selected"
+  ],
+  "activity": [
+    {
+      "activity": "First interim evidence publication; LAN upload and hashing may affect concurrent latency. No further evidence upload planned during main batch.",
+      "start_utc": "2026-11-24T21:58:48Z",
+      "end_utc": "2026-11-24T22:00:06.702921+00:00"
+    }
+  ],
+  "latency_sensitivity": {
+    "openai-off": {
+      "all": {
+        "n": 224,
+        "p50": 1593.044,
+        "p95": 2575.929,
+        "mean": 1501.22,
+        "max": 5810.64
+      },
+      "excluding_upload_overlap": {
+        "n": 221,
+        "p50": 1590.79,
+        "p95": 2519.108,
+        "mean": 1480.377,
+        "max": 5394.434
+      }
+    },
+    "openai-selected": {
+      "all": {
+        "n": 225,
+        "p50": 1794.766,
+        "p95": 2479.441,
+        "mean": 1861.036,
+        "max": 4399.884
+      },
+      "excluding_upload_overlap": {
+        "n": 222,
+        "p50": 1790.543,
+        "p95": 2415.213,
+        "mean": 1845.789,
+        "max": 4399.884
+      }
+    },
+    "custom-off": {
+      "all": {
+        "n": 222,
+        "p50": 860.52,
+        "p95": 1329.711,
+        "mean": 860.674,
+        "max": 2215.628
+      },
+      "excluding_upload_overlap": {
+        "n": 219,
+        "p50": 862.181,
+        "p95": 1314.603,
+        "mean": 855.801,
+        "max": 1932.654
+      }
+    },
+    "custom-selected": {
+      "all": {
+        "n": 225,
+        "p50": 1085.15,
+        "p95": 1457.767,
+        "mean": 1108.916,
+        "max": 1677.625
+      },
+      "excluding_upload_overlap": {
+        "n": 225,
+        "p50": 1085.15,
+        "p95": 1457.767,
+        "mean": 1108.916,
+        "max": 1677.625
+      }
+    }
+  },
+  "note": "All runs remain in the primary results; this is a separately labelled sensitivity check."
+}

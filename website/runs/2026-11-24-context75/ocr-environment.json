@@ -1,0 +1,108 @@
+{
+  "collected_utc": "2026-11-25T01:51:05.089170+00:00",
+  "source_recognizers": {
+    "en": "en_PP-OCRv5_rec_mobile.onnx",
+    "cs": "latin_PP-OCRv5_rec_mobile.onnx",
+    "de": "latin_PP-OCRv5_rec_mobile.onnx",
+    "fr": "latin_PP-OCRv5_rec_mobile.onnx",
+    "es": "latin_PP-OCRv5_rec_mobile.onnx",
+    "ja": "ch_PP-OCRv5_rec_mobile.onnx"
+  },
+  "execution": "ONNX CPU; intra_op_num_threads=2, inter_op_num_threads=1; classification disabled",
+  "files": [
+    {
+      "file": "ocr_worker.py",
+      "bytes": 6432,
+      "sha256": "3b03d51da9d923cf108955e909c406d40995f430647de3cb51cd8215259b61fe"
+    },
+    {
+      "file": "ocr_style.py",
+      "bytes": 7454,
+      "sha256": "c409d8aa7a89c5426fae2da063e3aeb031cded1129099eb0de9e1be79c7e489e"
+    },
+    {
+      "file": "subtitle-languages.json",
+      "bytes": 7930,
+      "sha256": "308e452383276bbdcee1ee52f39c76128679bef49c377f092cc627ac21f266a7"
+    },
+    {
+      "file": "models/ch_PP-OCRv4_det_infer.onnx",
+      "bytes": 4745517,
+      "sha256": "d2a7720d45a54257208b1e13e36a8479894cb74155a5efe29462512d42f49da9"
+    },
+    {
+      "file": "models/ch_PP-OCRv5_rec_mobile.onnx",
+      "bytes": 16631306,
+      "sha256": "5825fc7ebf84ae7a412be049820b4d86d77620f204a041697b0494669b1742c5"
+    },
+    {
+      "file": "models/en_PP-OCRv5_rec_mobile.onnx",
+      "bytes": 7872351,
+      "sha256": "c3461add59bb4323ecba96a492ab75e06dda42467c9e3d0c18db5d1d21924be8"
+    },
+    {
+      "file": "models/latin_PP-OCRv5_rec_mobile.onnx",
+      "bytes": 7904513,
+      "sha256": "b20bd37c168a570f583afbc8cd7925603890efbcdc000a59e22c269d160b5f5a"
+    }
+  ],
+  "packages": [
+    {
+      "Name": "colorama",
+      "Version": "0.4.6"
+    },
+    {
+      "Name": "flatbuffers",
+      "Version": "25.12.19"
+    },
+    {
+      "Name": "numpy",
+      "Version": "2.4.6"
+    },
+    {
+      "Name": "onnxruntime",
+      "Version": "1.32.0"
+    },
+    {
+      "Name": "opencv-python",
+      "Version": "5.1.0.95"
+    },
+    {
+      "Name": "packaging",
+      "Version": "26.3"
+    },
+    {
+      "Name": "pillow",
+      "Version": "13.0.0"
+    },
+    {
+      "Name": "protobuf",
+      "Version": "7.36.2"
+    },
+    {
+      "Name": "pyclipper",
+      "Version": "1.4.0"
+    },
+    {
+      "Name": "PyYAML",
+      "Version": "6.0.3"
+    },
+    {
+      "Name": "rapidocr-onnxruntime",
+      "Version": "1.4.4"
+    },
+    {
+      "Name": "shapely",
+      "Version": "2.2.0"
+    },
+    {
+      "Name": "six",
+      "Version": "1.17.0"
+    },
+    {
+      "Name": "tqdm",
+      "Version": "4.70.1"
+    }
+  ],
+  "note": "Collected after the main batch. OCR source was not edited during the batch; these hashes were not independently monitored per run."
+}

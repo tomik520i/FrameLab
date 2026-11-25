@@ -1,0 +1,115 @@
+{
+  "source_language": "ja",
+  "rows": [
+    {
+      "index": 0,
+      "phase": "setup_a",
+      "text": "手術の結果は先生が説明してくれる。",
+      "start": 3.0,
+      "end": 6.0
+    },
+    {
+      "index": 1,
+      "phase": "setup_a",
+      "text": "診察室でその先生を待っている。",
+      "start": 6.0,
+      "end": 9.0
+    },
+    {
+      "index": 2,
+      "phase": "target_a",
+      "text": "先生に話して。",
+      "start": 9.0,
+      "end": 13.0
+    },
+    {
+      "index": 3,
+      "phase": "filler",
+      "text": "今の音、聞こえた？",
+      "start": 13.0,
+      "end": 14.25
+    },
+    {
+      "index": 4,
+      "phase": "filler",
+      "text": "たぶん風だよ。",
+      "start": 14.25,
+      "end": 15.5
+    },
+    {
+      "index": 5,
+      "phase": "filler",
+      "text": "靴がびしょ濡れだ。",
+      "start": 15.5,
+      "end": 16.75
+    },
+    {
+      "index": 6,
+      "phase": "filler",
+      "text": "AB 123 CD",
+      "start": 16.75,
+      "end": 18.0
+    },
+    {
+      "index": 7,
+      "phase": "filler",
+      "text": "先に進もう。",
+      "start": 18.0,
+      "end": 19.25
+    },
+    {
+      "index": 8,
+      "phase": "filler",
+      "text": "閉じる",
+      "start": 19.25,
+      "end": 20.5
+    },
+    {
+      "index": 9,
+      "phase": "filler",
+      "text": "ちょっと待って。",
+      "start": 20.5,
+      "end": 21.75
+    },
+    {
+      "index": 10,
+      "phase": "filler",
+      "text": "かばんを二階に置いてきた。",
+      "start": 21.75,
+      "end": 23.0
+    },
+    {
+      "index": 11,
+      "phase": "target_a_delayed",
+      "text": "先生に話して。",
+      "start": 23.0,
+      "end": 27.0
+    },
+    {
+      "index": 12,
+      "phase": "setup_b",
+      "text": "授業が始まる。黒板の前に先生が立っている。",
+      "start": 27.0,
+      "end": 30.0
+    },
+    {
+      "index": 13,
+      "phase": "setup_b",
+      "text": "この学校で数学を教えている人だ。",
+      "start": 30.0,
+      "end": 33.0
+    },
+    {
+      "index": 14,
+      "phase": "target_b",
+      "text": "先生に話して。",
+      "start": 33.0,
+      "end": 38.0
+    }
+  ],
+  "duration_s": 41.0,
+  "font": "Yu Gothic",
+  "encoder": "h264_nvenc-p4-cq20",
+  "sha256": "125880dd4e982f5c9e1eaf66d1b49e15f18c2d9a9adb8cbece8fcfa69cbd6abc",
+  "background_sha256": "f786a86cc51dc1610dc644d016f8f5fa5df455fd955483170a4b8473a783bb10"
+}

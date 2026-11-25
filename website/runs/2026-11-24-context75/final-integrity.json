@@ -1,0 +1,99 @@
+{
+  "collected_utc": "2026-11-25T01:40:41.128459+00:00",
+  "runtime": [
+    {
+      "file": "translation/custom_ai_translation.py",
+      "sha256": "2a1e28cea7d06c26af4e1fae7fc619252b57e321447b60d5b23130188f264b61",
+      "matches_pre_run_frozen_copy": true
+    },
+    {
+      "file": "translation/openai_translation.py",
+      "sha256": "67a036f99360d248220e29abae162ba6fd823f65c8d083b71f9a074347515432",
+      "matches_pre_run_frozen_copy": true
+    },
+    {
+      "file": "translation/subtitle_compute.py",
+      "sha256": "57e31b21b00618cdbd7f21b0190538b71d4fde4856d319b9fc8569906a207aee",
+      "matches_pre_run_frozen_copy": true
+    },
+    {
+      "file": "translation/subtitle_context.py",
+      "sha256": "e379d6ab62a05b9676a1e4e7a5ffe444594fdbbad83804bbbd6532174da37f2b",
+      "matches_pre_run_frozen_copy": true
+    },
+    {
+      "file": "translation/subtitle_entities.py",
+      "sha256": "cb2156ffa51b9b02ccdc4788acab02afe73a01c3b0275a08710f58e9bca3c1ea",
+      "matches_pre_run_frozen_copy": true
+    },
+    {
+      "file": "translation/subtitle_evidence_memory.py",
+      "sha256": "e67087516fb9206114151b7675869a627ff2dc4631cb78b97e68013f8ea61a28",
+      "matches_pre_run_frozen_copy": true
+    },
+    {
+      "file": "translation/subtitle_filter.py",
+      "sha256": "065b61dc978fe66de250a35e46b1d95b96d049cc48d587c32c22127aff71bf5d",
+      "matches_pre_run_frozen_copy": true
+    },
+    {
+      "file": "translation/subtitle_gpu.py",
+      "sha256": "8c8fcf6f0e5633dd1d8488b4f36b86bee3ea7ef6372a8980b2fb111a7496fc62",
+      "matches_pre_run_frozen_copy": true
+    },
+    {
+      "file": "translation/subtitle_languages.py",
+      "sha256": "cd023bfba30cfc94641c6e1f9d9fe755aaca5727b0d9f1fa66677fa574091509",
+      "matches_pre_run_frozen_copy": true
+    },
+    {
+      "file": "translation/subtitle_models.py",
+      "sha256": "f8a75f760df5b8cf5a97e79e20bbacd785806b7618f8a81e6013d9e561133e65",
+      "matches_pre_run_frozen_copy": true
+    },
+    {
+      "file": "translation/subtitle_model_manager.py",
+      "sha256": "ca8c1c2adb75250419fe22db65df0d314fe35bd8e5890b55794c2f9650c85be0",
+      "matches_pre_run_frozen_copy": true
+    },
+    {
+      "file": "translation/translate_worker.py",
+      "sha256": "ce1e3e5f246ec5824b2ad4471f2e7ffc1c6a6284f9b812175d6a0125cb049b53",
+      "matches_pre_run_frozen_copy": true
+    },
+    {
+      "file": "translation/translation_memory.py",
+      "sha256": "51a6f9e3988a5accf8b21acc8084ec29a690ba0fc11e48ca055cb392c27bf43d",
+      "matches_pre_run_frozen_copy": true
+    },
+    {
+      "file": "translation/translation_timeline.py",
+      "sha256": "485d4284b273143209f12ec1c30bc759f0942ea7332b26801bec6c60d0b9e498",
+      "matches_pre_run_frozen_copy": true
+    },
+    {
+      "file": "FrameLab.exe",
+      "sha256": "f89d7306da2d62103bb2915466e51bfcf9f7bab9315a788d36335ddd59092c35",
+      "matches_pre_run_frozen_copy": true
+    }
+  ],
+  "settings": [
+    {
+      "file": "gpu-settings.txt",
+      "restored": true
+    },
+    {
+      "file": "nr-settings.txt",
+      "restored": true
+    },
+    {
+      "file": "runtime-session.txt",
+      "restored": true
+    },
+    {
+      "file": "subtitle-settings.txt",
+      "restored": true
+    }
+  ],
+  "note": "Post-run comparison to copies frozen before the main batch. The five per-run monitored fingerprints are separately in runs-manifest.json."
+}

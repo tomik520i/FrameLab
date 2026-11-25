@@ -1,0 +1,45 @@
+[
+  {
+    "cases": [
+      "multi-cs-ja-zamek"
+    ],
+    "cs": "Japonské 鍵 je přijato i pro zámek dveří. Slovník uvádí vedle klíče také samotný zámek; nevyžadujeme proto konkrétně 錠 nebo 錠前. Pro šlechtické sídlo tento význam správný není.",
+    "en": "Japanese 鍵 is accepted for a door lock. The dictionary includes the lock itself as well as the key; 錠 or 錠前 is therefore not mandatory. That sense does not fit the later aristocratic residence.",
+    "source": "https://kotobank.jp/word/%E9%8D%B5-43448",
+    "source_title": "Shogakukan Digital Daijisen via Kotobank: 鍵",
+    "checked_utc_date": "2026-11-25"
+  },
+  {
+    "cases": [
+      "multi-en-ja-seal"
+    ],
+    "cs": "Širší japonské シール je přijato pro těsnění i uzavírací pečeť. Změna výrazu není povinná, pokud zůstává správný význam. 封印 je však v této sadě chybný význam u protékajícího potrubního těsnění.",
+    "en": "Broader Japanese シール is accepted for a mechanical seal and a closure seal. A lexical change is not mandatory when meaning remains valid. 封印, however, selects the wrong sense for the leaking pipe seal in this set.",
+    "source": "https://kotobank.jp/word/%E3%81%97%E3%83%BC%E3%82%8B-3181975",
+    "source_title": "Japanese dictionary and encyclopedia entries via Kotobank: シール",
+    "checked_utc_date": "2026-11-25"
+  },
+  {
+    "cs": "České náboj u baterie a anglické broken u plachty zachovávají zamýšlený význam, ale dostávají nižší jazykové hodnocení za slabou kolokaci. Obecná formulace typu zkus to znovu u japonského pokynu k opětovnému zavolání nebo přehrání dostává částečný význam, protože vypouští samotnou činnost. Jde o přímý kvalitativní posudek Codexu, nikoli slovníkové automatické bodování.",
+    "en": "Czech náboj for battery charge and English broken for a sail retain the intended meaning but receive lower language scores for weak collocations. A generic try again for a Japanese instruction to call or play again receives partial meaning because it omits the action. These are direct qualitative Codex judgements, not dictionary-based automatic scoring."
+  },
+  {
+    "cases": [
+      "multi-en-fr-charge"
+    ],
+    "cs": "Francouzské charge může označovat elektrický náboj i finanční náklad. U hotelového poplatku přijímáme význam, ale snižujeme jazykové hodnocení: frais nebo montant facturé by bylo přirozenější. Shodné slovo samo neprokazuje přetrvávání starého významu.",
+    "en": "French charge can denote electrical charge and a financial expense. For the hotel fee we accept the meaning with a lower language score: frais or montant facturé would be more natural. An unchanged word alone does not establish persistence of the old sense.",
+    "source": "https://www.dictionnaire-academie.fr/article/A9C1667",
+    "source_title": "Dictionnaire de l’Académie française, ninth edition: charge",
+    "checked_utc_date": "2026-11-25"
+  },
+  {
+    "cases": [
+      "czech-en-cs-trunk",
+      "czech-en-cs-pitch",
+      "czech-en-cs-hoe"
+    ],
+    "cs": "Další hraniční rozhodnutí: kufr pro dřevěnou úložnou truhlu má částečný význam (příbuzný typ nádoby, ale jiný předmět). Nepřeložené pitch v české větě má částečný význam a slabší jazyk. Ženu místo nadávky hoe bereme jako částečný překlad kvůli ztrátě útočného tónu. Tato rozhodnutí jsou otevřená kontrole v původních ukázkách.",
+    "en": "Other borderline decisions: Czech kufr for a wooden storage chest receives partial meaning (a related container type, but a different object). Untranslated pitch in a Czech sentence receives partial meaning and a lower language score. Ženu (woman) for the insult hoe receives partial meaning because the hostile tone is lost. These choices remain open to review against the original examples."
+  }
+]

@@ -1,0 +1,115 @@
+{
+  "source_language": "fr",
+  "rows": [
+    {
+      "index": 0,
+      "phase": "setup_a",
+      "text": "La police veut me poser des questions.",
+      "start": 3.0,
+      "end": 6.0
+    },
+    {
+      "index": 1,
+      "phase": "setup_a",
+      "text": "Il me faut quelqu’un pour défendre mes droits.",
+      "start": 6.0,
+      "end": 9.0
+    },
+    {
+      "index": 2,
+      "phase": "target_a",
+      "text": "Je cherche un avocat.",
+      "start": 9.0,
+      "end": 13.0
+    },
+    {
+      "index": 3,
+      "phase": "filler",
+      "text": "Tu as entendu ça ?",
+      "start": 13.0,
+      "end": 14.25
+    },
+    {
+      "index": 4,
+      "phase": "filler",
+      "text": "C’était sans doute le vent.",
+      "start": 14.25,
+      "end": 15.5
+    },
+    {
+      "index": 5,
+      "phase": "filler",
+      "text": "Mes bottes sont trempées.",
+      "start": 15.5,
+      "end": 16.75
+    },
+    {
+      "index": 6,
+      "phase": "filler",
+      "text": "AB 123 CD",
+      "start": 16.75,
+      "end": 18.0
+    },
+    {
+      "index": 7,
+      "phase": "filler",
+      "text": "On devrait avancer.",
+      "start": 18.0,
+      "end": 19.25
+    },
+    {
+      "index": 8,
+      "phase": "filler",
+      "text": "FERMER",
+      "start": 19.25,
+      "end": 20.5
+    },
+    {
+      "index": 9,
+      "phase": "filler",
+      "text": "Attends un instant.",
+      "start": 20.5,
+      "end": 21.75
+    },
+    {
+      "index": 10,
+      "phase": "filler",
+      "text": "J’ai laissé mon sac en haut.",
+      "start": 21.75,
+      "end": 23.0
+    },
+    {
+      "index": 11,
+      "phase": "target_a_delayed",
+      "text": "Je cherche un avocat.",
+      "start": 23.0,
+      "end": 27.0
+    },
+    {
+      "index": 12,
+      "phase": "setup_b",
+      "text": "Maintenant nous préparons une salade.",
+      "start": 27.0,
+      "end": 30.0
+    },
+    {
+      "index": 13,
+      "phase": "setup_b",
+      "text": "Il manque un fruit vert et mûr dans le panier.",
+      "start": 30.0,
+      "end": 33.0
+    },
+    {
+      "index": 14,
+      "phase": "target_b",
+      "text": "Je cherche un avocat.",
+      "start": 33.0,
+      "end": 38.0
+    }
+  ],
+  "duration_s": 41.0,
+  "font": "Arial",
+  "encoder": "h264_nvenc-p4-cq20",
+  "sha256": "21ce3b2b23880d97a21bf37827a43f14f0554556de1a246c829c4c409dd4e880",
+  "background_sha256": "f786a86cc51dc1610dc644d016f8f5fa5df455fd955483170a4b8473a783bb10"
+}

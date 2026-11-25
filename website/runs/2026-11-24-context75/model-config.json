@@ -1,0 +1,19 @@
+{
+  "recorded_utc": "2026-11-24T22:22:24.102463+00:00",
+  "openai": {
+    "model": "gpt-6-luna",
+    "reasoning_effort": "none"
+  },
+  "lan": {
+    "model_file": "gemma-4-26B-A4B-it-ultra-uncensored-heretic-Q5_K_S.gguf",
+    "parameters": {
+      "chat_template_kwargs": {
+        "enable_thinking": false
+      },
+      "reasoning_budget": 0
+    },
+    "protocol": "openai",
+    "hardware": "RTX 3090 24 GB, separate LAN server",
+    "note": "Custom ultra-uncensored-heretic derivative, not an evaluation of unmodified Google Gemma. Weight-content hash not measured in this batch."
+  }
+}

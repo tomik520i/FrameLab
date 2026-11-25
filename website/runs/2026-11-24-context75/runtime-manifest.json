@@ -1,0 +1,25 @@
+{
+  "dataset_sha256": "d3bc728b4c5342215979f3995941690e7f29f15efdfb147379d82b34ec908bde",
+  "fingerprints": {
+    "FrameLab.exe": "f89d7306da2d62103bb2915466e51bfcf9f7bab9315a788d36335ddd59092c35",
+    "translation/translate_worker.py": "ce1e3e5f246ec5824b2ad4471f2e7ffc1c6a6284f9b812175d6a0125cb049b53",
+    "translation/subtitle_evidence_memory.py": "e67087516fb9206114151b7675869a627ff2dc4631cb78b97e68013f8ea61a28",
+    "translation/openai_translation.py": "67a036f99360d248220e29abae162ba6fd823f65c8d083b71f9a074347515432",
+    "translation/custom_ai_translation.py": "2a1e28cea7d06c26af4e1fae7fc619252b57e321447b60d5b23130188f264b61"
+  },
+  "scope": "Actual visible native application, fullscreen output, video pixels -> OCR -> filter -> selected provider -> rendered captions. Both VFG 2x and NR requested. Preserve actual activation and failed states from logs.",
+  "memory": "frozen v4 same-model original evidence selection",
+  "source_commit": "def69c8c94fb3162b1550f7aab912d0ec5739a16",
+  "pricing": {
+    "model": "gpt-6-luna",
+    "input_per_million": 0.1,
+    "cached_input_per_million": 0.01,
+    "cache_write_per_million": 0.125,
+    "output_per_million": 0.5,
+    "source": "https://developers.openai.com/api/docs/pricing",
+    "checked_utc": "2026-11-24T21:46:25.772211+00:00"
+  },
+  "planned_runs": 300,
+  "planned_target_opportunities": 900,
+  "judging": "Direct Codex review; no paid model judge"
+}

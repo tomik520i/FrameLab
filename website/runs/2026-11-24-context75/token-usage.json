@@ -1,0 +1,30 @@
+{
+  "valid_records_by_task": {
+    "off/translation": {
+      "calls": 901,
+      "input_tokens": 130489,
+      "output_tokens": 21967,
+      "estimated_usd": 0.024032399999999912
+    },
+    "selected/translation": {
+      "calls": 1059,
+      "input_tokens": 492958,
+      "output_tokens": 25572,
+      "estimated_usd": 0.06208179999999997
+    },
+    "selected/memory": {
+      "calls": 281,
+      "input_tokens": 114297,
+      "output_tokens": 18335,
+      "estimated_usd": 0.020597200000000003
+    }
+  },
+  "malformed_records": [
+    {
+      "run": "018-multi-en-es-pitch-openai-selected",
+      "line": 8,
+      "raw": "l_tokens\": 378}}"
+    }
+  ],
+  "note": "Cost includes only complete parseable logged usage records. One fragment remains in the raw evidence; its missing usage cannot be reconstructed. This is not an invoice."
+}
