@@ -2,7 +2,7 @@
 from pathlib import Path
 from build_memory_report import t
 root=Path(__file__).resolve().parents[1]/'website'
-body=t('Vlastní AI server pro titulky','Your own AI server for subtitles','h1')+t('Vývojová možnost. Veřejný balíček preview.18 tuto novou integraci ještě neobsahuje.','Development feature. The public preview.18 package does not yet include this new integration.','p','lead')
+body=t('Vlastní AI server pro titulky','Your own AI server for subtitles','h1')+t('Součást kompletního preview.19. Vlastní AI server je volitelný; místní překladače i OpenAI zůstávají dostupné.','Included in the complete preview.19 package. A custom AI server is optional; local translators and OpenAI remain available.','p','lead')
 sections=[
 ('K čemu to slouží','What this is for','OCR běží na počítači s FrameLabem. Rozpoznaný text se posílá na adresu, kterou zadáš; vybraný model jej překládá na svém serveru. Může to být jiný počítač v domácí síti nebo tvůj vlastní lokální server. Obraz ani zvuk se neposílají. Lokální modely i OpenAI zůstávají samostatnými možnostmi.','OCR runs on the FrameLab PC. Recognized text goes to the address you configure; the selected model translates it on that server. This can be another LAN computer or your own local server. No image or audio is sent. Local models and OpenAI remain separate options.'),
 ('1. Připrav server','1. Prepare the server','Na serveru musí být načtený model a běžet kompatibilní API: OpenAI-compatible Chat Completions (například llama.cpp / LM Studio) nebo Ollama. Adresa musí být z počítače s FrameLabem dosažitelná. Instalaci ani konfiguraci serveru FrameLab nemění. localhost vždy znamená tento počítač.','Load a model on the server and run a compatible API: OpenAI-compatible Chat Completions (for example llama.cpp / LM Studio) or Ollama. Its address must be reachable from the FrameLab PC. FrameLab does not install or reconfigure the server. localhost always means this computer.'),
@@ -16,11 +16,15 @@ for i,(cs,en,cz,eng) in enumerate(sections):
  body+='<section class="section">'+t(cs,en,'h2')+t(cz,eng,'p')
  if i==5:body+='<pre><code>{"chat_template_kwargs":{"enable_thinking":false},"reasoning_budget":0}</code></pre>'
  body+='</section>'
-body+='<p><a href="../runs/2026-11-24-context-memory/speed50.html">'+t('Server versus OpenAI: 50 + 50 měření','Server versus OpenAI: 50 + 50 measurements')+'</a> · <a href="../runs/2026-11-24-context-memory/live.html">'+t('Paměť ve skutečném FrameLabu','Memory in the actual FrameLab pipeline')+'</a></p>'
+body+='<p><a href="../runs/2026-11-24-context-memory/speed50.html">'+t('Server versus OpenAI: 50 + 50 měření','Server versus OpenAI: 50 + 50 measurements')+'</a> · <a href="memory-en.html">'+t('Paměť ve skutečném FrameLabu','Memory in the actual FrameLab pipeline')+'</a></p>'
 head='<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">'+t('FrameLab — vlastní AI server','FrameLab — custom AI server','title')
 head+='<style>pre{max-width:100%;overflow:auto;padding:16px;background:#192117}code{font-size:14px}</style>'
 for f in ['assets/fonts/fonts.css','explore.css','site-i18n.css','site-navigation.css']:head+=f'<link rel="stylesheet" href="../{f}">'
 for f in ['site-i18n.js','site-navigation.js']:head+=f'<script defer src="../{f}"></script>'
 for lang,name in [('cs','custom-ai.html'),('en','custom-ai-en.html')]:
- (root/'guide'/name).write_text(f'<!doctype html><html lang="{lang}" data-site-page="guide/{name}"><head>'+head+'</head><body><main>'+body+'</main></body></html>',encoding='utf-8')
+ nav='<nav class="jump-links"><a href="custom-ai.html" data-locale-switch="cs">Česky</a><a href="custom-ai-en.html" data-locale-switch="en">English</a><a href="../#download">FrameLab preview.19</a></nav>'
+ content=body.replace('memory-en.html','memory.html') if lang=='cs' else body
+ picture=f'assets/current/preview19-custom-memory-{lang}-native.png'
+ figure=f'<figure><a href="{picture}"><svg viewBox="1056 280 480 930" style="display:block;width:min(100%,540px);height:auto" role="img" aria-label="Custom AI settings"><image href="{picture}" width="1536" height="2048"/></svg></a><figcaption>'+t('Skutečné ovládání preview.19, 25. 11. 2026. Ukázka před připojením serveru; překlad neběží. Kliknutím otevřeš celý původní PNG.','Actual preview.19 controls, 25 November 2026. Setup example before connecting a server; translation is not running. Click for the full original PNG.')+'</figcaption></figure>'
+ (root/'guide'/name).write_text(f'<!doctype html><html lang="{lang}" data-site-page="guide/{name}"><head>'+head+'</head><body><main>'+nav+figure+content+'</main></body></html>',encoding='utf-8')
 print('Custom server guides generated in Czech and English.')

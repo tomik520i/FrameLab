@@ -21,7 +21,8 @@ const groups=[
  ['Návody a pomoc','Guides & help',[
   ['Všechny návody','All guides','help/','help podpora instalace'],
   ['Titulky a modely','Subtitles & models','guide/subtitles-en.html','GPU překlad translation'],
-  ['Vlastní AI server (vývoj)','Custom AI server (development)','guide/custom-ai-en.html','LAN custom API llama.cpp Ollama memory'],
+  ['Vlastní AI server','Custom AI server','guide/custom-ai-en.html','LAN custom API llama.cpp Ollama memory'],
+  ['Nastavit paměť rozhovoru','Configure conversation memory','guide/memory-en.html','context memory recent history'],
   ['Remote Play a okno hry','Remote Play & game windows','guide/remote-subtitles-en.html','PS Xbox API overlay'],
   ['Čistý fullscreen','Clean fullscreen','guide/fullscreen-en.html','F11 display monitor'],
   ['Licence a volitelné soubory','Licenses & optional files','licenses/','NVIDIA DLL license']]]

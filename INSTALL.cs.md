@@ -1,9 +1,16 @@
-# FrameLab preview.18 — česká instalace
+# FrameLab preview.19 — česká instalace
 
 [English](START_HERE.md) · [Web a ukázky](https://opicebot.cz/framelab/?lang=cs)
 
 
 [Obrazový návod: aktuální screenshoty, očíslované kroky a zvětšování](https://opicebot.cz/framelab/guide/visual.html). Stejný návod je v ZIPu jako **OBRAZOVY NAVOD.html**.
+
+## Nové v preview.19: vlastní AI server a volitelná paměť rozhovoru
+
+- **Titulky → Způsob překladu → Custom AI server / LAN:** připoj OpenAI-compatible nebo Ollama server, načti/vyber model a nastav jeho podporované parametry. Volitelný klíč ukládá Správce pověření Windows zvlášť pro danou adresu. [Návod k serveru](https://opicebot.cz/framelab/guide/custom-ai.html); offline: **VLASTNI AI SERVER.html**.
+- **Použít poslední repliky rozhovoru** přidá nedávné původní titulky. **Uchovat důležité repliky** nechá vybraný model průběžně vybírat původní věty k delšímu uchování. Obě možnosti jsou dobrovolné a výchozí stav je vypnuto. CUNI druhou možnost nepodporuje; překladovým specialistům může více vyhovovat paměť vypnutá. [Nastavení a omezení](https://opicebot.cz/framelab/guide/memory.html); offline: **PAMET ROZHOVORU.html**.
+- V Titulkách lze prohlédnout použitý kontext a vymazat jej při změně hry nebo tématu. Testovaný výběr pomáhá přes odbočky, ale po změně tématu může držet starý význam. Není to záruka lepšího překladu. Paměť tvoří tentýž vybraný model; API tím může zvýšit cenu a místní model nároky na GPU/RAM.
+- [25 českých + 50 vícejazyčných situací](https://opicebot.cz/framelab/runs/2026-11-24-context75/?lang=cs): 300 skutečných běhů aplikace s OCR, VFG a NR, 900 původních snímků, prodlevy i chyby. Měřena byla Luna a oddělená serverová Gemma; nejde o měření překladových vah běžících vedle FG na notebooku.
 
 ## Nové v preview.18: okno hry, samostatné titulky a Vulkan
 
@@ -25,7 +32,7 @@ Celý veřejný ZIP přibaluje RIFE modely a runtime, VFG runtime, 12 OCR sad, C
 
 ## Stáhnout a spustit
 
-1. [Stáhněte celý ZIP pro Windows x64](https://github.com/tomik520i/FrameLab/releases/download/v0.2.0-preview.18/FrameLab-0.2.0-preview.18-windows-x64-full.zip) a **rozbalte vše**, například do D:/FrameLab. Nespouštějte aplikaci uvnitř ZIPu.
+1. [Stáhněte celý ZIP pro Windows x64](https://github.com/tomik520i/FrameLab/releases/download/v0.2.0-preview.19/FrameLab-0.2.0-preview.19-windows-x64-full.zip) a **rozbalte vše**, například do D:/FrameLab. Nespouštějte aplikaci uvnitř ZIPu.
 2. Spusťte **Start FrameLab.cmd** nebo **1 - Spustit FrameLab.cmd**. Nová instalace pustí GTA ukázku, další spuštění obnoví relaci. Python, SDK ani systémový VLC nepotřebujete; složky balíčku musí zůstat pohromadě.
 3. Začněte s **Frame gen → 2×**. **F11** zobrazí čistý výstup, Escape/F11 vrátí ovládání. Tlačítkem **EN / CZ** přepnete anglické rozhraní do češtiny.
 

@@ -4,6 +4,7 @@ from visual_guide_preview17 import content as previous
 def content(legacy):
     shots,steps=previous(legacy)
     steps=[(key,heading,tuple(s.replace('v0.2.0-preview.17','v0.2.0-preview.18').replace('FrameLab-0.2.0-preview.17','FrameLab-0.2.0-preview.18').replace('Download preview.17','Download preview.18').replace('Stáhnout preview.17','Stáhnout preview.18') for s in body),expected,pictures) for key,heading,body,expected,pictures in steps]
+    steps=[(key,heading,tuple(s.replace('v0.2.0-preview.18','v0.2.0-preview.19').replace('FrameLab-0.2.0-preview.18','FrameLab-0.2.0-preview.19').replace('Download preview.18','Download preview.19').replace('Stáhnout preview.18','Stáhnout preview.19') for s in body),expected,pictures) for key,heading,body,expected,pictures in steps]
     steps.extend([
       ('window-api',('Okno hry, Remote Play a pouze titulky','Game window, Remote Play and subtitles only'),
        ('<p>Vstup → Okno aplikace: obnov seznam a vyber hru. Pro samotné titulky zapni průhledný překryv přes zdrojové okno. Nastav OCR oblast a zvlášť pozici překladu. Místní modely zůstávají; placené API je volitelné s vlastním klíčem.</p><p><a href="remote-subtitles.html">Úplný návod s reálnými obrázky a připojením konzolí →</a></p><figure><img src="assets/subtitle-only-live.jpg" alt="Skutečný vývojový test překryvu titulků"><figcaption>Skutečný vývojový test na tomto notebooku. Konzole nebyla připojená; Remote Play postup se opírá o dokumentaci výrobců.</figcaption></figure>',

@@ -1,8 +1,15 @@
-# FrameLab preview.18 — start here
+# FrameLab preview.19 — start here
 
 [Česky](INSTALL.cs.md) · [Web comparisons](https://opicebot.cz/framelab/)
 
 [Illustrated walkthrough: current screenshots, numbered steps and zoom](https://opicebot.cz/framelab/guide/visual-en.html). The same guide is included offline as **VISUAL GUIDE.html**.
+
+## New in preview.19: your own AI server and optional conversation memory
+
+- **Subtitles → Translation provider → Custom AI server / LAN:** connect an OpenAI-compatible or Ollama endpoint, refresh/select its model, and configure supported parameters. Authentication is optional and stored per endpoint in Windows Credential Manager. [Server setup](https://opicebot.cz/framelab/guide/custom-ai-en.html); offline: **CUSTOM AI SERVER.html**.
+- **Use recent dialogue** adds recent original subtitle lines. **Remember important dialogue** lets the selected model retain original lines in the background. Both are optional and off by default. CUNI does not support the second option; specialized translation models may work better with memory off. [Memory setup and limits](https://opicebot.cz/framelab/guide/memory-en.html); offline: **CONVERSATION MEMORY.html**.
+- Inspect the last context in Subtitles and clear it when changing games or topics. The tested selection helps across interruptions but can preserve an obsolete meaning after a topic change. No universal quality improvement is promised. The same selected provider builds memory; API memory updates can add cost, and local models can add GPU/RAM contention.
+- [25 Czech + 50 multilingual situations](https://opicebot.cz/framelab/runs/2026-11-24-context75/?lang=en): 300 actual application runs with OCR, VFG and NR, 900 original framebuffer proofs, latency and failures retained. Luna and a separate LAN Gemma were measured; this is not a benchmark of translation weights running beside FG on the laptop.
 
 ## New in preview.18: game windows, independent captions and Vulkan
 
@@ -24,7 +31,7 @@ The public full ZIP includes RIFE models/runtime, VFG runtime, 12 OCR packs, CPU
 
 ## Download and launch
 
-1. [Download the full Windows x64 ZIP](https://github.com/tomik520i/FrameLab/releases/download/v0.2.0-preview.18/FrameLab-0.2.0-preview.18-windows-x64-full.zip) and **extract all** to a short writable folder, for example D:/FrameLab.
+1. [Download the full Windows x64 ZIP](https://github.com/tomik520i/FrameLab/releases/download/v0.2.0-preview.19/FrameLab-0.2.0-preview.19-windows-x64-full.zip) and **extract all** to a short writable folder, for example D:/FrameLab.
 2. Run **Start FrameLab.cmd**. A new installation opens the GTA demo; subsequent launches restore the saved session. No compiler, Python, SDK or system VLC installation is needed. Keep the entire folder together.
 3. Begin with **Frame gen → 2×**. **F11** opens fullscreen; Escape/F11 returns. **EN / CZ** changes language; English is the clean-install default.
 

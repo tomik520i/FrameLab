@@ -1,4 +1,4 @@
-param([string]$Version = '0.2.0-preview.15', [string]$OutputDirectory = 'dist', [string]$ApplicationPath = 'app/FrameLab.exe', [switch]$Complete, [string]$SampleDirectory = 'app/samples', [string]$SetupPath = 'app/FrameLab-Setup.exe', [string]$NrHostPath = 'app/nr-host/nvngx.dll', [switch]$Translation, [string]$TranslationDirectory = 'app/translation', [string]$OcrDirectory = 'app/ocr', [string]$MediaDirectory = 'app/media/vlc')
+param([string]$Version = '0.2.0-preview.19', [string]$OutputDirectory = 'dist', [string]$ApplicationPath = 'app/FrameLab.exe', [switch]$Complete, [string]$SampleDirectory = 'app/samples', [string]$SetupPath = 'app/FrameLab-Setup.exe', [string]$NrHostPath = 'app/nr-host/nvngx.dll', [switch]$Translation, [string]$TranslationDirectory = 'app/translation', [string]$OcrDirectory = 'app/ocr', [string]$MediaDirectory = 'app/media/vlc')
 $ErrorActionPreference = 'Stop'
 $root = Split-Path $PSScriptRoot -Parent
 Set-Location $root

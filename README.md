@@ -1,6 +1,6 @@
 # FrameLab
 
-**Development preview.19 (source only):** optional custom OpenAI-compatible/Ollama servers and experimental conversation memory. The selected model can retain original dialogue in the background; it defaults off and can worsen translations. [Actual OCR → display pilot](https://opicebot.cz/framelab/runs/2026-11-24-context-memory/live.html?lang=en) · [Method and limitations](docs/CONTEXT-LIVE-VALIDATION.md) · [Custom server setup](https://opicebot.cz/framelab/guide/custom-ai-en.html). Public download below remains preview.18; the [25 Czech + 50 multilingual actual-app study](https://opicebot.cz/framelab/runs/2026-11-24-context75/?lang=en) is complete: 300 runs, 900 framebuffer proofs, failures retained. [Protocol and limits](docs/CONTEXT75-PROTOCOL.md).
+**Preview.19 is available as a complete portable package:** custom OpenAI-compatible/Ollama servers and optional conversation memory. Memory defaults off and can worsen topic changes. [75-scenario actual-app evaluation](https://opicebot.cz/framelab/runs/2026-11-24-context75/?lang=en) · [Release notes](docs/release-preview19.md) · [Memory guide](https://opicebot.cz/framelab/guide/memory-en.html).
 
 **Preview.17:** RIFE / DirectML for suitable non-NVIDIA GPUs, repaired Optical Flow, 40 language choices and TranslateGemma downloads. [Hardware and setup](docs/GPU-BACKENDS.md) · [Multilingual guide](docs/MULTILINGUAL.en.md) · [Measured results](docs/release-preview17.md).
 
@@ -8,7 +8,7 @@
 
 Capture card or video → GPU → your display. An experimental Windows app for frame generation, optional neural enhancement and local multilingual subtitles.
 
-**[Download preview.18](https://github.com/tomik520i/FrameLab/releases/download/v0.2.0-preview.18/FrameLab-0.2.0-preview.18-windows-x64-full.zip) · [Website & comparisons](https://opicebot.cz/framelab/) · [Česky](docs/README.cs.md)**
+**[Download preview.19](https://github.com/tomik520i/FrameLab/releases/download/v0.2.0-preview.19/FrameLab-0.2.0-preview.19-windows-x64-full.zip) · [Website & comparisons](https://opicebot.cz/framelab/) · [Česky](docs/README.cs.md)**
 
 [Illustrated setup guide — real screenshots, step by step](https://opicebot.cz/framelab/guide/visual-en.html)
 
@@ -91,3 +91,10 @@ Source: GPL-3.0. Third-party components and game footage retain their own terms.
 - A bundled local filter reduces names, license plates and labels; ambiguous text still requires a suitable OCR region. Active playback/capture keeps the display awake without changing the Windows power plan.
 
 [All 2,000 translations, direct assistant review, ranking and examples](https://opicebot.cz/framelab/runs/2026-11-23-direct-review/). The 500-entry benchmark measured text translation with FG, NR and OCR off, not game performance.
+
+## New in preview.19: your own AI server and optional conversation memory
+
+- **Subtitles → Translation provider → Custom AI server / LAN:** connect an OpenAI-compatible or Ollama endpoint, refresh/select its model, and configure supported parameters. Authentication is optional and stored per endpoint in Windows Credential Manager. [Server setup](https://opicebot.cz/framelab/guide/custom-ai-en.html); offline: **CUSTOM AI SERVER.html**.
+- **Use recent dialogue** adds recent original subtitle lines. **Remember important dialogue** lets the selected model retain original lines in the background. Both are optional and off by default. CUNI does not support the second option; specialized translation models may work better with memory off. [Memory setup and limits](https://opicebot.cz/framelab/guide/memory-en.html); offline: **CONVERSATION MEMORY.html**.
+- Inspect the last context in Subtitles and clear it when changing games or topics. The tested selection helps across interruptions but can preserve an obsolete meaning after a topic change. No universal quality improvement is promised. The same selected provider builds memory; API memory updates can add cost, and local models can add GPU/RAM contention.
+- [25 Czech + 50 multilingual situations](https://opicebot.cz/framelab/runs/2026-11-24-context75/?lang=en): 300 actual application runs with OCR, VFG and NR, 900 original framebuffer proofs, latency and failures retained. Luna and a separate LAN Gemma were measured; this is not a benchmark of translation weights running beside FG on the laptop.

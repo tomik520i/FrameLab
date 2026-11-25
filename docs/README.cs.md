@@ -1,12 +1,12 @@
 # FrameLab — česky
 
-**Vývojové preview.19 (zatím zdrojové kódy):** vlastní OpenAI-compatible/Ollama server a volitelná paměť rozhovoru. Vybraný model sám vybírá původní repliky na pozadí. Výchozí stav je vypnuto a některé překlady může zhoršit. [Pilot přes skutečné OCR a zobrazení](https://opicebot.cz/framelab/runs/2026-11-24-context-memory/live.html?lang=cs) · [Metoda a omezení](CONTEXT-LIVE-VALIDATION.md) · [Návod k serveru](https://opicebot.cz/framelab/guide/custom-ai.html). Veřejný ZIP zůstává preview.18; plánovaných 25 českých a 50 vícejazyčných kontextových ukázek ještě hotových není.
+**Preview.19 je dostupné jako kompletní přenosný balíček:** vlastní OpenAI-compatible/Ollama server a volitelná paměť rozhovoru. Paměť je výchozím stavem vypnutá a při změně tématu může překlad zhoršit. [Dokončených 75 situací v aplikaci](https://opicebot.cz/framelab/runs/2026-11-24-context75/?lang=cs) · [Změny vydání](release-preview19.md) · [Návod k paměti](https://opicebot.cz/framelab/guide/memory.html).
 
 **Preview.17:** RIFE / DirectML i pro vhodné GPU jiných výrobců, opravený Optical Flow, 40 jazykových voleb a stažení TranslateGemma v aplikaci. [GPU a nastavení](GPU-BACKENDS.md) · [Vícejazyčné titulky](MULTILINGUAL.md) · [Výsledky](release-preview17.md).
 
 Obraz ze střihovky nebo videa → GPU → monitor. Generování snímků, volitelný enhancer a lokální vícejazyčné titulky.
 
-**[Stáhnout preview.18](https://github.com/tomik520i/FrameLab/releases/download/v0.2.0-preview.18/FrameLab-0.2.0-preview.18-windows-x64-full.zip) · [Web a ukázky](https://opicebot.cz/framelab/?lang=cs) · [English](../README.md)**
+**[Stáhnout preview.19](https://github.com/tomik520i/FrameLab/releases/download/v0.2.0-preview.19/FrameLab-0.2.0-preview.19-windows-x64-full.zip) · [Web a ukázky](https://opicebot.cz/framelab/?lang=cs) · [English](../README.md)**
 
 [Obrazový návod — skutečné screenshoty krok za krokem](https://opicebot.cz/framelab/guide/visual.html)
 
@@ -62,3 +62,10 @@ Zdrojový kód GPL-3.0; knihovny a herní záběry mají vlastní podmínky. Kom
 - Přibalený místní filtr omezuje jména, SPZ a nápisy; nejednoznačnou větu neumí vždy odlišit od titulku. Zúžení OCR oblasti zůstává důležité. Aktivní přehrávání/zachytávání brání uspání displeje; nejde o trvalou změnu nastavení Windows.
 
 [Vlastní hodnocení všech 2 000 překladů, pořadí modelů a konkrétní chyby](https://opicebot.cz/framelab/runs/2026-11-23-direct-review/). Sada 500 replik měřila textový překlad bez FG, enhanceru a OCR; není to měření herních FPS.
+
+## Nové v preview.19: vlastní AI server a volitelná paměť rozhovoru
+
+- **Titulky → Způsob překladu → Custom AI server / LAN:** připoj OpenAI-compatible nebo Ollama server, načti/vyber model a nastav jeho podporované parametry. Volitelný klíč ukládá Správce pověření Windows zvlášť pro danou adresu. [Návod k serveru](https://opicebot.cz/framelab/guide/custom-ai.html); offline: **VLASTNI AI SERVER.html**.
+- **Použít poslední repliky rozhovoru** přidá nedávné původní titulky. **Uchovat důležité repliky** nechá vybraný model průběžně vybírat původní věty k delšímu uchování. Obě možnosti jsou dobrovolné a výchozí stav je vypnuto. CUNI druhou možnost nepodporuje; překladovým specialistům může více vyhovovat paměť vypnutá. [Nastavení a omezení](https://opicebot.cz/framelab/guide/memory.html); offline: **PAMET ROZHOVORU.html**.
+- V Titulkách lze prohlédnout použitý kontext a vymazat jej při změně hry nebo tématu. Testovaný výběr pomáhá přes odbočky, ale po změně tématu může držet starý význam. Není to záruka lepšího překladu. Paměť tvoří tentýž vybraný model; API tím může zvýšit cenu a místní model nároky na GPU/RAM.
+- [25 českých + 50 vícejazyčných situací](https://opicebot.cz/framelab/runs/2026-11-24-context75/?lang=cs): 300 skutečných běhů aplikace s OCR, VFG a NR, 900 původních snímků, prodlevy i chyby. Měřena byla Luna a oddělená serverová Gemma; nejde o měření překladových vah běžících vedle FG na notebooku.

@@ -7,7 +7,7 @@ from PIL import Image
 def sha(p):
     with p.open('rb') as f:return hashlib.file_digest(f,'sha256').hexdigest()
 def main():
-    p=argparse.ArgumentParser();p.add_argument('--output',type=Path,default=ROOT/'dist/framelab-web-preview17');p.add_argument('--downloads',type=Path);p.add_argument('--version',default='0.2.0-preview.17');a=p.parse_args();out=a.output.resolve();out.mkdir(parents=True,exist_ok=True)
+    p=argparse.ArgumentParser();p.add_argument('--output',type=Path,default=ROOT/'dist/framelab-web-preview19');p.add_argument('--downloads',type=Path);p.add_argument('--version',default='0.2.0-preview.19');a=p.parse_args();out=a.output.resolve();out.mkdir(parents=True,exist_ok=True)
     for source in (ROOT/'website').rglob('*'):
         if source.is_file() and source.name not in {'README.md','runtime-config.json'}:
             dest=out/source.relative_to(ROOT/'website');dest.parent.mkdir(parents=True,exist_ok=True);shutil.copy2(source,dest)

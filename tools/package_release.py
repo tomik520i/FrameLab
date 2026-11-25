@@ -31,7 +31,7 @@ def main():
     p.add_argument('--rife',type=Path,required=True,help='Verified runtime/rife folder, including all three ONNX models and licenses')
     p.add_argument('--entity-filter',type=Path,help='Prepared translation/filter directory, including tokenizers dependencies and licenses')
     p.add_argument('--output',type=Path,required=True)
-    p.add_argument('--version',default='0.2.0-preview.19-dev')
+    p.add_argument('--version',default='0.2.0-preview.19')
     p.add_argument('--commit',required=True)
     p.add_argument('--gta-sample',type=Path,required=True)
     a=p.parse_args()
