@@ -73,7 +73,7 @@ def main():
     ).convert(str(model), quantization='int8', force=True)
     for name in ['source.spm', 'target.spm', 'LICENSE', 'README.md']:
         shutil.copy2(original / name, model / name)
-    for file in ['translate_worker.py', 'subtitle_models.py', 'subtitle_model_manager.py', 'subtitle_gpu.py','translation_memory.py','translation_timeline.py','subtitle_context.py','subtitle_evidence_memory.py','custom_ai_translation.py', 'subtitle_languages.py']:
+    for file in ['translate_worker.py', 'subtitle_models.py', 'subtitle_model_manager.py', 'subtitle_gpu.py','translation_memory.py','translation_timeline.py','subtitle_context.py','subtitle_evidence_memory.py','subtitle_dialogue.py','custom_ai_translation.py', 'subtitle_languages.py']:
         shutil.copy2(ROOT / 'tools' / file, out / file)
     shutil.copy2(ROOT / 'docs/subtitle-models.json', out / 'subtitle-models.json')
     shutil.copy2(ROOT / 'docs/subtitle-languages.json', out / 'subtitle-languages.json')

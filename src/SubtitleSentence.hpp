@@ -22,7 +22,7 @@ struct SubtitleSentence {
  }
  Prepared prepare(const std::string& raw,double time,uint64_t generation,bool allowJoin=true){
   auto source=clean(raw);const bool lower=!source.empty()&&std::islower(static_cast<unsigned char>(source.front()));
-  const bool join=allowJoin&&generation==previousGeneration&&time>=previousTime&&time-previousTime<=6&&previous.size()>=24&&!complete(previous)&&lower&&previous.size()+source.size()<360;
+  const bool join=allowJoin&&source.find('\n')==std::string::npos&&previous.find('\n')==std::string::npos&&generation==previousGeneration&&time>=previousTime&&time-previousTime<=6&&previous.size()>=24&&!complete(previous)&&lower&&previous.size()+source.size()<360;
   if(join)source=previous+' '+source;
   previous=source;previousTime=time;previousGeneration=generation;
   // An ellipsis explicitly marks missing continuation to the MT model. It

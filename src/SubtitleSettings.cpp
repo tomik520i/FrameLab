@@ -17,7 +17,8 @@ void SubtitleSettings::sanitize(){
  model=std::clamp(model,0,6);
  contentFilter=std::clamp(contentFilter,0,2);
  provider=std::clamp(provider,0,2);
- customTimeout=std::clamp(customTimeout,5,120);customMaxTokens=std::clamp(customMaxTokens,32,2048);
+ customResponseFormat=std::clamp(customResponseFormat,0,1);
+ customTimeout=std::clamp(customTimeout,1,120);customMaxTokens=std::max(customMaxTokens,1);
  customTemperature=std::clamp(finite(customTemperature,0),0.f,2.f);
  if(customProtocol!="openai"&&customProtocol!="ollama")customProtocol="openai";
  if(customUrl.size()>2048)customUrl.clear();if(customModel.size()>1024)customModel.clear();
@@ -43,7 +44,7 @@ void SubtitleSettings::sanitize(){
 }
 void SubtitleSettings::load(const std::filesystem::path& p){
  int version=0;std::ifstream f(p);
- if(f>>version&&version>=1&&version<=14){
+ if(f>>version&&version>=1&&version<=15){
   f>>left>>top>>right>>bottom>>fontPercent>>position>>background>>intervalMs>>showOriginal;
   if(version>=2)f>>coverSource;
   if(version>=3)f>>horizontal>>gapPercent>>placement>>horizontalAlign>>verticalAlign>>edgeFallback;
@@ -58,9 +59,11 @@ void SubtitleSettings::load(const std::filesystem::path& p){
   if(version>=12)f>>std::quoted(computeBackend)>>std::quoted(computeDevice)>>allowCpuOffload;
   if(version>=13)f>>conversationMemory;
   if(version>=14)f>>selectedMemory>>std::quoted(customUrl)>>std::quoted(customProtocol)>>std::quoted(customModel)>>std::quoted(customParameters)>>std::quoted(customInstruction)>>customTimeout>>customMaxTokens>>customTemperatureEnabled>>customTemperature;
+  if(version>=15)f>>customPromptEnabled>>customResponseFormat;
+  else customPromptEnabled=!customInstruction.empty(); // Preserve pre-editor custom instructions.
  }
  sanitize();enabled=false;showRegion=false;editOverlay=false;inspectOcr=false;
 }
 void SubtitleSettings::save(const std::filesystem::path& p)const{
- std::ofstream(p)<<std::setprecision(std::numeric_limits<float>::max_digits10)<<14<<' '<<left<<' '<<top<<' '<<right<<' '<<bottom<<' '<<fontPercent<<' '<<position<<' '<<background<<' '<<intervalMs<<' '<<showOriginal<<' '<<coverSource<<' '<<horizontal<<' '<<gapPercent<<' '<<placement<<' '<<horizontalAlign<<' '<<verticalAlign<<' '<<edgeFallback<<' '<<model<<' '<<ocrEngine<<' '<<holdSeconds<<' '<<lingerSeconds<<' '<<joinFragments<<' '<<style.enabled<<' '<<style.height<<' '<<style.rgb[0]<<' '<<style.rgb[1]<<' '<<style.rgb[2]<<' '<<style.heightTolerance<<' '<<style.colorTolerance<<' '<<std::quoted(style.sampleText)<<' '<<style.sampleFrameHeight<<' '<<style.sampleId<<' '<<std::quoted(sourceLanguage)<<' '<<std::quoted(targetLanguage)<<' '<<contentFilter<<' '<<provider<<' '<<std::quoted(apiModel)<<' '<<std::quoted(apiEffort)<<' '<<apiTemperatureEnabled<<' '<<apiTemperature<<' '<<std::quoted(computeBackend)<<' '<<std::quoted(computeDevice)<<' '<<allowCpuOffload<<' '<<conversationMemory<<' '<<selectedMemory<<' '<<std::quoted(customUrl)<<' '<<std::quoted(customProtocol)<<' '<<std::quoted(customModel)<<' '<<std::quoted(customParameters)<<' '<<std::quoted(customInstruction)<<' '<<customTimeout<<' '<<customMaxTokens<<' '<<customTemperatureEnabled<<' '<<customTemperature<<'\n';
+ std::ofstream(p)<<std::setprecision(std::numeric_limits<float>::max_digits10)<<15<<' '<<left<<' '<<top<<' '<<right<<' '<<bottom<<' '<<fontPercent<<' '<<position<<' '<<background<<' '<<intervalMs<<' '<<showOriginal<<' '<<coverSource<<' '<<horizontal<<' '<<gapPercent<<' '<<placement<<' '<<horizontalAlign<<' '<<verticalAlign<<' '<<edgeFallback<<' '<<model<<' '<<ocrEngine<<' '<<holdSeconds<<' '<<lingerSeconds<<' '<<joinFragments<<' '<<style.enabled<<' '<<style.height<<' '<<style.rgb[0]<<' '<<style.rgb[1]<<' '<<style.rgb[2]<<' '<<style.heightTolerance<<' '<<style.colorTolerance<<' '<<std::quoted(style.sampleText)<<' '<<style.sampleFrameHeight<<' '<<style.sampleId<<' '<<std::quoted(sourceLanguage)<<' '<<std::quoted(targetLanguage)<<' '<<contentFilter<<' '<<provider<<' '<<std::quoted(apiModel)<<' '<<std::quoted(apiEffort)<<' '<<apiTemperatureEnabled<<' '<<apiTemperature<<' '<<std::quoted(computeBackend)<<' '<<std::quoted(computeDevice)<<' '<<allowCpuOffload<<' '<<conversationMemory<<' '<<selectedMemory<<' '<<std::quoted(customUrl)<<' '<<std::quoted(customProtocol)<<' '<<std::quoted(customModel)<<' '<<std::quoted(customParameters)<<' '<<std::quoted(customInstruction)<<' '<<customTimeout<<' '<<customMaxTokens<<' '<<customTemperatureEnabled<<' '<<customTemperature<<' '<<customPromptEnabled<<' '<<customResponseFormat<<'\n';
 }

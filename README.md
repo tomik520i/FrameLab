@@ -1,6 +1,8 @@
 # FrameLab
 
-**Preview.19 is available as a complete portable package:** custom OpenAI-compatible/Ollama servers and optional conversation memory. Memory defaults off and can worsen topic changes. [75-scenario actual-app evaluation](https://opicebot.cz/framelab/runs/2026-11-24-context75/?lang=en) · [Release notes](docs/release-preview19.md) · [Memory guide](https://opicebot.cz/framelab/guide/memory-en.html).
+**Preview.20: subtitle recovery, separate speaker lines and an optional custom prompt editor. OpenAI can restart directly with a saved model and key; slow captions no longer hold up the queue.** [Release notes and upgrade](docs/release-preview20.md).
+
+**Previously in preview.19:** custom OpenAI-compatible/Ollama servers and optional conversation memory. Memory defaults off and can worsen topic changes. [75-scenario actual-app evaluation](https://opicebot.cz/framelab/runs/2026-11-24-context75/?lang=en) · [Release notes](docs/release-preview19.md) · [Memory guide](https://opicebot.cz/framelab/guide/memory-en.html).
 
 **Preview.17:** RIFE / DirectML for suitable non-NVIDIA GPUs, repaired Optical Flow, 40 language choices and TranslateGemma downloads. [Hardware and setup](docs/GPU-BACKENDS.md) · [Multilingual guide](docs/MULTILINGUAL.en.md) · [Measured results](docs/release-preview17.md).
 
@@ -8,7 +10,7 @@
 
 Capture card or video → GPU → your display. An experimental Windows app for frame generation, optional neural enhancement and local multilingual subtitles.
 
-**[Download preview.19](https://github.com/tomik520i/FrameLab/releases/download/v0.2.0-preview.19/FrameLab-0.2.0-preview.19-windows-x64-full.zip) · [Website & comparisons](https://opicebot.cz/framelab/) · [Česky](docs/README.cs.md)**
+**[Download preview.20](https://github.com/tomik520i/FrameLab/releases/download/v0.2.0-preview.20/FrameLab-0.2.0-preview.20-windows-x64-full.zip) · [Website & comparisons](https://opicebot.cz/framelab/) · [Česky](docs/README.cs.md)**
 
 [Illustrated setup guide — real screenshots, step by step](https://opicebot.cz/framelab/guide/visual-en.html)
 

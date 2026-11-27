@@ -1,8 +1,12 @@
-# FrameLab preview.19 — start here
+# FrameLab preview.20 — start here
 
 [Česky](INSTALL.cs.md) · [Web comparisons](https://opicebot.cz/framelab/)
 
 [Illustrated walkthrough: current screenshots, numbered steps and zoom](https://opicebot.cz/framelab/guide/visual-en.html). The same guide is included offline as **VISUAL GUIDE.html**.
+
+## New in preview.20
+
+Preview.20: subtitle recovery, separate speaker lines and an optional custom prompt editor. OpenAI can restart directly with a saved model and key; slow captions no longer hold up the queue. [Release notes and settings migration](docs/release-preview20.md).
 
 ## New in preview.19: your own AI server and optional conversation memory
 
@@ -31,7 +35,7 @@ The public full ZIP includes RIFE models/runtime, VFG runtime, 12 OCR packs, CPU
 
 ## Download and launch
 
-1. [Download the full Windows x64 ZIP](https://github.com/tomik520i/FrameLab/releases/download/v0.2.0-preview.19/FrameLab-0.2.0-preview.19-windows-x64-full.zip) and **extract all** to a short writable folder, for example D:/FrameLab.
+1. [Download the full Windows x64 ZIP](https://github.com/tomik520i/FrameLab/releases/download/v0.2.0-preview.20/FrameLab-0.2.0-preview.20-windows-x64-full.zip) and **extract all** to a short writable folder, for example D:/FrameLab.
 2. Run **Start FrameLab.cmd**. A new installation opens the GTA demo; subsequent launches restore the saved session. No compiler, Python, SDK or system VLC installation is needed. Keep the entire folder together.
 3. Begin with **Frame gen → 2×**. **F11** opens fullscreen; Escape/F11 returns. **EN / CZ** changes language; English is the clean-install default.
 

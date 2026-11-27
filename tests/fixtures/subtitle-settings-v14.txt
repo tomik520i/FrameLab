@@ -1,0 +1,5 @@
+14 0.100000001 0.720000029 0.899999976 0.970000029 5.5 0.879999995 0.800000012 300 0 0 0.5 1 0 1 1 1 0 0 1.20000005 3 1 0 0 0 0 0 0.419999987 35 "" 0 0 "en" "cs" 2 0 "gpt-6-luna" "none" 0 0 "auto" "" 0 0 0 "http://localhost:8080/v1" "openai" "" "{}" "Translate the current subtitle from {source_language} to {target_language}.
+Preserve who does what to whom, negatives, conditions, slang and intensity.
+If a line starts with a speaker label such as Alex:, keep that label unchanged; it is not an addressee. Keep separate speakers on separate lines.
+Use supplied original dialogue history only to resolve ambiguity. Do not translate the history or invent missing events, relationships or dialogue.
+Return only the translation in the response format requested below. Do not explain your answer." 2 1000 0 0

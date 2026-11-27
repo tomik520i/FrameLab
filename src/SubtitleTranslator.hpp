@@ -43,7 +43,9 @@ struct SubtitleSettings {
  bool useSelectedMemory()const{return useConversationMemory()&&selectedMemory&&(provider!=0||model>=4);}
  int provider=0; // 0 local, 1 OpenAI BYOK, 2 user-configured AI endpoint
  std::string customUrl="http://localhost:8080/v1",customProtocol="openai",customModel,customParameters="{}",customInstruction;
- int customTimeout=30,customMaxTokens=256;
+ bool customPromptEnabled=false;
+ int customResponseFormat=0; // 0 plain text; 1 a single <translation> block
+ int customTimeout=2,customMaxTokens=1000;
  bool customTemperatureEnabled=false;float customTemperature=0;
  unsigned customKeyRevision=0; // credentials remain in the endpoint-specific Windows vault
  std::string contextTrace; // explicit diagnostic CLI only; never persisted

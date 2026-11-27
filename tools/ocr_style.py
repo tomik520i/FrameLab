@@ -4,8 +4,10 @@ A word supplies a foreground colour and a normalized glyph height, not a reading
 rectangle or a font identity. The separately selected reading area is unchanged.
 """
 import math
+import json
 import cv2
 import numpy as np
+from subtitle_dialogue import dialogue_text, speaker_start
 
 
 def rect_pixels(rect, width, height):
@@ -132,9 +134,48 @@ def filter_rows(image, rows, profile=None, full_height=None, area=(0, 0, 1, 1), 
                               reason=reason, measured=measured, observed=observed,
                               height_ratio=observed['height'] / full_height if observed else 0.,
                               box_height_ratio=(bottom - top) / full_height))
+    # A secondary speaker can be smaller and neutral gray while the learned
+    # main subtitle is white. Rescue only a nearby, horizontally aligned reply
+    # anchored by an already accepted line. This is not a global colour bypass.
+    anchors = [r for r in decisions if r['accepted'] and r['text']]
+    rgb = profile.get('rgb', [0, 0, 0])
+    if enabled and min(rgb) >= 170 and max(rgb)-min(rgb) <= 28:
+        for row in decisions:
+            if row['reason'] not in ('size', 'color') or row['confidence'] < .85:
+                continue
+            l, t, r, b = row['rect']
+            nearby = False
+            secondary_anchor = None
+            for anchor in anchors:
+                al, at, ar, ab = anchor['rect']
+                # GTA can put the gray speaker above OR below the white line.
+                gap = max(t-ab, at-b)*h
+                overlap = min(r, ar)-max(l, al)
+                aligned = overlap > .35*min(r-l, ar-al) and abs((l+r-al-ar)/2)*w < expected*5
+                if -.2*expected <= gap <= 2.6*expected and aligned:
+                    nearby = True
+                    if anchor.get('secondary_reply'):
+                        secondary_anchor = anchor
+                    break
+            if not nearby:
+                continue
+            x0, y0, x1, y1 = rect_pixels(row['rect'], w, h)
+            observed = appearance(image[y0:y1, x0:x1])
+            if not observed:
+                continue
+            color = observed['rgb']
+            ratio = observed['height']/expected
+            neutral = max(color)-min(color) <= 30 and 100 <= min(color) and max(color) <= 235
+            # Small replies need an explicit speaker cue; this avoids rescuing
+            # a nearby gray number plate merely because it resembles the font.
+            continuation = secondary_anchor is not None and max(abs(a-b) for a,b in zip(color, secondary_anchor['observed']['rgb'])) <= 25
+            size_ok = .44 <= ratio <= 1.2 and (ratio >= .70 or speaker_start(row['text']) or continuation)
+            if neutral and size_ok:
+                row.update(accepted=True, reason='accepted', measured=observed, observed=observed,
+                           height_ratio=observed['height']/full_height, secondary_reply=True)
+                anchors.insert(0, row)
     accepted = [r for r in decisions if r['accepted'] and r['text']]
-    # Preserve OCR line order and punctuation. Short words and numbers are valid.
-    return dict(text=' '.join(r['text'] for r in accepted),
+    return dict(text=dialogue_text(decisions),
                 confidence=min((r['confidence'] for r in accepted), default=0.),
                 profile=profile, rows=decisions)
 
@@ -145,9 +186,10 @@ REASONS = {'accepted': 0, 'outside_area': 1, 'size': 2, 'color': 3}
 def encode_result(result):
     p = result.get('profile') or {}
     rgb = p.get('rgb', [0, 0, 0])
-    header = 'STYLE3 ' + ' '.join(str(v) for v in [result['confidence'], int(bool(p.get('enabled'))),
+    header = 'STYLE4 ' + ' '.join(str(v) for v in [result['confidence'], int(bool(p.get('enabled'))),
                  p.get('height', 0), *rgb, len(result['rows'])])
-    out = [header, result['text'], ' '.join(result.get('sample_text', '').split())[:256]]
+    # JSON text occupies ONE wire line even when dialogue contains newlines.
+    out = [header, json.dumps(result['text'], ensure_ascii=False), ' '.join(result.get('sample_text', '').split())[:256]]
     for r in result['rows']:
         observed = r.get('observed')
         out.append(' '.join(str(v) for v in [*r['rect'], r['confidence'], REASONS[r['reason']],

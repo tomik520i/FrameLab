@@ -236,8 +236,8 @@
     "cs": "Experiment DLSS 5 a přibalené offline titulky"
   },
   "a37451760bef4300": {
-    "en": "The public preview.19 includes both gameplay samples and the offline OCR translator with its model. The SDK-free NR adapter and import wizard are included; external NR model DLLs are not.",
-    "cs": "Veřejná preview.19 obsahuje obě herní ukázky a offline OCR překladač s modelem. Přibalený je adaptér NR bez SDK a průvodce importem; externí modelové DLL pro NR přibalené nejsou."
+    "en": "The public preview.20 includes both gameplay samples and the offline OCR translator with its model. The SDK-free NR adapter and import wizard are included; external NR model DLLs are not.",
+    "cs": "Veřejná preview.20 obsahuje obě herní ukázky a offline OCR překladač s modelem. Přibalený je adaptér NR bez SDK a průvodce importem; externí modelové DLL pro NR přibalené nejsou."
   },
   "9be6e673faf0f15c": {
     "en": "Exact download and setup steps",
@@ -264,8 +264,8 @@
     "cs": ". NVIDIA 9. listopadu 2026 uvedla, že DLSS 5 SDK nemá veřejný evaluační ani preview přístup."
   },
   "c228b5531f16493b": {
-    "en": "The locally tested OCR translator uses the Helsinki-NLP OPUS-MT en-cs opus-2019-12-18 model under the CC BY 4.0 license included in that original archive, converted to CTranslate2 int8 with attribution and modifications recorded. Windows OCR is an operating-system component. The OCR translator is included in the complete preview.19 download. Component notices do not create permissions or automatically settle GPL/proprietary linking compatibility.",
-    "cs": "Lokálně otestovaný OCR překladač používá model Helsinki-NLP OPUS-MT en-cs opus-2019-12-18 s licencí CC BY 4.0 z původního archivu, převedený na CTranslate2 int8 se zachováním autorství a záznamem změn. Windows OCR je součást operačního systému. OCR překladač je v kompletním balíku preview.19. Licenční oznámení sama nevytvářejí oprávnění ani automaticky neřeší kompatibilitu propojení GPL a proprietárního kódu."
+    "en": "The locally tested OCR translator uses the Helsinki-NLP OPUS-MT en-cs opus-2019-12-18 model under the CC BY 4.0 license included in that original archive, converted to CTranslate2 int8 with attribution and modifications recorded. Windows OCR is an operating-system component. The OCR translator is included in the complete preview.20 download. Component notices do not create permissions or automatically settle GPL/proprietary linking compatibility.",
+    "cs": "Lokálně otestovaný OCR překladač používá model Helsinki-NLP OPUS-MT en-cs opus-2019-12-18 s licencí CC BY 4.0 z původního archivu, převedený na CTranslate2 int8 se zachováním autorství a záznamem změn. Windows OCR je součást operačního systému. OCR překladač je v kompletním balíku preview.20. Licenční oznámení sama nevytvářejí oprávnění ani automaticky neřeší kompatibilitu propojení GPL a proprietárního kódu."
   },
   "e7ad522ea327e5ba": {
     "en": "Application",

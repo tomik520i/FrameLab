@@ -1,5 +1,14 @@
 # 0.2.0-preview.19-dev — source-only experiment, 2026-11-24
 
+## 0.2.0-preview.20 — 2026-11-27
+
+- OpenAI start/restart with saved model/key; recoverable temporary failures, configurable caption deadlines and output tokens.
+- Latest-caption queue recovery, retained history after ordinary timeouts, and safe memory-update failure handling.
+- Opt-in custom-server prompt editor with plain/tagged output, defaults/example and persisted settings.
+- Preserve speaker blocks and nearby neutral-grey replies in OCR/translation.
+- Updated English/Czech online and bundled guides; [details and upgrade](docs/release-preview20.md).
+
+
 - Add a custom OpenAI-compatible / Ollama provider with model discovery, endpoint-specific Windows credentials and bounded configuration. OCR stays on the FrameLab PC.
 - Add opt-in source-history and same-model selection of original dialogue. Selection runs in the background, discards old-generation results and falls back to recent history on failure. CUNI cannot enable the memory builder; no secondary summarizer is used.
 - Start background selection immediately after accepting a caption and expose only one evidence-ID namespace to the model. Keep failed native runs and recent-history fallback visible in the report.

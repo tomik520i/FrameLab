@@ -19,6 +19,7 @@ inline bool openAiPanel(SubtitleSettings& s,OpenAiSettings& api,HWND window){
  ImGui::TextWrapped("%s",hasKey?t("Key saved in Windows Credential Manager for this Windows user.","Klíč je uložený ve Správci pověření Windows pro tohoto uživatele."):t("No key saved. Paste it here; it is never written into the portable package.","Klíč není uložený. Vlož jej sem; do přenosného balíčku se neukládá."));
  ImGui::BeginDisabled(!hasKey||api.busy());if(ImGui::Button(t("Refresh models from my account","Načíst modely z mého účtu")))api.refresh();ImGui::EndDisabled();
  if(api.busy())ImGui::TextDisabled("%s",t("Loading model list...","Načítám seznam modelů…"));
+ ImGui::TextWrapped("%s",t("Refreshing the model list is optional. Your saved model can be started again directly.","Načtení seznamu modelů je volitelné. Uložený model lze rovnou znovu spustit."));
  auto message=api.status();if(!message.empty())ImGui::TextWrapped("%s",message.c_str());
  if(!api.error.empty())ImGui::TextWrapped("%s",api.error.c_str());
  auto models=api.models();
@@ -29,6 +30,15 @@ inline bool openAiPanel(SubtitleSettings& s,OpenAiSettings& api,HWND window){
  }
  auto p=api.profile(s.apiModel);
  ImGui::TextWrapped(t("Reasoning: %s | default: GPT-6 Luna / none","Thinking: %s | výchozí: GPT-6 Luna / none"),s.apiEffort.c_str());
+ ui::field(t("Maximum wait per subtitle (seconds)","Nejdelší čekání na titulek (sekundy)"));
+ static int waitDraft=0,waitSaved=0;if(waitSaved!=s.customTimeout)waitDraft=waitSaved=s.customTimeout;
+ ImGui::SetNextItemWidth(-1);ImGui::InputInt("##openai-caption-wait",&waitDraft,1,5);
+ if(ImGui::IsItemDeactivatedAfterEdit())s.customTimeout=waitDraft=waitSaved=std::clamp(waitDraft,1,120);
+ ui::field(t("Tokens per response","Tokenů na odpověď"));
+ static int tokenDraft=0,tokenSaved=0;if(tokenSaved!=s.customMaxTokens)tokenDraft=tokenSaved=s.customMaxTokens;
+ ImGui::SetNextItemWidth(-1);ImGui::InputInt("##openai-output-tokens",&tokenDraft,100,1000);
+ if(ImGui::IsItemDeactivatedAfterEdit()&&tokenDraft>0)s.customMaxTokens=tokenSaved=tokenDraft;
+ ImGui::TextWrapped("%s",t("A timeout skips that caption and continues with the latest one. Temporary connection/server errors skip one answer; key, billing and configuration errors still require correction. The same caption is not automatically retried.","Při timeoutu titulek přeskočí a pokračuje nejnovějším. Dočasná chyba spojení/serveru přeskočí jednu odpověď; chybu klíče, účtování nebo konfigurace je potřeba opravit. Stejný titulek se automaticky neopakuje."));
  if(ImGui::CollapsingHeader(t("Model settings, price and data","Nastavení modelu, cena a data"))){
  if(p){
   if(ImGui::BeginCombo(t("Reasoning / thinking","Uvažování / thinking"),s.apiEffort.c_str())){for(auto& effort:p->efforts)if(ImGui::Selectable(effort.c_str(),effort==s.apiEffort)){s.apiEffort=effort;if(!p->temperature(effort))s.apiTemperatureEnabled=false;}ImGui::EndCombo();}
@@ -37,9 +47,10 @@ inline bool openAiPanel(SubtitleSettings& s,OpenAiSettings& api,HWND window){
   if(p->inputPrice>=0)ImGui::TextWrapped(t("Standard reference price: $%.2f input / $%.2f output per 1M tokens. Profile checked %s; current account billing may differ.","Referenční cena Standard: $%.2f vstup / $%.2f výstup za 1M tokenů. Profil ověřen %s; aktuální účtování se může lišit."),p->inputPrice,p->outputPrice,api.reviewed.c_str());
  }
  ImGui::TextWrapped("%s",t("Start with GPT-6 Luna + none for low cost. More reasoning can increase delay and cost. Grey models have no reviewed translation profile. Availability does not describe capabilities.","Začni GPT-6 Luna + none pro nízkou cenu. Vyšší thinking může zvýšit prodlevu i cenu. Šedé modely nemají ověřený překladový profil. Dostupnost modelu nepopisuje jeho schopnosti."));
- ImGui::TextWrapped("%s",t("store=false disables saved response state, not all provider logging. Check API billing and data controls. Errors stop API translation until you retry; no paid automatic retry loop.","store=false vypíná ukládání stavu odpovědí, nikoli veškeré logování poskytovatele. Zkontroluj účtování a pravidla dat v API. Po chybě se překlad zastaví do ručního opakování; žádná placená smyčka pokusů."));
+ ImGui::TextWrapped("%s",t("store=false disables saved response state, not all provider logging. Check API billing and data controls. Permanent errors stop API translation until corrected. Temporary failures skip the answer; no automatic retry of the same caption.","store=false vypíná ukládání stavu odpovědí, nikoli veškeré logování poskytovatele. Zkontroluj účtování a pravidla dat v API. Trvalá chyba zastaví překlad do opravy. Dočasná chyba přeskočí odpověď; stejný titulek se automaticky neopakuje."));
  if(ImGui::TreeNode(t("Other available IDs (unreviewed)","Další dostupná ID (bez ověřeného profilu)"))){for(auto& id:models)if(!api.profile(id))ImGui::TextDisabled("%s",id.c_str());ImGui::TreePop();}
  }
  if(ImGui::SmallButton(t("API key / billing / setup guide","API klíč / platby / návod")))ShellExecuteW(window,L"open",L"https://opicebot.cz/framelab/guide/remote-subtitles.html#openai",nullptr,nullptr,SW_SHOWNORMAL);
- return hasKey&&p&&api.available(s.apiModel)&&s.sourceLanguage!=s.targetLanguage;
+ // A model-list refresh is optional, never a prerequisite for restarting a saved profile.
+ return hasKey&&p&&s.sourceLanguage!=s.targetLanguage;
 }

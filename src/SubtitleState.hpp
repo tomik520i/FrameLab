@@ -11,7 +11,7 @@ struct SubtitleState {
  std::string candidate,committed,lastAccepted;unsigned repeats=0;
  void clear(){candidate.clear();committed.clear();lastAccepted.clear();repeats=0;}
  static std::string key(const std::string& text){
-  std::string out;for(size_t i=0;i<text.size();++i){unsigned char c=text[i];if(std::isspace(c))continue;
+  std::string out;for(size_t i=0;i<text.size();++i){unsigned char c=text[i];if(c=='\n'){out+='\n';continue;}if(std::isspace(c))continue;
    const bool numericSeparator=i>0&&i+1<text.size()&&std::isdigit(static_cast<unsigned char>(text[i-1]))&&std::isdigit(static_cast<unsigned char>(text[i+1]));
    if(c=='!'||c=='?'||c=='\''||c=='"'||c==';'||((c=='.'||c==','||c==':'||c=='/')&&!numericSeparator))continue;out+=char(std::tolower(c));}return out;
  }
@@ -27,9 +27,9 @@ struct SubtitleState {
    if(a[i]==b[j]){++i;++j;continue;}if(++edits>1)return false;if(a.size()>=b.size())++i;if(b.size()>=a.size())++j;
   }return edits+(i<a.size()||j<b.size())<=1;
  }
- static std::string normalize(const std::string& input){
-  std::string out;bool space=false;unsigned letters=0;
-  for(unsigned char c:input){if(std::isspace(c)){space=!out.empty();continue;}if(space)out+=' ';space=false;out+=char(c);if(std::isalpha(c))++letters;}
+ static std::string normalize(const std::string& input,bool preserveLines=false){
+  std::string out;bool space=false,line=false;
+  for(unsigned char c:input){if(std::isspace(c)){space=!out.empty();line|=preserveLines&&(c=='\n'||c=='\r');continue;}if(space)out+=line?'\n':' ';space=line=false;out+=char(c);}
   // Keep short commands/negations such as "No!", "Go!" and "OK".
   if(out.size()>1500||!subtitleHasLetters(out))return {};return out;
  }

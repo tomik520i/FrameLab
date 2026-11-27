@@ -11,6 +11,9 @@ import re
 import ssl
 import urllib.request
 import urllib.error
+import threading
+import time
+from custom_ai_translation import _deadline_request, CustomAiError, CustomAiResponseError, CustomAiTimeoutError
 
 CREDENTIAL = 'FrameLab/OpenAI/APIKey'
 API = 'https://api.openai.com/v1/'
@@ -63,9 +66,19 @@ class NoRedirect(urllib.request.HTTPRedirectHandler):
     def redirect_request(self, req, fp, code, msg, headers, newurl):
         return None
 
-def request(path, key, payload=None):
+def request(path, key, payload=None, *, deadline=None):
     if path not in ('models', 'responses'):
         raise ApiError('Unsupported API operation.')
+    if deadline is not None:
+        try:
+            return _deadline_request(API+path,{'Authorization':'Bearer '+key,'Content-Type':'application/json','User-Agent':'FrameLab-subtitles/1'},
+                json.dumps(payload,ensure_ascii=False).encode('utf-8'),deadline)
+        except CustomAiResponseError as exc:
+            if exc.details.get('http_status')==429:
+                raise ApiError('OpenAI rate/quota limit reached; check billing or wait, then restart translation.') from None
+            raise # Known per-caption network/timeout/server failures preserve the worker.
+        except CustomAiError as exc:
+            raise ApiError(str(exc).replace('Custom AI','OpenAI')) from None
     req = urllib.request.Request(API + path,
         data=None if payload is None else json.dumps(payload).encode('utf-8'),
         headers={'Authorization': 'Bearer ' + key, 'Content-Type': 'application/json',
@@ -162,21 +175,28 @@ def parse_response(response):
     return value, response.get('usage', {})
 
 class OpenAiTranslator:
-    def __init__(self, model='gpt-6-luna', source='en', target='cs', effort='none', temperature=None, filtering=True, key=None, usage_log=None):
+    def __init__(self, model='gpt-6-luna', source='en', target='cs', effort='none', temperature=None, filtering=True, key=None, usage_log=None, timeout_s=2, max_tokens=1000):
         self.key = read_key() if key is None else key
         self.model,self.source,self.target = model,source,target
         self.effort,self.temperature,self.filtering = effort,temperature,filtering
         self.last_usage={}
         self.usage_log=usage_log
+        if type(timeout_s) is not int or not 1<=timeout_s<=120:raise ApiError('Caption timeout must be 1–120 seconds.')
+        if type(max_tokens) is not int or max_tokens<1:raise ApiError('Response token budget must be positive.')
+        self.config=dict(timeout_s=timeout_s,max_tokens=max_tokens)
+        self.caption_clock=threading.local()
         build_request(model,source,target,'validation',effort=effort,temperature=temperature,filtering=filtering)
+    def begin_caption(self):self.caption_clock.deadline=time.monotonic()+self.config['timeout_s']
+    def end_caption(self):self.caption_clock.deadline=None
     def translate(self, text, context=None):
         payload=build_request(self.model,self.source,self.target,text,effort=self.effort,
                               temperature=self.temperature,filtering=self.filtering,context=context)
         self.last_usage={}
-        response=request('responses',self.key,payload)
+        payload['max_output_tokens']=self.config['max_tokens']
+        deadline=getattr(self.caption_clock,'deadline',None) or time.monotonic()+self.config['timeout_s']
+        response=request('responses',self.key,payload,deadline=deadline)
         self.last_usage=response.get('usage',{})
         if self.usage_log is not None:
-            import time
             try:
                 path=Path(self.usage_log);path.parent.mkdir(parents=True,exist_ok=True)
                 if path.exists() and path.stat().st_size>4*1024*1024:
@@ -184,7 +204,8 @@ class OpenAiTranslator:
                 with path.open('a',encoding='utf-8') as out:
                     out.write(json.dumps({'utc':time.strftime('%Y-%m-%dT%H:%M:%SZ',time.gmtime()),'model':self.model,'usage':self.last_usage})+'\n')
             except OSError:pass
-        value,_=parse_response(response)
+        try:value,_=parse_response(response)
+        except ApiError as exc:raise CustomAiResponseError(str(exc),dict(error_type='openai_caption_response',status=response.get('status'),incomplete_details=response.get('incomplete_details'))) from None
         return value['text'] if value['translate'] else 'FRAMELAB_SKIP_V1:api_non_dialogue'
 
     def generate_memory(self,instruction,data):
@@ -192,12 +213,11 @@ class OpenAiTranslator:
         # support follows the selected model's existing capability rules.
         payload=build_request(self.model,self.source,self.target,'memory',effort=self.effort,temperature=self.temperature,filtering=False)
         payload.pop('text',None)
-        payload['max_output_tokens']=256
+        payload['max_output_tokens']=self.config['max_tokens']
         payload['input']=[dict(role='developer',content=instruction),dict(role='user',content=json.dumps(data,ensure_ascii=False))]
-        response=request('responses',self.key,payload)
+        response=request('responses',self.key,payload,deadline=time.monotonic()+self.config['timeout_s'])
         usage=response.get('usage',{})
         if self.usage_log is not None:
-            import time
             path=Path(self.usage_log);path.parent.mkdir(parents=True,exist_ok=True)
             with path.open('a',encoding='utf-8') as out:out.write(json.dumps(dict(utc=time.strftime('%Y-%m-%dT%H:%M:%SZ',time.gmtime()),model=self.model,task='memory',usage=usage))+'\n')
         if response.get('status')!='completed':raise ApiError('Memory response incomplete; recent history remains available.')

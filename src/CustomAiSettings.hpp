@@ -68,6 +68,8 @@ public:
   value.Insert(L"timeout_s",JsonValue::CreateNumberValue(s.customTimeout));value.Insert(L"max_tokens",JsonValue::CreateNumberValue(s.customMaxTokens));
   if(s.customTemperatureEnabled)value.Insert(L"temperature",JsonValue::CreateNumberValue(s.customTemperature));
   value.Insert(L"parameters",extra);value.Insert(L"instruction",JsonValue::CreateStringValue(winrt::to_hstring(s.customInstruction)));
+  value.Insert(L"prompt_enabled",JsonValue::CreateBooleanValue(s.customPromptEnabled));
+  value.Insert(L"response_format",JsonValue::CreateStringValue(s.customResponseFormat==1?L"translation_tags":L"plain"));
   return winrt::to_string(value.Stringify());
  }
  bool hasKey(const SubtitleSettings& s){

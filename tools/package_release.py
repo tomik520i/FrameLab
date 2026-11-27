@@ -31,7 +31,7 @@ def main():
     p.add_argument('--rife',type=Path,required=True,help='Verified runtime/rife folder, including all three ONNX models and licenses')
     p.add_argument('--entity-filter',type=Path,help='Prepared translation/filter directory, including tokenizers dependencies and licenses')
     p.add_argument('--output',type=Path,required=True)
-    p.add_argument('--version',default='0.2.0-preview.19')
+    p.add_argument('--version',default='0.2.0-preview.20')
     p.add_argument('--commit',required=True)
     p.add_argument('--gta-sample',type=Path,required=True)
     a=p.parse_args()
@@ -67,6 +67,7 @@ def main():
             shutil.copy2(file,dest)
     shutil.copy2(ROOT/'tools/ocr_worker.py',stage/'app/ocr/ocr_worker.py')
     shutil.copy2(ROOT/'tools/ocr_style.py',stage/'app/ocr/ocr_style.py')
+    shutil.copy2(ROOT/'tools/subtitle_dialogue.py',stage/'app/ocr/subtitle_dialogue.py')
     media_pin=json.loads((ROOT/'docs/media-runtime.json').read_text(encoding='utf-8'))
     assert json.loads((a.media/'provenance.json').read_text(encoding='utf-8'))==media_pin,'Media runtime provenance mismatch'
     assert (a.media/'libvlc.dll').is_file() and (a.media/'libvlccore.dll').is_file() and (a.media/'plugins/demux/libmkv_plugin.dll').is_file(),'Incomplete media runtime'
@@ -95,9 +96,9 @@ def main():
     for source in ROOT.glob('*.cmd'):
         if source.name.startswith(('Start FrameLab','1 - ','2 - ','3 - ','4 - ','Ukazka - ')) and source.name!='Ukazka - Spider-Man.cmd':
             shutil.copy2(source,stage/source.name)
-    for file in ['prepare_translation.py','prepare_ocr.py','prepare_media.py','prepare_entity_filter.py','ocr_worker.py','ocr_style.py','translate_worker.py','subtitle_models.py','subtitle_model_manager.py','subtitle_compute.py','subtitle_gpu.py','translation_memory.py','translation_timeline.py','subtitle_context.py','subtitle_evidence_memory.py','custom_ai_translation.py','openai_translation.py','subtitle_filter.py','subtitle_entities.py','subtitle_languages.py','package_release.py','package_guides.py','Install-Enhancer.ps1']:
+    for file in ['prepare_translation.py','prepare_ocr.py','prepare_media.py','prepare_entity_filter.py','ocr_worker.py','ocr_style.py','translate_worker.py','subtitle_models.py','subtitle_model_manager.py','subtitle_compute.py','subtitle_gpu.py','translation_memory.py','translation_timeline.py','subtitle_context.py','subtitle_evidence_memory.py','subtitle_dialogue.py','custom_ai_translation.py','openai_translation.py','subtitle_filter.py','subtitle_entities.py','subtitle_languages.py','package_release.py','package_guides.py','Install-Enhancer.ps1']:
         shutil.copy2(ROOT/'tools'/file,stage/'tools'/file)
-    for file in ['translate_worker.py','subtitle_models.py','subtitle_model_manager.py','subtitle_compute.py','subtitle_gpu.py','translation_memory.py','translation_timeline.py','subtitle_context.py','subtitle_evidence_memory.py','custom_ai_translation.py','openai_translation.py','subtitle_filter.py','subtitle_entities.py','subtitle_languages.py']:
+    for file in ['translate_worker.py','subtitle_models.py','subtitle_model_manager.py','subtitle_compute.py','subtitle_gpu.py','translation_memory.py','translation_timeline.py','subtitle_context.py','subtitle_evidence_memory.py','subtitle_dialogue.py','custom_ai_translation.py','openai_translation.py','subtitle_filter.py','subtitle_entities.py','subtitle_languages.py']:
         shutil.copy2(ROOT/'tools'/file,stage/'app/translation'/file)
     shutil.copy2(ROOT/'docs/subtitle-models.json',stage/'app/translation/subtitle-models.json')
     shutil.copy2(ROOT/'docs/openai-model-profiles.json',stage/'app/translation/openai-model-profiles.json')

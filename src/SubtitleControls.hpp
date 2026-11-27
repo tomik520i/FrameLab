@@ -96,6 +96,11 @@ inline bool subtitlePanel(SubtitleSettings& settings,const SubtitleSnapshot& sta
   }
  }
  }
+ if(settings.provider==1){
+  ImGui::BeginDisabled(!ready);
+  if(ui::button(settings.enabled?subText("Restart OpenAI translation","Restartovat OpenAI překlad"):subText("Start OpenAI translation","Spustit OpenAI překlad"),true)){settings.enabled=true;++settings.apiKeyRevision;}
+  ImGui::EndDisabled();
+ }
  ui::field(subText("Conversation memory","Paměť rozhovoru"));
  ImGui::BeginDisabled(!settings.provider&&settings.model==0);
  ImGui::Checkbox(subText("Use recent dialogue","Použít poslední repliky rozhovoru"),&settings.conversationMemory);
@@ -113,9 +118,10 @@ inline bool subtitlePanel(SubtitleSettings& settings,const SubtitleSnapshot& sta
   ImGui::TextWrapped("%s",subText("The selected model periodically chooses original dialogue to retain for up to 10 minutes. No other AI is used. Extra inference adds delay and API cost. Can select wrong context and worsen translation; off by default. Intended for general instruction-following LLMs; CUNI cannot build this memory. Clear it by stopping translation when changing conversations.","Vybraný model průběžně vybírá původní repliky k uchování až na 10 minut. Žádné jiné AI se nepoužívá. Další výpočet přidává prodlevu a cenu API. Může vybrat špatný kontext a překlad zhoršit; výchozí stav je vypnuto. Určeno pro obecné LLM schopné plnit instrukce; CUNI tuto paměť vytvářet neumí. Při změně rozhovoru ji smaž zastavením překladu."));
  }
  if(ImGui::SmallButton(subText("History comparison and examples","Porovnání historie a příklady")))ShellExecuteW(window,L"open",czech?L"https://opicebot.cz/framelab/runs/2026-11-24-context-memory/?lang=cs":L"https://opicebot.cz/framelab/runs/2026-11-24-context-memory/?lang=en",nullptr,nullptr,SW_SHOWNORMAL);
- if(!ready)ImGui::BeginDisabled();
+ const bool blockEnable=!ready&&!settings.enabled;
+ if(blockEnable)ImGui::BeginDisabled();
  ImGui::Checkbox(settings.provider==1?subText("Enable paid API translation","Zapnout placený API překlad"):subText("Translate subtitles","Překládat titulky"),&settings.enabled);
- if(!ready)ImGui::EndDisabled();
+ if(blockEnable)ImGui::EndDisabled();
  if(settings.enabled&&ImGui::Button(settings.provider?subText("Stop API translation","Zastavit API překlad"):subText("Unload translation model","Uvolnit překladový model")))settings.enabled=false;
  ImGui::TextDisabled("%s > %s | %s",settings.sourceLanguage.c_str(),settings.targetLanguage.c_str(),settings.provider==1?"OpenAI API":settings.provider==2?"Custom AI server":"offline");
  ui::field(subText("Subtitle appearance","Vzhled originálních titulků"));
@@ -154,6 +160,7 @@ inline bool subtitlePanel(SubtitleSettings& settings,const SubtitleSnapshot& sta
  if(settings.style.enabled&&ImGui::CollapsingHeader(subText("Appearance details","Podrobnosti vzhledu"))){
   ImGui::SliderFloat(subText("Size tolerance","Tolerance velikosti"),&settings.style.heightTolerance,.15f,.8f,"%.2f");
   ImGui::SliderFloat(subText("Colour tolerance","Tolerance barvy"),&settings.style.colorTolerance,10.f,65.f,"%.0f");
+  ImGui::TextWrapped("%s",subText("RapidOCR keeps separate speaker replies. A nearby smaller gray reply can accompany a white subtitle; soft wraps within one reply stay together.","RapidOCR zachová oddělené repliky. U bílého titulku přijme i blízkou menší šedou odpověď; zalomení uvnitř jedné repliky spojí."));
   ImGui::TextWrapped("%s",subText("Similar-looking signs can still match. Narrow the reading area if needed. No match means waiting, never falling back to all text.","Podobně vypadající nápis může stále projít. Pomůže zúžení oblasti čtení. Když nic neodpovídá, čeká se; filtr se sám nevypíná."));
   for(const auto& line:state.ocrLines){const char* en[]={"accepted","outside area","size","colour"};const char* cs[]={"přijato","mimo oblast","velikost","barva"};ImGui::TextWrapped("%s: %s",(czech?cs:en)[std::clamp(line.reason,0,3)],line.text.c_str());}
  }

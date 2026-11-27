@@ -7,7 +7,20 @@ output is used to manufacture source facts. This module is an experimental tool.
 from collections import deque
 import json
 import re
+import unicodedata
 from translation_memory import clean,noise_reason
+
+
+def caption_key(text):
+    """Conservative OCR equivalence, never fuzzy word/number matching.
+
+    Keep word boundaries, contractions, decimal separators and numeric signs.
+    A missing space after the English pronoun I is handled only before an
+    explicit negative contraction. Never turn `now here` into `nowhere`.
+    """
+    text = unicodedata.normalize('NFKC', text).replace('’', "'").replace('‘', "'").replace('−', '-')
+    text = re.sub(r"\bI(?=(?:don|doesn|didn|can|couldn|won|wouldn|shouldn|haven|hasn|hadn|isn|wasn|weren|aren)'t\b)", 'I ', text)
+    return tuple(re.findall(r"[+-]?(?:\d+(?:[.,:/-]\d+)*|[.,]\d+)|[^\W\d_]+(?:'[^\W\d_]+)*", text.casefold(), re.UNICODE))
 
 
 class ConversationTimeline:
@@ -34,17 +47,16 @@ class ConversationTimeline:
             # sentence after intervening dialogue remains a real repeated turn.
             if previous['speaker']==speaker and dt<=1.5:
                 old=previous['source']
-                if text==old or (len(old)>=12 and text.startswith(old)):
+                if caption_key(text) and caption_key(text)==caption_key(old):
                     previous.update(end_s=now,source=text,event_id=str(event_id));return
-                if len(text)>=12 and old.startswith(text):
-                    previous['end_s']=now;return
         self.turns.append(dict(start_s=now,end_s=now,source=text,speaker=speaker,event_id=str(event_id),segment=self.segment))
 
     def snapshot(self, now, *, current_speaker=None,current_text='',max_turns=6,max_chars=1000):
         # Full bounded transcript is inspectable; only a small causal excerpt is
         # given to the model. Facts are supplied by the same verified source as
         # the original diagnostic, never estimated from a guessed identity.
-        eligible=[x for x in self.turns if 0<=now-x['end_s']<=self.horizon and x['source']!=clean(current_text)]
+        current_key=caption_key(current_text)
+        eligible=[x for x in self.turns if 0<=now-x['end_s']<=self.horizon and caption_key(x['source'])!=current_key]
         selected=[];size=0
         for x in reversed(eligible):
             if len(selected)>=max_turns or size+len(x['source'])>max_chars:break

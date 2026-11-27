@@ -29,6 +29,6 @@ class CustomTests(unittest.TestCase):
     def test_multilingual_context_and_ollama(self):
         c=self.config(protocol='ollama');p=build_request(c,'cs','ja','Pozor!',context={'history':[]})
         self.assertIn('Japanese',p['messages'][0]['content']);self.assertIn('Czech',p['messages'][0]['content'])
-        self.assertEqual(p['options']['num_predict'],256);self.assertFalse(p['stream'])
+        self.assertEqual(p['options']['num_predict'],1000);self.assertFalse(p['stream'])
 
 if __name__=='__main__':unittest.main()

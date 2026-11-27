@@ -1,12 +1,14 @@
 # FrameLab — česky
 
-**Preview.19 je dostupné jako kompletní přenosný balíček:** vlastní OpenAI-compatible/Ollama server a volitelná paměť rozhovoru. Paměť je výchozím stavem vypnutá a při změně tématu může překlad zhoršit. [Dokončených 75 situací v aplikaci](https://opicebot.cz/framelab/runs/2026-11-24-context75/?lang=cs) · [Změny vydání](release-preview19.md) · [Návod k paměti](https://opicebot.cz/framelab/guide/memory.html).
+**Preview.20: obnova překladu, oddělené repliky mluvčích a volitelný editor vlastního promptu. OpenAI lze znovu spustit s uloženým modelem a klíčem; pomalý titulek nezablokuje frontu.** [Změny a aktualizace](release-preview20.md).
+
+**Dříve v preview.19:** vlastní OpenAI-compatible/Ollama server a volitelná paměť rozhovoru. Paměť je výchozím stavem vypnutá a při změně tématu může překlad zhoršit. [Dokončených 75 situací v aplikaci](https://opicebot.cz/framelab/runs/2026-11-24-context75/?lang=cs) · [Změny vydání](release-preview19.md) · [Návod k paměti](https://opicebot.cz/framelab/guide/memory.html).
 
 **Preview.17:** RIFE / DirectML i pro vhodné GPU jiných výrobců, opravený Optical Flow, 40 jazykových voleb a stažení TranslateGemma v aplikaci. [GPU a nastavení](GPU-BACKENDS.md) · [Vícejazyčné titulky](MULTILINGUAL.md) · [Výsledky](release-preview17.md).
 
 Obraz ze střihovky nebo videa → GPU → monitor. Generování snímků, volitelný enhancer a lokální vícejazyčné titulky.
 
-**[Stáhnout preview.19](https://github.com/tomik520i/FrameLab/releases/download/v0.2.0-preview.19/FrameLab-0.2.0-preview.19-windows-x64-full.zip) · [Web a ukázky](https://opicebot.cz/framelab/?lang=cs) · [English](../README.md)**
+**[Stáhnout preview.20](https://github.com/tomik520i/FrameLab/releases/download/v0.2.0-preview.20/FrameLab-0.2.0-preview.20-windows-x64-full.zip) · [Web a ukázky](https://opicebot.cz/framelab/?lang=cs) · [English](../README.md)**
 
 [Obrazový návod — skutečné screenshoty krok za krokem](https://opicebot.cz/framelab/guide/visual.html)
 

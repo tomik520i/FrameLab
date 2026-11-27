@@ -13,6 +13,8 @@ int main(){
  require(!s.observe("The door"));require(s.committed.empty());require(!s.observe("The door is locked."));require(s.observe("The door is locked."));
  require(!s.observe(""));require(s.committed.empty());s.clear();require(!s.observe("Follow me."));
  require(SubtitleState::normalize("  Follow\n me.  ")=="Follow me.");require(SubtitleState::normalize("100 / 200").empty());
+ require(SubtitleState::normalize(" \n Jason: Wait! \r\n  Lucia: No!  ",true)=="Jason: Wait!\nLucia: No!");
+ require(!SubtitleState::equivalent("Jason: Wait!\nLucia: No!","Jason: Wait! Lucia: No!"));
  require(SubtitleState::normalize("No!")=="No!");require(SubtitleState::normalize("Go!")=="Go!");require(SubtitleState::normalize("OK")=="OK");require(SubtitleState::normalize("+").empty());
  s.clear();require(!s.observe("How come you never mentioned she was coming to this class?"));require(s.observe("How come you never mentioned she was coming to thisclass?"));require(!s.observe("How come YOU never mentioned she was coming to this class."));
  require(!SubtitleState::equivalent("I like surprises.","I don't like surprises."));require(!SubtitleState::equivalent("February 26", "February 6"));require(!SubtitleState::equivalent("50%", "50"));

@@ -36,6 +36,8 @@ void lifecycle(const std::filesystem::path& app,const char* kind,const std::stri
  }catch(...){} // Diagnostics must never stop playback or recovery.
 }
 struct Handle {HANDLE value=nullptr;~Handle(){if(value&&value!=INVALID_HANDLE_VALUE)CloseHandle(value);}operator HANDLE()const{return value;}};
+struct TranslationRequestError:std::runtime_error {using std::runtime_error::runtime_error;};
+struct TranslationRequestTimeout:TranslationRequestError {bool restartWorker;TranslationRequestTimeout(const std::string& message,bool restart=false):TranslationRequestError(message),restartWorker(restart){}};
 struct TranslationProcess {
  std::string contextStatus,contextDetails;
  Handle process,input,output,errors,job;
@@ -64,7 +66,7 @@ struct TranslationProcess {
   if(!UpdateProcThreadAttribute(extended.lpAttributeList,0,PROC_THREAD_ATTRIBUTE_HANDLE_LIST,inherited,sizeof(inherited),nullptr,nullptr))throw std::runtime_error("Subtitle handle-list configuration failed");
   PROCESS_INFORMATION pi{};std::wstring command=L"\""+python.wstring()+L"\" -B -I \""+script.wstring()+L"\" ";
   command+=ocr?L"--mapping \""+mapping+L"\" --style-protocol":L"--model \""+(base/L"model").wstring()+L"\" --backend "+winrt::to_hstring(cloud?(settings->provider==1?"openai":"custom"):subtitleModelCatalog.at(model).id).c_str();
-  if(cloud&&settings->provider==1){command+=L" --api-model "+std::wstring(winrt::to_hstring(settings->apiModel))+L" --api-effort "+std::wstring(winrt::to_hstring(settings->apiEffort));if(settings->apiTemperatureEnabled)command+=L" --api-temperature "+std::to_wstring(settings->apiTemperature);}
+  if(cloud&&settings->provider==1){command+=L" --api-model "+std::wstring(winrt::to_hstring(settings->apiModel))+L" --api-effort "+std::wstring(winrt::to_hstring(settings->apiEffort));command+=L" --api-timeout "+std::to_wstring(settings->customTimeout)+L" --api-max-tokens "+std::to_wstring(settings->customMaxTokens);if(settings->apiTemperatureEnabled)command+=L" --api-temperature "+std::to_wstring(settings->apiTemperature);}
   if(!subtitleLanguage(source)||!subtitleLanguage(target))throw std::runtime_error("Unknown subtitle language");
   command+=ocr?L" --language "+std::wstring(winrt::to_hstring(source)):L" --source "+std::wstring(winrt::to_hstring(source))+L" --target "+std::wstring(winrt::to_hstring(target));
   job.value=CreateJobObjectW(nullptr,nullptr);JOBOBJECT_EXTENDED_LIMIT_INFORMATION limits{};limits.BasicLimitInformation.LimitFlags=JOB_OBJECT_LIMIT_KILL_ON_JOB_CLOSE;
@@ -91,10 +93,17 @@ struct TranslationProcess {
   while(length){if(cancelled()||clockSeconds()>deadline)throw std::runtime_error("Translation cancelled or timed out");DWORD available=0;if(!PeekNamedPipe(output,nullptr,0,nullptr,&available,nullptr))throw std::runtime_error("Translation process stopped; see translation-worker.log");if(!available){Sleep(5);continue;}DWORD got=0;if(!ReadFile(output,p,std::min(length,available),&got,nullptr)||!got)throw std::runtime_error("Translation response failed");p+=got;length-=got;}
  }
  std::string receive(const std::function<bool()>& cancelled,double timeout=150){uint32_t length=0;readExact(&length,4,cancelled,timeout);if(length>65536)throw std::runtime_error("Invalid subtitle response length");std::string value(length,'\0');if(length)readExact(value.data(),length,cancelled,timeout);return value;}
- std::string translate(const std::string& text,const std::function<bool()>& cancelled){
+ std::string translate(const std::string& text,const std::function<bool()>& cancelled,double timeout=150,bool realtime=false){
   uint32_t length=uint32_t(text.size());std::vector<unsigned char> message(length+4);memcpy(message.data(),&length,4);memcpy(message.data()+4,text.data(),length);DWORD sent=0;
   if(!WriteFile(input,message.data(),DWORD(message.size()),&sent,nullptr)||sent!=message.size())throw std::runtime_error("Translation request failed");
-  auto result=receive(cancelled);if(result.starts_with("ERROR:"))throw std::runtime_error(result);
+  const auto deadline=clockSeconds()+timeout;std::string result;
+  try{result=receive([&]{return cancelled()||clockSeconds()>=deadline;},timeout);}
+  catch(...){if(realtime&&!cancelled()&&clockSeconds()>=deadline)throw TranslationRequestTimeout("Translation worker exceeded the caption deadline; continuing with latest subtitle",true);throw;}
+  if(result.starts_with("ERROR:"))throw std::runtime_error(result);
+  constexpr std::string_view requestTimeout="FRAMELAB_REQUEST_TIMEOUT_V1\n";
+  if(result.starts_with(requestTimeout))throw TranslationRequestTimeout(result.substr(requestTimeout.size()));
+  constexpr std::string_view requestError="FRAMELAB_REQUEST_ERROR_V1\n";
+  if(result.starts_with(requestError))throw TranslationRequestError(result.substr(requestError.size()));
   constexpr std::string_view prefix="FRAMELAB_CONTEXT_RESULT_V1\n";
   if(result.starts_with(prefix)){
    try{auto value=winrt::Windows::Data::Json::JsonObject::Parse(winrt::to_hstring(result.substr(prefix.size())));contextStatus=winrt::to_string(value.GetNamedString(L"status"));contextDetails=winrt::to_string(value.GetNamedString(L"details"));result=winrt::to_string(value.GetNamedString(L"text"));}
@@ -122,11 +131,15 @@ struct OcrProcess:TranslationProcess {
   if(!WriteFile(input,request.data(),DWORD(request.size()),&sent,nullptr)||sent!=request.size())throw std::runtime_error("OCR request failed");
   const auto value=receive(cancelled,15);if(value.starts_with("ERROR:"))throw std::runtime_error(value);
   std::istringstream stream(value);stream.imbue(std::locale::classic());std::string headerLine,magic;std::getline(stream,headerLine);std::istringstream fields(headerLine);fields.imbue(std::locale::classic());Reading out;unsigned count=0;
-  if(!(fields>>magic>>out.confidence>>out.profile.enabled>>out.profile.height>>out.profile.rgb[0]>>out.profile.rgb[1]>>out.profile.rgb[2]>>count)||(magic!="STYLE2"&&magic!="STYLE3")||count>64)throw std::runtime_error("Invalid OCR style response; update bundled OCR files");
+  if(!(fields>>magic>>out.confidence>>out.profile.enabled>>out.profile.height>>out.profile.rgb[0]>>out.profile.rgb[1]>>out.profile.rgb[2]>>count)||(magic!="STYLE2"&&magic!="STYLE3"&&magic!="STYLE4")||count>64)throw std::runtime_error("Invalid OCR style response; update bundled OCR files");
   std::getline(stream,out.text);
-  if(magic=="STYLE3")std::getline(stream,out.profile.sampleText);
+  if(magic=="STYLE4"){
+   try{out.text=winrt::to_string(winrt::Windows::Data::Json::JsonValue::Parse(winrt::to_hstring(out.text)).GetString());}
+   catch(...){throw std::runtime_error("Invalid structured OCR text");}
+  }
+  if(magic!="STYLE2")std::getline(stream,out.profile.sampleText);
   for(unsigned i=0;i<count;++i){std::string line;if(!std::getline(stream,line))throw std::runtime_error("Incomplete OCR style response");const auto tab=line.find('\t');if(tab==std::string::npos)throw std::runtime_error("Invalid OCR line");std::istringstream f(line.substr(0,tab));f.imbue(std::locale::classic());SubtitleOcrLine r;if(!(f>>r.rect[0]>>r.rect[1]>>r.rect[2]>>r.rect[3]>>r.confidence>>r.reason))throw std::runtime_error("Invalid OCR geometry");
-   if(magic=="STYLE3"&&!(f>>r.measured>>r.height>>r.rgb[0]>>r.rgb[1]>>r.rgb[2]>>r.boxHeight))throw std::runtime_error("Invalid OCR measurements");
+   if(magic!="STYLE2"&&!(f>>r.measured>>r.height>>r.rgb[0]>>r.rgb[1]>>r.rgb[2]>>r.boxHeight))throw std::runtime_error("Invalid OCR measurements");
    if(!std::isfinite(r.height)||!std::isfinite(r.boxHeight)||!std::isfinite(r.confidence)||r.height<0||r.boxHeight<0)throw std::runtime_error("Invalid OCR measurement values");
    for(auto& c:r.rgb)if(!std::isfinite(c)||c<0||c>255)throw std::runtime_error("Invalid OCR colour");
    r.text=line.substr(tab+1);out.lines.push_back(std::move(r));}
@@ -190,7 +203,7 @@ struct SubtitleTranslator::Impl {
      config+=",\"inspect\":"+std::string(job.inspect?"true":"false")+'}';auto reading=neural->recognize(job.pixels,job.w,job.h,config,cancelled);
      if(job.preview)reading.profile.sampleFrameHeight=job.sourceHeight;
      if(job.preview){std::lock_guard lock(mutex);if(sampleEpoch==job.id){sampleResult={job.id,false,reading.profile,std::move(reading.lines),reading.text,{},float((clockSeconds()-started)*1000)};event("ocr_style_sample",{{"sample_id",double(job.id)},{"height_ratio",reading.profile.height},{"r",reading.profile.rgb[0]},{"g",reading.profile.rgb[1]},{"b",reading.profile.rgb[2]}},reading.text);}continue;}
-     source=SubtitleState::normalize(reading.text);confidence=reading.confidence;lines=std::move(reading.lines);
+     source=SubtitleState::normalize(reading.text,true);confidence=reading.confidence;lines=std::move(reading.lines);
     }else{
      if(!engine){engine=winrt::Windows::Media::Ocr::OcrEngine::TryCreateFromLanguage(winrt::Windows::Globalization::Language(subtitleLanguage(job.language)->windows));if(!engine)throw std::runtime_error("Windows OCR unavailable for the selected language. Select bundled RapidOCR or install this language in Windows Settings.");}
      winrt::Windows::Storage::Streams::DataWriter writer;writer.WriteBytes(job.pixels);
@@ -217,7 +230,7 @@ struct SubtitleTranslator::Impl {
  }
  void runTranslation(){
   std::unique_ptr<TranslationProcess> process;uint64_t seenEpoch=0;int loadedModel=-1,loadedFilter=-1;std::string loadedSource,loadedTarget;SubtitleRetry retry;
-  std::unordered_map<std::string,std::string> cache;std::deque<std::string> order;SubtitleSentence sentences;uint64_t loadedEpoch=0;
+  std::unordered_map<std::string,std::string> cache;std::deque<std::string> order;SubtitleSentence sentences;uint64_t loadedEpoch=0,rejectedGeneration=0;std::string rejectedSource;
   while(!stop){
    TextJob text;SubtitleSettings selected;uint64_t epoch;
    {std::unique_lock lock(mutex);if(!translateWake.wait_for(lock,std::chrono::milliseconds(200),[&]{return stop||modelEpoch!=seenEpoch||retry.due(clockSeconds())||(!retry.pending()&&!retry.exhausted()&&!texts.empty());}))continue;if(stop)break;epoch=modelEpoch;if(epoch!=seenEpoch)retry.reset();seenEpoch=epoch;selected=settings;if(!texts.empty()){text=std::move(texts.front());texts.pop_front();}}
@@ -227,7 +240,7 @@ struct SubtitleTranslator::Impl {
     if(!process||loadedEpoch!=epoch||loadedModel!=selected.model||loadedSource!=selected.sourceLanguage||loadedTarget!=selected.targetLanguage||loadedFilter!=selected.contentFilter){
      if(selected.provider==0&&!subtitlePairSupported(selected.model,selected.sourceLanguage,selected.targetLanguage))throw std::runtime_error("Selected model does not support this language pair");
      const bool recovering=retry.failures>0;lifecycle(app,recovering?"model_retry":"model_loading",{},retry.failures+1);
-     process.reset();activeModel=-1;cache.clear();order.clear();sentences.clear();
+     process.reset();activeModel=-1;cache.clear();order.clear();sentences.clear();rejectedSource.clear();
      {std::lock_guard lock(mutex);loading=true;modelError.clear();result.status=selected.provider==2?"Connecting to custom AI server...":selected.provider==1?"Preparing OpenAI API translation...":"Loading and warming local translation model...";}
      const auto loadingStarted=clockSeconds();process=std::make_unique<TranslationProcess>();process->launch(app,selected.model,L"",selected.sourceLanguage,selected.targetLanguage,selected.contentFilter,&selected);
      const auto ready=process->receive(cancelled,240);if(ready!="READY"&&ready!="READY FILTER=ner"&&!ready.starts_with("READY COMPUTE=")&&!ready.starts_with("READY FILTER=ner COMPUTE="))throw std::runtime_error(ready);
@@ -240,14 +253,17 @@ struct SubtitleTranslator::Impl {
     }
     if(text.source.empty())continue;
     {std::lock_guard lock(mutex);if(text.generation!=generation||!freshLocked(clockSeconds(),text.time,text.source)){++perf.translationDrops;event("translation_expired",{{"job_id",double(text.id)}});continue;}perf.translationBusy=true;perf.translationQueueMs=(clockSeconds()-text.queuedAt)*1000;}
+    if(text.source==rejectedSource&&text.generation==rejectedGeneration){std::lock_guard lock(mutex);perf.translationBusy=false;++perf.translationDrops;event("translation_dropped",{{"job_id",double(text.id)},{"duplicate_rejected_answer",1}},text.source);continue;}
+    rejectedSource.clear();
     const bool useHistory=selected.useConversationMemory();
-    const auto input=(selected.provider||selected.model>=4||useHistory)?SubtitleSentence::Prepared{text.source,text.source,false}:sentences.prepare(text.source,text.time,text.generation,selected.joinFragments);
+    if(text.source.find('\n')!=std::string::npos)sentences.clear();
+    const auto input=(selected.provider||selected.model>=4||useHistory||text.source.find('\n')!=std::string::npos)?SubtitleSentence::Prepared{text.source,text.source,false}:sentences.prepare(text.source,text.time,text.generation,selected.joinFragments);
     const auto start=clockSeconds();std::string translated;bool cacheHit=false;
     const auto key=selected.contentFilter?text.source+"\n"+input.request:input.request;
     if(auto found=cache.find(key);!useHistory&&found!=cache.end()){translated=found->second;cacheHit=true;}
     else{
      const auto request=useHistory?"FRAMELAB_CONTEXT_V1\n{\"text\":"+Diagnostics::quote(input.request)+",\"observed\":"+Diagnostics::quote(text.source)+",\"time_s\":"+std::to_string(text.time)+",\"generation\":"+std::to_string(text.generation)+",\"event_id\":"+Diagnostics::quote(std::to_string(text.id))+"}":selected.contentFilter?"FRAMELAB_REQUEST_V1\n{\"text\":"+Diagnostics::quote(input.request)+",\"observed\":"+Diagnostics::quote(text.source)+"}":input.request;
-     translated=process->translate(request,cancelled);
+     translated=process->translate(request,cancelled,selected.provider?selected.customTimeout+.25:150,selected.provider!=0);
      {std::lock_guard lock(mutex);if(text.generation==generation&&modelEpoch==epoch){result.contextStatus=process->contextStatus;result.contextDetails=process->contextDetails;}}
      if(!useHistory){
       if(cache.size()>=128){cache.erase(order.front());order.pop_front();}
@@ -261,6 +277,22 @@ struct SubtitleTranslator::Impl {
     }
     // Continue OCR and translation while the previous Czech caption is readable.
     {std::lock_guard lock(mutex);perf.translationBusy=false;++perf.translations;if(cacheHit)++perf.cacheHits;perf.translationMs=(clockSeconds()-start)*1000;event("translation_complete",{{"job_id",double(text.id)},{"model",double(loadedModel)},{"translation_ms",perf.translationMs},{"queue_ms",perf.translationQueueMs},{"cache_hit",double(cacheHit)}},input.source,translated);if(text.generation==generation&&modelEpoch==epoch&&freshLocked(clockSeconds(),text.time,text.source)){if(captions.size()>=3){++perf.captionDrops;captions.pop_front();}captions.push_back({input.source,std::move(translated),text.ocrMs+float(perf.translationMs),text.time,text.source,text.id});result.status=input.joined?"Translated sentence continuation":"Local OCR + "+selected.sourceLanguage+" > "+selected.targetLanguage+" ready";}}
+   }catch(const TranslationRequestTimeout& e){
+    // Ordinary HTTP deadlines retain history. A stuck worker gets a bounded
+    // process reset as a last resort; neither path disables the translator.
+    if(e.restartWorker){process.reset();loadedModel=-1;activeModel=-1;}
+    retry.reset();sentences.clear();std::lock_guard lock(mutex);perf.translationBusy=false;
+    if(modelEpoch==epoch&&!stop){rejectedSource=text.source;rejectedGeneration=text.generation;++perf.translationErrors;++perf.translationDrops;
+     while(texts.size()>1){++perf.translationDrops;event("translation_dropped",{{"job_id",double(texts.front().id)},{"superseded_after_timeout",1}},texts.front().source);texts.pop_front();}
+     event("translation_timeout",{{"job_id",double(text.id)},{"timeout_s",double(selected.customTimeout)},{"worker_restart",double(e.restartWorker)}},text.source,e.what());
+     lifecycle(app,"translation_timeout",e.what());result.status="Translation timed out; continuing with the latest subtitle";}
+   }catch(const TranslationRequestError& e){
+    // A bad individual answer must not disable a healthy custom server worker.
+    // Do not retry this caption or display partial text; continue with fresh jobs.
+    retry.reset();sentences.clear();std::lock_guard lock(mutex);perf.translationBusy=false;
+    if(modelEpoch==epoch&&!stop){rejectedSource=text.source;rejectedGeneration=text.generation;++perf.translationErrors;++perf.translationDrops;
+     event("translation_error",{{"job_id",double(text.id)},{"recoverable",1},{"retry_seconds",0},{"max_tokens",double(selected.customMaxTokens)}},text.source,e.what());
+     lifecycle(app,"translation_request_error",e.what());result.status="Server answer skipped; waiting for the next subtitle";}
    }catch(const std::exception& e){process.reset();loadedModel=-1;activeModel=-1;std::lock_guard lock(mutex);loading=false;perf.translationBusy=false;if(modelEpoch==epoch&&!stop){if(selected.provider){retry.failures=3;retry.readyAt=-1;}const double delay=retry.fail(clockSeconds());++perf.translationErrors;event("translation_error",{{"job_id",double(text.id)},{"attempt",double(retry.failures)},{"retry_seconds",delay}});lifecycle(app,"translation_error",e.what(),retry.failures,delay);modelError=std::string(e.what())+(delay>=0?" | Automatic model reload in "+std::to_string(int(delay))+" s":" | Automatic retries exhausted; toggle subtitles to retry. See subtitle-lifecycle.jsonl");result.status=modelError;}}
   }
  }
@@ -269,7 +301,7 @@ SubtitleTranslator::SubtitleTranslator(const std::filesystem::path& app):impl(st
 SubtitleTranslator::~SubtitleTranslator()=default;
 void SubtitleTranslator::configure(SubtitleSettings settings){
  settings.sanitize();std::lock_guard lock(impl->mutex);const auto& previous=impl->settings;
- const bool modelChanged=settings.selectedMemory!=previous.selectedMemory||settings.contextTrace!=previous.contextTrace||settings.customUrl!=previous.customUrl||settings.customProtocol!=previous.customProtocol||settings.customModel!=previous.customModel||settings.customParameters!=previous.customParameters||settings.customInstruction!=previous.customInstruction||settings.customTimeout!=previous.customTimeout||settings.customMaxTokens!=previous.customMaxTokens||settings.customTemperatureEnabled!=previous.customTemperatureEnabled||settings.customTemperature!=previous.customTemperature||settings.customKeyRevision!=previous.customKeyRevision||settings.conversationMemory!=previous.conversationMemory||settings.computeBackend!=previous.computeBackend||settings.computeDevice!=previous.computeDevice||settings.allowCpuOffload!=previous.allowCpuOffload||settings.provider!=previous.provider||settings.apiModel!=previous.apiModel||settings.apiEffort!=previous.apiEffort||settings.apiTemperatureEnabled!=previous.apiTemperatureEnabled||settings.apiTemperature!=previous.apiTemperature||settings.apiKeyRevision!=previous.apiKeyRevision||settings.enabled!=previous.enabled||settings.model!=previous.model||settings.sourceLanguage!=previous.sourceLanguage||settings.targetLanguage!=previous.targetLanguage||settings.contentFilter!=previous.contentFilter||!impl->modelError.empty();
+ const bool modelChanged=settings.customPromptEnabled!=previous.customPromptEnabled||settings.customResponseFormat!=previous.customResponseFormat||settings.selectedMemory!=previous.selectedMemory||settings.contextTrace!=previous.contextTrace||settings.customUrl!=previous.customUrl||settings.customProtocol!=previous.customProtocol||settings.customModel!=previous.customModel||settings.customParameters!=previous.customParameters||settings.customInstruction!=previous.customInstruction||settings.customTimeout!=previous.customTimeout||settings.customMaxTokens!=previous.customMaxTokens||settings.customTemperatureEnabled!=previous.customTemperatureEnabled||settings.customTemperature!=previous.customTemperature||settings.customKeyRevision!=previous.customKeyRevision||settings.conversationMemory!=previous.conversationMemory||settings.computeBackend!=previous.computeBackend||settings.computeDevice!=previous.computeDevice||settings.allowCpuOffload!=previous.allowCpuOffload||settings.provider!=previous.provider||settings.apiModel!=previous.apiModel||settings.apiEffort!=previous.apiEffort||settings.apiTemperatureEnabled!=previous.apiTemperatureEnabled||settings.apiTemperature!=previous.apiTemperature||settings.apiKeyRevision!=previous.apiKeyRevision||settings.enabled!=previous.enabled||settings.model!=previous.model||settings.sourceLanguage!=previous.sourceLanguage||settings.targetLanguage!=previous.targetLanguage||settings.contentFilter!=previous.contentFilter||!impl->modelError.empty();
  const bool ocrChanged=settings.enabled!=previous.enabled||settings.ocrEngine!=previous.ocrEngine||settings.sourceLanguage!=previous.sourceLanguage||!impl->ocrError.empty();
  const bool sourceChanged=modelChanged||ocrChanged||settings.joinFragments!=previous.joinFragments||settings.left!=previous.left||settings.top!=previous.top||settings.right!=previous.right||settings.bottom!=previous.bottom||settings.intervalMs!=previous.intervalMs||settings.style!=previous.style;
  if(modelChanged){++impl->modelEpoch;impl->modelError.clear();impl->result.filterBackend.clear();impl->result.computeDescription.clear();}if(ocrChanged)++impl->ocrEpoch;

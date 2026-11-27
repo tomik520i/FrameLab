@@ -1,9 +1,13 @@
-# FrameLab preview.19 — česká instalace
+# FrameLab preview.20 — česká instalace
 
 [English](START_HERE.md) · [Web a ukázky](https://opicebot.cz/framelab/?lang=cs)
 
 
 [Obrazový návod: aktuální screenshoty, očíslované kroky a zvětšování](https://opicebot.cz/framelab/guide/visual.html). Stejný návod je v ZIPu jako **OBRAZOVY NAVOD.html**.
+
+## Nové v preview.20
+
+Preview.20: obnova překladu, oddělené repliky mluvčích a volitelný editor vlastního promptu. OpenAI lze znovu spustit s uloženým modelem a klíčem; pomalý titulek nezablokuje frontu. [Změny a přenos nastavení](docs/release-preview20.md).
 
 ## Nové v preview.19: vlastní AI server a volitelná paměť rozhovoru
 
@@ -32,7 +36,7 @@ Celý veřejný ZIP přibaluje RIFE modely a runtime, VFG runtime, 12 OCR sad, C
 
 ## Stáhnout a spustit
 
-1. [Stáhněte celý ZIP pro Windows x64](https://github.com/tomik520i/FrameLab/releases/download/v0.2.0-preview.19/FrameLab-0.2.0-preview.19-windows-x64-full.zip) a **rozbalte vše**, například do D:/FrameLab. Nespouštějte aplikaci uvnitř ZIPu.
+1. [Stáhněte celý ZIP pro Windows x64](https://github.com/tomik520i/FrameLab/releases/download/v0.2.0-preview.20/FrameLab-0.2.0-preview.20-windows-x64-full.zip) a **rozbalte vše**, například do D:/FrameLab. Nespouštějte aplikaci uvnitř ZIPu.
 2. Spusťte **Start FrameLab.cmd** nebo **1 - Spustit FrameLab.cmd**. Nová instalace pustí GTA ukázku, další spuštění obnoví relaci. Python, SDK ani systémový VLC nepotřebujete; složky balíčku musí zůstat pohromadě.
 3. Začněte s **Frame gen → 2×**. **F11** zobrazí čistý výstup, Escape/F11 vrátí ovládání. Tlačítkem **EN / CZ** přepnete anglické rozhraní do češtiny.
 

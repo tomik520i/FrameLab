@@ -5,6 +5,24 @@ from subtitle_context import CaptionRequest
 from subtitle_evidence_memory import EvidenceMemory,parse_selection
 
 class EvidenceMemoryTests(unittest.TestCase):
+    def test_timeout_keeps_existing_evidence_and_allows_later_update(self):
+        from custom_ai_translation import CustomAiTimeoutError
+        calls=[]
+        def generate(*args):
+            calls.append(1)
+            if len(calls)==2:raise CustomAiTimeoutError(2)
+            return '{"facts":[{"text":"plan","evidence":["o1"]}]}'
+        p=EvidenceMemory(generate,asynchronous=False)
+        try:
+            for i,t in enumerate((0.,1.,10.,11.)):
+                q=CaptionRequest(f'Line {i}.',f'Line {i}.',t,1,str(i));p.prepare(q);p.remember(q)
+            self.assertEqual(len(calls),2);self.assertFalse(p.error);self.assertTrue(p.pins)
+            self.assertTrue(p.audit['deferred_after_timeout'])
+            for i,t in enumerate((20.,21.),4):
+                q=CaptionRequest(f'Line {i}.',f'Line {i}.',t,1,str(i));p.prepare(q);p.remember(q)
+            self.assertEqual(len(calls),3);self.assertFalse(p.error)
+        finally:p.close()
+
     def test_update_starts_after_accepting_second_caption_before_next_arrives(self):
         entered=threading.Event();seen=[]
         def generate(instruction,data):

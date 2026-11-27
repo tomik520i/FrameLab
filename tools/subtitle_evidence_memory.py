@@ -11,6 +11,7 @@ import re
 import time
 from concurrent.futures import ThreadPoolExecutor
 from subtitle_context import ContextPolicy, observed_speaker
+from translation_timeline import caption_key
 
 INSTRUCTION=(
     'Maintain compact factual scene memory for a game subtitle translator using the chronological original observations. '
@@ -54,7 +55,7 @@ class EvidenceMemory(ContextPolicy):
     def _build(self,payload):
         start=time.perf_counter()
         try:return dict(response=self.generate(INSTRUCTION,payload),error='',update_ms=(time.perf_counter()-start)*1000)
-        except Exception as exc:return dict(response='',error=str(exc),update_ms=(time.perf_counter()-start)*1000)
+        except Exception as exc:return dict(response='',error=str(exc),timed_out=getattr(exc,'details',{}).get('error_type')=='caption_timeout',update_ms=(time.perf_counter()-start)*1000)
 
     def _collect(self):
         if self.pending is None or not self.pending['future'].done():return
@@ -64,6 +65,12 @@ class EvidenceMemory(ContextPolicy):
             self.audit['discarded_stale_update']=True
             return
         self.audit.update(response,update=True,input=task['payload'],submitted_event_id=task['event_id'])
+        if response.get('timed_out'):
+            # A busy shared server must not permanently disable scene memory.
+            # Keep the last evidence and use the existing eight-second schedule
+            # for a later attempt, never block current subtitle translation.
+            self.audit['deferred_after_timeout']=True
+            return
         try:
             if response['error']:raise ValueError(response['error'])
             facts=parse_selection(response['response'],task['payload']['observations'])
@@ -107,18 +114,34 @@ class EvidenceMemory(ContextPolicy):
             return fallback
         # The generated claims are only selection scaffolding. Translation sees
         # original evidence, never an AI-authored story presented as fact.
-        recent=self.recent[-2:];ids={x['id'] for x in recent}
-        selected=sorted([x for x in self.pins if x['id'] not in ids]+recent,key=lambda x:x['time_s'])
+        # Selected older evidence supplements the complete bounded short
+        # history. It must never replace six recent turns with only two.
+        recent=(fallback or {}).get('history',[])
+        seen={caption_key(x['source']) for x in recent}
+        seen.add(caption_key(request.observed))
+        older=[];budget=0
+        for x in reversed(self.pins):
+            key=caption_key(x['text'])
+            if key in seen or len(older)>=4 or budget+len(x['text'])>600:continue
+            older.append(dict(source=x['text'],speaker=x['speaker'],seconds_since_ocr_observation=round(request.time_s-x['time_s'],3)))
+            seen.add(key);budget+=len(x['text'])
+        selected=sorted(older+recent,key=lambda x:-x['seconds_since_ocr_observation'])
         self.status=f'{len(self.pins)} retained original captions; updated {max(0,request.time_s-self.updated_at):.0f}s ago'
         if self.pending:self.status+='; background update running'
         if not selected:return None
-        return dict(current_speaker=observed_speaker(request.observed),verified_profiles=[],history=[dict(source=x['text'],speaker=x['speaker'],seconds_since_ocr_observation=round(request.time_s-x['time_s'],3)) for x in selected],memory_policy='Earlier ORIGINAL dialogue selected by this same model. Use relevant evidence to resolve ambiguous words, names and grammar. Newer explicit corrections override older context. It can contain unrelated speech; do not invent identities. Translate only the current caption.')
+        return dict(current_speaker=observed_speaker(request.observed),verified_profiles=[],history=selected,memory_policy='Earlier ORIGINAL dialogue selected by this same model supplements recent original dialogue. Use relevant evidence to resolve ambiguous words, names and grammar. Newer explicit corrections override older context. It can contain unrelated speech; do not invent identities. Translate only the current caption.')
 
     def remember(self,request):
         super().remember(request)
         # A repeated stable OCR read is not a new turn. Later reappearance after
         # another caption remains a separate observation.
-        if self.recent and self.recent[-1]['text']==request.observed:return
+        if self.recent:
+            previous=self.recent[-1]
+            if (previous['speaker']==observed_speaker(request.observed)
+                    and 0<=request.time_s-previous['time_s']<=1.5
+                    and caption_key(previous['text'])==caption_key(request.observed)):
+                previous.update(text=request.observed,time_s=request.time_s,event_id=request.event_id)
+                return
         self.serial+=1;self.new_count+=1
         self.recent.append(dict(id=f'o{self.serial}',text=request.observed,speaker=observed_speaker(request.observed),time_s=request.time_s,event_id=request.event_id))
         self.recent=self.recent[-16:]
